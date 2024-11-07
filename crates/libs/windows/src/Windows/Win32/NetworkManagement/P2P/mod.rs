@@ -23,9 +23,9 @@ pub unsafe fn DrtCreateDerivedKeySecurityProvider(prootcert: *const super::super
     DrtCreateDerivedKeySecurityProvider(prootcert, core::mem::transmute(plocalcert.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn DrtCreateDnsBootstrapResolver<P0>(port: u16, pwszaddress: P0) -> windows_core::Result<*mut DRT_BOOTSTRAP_PROVIDER>
+pub unsafe fn DrtCreateDnsBootstrapResolver<P1>(port: u16, pwszaddress: P1) -> windows_core::Result<*mut DRT_BOOTSTRAP_PROVIDER>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("drtprov.dll" "system" fn DrtCreateDnsBootstrapResolver(port : u16, pwszaddress : windows_core::PCWSTR, ppmodule : *mut *mut DRT_BOOTSTRAP_PROVIDER) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
@@ -131,9 +131,9 @@ pub unsafe fn DrtGetSearchResultSize(hsearchcontext: *const core::ffi::c_void) -
     DrtGetSearchResultSize(hsearchcontext, &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn DrtOpen<P0>(psettings: *const DRT_SETTINGS, hevent: P0, pvcontext: Option<*const core::ffi::c_void>, phdrt: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn DrtOpen<P1>(psettings: *const DRT_SETTINGS, hevent: P1, pvcontext: Option<*const core::ffi::c_void>, phdrt: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("drt.dll" "system" fn DrtOpen(psettings : *const DRT_SETTINGS, hevent : super::super::Foundation:: HANDLE, pvcontext : *const core::ffi::c_void, phdrt : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     DrtOpen(psettings, hevent.param().abi(), core::mem::transmute(pvcontext.unwrap_or(core::ptr::null())), phdrt).ok()
@@ -144,9 +144,9 @@ pub unsafe fn DrtRegisterKey(hdrt: *const core::ffi::c_void, pregistration: *con
     DrtRegisterKey(hdrt, pregistration, core::mem::transmute(pvkeycontext.unwrap_or(core::ptr::null())), phkeyregistration).ok()
 }
 #[inline]
-pub unsafe fn DrtStartSearch<P0>(hdrt: *const core::ffi::c_void, pkey: *const DRT_DATA, pinfo: Option<*const DRT_SEARCH_INFO>, timeout: u32, hevent: P0, pvcontext: Option<*const core::ffi::c_void>, hsearchcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn DrtStartSearch<P4>(hdrt: *const core::ffi::c_void, pkey: *const DRT_DATA, pinfo: Option<*const DRT_SEARCH_INFO>, timeout: u32, hevent: P4, pvcontext: Option<*const core::ffi::c_void>, hsearchcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P4: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("drt.dll" "system" fn DrtStartSearch(hdrt : *const core::ffi::c_void, pkey : *const DRT_DATA, pinfo : *const DRT_SEARCH_INFO, timeout : u32, hevent : super::super::Foundation:: HANDLE, pvcontext : *const core::ffi::c_void, hsearchcontext : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     DrtStartSearch(hdrt, pkey, core::mem::transmute(pinfo.unwrap_or(core::ptr::null())), timeout, hevent.param().abi(), core::mem::transmute(pvcontext.unwrap_or(core::ptr::null())), hsearchcontext).ok()
@@ -171,18 +171,18 @@ where
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerCollabAsyncInviteContact<P0>(pccontact: Option<*const PEER_CONTACT>, pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION, hevent: P0, phinvitation: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()>
+pub unsafe fn PeerCollabAsyncInviteContact<P3>(pccontact: Option<*const PEER_CONTACT>, pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION, hevent: P3, phinvitation: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("p2p.dll" "system" fn PeerCollabAsyncInviteContact(pccontact : *const PEER_CONTACT, pcendpoint : *const PEER_ENDPOINT, pcinvitation : *const PEER_INVITATION, hevent : super::super::Foundation:: HANDLE, phinvitation : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     PeerCollabAsyncInviteContact(core::mem::transmute(pccontact.unwrap_or(core::ptr::null())), pcendpoint, pcinvitation, hevent.param().abi(), core::mem::transmute(phinvitation.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerCollabAsyncInviteEndpoint<P0>(pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION, hevent: P0, phinvitation: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()>
+pub unsafe fn PeerCollabAsyncInviteEndpoint<P2>(pcendpoint: *const PEER_ENDPOINT, pcinvitation: *const PEER_INVITATION, hevent: P2, phinvitation: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("p2p.dll" "system" fn PeerCollabAsyncInviteEndpoint(pcendpoint : *const PEER_ENDPOINT, pcinvitation : *const PEER_INVITATION, hevent : super::super::Foundation:: HANDLE, phinvitation : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     PeerCollabAsyncInviteEndpoint(pcendpoint, pcinvitation, hevent.param().abi(), core::mem::transmute(phinvitation.unwrap_or(core::ptr::null_mut()))).ok()
@@ -484,9 +484,9 @@ pub unsafe fn PeerDistClientCompleteContentInformation(hpeerdist: isize, hconten
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn PeerDistClientFlushContent<P0>(hpeerdist: isize, pcontenttag: *const PEERDIST_CONTENT_TAG, hcompletionport: P0, ulcompletionkey: usize, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32
+pub unsafe fn PeerDistClientFlushContent<P2>(hpeerdist: isize, pcontenttag: *const PEERDIST_CONTENT_TAG, hcompletionport: P2, ulcompletionkey: usize, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("peerdist.dll" "system" fn PeerDistClientFlushContent(hpeerdist : isize, pcontenttag : *const PEERDIST_CONTENT_TAG, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
     PeerDistClientFlushContent(hpeerdist, pcontenttag, hcompletionport.param().abi(), ulcompletionkey, lpoverlapped)
@@ -497,9 +497,9 @@ pub unsafe fn PeerDistClientGetInformationByHandle(hpeerdist: isize, hcontenthan
     PeerDistClientGetInformationByHandle(hpeerdist, hcontenthandle, peerdistclientinfoclass, dwbuffersize, lpinformation)
 }
 #[inline]
-pub unsafe fn PeerDistClientOpenContent<P0>(hpeerdist: isize, pcontenttag: *const PEERDIST_CONTENT_TAG, hcompletionport: P0, ulcompletionkey: usize, phcontenthandle: *mut isize) -> u32
+pub unsafe fn PeerDistClientOpenContent<P2>(hpeerdist: isize, pcontenttag: *const PEERDIST_CONTENT_TAG, hcompletionport: P2, ulcompletionkey: usize, phcontenthandle: *mut isize) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("peerdist.dll" "system" fn PeerDistClientOpenContent(hpeerdist : isize, pcontenttag : *const PEERDIST_CONTENT_TAG, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, phcontenthandle : *mut isize) -> u32);
     PeerDistClientOpenContent(hpeerdist, pcontenttag, hcompletionport.param().abi(), ulcompletionkey, phcontenthandle)
@@ -512,9 +512,9 @@ pub unsafe fn PeerDistClientStreamRead(hpeerdist: isize, hcontenthandle: isize, 
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn PeerDistGetOverlappedResult<P0>(lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: P0) -> super::super::Foundation::BOOL
+pub unsafe fn PeerDistGetOverlappedResult<P2>(lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: P2) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("peerdist.dll" "system" fn PeerDistGetOverlappedResult(lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpnumberofbytestransferred : *mut u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     PeerDistGetOverlappedResult(lpoverlapped, lpnumberofbytestransferred, bwait.param().abi())
@@ -531,18 +531,18 @@ pub unsafe fn PeerDistGetStatusEx(hpeerdist: isize, ppeerdiststatus: *mut PEERDI
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn PeerDistRegisterForStatusChangeNotification<P0>(hpeerdist: isize, hcompletionport: P0, ulcompletionkey: usize, lpoverlapped: *const super::super::System::IO::OVERLAPPED, ppeerdiststatus: *mut PEERDIST_STATUS) -> u32
+pub unsafe fn PeerDistRegisterForStatusChangeNotification<P1>(hpeerdist: isize, hcompletionport: P1, ulcompletionkey: usize, lpoverlapped: *const super::super::System::IO::OVERLAPPED, ppeerdiststatus: *mut PEERDIST_STATUS) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("peerdist.dll" "system" fn PeerDistRegisterForStatusChangeNotification(hpeerdist : isize, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, lpoverlapped : *const super::super::System::IO:: OVERLAPPED, ppeerdiststatus : *mut PEERDIST_STATUS) -> u32);
     PeerDistRegisterForStatusChangeNotification(hpeerdist, hcompletionport.param().abi(), ulcompletionkey, lpoverlapped, ppeerdiststatus)
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn PeerDistRegisterForStatusChangeNotificationEx<P0>(hpeerdist: isize, hcompletionport: P0, ulcompletionkey: usize, lpoverlapped: *const super::super::System::IO::OVERLAPPED, ppeerdiststatus: *mut PEERDIST_STATUS_INFO) -> u32
+pub unsafe fn PeerDistRegisterForStatusChangeNotificationEx<P1>(hpeerdist: isize, hcompletionport: P1, ulcompletionkey: usize, lpoverlapped: *const super::super::System::IO::OVERLAPPED, ppeerdiststatus: *mut PEERDIST_STATUS_INFO) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("peerdist.dll" "system" fn PeerDistRegisterForStatusChangeNotificationEx(hpeerdist : isize, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, lpoverlapped : *const super::super::System::IO:: OVERLAPPED, ppeerdiststatus : *mut PEERDIST_STATUS_INFO) -> u32);
     PeerDistRegisterForStatusChangeNotificationEx(hpeerdist, hcompletionport.param().abi(), ulcompletionkey, lpoverlapped, ppeerdiststatus)
@@ -564,17 +564,17 @@ pub unsafe fn PeerDistServerCloseStreamHandle(hpeerdist: isize, hstream: isize) 
     PeerDistServerCloseStreamHandle(hpeerdist, hstream)
 }
 #[inline]
-pub unsafe fn PeerDistServerOpenContentInformation<P0>(hpeerdist: isize, pcontentidentifier: &[u8], ullcontentoffset: u64, cbcontentlength: u64, hcompletionport: P0, ulcompletionkey: usize, phcontentinfo: *mut isize) -> u32
+pub unsafe fn PeerDistServerOpenContentInformation<P5>(hpeerdist: isize, pcontentidentifier: &[u8], ullcontentoffset: u64, cbcontentlength: u64, hcompletionport: P5, ulcompletionkey: usize, phcontentinfo: *mut isize) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P5: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("peerdist.dll" "system" fn PeerDistServerOpenContentInformation(hpeerdist : isize, cbcontentidentifier : u32, pcontentidentifier : *const u8, ullcontentoffset : u64, cbcontentlength : u64, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, phcontentinfo : *mut isize) -> u32);
     PeerDistServerOpenContentInformation(hpeerdist, pcontentidentifier.len().try_into().unwrap(), core::mem::transmute(pcontentidentifier.as_ptr()), ullcontentoffset, cbcontentlength, hcompletionport.param().abi(), ulcompletionkey, phcontentinfo)
 }
 #[inline]
-pub unsafe fn PeerDistServerOpenContentInformationEx<P0>(hpeerdist: isize, pcontentidentifier: &[u8], ullcontentoffset: u64, cbcontentlength: u64, pretrievaloptions: *const PEERDIST_RETRIEVAL_OPTIONS, hcompletionport: P0, ulcompletionkey: usize, phcontentinfo: *mut isize) -> u32
+pub unsafe fn PeerDistServerOpenContentInformationEx<P6>(hpeerdist: isize, pcontentidentifier: &[u8], ullcontentoffset: u64, cbcontentlength: u64, pretrievaloptions: *const PEERDIST_RETRIEVAL_OPTIONS, hcompletionport: P6, ulcompletionkey: usize, phcontentinfo: *mut isize) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P6: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("peerdist.dll" "system" fn PeerDistServerOpenContentInformationEx(hpeerdist : isize, cbcontentidentifier : u32, pcontentidentifier : *const u8, ullcontentoffset : u64, cbcontentlength : u64, pretrievaloptions : *const PEERDIST_RETRIEVAL_OPTIONS, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, phcontentinfo : *mut isize) -> u32);
     PeerDistServerOpenContentInformationEx(hpeerdist, pcontentidentifier.len().try_into().unwrap(), core::mem::transmute(pcontentidentifier.as_ptr()), ullcontentoffset, cbcontentlength, pretrievaloptions, hcompletionport.param().abi(), ulcompletionkey, phcontentinfo)
@@ -592,9 +592,9 @@ pub unsafe fn PeerDistServerPublishCompleteStream(hpeerdist: isize, hstream: isi
     PeerDistServerPublishCompleteStream(hpeerdist, hstream, lpoverlapped)
 }
 #[inline]
-pub unsafe fn PeerDistServerPublishStream<P0>(hpeerdist: isize, pcontentidentifier: &[u8], cbcontentlength: u64, ppublishoptions: Option<*const PEERDIST_PUBLICATION_OPTIONS>, hcompletionport: P0, ulcompletionkey: usize, phstream: *mut isize) -> u32
+pub unsafe fn PeerDistServerPublishStream<P5>(hpeerdist: isize, pcontentidentifier: &[u8], cbcontentlength: u64, ppublishoptions: Option<*const PEERDIST_PUBLICATION_OPTIONS>, hcompletionport: P5, ulcompletionkey: usize, phstream: *mut isize) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P5: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("peerdist.dll" "system" fn PeerDistServerPublishStream(hpeerdist : isize, cbcontentidentifier : u32, pcontentidentifier : *const u8, cbcontentlength : u64, ppublishoptions : *const PEERDIST_PUBLICATION_OPTIONS, hcompletionport : super::super::Foundation:: HANDLE, ulcompletionkey : usize, phstream : *mut isize) -> u32);
     PeerDistServerPublishStream(hpeerdist, pcontentidentifier.len().try_into().unwrap(), core::mem::transmute(pcontentidentifier.as_ptr()), cbcontentlength, core::mem::transmute(ppublishoptions.unwrap_or(core::ptr::null())), hcompletionport.param().abi(), ulcompletionkey, phstream)
@@ -677,18 +677,18 @@ pub unsafe fn PeerGraphCloseDirectConnection(hgraph: *const core::ffi::c_void, u
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerGraphConnect<P0>(hgraph: *const core::ffi::c_void, pwzpeerid: P0, paddress: *const PEER_ADDRESS) -> windows_core::Result<u64>
+pub unsafe fn PeerGraphConnect<P1>(hgraph: *const core::ffi::c_void, pwzpeerid: P1, paddress: *const PEER_ADDRESS) -> windows_core::Result<u64>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphConnect(hgraph : *const core::ffi::c_void, pwzpeerid : windows_core::PCWSTR, paddress : *const PEER_ADDRESS, pullconnectionid : *mut u64) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     PeerGraphConnect(hgraph, pwzpeerid.param().abi(), paddress, &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn PeerGraphCreate<P0>(pgraphproperties: *const PEER_GRAPH_PROPERTIES, pwzdatabasename: P0, psecurityinterface: Option<*const PEER_SECURITY_INTERFACE>, phgraph: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGraphCreate<P1>(pgraphproperties: *const PEER_GRAPH_PROPERTIES, pwzdatabasename: P1, psecurityinterface: Option<*const PEER_SECURITY_INTERFACE>, phgraph: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphCreate(pgraphproperties : *const PEER_GRAPH_PROPERTIES, pwzdatabasename : windows_core::PCWSTR, psecurityinterface : *const PEER_SECURITY_INTERFACE, phgraph : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     PeerGraphCreate(pgraphproperties, pwzdatabasename.param().abi(), core::mem::transmute(psecurityinterface.unwrap_or(core::ptr::null())), phgraph).ok()
@@ -704,9 +704,9 @@ where
     PeerGraphDelete(pwzgraphid.param().abi(), pwzpeerid.param().abi(), pwzdatabasename.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn PeerGraphDeleteRecord<P0>(hgraph: *const core::ffi::c_void, precordid: *const windows_core::GUID, flocal: P0) -> windows_core::Result<()>
+pub unsafe fn PeerGraphDeleteRecord<P2>(hgraph: *const core::ffi::c_void, precordid: *const windows_core::GUID, flocal: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphDeleteRecord(hgraph : *const core::ffi::c_void, precordid : *const windows_core::GUID, flocal : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     PeerGraphDeleteRecord(hgraph, precordid, flocal.param().abi()).ok()
@@ -722,25 +722,25 @@ pub unsafe fn PeerGraphEnumConnections(hgraph: *const core::ffi::c_void, dwflags
     PeerGraphEnumConnections(hgraph, dwflags, phpeerenum).ok()
 }
 #[inline]
-pub unsafe fn PeerGraphEnumNodes<P0>(hgraph: *const core::ffi::c_void, pwzpeerid: P0, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGraphEnumNodes<P1>(hgraph: *const core::ffi::c_void, pwzpeerid: P1, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphEnumNodes(hgraph : *const core::ffi::c_void, pwzpeerid : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     PeerGraphEnumNodes(hgraph, pwzpeerid.param().abi(), phpeerenum).ok()
 }
 #[inline]
-pub unsafe fn PeerGraphEnumRecords<P0>(hgraph: *const core::ffi::c_void, precordtype: Option<*const windows_core::GUID>, pwzpeerid: P0, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGraphEnumRecords<P2>(hgraph: *const core::ffi::c_void, precordtype: Option<*const windows_core::GUID>, pwzpeerid: P2, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphEnumRecords(hgraph : *const core::ffi::c_void, precordtype : *const windows_core::GUID, pwzpeerid : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     PeerGraphEnumRecords(hgraph, core::mem::transmute(precordtype.unwrap_or(core::ptr::null())), pwzpeerid.param().abi(), phpeerenum).ok()
 }
 #[inline]
-pub unsafe fn PeerGraphExportDatabase<P0>(hgraph: *const core::ffi::c_void, pwzfilepath: P0) -> windows_core::Result<()>
+pub unsafe fn PeerGraphExportDatabase<P1>(hgraph: *const core::ffi::c_void, pwzfilepath: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphExportDatabase(hgraph : *const core::ffi::c_void, pwzfilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
     PeerGraphExportDatabase(hgraph, pwzfilepath.param().abi()).ok()
@@ -793,9 +793,9 @@ pub unsafe fn PeerGraphGetStatus(hgraph: *const core::ffi::c_void) -> windows_co
     PeerGraphGetStatus(hgraph, &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn PeerGraphImportDatabase<P0>(hgraph: *const core::ffi::c_void, pwzfilepath: P0) -> windows_core::Result<()>
+pub unsafe fn PeerGraphImportDatabase<P1>(hgraph: *const core::ffi::c_void, pwzfilepath: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphImportDatabase(hgraph : *const core::ffi::c_void, pwzfilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
     PeerGraphImportDatabase(hgraph, pwzfilepath.param().abi()).ok()
@@ -817,9 +817,9 @@ where
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerGraphOpenDirectConnection<P0>(hgraph: *const core::ffi::c_void, pwzpeerid: P0, paddress: *const PEER_ADDRESS) -> windows_core::Result<u64>
+pub unsafe fn PeerGraphOpenDirectConnection<P1>(hgraph: *const core::ffi::c_void, pwzpeerid: P1, paddress: *const PEER_ADDRESS) -> windows_core::Result<u64>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphOpenDirectConnection(hgraph : *const core::ffi::c_void, pwzpeerid : windows_core::PCWSTR, paddress : *const PEER_ADDRESS, pullconnectionid : *mut u64) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
@@ -832,17 +832,17 @@ pub unsafe fn PeerGraphPeerTimeToUniversalTime(hgraph: *const core::ffi::c_void,
     PeerGraphPeerTimeToUniversalTime(hgraph, pftpeertime, &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn PeerGraphRegisterEvent<P0>(hgraph: *const core::ffi::c_void, hevent: P0, peventregistrations: &[PEER_GRAPH_EVENT_REGISTRATION], phpeerevent: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGraphRegisterEvent<P1>(hgraph: *const core::ffi::c_void, hevent: P1, peventregistrations: &[PEER_GRAPH_EVENT_REGISTRATION], phpeerevent: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphRegisterEvent(hgraph : *const core::ffi::c_void, hevent : super::super::Foundation:: HANDLE, ceventregistrations : u32, peventregistrations : *const PEER_GRAPH_EVENT_REGISTRATION, phpeerevent : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     PeerGraphRegisterEvent(hgraph, hevent.param().abi(), peventregistrations.len().try_into().unwrap(), core::mem::transmute(peventregistrations.as_ptr()), phpeerevent).ok()
 }
 #[inline]
-pub unsafe fn PeerGraphSearchRecords<P0>(hgraph: *const core::ffi::c_void, pwzcriteria: P0, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGraphSearchRecords<P1>(hgraph: *const core::ffi::c_void, pwzcriteria: P1, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphSearchRecords(hgraph : *const core::ffi::c_void, pwzcriteria : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     PeerGraphSearchRecords(hgraph, pwzcriteria.param().abi(), phpeerenum).ok()
@@ -853,17 +853,17 @@ pub unsafe fn PeerGraphSendData(hgraph: *const core::ffi::c_void, ullconnectioni
     PeerGraphSendData(hgraph, ullconnectionid, ptype, cbdata, pvdata).ok()
 }
 #[inline]
-pub unsafe fn PeerGraphSetNodeAttributes<P0>(hgraph: *const core::ffi::c_void, pwzattributes: P0) -> windows_core::Result<()>
+pub unsafe fn PeerGraphSetNodeAttributes<P1>(hgraph: *const core::ffi::c_void, pwzattributes: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphSetNodeAttributes(hgraph : *const core::ffi::c_void, pwzattributes : windows_core::PCWSTR) -> windows_core::HRESULT);
     PeerGraphSetNodeAttributes(hgraph, pwzattributes.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn PeerGraphSetPresence<P0>(hgraph: *const core::ffi::c_void, fpresent: P0) -> windows_core::Result<()>
+pub unsafe fn PeerGraphSetPresence<P1>(hgraph: *const core::ffi::c_void, fpresent: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("p2pgraph.dll" "system" fn PeerGraphSetPresence(hgraph : *const core::ffi::c_void, fpresent : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     PeerGraphSetPresence(hgraph, fpresent.param().abi()).ok()
@@ -938,9 +938,9 @@ pub unsafe fn PeerGroupCreate(pproperties: *const PEER_GROUP_PROPERTIES, phgroup
     PeerGroupCreate(pproperties, phgroup).ok()
 }
 #[inline]
-pub unsafe fn PeerGroupCreateInvitation<P0>(hgroup: *const core::ffi::c_void, pwzidentityinfo: P0, pftexpiration: Option<*const super::super::Foundation::FILETIME>, proles: Option<&[windows_core::GUID]>) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn PeerGroupCreateInvitation<P1>(hgroup: *const core::ffi::c_void, pwzidentityinfo: P1, pftexpiration: Option<*const super::super::Foundation::FILETIME>, proles: Option<&[windows_core::GUID]>) -> windows_core::Result<windows_core::PWSTR>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2p.dll" "system" fn PeerGroupCreateInvitation(hgroup : *const core::ffi::c_void, pwzidentityinfo : windows_core::PCWSTR, pftexpiration : *const super::super::Foundation:: FILETIME, croles : u32, proles : *const windows_core::GUID, ppwzinvitation : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
@@ -972,9 +972,9 @@ pub unsafe fn PeerGroupEnumConnections(hgroup: *const core::ffi::c_void, dwflags
     PeerGroupEnumConnections(hgroup, dwflags, phpeerenum).ok()
 }
 #[inline]
-pub unsafe fn PeerGroupEnumMembers<P0>(hgroup: *const core::ffi::c_void, dwflags: u32, pwzidentity: P0, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGroupEnumMembers<P2>(hgroup: *const core::ffi::c_void, dwflags: u32, pwzidentity: P2, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2p.dll" "system" fn PeerGroupEnumMembers(hgroup : *const core::ffi::c_void, dwflags : u32, pwzidentity : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     PeerGroupEnumMembers(hgroup, dwflags, pwzidentity.param().abi(), phpeerenum).ok()
@@ -985,18 +985,18 @@ pub unsafe fn PeerGroupEnumRecords(hgroup: *const core::ffi::c_void, precordtype
     PeerGroupEnumRecords(hgroup, core::mem::transmute(precordtype.unwrap_or(core::ptr::null())), phpeerenum).ok()
 }
 #[inline]
-pub unsafe fn PeerGroupExportConfig<P0>(hgroup: *const core::ffi::c_void, pwzpassword: P0) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn PeerGroupExportConfig<P1>(hgroup: *const core::ffi::c_void, pwzpassword: P1) -> windows_core::Result<windows_core::PWSTR>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2p.dll" "system" fn PeerGroupExportConfig(hgroup : *const core::ffi::c_void, pwzpassword : windows_core::PCWSTR, ppwzxml : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     PeerGroupExportConfig(hgroup, pwzpassword.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn PeerGroupExportDatabase<P0>(hgroup: *const core::ffi::c_void, pwzfilepath: P0) -> windows_core::Result<()>
+pub unsafe fn PeerGroupExportDatabase<P1>(hgroup: *const core::ffi::c_void, pwzfilepath: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2p.dll" "system" fn PeerGroupExportDatabase(hgroup : *const core::ffi::c_void, pwzfilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
     PeerGroupExportDatabase(hgroup, pwzfilepath.param().abi()).ok()
@@ -1036,18 +1036,18 @@ where
     PeerGroupImportConfig(pwzxml.param().abi(), pwzpassword.param().abi(), foverwrite.param().abi(), ppwzidentity, ppwzgroup).ok()
 }
 #[inline]
-pub unsafe fn PeerGroupImportDatabase<P0>(hgroup: *const core::ffi::c_void, pwzfilepath: P0) -> windows_core::Result<()>
+pub unsafe fn PeerGroupImportDatabase<P1>(hgroup: *const core::ffi::c_void, pwzfilepath: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2p.dll" "system" fn PeerGroupImportDatabase(hgroup : *const core::ffi::c_void, pwzfilepath : windows_core::PCWSTR) -> windows_core::HRESULT);
     PeerGroupImportDatabase(hgroup, pwzfilepath.param().abi()).ok()
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
-pub unsafe fn PeerGroupIssueCredentials<P0>(hgroup: *const core::ffi::c_void, pwzsubjectidentity: P0, pcredentialinfo: Option<*const PEER_CREDENTIAL_INFO>, dwflags: u32, ppwzinvitation: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
+pub unsafe fn PeerGroupIssueCredentials<P1>(hgroup: *const core::ffi::c_void, pwzsubjectidentity: P1, pcredentialinfo: Option<*const PEER_CREDENTIAL_INFO>, dwflags: u32, ppwzinvitation: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2p.dll" "system" fn PeerGroupIssueCredentials(hgroup : *const core::ffi::c_void, pwzsubjectidentity : windows_core::PCWSTR, pcredentialinfo : *const PEER_CREDENTIAL_INFO, dwflags : u32, ppwzinvitation : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     PeerGroupIssueCredentials(hgroup, pwzsubjectidentity.param().abi(), core::mem::transmute(pcredentialinfo.unwrap_or(core::ptr::null())), dwflags, core::mem::transmute(ppwzinvitation.unwrap_or(core::ptr::null_mut()))).ok()
@@ -1074,9 +1074,9 @@ where
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn PeerGroupOpenDirectConnection<P0>(hgroup: *const core::ffi::c_void, pwzidentity: P0, paddress: *const PEER_ADDRESS) -> windows_core::Result<u64>
+pub unsafe fn PeerGroupOpenDirectConnection<P1>(hgroup: *const core::ffi::c_void, pwzidentity: P1, paddress: *const PEER_ADDRESS) -> windows_core::Result<u64>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2p.dll" "system" fn PeerGroupOpenDirectConnection(hgroup : *const core::ffi::c_void, pwzidentity : windows_core::PCWSTR, paddress : *const PEER_ADDRESS, pullconnectionid : *mut u64) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
@@ -1110,9 +1110,9 @@ pub unsafe fn PeerGroupPeerTimeToUniversalTime(hgroup: *const core::ffi::c_void,
     PeerGroupPeerTimeToUniversalTime(hgroup, pftpeertime, &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn PeerGroupRegisterEvent<P0>(hgroup: *const core::ffi::c_void, hevent: P0, peventregistrations: &[PEER_GROUP_EVENT_REGISTRATION], phpeerevent: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGroupRegisterEvent<P1>(hgroup: *const core::ffi::c_void, hevent: P1, peventregistrations: &[PEER_GROUP_EVENT_REGISTRATION], phpeerevent: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("p2p.dll" "system" fn PeerGroupRegisterEvent(hgroup : *const core::ffi::c_void, hevent : super::super::Foundation:: HANDLE, ceventregistration : u32, peventregistrations : *const PEER_GROUP_EVENT_REGISTRATION, phpeerevent : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     PeerGroupRegisterEvent(hgroup, hevent.param().abi(), peventregistrations.len().try_into().unwrap(), core::mem::transmute(peventregistrations.as_ptr()), phpeerevent).ok()
@@ -1123,9 +1123,9 @@ pub unsafe fn PeerGroupResumePasswordAuthentication(hgroup: *const core::ffi::c_
     PeerGroupResumePasswordAuthentication(hgroup, hpeereventhandle).ok()
 }
 #[inline]
-pub unsafe fn PeerGroupSearchRecords<P0>(hgroup: *const core::ffi::c_void, pwzcriteria: P0, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerGroupSearchRecords<P1>(hgroup: *const core::ffi::c_void, pwzcriteria: P1, phpeerenum: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("p2p.dll" "system" fn PeerGroupSearchRecords(hgroup : *const core::ffi::c_void, pwzcriteria : windows_core::PCWSTR, phpeerenum : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     PeerGroupSearchRecords(hgroup, pwzcriteria.param().abi(), phpeerenum).ok()
@@ -1307,11 +1307,11 @@ pub unsafe fn PeerPnrpShutdown() -> windows_core::Result<()> {
     PeerPnrpShutdown().ok()
 }
 #[inline]
-pub unsafe fn PeerPnrpStartResolve<P0, P1, P2>(pcwzpeername: P0, pcwzcloudname: P1, cmaxendpoints: u32, hevent: P2, phresolve: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn PeerPnrpStartResolve<P0, P1, P3>(pcwzpeername: P0, pcwzcloudname: P1, cmaxendpoints: u32, hevent: P3, phresolve: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("p2p.dll" "system" fn PeerPnrpStartResolve(pcwzpeername : windows_core::PCWSTR, pcwzcloudname : windows_core::PCWSTR, cmaxendpoints : u32, hevent : super::super::Foundation:: HANDLE, phresolve : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     PeerPnrpStartResolve(pcwzpeername.param().abi(), pcwzcloudname.param().abi(), cmaxendpoints, hevent.param().abi(), phresolve).ok()
@@ -1581,459 +1581,254 @@ pub const WSZ_SCOPE_GLOBAL: windows_core::PCWSTR = windows_core::w!("GLOBAL");
 pub const WSZ_SCOPE_LINKLOCAL: windows_core::PCWSTR = windows_core::w!("LINKLOCAL");
 pub const WSZ_SCOPE_SITELOCAL: windows_core::PCWSTR = windows_core::w!("SITELOCAL");
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DRT_ADDRESS_FLAGS(pub i32);
 impl windows_core::TypeKind for DRT_ADDRESS_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DRT_ADDRESS_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DRT_ADDRESS_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DRT_EVENT_TYPE(pub i32);
 impl windows_core::TypeKind for DRT_EVENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DRT_EVENT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DRT_EVENT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DRT_LEAFSET_KEY_CHANGE_TYPE(pub i32);
 impl windows_core::TypeKind for DRT_LEAFSET_KEY_CHANGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DRT_LEAFSET_KEY_CHANGE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DRT_LEAFSET_KEY_CHANGE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DRT_MATCH_TYPE(pub i32);
 impl windows_core::TypeKind for DRT_MATCH_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DRT_MATCH_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DRT_MATCH_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DRT_REGISTRATION_STATE(pub i32);
 impl windows_core::TypeKind for DRT_REGISTRATION_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DRT_REGISTRATION_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DRT_REGISTRATION_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DRT_SCOPE(pub i32);
 impl windows_core::TypeKind for DRT_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DRT_SCOPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DRT_SCOPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DRT_SECURITY_MODE(pub i32);
 impl windows_core::TypeKind for DRT_SECURITY_MODE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DRT_SECURITY_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DRT_SECURITY_MODE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DRT_STATUS(pub i32);
 impl windows_core::TypeKind for DRT_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DRT_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DRT_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS(pub i32);
 impl windows_core::TypeKind for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE(pub u32);
 impl windows_core::TypeKind for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEERDIST_STATUS(pub i32);
 impl windows_core::TypeKind for PEERDIST_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEERDIST_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEERDIST_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_APPLICATION_REGISTRATION_TYPE(pub i32);
 impl windows_core::TypeKind for PEER_APPLICATION_REGISTRATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_APPLICATION_REGISTRATION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_APPLICATION_REGISTRATION_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_CHANGE_TYPE(pub i32);
 impl windows_core::TypeKind for PEER_CHANGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_CHANGE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_CHANGE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_COLLAB_EVENT_TYPE(pub i32);
 impl windows_core::TypeKind for PEER_COLLAB_EVENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_COLLAB_EVENT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_COLLAB_EVENT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_CONNECTION_FLAGS(pub i32);
 impl windows_core::TypeKind for PEER_CONNECTION_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_CONNECTION_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_CONNECTION_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_CONNECTION_STATUS(pub i32);
 impl windows_core::TypeKind for PEER_CONNECTION_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_CONNECTION_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_CONNECTION_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_GRAPH_EVENT_TYPE(pub i32);
 impl windows_core::TypeKind for PEER_GRAPH_EVENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_GRAPH_EVENT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_GRAPH_EVENT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_GRAPH_PROPERTY_FLAGS(pub i32);
 impl windows_core::TypeKind for PEER_GRAPH_PROPERTY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_GRAPH_PROPERTY_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_GRAPH_PROPERTY_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_GRAPH_SCOPE(pub i32);
 impl windows_core::TypeKind for PEER_GRAPH_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_GRAPH_SCOPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_GRAPH_SCOPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_GRAPH_STATUS_FLAGS(pub i32);
 impl windows_core::TypeKind for PEER_GRAPH_STATUS_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_GRAPH_STATUS_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_GRAPH_STATUS_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_GROUP_AUTHENTICATION_SCHEME(pub i32);
 impl windows_core::TypeKind for PEER_GROUP_AUTHENTICATION_SCHEME {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_GROUP_AUTHENTICATION_SCHEME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_GROUP_AUTHENTICATION_SCHEME").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_GROUP_EVENT_TYPE(pub i32);
 impl windows_core::TypeKind for PEER_GROUP_EVENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_GROUP_EVENT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_GROUP_EVENT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_GROUP_ISSUE_CREDENTIAL_FLAGS(pub i32);
 impl windows_core::TypeKind for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_GROUP_ISSUE_CREDENTIAL_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_GROUP_ISSUE_CREDENTIAL_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_GROUP_PROPERTY_FLAGS(pub i32);
 impl windows_core::TypeKind for PEER_GROUP_PROPERTY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_GROUP_PROPERTY_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_GROUP_PROPERTY_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_GROUP_STATUS(pub i32);
 impl windows_core::TypeKind for PEER_GROUP_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_GROUP_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_GROUP_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_INVITATION_RESPONSE_TYPE(pub i32);
 impl windows_core::TypeKind for PEER_INVITATION_RESPONSE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_INVITATION_RESPONSE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_INVITATION_RESPONSE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_MEMBER_CHANGE_TYPE(pub i32);
 impl windows_core::TypeKind for PEER_MEMBER_CHANGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_MEMBER_CHANGE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_MEMBER_CHANGE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_MEMBER_FLAGS(pub i32);
 impl windows_core::TypeKind for PEER_MEMBER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_MEMBER_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_MEMBER_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_NODE_CHANGE_TYPE(pub i32);
 impl windows_core::TypeKind for PEER_NODE_CHANGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_NODE_CHANGE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_NODE_CHANGE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_PRESENCE_STATUS(pub i32);
 impl windows_core::TypeKind for PEER_PRESENCE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_PRESENCE_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_PRESENCE_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_PUBLICATION_SCOPE(pub i32);
 impl windows_core::TypeKind for PEER_PUBLICATION_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_PUBLICATION_SCOPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_PUBLICATION_SCOPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_RECORD_CHANGE_TYPE(pub i32);
 impl windows_core::TypeKind for PEER_RECORD_CHANGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_RECORD_CHANGE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_RECORD_CHANGE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_RECORD_FLAGS(pub i32);
 impl windows_core::TypeKind for PEER_RECORD_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_RECORD_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_RECORD_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_SIGNIN_FLAGS(pub i32);
 impl windows_core::TypeKind for PEER_SIGNIN_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_SIGNIN_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_SIGNIN_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PEER_WATCH_PERMISSION(pub i32);
 impl windows_core::TypeKind for PEER_WATCH_PERMISSION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PEER_WATCH_PERMISSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PEER_WATCH_PERMISSION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PNRP_CLOUD_FLAGS(pub i32);
 impl windows_core::TypeKind for PNRP_CLOUD_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PNRP_CLOUD_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PNRP_CLOUD_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PNRP_CLOUD_STATE(pub i32);
 impl windows_core::TypeKind for PNRP_CLOUD_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PNRP_CLOUD_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PNRP_CLOUD_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PNRP_EXTENDED_PAYLOAD_TYPE(pub i32);
 impl windows_core::TypeKind for PNRP_EXTENDED_PAYLOAD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PNRP_EXTENDED_PAYLOAD_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PNRP_EXTENDED_PAYLOAD_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PNRP_REGISTERED_ID_STATE(pub i32);
 impl windows_core::TypeKind for PNRP_REGISTERED_ID_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PNRP_REGISTERED_ID_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PNRP_REGISTERED_ID_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PNRP_RESOLVE_CRITERIA(pub i32);
 impl windows_core::TypeKind for PNRP_RESOLVE_CRITERIA {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PNRP_RESOLVE_CRITERIA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PNRP_RESOLVE_CRITERIA").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PNRP_SCOPE(pub i32);
 impl windows_core::TypeKind for PNRP_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PNRP_SCOPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PNRP_SCOPE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DRT_ADDRESS {
     pub socketAddress: super::super::Networking::WinSock::SOCKADDR_STORAGE,
     pub flags: u32,
@@ -2041,25 +1836,21 @@ pub struct DRT_ADDRESS {
     pub latency: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for DRT_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for DRT_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for DRT_ADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DRT_ADDRESS_LIST {
     pub AddressCount: u32,
     pub AddressList: [DRT_ADDRESS; 1],
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for DRT_ADDRESS_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for DRT_ADDRESS_LIST {
@@ -2067,8 +1858,12 @@ impl Default for DRT_ADDRESS_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for DRT_ADDRESS_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DRT_BOOTSTRAP_PROVIDER {
     pub pvContext: *mut core::ffi::c_void,
     pub Attach: isize,
@@ -2079,31 +1874,31 @@ pub struct DRT_BOOTSTRAP_PROVIDER {
     pub Register: isize,
     pub Unregister: isize,
 }
-impl windows_core::TypeKind for DRT_BOOTSTRAP_PROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DRT_BOOTSTRAP_PROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DRT_BOOTSTRAP_PROVIDER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DRT_DATA {
     pub cb: u32,
     pub pb: *mut u8,
-}
-impl windows_core::TypeKind for DRT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DRT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DRT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRT_EVENT_DATA {
     pub r#type: DRT_EVENT_TYPE,
     pub hr: windows_core::HRESULT,
@@ -2111,26 +1906,22 @@ pub struct DRT_EVENT_DATA {
     pub Anonymous: DRT_EVENT_DATA_0,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for DRT_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for DRT_EVENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for DRT_EVENT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DRT_EVENT_DATA_0 {
     pub leafsetKeyChange: DRT_EVENT_DATA_0_0,
     pub registrationStateChange: DRT_EVENT_DATA_0_1,
     pub statusChange: DRT_EVENT_DATA_0_2,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for DRT_EVENT_DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for DRT_EVENT_DATA_0 {
@@ -2138,17 +1929,17 @@ impl Default for DRT_EVENT_DATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for DRT_EVENT_DATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DRT_EVENT_DATA_0_0 {
     pub change: DRT_LEAFSET_KEY_CHANGE_TYPE,
     pub localKey: DRT_DATA,
     pub remoteKey: DRT_DATA,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for DRT_EVENT_DATA_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for DRT_EVENT_DATA_0_0 {
@@ -2156,16 +1947,16 @@ impl Default for DRT_EVENT_DATA_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for DRT_EVENT_DATA_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DRT_EVENT_DATA_0_1 {
     pub state: DRT_REGISTRATION_STATE,
     pub localKey: DRT_DATA,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for DRT_EVENT_DATA_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for DRT_EVENT_DATA_0_1 {
@@ -2173,16 +1964,16 @@ impl Default for DRT_EVENT_DATA_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for DRT_EVENT_DATA_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DRT_EVENT_DATA_0_2 {
     pub status: DRT_STATUS,
     pub bootstrapAddresses: DRT_EVENT_DATA_0_2_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for DRT_EVENT_DATA_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for DRT_EVENT_DATA_0_2 {
@@ -2190,16 +1981,16 @@ impl Default for DRT_EVENT_DATA_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for DRT_EVENT_DATA_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DRT_EVENT_DATA_0_2_0 {
     pub cntAddress: u32,
     pub pAddresses: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for DRT_EVENT_DATA_0_2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for DRT_EVENT_DATA_0_2_0 {
@@ -2207,22 +1998,26 @@ impl Default for DRT_EVENT_DATA_0_2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for DRT_EVENT_DATA_0_2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DRT_REGISTRATION {
     pub key: DRT_DATA,
     pub appData: DRT_DATA,
-}
-impl windows_core::TypeKind for DRT_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DRT_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DRT_REGISTRATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DRT_SEARCH_INFO {
     pub dwSize: u32,
     pub fIterative: super::super::Foundation::BOOL,
@@ -2232,32 +2027,32 @@ pub struct DRT_SEARCH_INFO {
     pub pMaximumKey: *mut DRT_DATA,
     pub pMinimumKey: *mut DRT_DATA,
 }
-impl windows_core::TypeKind for DRT_SEARCH_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DRT_SEARCH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DRT_SEARCH_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DRT_SEARCH_RESULT {
     pub dwSize: u32,
     pub r#type: DRT_MATCH_TYPE,
     pub pvContext: *mut core::ffi::c_void,
     pub registration: DRT_REGISTRATION,
 }
-impl windows_core::TypeKind for DRT_SEARCH_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DRT_SEARCH_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DRT_SEARCH_RESULT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DRT_SECURITY_PROVIDER {
     pub pvContext: *mut core::ffi::c_void,
     pub Attach: isize,
@@ -2274,16 +2069,16 @@ pub struct DRT_SECURITY_PROVIDER {
     pub SignData: isize,
     pub VerifyData: isize,
 }
-impl windows_core::TypeKind for DRT_SECURITY_PROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DRT_SECURITY_PROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DRT_SECURITY_PROVIDER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DRT_SETTINGS {
     pub dwSize: u32,
     pub cbKey: u32,
@@ -2296,96 +2091,92 @@ pub struct DRT_SETTINGS {
     pub pBootstrapProvider: *mut DRT_BOOTSTRAP_PROVIDER,
     pub eSecurityMode: DRT_SECURITY_MODE,
 }
-impl windows_core::TypeKind for DRT_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DRT_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DRT_SETTINGS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEERDIST_CLIENT_BASIC_INFO {
     pub fFlashCrowd: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for PEERDIST_CLIENT_BASIC_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEERDIST_CLIENT_BASIC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEERDIST_CLIENT_BASIC_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEERDIST_CONTENT_TAG {
     pub Data: [u8; 16],
-}
-impl windows_core::TypeKind for PEERDIST_CONTENT_TAG {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEERDIST_CONTENT_TAG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEERDIST_CONTENT_TAG {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEERDIST_PUBLICATION_OPTIONS {
     pub dwVersion: u32,
     pub dwFlags: u32,
-}
-impl windows_core::TypeKind for PEERDIST_PUBLICATION_OPTIONS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEERDIST_PUBLICATION_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEERDIST_PUBLICATION_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEERDIST_RETRIEVAL_OPTIONS {
     pub cbSize: u32,
     pub dwContentInfoMinVersion: u32,
     pub dwContentInfoMaxVersion: u32,
     pub dwReserved: u32,
 }
-impl windows_core::TypeKind for PEERDIST_RETRIEVAL_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PEERDIST_RETRIEVAL_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEERDIST_RETRIEVAL_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEERDIST_STATUS_INFO {
     pub cbSize: u32,
     pub status: PEERDIST_STATUS,
     pub dwMinVer: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE,
     pub dwMaxVer: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE,
 }
-impl windows_core::TypeKind for PEERDIST_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PEERDIST_STATUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEERDIST_STATUS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PEER_ADDRESS {
     pub dwSize: u32,
     pub sin6: super::super::Networking::WinSock::SOCKADDR_IN6,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_ADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_ADDRESS {
@@ -2393,48 +2184,48 @@ impl Default for PEER_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_ADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_APPLICATION {
     pub id: windows_core::GUID,
     pub data: PEER_DATA,
     pub pwzDescription: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for PEER_APPLICATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_APPLICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_APPLICATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_APPLICATION_REGISTRATION_INFO {
     pub application: PEER_APPLICATION,
     pub pwzApplicationToLaunch: windows_core::PWSTR,
     pub pwzApplicationArguments: windows_core::PWSTR,
     pub dwPublicationScope: u32,
 }
-impl windows_core::TypeKind for PEER_APPLICATION_REGISTRATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PEER_APPLICATION_REGISTRATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_APPLICATION_REGISTRATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_APP_LAUNCH_INFO {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
     pub pInvitation: *mut PEER_INVITATION,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_APP_LAUNCH_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_APP_LAUNCH_INFO {
@@ -2442,16 +2233,16 @@ impl Default for PEER_APP_LAUNCH_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_APP_LAUNCH_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PEER_COLLAB_EVENT_DATA {
     pub eventType: PEER_COLLAB_EVENT_TYPE,
     pub Anonymous: PEER_COLLAB_EVENT_DATA_0,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_COLLAB_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_COLLAB_EVENT_DATA {
@@ -2459,9 +2250,13 @@ impl Default for PEER_COLLAB_EVENT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_COLLAB_EVENT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union PEER_COLLAB_EVENT_DATA_0 {
     pub watchListChangedData: PEER_EVENT_WATCHLIST_CHANGED_DATA,
     pub presenceChangedData: PEER_EVENT_PRESENCE_CHANGED_DATA,
@@ -2472,32 +2267,32 @@ pub union PEER_COLLAB_EVENT_DATA_0 {
     pub requestStatusChangedData: PEER_EVENT_REQUEST_STATUS_CHANGED_DATA,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_COLLAB_EVENT_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_COLLAB_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_COLLAB_EVENT_DATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_COLLAB_EVENT_REGISTRATION {
     pub eventType: PEER_COLLAB_EVENT_TYPE,
     pub pInstance: *mut windows_core::GUID,
-}
-impl windows_core::TypeKind for PEER_COLLAB_EVENT_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_COLLAB_EVENT_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_COLLAB_EVENT_REGISTRATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PEER_CONNECTION_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2507,17 +2302,17 @@ pub struct PEER_CONNECTION_INFO {
     pub address: PEER_ADDRESS,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_CONNECTION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_CONNECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_CONNECTION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_CONTACT {
     pub pwzPeerName: windows_core::PWSTR,
     pub pwzNickName: windows_core::PWSTR,
@@ -2527,17 +2322,17 @@ pub struct PEER_CONTACT {
     pub WatcherPermissions: PEER_WATCH_PERMISSION,
     pub credentials: PEER_DATA,
 }
-impl windows_core::TypeKind for PEER_CONTACT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PEER_CONTACT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_CONTACT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_CREDENTIAL_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2551,39 +2346,35 @@ pub struct PEER_CREDENTIAL_INFO {
     pub pRoles: *mut windows_core::GUID,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for PEER_CREDENTIAL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for PEER_CREDENTIAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for PEER_CREDENTIAL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_DATA {
     pub cbData: u32,
     pub pbData: *mut u8,
-}
-impl windows_core::TypeKind for PEER_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PEER_ENDPOINT {
     pub address: PEER_ADDRESS,
     pub pwzEndpointName: windows_core::PWSTR,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_ENDPOINT {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_ENDPOINT {
@@ -2591,9 +2382,13 @@ impl Default for PEER_ENDPOINT {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_ENDPOINT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_EVENT_APPLICATION_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
@@ -2601,17 +2396,17 @@ pub struct PEER_EVENT_APPLICATION_CHANGED_DATA {
     pub pApplication: *mut PEER_APPLICATION,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_EVENT_APPLICATION_CHANGED_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_EVENT_APPLICATION_CHANGED_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_EVENT_APPLICATION_CHANGED_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_EVENT_CONNECTION_CHANGE_DATA {
     pub dwSize: u32,
     pub status: PEER_CONNECTION_STATUS,
@@ -2620,24 +2415,20 @@ pub struct PEER_EVENT_CONNECTION_CHANGE_DATA {
     pub ullNextConnectionId: u64,
     pub hrConnectionFailedReason: windows_core::HRESULT,
 }
-impl windows_core::TypeKind for PEER_EVENT_CONNECTION_CHANGE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PEER_EVENT_CONNECTION_CHANGE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_EVENT_CONNECTION_CHANGE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_EVENT_ENDPOINT_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_EVENT_ENDPOINT_CHANGED_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_EVENT_ENDPOINT_CHANGED_DATA {
@@ -2645,56 +2436,60 @@ impl Default for PEER_EVENT_ENDPOINT_CHANGED_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_EVENT_ENDPOINT_CHANGED_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_EVENT_INCOMING_DATA {
     pub dwSize: u32,
     pub ullConnectionId: u64,
     pub r#type: windows_core::GUID,
     pub data: PEER_DATA,
 }
-impl windows_core::TypeKind for PEER_EVENT_INCOMING_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PEER_EVENT_INCOMING_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_EVENT_INCOMING_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_EVENT_MEMBER_CHANGE_DATA {
     pub dwSize: u32,
     pub changeType: PEER_MEMBER_CHANGE_TYPE,
     pub pwzIdentity: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for PEER_EVENT_MEMBER_CHANGE_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_EVENT_MEMBER_CHANGE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_EVENT_MEMBER_CHANGE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_EVENT_NODE_CHANGE_DATA {
     pub dwSize: u32,
     pub changeType: PEER_NODE_CHANGE_TYPE,
     pub ullNodeId: u64,
     pub pwzPeerId: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for PEER_EVENT_NODE_CHANGE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PEER_EVENT_NODE_CHANGE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_EVENT_NODE_CHANGE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_EVENT_OBJECT_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
@@ -2702,25 +2497,21 @@ pub struct PEER_EVENT_OBJECT_CHANGED_DATA {
     pub pObject: *mut PEER_OBJECT,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_EVENT_OBJECT_CHANGED_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_EVENT_OBJECT_CHANGED_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_EVENT_OBJECT_CHANGED_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
     pub changeType: PEER_CHANGE_TYPE,
     pub pPeopleNearMe: *mut PEER_PEOPLE_NEAR_ME,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
@@ -2728,9 +2519,13 @@ impl Default for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_EVENT_PRESENCE_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub pEndpoint: *mut PEER_ENDPOINT,
@@ -2738,41 +2533,37 @@ pub struct PEER_EVENT_PRESENCE_CHANGED_DATA {
     pub pPresenceInfo: *mut PEER_PRESENCE_INFO,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_EVENT_PRESENCE_CHANGED_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_EVENT_PRESENCE_CHANGED_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_EVENT_PRESENCE_CHANGED_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_EVENT_RECORD_CHANGE_DATA {
     pub dwSize: u32,
     pub changeType: PEER_RECORD_CHANGE_TYPE,
     pub recordId: windows_core::GUID,
     pub recordType: windows_core::GUID,
 }
-impl windows_core::TypeKind for PEER_EVENT_RECORD_CHANGE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PEER_EVENT_RECORD_CHANGE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_EVENT_RECORD_CHANGE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
     pub pEndpoint: *mut PEER_ENDPOINT,
     pub hrChange: windows_core::HRESULT,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
@@ -2780,50 +2571,54 @@ impl Default for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_EVENT_REQUEST_STATUS_CHANGED_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_EVENT_SYNCHRONIZED_DATA {
     pub dwSize: u32,
     pub recordType: windows_core::GUID,
-}
-impl windows_core::TypeKind for PEER_EVENT_SYNCHRONIZED_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_EVENT_SYNCHRONIZED_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_EVENT_SYNCHRONIZED_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_EVENT_WATCHLIST_CHANGED_DATA {
     pub pContact: *mut PEER_CONTACT,
     pub changeType: PEER_CHANGE_TYPE,
-}
-impl windows_core::TypeKind for PEER_EVENT_WATCHLIST_CHANGED_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_EVENT_WATCHLIST_CHANGED_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_EVENT_WATCHLIST_CHANGED_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PEER_GRAPH_EVENT_DATA {
     pub eventType: PEER_GRAPH_EVENT_TYPE,
     pub Anonymous: PEER_GRAPH_EVENT_DATA_0,
-}
-impl windows_core::TypeKind for PEER_GRAPH_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_GRAPH_EVENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_GRAPH_EVENT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union PEER_GRAPH_EVENT_DATA_0 {
     pub dwStatus: PEER_GRAPH_STATUS_FLAGS,
     pub incomingData: PEER_EVENT_INCOMING_DATA,
@@ -2832,30 +2627,30 @@ pub union PEER_GRAPH_EVENT_DATA_0 {
     pub nodeChangeData: PEER_EVENT_NODE_CHANGE_DATA,
     pub synchronizedData: PEER_EVENT_SYNCHRONIZED_DATA,
 }
-impl windows_core::TypeKind for PEER_GRAPH_EVENT_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PEER_GRAPH_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_GRAPH_EVENT_DATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_GRAPH_EVENT_REGISTRATION {
     pub eventType: PEER_GRAPH_EVENT_TYPE,
     pub pType: *mut windows_core::GUID,
-}
-impl windows_core::TypeKind for PEER_GRAPH_EVENT_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_GRAPH_EVENT_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_GRAPH_EVENT_REGISTRATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_GRAPH_PROPERTIES {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2868,30 +2663,30 @@ pub struct PEER_GRAPH_PROPERTIES {
     pub ulPresenceLifetime: u32,
     pub cPresenceMax: u32,
 }
-impl windows_core::TypeKind for PEER_GRAPH_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PEER_GRAPH_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_GRAPH_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PEER_GROUP_EVENT_DATA {
     pub eventType: PEER_GROUP_EVENT_TYPE,
     pub Anonymous: PEER_GROUP_EVENT_DATA_0,
-}
-impl windows_core::TypeKind for PEER_GROUP_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_GROUP_EVENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_GROUP_EVENT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union PEER_GROUP_EVENT_DATA_0 {
     pub dwStatus: PEER_GROUP_STATUS,
     pub incomingData: PEER_EVENT_INCOMING_DATA,
@@ -2900,30 +2695,30 @@ pub union PEER_GROUP_EVENT_DATA_0 {
     pub memberChangeData: PEER_EVENT_MEMBER_CHANGE_DATA,
     pub hrConnectionFailedReason: windows_core::HRESULT,
 }
-impl windows_core::TypeKind for PEER_GROUP_EVENT_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PEER_GROUP_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_GROUP_EVENT_DATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_GROUP_EVENT_REGISTRATION {
     pub eventType: PEER_GROUP_EVENT_TYPE,
     pub pType: *mut windows_core::GUID,
-}
-impl windows_core::TypeKind for PEER_GROUP_EVENT_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_GROUP_EVENT_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_GROUP_EVENT_REGISTRATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_GROUP_PROPERTIES {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2939,32 +2734,32 @@ pub struct PEER_GROUP_PROPERTIES {
     pub pwzGroupPassword: windows_core::PWSTR,
     pub groupPasswordRole: windows_core::GUID,
 }
-impl windows_core::TypeKind for PEER_GROUP_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PEER_GROUP_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_GROUP_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_INVITATION {
     pub applicationId: windows_core::GUID,
     pub applicationData: PEER_DATA,
     pub pwzMessage: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for PEER_INVITATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_INVITATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_INVITATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_INVITATION_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2987,33 +2782,33 @@ pub struct PEER_INVITATION_INFO {
     pub authScheme: PEER_GROUP_AUTHENTICATION_SCHEME,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for PEER_INVITATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for PEER_INVITATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for PEER_INVITATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_INVITATION_RESPONSE {
     pub action: PEER_INVITATION_RESPONSE_TYPE,
     pub pwzMessage: windows_core::PWSTR,
     pub hrExtendedInfo: windows_core::HRESULT,
-}
-impl windows_core::TypeKind for PEER_INVITATION_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_INVITATION_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_INVITATION_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_MEMBER {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3025,33 +2820,33 @@ pub struct PEER_MEMBER {
     pub pCredentialInfo: *mut PEER_CREDENTIAL_INFO,
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-impl windows_core::TypeKind for PEER_MEMBER {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 impl Default for PEER_MEMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
+impl windows_core::TypeKind for PEER_MEMBER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_NAME_PAIR {
     pub dwSize: u32,
     pub pwzPeerName: windows_core::PWSTR,
     pub pwzFriendlyName: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for PEER_NAME_PAIR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_NAME_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_NAME_PAIR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_NODE_INFO {
     pub dwSize: u32,
     pub ullNodeId: u64,
@@ -3061,41 +2856,37 @@ pub struct PEER_NODE_INFO {
     pub pwzAttributes: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_NODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_NODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_NODE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_OBJECT {
     pub id: windows_core::GUID,
     pub data: PEER_DATA,
     pub dwPublicationScope: u32,
-}
-impl windows_core::TypeKind for PEER_OBJECT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_OBJECT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PEER_PEOPLE_NEAR_ME {
     pub pwzNickName: windows_core::PWSTR,
     pub endpoint: PEER_ENDPOINT,
     pub id: windows_core::GUID,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_PEOPLE_NEAR_ME {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_PEOPLE_NEAR_ME {
@@ -3103,24 +2894,28 @@ impl Default for PEER_PEOPLE_NEAR_ME {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_PEOPLE_NEAR_ME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_PNRP_CLOUD_INFO {
     pub pwzCloudName: windows_core::PWSTR,
     pub dwScope: PNRP_SCOPE,
     pub dwScopeId: u32,
-}
-impl windows_core::TypeKind for PEER_PNRP_CLOUD_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_PNRP_CLOUD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_PNRP_CLOUD_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_PNRP_ENDPOINT_INFO {
     pub pwzPeerName: windows_core::PWSTR,
     pub cAddresses: u32,
@@ -3129,18 +2924,18 @@ pub struct PEER_PNRP_ENDPOINT_INFO {
     pub payload: PEER_DATA,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_PNRP_ENDPOINT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_PNRP_ENDPOINT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_PNRP_ENDPOINT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_PNRP_REGISTRATION_INFO {
     pub pwzCloudName: windows_core::PWSTR,
     pub pwzPublishingIdentity: windows_core::PWSTR,
@@ -3151,31 +2946,31 @@ pub struct PEER_PNRP_REGISTRATION_INFO {
     pub payload: PEER_DATA,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PEER_PNRP_REGISTRATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PEER_PNRP_REGISTRATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PEER_PNRP_REGISTRATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_PRESENCE_INFO {
     pub status: PEER_PRESENCE_STATUS,
     pub pwzDescriptiveText: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for PEER_PRESENCE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_PRESENCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_PRESENCE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_RECORD {
     pub dwSize: u32,
     pub r#type: windows_core::GUID,
@@ -3191,16 +2986,16 @@ pub struct PEER_RECORD {
     pub securityData: PEER_DATA,
     pub data: PEER_DATA,
 }
-impl windows_core::TypeKind for PEER_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PEER_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_SECURITY_INTERFACE {
     pub dwSize: u32,
     pub pwzSspFilename: windows_core::PWSTR,
@@ -3213,47 +3008,47 @@ pub struct PEER_SECURITY_INTERFACE {
     pub pfnFreeSecurityData: PFNPEER_FREE_SECURITY_DATA,
     pub pfnAuthFailed: PFNPEER_ON_PASSWORD_AUTH_FAILED,
 }
-impl windows_core::TypeKind for PEER_SECURITY_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PEER_SECURITY_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_SECURITY_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PEER_VERSION_DATA {
     pub wVersion: u16,
     pub wHighestVersion: u16,
-}
-impl windows_core::TypeKind for PEER_VERSION_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PEER_VERSION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PEER_VERSION_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PNRPCLOUDINFO {
     pub dwSize: u32,
     pub Cloud: PNRP_CLOUD_ID,
     pub enCloudState: PNRP_CLOUD_STATE,
     pub enCloudFlags: PNRP_CLOUD_FLAGS,
 }
-impl windows_core::TypeKind for PNRPCLOUDINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PNRPCLOUDINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PNRPCLOUDINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PNRPINFO_V1 {
     pub dwSize: u32,
     pub lpwszIdentity: windows_core::PWSTR,
@@ -3266,18 +3061,18 @@ pub struct PNRPINFO_V1 {
     pub enNameState: PNRP_REGISTERED_ID_STATE,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for PNRPINFO_V1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for PNRPINFO_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for PNRPINFO_V1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PNRPINFO_V2 {
     pub dwSize: u32,
     pub lpwszIdentity: windows_core::PWSTR,
@@ -3292,25 +3087,21 @@ pub struct PNRPINFO_V2 {
     pub Anonymous: PNRPINFO_V2_0,
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl windows_core::TypeKind for PNRPINFO_V2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 impl Default for PNRPINFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+impl windows_core::TypeKind for PNRPINFO_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union PNRPINFO_V2_0 {
     pub blobPayload: super::super::System::Com::BLOB,
     pub pwszPayload: windows_core::PWSTR,
-}
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
-impl windows_core::TypeKind for PNRPINFO_V2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 impl Default for PNRPINFO_V2_0 {
@@ -3318,20 +3109,24 @@ impl Default for PNRPINFO_V2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
+impl windows_core::TypeKind for PNRPINFO_V2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PNRP_CLOUD_ID {
     pub AddressFamily: i32,
     pub Scope: PNRP_SCOPE,
     pub ScopeId: u32,
 }
-impl windows_core::TypeKind for PNRP_CLOUD_ID {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PNRP_CLOUD_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for PNRP_CLOUD_ID {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = Option<unsafe extern "system" fn(hr: windows_core::HRESULT, pvcontext: *mut core::ffi::c_void, paddresses: *mut super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, ffatalerror: super::super::Foundation::BOOL)>;

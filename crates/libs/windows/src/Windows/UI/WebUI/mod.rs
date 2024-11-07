@@ -10,11 +10,8 @@ pub struct IActivatedDeferral_Vtbl {
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IActivatedEventArgsDeferral, IActivatedEventArgsDeferral_Vtbl, 0xca6d5f74_63c2_44a6_b97b_d9a03c20bc9b);
-impl core::ops::Deref for IActivatedEventArgsDeferral {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IActivatedEventArgsDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IActivatedEventArgsDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl IActivatedEventArgsDeferral {
@@ -26,22 +23,19 @@ impl IActivatedEventArgsDeferral {
         }
     }
 }
-impl windows_core::RuntimeType for IActivatedEventArgsDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IActivatedEventArgsDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ActivatedOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IActivatedEventArgsDeferral_Impl: Sized + windows_core::IUnknownImpl {
-    fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation>;
-}
 impl windows_core::RuntimeName for IActivatedEventArgsDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.IActivatedEventArgsDeferral";
 }
+pub trait IActivatedEventArgsDeferral_Impl: Sized + windows_core::IUnknownImpl {
+    fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation>;
+}
 impl IActivatedEventArgsDeferral_Vtbl {
-    pub const fn new<Identity: IActivatedEventArgsDeferral_Impl, const OFFSET: isize>() -> IActivatedEventArgsDeferral_Vtbl {
+    pub const fn new<Identity: IActivatedEventArgsDeferral_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ActivatedOperation<Identity: IActivatedEventArgsDeferral_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IActivatedEventArgsDeferral_Impl::ActivatedOperation(this) {
@@ -71,10 +65,13 @@ pub struct IActivatedOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Graphics_Printing")]
 windows_core::imp::define_interface!(IHtmlPrintDocumentSource, IHtmlPrintDocumentSource_Vtbl, 0xcea6469a_0e05_467a_abc9_36ec1d4cdcb6);
+#[cfg(feature = "Graphics_Printing")]
 impl windows_core::RuntimeType for IHtmlPrintDocumentSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+#[cfg(feature = "Graphics_Printing")]
 #[repr(C)]
 pub struct IHtmlPrintDocumentSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -104,7 +101,10 @@ impl windows_core::RuntimeType for INewWebUIViewCreatedEventArgs {
 #[repr(C)]
 pub struct INewWebUIViewCreatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Web_UI")]
     pub WebUIView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Web_UI"))]
+    WebUIView: usize,
     #[cfg(feature = "ApplicationModel_Activation")]
     pub ActivatedEventArgs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Activation"))]
@@ -185,11 +185,8 @@ pub struct IWebUIActivationStatics4_Vtbl {
     pub RemoveBackgroundActivated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUIBackgroundTaskInstance, IWebUIBackgroundTaskInstance_Vtbl, 0x23f12c25_e2f7_4741_bc9c_394595de24dc);
-impl core::ops::Deref for IWebUIBackgroundTaskInstance {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IWebUIBackgroundTaskInstance {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IWebUIBackgroundTaskInstance, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebUIBackgroundTaskInstance {
@@ -205,24 +202,21 @@ impl IWebUIBackgroundTaskInstance {
         unsafe { (windows_core::Interface::vtable(this).SetSucceeded)(windows_core::Interface::as_raw(this), succeeded).ok() }
     }
 }
-impl windows_core::RuntimeType for IWebUIBackgroundTaskInstance {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IWebUIBackgroundTaskInstance_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetSucceeded: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
+impl windows_core::RuntimeName for IWebUIBackgroundTaskInstance {
+    const NAME: &'static str = "Windows.UI.WebUI.IWebUIBackgroundTaskInstance";
+}
 pub trait IWebUIBackgroundTaskInstance_Impl: Sized + windows_core::IUnknownImpl {
     fn Succeeded(&self) -> windows_core::Result<bool>;
     fn SetSucceeded(&self, succeeded: bool) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IWebUIBackgroundTaskInstance {
-    const NAME: &'static str = "Windows.UI.WebUI.IWebUIBackgroundTaskInstance";
-}
 impl IWebUIBackgroundTaskInstance_Vtbl {
-    pub const fn new<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>() -> IWebUIBackgroundTaskInstance_Vtbl {
+    pub const fn new<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Succeeded<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebUIBackgroundTaskInstance_Impl::Succeeded(this) {
@@ -266,11 +260,8 @@ pub struct IWebUINavigatedDeferral_Vtbl {
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUINavigatedEventArgs, IWebUINavigatedEventArgs_Vtbl, 0xa75841b8_2499_4030_a69d_15d2d9cfe524);
-impl core::ops::Deref for IWebUINavigatedEventArgs {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IWebUINavigatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IWebUINavigatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebUINavigatedEventArgs {
@@ -282,22 +273,19 @@ impl IWebUINavigatedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for IWebUINavigatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IWebUINavigatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NavigatedOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IWebUINavigatedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
-    fn NavigatedOperation(&self) -> windows_core::Result<WebUINavigatedOperation>;
-}
 impl windows_core::RuntimeName for IWebUINavigatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUINavigatedEventArgs";
 }
+pub trait IWebUINavigatedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+    fn NavigatedOperation(&self) -> windows_core::Result<WebUINavigatedOperation>;
+}
 impl IWebUINavigatedEventArgs_Vtbl {
-    pub const fn new<Identity: IWebUINavigatedEventArgs_Impl, const OFFSET: isize>() -> IWebUINavigatedEventArgs_Vtbl {
+    pub const fn new<Identity: IWebUINavigatedEventArgs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn NavigatedOperation<Identity: IWebUINavigatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IWebUINavigatedEventArgs_Impl::NavigatedOperation(this) {
@@ -335,11 +323,14 @@ impl windows_core::RuntimeType for IWebUIView {
 pub struct IWebUIView_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ApplicationViewId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "Web_UI")]
     pub Closed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Web_UI"))]
+    Closed: usize,
     pub RemoveClosed: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(feature = "ApplicationModel_Activation")]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Web_UI"))]
     pub Activated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Activation"))]
+    #[cfg(not(all(feature = "ApplicationModel_Activation", feature = "Web_UI")))]
     Activated: usize,
     pub RemoveActivated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub IgnoreApplicationContentUriRulesNavigationRestrictions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -352,24 +343,31 @@ impl windows_core::RuntimeType for IWebUIViewStatics {
 #[repr(C)]
 pub struct IWebUIViewStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Web_UI")]
     pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Web_UI"))]
+    CreateAsync: usize,
+    #[cfg(feature = "Web_UI")]
     pub CreateWithUriAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Web_UI"))]
+    CreateWithUriAsync: usize,
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivatedDeferral(windows_core::IUnknown);
+impl windows_core::RuntimeType for ActivatedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivatedDeferral>();
+}
 windows_core::imp::interface_hierarchy!(ActivatedDeferral, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ActivatedDeferral,);
 impl ActivatedDeferral {
     pub fn Complete(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for ActivatedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivatedDeferral>();
-}
 unsafe impl windows_core::Interface for ActivatedDeferral {
-    type Vtable = IActivatedDeferral_Vtbl;
+    type Vtable = <IActivatedDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivatedDeferral as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ActivatedDeferral {
@@ -378,7 +376,11 @@ impl windows_core::RuntimeName for ActivatedDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivatedOperation(windows_core::IUnknown);
+impl windows_core::RuntimeType for ActivatedOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivatedOperation>();
+}
 windows_core::imp::interface_hierarchy!(ActivatedOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ActivatedOperation,);
 impl ActivatedOperation {
     pub fn GetDeferral(&self) -> windows_core::Result<ActivatedDeferral> {
         let this = self;
@@ -388,11 +390,8 @@ impl ActivatedOperation {
         }
     }
 }
-impl windows_core::RuntimeType for ActivatedOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivatedOperation>();
-}
 unsafe impl windows_core::Interface for ActivatedOperation {
-    type Vtable = IActivatedOperation_Vtbl;
+    type Vtable = <IActivatedOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivatedOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ActivatedOperation {
@@ -403,10 +402,16 @@ impl windows_core::RuntimeName for ActivatedOperation {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(BackgroundActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs);
+impl windows_core::RuntimeType for BackgroundActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::interface_hierarchy!(BackgroundActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(BackgroundActivatedEventArgs, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl BackgroundActivatedEventArgs {
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Background"))]
+    #[cfg(feature = "ApplicationModel_Background")]
     pub fn TaskInstance(&self) -> windows_core::Result<super::super::ApplicationModel::Background::IBackgroundTaskInstance> {
         let this = self;
         unsafe {
@@ -416,31 +421,28 @@ impl BackgroundActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for BackgroundActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>();
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for BackgroundActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeName for BackgroundActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.BackgroundActivatedEventArgs";
 }
-#[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl Send for BackgroundActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl Sync for BackgroundActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnteredBackgroundEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
-windows_core::imp::interface_hierarchy!(EnteredBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::IEnteredBackgroundEventArgs);
+impl windows_core::RuntimeType for EnteredBackgroundEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::IEnteredBackgroundEventArgs>();
+}
+#[cfg(feature = "ApplicationModel")]
+windows_core::imp::interface_hierarchy!(EnteredBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel")]
+windows_core::imp::required_hierarchy!(EnteredBackgroundEventArgs, super::super::ApplicationModel::IEnteredBackgroundEventArgs);
 #[cfg(feature = "ApplicationModel")]
 impl EnteredBackgroundEventArgs {
-    #[cfg(feature = "ApplicationModel")]
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -450,28 +452,27 @@ impl EnteredBackgroundEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for EnteredBackgroundEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::IEnteredBackgroundEventArgs>();
-}
-#[cfg(feature = "ApplicationModel")]
 unsafe impl windows_core::Interface for EnteredBackgroundEventArgs {
-    type Vtable = super::super::ApplicationModel::IEnteredBackgroundEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::IEnteredBackgroundEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::IEnteredBackgroundEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel")]
 impl windows_core::RuntimeName for EnteredBackgroundEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.EnteredBackgroundEventArgs";
 }
-#[cfg(feature = "ApplicationModel")]
-unsafe impl Send for EnteredBackgroundEventArgs {}
-#[cfg(feature = "ApplicationModel")]
-unsafe impl Sync for EnteredBackgroundEventArgs {}
+#[cfg(feature = "Graphics_Printing")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HtmlPrintDocumentSource(windows_core::IUnknown);
+#[cfg(feature = "Graphics_Printing")]
+impl windows_core::RuntimeType for HtmlPrintDocumentSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHtmlPrintDocumentSource>();
+}
+#[cfg(feature = "Graphics_Printing")]
 windows_core::imp::interface_hierarchy!(HtmlPrintDocumentSource, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Graphics_Printing")]
 windows_core::imp::required_hierarchy!(HtmlPrintDocumentSource, super::super::Foundation::IClosable, super::super::Graphics::Printing::IPrintDocumentSource);
+#[cfg(feature = "Graphics_Printing")]
 impl HtmlPrintDocumentSource {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -580,27 +581,29 @@ impl HtmlPrintDocumentSource {
         }
     }
 }
-impl windows_core::RuntimeType for HtmlPrintDocumentSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHtmlPrintDocumentSource>();
-}
+#[cfg(feature = "Graphics_Printing")]
 unsafe impl windows_core::Interface for HtmlPrintDocumentSource {
-    type Vtable = IHtmlPrintDocumentSource_Vtbl;
+    type Vtable = <IHtmlPrintDocumentSource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHtmlPrintDocumentSource as windows_core::Interface>::IID;
 }
+#[cfg(feature = "Graphics_Printing")]
 impl windows_core::RuntimeName for HtmlPrintDocumentSource {
     const NAME: &'static str = "Windows.UI.WebUI.HtmlPrintDocumentSource";
 }
-unsafe impl Send for HtmlPrintDocumentSource {}
-unsafe impl Sync for HtmlPrintDocumentSource {}
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LeavingBackgroundEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
-windows_core::imp::interface_hierarchy!(LeavingBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::ILeavingBackgroundEventArgs);
+impl windows_core::RuntimeType for LeavingBackgroundEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ILeavingBackgroundEventArgs>();
+}
+#[cfg(feature = "ApplicationModel")]
+windows_core::imp::interface_hierarchy!(LeavingBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel")]
+windows_core::imp::required_hierarchy!(LeavingBackgroundEventArgs, super::super::ApplicationModel::ILeavingBackgroundEventArgs);
 #[cfg(feature = "ApplicationModel")]
 impl LeavingBackgroundEventArgs {
-    #[cfg(feature = "ApplicationModel")]
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
@@ -610,27 +613,24 @@ impl LeavingBackgroundEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for LeavingBackgroundEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ILeavingBackgroundEventArgs>();
-}
-#[cfg(feature = "ApplicationModel")]
 unsafe impl windows_core::Interface for LeavingBackgroundEventArgs {
-    type Vtable = super::super::ApplicationModel::ILeavingBackgroundEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::ILeavingBackgroundEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::ILeavingBackgroundEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel")]
 impl windows_core::RuntimeName for LeavingBackgroundEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.LeavingBackgroundEventArgs";
 }
-#[cfg(feature = "ApplicationModel")]
-unsafe impl Send for LeavingBackgroundEventArgs {}
-#[cfg(feature = "ApplicationModel")]
-unsafe impl Sync for LeavingBackgroundEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NewWebUIViewCreatedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for NewWebUIViewCreatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INewWebUIViewCreatedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(NewWebUIViewCreatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(NewWebUIViewCreatedEventArgs,);
 impl NewWebUIViewCreatedEventArgs {
+    #[cfg(feature = "Web_UI")]
     pub fn WebUIView(&self) -> windows_core::Result<WebUIView> {
         let this = self;
         unsafe {
@@ -661,11 +661,8 @@ impl NewWebUIViewCreatedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for NewWebUIViewCreatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INewWebUIViewCreatedEventArgs>();
-}
 unsafe impl windows_core::Interface for NewWebUIViewCreatedEventArgs {
-    type Vtable = INewWebUIViewCreatedEventArgs_Vtbl;
+    type Vtable = <INewWebUIViewCreatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INewWebUIViewCreatedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for NewWebUIViewCreatedEventArgs {
@@ -676,22 +673,23 @@ impl windows_core::RuntimeName for NewWebUIViewCreatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingDeferral(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
-windows_core::imp::interface_hierarchy!(SuspendingDeferral, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::ISuspendingDeferral);
+impl windows_core::RuntimeType for SuspendingDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ISuspendingDeferral>();
+}
+#[cfg(feature = "ApplicationModel")]
+windows_core::imp::interface_hierarchy!(SuspendingDeferral, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel")]
+windows_core::imp::required_hierarchy!(SuspendingDeferral, super::super::ApplicationModel::ISuspendingDeferral);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingDeferral {
-    #[cfg(feature = "ApplicationModel")]
     pub fn Complete(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for SuspendingDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ISuspendingDeferral>();
-}
-#[cfg(feature = "ApplicationModel")]
 unsafe impl windows_core::Interface for SuspendingDeferral {
-    type Vtable = super::super::ApplicationModel::ISuspendingDeferral_Vtbl;
+    type Vtable = <super::super::ApplicationModel::ISuspendingDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::ISuspendingDeferral as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel")]
@@ -703,7 +701,13 @@ impl windows_core::RuntimeName for SuspendingDeferral {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
-windows_core::imp::interface_hierarchy!(SuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::ISuspendingEventArgs);
+impl windows_core::RuntimeType for SuspendingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ISuspendingEventArgs>();
+}
+#[cfg(feature = "ApplicationModel")]
+windows_core::imp::interface_hierarchy!(SuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel")]
+windows_core::imp::required_hierarchy!(SuspendingEventArgs, super::super::ApplicationModel::ISuspendingEventArgs);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingEventArgs {
     #[cfg(feature = "ApplicationModel")]
@@ -716,12 +720,8 @@ impl SuspendingEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for SuspendingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ISuspendingEventArgs>();
-}
-#[cfg(feature = "ApplicationModel")]
 unsafe impl windows_core::Interface for SuspendingEventArgs {
-    type Vtable = super::super::ApplicationModel::ISuspendingEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::ISuspendingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::ISuspendingEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel")]
@@ -733,7 +733,13 @@ impl windows_core::RuntimeName for SuspendingEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingOperation(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
-windows_core::imp::interface_hierarchy!(SuspendingOperation, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::ISuspendingOperation);
+impl windows_core::RuntimeType for SuspendingOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ISuspendingOperation>();
+}
+#[cfg(feature = "ApplicationModel")]
+windows_core::imp::interface_hierarchy!(SuspendingOperation, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel")]
+windows_core::imp::required_hierarchy!(SuspendingOperation, super::super::ApplicationModel::ISuspendingOperation);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingOperation {
     #[cfg(feature = "ApplicationModel")]
@@ -744,7 +750,6 @@ impl SuspendingOperation {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel")]
     pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -754,12 +759,8 @@ impl SuspendingOperation {
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for SuspendingOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ISuspendingOperation>();
-}
-#[cfg(feature = "ApplicationModel")]
 unsafe impl windows_core::Interface for SuspendingOperation {
-    type Vtable = super::super::ApplicationModel::ISuspendingOperation_Vtbl;
+    type Vtable = <super::super::ApplicationModel::ISuspendingOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::ISuspendingOperation as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel")]
@@ -914,9 +915,13 @@ impl windows_core::RuntimeName for WebUIApplication {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIAppointmentsProviderAddAppointmentActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderAddAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderAddAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderAddAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderAddAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -943,14 +948,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -958,7 +956,6 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
@@ -966,7 +963,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
+    #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
     pub fn AddAppointmentOperation(&self) -> windows_core::Result<super::super::ApplicationModel::Appointments::AppointmentsProvider::AddAppointmentOperation> {
         let this = self;
         unsafe {
@@ -974,14 +971,17 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
             (windows_core::Interface::vtable(this).AddAppointmentOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -993,9 +993,13 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderAddAppointmentActiva
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1022,14 +1026,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1037,7 +1034,6 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
@@ -1045,7 +1041,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
+    #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
     pub fn RemoveAppointmentOperation(&self) -> windows_core::Result<super::super::ApplicationModel::Appointments::AppointmentsProvider::RemoveAppointmentOperation> {
         let this = self;
         unsafe {
@@ -1053,14 +1049,17 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (windows_core::Interface::vtable(this).RemoveAppointmentOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1072,9 +1071,13 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderRemoveAppointmentAct
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1101,14 +1104,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1116,7 +1112,6 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
@@ -1124,7 +1119,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
+    #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
     pub fn ReplaceAppointmentOperation(&self) -> windows_core::Result<super::super::ApplicationModel::Appointments::AppointmentsProvider::ReplaceAppointmentOperation> {
         let this = self;
         unsafe {
@@ -1132,14 +1127,17 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (windows_core::Interface::vtable(this).ReplaceAppointmentOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1151,9 +1149,13 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderReplaceAppointmentAc
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1180,14 +1182,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1195,7 +1190,6 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
@@ -1203,7 +1197,6 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn InstanceStartDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
@@ -1211,7 +1204,6 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (windows_core::Interface::vtable(this).InstanceStartDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn LocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -1219,7 +1211,6 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (windows_core::Interface::vtable(this).LocalId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn RoamingId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -1227,14 +1218,17 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (windows_core::Interface::vtable(this).RoamingId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1246,9 +1240,13 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderShowAppointmentDetai
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1275,14 +1273,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1290,7 +1281,6 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
@@ -1298,7 +1288,6 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn TimeToShow(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
@@ -1306,7 +1295,6 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (windows_core::Interface::vtable(this).TimeToShow)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1314,14 +1302,17 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1344,14 +1335,20 @@ impl WebUIBackgroundTaskInstance {
 impl windows_core::RuntimeName for WebUIBackgroundTaskInstance {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIBackgroundTaskInstance";
 }
+#[cfg(feature = "ApplicationModel_Background")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIBackgroundTaskInstanceRuntimeClass(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WebUIBackgroundTaskInstanceRuntimeClass, windows_core::IUnknown, windows_core::IInspectable, IWebUIBackgroundTaskInstance);
 #[cfg(feature = "ApplicationModel_Background")]
-windows_core::imp::required_hierarchy!(WebUIBackgroundTaskInstanceRuntimeClass, super::super::ApplicationModel::Background::IBackgroundTaskInstance);
+impl windows_core::RuntimeType for WebUIBackgroundTaskInstanceRuntimeClass {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUIBackgroundTaskInstance>();
+}
+#[cfg(feature = "ApplicationModel_Background")]
+windows_core::imp::interface_hierarchy!(WebUIBackgroundTaskInstanceRuntimeClass, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Background")]
+windows_core::imp::required_hierarchy!(WebUIBackgroundTaskInstanceRuntimeClass, super::super::ApplicationModel::Background::IBackgroundTaskInstance, IWebUIBackgroundTaskInstance);
+#[cfg(feature = "ApplicationModel_Background")]
 impl WebUIBackgroundTaskInstanceRuntimeClass {
-    #[cfg(feature = "ApplicationModel_Background")]
     pub fn InstanceId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
@@ -1367,7 +1364,6 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
             (windows_core::Interface::vtable(this).Task)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Background")]
     pub fn Progress(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
@@ -1375,12 +1371,10 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
             (windows_core::Interface::vtable(this).Progress)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Background")]
     pub fn SetProgress(&self, value: u32) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetProgress)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "ApplicationModel_Background")]
     pub fn TriggerDetails(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
@@ -1399,12 +1393,10 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
             (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), cancelhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Background")]
     pub fn RemoveCanceled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveCanceled)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[cfg(feature = "ApplicationModel_Background")]
     pub fn SuspendedCount(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe {
@@ -1432,13 +1424,12 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
         unsafe { (windows_core::Interface::vtable(this).SetSucceeded)(windows_core::Interface::as_raw(this), succeeded).ok() }
     }
 }
-impl windows_core::RuntimeType for WebUIBackgroundTaskInstanceRuntimeClass {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUIBackgroundTaskInstance>();
-}
+#[cfg(feature = "ApplicationModel_Background")]
 unsafe impl windows_core::Interface for WebUIBackgroundTaskInstanceRuntimeClass {
-    type Vtable = IWebUIBackgroundTaskInstance_Vtbl;
+    type Vtable = <IWebUIBackgroundTaskInstance as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUIBackgroundTaskInstance as windows_core::Interface>::IID;
 }
+#[cfg(feature = "ApplicationModel_Background")]
 impl windows_core::RuntimeName for WebUIBackgroundTaskInstanceRuntimeClass {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIBackgroundTaskInstanceRuntimeClass";
 }
@@ -1447,9 +1438,13 @@ impl windows_core::RuntimeName for WebUIBackgroundTaskInstanceRuntimeClass {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIBarcodeScannerPreviewActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIBarcodeScannerPreviewActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIBarcodeScannerPreviewActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIBarcodeScannerPreviewActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
+windows_core::imp::interface_hierarchy!(WebUIBarcodeScannerPreviewActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIBarcodeScannerPreviewActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIBarcodeScannerPreviewActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1476,14 +1471,7 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1491,7 +1479,6 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ConnectionId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -1499,14 +1486,17 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
             (windows_core::Interface::vtable(this).ConnectionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIBarcodeScannerPreviewActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIBarcodeScannerPreviewActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1514,17 +1504,17 @@ impl windows_core::RuntimeName for WebUIBarcodeScannerPreviewActivatedEventArgs 
     const NAME: &'static str = "Windows.UI.WebUI.WebUIBarcodeScannerPreviewActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl Send for WebUIBarcodeScannerPreviewActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl Sync for WebUIBarcodeScannerPreviewActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICachedFileUpdaterActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUICachedFileUpdaterActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs);
+impl windows_core::RuntimeType for WebUICachedFileUpdaterActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUICachedFileUpdaterActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
+windows_core::imp::interface_hierarchy!(WebUICachedFileUpdaterActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUICachedFileUpdaterActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUICachedFileUpdaterActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1551,14 +1541,7 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1566,7 +1549,7 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Storage_Provider"))]
+    #[cfg(feature = "Storage_Provider")]
     pub fn CachedFileUpdaterUI(&self) -> windows_core::Result<super::super::Storage::Provider::CachedFileUpdaterUI> {
         let this = self;
         unsafe {
@@ -1574,14 +1557,17 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
             (windows_core::Interface::vtable(this).CachedFileUpdaterUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUICachedFileUpdaterActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUICachedFileUpdaterActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1593,9 +1579,13 @@ impl windows_core::RuntimeName for WebUICachedFileUpdaterActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICameraSettingsActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUICameraSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs);
+impl windows_core::RuntimeType for WebUICameraSettingsActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUICameraSettingsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::interface_hierarchy!(WebUICameraSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUICameraSettingsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUICameraSettingsActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1622,14 +1612,6 @@ impl WebUICameraSettingsActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn VideoDeviceController(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
@@ -1637,7 +1619,6 @@ impl WebUICameraSettingsActivatedEventArgs {
             (windows_core::Interface::vtable(this).VideoDeviceController)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn VideoDeviceExtension(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
@@ -1645,14 +1626,17 @@ impl WebUICameraSettingsActivatedEventArgs {
             (windows_core::Interface::vtable(this).VideoDeviceExtension)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUICameraSettingsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUICameraSettingsActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1664,9 +1648,13 @@ impl windows_core::RuntimeName for WebUICameraSettingsActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandLineActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUICommandLineActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs);
+impl windows_core::RuntimeType for WebUICommandLineActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUICommandLineActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
+windows_core::imp::interface_hierarchy!(WebUICommandLineActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUICommandLineActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUICommandLineActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1693,14 +1681,7 @@ impl WebUICommandLineActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1716,14 +1697,17 @@ impl WebUICommandLineActivatedEventArgs {
             (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUICommandLineActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUICommandLineActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1731,17 +1715,17 @@ impl windows_core::RuntimeName for WebUICommandLineActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUICommandLineActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl Send for WebUICommandLineActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl Sync for WebUICommandLineActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactCallActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIContactCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIContactCallActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIContactCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IContactActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIContactCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIContactCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactActivatedEventArgs, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactCallActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1768,14 +1752,6 @@ impl WebUIContactCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
@@ -1783,7 +1759,6 @@ impl WebUIContactCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -1791,7 +1766,6 @@ impl WebUIContactCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -1799,7 +1773,7 @@ impl WebUIContactCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).ServiceUserId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
+    #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -1807,14 +1781,17 @@ impl WebUIContactCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIContactCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactCallActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1826,9 +1803,13 @@ impl windows_core::RuntimeName for WebUIContactCallActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactMapActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIContactMapActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIContactMapActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIContactMapActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IContactActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIContactMapActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIContactMapActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactActivatedEventArgs, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactMapActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1855,14 +1836,6 @@ impl WebUIContactMapActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
@@ -1870,7 +1843,7 @@ impl WebUIContactMapActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
+    #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Address(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::ContactAddress> {
         let this = self;
         unsafe {
@@ -1878,7 +1851,7 @@ impl WebUIContactMapActivatedEventArgs {
             (windows_core::Interface::vtable(this).Address)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
+    #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -1886,14 +1859,17 @@ impl WebUIContactMapActivatedEventArgs {
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIContactMapActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactMapActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1905,9 +1881,13 @@ impl windows_core::RuntimeName for WebUIContactMapActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactMessageActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIContactMessageActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIContactMessageActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIContactMessageActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IContactActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIContactMessageActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIContactMessageActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactActivatedEventArgs, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactMessageActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1934,14 +1914,6 @@ impl WebUIContactMessageActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
@@ -1949,7 +1921,6 @@ impl WebUIContactMessageActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -1957,7 +1928,6 @@ impl WebUIContactMessageActivatedEventArgs {
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -1965,7 +1935,7 @@ impl WebUIContactMessageActivatedEventArgs {
             (windows_core::Interface::vtable(this).ServiceUserId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
+    #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -1973,14 +1943,17 @@ impl WebUIContactMessageActivatedEventArgs {
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIContactMessageActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactMessageActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1992,9 +1965,13 @@ impl windows_core::RuntimeName for WebUIContactMessageActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactPanelActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIContactPanelActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIContactPanelActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIContactPanelActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
+windows_core::imp::interface_hierarchy!(WebUIContactPanelActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIContactPanelActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactPanelActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2021,14 +1998,7 @@ impl WebUIContactPanelActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -2036,7 +2006,7 @@ impl WebUIContactPanelActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
+    #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn ContactPanel(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::ContactPanel> {
         let this = self;
         unsafe {
@@ -2044,7 +2014,7 @@ impl WebUIContactPanelActivatedEventArgs {
             (windows_core::Interface::vtable(this).ContactPanel)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
+    #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -2052,14 +2022,17 @@ impl WebUIContactPanelActivatedEventArgs {
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIContactPanelActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactPanelActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2067,17 +2040,17 @@ impl windows_core::RuntimeName for WebUIContactPanelActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactPanelActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl Send for WebUIContactPanelActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl Sync for WebUIContactPanelActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactPickerActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIContactPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIContactPickerActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIContactPickerActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::interface_hierarchy!(WebUIContactPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIContactPickerActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactPickerActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2104,14 +2077,7 @@ impl WebUIContactPickerActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts_Provider"))]
+    #[cfg(feature = "ApplicationModel_Contacts_Provider")]
     pub fn ContactPickerUI(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::Provider::ContactPickerUI> {
         let this = self;
         unsafe {
@@ -2119,14 +2085,17 @@ impl WebUIContactPickerActivatedEventArgs {
             (windows_core::Interface::vtable(this).ContactPickerUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIContactPickerActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactPickerActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2138,9 +2107,13 @@ impl windows_core::RuntimeName for WebUIContactPickerActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactPostActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIContactPostActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIContactPostActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIContactPostActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IContactActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIContactPostActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIContactPostActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactActivatedEventArgs, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactPostActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2167,14 +2140,6 @@ impl WebUIContactPostActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
@@ -2182,7 +2147,6 @@ impl WebUIContactPostActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -2190,7 +2154,6 @@ impl WebUIContactPostActivatedEventArgs {
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -2198,7 +2161,7 @@ impl WebUIContactPostActivatedEventArgs {
             (windows_core::Interface::vtable(this).ServiceUserId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
+    #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -2206,14 +2169,17 @@ impl WebUIContactPostActivatedEventArgs {
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIContactPostActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactPostActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2225,9 +2191,13 @@ impl windows_core::RuntimeName for WebUIContactPostActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactVideoCallActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIContactVideoCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIContactVideoCallActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIContactVideoCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IContactActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIContactVideoCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIContactVideoCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactActivatedEventArgs, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactVideoCallActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2254,14 +2224,6 @@ impl WebUIContactVideoCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
         unsafe {
@@ -2269,7 +2231,6 @@ impl WebUIContactVideoCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -2277,7 +2238,6 @@ impl WebUIContactVideoCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceUserId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -2285,7 +2245,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).ServiceUserId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
+    #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
         unsafe {
@@ -2293,14 +2253,17 @@ impl WebUIContactVideoCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIContactVideoCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactVideoCallActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2312,9 +2275,13 @@ impl windows_core::RuntimeName for WebUIContactVideoCallActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIDeviceActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIDeviceActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIDeviceActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIDeviceActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIDeviceActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIDeviceActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIDeviceActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2341,14 +2308,7 @@ impl WebUIDeviceActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -2356,7 +2316,6 @@ impl WebUIDeviceActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -2364,7 +2323,6 @@ impl WebUIDeviceActivatedEventArgs {
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn DeviceInformationId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -2372,7 +2330,6 @@ impl WebUIDeviceActivatedEventArgs {
             (windows_core::Interface::vtable(this).DeviceInformationId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -2380,14 +2337,17 @@ impl WebUIDeviceActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIDeviceActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIDeviceActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2399,9 +2359,13 @@ impl windows_core::RuntimeName for WebUIDeviceActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIDevicePairingActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIDevicePairingActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIDevicePairingActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIDevicePairingActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
+windows_core::imp::interface_hierarchy!(WebUIDevicePairingActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIDevicePairingActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIDevicePairingActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2428,14 +2392,7 @@ impl WebUIDevicePairingActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -2443,7 +2400,7 @@ impl WebUIDevicePairingActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Devices_Enumeration"))]
+    #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceInformation(&self) -> windows_core::Result<super::super::Devices::Enumeration::DeviceInformation> {
         let this = self;
         unsafe {
@@ -2451,14 +2408,17 @@ impl WebUIDevicePairingActivatedEventArgs {
             (windows_core::Interface::vtable(this).DeviceInformation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIDevicePairingActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIDevicePairingActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2470,9 +2430,13 @@ impl windows_core::RuntimeName for WebUIDevicePairingActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIDialReceiverActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIDialReceiverActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIDialReceiverActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIDialReceiverActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIDialReceiverActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIDialReceiverActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIDialReceiverActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2499,14 +2463,7 @@ impl WebUIDialReceiverActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -2514,7 +2471,6 @@ impl WebUIDialReceiverActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -2522,7 +2478,6 @@ impl WebUIDialReceiverActivatedEventArgs {
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn AppName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -2530,7 +2485,6 @@ impl WebUIDialReceiverActivatedEventArgs {
             (windows_core::Interface::vtable(this).AppName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -2538,7 +2492,6 @@ impl WebUIDialReceiverActivatedEventArgs {
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn TileId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -2546,14 +2499,17 @@ impl WebUIDialReceiverActivatedEventArgs {
             (windows_core::Interface::vtable(this).TileId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIDialReceiverActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIDialReceiverActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2565,9 +2521,13 @@ impl windows_core::RuntimeName for WebUIDialReceiverActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFileActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIFileActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IFileActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIFileActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIFileActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles);
+windows_core::imp::interface_hierarchy!(WebUIFileActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIFileActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IFileActivatedEventArgs, super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2594,14 +2554,7 @@ impl WebUIFileActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -2609,7 +2562,6 @@ impl WebUIFileActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -2617,23 +2569,22 @@ impl WebUIFileActivatedEventArgs {
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections", feature = "Storage"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IFileActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Files)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IFileActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Storage_Search"))]
+    #[cfg(feature = "Storage_Search")]
     pub fn NeighboringFilesQuery(&self) -> windows_core::Result<super::super::Storage::Search::StorageFileQueryResult> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles>(self)?;
         unsafe {
@@ -2641,14 +2592,17 @@ impl WebUIFileActivatedEventArgs {
             (windows_core::Interface::vtable(this).NeighboringFilesQuery)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIFileActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIFileActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IFileActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IFileActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IFileActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2660,9 +2614,13 @@ impl windows_core::RuntimeName for WebUIFileActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFileOpenPickerActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIFileOpenPickerActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIFileOpenPickerActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2);
+windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIFileOpenPickerActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileOpenPickerActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2689,14 +2647,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -2704,7 +2655,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Storage_Pickers_Provider"))]
+    #[cfg(feature = "Storage_Pickers_Provider")]
     pub fn FileOpenPickerUI(&self) -> windows_core::Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI> {
         let this = self;
         unsafe {
@@ -2712,7 +2663,6 @@ impl WebUIFileOpenPickerActivatedEventArgs {
             (windows_core::Interface::vtable(this).FileOpenPickerUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2>(self)?;
         unsafe {
@@ -2720,14 +2670,17 @@ impl WebUIFileOpenPickerActivatedEventArgs {
             (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIFileOpenPickerActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIFileOpenPickerActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2739,12 +2692,16 @@ impl windows_core::RuntimeName for WebUIFileOpenPickerActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFileOpenPickerContinuationEventArgs(windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs);
+impl windows_core::RuntimeType for WebUIFileOpenPickerContinuationEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs>();
+}
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::required_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+windows_core::imp::required_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs, IActivatedEventArgsDeferral);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIFileOpenPickerContinuationEventArgs {
-    #[cfg(feature = "ApplicationModel_Activation")]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -2752,7 +2709,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -2760,7 +2717,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -2768,14 +2725,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(all(feature = "System", feature = "deprecated"))]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -2783,7 +2733,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -2791,7 +2741,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -2799,14 +2749,18 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Files)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl windows_core::RuntimeType for WebUIFileOpenPickerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs>();
+    #[cfg(feature = "deprecated")]
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl windows_core::Interface for WebUIFileOpenPickerContinuationEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
@@ -2818,9 +2772,13 @@ impl windows_core::RuntimeName for WebUIFileOpenPickerContinuationEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFileSavePickerActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIFileSavePickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIFileSavePickerActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIFileSavePickerActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2);
+windows_core::imp::interface_hierarchy!(WebUIFileSavePickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIFileSavePickerActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileSavePickerActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2847,14 +2805,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -2862,7 +2813,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Storage_Pickers_Provider"))]
+    #[cfg(feature = "Storage_Pickers_Provider")]
     pub fn FileSavePickerUI(&self) -> windows_core::Result<super::super::Storage::Pickers::Provider::FileSavePickerUI> {
         let this = self;
         unsafe {
@@ -2870,7 +2821,6 @@ impl WebUIFileSavePickerActivatedEventArgs {
             (windows_core::Interface::vtable(this).FileSavePickerUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
@@ -2878,7 +2828,6 @@ impl WebUIFileSavePickerActivatedEventArgs {
             (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn EnterpriseId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
@@ -2886,14 +2835,17 @@ impl WebUIFileSavePickerActivatedEventArgs {
             (windows_core::Interface::vtable(this).EnterpriseId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIFileSavePickerActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIFileSavePickerActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2905,12 +2857,16 @@ impl windows_core::RuntimeName for WebUIFileSavePickerActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFileSavePickerContinuationEventArgs(windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::interface_hierarchy!(WebUIFileSavePickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs);
+impl windows_core::RuntimeType for WebUIFileSavePickerContinuationEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs>();
+}
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::required_hierarchy!(WebUIFileSavePickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIFileSavePickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+windows_core::imp::required_hierarchy!(WebUIFileSavePickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs, IActivatedEventArgsDeferral);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIFileSavePickerContinuationEventArgs {
-    #[cfg(feature = "ApplicationModel_Activation")]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -2918,7 +2874,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -2926,7 +2882,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -2934,14 +2890,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(all(feature = "System", feature = "deprecated"))]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -2949,7 +2898,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -2957,7 +2906,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Storage", feature = "deprecated"))]
+    #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
         let this = self;
         unsafe {
@@ -2965,14 +2914,18 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).File)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl windows_core::RuntimeType for WebUIFileSavePickerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs>();
+    #[cfg(feature = "deprecated")]
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl windows_core::Interface for WebUIFileSavePickerContinuationEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
@@ -2984,12 +2937,16 @@ impl windows_core::RuntimeName for WebUIFileSavePickerContinuationEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFolderPickerContinuationEventArgs(windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::interface_hierarchy!(WebUIFolderPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs);
+impl windows_core::RuntimeType for WebUIFolderPickerContinuationEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs>();
+}
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::required_hierarchy!(WebUIFolderPickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIFolderPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+windows_core::imp::required_hierarchy!(WebUIFolderPickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs, IActivatedEventArgsDeferral);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIFolderPickerContinuationEventArgs {
-    #[cfg(feature = "ApplicationModel_Activation")]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -2997,7 +2954,7 @@ impl WebUIFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -3005,7 +2962,7 @@ impl WebUIFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -3013,14 +2970,7 @@ impl WebUIFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(all(feature = "System", feature = "deprecated"))]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -3028,7 +2978,7 @@ impl WebUIFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -3036,7 +2986,7 @@ impl WebUIFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Storage", feature = "deprecated"))]
+    #[cfg(all(feature = "Storage_Search", feature = "deprecated"))]
     pub fn Folder(&self) -> windows_core::Result<super::super::Storage::StorageFolder> {
         let this = self;
         unsafe {
@@ -3044,14 +2994,18 @@ impl WebUIFolderPickerContinuationEventArgs {
             (windows_core::Interface::vtable(this).Folder)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl windows_core::RuntimeType for WebUIFolderPickerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs>();
+    #[cfg(feature = "deprecated")]
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl windows_core::Interface for WebUIFolderPickerContinuationEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
@@ -3063,9 +3017,22 @@ impl windows_core::RuntimeName for WebUIFolderPickerContinuationEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUILaunchActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUILaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs);
+impl windows_core::RuntimeType for WebUILaunchActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUILaunchActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2, super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUILaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(
+    WebUILaunchActivatedEventArgs,
+    super::super::ApplicationModel::Activation::IActivatedEventArgs,
+    super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser,
+    super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs,
+    super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs,
+    super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2,
+    super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs,
+    IActivatedEventArgsDeferral
+);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILaunchActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3092,14 +3059,7 @@ impl WebUILaunchActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -3107,7 +3067,6 @@ impl WebUILaunchActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -3115,17 +3074,15 @@ impl WebUILaunchActivatedEventArgs {
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn TileId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TileId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3139,7 +3096,6 @@ impl WebUILaunchActivatedEventArgs {
             (windows_core::Interface::vtable(this).TileActivatedInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PrelaunchActivated(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -3147,14 +3103,17 @@ impl WebUILaunchActivatedEventArgs {
             (windows_core::Interface::vtable(this).PrelaunchActivated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUILaunchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUILaunchActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3166,9 +3125,13 @@ impl windows_core::RuntimeName for WebUILaunchActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUILockScreenActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUILockScreenActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs);
+impl windows_core::RuntimeType for WebUILockScreenActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUILockScreenActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUILockScreenActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUILockScreenActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILockScreenActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3195,14 +3158,7 @@ impl WebUILockScreenActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -3210,7 +3166,6 @@ impl WebUILockScreenActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -3218,7 +3173,6 @@ impl WebUILockScreenActivatedEventArgs {
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Info(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
@@ -3226,14 +3180,17 @@ impl WebUILockScreenActivatedEventArgs {
             (windows_core::Interface::vtable(this).Info)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUILockScreenActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUILockScreenActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3245,9 +3202,13 @@ impl windows_core::RuntimeName for WebUILockScreenActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUILockScreenCallActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUILockScreenCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs);
+impl windows_core::RuntimeType for WebUILockScreenCallActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUILockScreenCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUILockScreenCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUILockScreenCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILockScreenCallActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3274,14 +3235,6 @@ impl WebUILockScreenCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -3289,7 +3242,6 @@ impl WebUILockScreenCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -3297,7 +3249,6 @@ impl WebUILockScreenCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn TileId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
         unsafe {
@@ -3305,7 +3256,7 @@ impl WebUILockScreenCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).TileId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Calls"))]
+    #[cfg(feature = "ApplicationModel_Calls")]
     pub fn CallUI(&self) -> windows_core::Result<super::super::ApplicationModel::Calls::LockScreenCallUI> {
         let this = self;
         unsafe {
@@ -3313,14 +3264,17 @@ impl WebUILockScreenCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).CallUI)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUILockScreenCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUILockScreenCallActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3332,9 +3286,13 @@ impl windows_core::RuntimeName for WebUILockScreenCallActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUILockScreenComponentActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUILockScreenComponentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IActivatedEventArgs);
+impl windows_core::RuntimeType for WebUILockScreenComponentActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUILockScreenComponentActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::interface_hierarchy!(WebUILockScreenComponentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUILockScreenComponentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILockScreenComponentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3370,12 +3328,8 @@ impl WebUILockScreenComponentActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUILockScreenComponentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IActivatedEventArgs>();
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUILockScreenComponentActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3385,18 +3339,19 @@ impl windows_core::RuntimeName for WebUILockScreenComponentActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUINavigatedDeferral(windows_core::IUnknown);
+impl windows_core::RuntimeType for WebUINavigatedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUINavigatedDeferral>();
+}
 windows_core::imp::interface_hierarchy!(WebUINavigatedDeferral, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(WebUINavigatedDeferral,);
 impl WebUINavigatedDeferral {
     pub fn Complete(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for WebUINavigatedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUINavigatedDeferral>();
-}
 unsafe impl windows_core::Interface for WebUINavigatedDeferral {
-    type Vtable = IWebUINavigatedDeferral_Vtbl;
+    type Vtable = <IWebUINavigatedDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUINavigatedDeferral as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebUINavigatedDeferral {
@@ -3405,7 +3360,11 @@ impl windows_core::RuntimeName for WebUINavigatedDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUINavigatedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WebUINavigatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, IWebUINavigatedEventArgs);
+impl windows_core::RuntimeType for WebUINavigatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUINavigatedEventArgs>();
+}
+windows_core::imp::interface_hierarchy!(WebUINavigatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(WebUINavigatedEventArgs, IWebUINavigatedEventArgs);
 impl WebUINavigatedEventArgs {
     pub fn NavigatedOperation(&self) -> windows_core::Result<WebUINavigatedOperation> {
         let this = self;
@@ -3415,11 +3374,8 @@ impl WebUINavigatedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for WebUINavigatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUINavigatedEventArgs>();
-}
 unsafe impl windows_core::Interface for WebUINavigatedEventArgs {
-    type Vtable = IWebUINavigatedEventArgs_Vtbl;
+    type Vtable = <IWebUINavigatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUINavigatedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebUINavigatedEventArgs {
@@ -3428,7 +3384,11 @@ impl windows_core::RuntimeName for WebUINavigatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUINavigatedOperation(windows_core::IUnknown);
+impl windows_core::RuntimeType for WebUINavigatedOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUINavigatedOperation>();
+}
 windows_core::imp::interface_hierarchy!(WebUINavigatedOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(WebUINavigatedOperation,);
 impl WebUINavigatedOperation {
     pub fn GetDeferral(&self) -> windows_core::Result<WebUINavigatedDeferral> {
         let this = self;
@@ -3438,11 +3398,8 @@ impl WebUINavigatedOperation {
         }
     }
 }
-impl windows_core::RuntimeType for WebUINavigatedOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUINavigatedOperation>();
-}
 unsafe impl windows_core::Interface for WebUINavigatedOperation {
-    type Vtable = IWebUINavigatedOperation_Vtbl;
+    type Vtable = <IWebUINavigatedOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUINavigatedOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebUINavigatedOperation {
@@ -3453,9 +3410,13 @@ impl windows_core::RuntimeName for WebUINavigatedOperation {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIPhoneCallActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIPhoneCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIPhoneCallActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIPhoneCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
+windows_core::imp::interface_hierarchy!(WebUIPhoneCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIPhoneCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPhoneCallActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3482,14 +3443,7 @@ impl WebUIPhoneCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -3497,7 +3451,6 @@ impl WebUIPhoneCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn LineId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
         unsafe {
@@ -3505,14 +3458,17 @@ impl WebUIPhoneCallActivatedEventArgs {
             (windows_core::Interface::vtable(this).LineId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIPhoneCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIPhoneCallActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3520,17 +3476,17 @@ impl windows_core::RuntimeName for WebUIPhoneCallActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIPhoneCallActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl Send for WebUIPhoneCallActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl Sync for WebUIPhoneCallActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIPrint3DWorkflowActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIPrint3DWorkflowActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIPrint3DWorkflowActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIPrint3DWorkflowActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::interface_hierarchy!(WebUIPrint3DWorkflowActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIPrint3DWorkflowActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPrint3DWorkflowActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3557,14 +3513,7 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Devices_Printers_Extensions"))]
+    #[cfg(feature = "Devices_Printers_Extensions")]
     pub fn Workflow(&self) -> windows_core::Result<super::super::Devices::Printers::Extensions::Print3DWorkflow> {
         let this = self;
         unsafe {
@@ -3572,14 +3521,17 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
             (windows_core::Interface::vtable(this).Workflow)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIPrint3DWorkflowActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIPrint3DWorkflowActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3591,9 +3543,13 @@ impl windows_core::RuntimeName for WebUIPrint3DWorkflowActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIPrintTaskSettingsActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIPrintTaskSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIPrintTaskSettingsActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIPrintTaskSettingsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::interface_hierarchy!(WebUIPrintTaskSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIPrintTaskSettingsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPrintTaskSettingsActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3620,14 +3576,7 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Devices_Printers_Extensions"))]
+    #[cfg(feature = "Devices_Printers_Extensions")]
     pub fn Configuration(&self) -> windows_core::Result<super::super::Devices::Printers::Extensions::PrintTaskConfiguration> {
         let this = self;
         unsafe {
@@ -3635,14 +3584,17 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
             (windows_core::Interface::vtable(this).Configuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIPrintTaskSettingsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIPrintTaskSettingsActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3654,9 +3606,13 @@ impl windows_core::RuntimeName for WebUIPrintTaskSettingsActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIPrintWorkflowForegroundTaskActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIPrintWorkflowForegroundTaskActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIPrintWorkflowForegroundTaskActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::interface_hierarchy!(WebUIPrintWorkflowForegroundTaskActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIPrintWorkflowForegroundTaskActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3692,12 +3648,8 @@ impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IActivatedEventArgs>();
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3709,9 +3661,13 @@ impl windows_core::RuntimeName for WebUIPrintWorkflowForegroundTaskActivatedEven
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIProtocolActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIProtocolActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIProtocolActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIProtocolActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData);
+windows_core::imp::interface_hierarchy!(WebUIProtocolActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIProtocolActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIProtocolActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3738,14 +3694,7 @@ impl WebUIProtocolActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -3753,7 +3702,6 @@ impl WebUIProtocolActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -3761,7 +3709,6 @@ impl WebUIProtocolActivatedEventArgs {
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
@@ -3769,7 +3716,6 @@ impl WebUIProtocolActivatedEventArgs {
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
@@ -3777,7 +3723,7 @@ impl WebUIProtocolActivatedEventArgs {
             (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn Data(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
@@ -3785,14 +3731,17 @@ impl WebUIProtocolActivatedEventArgs {
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIProtocolActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIProtocolActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3804,9 +3753,22 @@ impl windows_core::RuntimeName for WebUIProtocolActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIProtocolForResultsActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIProtocolForResultsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIProtocolForResultsActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIProtocolForResultsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData);
+windows_core::imp::interface_hierarchy!(WebUIProtocolForResultsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(
+    WebUIProtocolForResultsActivatedEventArgs,
+    super::super::ApplicationModel::Activation::IActivatedEventArgs,
+    super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser,
+    super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs,
+    super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs,
+    super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData,
+    super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs,
+    IActivatedEventArgsDeferral
+);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIProtocolForResultsActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3833,14 +3795,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -3848,7 +3803,6 @@ impl WebUIProtocolForResultsActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -3856,7 +3810,6 @@ impl WebUIProtocolForResultsActivatedEventArgs {
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs>(self)?;
         unsafe {
@@ -3864,7 +3817,6 @@ impl WebUIProtocolForResultsActivatedEventArgs {
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
@@ -3872,7 +3824,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
             (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn Data(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
@@ -3880,7 +3832,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn ProtocolForResultsOperation(&self) -> windows_core::Result<super::super::System::ProtocolForResultsOperation> {
         let this = self;
         unsafe {
@@ -3888,14 +3840,17 @@ impl WebUIProtocolForResultsActivatedEventArgs {
             (windows_core::Interface::vtable(this).ProtocolForResultsOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIProtocolForResultsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIProtocolForResultsActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3907,9 +3862,13 @@ impl windows_core::RuntimeName for WebUIProtocolForResultsActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIRestrictedLaunchActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIRestrictedLaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIRestrictedLaunchActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIRestrictedLaunchActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
+windows_core::imp::interface_hierarchy!(WebUIRestrictedLaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIRestrictedLaunchActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIRestrictedLaunchActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3936,14 +3895,7 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -3951,7 +3903,6 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SharedContext(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
@@ -3959,14 +3910,17 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
             (windows_core::Interface::vtable(this).SharedContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIRestrictedLaunchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIRestrictedLaunchActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3978,9 +3932,13 @@ impl windows_core::RuntimeName for WebUIRestrictedLaunchActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUISearchActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUISearchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs);
+impl windows_core::RuntimeType for WebUISearchActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUISearchActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails);
+windows_core::imp::interface_hierarchy!(WebUISearchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUISearchActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs, super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUISearchActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4007,14 +3965,6 @@ impl WebUISearchActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
@@ -4022,7 +3972,6 @@ impl WebUISearchActivatedEventArgs {
             (windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -4030,7 +3979,6 @@ impl WebUISearchActivatedEventArgs {
             (windows_core::Interface::vtable(this).QueryText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -4038,7 +3986,7 @@ impl WebUISearchActivatedEventArgs {
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Search"))]
+    #[cfg(feature = "ApplicationModel_Search")]
     pub fn LinguisticDetails(&self) -> windows_core::Result<super::super::ApplicationModel::Search::SearchPaneQueryLinguisticDetails> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails>(self)?;
         unsafe {
@@ -4046,14 +3994,17 @@ impl WebUISearchActivatedEventArgs {
             (windows_core::Interface::vtable(this).LinguisticDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUISearchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUISearchActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::ISearchActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::ISearchActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::ISearchActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4065,9 +4016,13 @@ impl windows_core::RuntimeName for WebUISearchActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIShareTargetActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIShareTargetActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIShareTargetActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIShareTargetActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
+windows_core::imp::interface_hierarchy!(WebUIShareTargetActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIShareTargetActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIShareTargetActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4094,14 +4049,7 @@ impl WebUIShareTargetActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -4109,7 +4057,7 @@ impl WebUIShareTargetActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_DataTransfer_ShareTarget"))]
+    #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
     pub fn ShareOperation(&self) -> windows_core::Result<super::super::ApplicationModel::DataTransfer::ShareTarget::ShareOperation> {
         let this = self;
         unsafe {
@@ -4117,14 +4065,17 @@ impl WebUIShareTargetActivatedEventArgs {
             (windows_core::Interface::vtable(this).ShareOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIShareTargetActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIShareTargetActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4136,9 +4087,13 @@ impl windows_core::RuntimeName for WebUIShareTargetActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIStartupTaskActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIStartupTaskActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIStartupTaskActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIStartupTaskActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
+windows_core::imp::interface_hierarchy!(WebUIStartupTaskActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIStartupTaskActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIStartupTaskActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4165,14 +4120,7 @@ impl WebUIStartupTaskActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -4180,7 +4128,6 @@ impl WebUIStartupTaskActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn TaskId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -4188,14 +4135,17 @@ impl WebUIStartupTaskActivatedEventArgs {
             (windows_core::Interface::vtable(this).TaskId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIStartupTaskActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIStartupTaskActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4203,17 +4153,17 @@ impl windows_core::RuntimeName for WebUIStartupTaskActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIStartupTaskActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl Send for WebUIStartupTaskActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-unsafe impl Sync for WebUIStartupTaskActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIToastNotificationActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIToastNotificationActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIToastNotificationActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIToastNotificationActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
+windows_core::imp::interface_hierarchy!(WebUIToastNotificationActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIToastNotificationActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIToastNotificationActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4240,14 +4190,7 @@ impl WebUIToastNotificationActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -4255,7 +4198,6 @@ impl WebUIToastNotificationActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Argument(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -4263,7 +4205,7 @@ impl WebUIToastNotificationActivatedEventArgs {
             (windows_core::Interface::vtable(this).Argument)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn UserInput(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
@@ -4271,14 +4213,17 @@ impl WebUIToastNotificationActivatedEventArgs {
             (windows_core::Interface::vtable(this).UserInput)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIToastNotificationActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIToastNotificationActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4290,9 +4235,13 @@ impl windows_core::RuntimeName for WebUIToastNotificationActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIUserDataAccountProviderActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIUserDataAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIUserDataAccountProviderActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIUserDataAccountProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::interface_hierarchy!(WebUIUserDataAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIUserDataAccountProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIUserDataAccountProviderActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4319,14 +4268,7 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_UserDataAccounts_Provider"))]
+    #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
     pub fn Operation(&self) -> windows_core::Result<super::super::ApplicationModel::UserDataAccounts::Provider::IUserDataAccountProviderOperation> {
         let this = self;
         unsafe {
@@ -4334,26 +4276,36 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
             (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIUserDataAccountProviderActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIUserDataAccountProviderActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeName for WebUIUserDataAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIUserDataAccountProviderActivatedEventArgs";
 }
+#[cfg(feature = "Web_UI")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIView(windows_core::IUnknown);
+#[cfg(feature = "Web_UI")]
+impl windows_core::RuntimeType for WebUIView {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUIView>();
+}
+#[cfg(feature = "Web_UI")]
 windows_core::imp::interface_hierarchy!(WebUIView, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Web_UI")]
 windows_core::imp::required_hierarchy!(WebUIView, super::super::Web::UI::IWebViewControl, super::super::Web::UI::IWebViewControl2);
+#[cfg(feature = "Web_UI")]
 impl WebUIView {
     pub fn ApplicationViewId(&self) -> windows_core::Result<i32> {
         let this = self;
@@ -4417,7 +4369,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).CreateWithUriAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Web_UI")]
     pub fn Source(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
@@ -4425,7 +4376,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).Source)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn SetSource<P0>(&self, source: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
@@ -4433,7 +4383,6 @@ impl WebUIView {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), source.param().abi()).ok() }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn DocumentTitle(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
@@ -4441,7 +4390,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).DocumentTitle)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn CanGoBack(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
@@ -4449,7 +4397,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).CanGoBack)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn CanGoForward(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
@@ -4457,12 +4404,10 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).CanGoForward)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn SetDefaultBackgroundColor(&self, value: super::Color) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDefaultBackgroundColor)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn DefaultBackgroundColor(&self) -> windows_core::Result<super::Color> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
@@ -4470,7 +4415,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).DefaultBackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn ContainsFullScreenElement(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
@@ -4494,27 +4438,22 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).DeferredPermissionRequests)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn GoForward(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).GoForward)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn GoBack(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).GoBack)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn Refresh(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Refresh)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn Stop(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn Navigate<P0>(&self, source: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
@@ -4522,12 +4461,11 @@ impl WebUIView {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Navigate)(windows_core::Interface::as_raw(this), source.param().abi()).ok() }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn NavigateToString(&self, text: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).NavigateToString)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text)).ok() }
     }
-    #[cfg(feature = "Web_UI")]
+    #[cfg(feature = "Web")]
     pub fn NavigateToLocalStreamUri<P0, P1>(&self, source: P0, streamresolver: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
@@ -4536,7 +4474,7 @@ impl WebUIView {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).NavigateToLocalStreamUri)(windows_core::Interface::as_raw(this), source.param().abi(), streamresolver.param().abi()).ok() }
     }
-    #[cfg(all(feature = "Web_Http", feature = "Web_UI"))]
+    #[cfg(feature = "Web_Http")]
     pub fn NavigateWithHttpRequestMessage<P0>(&self, requestmessage: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Web::Http::HttpRequestMessage>,
@@ -4544,10 +4482,10 @@ impl WebUIView {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).NavigateWithHttpRequestMessage)(windows_core::Interface::as_raw(this), requestmessage.param().abi()).ok() }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Web_UI"))]
-    pub fn InvokeScriptAsync<P0>(&self, scriptname: &windows_core::HSTRING, arguments: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn InvokeScriptAsync<P1>(&self, scriptname: &windows_core::HSTRING, arguments: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
@@ -4555,7 +4493,7 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).InvokeScriptAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(scriptname), arguments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Storage_Streams", feature = "Web_UI"))]
+    #[cfg(feature = "Storage_Streams")]
     pub fn CapturePreviewToStreamAsync<P0>(&self, stream: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
@@ -4566,7 +4504,7 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).CapturePreviewToStreamAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Web_UI"))]
+    #[cfg(feature = "ApplicationModel_DataTransfer")]
     pub fn CaptureSelectedContentToDataPackageAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
@@ -4574,7 +4512,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).CaptureSelectedContentToDataPackageAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn BuildLocalStreamUri(&self, contentidentifier: &windows_core::HSTRING, relativepath: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe {
@@ -4598,7 +4535,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).NavigationStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveNavigationStarting(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveNavigationStarting)(windows_core::Interface::as_raw(this), token).ok() }
@@ -4614,7 +4550,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).ContentLoading)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveContentLoading(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveContentLoading)(windows_core::Interface::as_raw(this), token).ok() }
@@ -4630,7 +4565,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).DOMContentLoaded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveDOMContentLoaded(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveDOMContentLoaded)(windows_core::Interface::as_raw(this), token).ok() }
@@ -4646,7 +4580,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).NavigationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveNavigationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveNavigationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
@@ -4662,7 +4595,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).FrameNavigationStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveFrameNavigationStarting(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveFrameNavigationStarting)(windows_core::Interface::as_raw(this), token).ok() }
@@ -4678,7 +4610,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).FrameContentLoading)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveFrameContentLoading(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveFrameContentLoading)(windows_core::Interface::as_raw(this), token).ok() }
@@ -4694,7 +4625,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).FrameDOMContentLoaded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveFrameDOMContentLoaded(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveFrameDOMContentLoaded)(windows_core::Interface::as_raw(this), token).ok() }
@@ -4710,7 +4640,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).FrameNavigationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveFrameNavigationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveFrameNavigationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
@@ -4726,7 +4655,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).ScriptNotify)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveScriptNotify(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveScriptNotify)(windows_core::Interface::as_raw(this), token).ok() }
@@ -4742,12 +4670,10 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).LongRunningScriptDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveLongRunningScriptDetected(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveLongRunningScriptDetected)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn UnsafeContentWarningDisplaying<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, windows_core::IInspectable>>,
@@ -4758,7 +4684,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).UnsafeContentWarningDisplaying)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveUnsafeContentWarningDisplaying(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveUnsafeContentWarningDisplaying)(windows_core::Interface::as_raw(this), token).ok() }
@@ -4774,7 +4699,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).UnviewableContentIdentified)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveUnviewableContentIdentified(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveUnviewableContentIdentified)(windows_core::Interface::as_raw(this), token).ok() }
@@ -4790,7 +4714,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).PermissionRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemovePermissionRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemovePermissionRequested)(windows_core::Interface::as_raw(this), token).ok() }
@@ -4806,7 +4729,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).UnsupportedUriSchemeIdentified)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveUnsupportedUriSchemeIdentified(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveUnsupportedUriSchemeIdentified)(windows_core::Interface::as_raw(this), token).ok() }
@@ -4822,12 +4744,10 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).NewWindowRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveNewWindowRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveNewWindowRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn ContainsFullScreenElementChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::super::Web::UI::IWebViewControl, windows_core::IInspectable>>,
@@ -4838,7 +4758,6 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).ContainsFullScreenElementChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveContainsFullScreenElementChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveContainsFullScreenElementChanged)(windows_core::Interface::as_raw(this), token).ok() }
@@ -4854,12 +4773,10 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).WebResourceRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn RemoveWebResourceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveWebResourceRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[cfg(feature = "Web_UI")]
     pub fn AddInitializeScript(&self, script: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).AddInitializeScript)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(script)).ok() }
@@ -4869,13 +4786,12 @@ impl WebUIView {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for WebUIView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUIView>();
-}
+#[cfg(feature = "Web_UI")]
 unsafe impl windows_core::Interface for WebUIView {
-    type Vtable = IWebUIView_Vtbl;
+    type Vtable = <IWebUIView as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUIView as windows_core::Interface>::IID;
 }
+#[cfg(feature = "Web_UI")]
 impl windows_core::RuntimeName for WebUIView {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIView";
 }
@@ -4884,9 +4800,13 @@ impl windows_core::RuntimeName for WebUIView {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIVoiceCommandActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIVoiceCommandActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIVoiceCommandActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIVoiceCommandActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
+windows_core::imp::interface_hierarchy!(WebUIVoiceCommandActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIVoiceCommandActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIVoiceCommandActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4913,14 +4833,7 @@ impl WebUIVoiceCommandActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -4928,7 +4841,7 @@ impl WebUIVoiceCommandActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Media_SpeechRecognition"))]
+    #[cfg(feature = "Media_SpeechRecognition")]
     pub fn Result(&self) -> windows_core::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult> {
         let this = self;
         unsafe {
@@ -4936,14 +4849,17 @@ impl WebUIVoiceCommandActivatedEventArgs {
             (windows_core::Interface::vtable(this).Result)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIVoiceCommandActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIVoiceCommandActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4955,12 +4871,16 @@ impl windows_core::RuntimeName for WebUIVoiceCommandActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIWalletActionActivatedEventArgs(windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::interface_hierarchy!(WebUIWalletActionActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIWalletActionActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs>();
+}
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::required_hierarchy!(WebUIWalletActionActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::interface_hierarchy!(WebUIWalletActionActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+windows_core::imp::required_hierarchy!(WebUIWalletActionActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIWalletActionActivatedEventArgs {
-    #[cfg(feature = "ApplicationModel_Activation")]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -4968,7 +4888,7 @@ impl WebUIWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -4976,7 +4896,7 @@ impl WebUIWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
@@ -4984,14 +4904,7 @@ impl WebUIWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub fn ItemId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -4999,7 +4912,7 @@ impl WebUIWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).ItemId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Wallet", feature = "deprecated"))]
+    #[cfg(all(feature = "ApplicationModel_Wallet", feature = "deprecated"))]
     pub fn ActionKind(&self) -> windows_core::Result<super::super::ApplicationModel::Wallet::WalletActionKind> {
         let this = self;
         unsafe {
@@ -5007,7 +4920,7 @@ impl WebUIWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).ActionKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+    #[cfg(feature = "deprecated")]
     pub fn ActionId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -5015,14 +4928,18 @@ impl WebUIWalletActionActivatedEventArgs {
             (windows_core::Interface::vtable(this).ActionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl windows_core::RuntimeType for WebUIWalletActionActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs>();
+    #[cfg(feature = "deprecated")]
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl windows_core::Interface for WebUIWalletActionActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
@@ -5034,9 +4951,13 @@ impl windows_core::RuntimeName for WebUIWalletActionActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIWebAccountProviderActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIWebAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs);
+impl windows_core::RuntimeType for WebUIWebAccountProviderActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIWebAccountProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
+windows_core::imp::interface_hierarchy!(WebUIWebAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIWebAccountProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIWebAccountProviderActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5063,14 +4984,7 @@ impl WebUIWebAccountProviderActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -5078,7 +4992,7 @@ impl WebUIWebAccountProviderActivatedEventArgs {
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Security_Authentication_Web_Provider"))]
+    #[cfg(feature = "Security_Authentication_Web_Provider")]
     pub fn Operation(&self) -> windows_core::Result<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation> {
         let this = self;
         unsafe {
@@ -5086,14 +5000,17 @@ impl WebUIWebAccountProviderActivatedEventArgs {
             (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIWebAccountProviderActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIWebAccountProviderActivatedEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -5105,9 +5022,13 @@ impl windows_core::RuntimeName for WebUIWebAccountProviderActivatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIWebAuthenticationBrokerContinuationEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIWebAuthenticationBrokerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs);
+impl windows_core::RuntimeType for WebUIWebAuthenticationBrokerContinuationEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs>();
+}
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIWebAuthenticationBrokerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUIWebAuthenticationBrokerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(WebUIWebAuthenticationBrokerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIWebAuthenticationBrokerContinuationEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5134,14 +5055,7 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
-        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn ContinuationData(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
         unsafe {
@@ -5149,7 +5063,7 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
             (windows_core::Interface::vtable(this).ContinuationData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "Security_Authentication_Web"))]
+    #[cfg(feature = "Security_Authentication_Web")]
     pub fn WebAuthenticationResult(&self) -> windows_core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult> {
         let this = self;
         unsafe {
@@ -5157,49 +5071,32 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
             (windows_core::Interface::vtable(this).WebAuthenticationResult)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIWebAuthenticationBrokerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs>();
+    pub fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation> {
+        let this = &windows_core::Interface::cast::<IActivatedEventArgsDeferral>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIWebAuthenticationBrokerContinuationEventArgs {
-    type Vtable = super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs_Vtbl;
+    type Vtable = <super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeName for WebUIWebAuthenticationBrokerContinuationEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIWebAuthenticationBrokerContinuationEventArgs";
 }
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PrintContent(pub i32);
-impl PrintContent {
-    pub const AllPages: Self = Self(0i32);
-    pub const CurrentPage: Self = Self(1i32);
-    pub const CustomPageRange: Self = Self(2i32);
-    pub const CurrentSelection: Self = Self(3i32);
-}
-impl windows_core::TypeKind for PrintContent {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PrintContent {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PrintContent").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for PrintContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.PrintContent;i4)");
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::define_interface!(ActivatedEventHandler, ActivatedEventHandler_Vtbl, 0x50f1e730_c5d1_4b6b_9adb_8a11756be29c);
-#[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for ActivatedEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ActivatedEventHandler {
     pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = ActivatedEventHandlerBox::<F> { vtable: &ActivatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = ActivatedEventHandlerBox { vtable: &ActivatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
@@ -5209,14 +5106,17 @@ impl ActivatedEventHandler {
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), eventargs.param().abi()).ok() }
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[repr(C)]
+pub struct ActivatedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(C)]
 struct ActivatedEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const ActivatedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> ActivatedEventHandlerBox<F> {
     const VTABLE: ActivatedEventHandler_Vtbl = ActivatedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5249,28 +5149,15 @@ impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::Applica
         (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&eventargs)).into()
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for ActivatedEventHandler {
+windows_core::imp::define_interface!(BackgroundActivatedEventHandler, BackgroundActivatedEventHandler_Vtbl, 0xedb19fbb_0761_47cc_9a77_24d7072965ca);
+impl windows_core::RuntimeType for BackgroundActivatedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "ApplicationModel_Activation")]
-#[repr(C)]
-pub struct ActivatedEventHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "ApplicationModel_Activation")]
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Activation"))]
-    Invoke: usize,
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::define_interface!(BackgroundActivatedEventHandler, BackgroundActivatedEventHandler_Vtbl, 0xedb19fbb_0761_47cc_9a77_24d7072965ca);
-#[cfg(feature = "ApplicationModel_Activation")]
 impl BackgroundActivatedEventHandler {
     pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = BackgroundActivatedEventHandlerBox::<F> { vtable: &BackgroundActivatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = BackgroundActivatedEventHandlerBox { vtable: &BackgroundActivatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
-    #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
@@ -5280,14 +5167,17 @@ impl BackgroundActivatedEventHandler {
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), eventargs.param().abi()).ok() }
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+#[repr(C)]
+pub struct BackgroundActivatedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(C)]
 struct BackgroundActivatedEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const BackgroundActivatedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundActivatedEventHandlerBox<F> {
     const VTABLE: BackgroundActivatedEventHandler_Vtbl = BackgroundActivatedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5320,28 +5210,15 @@ impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::Applica
         (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&eventargs)).into()
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for BackgroundActivatedEventHandler {
+windows_core::imp::define_interface!(EnteredBackgroundEventHandler, EnteredBackgroundEventHandler_Vtbl, 0x2b09a173_b68e_4def_88c1_8de84e5aab2f);
+impl windows_core::RuntimeType for EnteredBackgroundEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "ApplicationModel_Activation")]
-#[repr(C)]
-pub struct BackgroundActivatedEventHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "ApplicationModel_Activation")]
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Activation"))]
-    Invoke: usize,
-}
-#[cfg(feature = "ApplicationModel")]
-windows_core::imp::define_interface!(EnteredBackgroundEventHandler, EnteredBackgroundEventHandler_Vtbl, 0x2b09a173_b68e_4def_88c1_8de84e5aab2f);
-#[cfg(feature = "ApplicationModel")]
 impl EnteredBackgroundEventHandler {
     pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = EnteredBackgroundEventHandlerBox::<F> { vtable: &EnteredBackgroundEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = EnteredBackgroundEventHandlerBox { vtable: &EnteredBackgroundEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
-    #[cfg(feature = "ApplicationModel")]
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
@@ -5351,14 +5228,17 @@ impl EnteredBackgroundEventHandler {
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
     }
 }
-#[cfg(feature = "ApplicationModel")]
+#[repr(C)]
+pub struct EnteredBackgroundEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(C)]
 struct EnteredBackgroundEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const EnteredBackgroundEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-#[cfg(feature = "ApplicationModel")]
 impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::IEnteredBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> EnteredBackgroundEventHandlerBox<F> {
     const VTABLE: EnteredBackgroundEventHandler_Vtbl = EnteredBackgroundEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5391,28 +5271,15 @@ impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::Applica
         (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
     }
 }
-#[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for EnteredBackgroundEventHandler {
+windows_core::imp::define_interface!(LeavingBackgroundEventHandler, LeavingBackgroundEventHandler_Vtbl, 0x00b4ccd9_7a9c_4b6b_9ac4_13474f268bc4);
+impl windows_core::RuntimeType for LeavingBackgroundEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "ApplicationModel")]
-#[repr(C)]
-pub struct EnteredBackgroundEventHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "ApplicationModel")]
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel"))]
-    Invoke: usize,
-}
-#[cfg(feature = "ApplicationModel")]
-windows_core::imp::define_interface!(LeavingBackgroundEventHandler, LeavingBackgroundEventHandler_Vtbl, 0x00b4ccd9_7a9c_4b6b_9ac4_13474f268bc4);
-#[cfg(feature = "ApplicationModel")]
 impl LeavingBackgroundEventHandler {
     pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = LeavingBackgroundEventHandlerBox::<F> { vtable: &LeavingBackgroundEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = LeavingBackgroundEventHandlerBox { vtable: &LeavingBackgroundEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
-    #[cfg(feature = "ApplicationModel")]
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
@@ -5422,14 +5289,17 @@ impl LeavingBackgroundEventHandler {
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
     }
 }
-#[cfg(feature = "ApplicationModel")]
+#[repr(C)]
+pub struct LeavingBackgroundEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(C)]
 struct LeavingBackgroundEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const LeavingBackgroundEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-#[cfg(feature = "ApplicationModel")]
 impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ILeavingBackgroundEventArgs>) -> windows_core::Result<()> + Send + 'static> LeavingBackgroundEventHandlerBox<F> {
     const VTABLE: LeavingBackgroundEventHandler_Vtbl = LeavingBackgroundEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5462,23 +5332,13 @@ impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::Applica
         (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
     }
 }
-#[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for LeavingBackgroundEventHandler {
+windows_core::imp::define_interface!(NavigatedEventHandler, NavigatedEventHandler_Vtbl, 0x7af46fe6_40ca_4e49_a7d6_dbdb330cd1a3);
+impl windows_core::RuntimeType for NavigatedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "ApplicationModel")]
-#[repr(C)]
-pub struct LeavingBackgroundEventHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "ApplicationModel")]
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel"))]
-    Invoke: usize,
-}
-windows_core::imp::define_interface!(NavigatedEventHandler, NavigatedEventHandler_Vtbl, 0x7af46fe6_40ca_4e49_a7d6_dbdb330cd1a3);
 impl NavigatedEventHandler {
     pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&IWebUINavigatedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = NavigatedEventHandlerBox::<F> { vtable: &NavigatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = NavigatedEventHandlerBox { vtable: &NavigatedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
@@ -5489,6 +5349,11 @@ impl NavigatedEventHandler {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
     }
+}
+#[repr(C)]
+pub struct NavigatedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
 struct NavigatedEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&IWebUINavigatedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
@@ -5528,18 +5393,13 @@ impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&IWebUINavigatedEventA
         (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
     }
 }
-impl windows_core::RuntimeType for NavigatedEventHandler {
+windows_core::imp::define_interface!(ResumingEventHandler, ResumingEventHandler_Vtbl, 0x26599ba9_a22d_4806_a728_acadc1d075fa);
+impl windows_core::RuntimeType for ResumingEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct NavigatedEventHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ResumingEventHandler, ResumingEventHandler_Vtbl, 0x26599ba9_a22d_4806_a728_acadc1d075fa);
 impl ResumingEventHandler {
     pub fn new<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = ResumingEventHandlerBox::<F> { vtable: &ResumingEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = ResumingEventHandlerBox { vtable: &ResumingEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
@@ -5549,6 +5409,11 @@ impl ResumingEventHandler {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
     }
+}
+#[repr(C)]
+pub struct ResumingEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
 struct ResumingEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> {
@@ -5588,23 +5453,15 @@ impl<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> +
         (this.invoke)(windows_core::from_raw_borrowed(&sender)).into()
     }
 }
-impl windows_core::RuntimeType for ResumingEventHandler {
+windows_core::imp::define_interface!(SuspendingEventHandler, SuspendingEventHandler_Vtbl, 0x509c429c_78e2_4883_abc8_8960dcde1b5c);
+impl windows_core::RuntimeType for SuspendingEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct ResumingEventHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-#[cfg(feature = "ApplicationModel")]
-windows_core::imp::define_interface!(SuspendingEventHandler, SuspendingEventHandler_Vtbl, 0x509c429c_78e2_4883_abc8_8960dcde1b5c);
-#[cfg(feature = "ApplicationModel")]
 impl SuspendingEventHandler {
     pub fn new<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = SuspendingEventHandlerBox::<F> { vtable: &SuspendingEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = SuspendingEventHandlerBox { vtable: &SuspendingEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
-    #[cfg(feature = "ApplicationModel")]
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
@@ -5614,14 +5471,17 @@ impl SuspendingEventHandler {
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), e.param().abi()).ok() }
     }
 }
-#[cfg(feature = "ApplicationModel")]
+#[repr(C)]
+pub struct SuspendingEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 #[repr(C)]
 struct SuspendingEventHandlerBox<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const SuspendingEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-#[cfg(feature = "ApplicationModel")]
 impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::ApplicationModel::ISuspendingEventArgs>) -> windows_core::Result<()> + Send + 'static> SuspendingEventHandlerBox<F> {
     const VTABLE: SuspendingEventHandler_Vtbl = SuspendingEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5654,16 +5514,18 @@ impl<F: FnMut(Option<&windows_core::IInspectable>, Option<&super::super::Applica
         (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&e)).into()
     }
 }
-#[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for SuspendingEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+#[repr(transparent)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct PrintContent(pub i32);
+impl PrintContent {
+    pub const AllPages: Self = Self(0i32);
+    pub const CurrentPage: Self = Self(1i32);
+    pub const CustomPageRange: Self = Self(2i32);
+    pub const CurrentSelection: Self = Self(3i32);
 }
-#[cfg(feature = "ApplicationModel")]
-#[repr(C)]
-pub struct SuspendingEventHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "ApplicationModel")]
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel"))]
-    Invoke: usize,
+impl windows_core::TypeKind for PrintContent {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PrintContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.PrintContent;i4)");
 }

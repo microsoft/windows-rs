@@ -299,7 +299,11 @@ pub struct IPrintSupportSettingsUISession_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportCommunicationErrorDetectedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintSupportCommunicationErrorDetectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportCommunicationErrorDetectedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(PrintSupportCommunicationErrorDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintSupportCommunicationErrorDetectedEventArgs,);
 impl PrintSupportCommunicationErrorDetectedEventArgs {
     pub fn ErrorKind(&self) -> windows_core::Result<IppCommunicationErrorKind> {
         let this = self;
@@ -330,22 +334,21 @@ impl PrintSupportCommunicationErrorDetectedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for PrintSupportCommunicationErrorDetectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportCommunicationErrorDetectedEventArgs>();
-}
 unsafe impl windows_core::Interface for PrintSupportCommunicationErrorDetectedEventArgs {
-    type Vtable = IPrintSupportCommunicationErrorDetectedEventArgs_Vtbl;
+    type Vtable = <IPrintSupportCommunicationErrorDetectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSupportCommunicationErrorDetectedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintSupportCommunicationErrorDetectedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportCommunicationErrorDetectedEventArgs";
 }
-unsafe impl Send for PrintSupportCommunicationErrorDetectedEventArgs {}
-unsafe impl Sync for PrintSupportCommunicationErrorDetectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportExtensionSession(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintSupportExtensionSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportExtensionSession>();
+}
 windows_core::imp::interface_hierarchy!(PrintSupportExtensionSession, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintSupportExtensionSession,);
 impl PrintSupportExtensionSession {
     #[cfg(feature = "Devices_Printers")]
     pub fn Printer(&self) -> windows_core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
@@ -416,22 +419,21 @@ impl PrintSupportExtensionSession {
         unsafe { (windows_core::Interface::vtable(this).RemoveCommunicationErrorDetected)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl windows_core::RuntimeType for PrintSupportExtensionSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportExtensionSession>();
-}
 unsafe impl windows_core::Interface for PrintSupportExtensionSession {
-    type Vtable = IPrintSupportExtensionSession_Vtbl;
+    type Vtable = <IPrintSupportExtensionSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSupportExtensionSession as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintSupportExtensionSession {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionSession";
 }
-unsafe impl Send for PrintSupportExtensionSession {}
-unsafe impl Sync for PrintSupportExtensionSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportExtensionTriggerDetails(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintSupportExtensionTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportExtensionTriggerDetails>();
+}
 windows_core::imp::interface_hierarchy!(PrintSupportExtensionTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintSupportExtensionTriggerDetails,);
 impl PrintSupportExtensionTriggerDetails {
     pub fn Session(&self) -> windows_core::Result<PrintSupportExtensionSession> {
         let this = self;
@@ -441,22 +443,21 @@ impl PrintSupportExtensionTriggerDetails {
         }
     }
 }
-impl windows_core::RuntimeType for PrintSupportExtensionTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportExtensionTriggerDetails>();
-}
 unsafe impl windows_core::Interface for PrintSupportExtensionTriggerDetails {
-    type Vtable = IPrintSupportExtensionTriggerDetails_Vtbl;
+    type Vtable = <IPrintSupportExtensionTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSupportExtensionTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintSupportExtensionTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionTriggerDetails";
 }
-unsafe impl Send for PrintSupportExtensionTriggerDetails {}
-unsafe impl Sync for PrintSupportExtensionTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportIppCommunicationConfiguration(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintSupportIppCommunicationConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportIppCommunicationConfiguration>();
+}
 windows_core::imp::interface_hierarchy!(PrintSupportIppCommunicationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintSupportIppCommunicationConfiguration,);
 impl PrintSupportIppCommunicationConfiguration {
     pub fn CommunicationKind(&self) -> windows_core::Result<IppPrinterCommunicationKind> {
         let this = self;
@@ -487,22 +488,21 @@ impl PrintSupportIppCommunicationConfiguration {
         }
     }
 }
-impl windows_core::RuntimeType for PrintSupportIppCommunicationConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportIppCommunicationConfiguration>();
-}
 unsafe impl windows_core::Interface for PrintSupportIppCommunicationConfiguration {
-    type Vtable = IPrintSupportIppCommunicationConfiguration_Vtbl;
+    type Vtable = <IPrintSupportIppCommunicationConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSupportIppCommunicationConfiguration as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintSupportIppCommunicationConfiguration {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportIppCommunicationConfiguration";
 }
-unsafe impl Send for PrintSupportIppCommunicationConfiguration {}
-unsafe impl Sync for PrintSupportIppCommunicationConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportIppCommunicationTimeouts(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintSupportIppCommunicationTimeouts {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportIppCommunicationTimeouts>();
+}
 windows_core::imp::interface_hierarchy!(PrintSupportIppCommunicationTimeouts, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintSupportIppCommunicationTimeouts,);
 impl PrintSupportIppCommunicationTimeouts {
     pub fn ConnectTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -538,22 +538,21 @@ impl PrintSupportIppCommunicationTimeouts {
         unsafe { (windows_core::Interface::vtable(this).SetReceiveTimeout)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl windows_core::RuntimeType for PrintSupportIppCommunicationTimeouts {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportIppCommunicationTimeouts>();
-}
 unsafe impl windows_core::Interface for PrintSupportIppCommunicationTimeouts {
-    type Vtable = IPrintSupportIppCommunicationTimeouts_Vtbl;
+    type Vtable = <IPrintSupportIppCommunicationTimeouts as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSupportIppCommunicationTimeouts as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintSupportIppCommunicationTimeouts {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportIppCommunicationTimeouts";
 }
-unsafe impl Send for PrintSupportIppCommunicationTimeouts {}
-unsafe impl Sync for PrintSupportIppCommunicationTimeouts {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportMxdcImageQualityConfiguration(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintSupportMxdcImageQualityConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportMxdcImageQualityConfiguration>();
+}
 windows_core::imp::interface_hierarchy!(PrintSupportMxdcImageQualityConfiguration, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintSupportMxdcImageQualityConfiguration,);
 impl PrintSupportMxdcImageQualityConfiguration {
     pub fn NormalOutputQuality(&self) -> windows_core::Result<XpsImageQuality> {
         let this = self;
@@ -633,22 +632,21 @@ impl PrintSupportMxdcImageQualityConfiguration {
         unsafe { (windows_core::Interface::vtable(this).SetFaxOutputQuality)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl windows_core::RuntimeType for PrintSupportMxdcImageQualityConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportMxdcImageQualityConfiguration>();
-}
 unsafe impl windows_core::Interface for PrintSupportMxdcImageQualityConfiguration {
-    type Vtable = IPrintSupportMxdcImageQualityConfiguration_Vtbl;
+    type Vtable = <IPrintSupportMxdcImageQualityConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSupportMxdcImageQualityConfiguration as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintSupportMxdcImageQualityConfiguration {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportMxdcImageQualityConfiguration";
 }
-unsafe impl Send for PrintSupportMxdcImageQualityConfiguration {}
-unsafe impl Sync for PrintSupportMxdcImageQualityConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportPrintDeviceCapabilitiesChangedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(PrintSupportPrintDeviceCapabilitiesChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintSupportPrintDeviceCapabilitiesChangedEventArgs,);
 impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetCurrentPrintDeviceCapabilities(&self) -> windows_core::Result<super::super::super::Data::Xml::Dom::XmlDocument> {
@@ -726,22 +724,21 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs>();
-}
 unsafe impl windows_core::Interface for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
-    type Vtable = IPrintSupportPrintDeviceCapabilitiesChangedEventArgs_Vtbl;
+    type Vtable = <IPrintSupportPrintDeviceCapabilitiesChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSupportPrintDeviceCapabilitiesChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs";
 }
-unsafe impl Send for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
-unsafe impl Sync for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportPrintDeviceCapabilitiesUpdatePolicy(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportPrintDeviceCapabilitiesUpdatePolicy>();
+}
 windows_core::imp::interface_hierarchy!(PrintSupportPrintDeviceCapabilitiesUpdatePolicy, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintSupportPrintDeviceCapabilitiesUpdatePolicy,);
 impl PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     pub fn CreatePeriodicRefresh(updateperiod: super::super::super::Foundation::TimeSpan) -> windows_core::Result<PrintSupportPrintDeviceCapabilitiesUpdatePolicy> {
         Self::IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics(|this| unsafe {
@@ -760,22 +757,21 @@ impl PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportPrintDeviceCapabilitiesUpdatePolicy>();
-}
 unsafe impl windows_core::Interface for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
-    type Vtable = IPrintSupportPrintDeviceCapabilitiesUpdatePolicy_Vtbl;
+    type Vtable = <IPrintSupportPrintDeviceCapabilitiesUpdatePolicy as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSupportPrintDeviceCapabilitiesUpdatePolicy as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesUpdatePolicy";
 }
-unsafe impl Send for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {}
-unsafe impl Sync for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportPrintTicketElement(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintSupportPrintTicketElement {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportPrintTicketElement>();
+}
 windows_core::imp::interface_hierarchy!(PrintSupportPrintTicketElement, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintSupportPrintTicketElement,);
 impl PrintSupportPrintTicketElement {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -807,22 +803,21 @@ impl PrintSupportPrintTicketElement {
         unsafe { (windows_core::Interface::vtable(this).SetNamespaceUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-impl windows_core::RuntimeType for PrintSupportPrintTicketElement {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportPrintTicketElement>();
-}
 unsafe impl windows_core::Interface for PrintSupportPrintTicketElement {
-    type Vtable = IPrintSupportPrintTicketElement_Vtbl;
+    type Vtable = <IPrintSupportPrintTicketElement as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSupportPrintTicketElement as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintSupportPrintTicketElement {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketElement";
 }
-unsafe impl Send for PrintSupportPrintTicketElement {}
-unsafe impl Sync for PrintSupportPrintTicketElement {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportPrintTicketValidationRequestedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintSupportPrintTicketValidationRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportPrintTicketValidationRequestedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(PrintSupportPrintTicketValidationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintSupportPrintTicketValidationRequestedEventArgs,);
 impl PrintSupportPrintTicketValidationRequestedEventArgs {
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn PrintTicket(&self) -> windows_core::Result<super::PrintTicket::WorkflowPrintTicket> {
@@ -844,22 +839,21 @@ impl PrintSupportPrintTicketValidationRequestedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for PrintSupportPrintTicketValidationRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportPrintTicketValidationRequestedEventArgs>();
-}
 unsafe impl windows_core::Interface for PrintSupportPrintTicketValidationRequestedEventArgs {
-    type Vtable = IPrintSupportPrintTicketValidationRequestedEventArgs_Vtbl;
+    type Vtable = <IPrintSupportPrintTicketValidationRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSupportPrintTicketValidationRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintSupportPrintTicketValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketValidationRequestedEventArgs";
 }
-unsafe impl Send for PrintSupportPrintTicketValidationRequestedEventArgs {}
-unsafe impl Sync for PrintSupportPrintTicketValidationRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportPrinterSelectedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintSupportPrinterSelectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportPrinterSelectedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(PrintSupportPrinterSelectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintSupportPrinterSelectedEventArgs,);
 impl PrintSupportPrinterSelectedEventArgs {
     #[cfg(feature = "ApplicationModel")]
     pub fn SourceAppInfo(&self) -> windows_core::Result<super::super::super::ApplicationModel::AppInfo> {
@@ -924,22 +918,21 @@ impl PrintSupportPrinterSelectedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for PrintSupportPrinterSelectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportPrinterSelectedEventArgs>();
-}
 unsafe impl windows_core::Interface for PrintSupportPrinterSelectedEventArgs {
-    type Vtable = IPrintSupportPrinterSelectedEventArgs_Vtbl;
+    type Vtable = <IPrintSupportPrinterSelectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSupportPrinterSelectedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintSupportPrinterSelectedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrinterSelectedEventArgs";
 }
-unsafe impl Send for PrintSupportPrinterSelectedEventArgs {}
-unsafe impl Sync for PrintSupportPrinterSelectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportSessionInfo(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintSupportSessionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportSessionInfo>();
+}
 windows_core::imp::interface_hierarchy!(PrintSupportSessionInfo, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintSupportSessionInfo,);
 impl PrintSupportSessionInfo {
     #[cfg(feature = "ApplicationModel")]
     pub fn SourceAppInfo(&self) -> windows_core::Result<super::super::super::ApplicationModel::AppInfo> {
@@ -958,24 +951,26 @@ impl PrintSupportSessionInfo {
         }
     }
 }
-impl windows_core::RuntimeType for PrintSupportSessionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportSessionInfo>();
-}
 unsafe impl windows_core::Interface for PrintSupportSessionInfo {
-    type Vtable = IPrintSupportSessionInfo_Vtbl;
+    type Vtable = <IPrintSupportSessionInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSupportSessionInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintSupportSessionInfo {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSessionInfo";
 }
-unsafe impl Send for PrintSupportSessionInfo {}
-unsafe impl Sync for PrintSupportSessionInfo {}
+#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportSettingsActivatedEventArgs(windows_core::IUnknown);
+#[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for PrintSupportSettingsActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportSettingsActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(PrintSupportSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::required_hierarchy!(PrintSupportSettingsActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
+#[cfg(feature = "ApplicationModel_Activation")]
 impl PrintSupportSettingsActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> windows_core::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
@@ -1001,7 +996,7 @@ impl PrintSupportSettingsActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
+    #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1032,22 +1027,23 @@ impl PrintSupportSettingsActivatedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for PrintSupportSettingsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportSettingsActivatedEventArgs>();
-}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for PrintSupportSettingsActivatedEventArgs {
-    type Vtable = IPrintSupportSettingsActivatedEventArgs_Vtbl;
+    type Vtable = <IPrintSupportSettingsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSupportSettingsActivatedEventArgs as windows_core::Interface>::IID;
 }
+#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeName for PrintSupportSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsActivatedEventArgs";
 }
-unsafe impl Send for PrintSupportSettingsActivatedEventArgs {}
-unsafe impl Sync for PrintSupportSettingsActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportSettingsUISession(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintSupportSettingsUISession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportSettingsUISession>();
+}
 windows_core::imp::interface_hierarchy!(PrintSupportSettingsUISession, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintSupportSettingsUISession,);
 impl PrintSupportSettingsUISession {
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn SessionPrintTicket(&self) -> windows_core::Result<super::PrintTicket::WorkflowPrintTicket> {
@@ -1087,20 +1083,15 @@ impl PrintSupportSettingsUISession {
         }
     }
 }
-impl windows_core::RuntimeType for PrintSupportSettingsUISession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportSettingsUISession>();
-}
 unsafe impl windows_core::Interface for PrintSupportSettingsUISession {
-    type Vtable = IPrintSupportSettingsUISession_Vtbl;
+    type Vtable = <IPrintSupportSettingsUISession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSupportSettingsUISession as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintSupportSettingsUISession {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsUISession";
 }
-unsafe impl Send for PrintSupportSettingsUISession {}
-unsafe impl Sync for PrintSupportSettingsUISession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct IppCommunicationErrorKind(pub i32);
 impl IppCommunicationErrorKind {
     pub const Other: Self = Self(0i32);
@@ -1111,16 +1102,11 @@ impl IppCommunicationErrorKind {
 impl windows_core::TypeKind for IppCommunicationErrorKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IppCommunicationErrorKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IppCommunicationErrorKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for IppCommunicationErrorKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.IppCommunicationErrorKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct IppPrinterCommunicationKind(pub i32);
 impl IppPrinterCommunicationKind {
     pub const Network: Self = Self(0i32);
@@ -1132,16 +1118,11 @@ impl IppPrinterCommunicationKind {
 impl windows_core::TypeKind for IppPrinterCommunicationKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IppPrinterCommunicationKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IppPrinterCommunicationKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for IppPrinterCommunicationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.IppPrinterCommunicationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SettingsLaunchKind(pub i32);
 impl SettingsLaunchKind {
     pub const JobPrintTicket: Self = Self(0i32);
@@ -1150,16 +1131,11 @@ impl SettingsLaunchKind {
 impl windows_core::TypeKind for SettingsLaunchKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SettingsLaunchKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SettingsLaunchKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for SettingsLaunchKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.SettingsLaunchKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct WorkflowPrintTicketValidationStatus(pub i32);
 impl WorkflowPrintTicketValidationStatus {
     pub const Resolved: Self = Self(0i32);
@@ -1169,16 +1145,11 @@ impl WorkflowPrintTicketValidationStatus {
 impl windows_core::TypeKind for WorkflowPrintTicketValidationStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WorkflowPrintTicketValidationStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WorkflowPrintTicketValidationStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for WorkflowPrintTicketValidationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.WorkflowPrintTicketValidationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct XpsImageQuality(pub i32);
 impl XpsImageQuality {
     pub const JpegHighCompression: Self = Self(0i32);
@@ -1188,11 +1159,6 @@ impl XpsImageQuality {
 }
 impl windows_core::TypeKind for XpsImageQuality {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XpsImageQuality {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XpsImageQuality").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for XpsImageQuality {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.XpsImageQuality;i4)");

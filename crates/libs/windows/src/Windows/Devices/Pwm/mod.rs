@@ -65,7 +65,11 @@ pub struct IPwmPin_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PwmController(windows_core::IUnknown);
+impl windows_core::RuntimeType for PwmController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPwmController>();
+}
 windows_core::imp::interface_hierarchy!(PwmController, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PwmController,);
 impl PwmController {
     pub fn PinCount(&self) -> windows_core::Result<i32> {
         let this = self;
@@ -156,28 +160,22 @@ impl PwmController {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for PwmController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPwmController>();
-}
 unsafe impl windows_core::Interface for PwmController {
-    type Vtable = IPwmController_Vtbl;
+    type Vtable = <IPwmController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPwmController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PwmController {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmController";
 }
-unsafe impl Send for PwmController {}
-unsafe impl Sync for PwmController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PwmPin(windows_core::IUnknown);
+impl windows_core::RuntimeType for PwmPin {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPwmPin>();
+}
 windows_core::imp::interface_hierarchy!(PwmPin, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PwmPin, super::super::Foundation::IClosable);
 impl PwmPin {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn Controller(&self) -> windows_core::Result<PwmController> {
         let this = self;
         unsafe {
@@ -222,21 +220,20 @@ impl PwmPin {
             (windows_core::Interface::vtable(this).IsStarted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-}
-impl windows_core::RuntimeType for PwmPin {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPwmPin>();
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
 }
 unsafe impl windows_core::Interface for PwmPin {
-    type Vtable = IPwmPin_Vtbl;
+    type Vtable = <IPwmPin as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPwmPin as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PwmPin {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmPin";
 }
-unsafe impl Send for PwmPin {}
-unsafe impl Sync for PwmPin {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PwmPulsePolarity(pub i32);
 impl PwmPulsePolarity {
     pub const ActiveHigh: Self = Self(0i32);
@@ -244,11 +241,6 @@ impl PwmPulsePolarity {
 }
 impl windows_core::TypeKind for PwmPulsePolarity {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PwmPulsePolarity {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PwmPulsePolarity").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for PwmPulsePolarity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Pwm.PwmPulsePolarity;i4)");

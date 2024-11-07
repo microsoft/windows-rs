@@ -4,17 +4,17 @@ pub unsafe fn CloseTrace(tracehandle: PROCESSTRACE_HANDLE) -> super::super::supe
     CloseTrace(core::mem::transmute(tracehandle))
 }
 #[inline]
-pub unsafe fn ControlTraceA<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn ControlTraceA<P1>(tracehandle: CONTROLTRACE_HANDLE, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ControlTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES, controlcode : EVENT_TRACE_CONTROL) -> super::super::super::Foundation:: WIN32_ERROR);
     ControlTraceA(core::mem::transmute(tracehandle), instancename.param().abi(), properties, controlcode)
 }
 #[inline]
-pub unsafe fn ControlTraceW<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn ControlTraceW<P1>(tracehandle: CONTROLTRACE_HANDLE, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ControlTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES, controlcode : EVENT_TRACE_CONTROL) -> super::super::super::Foundation:: WIN32_ERROR);
     ControlTraceW(core::mem::transmute(tracehandle), instancename.param().abi(), properties, controlcode)
@@ -63,10 +63,10 @@ pub unsafe fn EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS,
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn EventAccessControl<P0, P1>(guid: *const windows_core::GUID, operation: u32, sid: P0, rights: u32, allowordeny: P1) -> u32
+pub unsafe fn EventAccessControl<P2, P4>(guid: *const windows_core::GUID, operation: u32, sid: P2, rights: u32, allowordeny: P4) -> u32
 where
-    P0: windows_core::Param<super::super::super::Security::PSID>,
-    P1: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Security::PSID>,
+    P4: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("advapi32.dll" "system" fn EventAccessControl(guid : *const windows_core::GUID, operation : u32, sid : super::super::super::Security:: PSID, rights : u32, allowordeny : super::super::super::Foundation:: BOOLEAN) -> u32);
     EventAccessControl(guid, operation, sid.param().abi(), rights, allowordeny.param().abi())
@@ -141,10 +141,10 @@ where
     EventWriteEx(reghandle.param().abi(), eventdescriptor, filter, flags, core::mem::transmute(activityid.unwrap_or(core::ptr::null())), core::mem::transmute(relatedactivityid.unwrap_or(core::ptr::null())), userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
-pub unsafe fn EventWriteString<P0, P1>(reghandle: P0, level: u8, keyword: u64, string: P1) -> u32
+pub unsafe fn EventWriteString<P0, P3>(reghandle: P0, level: u8, keyword: u64, string: P3) -> u32
 where
     P0: windows_core::Param<REGHANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn EventWriteString(reghandle : REGHANDLE, level : u8, keyword : u64, string : windows_core::PCWSTR) -> u32);
     EventWriteString(reghandle.param().abi(), level, keyword, string.param().abi())
@@ -158,17 +158,17 @@ where
     EventWriteTransfer(reghandle.param().abi(), eventdescriptor, core::mem::transmute(activityid.unwrap_or(core::ptr::null())), core::mem::transmute(relatedactivityid.unwrap_or(core::ptr::null())), userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
-pub unsafe fn FlushTraceA<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn FlushTraceA<P1>(tracehandle: CONTROLTRACE_HANDLE, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn FlushTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
     FlushTraceA(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
 }
 #[inline]
-pub unsafe fn FlushTraceW<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn FlushTraceW<P1>(tracehandle: CONTROLTRACE_HANDLE, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn FlushTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
     FlushTraceW(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
@@ -220,10 +220,10 @@ where
 }
 #[cfg(feature = "Win32_System_Time")]
 #[inline]
-pub unsafe fn OpenTraceFromRealTimeLoggerWithAllocationOptions<P0, P1>(loggername: P0, options: *const ETW_OPEN_TRACE_OPTIONS, allocationsize: usize, memorypartitionhandle: P1, logfileheader: Option<*mut TRACE_LOGFILE_HEADER>) -> u64
+pub unsafe fn OpenTraceFromRealTimeLoggerWithAllocationOptions<P0, P3>(loggername: P0, options: *const ETW_OPEN_TRACE_OPTIONS, allocationsize: usize, memorypartitionhandle: P3, logfileheader: Option<*mut TRACE_LOGFILE_HEADER>) -> u64
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P3: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("advapi32.dll" "system" fn OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, allocationsize : usize, memorypartitionhandle : super::super::super::Foundation:: HANDLE, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
     OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername.param().abi(), options, allocationsize, memorypartitionhandle.param().abi(), core::mem::transmute(logfileheader.unwrap_or(core::ptr::null_mut())))
@@ -265,9 +265,9 @@ pub unsafe fn QueryAllTracesW(propertyarray: &mut [*mut EVENT_TRACE_PROPERTIES],
     QueryAllTracesW(core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap(), loggercount)
 }
 #[inline]
-pub unsafe fn QueryTraceA<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn QueryTraceA<P1>(tracehandle: CONTROLTRACE_HANDLE, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn QueryTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
     QueryTraceA(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
@@ -278,27 +278,27 @@ pub unsafe fn QueryTraceProcessingHandle(processinghandle: PROCESSTRACE_HANDLE, 
     QueryTraceProcessingHandle(core::mem::transmute(processinghandle), informationclass, core::mem::transmute(inbuffer.unwrap_or(core::ptr::null())), inbuffersize, core::mem::transmute(outbuffer.unwrap_or(core::ptr::null_mut())), outbuffersize, returnlength)
 }
 #[inline]
-pub unsafe fn QueryTraceW<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn QueryTraceW<P1>(tracehandle: CONTROLTRACE_HANDLE, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn QueryTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
     QueryTraceW(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
 }
 #[inline]
-pub unsafe fn RegisterTraceGuidsA<P0, P1>(requestaddress: WMIDPREQUEST, requestcontext: Option<*const core::ffi::c_void>, controlguid: *const windows_core::GUID, traceguidreg: Option<&[TRACE_GUID_REGISTRATION]>, mofimagepath: P0, mofresourcename: P1, registrationhandle: *mut u64) -> u32
+pub unsafe fn RegisterTraceGuidsA<P5, P6>(requestaddress: WMIDPREQUEST, requestcontext: Option<*const core::ffi::c_void>, controlguid: *const windows_core::GUID, traceguidreg: Option<&[TRACE_GUID_REGISTRATION]>, mofimagepath: P5, mofresourcename: P6, registrationhandle: *mut u64) -> u32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P5: windows_core::Param<windows_core::PCSTR>,
+    P6: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegisterTraceGuidsA(requestaddress : WMIDPREQUEST, requestcontext : *const core::ffi::c_void, controlguid : *const windows_core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : windows_core::PCSTR, mofresourcename : windows_core::PCSTR, registrationhandle : *mut u64) -> u32);
     RegisterTraceGuidsA(requestaddress, core::mem::transmute(requestcontext.unwrap_or(core::ptr::null())), controlguid, traceguidreg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle)
 }
 #[inline]
-pub unsafe fn RegisterTraceGuidsW<P0, P1>(requestaddress: WMIDPREQUEST, requestcontext: Option<*const core::ffi::c_void>, controlguid: *const windows_core::GUID, traceguidreg: Option<&[TRACE_GUID_REGISTRATION]>, mofimagepath: P0, mofresourcename: P1, registrationhandle: *mut u64) -> u32
+pub unsafe fn RegisterTraceGuidsW<P5, P6>(requestaddress: WMIDPREQUEST, requestcontext: Option<*const core::ffi::c_void>, controlguid: *const windows_core::GUID, traceguidreg: Option<&[TRACE_GUID_REGISTRATION]>, mofimagepath: P5, mofresourcename: P6, registrationhandle: *mut u64) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<windows_core::PCWSTR>,
+    P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegisterTraceGuidsW(requestaddress : WMIDPREQUEST, requestcontext : *const core::ffi::c_void, controlguid : *const windows_core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : windows_core::PCWSTR, mofresourcename : windows_core::PCWSTR, registrationhandle : *mut u64) -> u32);
     RegisterTraceGuidsW(requestaddress, core::mem::transmute(requestcontext.unwrap_or(core::ptr::null())), controlguid, traceguidreg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle)
@@ -314,33 +314,33 @@ pub unsafe fn SetTraceCallback(pguid: *const windows_core::GUID, eventcallback: 
     SetTraceCallback(pguid, eventcallback)
 }
 #[inline]
-pub unsafe fn StartTraceA<P0>(tracehandle: *mut CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn StartTraceA<P1>(tracehandle: *mut CONTROLTRACE_HANDLE, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn StartTraceA(tracehandle : *mut CONTROLTRACE_HANDLE, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
     StartTraceA(tracehandle, instancename.param().abi(), properties)
 }
 #[inline]
-pub unsafe fn StartTraceW<P0>(tracehandle: *mut CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn StartTraceW<P1>(tracehandle: *mut CONTROLTRACE_HANDLE, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn StartTraceW(tracehandle : *mut CONTROLTRACE_HANDLE, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
     StartTraceW(tracehandle, instancename.param().abi(), properties)
 }
 #[inline]
-pub unsafe fn StopTraceA<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn StopTraceA<P1>(tracehandle: CONTROLTRACE_HANDLE, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn StopTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
     StopTraceA(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
 }
 #[inline]
-pub unsafe fn StopTraceW<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn StopTraceW<P1>(tracehandle: CONTROLTRACE_HANDLE, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn StopTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
     StopTraceW(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
@@ -364,9 +364,9 @@ where
     TdhCloseDecodingHandle(handle.param().abi())
 }
 #[inline]
-pub unsafe fn TdhCreatePayloadFilter<P0>(providerguid: *const windows_core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: P0, payloadpredicates: &[PAYLOAD_FILTER_PREDICATE], payloadfilter: *mut *mut core::ffi::c_void) -> u32
+pub unsafe fn TdhCreatePayloadFilter<P2>(providerguid: *const windows_core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: P2, payloadpredicates: &[PAYLOAD_FILTER_PREDICATE], payloadfilter: *mut *mut core::ffi::c_void) -> u32
 where
-    P0: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("tdh.dll" "system" fn TdhCreatePayloadFilter(providerguid : *const windows_core::GUID, eventdescriptor : *const EVENT_DESCRIPTOR, eventmatchany : super::super::super::Foundation:: BOOLEAN, payloadpredicatecount : u32, payloadpredicates : *const PAYLOAD_FILTER_PREDICATE, payloadfilter : *mut *mut core::ffi::c_void) -> u32);
     TdhCreatePayloadFilter(providerguid, eventdescriptor, eventmatchany.param().abi(), payloadpredicates.len().try_into().unwrap(), core::mem::transmute(payloadpredicates.as_ptr()), payloadfilter)
@@ -420,9 +420,9 @@ pub unsafe fn TdhGetEventInformation(event: *const EVENT_RECORD, tdhcontext: Opt
     TdhGetEventInformation(event, tdhcontext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(tdhcontext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), buffersize)
 }
 #[inline]
-pub unsafe fn TdhGetEventMapInformation<P0>(pevent: *const EVENT_RECORD, pmapname: P0, pbuffer: Option<*mut EVENT_MAP_INFO>, pbuffersize: *mut u32) -> u32
+pub unsafe fn TdhGetEventMapInformation<P1>(pevent: *const EVENT_RECORD, pmapname: P1, pbuffer: Option<*mut EVENT_MAP_INFO>, pbuffersize: *mut u32) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tdh.dll" "system" fn TdhGetEventMapInformation(pevent : *const EVENT_RECORD, pmapname : windows_core::PCWSTR, pbuffer : *mut EVENT_MAP_INFO, pbuffersize : *mut u32) -> u32);
     TdhGetEventMapInformation(pevent, pmapname.param().abi(), core::mem::transmute(pbuffer.unwrap_or(core::ptr::null_mut())), pbuffersize)
@@ -451,10 +451,10 @@ where
     TdhGetWppMessage(handle.param().abi(), eventrecord, buffersize, buffer)
 }
 #[inline]
-pub unsafe fn TdhGetWppProperty<P0, P1>(handle: P0, eventrecord: *const EVENT_RECORD, propertyname: P1, buffersize: *mut u32, buffer: *mut u8) -> u32
+pub unsafe fn TdhGetWppProperty<P0, P2>(handle: P0, eventrecord: *const EVENT_RECORD, propertyname: P2, buffersize: *mut u32, buffer: *mut u8) -> u32
 where
     P0: windows_core::Param<TDH_HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tdh.dll" "system" fn TdhGetWppProperty(handle : TDH_HANDLE, eventrecord : *const EVENT_RECORD, propertyname : windows_core::PCWSTR, buffersize : *mut u32, buffer : *mut u8) -> u32);
     TdhGetWppProperty(handle.param().abi(), eventrecord, propertyname.param().abi(), buffersize, buffer)
@@ -547,28 +547,22 @@ pub unsafe fn UnregisterTraceGuids(registrationhandle: u64) -> u32 {
     UnregisterTraceGuids(registrationhandle)
 }
 #[inline]
-pub unsafe fn UpdateTraceA<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn UpdateTraceA<P1>(tracehandle: CONTROLTRACE_HANDLE, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn UpdateTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
     UpdateTraceA(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
 }
 #[inline]
-pub unsafe fn UpdateTraceW<P0>(tracehandle: CONTROLTRACE_HANDLE, instancename: P0, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
+pub unsafe fn UpdateTraceW<P1>(tracehandle: CONTROLTRACE_HANDLE, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn UpdateTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : windows_core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
     UpdateTraceW(core::mem::transmute(tracehandle), instancename.param().abi(), properties)
 }
 windows_core::imp::define_interface!(ITraceEvent, ITraceEvent_Vtbl, 0x8cc97f40_9028_4ff3_9b62_7d1f79ca7bcb);
-impl core::ops::Deref for ITraceEvent {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ITraceEvent, windows_core::IUnknown);
 impl ITraceEvent {
     pub unsafe fn Clone(&self) -> windows_core::Result<ITraceEvent> {
@@ -627,7 +621,7 @@ pub struct ITraceEvent_Vtbl {
     pub SetTimeStamp: unsafe extern "system" fn(*mut core::ffi::c_void, *const i64) -> windows_core::HRESULT,
     pub SetProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
-pub trait ITraceEvent_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ITraceEvent_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<ITraceEvent>;
     fn GetUserContext(&self) -> windows_core::Result<*mut core::ffi::c_void>;
     fn GetEventRecord(&self) -> windows_core::Result<*mut EVENT_RECORD>;
@@ -641,9 +635,8 @@ pub trait ITraceEvent_Impl: Sized + windows_core::IUnknownImpl {
     fn SetTimeStamp(&self, timestamp: *const i64) -> windows_core::Result<()>;
     fn SetProviderId(&self, providerid: *const windows_core::GUID) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ITraceEvent {}
 impl ITraceEvent_Vtbl {
-    pub const fn new<Identity: ITraceEvent_Impl, const OFFSET: isize>() -> ITraceEvent_Vtbl {
+    pub const fn new<Identity: ITraceEvent_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Clone<Identity: ITraceEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newevent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITraceEvent_Impl::Clone(this) {
@@ -730,13 +723,8 @@ impl ITraceEvent_Vtbl {
         iid == &<ITraceEvent as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ITraceEvent {}
 windows_core::imp::define_interface!(ITraceEventCallback, ITraceEventCallback_Vtbl, 0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
-impl core::ops::Deref for ITraceEventCallback {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ITraceEventCallback, windows_core::IUnknown);
 impl ITraceEventCallback {
     pub unsafe fn OnBeginProcessTrace<P0, P1>(&self, headerevent: P0, relogger: P1) -> windows_core::Result<()>
@@ -767,14 +755,13 @@ pub struct ITraceEventCallback_Vtbl {
     pub OnFinalizeProcessTrace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ITraceEventCallback_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ITraceEventCallback_Impl: windows_core::IUnknownImpl {
     fn OnBeginProcessTrace(&self, headerevent: Option<&ITraceEvent>, relogger: Option<&ITraceRelogger>) -> windows_core::Result<()>;
     fn OnFinalizeProcessTrace(&self, relogger: Option<&ITraceRelogger>) -> windows_core::Result<()>;
     fn OnEvent(&self, event: Option<&ITraceEvent>, relogger: Option<&ITraceRelogger>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ITraceEventCallback {}
 impl ITraceEventCallback_Vtbl {
-    pub const fn new<Identity: ITraceEventCallback_Impl, const OFFSET: isize>() -> ITraceEventCallback_Vtbl {
+    pub const fn new<Identity: ITraceEventCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnBeginProcessTrace<Identity: ITraceEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, headerevent: *mut core::ffi::c_void, relogger: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITraceEventCallback_Impl::OnBeginProcessTrace(this, windows_core::from_raw_borrowed(&headerevent), windows_core::from_raw_borrowed(&relogger)).into()
@@ -798,13 +785,8 @@ impl ITraceEventCallback_Vtbl {
         iid == &<ITraceEventCallback as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ITraceEventCallback {}
 windows_core::imp::define_interface!(ITraceRelogger, ITraceRelogger_Vtbl, 0xf754ad43_3bcc_4286_8009_9c5da214e84e);
-impl core::ops::Deref for ITraceRelogger {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ITraceRelogger, windows_core::IUnknown);
 impl ITraceRelogger {
     pub unsafe fn AddLogfileTraceStream<P0>(&self, logfilename: P0, usercontext: *const core::ffi::c_void) -> windows_core::Result<RELOGSTREAM_HANDLE>
@@ -869,7 +851,7 @@ pub struct ITraceRelogger_Vtbl {
     pub SetCompressionMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOLEAN) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ITraceRelogger_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ITraceRelogger_Impl: windows_core::IUnknownImpl {
     fn AddLogfileTraceStream(&self, logfilename: &windows_core::BSTR, usercontext: *const core::ffi::c_void) -> windows_core::Result<RELOGSTREAM_HANDLE>;
     fn AddRealtimeTraceStream(&self, loggername: &windows_core::BSTR, usercontext: *const core::ffi::c_void) -> windows_core::Result<RELOGSTREAM_HANDLE>;
     fn RegisterCallback(&self, callback: Option<&ITraceEventCallback>) -> windows_core::Result<()>;
@@ -880,9 +862,8 @@ pub trait ITraceRelogger_Impl: Sized + windows_core::IUnknownImpl {
     fn SetCompressionMode(&self, compressionmode: super::super::super::Foundation::BOOLEAN) -> windows_core::Result<()>;
     fn Cancel(&self) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ITraceRelogger {}
 impl ITraceRelogger_Vtbl {
-    pub const fn new<Identity: ITraceRelogger_Impl, const OFFSET: isize>() -> ITraceRelogger_Vtbl {
+    pub const fn new<Identity: ITraceRelogger_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddLogfileTraceStream<Identity: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, logfilename: core::mem::MaybeUninit<windows_core::BSTR>, usercontext: *const core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITraceRelogger_Impl::AddLogfileTraceStream(this, core::mem::transmute(&logfilename), core::mem::transmute_copy(&usercontext)) {
@@ -954,6 +935,7 @@ impl ITraceRelogger_Vtbl {
         iid == &<ITraceRelogger as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ITraceRelogger {}
 pub const ALPCGuid: windows_core::GUID = windows_core::GUID::from_u128(0x45d8cccd_539f_4b72_a8b7_5c683142609a);
 pub const CLSID_TraceRelogger: windows_core::GUID = windows_core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
 pub const DIAG_LOGGER_NAMEA: windows_core::PCSTR = windows_core::s!("DiagLog");
@@ -1673,136 +1655,76 @@ pub const WNODE_FLAG_USE_MOF_PTR: u32 = 1048576u32;
 pub const WNODE_FLAG_USE_TIMESTAMP: u32 = 512u32;
 pub const WNODE_FLAG_VERSIONED_PROPERTIES: u32 = 8388608u32;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DECODING_SOURCE(pub i32);
 impl windows_core::TypeKind for DECODING_SOURCE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DECODING_SOURCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DECODING_SOURCE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ENABLECALLBACK_ENABLED_STATE(pub u32);
 impl windows_core::TypeKind for ENABLECALLBACK_ENABLED_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ENABLECALLBACK_ENABLED_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ENABLECALLBACK_ENABLED_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ETW_COMPRESSION_RESUMPTION_MODE(pub i32);
 impl windows_core::TypeKind for ETW_COMPRESSION_RESUMPTION_MODE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ETW_COMPRESSION_RESUMPTION_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ETW_COMPRESSION_RESUMPTION_MODE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ETW_PMC_COUNTER_OWNER_TYPE(pub i32);
 impl windows_core::TypeKind for ETW_PMC_COUNTER_OWNER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ETW_PMC_COUNTER_OWNER_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ETW_PMC_COUNTER_OWNER_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ETW_PROCESS_HANDLE_INFO_TYPE(pub i32);
 impl windows_core::TypeKind for ETW_PROCESS_HANDLE_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ETW_PROCESS_HANDLE_INFO_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ETW_PROCESS_HANDLE_INFO_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ETW_PROCESS_TRACE_MODES(pub i32);
 impl windows_core::TypeKind for ETW_PROCESS_TRACE_MODES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ETW_PROCESS_TRACE_MODES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ETW_PROCESS_TRACE_MODES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ETW_PROVIDER_TRAIT_TYPE(pub i32);
 impl windows_core::TypeKind for ETW_PROVIDER_TRAIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ETW_PROVIDER_TRAIT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ETW_PROVIDER_TRAIT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVENTSECURITYOPERATION(pub i32);
 impl windows_core::TypeKind for EVENTSECURITYOPERATION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVENTSECURITYOPERATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVENTSECURITYOPERATION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVENT_FIELD_TYPE(pub i32);
 impl windows_core::TypeKind for EVENT_FIELD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVENT_FIELD_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVENT_FIELD_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVENT_INFO_CLASS(pub i32);
 impl windows_core::TypeKind for EVENT_INFO_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVENT_INFO_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVENT_INFO_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVENT_TRACE_CONTROL(pub u32);
 impl windows_core::TypeKind for EVENT_TRACE_CONTROL {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVENT_TRACE_CONTROL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVENT_TRACE_CONTROL").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVENT_TRACE_FLAG(pub u32);
 impl windows_core::TypeKind for EVENT_TRACE_FLAG {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for EVENT_TRACE_FLAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVENT_TRACE_FLAG").field(&self.0).finish()
-    }
 }
 impl EVENT_TRACE_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1838,81 +1760,46 @@ impl core::ops::Not for EVENT_TRACE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MAP_FLAGS(pub i32);
 impl windows_core::TypeKind for MAP_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MAP_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MAP_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MAP_VALUETYPE(pub i32);
 impl windows_core::TypeKind for MAP_VALUETYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MAP_VALUETYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MAP_VALUETYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PAYLOAD_OPERATOR(pub i32);
 impl windows_core::TypeKind for PAYLOAD_OPERATOR {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PAYLOAD_OPERATOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PAYLOAD_OPERATOR").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PROPERTY_FLAGS(pub i32);
 impl windows_core::TypeKind for PROPERTY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PROPERTY_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PROPERTY_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TDH_CONTEXT_TYPE(pub i32);
 impl windows_core::TypeKind for TDH_CONTEXT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TDH_CONTEXT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TDH_CONTEXT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TEMPLATE_FLAGS(pub i32);
 impl windows_core::TypeKind for TEMPLATE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TEMPLATE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TEMPLATE_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TRACE_MESSAGE_FLAGS(pub u32);
 impl windows_core::TypeKind for TRACE_MESSAGE_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TRACE_MESSAGE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRACE_MESSAGE_FLAGS").field(&self.0).finish()
-    }
 }
 impl TRACE_MESSAGE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1948,80 +1835,60 @@ impl core::ops::Not for TRACE_MESSAGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TRACE_QUERY_INFO_CLASS(pub i32);
 impl windows_core::TypeKind for TRACE_QUERY_INFO_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRACE_QUERY_INFO_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRACE_QUERY_INFO_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WMIDPREQUESTCODE(pub i32);
 impl windows_core::TypeKind for WMIDPREQUESTCODE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WMIDPREQUESTCODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WMIDPREQUESTCODE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct _TDH_IN_TYPE(pub i32);
 impl windows_core::TypeKind for _TDH_IN_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for _TDH_IN_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("_TDH_IN_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct _TDH_OUT_TYPE(pub i32);
 impl windows_core::TypeKind for _TDH_OUT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for _TDH_OUT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("_TDH_OUT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLASSIC_EVENT_ID {
     pub EventGuid: windows_core::GUID,
     pub Type: u8,
     pub Reserved: [u8; 7],
-}
-impl windows_core::TypeKind for CLASSIC_EVENT_ID {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLASSIC_EVENT_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLASSIC_EVENT_ID {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CONTROLTRACE_HANDLE {
     pub Value: u64,
-}
-impl windows_core::TypeKind for CONTROLTRACE_HANDLE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CONTROLTRACE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CONTROLTRACE_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 pub const CTraceRelogger: windows_core::GUID = windows_core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ENABLE_TRACE_PARAMETERS {
     pub Version: u32,
     pub EnableProperty: u32,
@@ -2030,16 +1897,16 @@ pub struct ENABLE_TRACE_PARAMETERS {
     pub EnableFilterDesc: *mut EVENT_FILTER_DESCRIPTOR,
     pub FilterDescCount: u32,
 }
-impl windows_core::TypeKind for ENABLE_TRACE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ENABLE_TRACE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ENABLE_TRACE_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ENABLE_TRACE_PARAMETERS_V1 {
     pub Version: u32,
     pub EnableProperty: u32,
@@ -2047,25 +1914,21 @@ pub struct ENABLE_TRACE_PARAMETERS_V1 {
     pub SourceId: windows_core::GUID,
     pub EnableFilterDesc: *mut EVENT_FILTER_DESCRIPTOR,
 }
-impl windows_core::TypeKind for ENABLE_TRACE_PARAMETERS_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ENABLE_TRACE_PARAMETERS_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ENABLE_TRACE_PARAMETERS_V1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ETW_BUFFER_CALLBACK_INFORMATION {
     pub TraceHandle: u64,
     pub LogfileHeader: *const TRACE_LOGFILE_HEADER,
     pub BuffersRead: u32,
-}
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for ETW_BUFFER_CALLBACK_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Time")]
 impl Default for ETW_BUFFER_CALLBACK_INFORMATION {
@@ -2073,50 +1936,54 @@ impl Default for ETW_BUFFER_CALLBACK_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for ETW_BUFFER_CALLBACK_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ETW_BUFFER_CONTEXT {
     pub Anonymous: ETW_BUFFER_CONTEXT_0,
     pub LoggerId: u16,
-}
-impl windows_core::TypeKind for ETW_BUFFER_CONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ETW_BUFFER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ETW_BUFFER_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union ETW_BUFFER_CONTEXT_0 {
     pub Anonymous: ETW_BUFFER_CONTEXT_0_0,
     pub ProcessorIndex: u16,
-}
-impl windows_core::TypeKind for ETW_BUFFER_CONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ETW_BUFFER_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ETW_BUFFER_CONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ETW_BUFFER_CONTEXT_0_0 {
     pub ProcessorNumber: u8,
     pub Alignment: u8,
-}
-impl windows_core::TypeKind for ETW_BUFFER_CONTEXT_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ETW_BUFFER_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ETW_BUFFER_CONTEXT_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ETW_BUFFER_HEADER {
     pub Reserved1: [u32; 4],
     pub TimeStamp: i64,
@@ -2126,17 +1993,17 @@ pub struct ETW_BUFFER_HEADER {
     pub FilledBytes: u32,
     pub Reserved4: [u32; 5],
 }
-impl windows_core::TypeKind for ETW_BUFFER_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ETW_BUFFER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ETW_BUFFER_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ETW_OPEN_TRACE_OPTIONS {
     pub ProcessTraceModes: ETW_PROCESS_TRACE_MODES,
     pub EventCallback: PEVENT_RECORD_CALLBACK,
@@ -2145,47 +2012,47 @@ pub struct ETW_OPEN_TRACE_OPTIONS {
     pub BufferCallbackContext: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for ETW_OPEN_TRACE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Time")]
 impl Default for ETW_OPEN_TRACE_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for ETW_OPEN_TRACE_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ETW_PMC_COUNTER_OWNER {
     pub OwnerType: ETW_PMC_COUNTER_OWNER_TYPE,
     pub ProfileSource: u32,
     pub OwnerTag: u32,
-}
-impl windows_core::TypeKind for ETW_PMC_COUNTER_OWNER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ETW_PMC_COUNTER_OWNER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ETW_PMC_COUNTER_OWNER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ETW_PMC_COUNTER_OWNERSHIP_STATUS {
     pub ProcessorNumber: u32,
     pub NumberOfCounters: u32,
     pub CounterOwners: [ETW_PMC_COUNTER_OWNER; 1],
-}
-impl windows_core::TypeKind for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ETW_PMC_SESSION_INFO {
     pub NextEntryOffset: u32,
     pub LoggerId: u16,
@@ -2193,92 +2060,92 @@ pub struct ETW_PMC_SESSION_INFO {
     pub ProfileSourceCount: u32,
     pub HookIdCount: u32,
 }
-impl windows_core::TypeKind for ETW_PMC_SESSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ETW_PMC_SESSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ETW_PMC_SESSION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ETW_TRACE_PARTITION_INFORMATION {
     pub PartitionId: windows_core::GUID,
     pub ParentId: windows_core::GUID,
     pub QpcOffsetFromRoot: i64,
     pub PartitionType: u32,
 }
-impl windows_core::TypeKind for ETW_TRACE_PARTITION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ETW_TRACE_PARTITION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ETW_TRACE_PARTITION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ETW_TRACE_PARTITION_INFORMATION_V2 {
     pub QpcOffsetFromRoot: i64,
     pub PartitionType: u32,
     pub PartitionId: windows_core::PWSTR,
     pub ParentId: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for ETW_TRACE_PARTITION_INFORMATION_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ETW_TRACE_PARTITION_INFORMATION_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ETW_TRACE_PARTITION_INFORMATION_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENT_DATA_DESCRIPTOR {
     pub Ptr: u64,
     pub Size: u32,
     pub Anonymous: EVENT_DATA_DESCRIPTOR_0,
-}
-impl windows_core::TypeKind for EVENT_DATA_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_DATA_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_DATA_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_DATA_DESCRIPTOR_0 {
     pub Reserved: u32,
     pub Anonymous: EVENT_DATA_DESCRIPTOR_0_0,
-}
-impl windows_core::TypeKind for EVENT_DATA_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_DATA_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_DATA_DESCRIPTOR_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_DATA_DESCRIPTOR_0_0 {
     pub Type: u8,
     pub Reserved1: u8,
     pub Reserved2: u16,
-}
-impl windows_core::TypeKind for EVENT_DATA_DESCRIPTOR_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_DATA_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_DATA_DESCRIPTOR_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_DESCRIPTOR {
     pub Id: u16,
     pub Version: u8,
@@ -2288,197 +2155,197 @@ pub struct EVENT_DESCRIPTOR {
     pub Task: u16,
     pub Keyword: u64,
 }
-impl windows_core::TypeKind for EVENT_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_EVENT_KEY {
     pub Key: u64,
-}
-impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_EVENT_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_EXTENDED_ITEM_EVENT_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_EVENT_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_INSTANCE {
     pub InstanceId: u32,
     pub ParentInstanceId: u32,
     pub ParentGuid: windows_core::GUID,
-}
-impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_INSTANCE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_EXTENDED_ITEM_INSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_INSTANCE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_PEBS_INDEX {
     pub PebsIndex: u64,
-}
-impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_PEBS_INDEX {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_EXTENDED_ITEM_PEBS_INDEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_PEBS_INDEX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     pub Counter: [u64; 1],
-}
-impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
     pub ProcessStartKey: u64,
-}
-impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
     pub RelatedActivityId: windows_core::GUID,
-}
-impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_KEY32 {
     pub MatchId: u64,
     pub StackKey: u32,
     pub Padding: u32,
-}
-impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_STACK_KEY32 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_EXTENDED_ITEM_STACK_KEY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_STACK_KEY32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_KEY64 {
     pub MatchId: u64,
     pub StackKey: u64,
-}
-impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_STACK_KEY64 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_EXTENDED_ITEM_STACK_KEY64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_STACK_KEY64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     pub MatchId: u64,
     pub Address: [u32; 1],
-}
-impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     pub MatchId: u64,
     pub Address: [u64; 1],
-}
-impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_TS_ID {
     pub SessionId: u32,
-}
-impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_TS_ID {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_EXTENDED_ITEM_TS_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_TS_ID {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_FILTER_DESCRIPTOR {
     pub Ptr: u64,
     pub Size: u32,
     pub Type: u32,
-}
-impl windows_core::TypeKind for EVENT_FILTER_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_FILTER_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_FILTER_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_FILTER_EVENT_ID {
     pub FilterIn: super::super::super::Foundation::BOOLEAN,
     pub Reserved: u8,
     pub Count: u16,
     pub Events: [u16; 1],
 }
-impl windows_core::TypeKind for EVENT_FILTER_EVENT_ID {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENT_FILTER_EVENT_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_FILTER_EVENT_ID {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_FILTER_EVENT_NAME {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
@@ -2487,16 +2354,16 @@ pub struct EVENT_FILTER_EVENT_NAME {
     pub NameCount: u16,
     pub Names: [u8; 1],
 }
-impl windows_core::TypeKind for EVENT_FILTER_EVENT_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENT_FILTER_EVENT_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_FILTER_EVENT_NAME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_FILTER_HEADER {
     pub Id: u16,
     pub Version: u8,
@@ -2505,32 +2372,32 @@ pub struct EVENT_FILTER_HEADER {
     pub Size: u32,
     pub NextOffset: u32,
 }
-impl windows_core::TypeKind for EVENT_FILTER_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENT_FILTER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_FILTER_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_FILTER_LEVEL_KW {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
     pub Level: u8,
     pub FilterIn: super::super::super::Foundation::BOOLEAN,
 }
-impl windows_core::TypeKind for EVENT_FILTER_LEVEL_KW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENT_FILTER_LEVEL_KW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_FILTER_LEVEL_KW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENT_HEADER {
     pub Size: u16,
     pub HeaderType: u16,
@@ -2544,44 +2411,44 @@ pub struct EVENT_HEADER {
     pub Anonymous: EVENT_HEADER_0,
     pub ActivityId: windows_core::GUID,
 }
-impl windows_core::TypeKind for EVENT_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_HEADER_0 {
     pub Anonymous: EVENT_HEADER_0_0,
     pub ProcessorTime: u64,
-}
-impl windows_core::TypeKind for EVENT_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_HEADER_0_0 {
     pub KernelTime: u32,
     pub UserTime: u32,
-}
-impl windows_core::TypeKind for EVENT_HEADER_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_HEADER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_HEADER_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_HEADER_EXTENDED_DATA_ITEM {
     pub Reserved1: u16,
     pub ExtType: u16,
@@ -2589,29 +2456,29 @@ pub struct EVENT_HEADER_EXTENDED_DATA_ITEM {
     pub DataSize: u16,
     pub DataPtr: u64,
 }
-impl windows_core::TypeKind for EVENT_HEADER_EXTENDED_DATA_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENT_HEADER_EXTENDED_DATA_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_HEADER_EXTENDED_DATA_ITEM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
     pub _bitfield: u16,
-}
-impl windows_core::TypeKind for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENT_INSTANCE_HEADER {
     pub Size: u16,
     pub Anonymous1: EVENT_INSTANCE_HEADER_0,
@@ -2625,158 +2492,158 @@ pub struct EVENT_INSTANCE_HEADER {
     pub Anonymous3: EVENT_INSTANCE_HEADER_2,
     pub ParentRegHandle: u64,
 }
-impl windows_core::TypeKind for EVENT_INSTANCE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENT_INSTANCE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_INSTANCE_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_INSTANCE_HEADER_0 {
     pub FieldTypeFlags: u16,
     pub Anonymous: EVENT_INSTANCE_HEADER_0_0,
-}
-impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_INSTANCE_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_INSTANCE_HEADER_0_0 {
     pub HeaderType: u8,
     pub MarkerFlags: u8,
-}
-impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_INSTANCE_HEADER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_INSTANCE_HEADER_1 {
     pub Version: u32,
     pub Class: EVENT_INSTANCE_HEADER_1_0,
-}
-impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_1 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_INSTANCE_HEADER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_INSTANCE_HEADER_1_0 {
     pub Type: u8,
     pub Level: u8,
     pub Version: u16,
-}
-impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_INSTANCE_HEADER_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_INSTANCE_HEADER_2 {
     pub Anonymous1: EVENT_INSTANCE_HEADER_2_0,
     pub ProcessorTime: u64,
     pub Anonymous2: EVENT_INSTANCE_HEADER_2_1,
-}
-impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_2 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_INSTANCE_HEADER_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_INSTANCE_HEADER_2_0 {
     pub KernelTime: u32,
     pub UserTime: u32,
-}
-impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_INSTANCE_HEADER_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_INSTANCE_HEADER_2_1 {
     pub EventId: u32,
     pub Flags: u32,
-}
-impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_2_1 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_INSTANCE_HEADER_2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_2_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_INSTANCE_INFO {
     pub RegHandle: super::super::super::Foundation::HANDLE,
     pub InstanceId: u32,
-}
-impl windows_core::TypeKind for EVENT_INSTANCE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_INSTANCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_INSTANCE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENT_MAP_ENTRY {
     pub OutputOffset: u32,
     pub Anonymous: EVENT_MAP_ENTRY_0,
-}
-impl windows_core::TypeKind for EVENT_MAP_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_MAP_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_MAP_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_MAP_ENTRY_0 {
     pub Value: u32,
     pub InputOffset: u32,
-}
-impl windows_core::TypeKind for EVENT_MAP_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_MAP_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_MAP_ENTRY_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENT_MAP_INFO {
     pub NameOffset: u32,
     pub Flag: MAP_FLAGS,
@@ -2784,30 +2651,30 @@ pub struct EVENT_MAP_INFO {
     pub Anonymous: EVENT_MAP_INFO_0,
     pub MapEntryArray: [EVENT_MAP_ENTRY; 1],
 }
-impl windows_core::TypeKind for EVENT_MAP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENT_MAP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_MAP_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_MAP_INFO_0 {
     pub MapEntryValueType: MAP_VALUETYPE,
     pub FormatStringOffset: u32,
-}
-impl windows_core::TypeKind for EVENT_MAP_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_MAP_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_MAP_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENT_PROPERTY_INFO {
     pub Flags: PROPERTY_FLAGS,
     pub NameOffset: u32,
@@ -2816,131 +2683,131 @@ pub struct EVENT_PROPERTY_INFO {
     pub Anonymous3: EVENT_PROPERTY_INFO_2,
     pub Anonymous4: EVENT_PROPERTY_INFO_3,
 }
-impl windows_core::TypeKind for EVENT_PROPERTY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENT_PROPERTY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_PROPERTY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_PROPERTY_INFO_0 {
     pub nonStructType: EVENT_PROPERTY_INFO_0_0,
     pub structType: EVENT_PROPERTY_INFO_0_1,
     pub customSchemaType: EVENT_PROPERTY_INFO_0_2,
-}
-impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_PROPERTY_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_PROPERTY_INFO_0_2 {
     pub InType: u16,
     pub OutType: u16,
     pub CustomSchemaOffset: u32,
-}
-impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_PROPERTY_INFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_PROPERTY_INFO_0_0 {
     pub InType: u16,
     pub OutType: u16,
     pub MapNameOffset: u32,
-}
-impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_PROPERTY_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_PROPERTY_INFO_0_1 {
     pub StructStartIndex: u16,
     pub NumOfStructMembers: u16,
     pub padding: u32,
-}
-impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_PROPERTY_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_PROPERTY_INFO_1 {
     pub count: u16,
     pub countPropertyIndex: u16,
-}
-impl windows_core::TypeKind for EVENT_PROPERTY_INFO_1 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_PROPERTY_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_PROPERTY_INFO_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_PROPERTY_INFO_2 {
     pub length: u16,
     pub lengthPropertyIndex: u16,
-}
-impl windows_core::TypeKind for EVENT_PROPERTY_INFO_2 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_PROPERTY_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_PROPERTY_INFO_2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_PROPERTY_INFO_3 {
     pub Reserved: u32,
     pub Anonymous: EVENT_PROPERTY_INFO_3_0,
-}
-impl windows_core::TypeKind for EVENT_PROPERTY_INFO_3 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_PROPERTY_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_PROPERTY_INFO_3 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_PROPERTY_INFO_3_0 {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for EVENT_PROPERTY_INFO_3_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_PROPERTY_INFO_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_PROPERTY_INFO_3_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENT_RECORD {
     pub EventHeader: EVENT_HEADER,
     pub BufferContext: ETW_BUFFER_CONTEXT,
@@ -2950,16 +2817,16 @@ pub struct EVENT_RECORD {
     pub UserData: *mut core::ffi::c_void,
     pub UserContext: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for EVENT_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENT_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENT_TRACE {
     pub Header: EVENT_TRACE_HEADER,
     pub InstanceId: u32,
@@ -2969,30 +2836,30 @@ pub struct EVENT_TRACE {
     pub MofLength: u32,
     pub Anonymous: EVENT_TRACE_0,
 }
-impl windows_core::TypeKind for EVENT_TRACE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENT_TRACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_TRACE_0 {
     pub ClientContext: u32,
     pub BufferContext: ETW_BUFFER_CONTEXT,
-}
-impl windows_core::TypeKind for EVENT_TRACE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_TRACE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENT_TRACE_HEADER {
     pub Size: u16,
     pub Anonymous1: EVENT_TRACE_HEADER_0,
@@ -3003,131 +2870,131 @@ pub struct EVENT_TRACE_HEADER {
     pub Anonymous3: EVENT_TRACE_HEADER_2,
     pub Anonymous4: EVENT_TRACE_HEADER_3,
 }
-impl windows_core::TypeKind for EVENT_TRACE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENT_TRACE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_TRACE_HEADER_0 {
     pub FieldTypeFlags: u16,
     pub Anonymous: EVENT_TRACE_HEADER_0_0,
-}
-impl windows_core::TypeKind for EVENT_TRACE_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_TRACE_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_TRACE_HEADER_0_0 {
     pub HeaderType: u8,
     pub MarkerFlags: u8,
-}
-impl windows_core::TypeKind for EVENT_TRACE_HEADER_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_TRACE_HEADER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_HEADER_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_TRACE_HEADER_1 {
     pub Version: u32,
     pub Class: EVENT_TRACE_HEADER_1_0,
-}
-impl windows_core::TypeKind for EVENT_TRACE_HEADER_1 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_TRACE_HEADER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_HEADER_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_TRACE_HEADER_1_0 {
     pub Type: u8,
     pub Level: u8,
     pub Version: u16,
-}
-impl windows_core::TypeKind for EVENT_TRACE_HEADER_1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_TRACE_HEADER_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_HEADER_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_TRACE_HEADER_2 {
     pub Guid: windows_core::GUID,
     pub GuidPtr: u64,
-}
-impl windows_core::TypeKind for EVENT_TRACE_HEADER_2 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_TRACE_HEADER_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_HEADER_2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_TRACE_HEADER_3 {
     pub Anonymous1: EVENT_TRACE_HEADER_3_0,
     pub ProcessorTime: u64,
     pub Anonymous2: EVENT_TRACE_HEADER_3_1,
-}
-impl windows_core::TypeKind for EVENT_TRACE_HEADER_3 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_TRACE_HEADER_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_HEADER_3 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_TRACE_HEADER_3_0 {
     pub KernelTime: u32,
     pub UserTime: u32,
-}
-impl windows_core::TypeKind for EVENT_TRACE_HEADER_3_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_TRACE_HEADER_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_HEADER_3_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_TRACE_HEADER_3_1 {
     pub ClientContext: u32,
     pub Flags: u32,
-}
-impl windows_core::TypeKind for EVENT_TRACE_HEADER_3_1 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_TRACE_HEADER_3_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_HEADER_3_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENT_TRACE_LOGFILEA {
     pub LogFileName: windows_core::PSTR,
     pub LoggerName: windows_core::PSTR,
@@ -3145,25 +3012,21 @@ pub struct EVENT_TRACE_LOGFILEA {
     pub Context: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for EVENT_TRACE_LOGFILEA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Time")]
 impl Default for EVENT_TRACE_LOGFILEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for EVENT_TRACE_LOGFILEA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_TRACE_LOGFILEA_0 {
     pub LogFileMode: u32,
     pub ProcessTraceMode: u32,
-}
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for EVENT_TRACE_LOGFILEA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Time")]
 impl Default for EVENT_TRACE_LOGFILEA_0 {
@@ -3171,16 +3034,16 @@ impl Default for EVENT_TRACE_LOGFILEA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for EVENT_TRACE_LOGFILEA_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_TRACE_LOGFILEA_1 {
     pub EventCallback: PEVENT_CALLBACK,
     pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
-}
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for EVENT_TRACE_LOGFILEA_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Time")]
 impl Default for EVENT_TRACE_LOGFILEA_1 {
@@ -3188,9 +3051,13 @@ impl Default for EVENT_TRACE_LOGFILEA_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for EVENT_TRACE_LOGFILEA_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENT_TRACE_LOGFILEW {
     pub LogFileName: windows_core::PWSTR,
     pub LoggerName: windows_core::PWSTR,
@@ -3208,25 +3075,21 @@ pub struct EVENT_TRACE_LOGFILEW {
     pub Context: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for EVENT_TRACE_LOGFILEW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Time")]
 impl Default for EVENT_TRACE_LOGFILEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for EVENT_TRACE_LOGFILEW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_TRACE_LOGFILEW_0 {
     pub LogFileMode: u32,
     pub ProcessTraceMode: u32,
-}
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for EVENT_TRACE_LOGFILEW_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Time")]
 impl Default for EVENT_TRACE_LOGFILEW_0 {
@@ -3234,16 +3097,16 @@ impl Default for EVENT_TRACE_LOGFILEW_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for EVENT_TRACE_LOGFILEW_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_TRACE_LOGFILEW_1 {
     pub EventCallback: PEVENT_CALLBACK,
     pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
-}
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for EVENT_TRACE_LOGFILEW_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Time")]
 impl Default for EVENT_TRACE_LOGFILEW_1 {
@@ -3251,8 +3114,12 @@ impl Default for EVENT_TRACE_LOGFILEW_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for EVENT_TRACE_LOGFILEW_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENT_TRACE_PROPERTIES {
     pub Wnode: WNODE_HEADER,
     pub BufferSize: u32,
@@ -3273,30 +3140,30 @@ pub struct EVENT_TRACE_PROPERTIES {
     pub LogFileNameOffset: u32,
     pub LoggerNameOffset: u32,
 }
-impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENT_TRACE_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_TRACE_PROPERTIES_0 {
     pub AgeLimit: i32,
     pub FlushThreshold: i32,
-}
-impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_TRACE_PROPERTIES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENT_TRACE_PROPERTIES_V2 {
     pub Wnode: WNODE_HEADER,
     pub BufferSize: u32,
@@ -3321,141 +3188,141 @@ pub struct EVENT_TRACE_PROPERTIES_V2 {
     pub FilterDesc: *mut EVENT_FILTER_DESCRIPTOR,
     pub Anonymous3: EVENT_TRACE_PROPERTIES_V2_2,
 }
-impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENT_TRACE_PROPERTIES_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_TRACE_PROPERTIES_V2_0 {
     pub AgeLimit: i32,
     pub FlushThreshold: i32,
-}
-impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_TRACE_PROPERTIES_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_TRACE_PROPERTIES_V2_1 {
     pub Anonymous: EVENT_TRACE_PROPERTIES_V2_1_0,
     pub V2Control: u32,
-}
-impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2_1 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_TRACE_PROPERTIES_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_TRACE_PROPERTIES_V2_1_0 {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2_1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_TRACE_PROPERTIES_V2_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVENT_TRACE_PROPERTIES_V2_2 {
     pub Anonymous: EVENT_TRACE_PROPERTIES_V2_2_0,
     pub V2Options: u64,
-}
-impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2_2 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_TRACE_PROPERTIES_V2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2_2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENT_TRACE_PROPERTIES_V2_2_0 {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2_2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_TRACE_PROPERTIES_V2_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2_2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MOF_FIELD {
     pub DataPtr: u64,
     pub Length: u32,
     pub DataType: u32,
-}
-impl windows_core::TypeKind for MOF_FIELD {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MOF_FIELD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MOF_FIELD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct OFFSETINSTANCEDATAANDLENGTH {
     pub OffsetInstanceData: u32,
     pub LengthInstanceData: u32,
-}
-impl windows_core::TypeKind for OFFSETINSTANCEDATAANDLENGTH {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for OFFSETINSTANCEDATAANDLENGTH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for OFFSETINSTANCEDATAANDLENGTH {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PAYLOAD_FILTER_PREDICATE {
     pub FieldName: windows_core::PWSTR,
     pub CompareOp: u16,
     pub Value: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for PAYLOAD_FILTER_PREDICATE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PAYLOAD_FILTER_PREDICATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PAYLOAD_FILTER_PREDICATE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PROCESSTRACE_HANDLE {
     pub Value: u64,
-}
-impl windows_core::TypeKind for PROCESSTRACE_HANDLE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESSTRACE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PROCESSTRACE_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PROFILE_SOURCE_INFO {
     pub NextEntryOffset: u32,
     pub Source: u32,
@@ -3464,91 +3331,91 @@ pub struct PROFILE_SOURCE_INFO {
     pub Reserved: u64,
     pub Description: [u16; 1],
 }
-impl windows_core::TypeKind for PROFILE_SOURCE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PROFILE_SOURCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PROFILE_SOURCE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PROPERTY_DATA_DESCRIPTOR {
     pub PropertyName: u64,
     pub ArrayIndex: u32,
     pub Reserved: u32,
-}
-impl windows_core::TypeKind for PROPERTY_DATA_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROPERTY_DATA_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PROPERTY_DATA_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PROVIDER_ENUMERATION_INFO {
     pub NumberOfProviders: u32,
     pub Reserved: u32,
     pub TraceProviderInfoArray: [TRACE_PROVIDER_INFO; 1],
-}
-impl windows_core::TypeKind for PROVIDER_ENUMERATION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROVIDER_ENUMERATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PROVIDER_ENUMERATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PROVIDER_EVENT_INFO {
     pub NumberOfEvents: u32,
     pub Reserved: u32,
     pub EventDescriptorsArray: [EVENT_DESCRIPTOR; 1],
-}
-impl windows_core::TypeKind for PROVIDER_EVENT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROVIDER_EVENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PROVIDER_EVENT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PROVIDER_FIELD_INFO {
     pub NameOffset: u32,
     pub DescriptionOffset: u32,
     pub Value: u64,
-}
-impl windows_core::TypeKind for PROVIDER_FIELD_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROVIDER_FIELD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PROVIDER_FIELD_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PROVIDER_FIELD_INFOARRAY {
     pub NumberOfElements: u32,
     pub FieldType: EVENT_FIELD_TYPE,
     pub FieldInfoArray: [PROVIDER_FIELD_INFO; 1],
-}
-impl windows_core::TypeKind for PROVIDER_FIELD_INFOARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROVIDER_FIELD_INFOARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PROVIDER_FIELD_INFOARRAY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PROVIDER_FILTER_INFO {
     pub Id: u8,
     pub Version: u8,
@@ -3557,56 +3424,54 @@ pub struct PROVIDER_FILTER_INFO {
     pub PropertyCount: u32,
     pub EventPropertyInfoArray: [EVENT_PROPERTY_INFO; 1],
 }
-impl windows_core::TypeKind for PROVIDER_FILTER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PROVIDER_FILTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct REGHANDLE(pub i64);
-impl Default for REGHANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+impl windows_core::TypeKind for PROVIDER_FILTER_INFO {
+    type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct REGHANDLE(pub i64);
 impl windows_core::TypeKind for REGHANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RELOGSTREAM_HANDLE {
     pub Value: u64,
-}
-impl windows_core::TypeKind for RELOGSTREAM_HANDLE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RELOGSTREAM_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RELOGSTREAM_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TDH_CONTEXT {
     pub ParameterValue: u64,
     pub ParameterType: TDH_CONTEXT_TYPE,
     pub ParameterSize: u32,
-}
-impl windows_core::TypeKind for TDH_CONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TDH_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TDH_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct TDH_HANDLE(pub isize);
+impl windows_core::TypeKind for TDH_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl TDH_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -3616,20 +3481,13 @@ impl windows_core::Free for TDH_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = TdhCloseDecodingHandle(*self);
+            windows_targets::link!("tdh.dll" "system" fn TdhCloseDecodingHandle(handle : isize) -> u32);
+            TdhCloseDecodingHandle(self.0);
         }
     }
 }
-impl Default for TDH_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for TDH_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_ENABLE_INFO {
     pub IsEnabled: u32,
     pub Level: u8,
@@ -3640,16 +3498,16 @@ pub struct TRACE_ENABLE_INFO {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
 }
-impl windows_core::TypeKind for TRACE_ENABLE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TRACE_ENABLE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRACE_ENABLE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TRACE_EVENT_INFO {
     pub ProviderGuid: windows_core::GUID,
     pub EventGuid: windows_core::GUID,
@@ -3672,85 +3530,85 @@ pub struct TRACE_EVENT_INFO {
     pub Anonymous3: TRACE_EVENT_INFO_2,
     pub EventPropertyInfoArray: [EVENT_PROPERTY_INFO; 1],
 }
-impl windows_core::TypeKind for TRACE_EVENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TRACE_EVENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRACE_EVENT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union TRACE_EVENT_INFO_0 {
     pub EventNameOffset: u32,
     pub ActivityIDNameOffset: u32,
-}
-impl windows_core::TypeKind for TRACE_EVENT_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRACE_EVENT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRACE_EVENT_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union TRACE_EVENT_INFO_1 {
     pub EventAttributesOffset: u32,
     pub RelatedActivityIDNameOffset: u32,
-}
-impl windows_core::TypeKind for TRACE_EVENT_INFO_1 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRACE_EVENT_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRACE_EVENT_INFO_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union TRACE_EVENT_INFO_2 {
     pub Flags: TEMPLATE_FLAGS,
     pub Anonymous: TRACE_EVENT_INFO_2_0,
-}
-impl windows_core::TypeKind for TRACE_EVENT_INFO_2 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRACE_EVENT_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRACE_EVENT_INFO_2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_EVENT_INFO_2_0 {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for TRACE_EVENT_INFO_2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRACE_EVENT_INFO_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRACE_EVENT_INFO_2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_GUID_INFO {
     pub InstanceCount: u32,
     pub Reserved: u32,
-}
-impl windows_core::TypeKind for TRACE_GUID_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRACE_GUID_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRACE_GUID_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_GUID_PROPERTIES {
     pub Guid: windows_core::GUID,
     pub GuidType: u32,
@@ -3759,31 +3617,31 @@ pub struct TRACE_GUID_PROPERTIES {
     pub EnableFlags: u32,
     pub IsEnable: super::super::super::Foundation::BOOLEAN,
 }
-impl windows_core::TypeKind for TRACE_GUID_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TRACE_GUID_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRACE_GUID_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_GUID_REGISTRATION {
     pub Guid: *const windows_core::GUID,
     pub RegHandle: super::super::super::Foundation::HANDLE,
-}
-impl windows_core::TypeKind for TRACE_GUID_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRACE_GUID_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRACE_GUID_REGISTRATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TRACE_LOGFILE_HEADER {
     pub BufferSize: u32,
     pub Anonymous1: TRACE_LOGFILE_HEADER_0,
@@ -3805,25 +3663,21 @@ pub struct TRACE_LOGFILE_HEADER {
     pub BuffersLost: u32,
 }
 #[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for TRACE_LOGFILE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for TRACE_LOGFILE_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union TRACE_LOGFILE_HEADER_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER_0_0,
-}
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for TRACE_LOGFILE_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER_0 {
@@ -3831,9 +3685,13 @@ impl Default for TRACE_LOGFILE_HEADER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for TRACE_LOGFILE_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER_0_0 {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
@@ -3841,25 +3699,21 @@ pub struct TRACE_LOGFILE_HEADER_0_0 {
     pub SubMinorVersion: u8,
 }
 #[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for TRACE_LOGFILE_HEADER_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for TRACE_LOGFILE_HEADER_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union TRACE_LOGFILE_HEADER_1 {
     pub LogInstanceGuid: windows_core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER_1_0,
-}
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for TRACE_LOGFILE_HEADER_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER_1 {
@@ -3867,9 +3721,13 @@ impl Default for TRACE_LOGFILE_HEADER_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for TRACE_LOGFILE_HEADER_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER_1_0 {
     pub StartBuffers: u32,
     pub PointerSize: u32,
@@ -3877,18 +3735,18 @@ pub struct TRACE_LOGFILE_HEADER_1_0 {
     pub CpuSpeedInMHz: u32,
 }
 #[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for TRACE_LOGFILE_HEADER_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for TRACE_LOGFILE_HEADER_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TRACE_LOGFILE_HEADER32 {
     pub BufferSize: u32,
     pub Anonymous1: TRACE_LOGFILE_HEADER32_0,
@@ -3910,25 +3768,21 @@ pub struct TRACE_LOGFILE_HEADER32 {
     pub BuffersLost: u32,
 }
 #[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for TRACE_LOGFILE_HEADER32 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for TRACE_LOGFILE_HEADER32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union TRACE_LOGFILE_HEADER32_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER32_0_0,
-}
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for TRACE_LOGFILE_HEADER32_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER32_0 {
@@ -3936,9 +3790,13 @@ impl Default for TRACE_LOGFILE_HEADER32_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for TRACE_LOGFILE_HEADER32_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER32_0_0 {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
@@ -3946,25 +3804,21 @@ pub struct TRACE_LOGFILE_HEADER32_0_0 {
     pub SubMinorVersion: u8,
 }
 #[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for TRACE_LOGFILE_HEADER32_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER32_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for TRACE_LOGFILE_HEADER32_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union TRACE_LOGFILE_HEADER32_1 {
     pub LogInstanceGuid: windows_core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER32_1_0,
-}
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for TRACE_LOGFILE_HEADER32_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER32_1 {
@@ -3972,9 +3826,13 @@ impl Default for TRACE_LOGFILE_HEADER32_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for TRACE_LOGFILE_HEADER32_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER32_1_0 {
     pub StartBuffers: u32,
     pub PointerSize: u32,
@@ -3982,18 +3840,18 @@ pub struct TRACE_LOGFILE_HEADER32_1_0 {
     pub CpuSpeedInMHz: u32,
 }
 #[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for TRACE_LOGFILE_HEADER32_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER32_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for TRACE_LOGFILE_HEADER32_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TRACE_LOGFILE_HEADER64 {
     pub BufferSize: u32,
     pub Anonymous1: TRACE_LOGFILE_HEADER64_0,
@@ -4015,25 +3873,21 @@ pub struct TRACE_LOGFILE_HEADER64 {
     pub BuffersLost: u32,
 }
 #[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for TRACE_LOGFILE_HEADER64 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for TRACE_LOGFILE_HEADER64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union TRACE_LOGFILE_HEADER64_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER64_0_0,
-}
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for TRACE_LOGFILE_HEADER64_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER64_0 {
@@ -4041,9 +3895,13 @@ impl Default for TRACE_LOGFILE_HEADER64_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for TRACE_LOGFILE_HEADER64_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER64_0_0 {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
@@ -4051,25 +3909,21 @@ pub struct TRACE_LOGFILE_HEADER64_0_0 {
     pub SubMinorVersion: u8,
 }
 #[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for TRACE_LOGFILE_HEADER64_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER64_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for TRACE_LOGFILE_HEADER64_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union TRACE_LOGFILE_HEADER64_1 {
     pub LogInstanceGuid: windows_core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER64_1_0,
-}
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for TRACE_LOGFILE_HEADER64_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER64_1 {
@@ -4077,9 +3931,13 @@ impl Default for TRACE_LOGFILE_HEADER64_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for TRACE_LOGFILE_HEADER64_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER64_1_0 {
     pub StartBuffers: u32,
     pub PointerSize: u32,
@@ -4087,138 +3945,138 @@ pub struct TRACE_LOGFILE_HEADER64_1_0 {
     pub CpuSpeedInMHz: u32,
 }
 #[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for TRACE_LOGFILE_HEADER64_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER64_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for TRACE_LOGFILE_HEADER64_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_PERIODIC_CAPTURE_STATE_INFO {
     pub CaptureStateFrequencyInSeconds: u32,
     pub ProviderCount: u16,
     pub Reserved: u16,
-}
-impl windows_core::TypeKind for TRACE_PERIODIC_CAPTURE_STATE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRACE_PERIODIC_CAPTURE_STATE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRACE_PERIODIC_CAPTURE_STATE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_PROFILE_INTERVAL {
     pub Source: u32,
     pub Interval: u32,
-}
-impl windows_core::TypeKind for TRACE_PROFILE_INTERVAL {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRACE_PROFILE_INTERVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRACE_PROFILE_INTERVAL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_PROVIDER_INFO {
     pub ProviderGuid: windows_core::GUID,
     pub SchemaSource: u32,
     pub ProviderNameOffset: u32,
-}
-impl windows_core::TypeKind for TRACE_PROVIDER_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRACE_PROVIDER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRACE_PROVIDER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_PROVIDER_INSTANCE_INFO {
     pub NextOffset: u32,
     pub EnableCount: u32,
     pub Pid: u32,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for TRACE_PROVIDER_INSTANCE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TRACE_PROVIDER_INSTANCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRACE_PROVIDER_INSTANCE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_STACK_CACHING_INFO {
     pub Enabled: super::super::super::Foundation::BOOLEAN,
     pub CacheSize: u32,
     pub BucketCount: u32,
-}
-impl windows_core::TypeKind for TRACE_STACK_CACHING_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRACE_STACK_CACHING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRACE_STACK_CACHING_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRACE_VERSION_INFO {
     pub EtwTraceProcessingVersion: u32,
     pub Reserved: u32,
-}
-impl windows_core::TypeKind for TRACE_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRACE_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRACE_VERSION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WMIREGGUIDW {
     pub Guid: windows_core::GUID,
     pub Flags: u32,
     pub InstanceCount: u32,
     pub Anonymous: WMIREGGUIDW_0,
 }
-impl windows_core::TypeKind for WMIREGGUIDW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WMIREGGUIDW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WMIREGGUIDW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WMIREGGUIDW_0 {
     pub InstanceNameList: u32,
     pub BaseNameOffset: u32,
     pub Pdo: usize,
     pub InstanceInfo: usize,
 }
-impl windows_core::TypeKind for WMIREGGUIDW_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WMIREGGUIDW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WMIREGGUIDW_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WMIREGINFOW {
     pub BufferSize: u32,
     pub NextWmiRegInfo: u32,
@@ -4227,16 +4085,16 @@ pub struct WMIREGINFOW {
     pub GuidCount: u32,
     pub WmiRegGuid: [WMIREGGUIDW; 1],
 }
-impl windows_core::TypeKind for WMIREGINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WMIREGINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WMIREGINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNODE_ALL_DATA {
     pub WnodeHeader: WNODE_HEADER,
     pub DataBlockOffset: u32,
@@ -4244,73 +4102,73 @@ pub struct WNODE_ALL_DATA {
     pub OffsetInstanceNameOffsets: u32,
     pub Anonymous: WNODE_ALL_DATA_0,
 }
-impl windows_core::TypeKind for WNODE_ALL_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WNODE_ALL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WNODE_ALL_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WNODE_ALL_DATA_0 {
     pub FixedInstanceSize: u32,
     pub OffsetInstanceDataAndLength: [OFFSETINSTANCEDATAANDLENGTH; 1],
-}
-impl windows_core::TypeKind for WNODE_ALL_DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WNODE_ALL_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WNODE_ALL_DATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNODE_EVENT_ITEM {
     pub WnodeHeader: WNODE_HEADER,
-}
-impl windows_core::TypeKind for WNODE_EVENT_ITEM {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WNODE_EVENT_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WNODE_EVENT_ITEM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNODE_EVENT_REFERENCE {
     pub WnodeHeader: WNODE_HEADER,
     pub TargetGuid: windows_core::GUID,
     pub TargetDataBlockSize: u32,
     pub Anonymous: WNODE_EVENT_REFERENCE_0,
 }
-impl windows_core::TypeKind for WNODE_EVENT_REFERENCE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WNODE_EVENT_REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WNODE_EVENT_REFERENCE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WNODE_EVENT_REFERENCE_0 {
     pub TargetInstanceIndex: u32,
     pub TargetInstanceName: [u16; 1],
-}
-impl windows_core::TypeKind for WNODE_EVENT_REFERENCE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WNODE_EVENT_REFERENCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WNODE_EVENT_REFERENCE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNODE_HEADER {
     pub BufferSize: u32,
     pub ProviderId: u32,
@@ -4320,59 +4178,59 @@ pub struct WNODE_HEADER {
     pub ClientContext: u32,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for WNODE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WNODE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WNODE_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WNODE_HEADER_0 {
     pub HistoricalContext: u64,
     pub Anonymous: WNODE_HEADER_0_0,
-}
-impl windows_core::TypeKind for WNODE_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WNODE_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WNODE_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WNODE_HEADER_0_0 {
     pub Version: u32,
     pub Linkage: u32,
-}
-impl windows_core::TypeKind for WNODE_HEADER_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WNODE_HEADER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WNODE_HEADER_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WNODE_HEADER_1 {
     pub CountLost: u32,
     pub KernelHandle: super::super::super::Foundation::HANDLE,
     pub TimeStamp: i64,
-}
-impl windows_core::TypeKind for WNODE_HEADER_1 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WNODE_HEADER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WNODE_HEADER_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNODE_METHOD_ITEM {
     pub WnodeHeader: WNODE_HEADER,
     pub OffsetInstanceName: u32,
@@ -4382,16 +4240,16 @@ pub struct WNODE_METHOD_ITEM {
     pub SizeDataBlock: u32,
     pub VariableData: [u8; 1],
 }
-impl windows_core::TypeKind for WNODE_METHOD_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WNODE_METHOD_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WNODE_METHOD_ITEM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNODE_SINGLE_INSTANCE {
     pub WnodeHeader: WNODE_HEADER,
     pub OffsetInstanceName: u32,
@@ -4400,16 +4258,16 @@ pub struct WNODE_SINGLE_INSTANCE {
     pub SizeDataBlock: u32,
     pub VariableData: [u8; 1],
 }
-impl windows_core::TypeKind for WNODE_SINGLE_INSTANCE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WNODE_SINGLE_INSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WNODE_SINGLE_INSTANCE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNODE_SINGLE_ITEM {
     pub WnodeHeader: WNODE_HEADER,
     pub OffsetInstanceName: u32,
@@ -4419,27 +4277,27 @@ pub struct WNODE_SINGLE_ITEM {
     pub SizeDataItem: u32,
     pub VariableData: [u8; 1],
 }
-impl windows_core::TypeKind for WNODE_SINGLE_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WNODE_SINGLE_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WNODE_SINGLE_ITEM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNODE_TOO_SMALL {
     pub WnodeHeader: WNODE_HEADER,
     pub SizeNeeded: u32,
-}
-impl windows_core::TypeKind for WNODE_TOO_SMALL {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WNODE_TOO_SMALL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for WNODE_TOO_SMALL {
+    type TypeKind = windows_core::CopyType;
 }
 pub type PENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: *const windows_core::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
 #[cfg(feature = "Win32_System_Time")]

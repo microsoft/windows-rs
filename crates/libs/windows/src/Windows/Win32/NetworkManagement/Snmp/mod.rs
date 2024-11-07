@@ -292,9 +292,9 @@ pub unsafe fn SnmpStrToContext(session: isize, string: *mut smiOCTETS) -> isize 
     SnmpStrToContext(session, string)
 }
 #[inline]
-pub unsafe fn SnmpStrToEntity<P0>(session: isize, string: P0) -> isize
+pub unsafe fn SnmpStrToEntity<P1>(session: isize, string: P1) -> isize
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wsnmp32.dll" "system" fn SnmpStrToEntity(session : isize, string : windows_core::PCSTR) -> isize);
     SnmpStrToEntity(session, string.param().abi())
@@ -333,9 +333,9 @@ pub unsafe fn SnmpUtilAsnAnyFree(pany: *mut AsnAny) {
     SnmpUtilAsnAnyFree(pany)
 }
 #[inline]
-pub unsafe fn SnmpUtilDbgPrint<P0>(nloglevel: SNMP_LOG, szformat: P0)
+pub unsafe fn SnmpUtilDbgPrint<P1>(nloglevel: SNMP_LOG, szformat: P1)
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("snmpapi.dll" "cdecl" fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : windows_core::PCSTR));
     SnmpUtilDbgPrint(nloglevel, szformat.param().abi())
@@ -604,120 +604,75 @@ pub const SNMP_TRAP_LINKDOWN: u32 = 2u32;
 pub const SNMP_TRAP_LINKUP: u32 = 3u32;
 pub const SNMP_TRAP_WARMSTART: u32 = 1u32;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SNMP_API_TRANSLATE_MODE(pub u32);
 impl windows_core::TypeKind for SNMP_API_TRANSLATE_MODE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SNMP_API_TRANSLATE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SNMP_API_TRANSLATE_MODE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SNMP_ERROR(pub u32);
 impl windows_core::TypeKind for SNMP_ERROR {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SNMP_ERROR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SNMP_ERROR").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SNMP_ERROR_STATUS(pub u32);
 impl windows_core::TypeKind for SNMP_ERROR_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SNMP_ERROR_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SNMP_ERROR_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SNMP_EXTENSION_REQUEST_TYPE(pub u32);
 impl windows_core::TypeKind for SNMP_EXTENSION_REQUEST_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SNMP_EXTENSION_REQUEST_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SNMP_EXTENSION_REQUEST_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SNMP_GENERICTRAP(pub u32);
 impl windows_core::TypeKind for SNMP_GENERICTRAP {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SNMP_GENERICTRAP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SNMP_GENERICTRAP").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SNMP_LOG(pub i32);
 impl windows_core::TypeKind for SNMP_LOG {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SNMP_LOG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SNMP_LOG").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SNMP_OUTPUT_LOG_TYPE(pub u32);
 impl windows_core::TypeKind for SNMP_OUTPUT_LOG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SNMP_OUTPUT_LOG_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SNMP_OUTPUT_LOG_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SNMP_PDU_TYPE(pub u32);
 impl windows_core::TypeKind for SNMP_PDU_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SNMP_PDU_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SNMP_PDU_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SNMP_STATUS(pub u32);
 impl windows_core::TypeKind for SNMP_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SNMP_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SNMP_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AsnAny {
     pub asnType: u8,
     pub asnValue: AsnAny_0,
-}
-impl windows_core::TypeKind for AsnAny {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for AsnAny {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for AsnAny {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union AsnAny_0 {
     pub number: i32,
     pub unsigned32: u32,
@@ -732,24 +687,20 @@ pub union AsnAny_0 {
     pub ticks: u32,
     pub arbitrary: AsnOctetString,
 }
-impl windows_core::TypeKind for AsnAny_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for AsnAny_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for AsnAny_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for AsnObjectIdentifier {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for AsnObjectIdentifier {
@@ -757,16 +708,16 @@ impl Default for AsnObjectIdentifier {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for AsnObjectIdentifier {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for AsnObjectIdentifier {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for AsnObjectIdentifier {
@@ -774,35 +725,35 @@ impl Default for AsnObjectIdentifier {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for AsnObjectIdentifier {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AsnOctetString {
     pub stream: *mut u8,
     pub length: u32,
     pub dynamic: super::super::Foundation::BOOL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for AsnOctetString {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for AsnOctetString {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for AsnOctetString {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct AsnOctetString {
     pub stream: *mut u8,
     pub length: u32,
     pub dynamic: super::super::Foundation::BOOL,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for AsnOctetString {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for AsnOctetString {
@@ -810,30 +761,30 @@ impl Default for AsnOctetString {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for AsnOctetString {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SnmpVarBind {
     pub name: AsnObjectIdentifier,
     pub value: AsnAny,
-}
-impl windows_core::TypeKind for SnmpVarBind {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SnmpVarBind {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SnmpVarBind {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SnmpVarBindList {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SnmpVarBindList {
@@ -841,16 +792,16 @@ impl Default for SnmpVarBindList {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SnmpVarBindList {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SnmpVarBindList {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for SnmpVarBindList {
@@ -858,64 +809,68 @@ impl Default for SnmpVarBindList {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SnmpVarBindList {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct smiCNTR64 {
     pub hipart: u32,
     pub lopart: u32,
-}
-impl windows_core::TypeKind for smiCNTR64 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for smiCNTR64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for smiCNTR64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct smiOCTETS {
     pub len: u32,
     pub ptr: *mut u8,
-}
-impl windows_core::TypeKind for smiOCTETS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for smiOCTETS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for smiOCTETS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct smiOID {
     pub len: u32,
     pub ptr: *mut u32,
-}
-impl windows_core::TypeKind for smiOID {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for smiOID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for smiOID {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct smiVALUE {
     pub syntax: u32,
     pub value: smiVALUE_0,
-}
-impl windows_core::TypeKind for smiVALUE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for smiVALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for smiVALUE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union smiVALUE_0 {
     pub sNumber: i32,
     pub uNumber: u32,
@@ -924,16 +879,16 @@ pub union smiVALUE_0 {
     pub oid: smiOID,
     pub empty: u8,
 }
-impl windows_core::TypeKind for smiVALUE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for smiVALUE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for smiVALUE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct smiVENDORINFO {
     pub vendorName: [i8; 64],
     pub vendorContact: [i8; 64],
@@ -941,13 +896,13 @@ pub struct smiVENDORINFO {
     pub vendorVersionDate: [i8; 32],
     pub vendorEnterprise: u32,
 }
-impl windows_core::TypeKind for smiVENDORINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for smiVENDORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for smiVENDORINFO {
+    type TypeKind = windows_core::CopyType;
 }
 pub type PFNSNMPCLEANUPEX = Option<unsafe extern "system" fn() -> u32>;
 pub type PFNSNMPEXTENSIONCLOSE = Option<unsafe extern "system" fn()>;

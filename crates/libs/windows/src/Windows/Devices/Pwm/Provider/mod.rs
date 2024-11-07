@@ -1,9 +1,6 @@
 windows_core::imp::define_interface!(IPwmControllerProvider, IPwmControllerProvider_Vtbl, 0x1300593b_e2e3_40a4_b7d9_48dff0377a52);
-impl core::ops::Deref for IPwmControllerProvider {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IPwmControllerProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IPwmControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IPwmControllerProvider {
@@ -63,9 +60,6 @@ impl IPwmControllerProvider {
         unsafe { (windows_core::Interface::vtable(this).SetPulseParameters)(windows_core::Interface::as_raw(this), pin, dutycycle, invertpolarity).ok() }
     }
 }
-impl windows_core::RuntimeType for IPwmControllerProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPwmControllerProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -80,6 +74,9 @@ pub struct IPwmControllerProvider_Vtbl {
     pub DisablePin: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub SetPulseParameters: unsafe extern "system" fn(*mut core::ffi::c_void, i32, f64, bool) -> windows_core::HRESULT,
 }
+impl windows_core::RuntimeName for IPwmControllerProvider {
+    const NAME: &'static str = "Windows.Devices.Pwm.Provider.IPwmControllerProvider";
+}
 pub trait IPwmControllerProvider_Impl: Sized + windows_core::IUnknownImpl {
     fn PinCount(&self) -> windows_core::Result<i32>;
     fn ActualFrequency(&self) -> windows_core::Result<f64>;
@@ -90,13 +87,10 @@ pub trait IPwmControllerProvider_Impl: Sized + windows_core::IUnknownImpl {
     fn ReleasePin(&self, pin: i32) -> windows_core::Result<()>;
     fn EnablePin(&self, pin: i32) -> windows_core::Result<()>;
     fn DisablePin(&self, pin: i32) -> windows_core::Result<()>;
-    fn SetPulseParameters(&self, pin: i32, dutycycle: f64, invertpolarity: bool) -> windows_core::Result<()>;
-}
-impl windows_core::RuntimeName for IPwmControllerProvider {
-    const NAME: &'static str = "Windows.Devices.Pwm.Provider.IPwmControllerProvider";
+    fn SetPulseParameters(&self, pin: i32, dutyCycle: f64, invertPolarity: bool) -> windows_core::Result<()>;
 }
 impl IPwmControllerProvider_Vtbl {
-    pub const fn new<Identity: IPwmControllerProvider_Impl, const OFFSET: isize>() -> IPwmControllerProvider_Vtbl {
+    pub const fn new<Identity: IPwmControllerProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PinCount<Identity: IPwmControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPwmControllerProvider_Impl::PinCount(this) {
@@ -186,11 +180,8 @@ impl IPwmControllerProvider_Vtbl {
     }
 }
 windows_core::imp::define_interface!(IPwmProvider, IPwmProvider_Vtbl, 0xa3301228_52f1_47b0_9349_66ba43d25902);
-impl core::ops::Deref for IPwmProvider {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IPwmProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IPwmProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IPwmProvider {
@@ -203,9 +194,6 @@ impl IPwmProvider {
         }
     }
 }
-impl windows_core::RuntimeType for IPwmProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPwmProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -215,16 +203,16 @@ pub struct IPwmProvider_Vtbl {
     GetControllers: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IPwmProvider_Impl: Sized + windows_core::IUnknownImpl {
-    fn GetControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>>;
-}
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IPwmProvider {
     const NAME: &'static str = "Windows.Devices.Pwm.Provider.IPwmProvider";
 }
 #[cfg(feature = "Foundation_Collections")]
+pub trait IPwmProvider_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>>;
+}
+#[cfg(feature = "Foundation_Collections")]
 impl IPwmProvider_Vtbl {
-    pub const fn new<Identity: IPwmProvider_Impl, const OFFSET: isize>() -> IPwmProvider_Vtbl {
+    pub const fn new<Identity: IPwmProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetControllers<Identity: IPwmProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPwmProvider_Impl::GetControllers(this) {

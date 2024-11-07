@@ -22,7 +22,11 @@ pub struct IScreenReaderService_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScreenReaderPositionChangedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for ScreenReaderPositionChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScreenReaderPositionChangedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(ScreenReaderPositionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ScreenReaderPositionChangedEventArgs,);
 impl ScreenReaderPositionChangedEventArgs {
     pub fn ScreenPositionInRawPixels(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -39,22 +43,21 @@ impl ScreenReaderPositionChangedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for ScreenReaderPositionChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScreenReaderPositionChangedEventArgs>();
-}
 unsafe impl windows_core::Interface for ScreenReaderPositionChangedEventArgs {
-    type Vtable = IScreenReaderPositionChangedEventArgs_Vtbl;
+    type Vtable = <IScreenReaderPositionChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IScreenReaderPositionChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ScreenReaderPositionChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Accessibility.ScreenReaderPositionChangedEventArgs";
 }
-unsafe impl Send for ScreenReaderPositionChangedEventArgs {}
-unsafe impl Sync for ScreenReaderPositionChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScreenReaderService(windows_core::IUnknown);
+impl windows_core::RuntimeType for ScreenReaderService {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScreenReaderService>();
+}
 windows_core::imp::interface_hierarchy!(ScreenReaderService, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ScreenReaderService,);
 impl ScreenReaderService {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -85,15 +88,10 @@ impl ScreenReaderService {
         unsafe { (windows_core::Interface::vtable(this).RemoveScreenReaderPositionChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl windows_core::RuntimeType for ScreenReaderService {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScreenReaderService>();
-}
 unsafe impl windows_core::Interface for ScreenReaderService {
-    type Vtable = IScreenReaderService_Vtbl;
+    type Vtable = <IScreenReaderService as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IScreenReaderService as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ScreenReaderService {
     const NAME: &'static str = "Windows.UI.Accessibility.ScreenReaderService";
 }
-unsafe impl Send for ScreenReaderService {}
-unsafe impl Sync for ScreenReaderService {}

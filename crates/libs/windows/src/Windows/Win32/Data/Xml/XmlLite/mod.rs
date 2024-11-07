@@ -1,20 +1,20 @@
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateXmlReader<P0>(riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, pmalloc: P0) -> windows_core::Result<()>
+pub unsafe fn CreateXmlReader<P2>(riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, pmalloc: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::super::System::Com::IMalloc>,
+    P2: windows_core::Param<super::super::super::System::Com::IMalloc>,
 {
     windows_targets::link!("xmllite.dll" "system" fn CreateXmlReader(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void) -> windows_core::HRESULT);
     CreateXmlReader(riid, ppvobject, pmalloc.param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<P0, P1, P2, P3>(pinputstream: P0, pmalloc: P1, nencodingcodepage: u32, fencodinghint: P2, pwszbaseuri: P3) -> windows_core::Result<windows_core::IUnknown>
+pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<P0, P1, P3, P4>(pinputstream: P0, pmalloc: P1, nencodingcodepage: u32, fencodinghint: P3, pwszbaseuri: P4) -> windows_core::Result<windows_core::IUnknown>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     P1: windows_core::Param<super::super::super::System::Com::IMalloc>,
-    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<super::super::super::Foundation::BOOL>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("xmllite.dll" "system" fn CreateXmlReaderInputWithEncodingCodePage(pinputstream : * mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void, nencodingcodepage : u32, fencodinghint : super::super::super::Foundation:: BOOL, pwszbaseuri : windows_core::PCWSTR, ppinput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
@@ -36,9 +36,9 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateXmlWriter<P0>(riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, pmalloc: P0) -> windows_core::Result<()>
+pub unsafe fn CreateXmlWriter<P2>(riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, pmalloc: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::super::System::Com::IMalloc>,
+    P2: windows_core::Param<super::super::super::System::Com::IMalloc>,
 {
     windows_targets::link!("xmllite.dll" "system" fn CreateXmlWriter(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : * mut core::ffi::c_void) -> windows_core::HRESULT);
     CreateXmlWriter(riid, ppvobject, pmalloc.param().abi()).ok()
@@ -67,12 +67,6 @@ where
     CreateXmlWriterOutputWithEncodingName(poutputstream.param().abi(), pmalloc.param().abi(), pwszencodingname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(IXmlReader, IXmlReader_Vtbl, 0x7279fc81_709d_4095_b63d_69fe4b0d9030);
-impl core::ops::Deref for IXmlReader {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXmlReader, windows_core::IUnknown);
 impl IXmlReader {
     pub unsafe fn SetInput<P0>(&self, pinput: P0) -> windows_core::Result<()>
@@ -185,7 +179,7 @@ pub struct IXmlReader_Vtbl {
     pub GetDepth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub IsEOF: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::super::Foundation::BOOL,
 }
-pub trait IXmlReader_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXmlReader_Impl: windows_core::IUnknownImpl {
     fn SetInput(&self, pinput: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetProperty(&self, nproperty: u32) -> windows_core::Result<isize>;
     fn SetProperty(&self, nproperty: u32, pvalue: isize) -> windows_core::Result<()>;
@@ -210,9 +204,8 @@ pub trait IXmlReader_Impl: Sized + windows_core::IUnknownImpl {
     fn GetDepth(&self) -> windows_core::Result<u32>;
     fn IsEOF(&self) -> super::super::super::Foundation::BOOL;
 }
-impl windows_core::RuntimeName for IXmlReader {}
 impl IXmlReader_Vtbl {
-    pub const fn new<Identity: IXmlReader_Impl, const OFFSET: isize>() -> IXmlReader_Vtbl {
+    pub const fn new<Identity: IXmlReader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetInput<Identity: IXmlReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinput: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXmlReader_Impl::SetInput(this, windows_core::from_raw_borrowed(&pinput)).into()
@@ -372,13 +365,8 @@ impl IXmlReader_Vtbl {
         iid == &<IXmlReader as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXmlReader {}
 windows_core::imp::define_interface!(IXmlResolver, IXmlResolver_Vtbl, 0x7279fc82_709d_4095_b63d_69fe4b0d9030);
-impl core::ops::Deref for IXmlResolver {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXmlResolver, windows_core::IUnknown);
 impl IXmlResolver {
     pub unsafe fn ResolveUri<P0, P1, P2>(&self, pwszbaseuri: P0, pwszpublicidentifier: P1, pwszsystemidentifier: P2) -> windows_core::Result<windows_core::IUnknown>
@@ -396,12 +384,11 @@ pub struct IXmlResolver_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ResolveUri: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXmlResolver_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXmlResolver_Impl: windows_core::IUnknownImpl {
     fn ResolveUri(&self, pwszbaseuri: &windows_core::PCWSTR, pwszpublicidentifier: &windows_core::PCWSTR, pwszsystemidentifier: &windows_core::PCWSTR) -> windows_core::Result<windows_core::IUnknown>;
 }
-impl windows_core::RuntimeName for IXmlResolver {}
 impl IXmlResolver_Vtbl {
-    pub const fn new<Identity: IXmlResolver_Impl, const OFFSET: isize>() -> IXmlResolver_Vtbl {
+    pub const fn new<Identity: IXmlResolver_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ResolveUri<Identity: IXmlResolver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszbaseuri: windows_core::PCWSTR, pwszpublicidentifier: windows_core::PCWSTR, pwszsystemidentifier: windows_core::PCWSTR, ppresolvedinput: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXmlResolver_Impl::ResolveUri(this, core::mem::transmute(&pwszbaseuri), core::mem::transmute(&pwszpublicidentifier), core::mem::transmute(&pwszsystemidentifier)) {
@@ -418,13 +405,8 @@ impl IXmlResolver_Vtbl {
         iid == &<IXmlResolver as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXmlResolver {}
 windows_core::imp::define_interface!(IXmlWriter, IXmlWriter_Vtbl, 0x7279fc88_709d_4095_b63d_69fe4b0d9030);
-impl core::ops::Deref for IXmlWriter {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXmlWriter, windows_core::IUnknown);
 impl IXmlWriter {
     pub unsafe fn SetOutput<P0>(&self, poutput: P0) -> windows_core::Result<()>
@@ -619,7 +601,7 @@ pub struct IXmlWriter_Vtbl {
     pub WriteWhitespace: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXmlWriter_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXmlWriter_Impl: windows_core::IUnknownImpl {
     fn SetOutput(&self, poutput: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetProperty(&self, nproperty: u32) -> windows_core::Result<isize>;
     fn SetProperty(&self, nproperty: u32, pvalue: isize) -> windows_core::Result<()>;
@@ -650,9 +632,8 @@ pub trait IXmlWriter_Impl: Sized + windows_core::IUnknownImpl {
     fn WriteWhitespace(&self, pwszwhitespace: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Flush(&self) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXmlWriter {}
 impl IXmlWriter_Vtbl {
-    pub const fn new<Identity: IXmlWriter_Impl, const OFFSET: isize>() -> IXmlWriter_Vtbl {
+    pub const fn new<Identity: IXmlWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetOutput<Identity: IXmlWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutput: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXmlWriter_Impl::SetOutput(this, windows_core::from_raw_borrowed(&poutput)).into()
@@ -812,13 +793,8 @@ impl IXmlWriter_Vtbl {
         iid == &<IXmlWriter as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXmlWriter {}
 windows_core::imp::define_interface!(IXmlWriterLite, IXmlWriterLite_Vtbl, 0x862494c6_1310_4aad_b3cd_2dbeebf670d3);
-impl core::ops::Deref for IXmlWriterLite {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXmlWriterLite, windows_core::IUnknown);
 impl IXmlWriterLite {
     pub unsafe fn SetOutput<P0>(&self, poutput: P0) -> windows_core::Result<()>
@@ -871,9 +847,9 @@ impl IXmlWriterLite {
     {
         (windows_core::Interface::vtable(self).WriteDocType)(windows_core::Interface::as_raw(self), pwszname.param().abi(), pwszpublicid.param().abi(), pwszsystemid.param().abi(), pwszsubset.param().abi()).ok()
     }
-    pub unsafe fn WriteElementString<P0>(&self, pwszqname: &[u16], pwszvalue: P0) -> windows_core::Result<()>
+    pub unsafe fn WriteElementString<P2>(&self, pwszqname: &[u16], pwszvalue: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).WriteElementString)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszqname.as_ptr()), pwszqname.len().try_into().unwrap(), pwszvalue.param().abi()).ok()
     }
@@ -991,7 +967,7 @@ pub struct IXmlWriterLite_Vtbl {
     pub WriteWhitespace: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXmlWriterLite_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXmlWriterLite_Impl: windows_core::IUnknownImpl {
     fn SetOutput(&self, poutput: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetProperty(&self, nproperty: u32) -> windows_core::Result<isize>;
     fn SetProperty(&self, nproperty: u32, pvalue: isize) -> windows_core::Result<()>;
@@ -1021,9 +997,8 @@ pub trait IXmlWriterLite_Impl: Sized + windows_core::IUnknownImpl {
     fn WriteWhitespace(&self, pwszwhitespace: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Flush(&self) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXmlWriterLite {}
 impl IXmlWriterLite_Vtbl {
-    pub const fn new<Identity: IXmlWriterLite_Impl, const OFFSET: isize>() -> IXmlWriterLite_Vtbl {
+    pub const fn new<Identity: IXmlWriterLite_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetOutput<Identity: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutput: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXmlWriterLite_Impl::SetOutput(this, windows_core::from_raw_borrowed(&poutput)).into()
@@ -1178,6 +1153,7 @@ impl IXmlWriterLite_Vtbl {
         iid == &<IXmlWriterLite as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXmlWriterLite {}
 pub const DtdProcessing_Parse: DtdProcessing = DtdProcessing(1i32);
 pub const DtdProcessing_Prohibit: DtdProcessing = DtdProcessing(0i32);
 pub const MX_E_ENCODING: XmlError = XmlError(-1072894462i32);
@@ -1308,90 +1284,50 @@ pub const _XmlReaderProperty_Last: XmlReaderProperty = XmlReaderProperty(7i32);
 pub const _XmlStandalone_Last: XmlStandalone = XmlStandalone(2i32);
 pub const _XmlWriterProperty_Last: XmlWriterProperty = XmlWriterProperty(5i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DtdProcessing(pub i32);
 impl windows_core::TypeKind for DtdProcessing {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DtdProcessing {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DtdProcessing").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct XmlConformanceLevel(pub i32);
 impl windows_core::TypeKind for XmlConformanceLevel {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XmlConformanceLevel {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XmlConformanceLevel").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct XmlError(pub i32);
 impl windows_core::TypeKind for XmlError {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XmlError {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XmlError").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct XmlNodeType(pub i32);
 impl windows_core::TypeKind for XmlNodeType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XmlNodeType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XmlNodeType").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct XmlReadState(pub i32);
 impl windows_core::TypeKind for XmlReadState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XmlReadState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XmlReadState").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct XmlReaderProperty(pub i32);
 impl windows_core::TypeKind for XmlReaderProperty {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XmlReaderProperty {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XmlReaderProperty").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct XmlStandalone(pub i32);
 impl windows_core::TypeKind for XmlStandalone {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XmlStandalone {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XmlStandalone").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct XmlWriterProperty(pub i32);
 impl windows_core::TypeKind for XmlWriterProperty {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XmlWriterProperty {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XmlWriterProperty").field(&self.0).finish()
-    }
 }

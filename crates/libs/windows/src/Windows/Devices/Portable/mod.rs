@@ -15,9 +15,9 @@ impl windows_core::RuntimeType for IStorageDeviceStatics {
 #[repr(C)]
 pub struct IStorageDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage")]
+    #[cfg(feature = "Storage_Search")]
     pub FromId: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(feature = "Storage_Search"))]
     FromId: usize,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
@@ -45,7 +45,7 @@ impl windows_core::RuntimeName for ServiceDevice {
 }
 pub struct StorageDevice;
 impl StorageDevice {
-    #[cfg(feature = "Storage")]
+    #[cfg(feature = "Storage_Search")]
     pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Storage::StorageFolder> {
         Self::IStorageDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -67,7 +67,7 @@ impl windows_core::RuntimeName for StorageDevice {
     const NAME: &'static str = "Windows.Devices.Portable.StorageDevice";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ServiceDeviceType(pub i32);
 impl ServiceDeviceType {
     pub const CalendarService: Self = Self(0i32);
@@ -80,11 +80,6 @@ impl ServiceDeviceType {
 }
 impl windows_core::TypeKind for ServiceDeviceType {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for ServiceDeviceType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ServiceDeviceType").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for ServiceDeviceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Portable.ServiceDeviceType;i4)");

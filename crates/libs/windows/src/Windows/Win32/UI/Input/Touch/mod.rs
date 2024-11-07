@@ -79,12 +79,6 @@ where
     UnregisterTouchWindow(hwnd.param().abi()).ok()
 }
 windows_core::imp::define_interface!(IInertiaProcessor, IInertiaProcessor_Vtbl, 0x18b00c6d_c5ee_41b1_90a9_9d4a929095ad);
-impl core::ops::Deref for IInertiaProcessor {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IInertiaProcessor, windows_core::IUnknown);
 impl IInertiaProcessor {
     pub unsafe fn InitialOriginX(&self) -> windows_core::Result<f32> {
@@ -312,7 +306,7 @@ pub struct IInertiaProcessor_Vtbl {
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CompleteTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IInertiaProcessor_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IInertiaProcessor_Impl: windows_core::IUnknownImpl {
     fn InitialOriginX(&self) -> windows_core::Result<f32>;
     fn SetInitialOriginX(&self, x: f32) -> windows_core::Result<()>;
     fn InitialOriginY(&self) -> windows_core::Result<f32>;
@@ -363,9 +357,8 @@ pub trait IInertiaProcessor_Impl: Sized + windows_core::IUnknownImpl {
     fn Complete(&self) -> windows_core::Result<()>;
     fn CompleteTime(&self, timestamp: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IInertiaProcessor {}
 impl IInertiaProcessor_Vtbl {
-    pub const fn new<Identity: IInertiaProcessor_Impl, const OFFSET: isize>() -> IInertiaProcessor_Vtbl {
+    pub const fn new<Identity: IInertiaProcessor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InitialOriginX<Identity: IInertiaProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: *mut f32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IInertiaProcessor_Impl::InitialOriginX(this) {
@@ -763,13 +756,8 @@ impl IInertiaProcessor_Vtbl {
         iid == &<IInertiaProcessor as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IInertiaProcessor {}
 windows_core::imp::define_interface!(IManipulationProcessor, IManipulationProcessor_Vtbl, 0xa22ac519_8300_48a0_bef4_f1be8737dba4);
-impl core::ops::Deref for IManipulationProcessor {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IManipulationProcessor, windows_core::IUnknown);
 impl IManipulationProcessor {
     pub unsafe fn SupportedManipulations(&self) -> windows_core::Result<MANIPULATION_PROCESSOR_MANIPULATIONS> {
@@ -870,7 +858,7 @@ pub struct IManipulationProcessor_Vtbl {
     pub MinimumScaleRotateRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetMinimumScaleRotateRadius: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
 }
-pub trait IManipulationProcessor_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IManipulationProcessor_Impl: windows_core::IUnknownImpl {
     fn SupportedManipulations(&self) -> windows_core::Result<MANIPULATION_PROCESSOR_MANIPULATIONS>;
     fn SetSupportedManipulations(&self, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> windows_core::Result<()>;
     fn PivotPointX(&self) -> windows_core::Result<f32>;
@@ -893,9 +881,8 @@ pub trait IManipulationProcessor_Impl: Sized + windows_core::IUnknownImpl {
     fn MinimumScaleRotateRadius(&self) -> windows_core::Result<f32>;
     fn SetMinimumScaleRotateRadius(&self, minradius: f32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IManipulationProcessor {}
 impl IManipulationProcessor_Vtbl {
-    pub const fn new<Identity: IManipulationProcessor_Impl, const OFFSET: isize>() -> IManipulationProcessor_Vtbl {
+    pub const fn new<Identity: IManipulationProcessor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SupportedManipulations<Identity: IManipulationProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, manipulations: *mut MANIPULATION_PROCESSOR_MANIPULATIONS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IManipulationProcessor_Impl::SupportedManipulations(this) {
@@ -1063,13 +1050,8 @@ impl IManipulationProcessor_Vtbl {
         iid == &<IManipulationProcessor as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IManipulationProcessor {}
 windows_core::imp::define_interface!(_IManipulationEvents, _IManipulationEvents_Vtbl, 0x4f62c8da_9c53_4b22_93df_927a862bbb03);
-impl core::ops::Deref for _IManipulationEvents {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(_IManipulationEvents, windows_core::IUnknown);
 impl _IManipulationEvents {
     pub unsafe fn ManipulationStarted(&self, x: f32, y: f32) -> windows_core::Result<()> {
@@ -1089,14 +1071,13 @@ pub struct _IManipulationEvents_Vtbl {
     pub ManipulationDelta: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32, f32) -> windows_core::HRESULT,
     pub ManipulationCompleted: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32, f32, f32, f32) -> windows_core::HRESULT,
 }
-pub trait _IManipulationEvents_Impl: Sized + windows_core::IUnknownImpl {
+pub trait _IManipulationEvents_Impl: windows_core::IUnknownImpl {
     fn ManipulationStarted(&self, x: f32, y: f32) -> windows_core::Result<()>;
     fn ManipulationDelta(&self, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> windows_core::Result<()>;
     fn ManipulationCompleted(&self, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for _IManipulationEvents {}
 impl _IManipulationEvents_Vtbl {
-    pub const fn new<Identity: _IManipulationEvents_Impl, const OFFSET: isize>() -> _IManipulationEvents_Vtbl {
+    pub const fn new<Identity: _IManipulationEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ManipulationStarted<Identity: _IManipulationEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: f32, y: f32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             _IManipulationEvents_Impl::ManipulationStarted(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
@@ -1135,6 +1116,7 @@ impl _IManipulationEvents_Vtbl {
         iid == &<_IManipulationEvents as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for _IManipulationEvents {}
 pub const GID_BEGIN: GESTURECONFIG_ID = GESTURECONFIG_ID(1u32);
 pub const GID_END: GESTURECONFIG_ID = GESTURECONFIG_ID(2u32);
 pub const GID_PAN: GESTURECONFIG_ID = GESTURECONFIG_ID(4u32);
@@ -1163,15 +1145,10 @@ pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF
 pub const TWF_FINETOUCH: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(1u32);
 pub const TWF_WANTPALM: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(2u32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct GESTURECONFIG_ID(pub u32);
 impl windows_core::TypeKind for GESTURECONFIG_ID {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GESTURECONFIG_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GESTURECONFIG_ID").field(&self.0).finish()
-    }
 }
 impl GESTURECONFIG_ID {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1207,15 +1184,10 @@ impl core::ops::Not for GESTURECONFIG_ID {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MANIPULATION_PROCESSOR_MANIPULATIONS(pub i32);
 impl windows_core::TypeKind for MANIPULATION_PROCESSOR_MANIPULATIONS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for MANIPULATION_PROCESSOR_MANIPULATIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MANIPULATION_PROCESSOR_MANIPULATIONS").field(&self.0).finish()
-    }
 }
 impl MANIPULATION_PROCESSOR_MANIPULATIONS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1251,26 +1223,16 @@ impl core::ops::Not for MANIPULATION_PROCESSOR_MANIPULATIONS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct REGISTER_TOUCH_WINDOW_FLAGS(pub u32);
 impl windows_core::TypeKind for REGISTER_TOUCH_WINDOW_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for REGISTER_TOUCH_WINDOW_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("REGISTER_TOUCH_WINDOW_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TOUCHEVENTF_FLAGS(pub u32);
 impl windows_core::TypeKind for TOUCHEVENTF_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TOUCHEVENTF_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TOUCHEVENTF_FLAGS").field(&self.0).finish()
-    }
 }
 impl TOUCHEVENTF_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1306,15 +1268,10 @@ impl core::ops::Not for TOUCHEVENTF_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TOUCHINPUTMASKF_MASK(pub u32);
 impl windows_core::TypeKind for TOUCHINPUTMASKF_MASK {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TOUCHINPUTMASKF_MASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TOUCHINPUTMASKF_MASK").field(&self.0).finish()
-    }
 }
 impl TOUCHINPUTMASKF_MASK {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1350,22 +1307,22 @@ impl core::ops::Not for TOUCHINPUTMASKF_MASK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GESTURECONFIG {
     pub dwID: GESTURECONFIG_ID,
     pub dwWant: u32,
     pub dwBlock: u32,
-}
-impl windows_core::TypeKind for GESTURECONFIG {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GESTURECONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GESTURECONFIG {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GESTUREINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1377,16 +1334,16 @@ pub struct GESTUREINFO {
     pub ullArguments: u64,
     pub cbExtraArgs: u32,
 }
-impl windows_core::TypeKind for GESTUREINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for GESTUREINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GESTUREINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GESTURENOTIFYSTRUCT {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1394,17 +1351,20 @@ pub struct GESTURENOTIFYSTRUCT {
     pub ptsLocation: super::super::super::Foundation::POINTS,
     pub dwInstanceID: u32,
 }
-impl windows_core::TypeKind for GESTURENOTIFYSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for GESTURENOTIFYSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GESTURENOTIFYSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGESTUREINFO(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HGESTUREINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl HGESTUREINFO {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1414,7 +1374,8 @@ impl windows_core::Free for HGESTUREINFO {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = CloseGestureInfoHandle(*self);
+            windows_targets::link!("user32.dll" "system" fn CloseGestureInfoHandle(hgestureinfo : *mut core::ffi::c_void) -> i32);
+            CloseGestureInfoHandle(self.0);
         }
     }
 }
@@ -1423,12 +1384,12 @@ impl Default for HGESTUREINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HGESTUREINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTOUCHINPUT(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HTOUCHINPUT {
+    type TypeKind = windows_core::CopyType;
+}
 impl HTOUCHINPUT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1438,7 +1399,8 @@ impl windows_core::Free for HTOUCHINPUT {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = CloseTouchInputHandle(*self);
+            windows_targets::link!("user32.dll" "system" fn CloseTouchInputHandle(htouchinput : *mut core::ffi::c_void) -> i32);
+            CloseTouchInputHandle(self.0);
         }
     }
 }
@@ -1447,13 +1409,10 @@ impl Default for HTOUCHINPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HTOUCHINPUT {
-    type TypeKind = windows_core::CopyType;
-}
 pub const InertiaProcessor: windows_core::GUID = windows_core::GUID::from_u128(0xabb27087_4ce0_4e58_a0cb_e24df96814be);
 pub const ManipulationProcessor: windows_core::GUID = windows_core::GUID::from_u128(0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TOUCHINPUT {
     pub x: i32,
     pub y: i32,
@@ -1466,11 +1425,11 @@ pub struct TOUCHINPUT {
     pub cxContact: u32,
     pub cyContact: u32,
 }
-impl windows_core::TypeKind for TOUCHINPUT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TOUCHINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for TOUCHINPUT {
+    type TypeKind = windows_core::CopyType;
 }

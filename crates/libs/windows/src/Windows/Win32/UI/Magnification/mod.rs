@@ -140,31 +140,26 @@ pub const WC_MAGNIFIER: windows_core::PCWSTR = windows_core::w!("Magnifier");
 pub const WC_MAGNIFIERA: windows_core::PCSTR = windows_core::s!("Magnifier");
 pub const WC_MAGNIFIERW: windows_core::PCWSTR = windows_core::w!("Magnifier");
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MW_FILTERMODE(pub u32);
 impl windows_core::TypeKind for MW_FILTERMODE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MW_FILTERMODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MW_FILTERMODE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MAGCOLOREFFECT {
     pub transform: [f32; 25],
-}
-impl windows_core::TypeKind for MAGCOLOREFFECT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MAGCOLOREFFECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MAGCOLOREFFECT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MAGIMAGEHEADER {
     pub width: u32,
     pub height: u32,
@@ -173,26 +168,26 @@ pub struct MAGIMAGEHEADER {
     pub offset: u32,
     pub cbSize: usize,
 }
-impl windows_core::TypeKind for MAGIMAGEHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MAGIMAGEHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MAGIMAGEHEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MAGTRANSFORM {
     pub v: [f32; 9],
-}
-impl windows_core::TypeKind for MAGTRANSFORM {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MAGTRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for MAGTRANSFORM {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type MagImageScalingCallback = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, srcdata: *mut core::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut core::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::super::Foundation::RECT, clipped: super::super::Foundation::RECT, dirty: super::super::Graphics::Gdi::HRGN) -> super::super::Foundation::BOOL>;

@@ -57,7 +57,11 @@ pub struct IDisplayMonitorStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayMonitor(windows_core::IUnknown);
+impl windows_core::RuntimeType for DisplayMonitor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayMonitor>();
+}
 windows_core::imp::interface_hierarchy!(DisplayMonitor, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(DisplayMonitor,);
 impl DisplayMonitor {
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -231,20 +235,15 @@ impl DisplayMonitor {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for DisplayMonitor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayMonitor>();
-}
 unsafe impl windows_core::Interface for DisplayMonitor {
-    type Vtable = IDisplayMonitor_Vtbl;
+    type Vtable = <IDisplayMonitor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayMonitor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayMonitor {
     const NAME: &'static str = "Windows.Devices.Display.DisplayMonitor";
 }
-unsafe impl Send for DisplayMonitor {}
-unsafe impl Sync for DisplayMonitor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DisplayMonitorConnectionKind(pub i32);
 impl DisplayMonitorConnectionKind {
     pub const Internal: Self = Self(0i32);
@@ -255,16 +254,11 @@ impl DisplayMonitorConnectionKind {
 impl windows_core::TypeKind for DisplayMonitorConnectionKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DisplayMonitorConnectionKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DisplayMonitorConnectionKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DisplayMonitorConnectionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorConnectionKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DisplayMonitorDescriptorKind(pub i32);
 impl DisplayMonitorDescriptorKind {
     pub const Edid: Self = Self(0i32);
@@ -273,16 +267,11 @@ impl DisplayMonitorDescriptorKind {
 impl windows_core::TypeKind for DisplayMonitorDescriptorKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DisplayMonitorDescriptorKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DisplayMonitorDescriptorKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DisplayMonitorDescriptorKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorDescriptorKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DisplayMonitorPhysicalConnectorKind(pub i32);
 impl DisplayMonitorPhysicalConnectorKind {
     pub const Unknown: Self = Self(0i32);
@@ -297,16 +286,11 @@ impl DisplayMonitorPhysicalConnectorKind {
 impl windows_core::TypeKind for DisplayMonitorPhysicalConnectorKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DisplayMonitorPhysicalConnectorKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DisplayMonitorPhysicalConnectorKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DisplayMonitorPhysicalConnectorKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorPhysicalConnectorKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DisplayMonitorUsageKind(pub i32);
 impl DisplayMonitorUsageKind {
     pub const Standard: Self = Self(0i32);
@@ -315,11 +299,6 @@ impl DisplayMonitorUsageKind {
 }
 impl windows_core::TypeKind for DisplayMonitorUsageKind {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DisplayMonitorUsageKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DisplayMonitorUsageKind").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for DisplayMonitorUsageKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorUsageKind;i4)");

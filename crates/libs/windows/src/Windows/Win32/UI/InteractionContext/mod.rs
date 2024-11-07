@@ -340,15 +340,10 @@ pub const TRANSLATION_PARAMETER_MAX: TRANSLATION_PARAMETER = TRANSLATION_PARAMET
 pub const TRANSLATION_PARAMETER_MAX_CONTACT_COUNT: TRANSLATION_PARAMETER = TRANSLATION_PARAMETER(1i32);
 pub const TRANSLATION_PARAMETER_MIN_CONTACT_COUNT: TRANSLATION_PARAMETER = TRANSLATION_PARAMETER(0i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CROSS_SLIDE_FLAGS(pub u32);
 impl windows_core::TypeKind for CROSS_SLIDE_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CROSS_SLIDE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CROSS_SLIDE_FLAGS").field(&self.0).finish()
-    }
 }
 impl CROSS_SLIDE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -384,48 +379,28 @@ impl core::ops::Not for CROSS_SLIDE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CROSS_SLIDE_THRESHOLD(pub i32);
 impl windows_core::TypeKind for CROSS_SLIDE_THRESHOLD {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CROSS_SLIDE_THRESHOLD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CROSS_SLIDE_THRESHOLD").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HOLD_PARAMETER(pub i32);
 impl windows_core::TypeKind for HOLD_PARAMETER {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HOLD_PARAMETER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HOLD_PARAMETER").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INERTIA_PARAMETER(pub i32);
 impl windows_core::TypeKind for INERTIA_PARAMETER {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for INERTIA_PARAMETER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INERTIA_PARAMETER").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INTERACTION_CONFIGURATION_FLAGS(pub u32);
 impl windows_core::TypeKind for INTERACTION_CONFIGURATION_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for INTERACTION_CONFIGURATION_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INTERACTION_CONFIGURATION_FLAGS").field(&self.0).finish()
-    }
 }
 impl INTERACTION_CONFIGURATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -461,26 +436,16 @@ impl core::ops::Not for INTERACTION_CONFIGURATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INTERACTION_CONTEXT_PROPERTY(pub i32);
 impl windows_core::TypeKind for INTERACTION_CONTEXT_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for INTERACTION_CONTEXT_PROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INTERACTION_CONTEXT_PROPERTY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INTERACTION_FLAGS(pub u32);
 impl windows_core::TypeKind for INTERACTION_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for INTERACTION_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INTERACTION_FLAGS").field(&self.0).finish()
-    }
 }
 impl INTERACTION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -516,88 +481,61 @@ impl core::ops::Not for INTERACTION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INTERACTION_ID(pub i32);
 impl windows_core::TypeKind for INTERACTION_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for INTERACTION_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INTERACTION_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INTERACTION_STATE(pub i32);
 impl windows_core::TypeKind for INTERACTION_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for INTERACTION_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INTERACTION_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MANIPULATION_RAILS_STATE(pub i32);
 impl windows_core::TypeKind for MANIPULATION_RAILS_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MANIPULATION_RAILS_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MANIPULATION_RAILS_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MOUSE_WHEEL_PARAMETER(pub i32);
 impl windows_core::TypeKind for MOUSE_WHEEL_PARAMETER {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MOUSE_WHEEL_PARAMETER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MOUSE_WHEEL_PARAMETER").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TAP_PARAMETER(pub i32);
 impl windows_core::TypeKind for TAP_PARAMETER {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TAP_PARAMETER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TAP_PARAMETER").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TRANSLATION_PARAMETER(pub i32);
 impl windows_core::TypeKind for TRANSLATION_PARAMETER {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRANSLATION_PARAMETER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRANSLATION_PARAMETER").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CROSS_SLIDE_PARAMETER {
     pub threshold: CROSS_SLIDE_THRESHOLD,
     pub distance: f32,
-}
-impl windows_core::TypeKind for CROSS_SLIDE_PARAMETER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CROSS_SLIDE_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CROSS_SLIDE_PARAMETER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HINTERACTIONCONTEXT(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HINTERACTIONCONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl HINTERACTIONCONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -607,7 +545,8 @@ impl windows_core::Free for HINTERACTIONCONTEXT {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = DestroyInteractionContext(*self);
+            windows_targets::link!("ninput.dll" "system" fn DestroyInteractionContext(interactioncontext : *mut core::ffi::c_void) -> i32);
+            DestroyInteractionContext(self.0);
         }
     }
 }
@@ -616,68 +555,65 @@ impl Default for HINTERACTIONCONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HINTERACTIONCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERACTION_ARGUMENTS_CROSS_SLIDE {
     pub flags: CROSS_SLIDE_FLAGS,
-}
-impl windows_core::TypeKind for INTERACTION_ARGUMENTS_CROSS_SLIDE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERACTION_ARGUMENTS_CROSS_SLIDE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERACTION_ARGUMENTS_CROSS_SLIDE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERACTION_ARGUMENTS_MANIPULATION {
     pub delta: MANIPULATION_TRANSFORM,
     pub cumulative: MANIPULATION_TRANSFORM,
     pub velocity: MANIPULATION_VELOCITY,
     pub railsState: MANIPULATION_RAILS_STATE,
 }
-impl windows_core::TypeKind for INTERACTION_ARGUMENTS_MANIPULATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERACTION_ARGUMENTS_MANIPULATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERACTION_ARGUMENTS_MANIPULATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERACTION_ARGUMENTS_TAP {
     pub count: u32,
-}
-impl windows_core::TypeKind for INTERACTION_ARGUMENTS_TAP {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERACTION_ARGUMENTS_TAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERACTION_ARGUMENTS_TAP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERACTION_CONTEXT_CONFIGURATION {
     pub interactionId: INTERACTION_ID,
     pub enable: INTERACTION_CONFIGURATION_FLAGS,
-}
-impl windows_core::TypeKind for INTERACTION_CONTEXT_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERACTION_CONTEXT_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERACTION_CONTEXT_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INTERACTION_CONTEXT_OUTPUT {
     pub interactionId: INTERACTION_ID,
     pub interactionFlags: INTERACTION_FLAGS,
@@ -687,26 +623,22 @@ pub struct INTERACTION_CONTEXT_OUTPUT {
     pub arguments: INTERACTION_CONTEXT_OUTPUT_0,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for INTERACTION_CONTEXT_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for INTERACTION_CONTEXT_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for INTERACTION_CONTEXT_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union INTERACTION_CONTEXT_OUTPUT_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
     pub tap: INTERACTION_ARGUMENTS_TAP,
     pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for INTERACTION_CONTEXT_OUTPUT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for INTERACTION_CONTEXT_OUTPUT_0 {
@@ -714,9 +646,13 @@ impl Default for INTERACTION_CONTEXT_OUTPUT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for INTERACTION_CONTEXT_OUTPUT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INTERACTION_CONTEXT_OUTPUT2 {
     pub interactionId: INTERACTION_ID,
     pub interactionFlags: INTERACTION_FLAGS,
@@ -728,26 +664,22 @@ pub struct INTERACTION_CONTEXT_OUTPUT2 {
     pub arguments: INTERACTION_CONTEXT_OUTPUT2_0,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for INTERACTION_CONTEXT_OUTPUT2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for INTERACTION_CONTEXT_OUTPUT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for INTERACTION_CONTEXT_OUTPUT2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union INTERACTION_CONTEXT_OUTPUT2_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
     pub tap: INTERACTION_ARGUMENTS_TAP,
     pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for INTERACTION_CONTEXT_OUTPUT2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for INTERACTION_CONTEXT_OUTPUT2_0 {
@@ -755,8 +687,12 @@ impl Default for INTERACTION_CONTEXT_OUTPUT2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for INTERACTION_CONTEXT_OUTPUT2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MANIPULATION_TRANSFORM {
     pub translationX: f32,
     pub translationY: f32,
@@ -764,29 +700,29 @@ pub struct MANIPULATION_TRANSFORM {
     pub expansion: f32,
     pub rotation: f32,
 }
-impl windows_core::TypeKind for MANIPULATION_TRANSFORM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MANIPULATION_TRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MANIPULATION_TRANSFORM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MANIPULATION_VELOCITY {
     pub velocityX: f32,
     pub velocityY: f32,
     pub velocityExpansion: f32,
     pub velocityAngular: f32,
 }
-impl windows_core::TypeKind for MANIPULATION_VELOCITY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MANIPULATION_VELOCITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for MANIPULATION_VELOCITY {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = Option<unsafe extern "system" fn(clientdata: *const core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT)>;

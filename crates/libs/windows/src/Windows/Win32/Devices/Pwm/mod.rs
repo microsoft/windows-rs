@@ -23,133 +23,128 @@ pub const PWM_IOCTL_ID_PIN_SET_POLARITY: i32 = 103i32;
 pub const PWM_IOCTL_ID_PIN_START: i32 = 104i32;
 pub const PWM_IOCTL_ID_PIN_STOP: i32 = 105i32;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PWM_POLARITY(pub i32);
 impl windows_core::TypeKind for PWM_POLARITY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PWM_POLARITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PWM_POLARITY").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
     pub ActualPeriod: u64,
-}
-impl windows_core::TypeKind for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PWM_CONTROLLER_INFO {
     pub Size: usize,
     pub PinCount: u32,
     pub MinimumPeriod: u64,
     pub MaximumPeriod: u64,
 }
-impl windows_core::TypeKind for PWM_CONTROLLER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PWM_CONTROLLER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PWM_CONTROLLER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
     pub DesiredPeriod: u64,
-}
-impl windows_core::TypeKind for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
     pub ActualPeriod: u64,
-}
-impl windows_core::TypeKind for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
     pub Percentage: u64,
-}
-impl windows_core::TypeKind for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PWM_PIN_GET_POLARITY_OUTPUT {
     pub Polarity: PWM_POLARITY,
-}
-impl windows_core::TypeKind for PWM_PIN_GET_POLARITY_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PWM_PIN_GET_POLARITY_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PWM_PIN_GET_POLARITY_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PWM_PIN_IS_STARTED_OUTPUT {
     pub IsStarted: super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for PWM_PIN_IS_STARTED_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PWM_PIN_IS_STARTED_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PWM_PIN_IS_STARTED_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
     pub Percentage: u64,
-}
-impl windows_core::TypeKind for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PWM_PIN_SET_POLARITY_INPUT {
     pub Polarity: PWM_POLARITY,
-}
-impl windows_core::TypeKind for PWM_PIN_SET_POLARITY_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PWM_PIN_SET_POLARITY_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for PWM_PIN_SET_POLARITY_INPUT {
+    type TypeKind = windows_core::CopyType;
 }

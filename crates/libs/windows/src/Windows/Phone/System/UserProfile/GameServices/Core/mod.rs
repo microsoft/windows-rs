@@ -78,9 +78,9 @@ impl GameService {
         Self::IGameService(|this| unsafe { (windows_core::Interface::vtable(this).GrantAvatarAward)(windows_core::Interface::as_raw(this), avatarawardid).ok() })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn PostResult<P0>(gamevariant: u32, scorekind: GameServiceScoreKind, scorevalue: i64, gameoutcome: GameServiceGameOutcome, buffer: P0) -> windows_core::Result<()>
+    pub fn PostResult<P4>(gamevariant: u32, scorekind: GameServiceScoreKind, scorevalue: i64, gameoutcome: GameServiceGameOutcome, buffer: P4) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::super::super::Storage::Streams::IBuffer>,
+        P4: windows_core::Param<super::super::super::super::super::Storage::Streams::IBuffer>,
     {
         Self::IGameService(|this| unsafe { (windows_core::Interface::vtable(this).PostResult)(windows_core::Interface::as_raw(this), gamevariant, scorekind, scorevalue, gameoutcome, buffer.param().abi()).ok() })
     }
@@ -111,7 +111,11 @@ impl windows_core::RuntimeName for GameService {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameServicePropertyCollection(windows_core::IUnknown);
+impl windows_core::RuntimeType for GameServicePropertyCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameServicePropertyCollection>();
+}
 windows_core::imp::interface_hierarchy!(GameServicePropertyCollection, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GameServicePropertyCollection,);
 impl GameServicePropertyCollection {
     pub fn GetPropertyAsync(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::super::Foundation::IAsyncOperation<windows_core::IInspectable>> {
         let this = self;
@@ -121,20 +125,15 @@ impl GameServicePropertyCollection {
         }
     }
 }
-impl windows_core::RuntimeType for GameServicePropertyCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameServicePropertyCollection>();
-}
 unsafe impl windows_core::Interface for GameServicePropertyCollection {
-    type Vtable = IGameServicePropertyCollection_Vtbl;
+    type Vtable = <IGameServicePropertyCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGameServicePropertyCollection as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameServicePropertyCollection {
     const NAME: &'static str = "Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection";
 }
-unsafe impl Send for GameServicePropertyCollection {}
-unsafe impl Sync for GameServicePropertyCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GameServiceGameOutcome(pub i32);
 impl GameServiceGameOutcome {
     pub const None: Self = Self(0i32);
@@ -145,16 +144,11 @@ impl GameServiceGameOutcome {
 impl windows_core::TypeKind for GameServiceGameOutcome {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GameServiceGameOutcome {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GameServiceGameOutcome").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GameServiceGameOutcome {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceGameOutcome;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GameServiceScoreKind(pub i32);
 impl GameServiceScoreKind {
     pub const Number: Self = Self(0i32);
@@ -162,11 +156,6 @@ impl GameServiceScoreKind {
 }
 impl windows_core::TypeKind for GameServiceScoreKind {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GameServiceScoreKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GameServiceScoreKind").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for GameServiceScoreKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceScoreKind;i4)");

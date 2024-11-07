@@ -66,7 +66,11 @@ pub struct ISystemUpdateManagerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemUpdateItem(windows_core::IUnknown);
+impl windows_core::RuntimeType for SystemUpdateItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemUpdateItem>();
+}
 windows_core::imp::interface_hierarchy!(SystemUpdateItem, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SystemUpdateItem,);
 impl SystemUpdateItem {
     pub fn State(&self) -> windows_core::Result<SystemUpdateItemState> {
         let this = self;
@@ -125,22 +129,21 @@ impl SystemUpdateItem {
         }
     }
 }
-impl windows_core::RuntimeType for SystemUpdateItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemUpdateItem>();
-}
 unsafe impl windows_core::Interface for SystemUpdateItem {
-    type Vtable = ISystemUpdateItem_Vtbl;
+    type Vtable = <ISystemUpdateItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemUpdateItem as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SystemUpdateItem {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateItem";
 }
-unsafe impl Send for SystemUpdateItem {}
-unsafe impl Sync for SystemUpdateItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemUpdateLastErrorInfo(windows_core::IUnknown);
+impl windows_core::RuntimeType for SystemUpdateLastErrorInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemUpdateLastErrorInfo>();
+}
 windows_core::imp::interface_hierarchy!(SystemUpdateLastErrorInfo, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SystemUpdateLastErrorInfo,);
 impl SystemUpdateLastErrorInfo {
     pub fn State(&self) -> windows_core::Result<SystemUpdateManagerState> {
         let this = self;
@@ -164,18 +167,13 @@ impl SystemUpdateLastErrorInfo {
         }
     }
 }
-impl windows_core::RuntimeType for SystemUpdateLastErrorInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemUpdateLastErrorInfo>();
-}
 unsafe impl windows_core::Interface for SystemUpdateLastErrorInfo {
-    type Vtable = ISystemUpdateLastErrorInfo_Vtbl;
+    type Vtable = <ISystemUpdateLastErrorInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemUpdateLastErrorInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SystemUpdateLastErrorInfo {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateLastErrorInfo";
 }
-unsafe impl Send for SystemUpdateLastErrorInfo {}
-unsafe impl Sync for SystemUpdateLastErrorInfo {}
 pub struct SystemUpdateManager;
 impl SystemUpdateManager {
     pub fn IsSupported() -> windows_core::Result<bool> {
@@ -324,7 +322,7 @@ impl windows_core::RuntimeName for SystemUpdateManager {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SystemUpdateAttentionRequiredReason(pub i32);
 impl SystemUpdateAttentionRequiredReason {
     pub const None: Self = Self(0i32);
@@ -336,16 +334,11 @@ impl SystemUpdateAttentionRequiredReason {
 impl windows_core::TypeKind for SystemUpdateAttentionRequiredReason {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SystemUpdateAttentionRequiredReason {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SystemUpdateAttentionRequiredReason").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for SystemUpdateAttentionRequiredReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateAttentionRequiredReason;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SystemUpdateItemState(pub i32);
 impl SystemUpdateItemState {
     pub const NotStarted: Self = Self(0i32);
@@ -361,16 +354,11 @@ impl SystemUpdateItemState {
 impl windows_core::TypeKind for SystemUpdateItemState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SystemUpdateItemState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SystemUpdateItemState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for SystemUpdateItemState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateItemState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SystemUpdateManagerState(pub i32);
 impl SystemUpdateManagerState {
     pub const Idle: Self = Self(0i32);
@@ -389,16 +377,11 @@ impl SystemUpdateManagerState {
 impl windows_core::TypeKind for SystemUpdateManagerState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SystemUpdateManagerState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SystemUpdateManagerState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for SystemUpdateManagerState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateManagerState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SystemUpdateStartInstallAction(pub i32);
 impl SystemUpdateStartInstallAction {
     pub const UpToReboot: Self = Self(0i32);
@@ -406,11 +389,6 @@ impl SystemUpdateStartInstallAction {
 }
 impl windows_core::TypeKind for SystemUpdateStartInstallAction {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SystemUpdateStartInstallAction {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SystemUpdateStartInstallAction").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for SystemUpdateStartInstallAction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateStartInstallAction;i4)");

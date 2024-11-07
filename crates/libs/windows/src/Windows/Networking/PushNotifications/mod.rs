@@ -153,7 +153,11 @@ pub struct IRawNotification3_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationChannel(windows_core::IUnknown);
+impl windows_core::RuntimeType for PushNotificationChannel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationChannel>();
+}
 windows_core::imp::interface_hierarchy!(PushNotificationChannel, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PushNotificationChannel,);
 impl PushNotificationChannel {
     pub fn Uri(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -188,18 +192,13 @@ impl PushNotificationChannel {
         unsafe { (windows_core::Interface::vtable(this).RemovePushNotificationReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl windows_core::RuntimeType for PushNotificationChannel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationChannel>();
-}
 unsafe impl windows_core::Interface for PushNotificationChannel {
-    type Vtable = IPushNotificationChannel_Vtbl;
+    type Vtable = <IPushNotificationChannel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPushNotificationChannel as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PushNotificationChannel {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannel";
 }
-unsafe impl Send for PushNotificationChannel {}
-unsafe impl Sync for PushNotificationChannel {}
 pub struct PushNotificationChannelManager;
 impl PushNotificationChannelManager {
     pub fn CreatePushNotificationChannelForApplicationAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
@@ -271,7 +270,11 @@ impl windows_core::RuntimeName for PushNotificationChannelManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationChannelManagerForUser(windows_core::IUnknown);
+impl windows_core::RuntimeType for PushNotificationChannelManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationChannelManagerForUser>();
+}
 windows_core::imp::interface_hierarchy!(PushNotificationChannelManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PushNotificationChannelManagerForUser,);
 impl PushNotificationChannelManagerForUser {
     pub fn CreatePushNotificationChannelForApplicationAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
         let this = self;
@@ -325,39 +328,37 @@ impl PushNotificationChannelManagerForUser {
         }
     }
 }
-impl windows_core::RuntimeType for PushNotificationChannelManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationChannelManagerForUser>();
-}
 unsafe impl windows_core::Interface for PushNotificationChannelManagerForUser {
-    type Vtable = IPushNotificationChannelManagerForUser_Vtbl;
+    type Vtable = <IPushNotificationChannelManagerForUser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPushNotificationChannelManagerForUser as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PushNotificationChannelManagerForUser {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannelManagerForUser";
 }
-unsafe impl Send for PushNotificationChannelManagerForUser {}
-unsafe impl Sync for PushNotificationChannelManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationChannelsRevokedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PushNotificationChannelsRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PushNotificationChannelsRevokedEventArgs {}
 impl windows_core::RuntimeType for PushNotificationChannelsRevokedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationChannelsRevokedEventArgs>();
 }
+windows_core::imp::interface_hierarchy!(PushNotificationChannelsRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PushNotificationChannelsRevokedEventArgs,);
+impl PushNotificationChannelsRevokedEventArgs {}
 unsafe impl windows_core::Interface for PushNotificationChannelsRevokedEventArgs {
-    type Vtable = IPushNotificationChannelsRevokedEventArgs_Vtbl;
+    type Vtable = <IPushNotificationChannelsRevokedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPushNotificationChannelsRevokedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PushNotificationChannelsRevokedEventArgs {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannelsRevokedEventArgs";
 }
-unsafe impl Send for PushNotificationChannelsRevokedEventArgs {}
-unsafe impl Sync for PushNotificationChannelsRevokedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationReceivedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for PushNotificationReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationReceivedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(PushNotificationReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PushNotificationReceivedEventArgs,);
 impl PushNotificationReceivedEventArgs {
     pub fn SetCancel(&self, value: bool) -> windows_core::Result<()> {
         let this = self;
@@ -409,22 +410,21 @@ impl PushNotificationReceivedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for PushNotificationReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationReceivedEventArgs>();
-}
 unsafe impl windows_core::Interface for PushNotificationReceivedEventArgs {
-    type Vtable = IPushNotificationReceivedEventArgs_Vtbl;
+    type Vtable = <IPushNotificationReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPushNotificationReceivedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PushNotificationReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationReceivedEventArgs";
 }
-unsafe impl Send for PushNotificationReceivedEventArgs {}
-unsafe impl Sync for PushNotificationReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RawNotification(windows_core::IUnknown);
+impl windows_core::RuntimeType for RawNotification {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRawNotification>();
+}
 windows_core::imp::interface_hierarchy!(RawNotification, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(RawNotification,);
 impl RawNotification {
     pub fn Content(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -457,20 +457,15 @@ impl RawNotification {
         }
     }
 }
-impl windows_core::RuntimeType for RawNotification {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRawNotification>();
-}
 unsafe impl windows_core::Interface for RawNotification {
-    type Vtable = IRawNotification_Vtbl;
+    type Vtable = <IRawNotification as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRawNotification as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RawNotification {
     const NAME: &'static str = "Windows.Networking.PushNotifications.RawNotification";
 }
-unsafe impl Send for RawNotification {}
-unsafe impl Sync for RawNotification {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PushNotificationType(pub i32);
 impl PushNotificationType {
     pub const Toast: Self = Self(0i32);
@@ -481,11 +476,6 @@ impl PushNotificationType {
 }
 impl windows_core::TypeKind for PushNotificationType {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PushNotificationType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PushNotificationType").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for PushNotificationType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.PushNotifications.PushNotificationType;i4)");

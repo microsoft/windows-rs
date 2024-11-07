@@ -57,7 +57,11 @@ pub struct IAppCapabilityStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppCapability(windows_core::IUnknown);
+impl windows_core::RuntimeType for AppCapability {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppCapability>();
+}
 windows_core::imp::interface_hierarchy!(AppCapability, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(AppCapability,);
 impl AppCapability {
     pub fn CapabilityName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -155,37 +159,31 @@ impl AppCapability {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for AppCapability {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppCapability>();
-}
 unsafe impl windows_core::Interface for AppCapability {
-    type Vtable = IAppCapability_Vtbl;
+    type Vtable = <IAppCapability as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppCapability as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppCapability {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapability";
 }
-unsafe impl Send for AppCapability {}
-unsafe impl Sync for AppCapability {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppCapabilityAccessChangedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(AppCapabilityAccessChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl AppCapabilityAccessChangedEventArgs {}
 impl windows_core::RuntimeType for AppCapabilityAccessChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppCapabilityAccessChangedEventArgs>();
 }
+windows_core::imp::interface_hierarchy!(AppCapabilityAccessChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(AppCapabilityAccessChangedEventArgs,);
+impl AppCapabilityAccessChangedEventArgs {}
 unsafe impl windows_core::Interface for AppCapabilityAccessChangedEventArgs {
-    type Vtable = IAppCapabilityAccessChangedEventArgs_Vtbl;
+    type Vtable = <IAppCapabilityAccessChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppCapabilityAccessChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppCapabilityAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs";
 }
-unsafe impl Send for AppCapabilityAccessChangedEventArgs {}
-unsafe impl Sync for AppCapabilityAccessChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AppCapabilityAccessStatus(pub i32);
 impl AppCapabilityAccessStatus {
     pub const DeniedBySystem: Self = Self(0i32);
@@ -196,11 +194,6 @@ impl AppCapabilityAccessStatus {
 }
 impl windows_core::TypeKind for AppCapabilityAccessStatus {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for AppCapabilityAccessStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AppCapabilityAccessStatus").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for AppCapabilityAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus;i4)");

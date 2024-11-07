@@ -103,11 +103,8 @@ pub struct IPrintCustomItemListOptionDetails3_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintCustomOptionDetails, IPrintCustomOptionDetails_Vtbl, 0xe32bde1c_28af_4b90_95da_a3acf320b929);
-impl core::ops::Deref for IPrintCustomOptionDetails {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IPrintCustomOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IPrintCustomOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IPrintCustomOptionDetails, IPrintOptionDetails);
@@ -177,24 +174,21 @@ impl IPrintCustomOptionDetails {
         }
     }
 }
-impl windows_core::RuntimeType for IPrintCustomOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPrintCustomOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-pub trait IPrintCustomOptionDetails_Impl: Sized + windows_core::IUnknownImpl + IPrintOptionDetails_Impl {
-    fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING>;
-}
 impl windows_core::RuntimeName for IPrintCustomOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintCustomOptionDetails";
 }
+pub trait IPrintCustomOptionDetails_Impl: IPrintOptionDetails_Impl {
+    fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
+    fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING>;
+}
 impl IPrintCustomOptionDetails_Vtbl {
-    pub const fn new<Identity: IPrintCustomOptionDetails_Impl, const OFFSET: isize>() -> IPrintCustomOptionDetails_Vtbl {
+    pub const fn new<Identity: IPrintCustomOptionDetails_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetDisplayName<Identity: IPrintCustomOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPrintCustomOptionDetails_Impl::SetDisplayName(this, core::mem::transmute(&value)).into()
@@ -279,11 +273,8 @@ pub struct IPrintHolePunchOptionDetails_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintItemListOptionDetails, IPrintItemListOptionDetails_Vtbl, 0x9a2257bf_fe61_43d8_a24f_a3f6ab7320e7);
-impl core::ops::Deref for IPrintItemListOptionDetails {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IPrintItemListOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IPrintItemListOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IPrintItemListOptionDetails, IPrintOptionDetails);
@@ -350,9 +341,6 @@ impl IPrintItemListOptionDetails {
         }
     }
 }
-impl windows_core::RuntimeType for IPrintItemListOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPrintItemListOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -362,16 +350,16 @@ pub struct IPrintItemListOptionDetails_Vtbl {
     Items: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IPrintItemListOptionDetails_Impl: Sized + windows_core::IUnknownImpl + IPrintOptionDetails_Impl {
-    fn Items(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>;
-}
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IPrintItemListOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintItemListOptionDetails";
 }
 #[cfg(feature = "Foundation_Collections")]
+pub trait IPrintItemListOptionDetails_Impl: IPrintOptionDetails_Impl {
+    fn Items(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>;
+}
+#[cfg(feature = "Foundation_Collections")]
 impl IPrintItemListOptionDetails_Vtbl {
-    pub const fn new<Identity: IPrintItemListOptionDetails_Impl, const OFFSET: isize>() -> IPrintItemListOptionDetails_Vtbl {
+    pub const fn new<Identity: IPrintItemListOptionDetails_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Items<Identity: IPrintItemListOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPrintItemListOptionDetails_Impl::Items(this) {
@@ -414,11 +402,8 @@ pub struct IPrintMediaTypeOptionDetails_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintNumberOptionDetails, IPrintNumberOptionDetails_Vtbl, 0x4d01bbaf_645c_4de9_965f_6fc6bbc47cab);
-impl core::ops::Deref for IPrintNumberOptionDetails {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IPrintNumberOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IPrintNumberOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IPrintNumberOptionDetails, IPrintOptionDetails);
@@ -491,24 +476,21 @@ impl IPrintNumberOptionDetails {
         }
     }
 }
-impl windows_core::RuntimeType for IPrintNumberOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPrintNumberOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MinValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub MaxValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-pub trait IPrintNumberOptionDetails_Impl: Sized + windows_core::IUnknownImpl + IPrintOptionDetails_Impl {
-    fn MinValue(&self) -> windows_core::Result<u32>;
-    fn MaxValue(&self) -> windows_core::Result<u32>;
-}
 impl windows_core::RuntimeName for IPrintNumberOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintNumberOptionDetails";
 }
+pub trait IPrintNumberOptionDetails_Impl: IPrintOptionDetails_Impl {
+    fn MinValue(&self) -> windows_core::Result<u32>;
+    fn MaxValue(&self) -> windows_core::Result<u32>;
+}
 impl IPrintNumberOptionDetails_Vtbl {
-    pub const fn new<Identity: IPrintNumberOptionDetails_Impl, const OFFSET: isize>() -> IPrintNumberOptionDetails_Vtbl {
+    pub const fn new<Identity: IPrintNumberOptionDetails_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MinValue<Identity: IPrintNumberOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPrintNumberOptionDetails_Impl::MinValue(this) {
@@ -540,11 +522,8 @@ impl IPrintNumberOptionDetails_Vtbl {
     }
 }
 windows_core::imp::define_interface!(IPrintOptionDetails, IPrintOptionDetails_Vtbl, 0x390686cf_d682_495f_adfe_d7333f5c1808);
-impl core::ops::Deref for IPrintOptionDetails {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IPrintOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IPrintOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl IPrintOptionDetails {
@@ -602,9 +581,6 @@ impl IPrintOptionDetails {
         }
     }
 }
-impl windows_core::RuntimeType for IPrintOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPrintOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -617,6 +593,9 @@ pub struct IPrintOptionDetails_Vtbl {
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TrySetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
+impl windows_core::RuntimeName for IPrintOptionDetails {
+    const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails";
+}
 pub trait IPrintOptionDetails_Impl: Sized + windows_core::IUnknownImpl {
     fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn OptionType(&self) -> windows_core::Result<PrintOptionType>;
@@ -627,11 +606,8 @@ pub trait IPrintOptionDetails_Impl: Sized + windows_core::IUnknownImpl {
     fn Value(&self) -> windows_core::Result<windows_core::IInspectable>;
     fn TrySetValue(&self, value: Option<&windows_core::IInspectable>) -> windows_core::Result<bool>;
 }
-impl windows_core::RuntimeName for IPrintOptionDetails {
-    const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails";
-}
 impl IPrintOptionDetails_Vtbl {
-    pub const fn new<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>() -> IPrintOptionDetails_Vtbl {
+    pub const fn new<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OptionId<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPrintOptionDetails_Impl::OptionId(this) {
@@ -813,11 +789,8 @@ pub struct IPrintTaskOptionDetailsStatic_Vtbl {
     pub GetFromPrintTaskOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintTextOptionDetails, IPrintTextOptionDetails_Vtbl, 0xad75e563_5ce4_46bc_9918_ab9fad144c5b);
-impl core::ops::Deref for IPrintTextOptionDetails {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IPrintTextOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IPrintTextOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IPrintTextOptionDetails, IPrintOptionDetails);
@@ -883,22 +856,19 @@ impl IPrintTextOptionDetails {
         }
     }
 }
-impl windows_core::RuntimeType for IPrintTextOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPrintTextOptionDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MaxCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-pub trait IPrintTextOptionDetails_Impl: Sized + windows_core::IUnknownImpl + IPrintOptionDetails_Impl {
-    fn MaxCharacters(&self) -> windows_core::Result<u32>;
-}
 impl windows_core::RuntimeName for IPrintTextOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintTextOptionDetails";
 }
+pub trait IPrintTextOptionDetails_Impl: IPrintOptionDetails_Impl {
+    fn MaxCharacters(&self) -> windows_core::Result<u32>;
+}
 impl IPrintTextOptionDetails_Vtbl {
-    pub const fn new<Identity: IPrintTextOptionDetails_Impl, const OFFSET: isize>() -> IPrintTextOptionDetails_Vtbl {
+    pub const fn new<Identity: IPrintTextOptionDetails_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MaxCharacters<Identity: IPrintTextOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPrintTextOptionDetails_Impl::MaxCharacters(this) {
@@ -918,8 +888,11 @@ impl IPrintTextOptionDetails_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintBindingOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintBindingOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
-windows_core::imp::required_hierarchy!(PrintBindingOptionDetails, IPrintItemListOptionDetails);
+impl windows_core::RuntimeType for PrintBindingOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintBindingOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintBindingOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintBindingOptionDetails {
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintBindingOptionDetails>(self)?;
@@ -952,43 +925,43 @@ impl PrintBindingOptionDetails {
         }
     }
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionType(&self) -> windows_core::Result<PrintOptionType> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetErrorText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<PrintOptionStates> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -998,30 +971,28 @@ impl PrintBindingOptionDetails {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
-impl windows_core::RuntimeType for PrintBindingOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintBindingOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintBindingOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintBindingOptionDetails";
 }
-unsafe impl Send for PrintBindingOptionDetails {}
-unsafe impl Sync for PrintBindingOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintBorderingOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintBorderingOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
-windows_core::imp::required_hierarchy!(PrintBorderingOptionDetails, IPrintItemListOptionDetails);
+impl windows_core::RuntimeType for PrintBorderingOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintBorderingOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintBorderingOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintBorderingOptionDetails {
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintBorderingOptionDetails>(self)?;
@@ -1054,43 +1025,43 @@ impl PrintBorderingOptionDetails {
         }
     }
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionType(&self) -> windows_core::Result<PrintOptionType> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetErrorText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<PrintOptionStates> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1100,30 +1071,28 @@ impl PrintBorderingOptionDetails {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
-impl windows_core::RuntimeType for PrintBorderingOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintBorderingOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintBorderingOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintBorderingOptionDetails";
 }
-unsafe impl Send for PrintBorderingOptionDetails {}
-unsafe impl Sync for PrintBorderingOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCollationOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintCollationOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
-windows_core::imp::required_hierarchy!(PrintCollationOptionDetails, IPrintItemListOptionDetails);
+impl windows_core::RuntimeType for PrintCollationOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintCollationOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintCollationOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintCollationOptionDetails {
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintCollationOptionDetails>(self)?;
@@ -1156,43 +1125,43 @@ impl PrintCollationOptionDetails {
         }
     }
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionType(&self) -> windows_core::Result<PrintOptionType> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetErrorText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<PrintOptionStates> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1202,30 +1171,28 @@ impl PrintCollationOptionDetails {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
-impl windows_core::RuntimeType for PrintCollationOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintCollationOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintCollationOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCollationOptionDetails";
 }
-unsafe impl Send for PrintCollationOptionDetails {}
-unsafe impl Sync for PrintCollationOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintColorModeOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintColorModeOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
-windows_core::imp::required_hierarchy!(PrintColorModeOptionDetails, IPrintItemListOptionDetails);
+impl windows_core::RuntimeType for PrintColorModeOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintColorModeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintColorModeOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintColorModeOptionDetails {
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintColorModeOptionDetails>(self)?;
@@ -1258,43 +1225,43 @@ impl PrintColorModeOptionDetails {
         }
     }
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionType(&self) -> windows_core::Result<PrintOptionType> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetErrorText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<PrintOptionStates> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1304,30 +1271,28 @@ impl PrintColorModeOptionDetails {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
-impl windows_core::RuntimeType for PrintColorModeOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintColorModeOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintColorModeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintColorModeOptionDetails";
 }
-unsafe impl Send for PrintColorModeOptionDetails {}
-unsafe impl Sync for PrintColorModeOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCopiesOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintCopiesOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
-windows_core::imp::required_hierarchy!(PrintCopiesOptionDetails, IPrintNumberOptionDetails);
+impl windows_core::RuntimeType for PrintCopiesOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintCopiesOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintCopiesOptionDetails, IPrintNumberOptionDetails, IPrintOptionDetails);
 impl PrintCopiesOptionDetails {
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintCopiesOptionDetails>(self)?;
@@ -1366,43 +1331,43 @@ impl PrintCopiesOptionDetails {
         }
     }
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionType(&self) -> windows_core::Result<PrintOptionType> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetErrorText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<PrintOptionStates> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1412,29 +1377,28 @@ impl PrintCopiesOptionDetails {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
-impl windows_core::RuntimeType for PrintCopiesOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintCopiesOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintCopiesOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCopiesOptionDetails";
 }
-unsafe impl Send for PrintCopiesOptionDetails {}
-unsafe impl Sync for PrintCopiesOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCustomItemDetails(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintCustomItemDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintCustomItemDetails>();
+}
 windows_core::imp::interface_hierarchy!(PrintCustomItemDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintCustomItemDetails,);
 impl PrintCustomItemDetails {
     pub fn ItemId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1455,32 +1419,30 @@ impl PrintCustomItemDetails {
         }
     }
 }
-impl windows_core::RuntimeType for PrintCustomItemDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintCustomItemDetails>();
-}
 unsafe impl windows_core::Interface for PrintCustomItemDetails {
-    type Vtable = IPrintCustomItemDetails_Vtbl;
+    type Vtable = <IPrintCustomItemDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintCustomItemDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintCustomItemDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomItemDetails";
 }
-unsafe impl Send for PrintCustomItemDetails {}
-unsafe impl Sync for PrintCustomItemDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCustomItemListOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintCustomItemListOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
-windows_core::imp::required_hierarchy!(PrintCustomItemListOptionDetails, IPrintCustomOptionDetails, IPrintItemListOptionDetails);
+impl windows_core::RuntimeType for PrintCustomItemListOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintCustomItemListOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintCustomItemListOptionDetails, IPrintCustomOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintCustomItemListOptionDetails {
     pub fn AddItem(&self, itemid: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintCustomItemListOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).AddItem)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(itemid), core::mem::transmute_copy(displayname)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn AddItem2<P0>(&self, itemid: &windows_core::HSTRING, displayname: &windows_core::HSTRING, description: &windows_core::HSTRING, icon: P0) -> windows_core::Result<()>
+    pub fn AddItem2<P3>(&self, itemid: &windows_core::HSTRING, displayname: &windows_core::HSTRING, description: &windows_core::HSTRING, icon: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>,
+        P3: windows_core::Param<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>,
     {
         let this = &windows_core::Interface::cast::<IPrintCustomItemListOptionDetails2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).AddItem)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(itemid), core::mem::transmute_copy(displayname), core::mem::transmute_copy(description), icon.param().abi()).ok() }
@@ -1527,43 +1489,43 @@ impl PrintCustomItemListOptionDetails {
         }
     }
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionType(&self) -> windows_core::Result<PrintOptionType> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetErrorText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<PrintOptionStates> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1573,30 +1535,28 @@ impl PrintCustomItemListOptionDetails {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
-impl windows_core::RuntimeType for PrintCustomItemListOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintCustomItemListOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintCustomItemListOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomItemListOptionDetails";
 }
-unsafe impl Send for PrintCustomItemListOptionDetails {}
-unsafe impl Sync for PrintCustomItemListOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCustomTextOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintCustomTextOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
-windows_core::imp::required_hierarchy!(PrintCustomTextOptionDetails, IPrintCustomOptionDetails);
+impl windows_core::RuntimeType for PrintCustomTextOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintCustomTextOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintCustomTextOptionDetails, IPrintCustomOptionDetails, IPrintOptionDetails);
 impl PrintCustomTextOptionDetails {
     pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintCustomOptionDetails>(self)?;
@@ -1643,43 +1603,43 @@ impl PrintCustomTextOptionDetails {
         }
     }
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionType(&self) -> windows_core::Result<PrintOptionType> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetErrorText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<PrintOptionStates> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1689,30 +1649,28 @@ impl PrintCustomTextOptionDetails {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
-impl windows_core::RuntimeType for PrintCustomTextOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintCustomTextOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintCustomTextOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomTextOptionDetails";
 }
-unsafe impl Send for PrintCustomTextOptionDetails {}
-unsafe impl Sync for PrintCustomTextOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCustomToggleOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintCustomToggleOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
-windows_core::imp::required_hierarchy!(PrintCustomToggleOptionDetails, IPrintCustomOptionDetails);
+impl windows_core::RuntimeType for PrintCustomToggleOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintCustomToggleOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintCustomToggleOptionDetails, IPrintCustomOptionDetails, IPrintOptionDetails);
 impl PrintCustomToggleOptionDetails {
     pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintCustomOptionDetails>(self)?;
@@ -1748,43 +1706,43 @@ impl PrintCustomToggleOptionDetails {
         }
     }
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionType(&self) -> windows_core::Result<PrintOptionType> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetErrorText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<PrintOptionStates> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1794,30 +1752,28 @@ impl PrintCustomToggleOptionDetails {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
-impl windows_core::RuntimeType for PrintCustomToggleOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintCustomToggleOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintCustomToggleOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomToggleOptionDetails";
 }
-unsafe impl Send for PrintCustomToggleOptionDetails {}
-unsafe impl Sync for PrintCustomToggleOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintDuplexOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintDuplexOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
-windows_core::imp::required_hierarchy!(PrintDuplexOptionDetails, IPrintItemListOptionDetails);
+impl windows_core::RuntimeType for PrintDuplexOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintDuplexOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintDuplexOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintDuplexOptionDetails {
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintDuplexOptionDetails>(self)?;
@@ -1850,43 +1806,43 @@ impl PrintDuplexOptionDetails {
         }
     }
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionType(&self) -> windows_core::Result<PrintOptionType> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetErrorText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<PrintOptionStates> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1896,30 +1852,28 @@ impl PrintDuplexOptionDetails {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
-impl windows_core::RuntimeType for PrintDuplexOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintDuplexOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintDuplexOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintDuplexOptionDetails";
 }
-unsafe impl Send for PrintDuplexOptionDetails {}
-unsafe impl Sync for PrintDuplexOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintHolePunchOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintHolePunchOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
-windows_core::imp::required_hierarchy!(PrintHolePunchOptionDetails, IPrintItemListOptionDetails);
+impl windows_core::RuntimeType for PrintHolePunchOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintHolePunchOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintHolePunchOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintHolePunchOptionDetails {
     pub fn SetWarningText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintHolePunchOptionDetails>(self)?;
@@ -1952,43 +1906,43 @@ impl PrintHolePunchOptionDetails {
         }
     }
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionType(&self) -> windows_core::Result<PrintOptionType> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetErrorText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<PrintOptionStates> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1998,30 +1952,28 @@ impl PrintHolePunchOptionDetails {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
-impl windows_core::RuntimeType for PrintHolePunchOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintHolePunchOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintHolePunchOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintHolePunchOptionDetails";
 }
-unsafe impl Send for PrintHolePunchOptionDetails {}
-unsafe impl Sync for PrintHolePunchOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintMediaSizeOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintMediaSizeOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
-windows_core::imp::required_hierarchy!(PrintMediaSizeOptionDetails, IPrintItemListOptionDetails);
+impl windows_core::RuntimeType for PrintMediaSizeOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintMediaSizeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintMediaSizeOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintMediaSizeOptionDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>> {
@@ -2054,43 +2006,43 @@ impl PrintMediaSizeOptionDetails {
         }
     }
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionType(&self) -> windows_core::Result<PrintOptionType> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetErrorText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<PrintOptionStates> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2100,30 +2052,28 @@ impl PrintMediaSizeOptionDetails {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
-impl windows_core::RuntimeType for PrintMediaSizeOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintMediaSizeOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintMediaSizeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintMediaSizeOptionDetails";
 }
-unsafe impl Send for PrintMediaSizeOptionDetails {}
-unsafe impl Sync for PrintMediaSizeOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintMediaTypeOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintMediaTypeOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
-windows_core::imp::required_hierarchy!(PrintMediaTypeOptionDetails, IPrintItemListOptionDetails);
+impl windows_core::RuntimeType for PrintMediaTypeOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintMediaTypeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintMediaTypeOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintMediaTypeOptionDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>> {
@@ -2156,43 +2106,43 @@ impl PrintMediaTypeOptionDetails {
         }
     }
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionType(&self) -> windows_core::Result<PrintOptionType> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetErrorText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<PrintOptionStates> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2202,30 +2152,28 @@ impl PrintMediaTypeOptionDetails {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
-impl windows_core::RuntimeType for PrintMediaTypeOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintMediaTypeOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintMediaTypeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintMediaTypeOptionDetails";
 }
-unsafe impl Send for PrintMediaTypeOptionDetails {}
-unsafe impl Sync for PrintMediaTypeOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintOrientationOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintOrientationOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
-windows_core::imp::required_hierarchy!(PrintOrientationOptionDetails, IPrintItemListOptionDetails);
+impl windows_core::RuntimeType for PrintOrientationOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintOrientationOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintOrientationOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintOrientationOptionDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>> {
@@ -2236,43 +2184,43 @@ impl PrintOrientationOptionDetails {
         }
     }
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionType(&self) -> windows_core::Result<PrintOptionType> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetErrorText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<PrintOptionStates> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2282,7 +2230,7 @@ impl PrintOrientationOptionDetails {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
@@ -2311,22 +2259,21 @@ impl PrintOrientationOptionDetails {
         }
     }
 }
-impl windows_core::RuntimeType for PrintOrientationOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintOrientationOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintOrientationOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintOrientationOptionDetails";
 }
-unsafe impl Send for PrintOrientationOptionDetails {}
-unsafe impl Sync for PrintOrientationOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintPageRangeOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintPageRangeOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
+impl windows_core::RuntimeType for PrintPageRangeOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintPageRangeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintPageRangeOptionDetails, IPrintOptionDetails);
 impl PrintPageRangeOptionDetails {
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2404,23 +2351,21 @@ impl PrintPageRangeOptionDetails {
         }
     }
 }
-impl windows_core::RuntimeType for PrintPageRangeOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintPageRangeOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintPageRangeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintPageRangeOptionDetails";
 }
-unsafe impl Send for PrintPageRangeOptionDetails {}
-unsafe impl Sync for PrintPageRangeOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintQualityOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintQualityOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
-windows_core::imp::required_hierarchy!(PrintQualityOptionDetails, IPrintItemListOptionDetails);
+impl windows_core::RuntimeType for PrintQualityOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintQualityOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintQualityOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintQualityOptionDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>> {
@@ -2431,43 +2376,43 @@ impl PrintQualityOptionDetails {
         }
     }
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionType(&self) -> windows_core::Result<PrintOptionType> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetErrorText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<PrintOptionStates> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2477,7 +2422,7 @@ impl PrintQualityOptionDetails {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
@@ -2506,23 +2451,21 @@ impl PrintQualityOptionDetails {
         }
     }
 }
-impl windows_core::RuntimeType for PrintQualityOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintQualityOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintQualityOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintQualityOptionDetails";
 }
-unsafe impl Send for PrintQualityOptionDetails {}
-unsafe impl Sync for PrintQualityOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintStapleOptionDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PrintStapleOptionDetails, windows_core::IUnknown, windows_core::IInspectable, IPrintOptionDetails);
-windows_core::imp::required_hierarchy!(PrintStapleOptionDetails, IPrintItemListOptionDetails);
+impl windows_core::RuntimeType for PrintStapleOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
+windows_core::imp::interface_hierarchy!(PrintStapleOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintStapleOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintStapleOptionDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>> {
@@ -2533,43 +2476,43 @@ impl PrintStapleOptionDetails {
         }
     }
     pub fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OptionType(&self) -> windows_core::Result<PrintOptionType> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetErrorText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn ErrorText(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetState(&self, value: PrintOptionStates) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<PrintOptionStates> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::IInspectable> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2579,7 +2522,7 @@ impl PrintStapleOptionDetails {
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IPrintOptionDetails>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetValue)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
@@ -2608,22 +2551,21 @@ impl PrintStapleOptionDetails {
         }
     }
 }
-impl windows_core::RuntimeType for PrintStapleOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintStapleOptionDetails {
-    type Vtable = IPrintOptionDetails_Vtbl;
+    type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintStapleOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintStapleOptionDetails";
 }
-unsafe impl Send for PrintStapleOptionDetails {}
-unsafe impl Sync for PrintStapleOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskOptionChangedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintTaskOptionChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskOptionChangedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(PrintTaskOptionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PrintTaskOptionChangedEventArgs,);
 impl PrintTaskOptionChangedEventArgs {
     pub fn OptionId(&self) -> windows_core::Result<windows_core::IInspectable> {
         let this = self;
@@ -2633,24 +2575,37 @@ impl PrintTaskOptionChangedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for PrintTaskOptionChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskOptionChangedEventArgs>();
-}
 unsafe impl windows_core::Interface for PrintTaskOptionChangedEventArgs {
-    type Vtable = IPrintTaskOptionChangedEventArgs_Vtbl;
+    type Vtable = <IPrintTaskOptionChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTaskOptionChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintTaskOptionChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintTaskOptionChangedEventArgs";
 }
-unsafe impl Send for PrintTaskOptionChangedEventArgs {}
-unsafe impl Sync for PrintTaskOptionChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskOptionDetails(windows_core::IUnknown);
+impl windows_core::RuntimeType for PrintTaskOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskOptionDetails>();
+}
 windows_core::imp::interface_hierarchy!(PrintTaskOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskOptionDetails, super::IPrintTaskOptionsCore, super::IPrintTaskOptionsCoreUIConfiguration);
 impl PrintTaskOptionDetails {
+    pub fn GetPageDescription(&self, jobpagenumber: u32) -> windows_core::Result<super::PrintPageDescription> {
+        let this = &windows_core::Interface::cast::<super::IPrintTaskOptionsCore>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetPageDescription)(windows_core::Interface::as_raw(this), jobpagenumber, &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn DisplayedOptions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
+        let this = &windows_core::Interface::cast::<super::IPrintTaskOptionsCoreUIConfiguration>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DisplayedOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Options(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, IPrintOptionDetails>> {
         let this = self;
@@ -2717,40 +2672,20 @@ impl PrintTaskOptionDetails {
             (windows_core::Interface::vtable(this).GetFromPrintTaskOptions)(windows_core::Interface::as_raw(this), printtaskoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetPageDescription(&self, jobpagenumber: u32) -> windows_core::Result<super::PrintPageDescription> {
-        let this = &windows_core::Interface::cast::<super::IPrintTaskOptionsCore>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPageDescription)(windows_core::Interface::as_raw(this), jobpagenumber, &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DisplayedOptions(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
-        let this = &windows_core::Interface::cast::<super::IPrintTaskOptionsCoreUIConfiguration>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayedOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
     fn IPrintTaskOptionDetailsStatic<R, F: FnOnce(&IPrintTaskOptionDetailsStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PrintTaskOptionDetails, IPrintTaskOptionDetailsStatic> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for PrintTaskOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskOptionDetails>();
-}
 unsafe impl windows_core::Interface for PrintTaskOptionDetails {
-    type Vtable = IPrintTaskOptionDetails_Vtbl;
+    type Vtable = <IPrintTaskOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTaskOptionDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintTaskOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintTaskOptionDetails";
 }
-unsafe impl Send for PrintTaskOptionDetails {}
-unsafe impl Sync for PrintTaskOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PrintOptionStates(pub u32);
 impl PrintOptionStates {
     pub const None: Self = Self(0u32);
@@ -2760,49 +2695,11 @@ impl PrintOptionStates {
 impl windows_core::TypeKind for PrintOptionStates {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PrintOptionStates {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PrintOptionStates").field(&self.0).finish()
-    }
-}
-impl PrintOptionStates {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for PrintOptionStates {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for PrintOptionStates {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for PrintOptionStates {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for PrintOptionStates {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for PrintOptionStates {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for PrintOptionStates {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionStates;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PrintOptionType(pub i32);
 impl PrintOptionType {
     pub const Unknown: Self = Self(0i32);
@@ -2813,11 +2710,6 @@ impl PrintOptionType {
 }
 impl windows_core::TypeKind for PrintOptionType {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PrintOptionType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PrintOptionType").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for PrintOptionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.OptionDetails.PrintOptionType;i4)");

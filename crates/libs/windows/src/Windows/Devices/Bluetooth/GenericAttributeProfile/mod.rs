@@ -5,9 +5,9 @@ impl windows_core::RuntimeType for IGattCharacteristic {
 #[repr(C)]
 pub struct IGattCharacteristic_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetDescriptors: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetDescriptors: usize,
     pub CharacteristicProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattCharacteristicProperties) -> windows_core::HRESULT,
     pub ProtectionLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GattProtectionLevel) -> windows_core::HRESULT,
@@ -42,9 +42,9 @@ impl windows_core::RuntimeType for IGattCharacteristic2 {
 pub struct IGattCharacteristic2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Service: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetAllDescriptors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetAllDescriptors: usize,
 }
 windows_core::imp::define_interface!(IGattCharacteristic3, IGattCharacteristic3_Vtbl, 0x3f3c663e_93d4_406b_b817_db81f8ed53b3);
@@ -75,10 +75,7 @@ impl windows_core::RuntimeType for IGattCharacteristicStatics {
 #[repr(C)]
 pub struct IGattCharacteristicStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub ConvertShortIdToUuid: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ConvertShortIdToUuid: usize,
 }
 windows_core::imp::define_interface!(IGattCharacteristicUuidsStatics, IGattCharacteristicUuidsStatics_Vtbl, 0x58fa4586_b1de_470c_b7de_0d11ff44f4b7);
 impl windows_core::RuntimeType for IGattCharacteristicUuidsStatics {
@@ -248,10 +245,7 @@ impl windows_core::RuntimeType for IGattDescriptorStatics {
 #[repr(C)]
 pub struct IGattDescriptorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub ConvertShortIdToUuid: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ConvertShortIdToUuid: usize,
 }
 windows_core::imp::define_interface!(IGattDescriptorUuidsStatics, IGattDescriptorUuidsStatics_Vtbl, 0xa6f862ce_9cfc_42f1_9185_ff37b75181d3);
 impl windows_core::RuntimeType for IGattDescriptorUuidsStatics {
@@ -288,13 +282,13 @@ impl windows_core::RuntimeType for IGattDeviceService {
 #[repr(C)]
 pub struct IGattDeviceService_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetCharacteristics: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetIncludedServices: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetIncludedServices: usize,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Uuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
@@ -307,21 +301,18 @@ impl windows_core::RuntimeType for IGattDeviceService2 {
 #[repr(C)]
 pub struct IGattDeviceService2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub Device: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Device: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub ParentServices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     ParentServices: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetAllCharacteristics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetAllCharacteristics: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetAllIncludedServices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetAllIncludedServices: usize,
 }
 windows_core::imp::define_interface!(IGattDeviceService3, IGattDeviceService3_Vtbl, 0xb293a950_0c53_437c_a9b3_5c3210c6e569);
@@ -360,14 +351,8 @@ pub struct IGattDeviceServiceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceSelectorFromUuid: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    #[cfg(feature = "deprecated")]
     pub GetDeviceSelectorFromShortId: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetDeviceSelectorFromShortId: usize,
-    #[cfg(feature = "deprecated")]
     pub ConvertShortIdToUuid: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ConvertShortIdToUuid: usize,
 }
 windows_core::imp::define_interface!(IGattDeviceServiceStatics2, IGattDeviceServiceStatics2_Vtbl, 0x0604186e_24a6_4b0d_a2f2_30cc01545d25);
 impl windows_core::RuntimeType for IGattDeviceServiceStatics2 {
@@ -949,50 +934,54 @@ pub struct IGattWriteResult_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattCharacteristic(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattCharacteristic {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattCharacteristic>();
+}
 windows_core::imp::interface_hierarchy!(GattCharacteristic, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattCharacteristic,);
 impl GattCharacteristic {
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetDescriptors(&self, descriptoruuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDescriptors)(windows_core::Interface::as_raw(this), descriptoruuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CharacteristicProperties(&self) -> windows_core::Result<GattCharacteristicProperties> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CharacteristicProperties)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ProtectionLevel(&self) -> windows_core::Result<GattProtectionLevel> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetProtectionLevel(&self, value: GattProtectionLevel) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetProtectionLevel)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn UserDescription(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserDescription)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Uuid(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AttributeHandle(&self) -> windows_core::Result<u16> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeHandle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1000,21 +989,21 @@ impl GattCharacteristic {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn PresentationFormats(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PresentationFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReadValueAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadValueAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadValueWithCacheModeAsync)(windows_core::Interface::as_raw(this), cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1025,7 +1014,7 @@ impl GattCharacteristic {
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteValueAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1036,21 +1025,21 @@ impl GattCharacteristic {
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteValueWithOptionAsync)(windows_core::Interface::as_raw(this), value.param().abi(), writeoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadClientCharacteristicConfigurationDescriptorAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn WriteClientCharacteristicConfigurationDescriptorAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorAsync)(windows_core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1060,14 +1049,14 @@ impl GattCharacteristic {
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattCharacteristic, GattValueChangedEventArgs>>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ValueChanged)(windows_core::Interface::as_raw(this), valuechangedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveValueChanged(&self, valuechangedeventcookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveValueChanged)(windows_core::Interface::as_raw(this), valuechangedeventcookie).ok() }
     }
     pub fn Service(&self) -> windows_core::Result<GattDeviceService> {
@@ -1077,7 +1066,7 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(this).Service)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetAllDescriptors(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic2>(self)?;
         unsafe {
@@ -1142,7 +1131,6 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorWithResultAsync)(windows_core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn ConvertShortIdToUuid(shortid: u16) -> windows_core::Result<windows_core::GUID> {
         Self::IGattCharacteristicStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1154,18 +1142,13 @@ impl GattCharacteristic {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for GattCharacteristic {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattCharacteristic>();
-}
 unsafe impl windows_core::Interface for GattCharacteristic {
-    type Vtable = IGattCharacteristic_Vtbl;
+    type Vtable = <IGattCharacteristic as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattCharacteristic as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic";
 }
-unsafe impl Send for GattCharacteristic {}
-unsafe impl Sync for GattCharacteristic {}
 pub struct GattCharacteristicUuids;
 impl GattCharacteristicUuids {
     pub fn BatteryLevel() -> windows_core::Result<windows_core::GUID> {
@@ -1669,7 +1652,11 @@ impl windows_core::RuntimeName for GattCharacteristicUuids {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattCharacteristicsResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattCharacteristicsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattCharacteristicsResult>();
+}
 windows_core::imp::interface_hierarchy!(GattCharacteristicsResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattCharacteristicsResult,);
 impl GattCharacteristicsResult {
     pub fn Status(&self) -> windows_core::Result<GattCommunicationStatus> {
         let this = self;
@@ -1694,22 +1681,21 @@ impl GattCharacteristicsResult {
         }
     }
 }
-impl windows_core::RuntimeType for GattCharacteristicsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattCharacteristicsResult>();
-}
 unsafe impl windows_core::Interface for GattCharacteristicsResult {
-    type Vtable = IGattCharacteristicsResult_Vtbl;
+    type Vtable = <IGattCharacteristicsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattCharacteristicsResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicsResult";
 }
-unsafe impl Send for GattCharacteristicsResult {}
-unsafe impl Sync for GattCharacteristicsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattClientNotificationResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattClientNotificationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattClientNotificationResult>();
+}
 windows_core::imp::interface_hierarchy!(GattClientNotificationResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattClientNotificationResult,);
 impl GattClientNotificationResult {
     pub fn SubscribedClient(&self) -> windows_core::Result<GattSubscribedClient> {
         let this = self;
@@ -1740,22 +1726,21 @@ impl GattClientNotificationResult {
         }
     }
 }
-impl windows_core::RuntimeType for GattClientNotificationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattClientNotificationResult>();
-}
 unsafe impl windows_core::Interface for GattClientNotificationResult {
-    type Vtable = IGattClientNotificationResult_Vtbl;
+    type Vtable = <IGattClientNotificationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattClientNotificationResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattClientNotificationResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult";
 }
-unsafe impl Send for GattClientNotificationResult {}
-unsafe impl Sync for GattClientNotificationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattDescriptor(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattDescriptor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDescriptor>();
+}
 windows_core::imp::interface_hierarchy!(GattDescriptor, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattDescriptor,);
 impl GattDescriptor {
     pub fn ProtectionLevel(&self) -> windows_core::Result<GattProtectionLevel> {
         let this = self;
@@ -1818,7 +1803,6 @@ impl GattDescriptor {
             (windows_core::Interface::vtable(this).WriteValueWithResultAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn ConvertShortIdToUuid(shortid: u16) -> windows_core::Result<windows_core::GUID> {
         Self::IGattDescriptorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1830,18 +1814,13 @@ impl GattDescriptor {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for GattDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDescriptor>();
-}
 unsafe impl windows_core::Interface for GattDescriptor {
-    type Vtable = IGattDescriptor_Vtbl;
+    type Vtable = <IGattDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattDescriptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor";
 }
-unsafe impl Send for GattDescriptor {}
-unsafe impl Sync for GattDescriptor {}
 pub struct GattDescriptorUuids;
 impl GattDescriptorUuids {
     pub fn CharacteristicAggregateFormat() -> windows_core::Result<windows_core::GUID> {
@@ -1891,7 +1870,11 @@ impl windows_core::RuntimeName for GattDescriptorUuids {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattDescriptorsResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattDescriptorsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDescriptorsResult>();
+}
 windows_core::imp::interface_hierarchy!(GattDescriptorsResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattDescriptorsResult,);
 impl GattDescriptorsResult {
     pub fn Status(&self) -> windows_core::Result<GattCommunicationStatus> {
         let this = self;
@@ -1916,66 +1899,59 @@ impl GattDescriptorsResult {
         }
     }
 }
-impl windows_core::RuntimeType for GattDescriptorsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDescriptorsResult>();
-}
 unsafe impl windows_core::Interface for GattDescriptorsResult {
-    type Vtable = IGattDescriptorsResult_Vtbl;
+    type Vtable = <IGattDescriptorsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattDescriptorsResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattDescriptorsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptorsResult";
 }
-unsafe impl Send for GattDescriptorsResult {}
-unsafe impl Sync for GattDescriptorsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattDeviceService(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattDeviceService {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDeviceService>();
+}
 windows_core::imp::interface_hierarchy!(GattDeviceService, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattDeviceService, super::super::super::Foundation::IClosable);
 impl GattDeviceService {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetCharacteristics(&self, characteristicuuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattDeviceService>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristics)(windows_core::Interface::as_raw(this), characteristicuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetIncludedServices(&self, serviceuuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattDeviceService>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIncludedServices)(windows_core::Interface::as_raw(this), serviceuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattDeviceService>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Uuid(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattDeviceService>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AttributeHandle(&self) -> windows_core::Result<u16> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGattDeviceService>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeHandle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Device(&self) -> windows_core::Result<super::BluetoothLEDevice> {
         let this = &windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
@@ -1983,7 +1959,7 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).Device)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn ParentServices(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
@@ -1991,7 +1967,7 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).ParentServices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetAllCharacteristics(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
@@ -1999,7 +1975,7 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).GetAllCharacteristics)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetAllIncludedServices(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
@@ -2112,14 +2088,12 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromUuid)(windows_core::Interface::as_raw(this), serviceuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn GetDeviceSelectorFromShortId(serviceshortid: u16) -> windows_core::Result<windows_core::HSTRING> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromShortId)(windows_core::Interface::as_raw(this), serviceshortid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     pub fn ConvertShortIdToUuid(shortid: u16) -> windows_core::Result<windows_core::GUID> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2168,6 +2142,10 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode)(windows_core::Interface::as_raw(this), bluetoothdeviceid.param().abi(), serviceuuid, cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     fn IGattDeviceServiceStatics<R, F: FnOnce(&IGattDeviceServiceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattDeviceService, IGattDeviceServiceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -2177,22 +2155,21 @@ impl GattDeviceService {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for GattDeviceService {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDeviceService>();
-}
 unsafe impl windows_core::Interface for GattDeviceService {
-    type Vtable = IGattDeviceService_Vtbl;
+    type Vtable = <IGattDeviceService as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattDeviceService as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService";
 }
-unsafe impl Send for GattDeviceService {}
-unsafe impl Sync for GattDeviceService {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattDeviceServicesResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattDeviceServicesResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDeviceServicesResult>();
+}
 windows_core::imp::interface_hierarchy!(GattDeviceServicesResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattDeviceServicesResult,);
 impl GattDeviceServicesResult {
     pub fn Status(&self) -> windows_core::Result<GattCommunicationStatus> {
         let this = self;
@@ -2217,22 +2194,21 @@ impl GattDeviceServicesResult {
         }
     }
 }
-impl windows_core::RuntimeType for GattDeviceServicesResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDeviceServicesResult>();
-}
 unsafe impl windows_core::Interface for GattDeviceServicesResult {
-    type Vtable = IGattDeviceServicesResult_Vtbl;
+    type Vtable = <IGattDeviceServicesResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattDeviceServicesResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceServicesResult";
 }
-unsafe impl Send for GattDeviceServicesResult {}
-unsafe impl Sync for GattDeviceServicesResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalCharacteristic(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattLocalCharacteristic {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalCharacteristic>();
+}
 windows_core::imp::interface_hierarchy!(GattLocalCharacteristic, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattLocalCharacteristic,);
 impl GattLocalCharacteristic {
     pub fn Uuid(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -2270,9 +2246,9 @@ impl GattLocalCharacteristic {
             (windows_core::Interface::vtable(this).WriteProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateDescriptorAsync<P0>(&self, descriptoruuid: windows_core::GUID, parameters: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalDescriptorResult>>
+    pub fn CreateDescriptorAsync<P1>(&self, descriptoruuid: windows_core::GUID, parameters: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalDescriptorResult>>
     where
-        P0: windows_core::Param<GattLocalDescriptorParameters>,
+        P1: windows_core::Param<GattLocalDescriptorParameters>,
     {
         let this = self;
         unsafe {
@@ -2377,22 +2353,21 @@ impl GattLocalCharacteristic {
         }
     }
 }
-impl windows_core::RuntimeType for GattLocalCharacteristic {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalCharacteristic>();
-}
 unsafe impl windows_core::Interface for GattLocalCharacteristic {
-    type Vtable = IGattLocalCharacteristic_Vtbl;
+    type Vtable = <IGattLocalCharacteristic as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattLocalCharacteristic as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattLocalCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic";
 }
-unsafe impl Send for GattLocalCharacteristic {}
-unsafe impl Sync for GattLocalCharacteristic {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalCharacteristicParameters(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattLocalCharacteristicParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalCharacteristicParameters>();
+}
 windows_core::imp::interface_hierarchy!(GattLocalCharacteristicParameters, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattLocalCharacteristicParameters,);
 impl GattLocalCharacteristicParameters {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2470,22 +2445,21 @@ impl GattLocalCharacteristicParameters {
         }
     }
 }
-impl windows_core::RuntimeType for GattLocalCharacteristicParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalCharacteristicParameters>();
-}
 unsafe impl windows_core::Interface for GattLocalCharacteristicParameters {
-    type Vtable = IGattLocalCharacteristicParameters_Vtbl;
+    type Vtable = <IGattLocalCharacteristicParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattLocalCharacteristicParameters as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattLocalCharacteristicParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters";
 }
-unsafe impl Send for GattLocalCharacteristicParameters {}
-unsafe impl Sync for GattLocalCharacteristicParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalCharacteristicResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattLocalCharacteristicResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalCharacteristicResult>();
+}
 windows_core::imp::interface_hierarchy!(GattLocalCharacteristicResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattLocalCharacteristicResult,);
 impl GattLocalCharacteristicResult {
     pub fn Characteristic(&self) -> windows_core::Result<GattLocalCharacteristic> {
         let this = self;
@@ -2502,22 +2476,21 @@ impl GattLocalCharacteristicResult {
         }
     }
 }
-impl windows_core::RuntimeType for GattLocalCharacteristicResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalCharacteristicResult>();
-}
 unsafe impl windows_core::Interface for GattLocalCharacteristicResult {
-    type Vtable = IGattLocalCharacteristicResult_Vtbl;
+    type Vtable = <IGattLocalCharacteristicResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattLocalCharacteristicResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattLocalCharacteristicResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicResult";
 }
-unsafe impl Send for GattLocalCharacteristicResult {}
-unsafe impl Sync for GattLocalCharacteristicResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalDescriptor(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattLocalDescriptor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalDescriptor>();
+}
 windows_core::imp::interface_hierarchy!(GattLocalDescriptor, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattLocalDescriptor,);
 impl GattLocalDescriptor {
     pub fn Uuid(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -2577,22 +2550,21 @@ impl GattLocalDescriptor {
         unsafe { (windows_core::Interface::vtable(this).RemoveWriteRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl windows_core::RuntimeType for GattLocalDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalDescriptor>();
-}
 unsafe impl windows_core::Interface for GattLocalDescriptor {
-    type Vtable = IGattLocalDescriptor_Vtbl;
+    type Vtable = <IGattLocalDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattLocalDescriptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattLocalDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor";
 }
-unsafe impl Send for GattLocalDescriptor {}
-unsafe impl Sync for GattLocalDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalDescriptorParameters(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattLocalDescriptorParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalDescriptorParameters>();
+}
 windows_core::imp::interface_hierarchy!(GattLocalDescriptorParameters, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattLocalDescriptorParameters,);
 impl GattLocalDescriptorParameters {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2640,22 +2612,21 @@ impl GattLocalDescriptorParameters {
         }
     }
 }
-impl windows_core::RuntimeType for GattLocalDescriptorParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalDescriptorParameters>();
-}
 unsafe impl windows_core::Interface for GattLocalDescriptorParameters {
-    type Vtable = IGattLocalDescriptorParameters_Vtbl;
+    type Vtable = <IGattLocalDescriptorParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattLocalDescriptorParameters as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattLocalDescriptorParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters";
 }
-unsafe impl Send for GattLocalDescriptorParameters {}
-unsafe impl Sync for GattLocalDescriptorParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalDescriptorResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattLocalDescriptorResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalDescriptorResult>();
+}
 windows_core::imp::interface_hierarchy!(GattLocalDescriptorResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattLocalDescriptorResult,);
 impl GattLocalDescriptorResult {
     pub fn Descriptor(&self) -> windows_core::Result<GattLocalDescriptor> {
         let this = self;
@@ -2672,22 +2643,21 @@ impl GattLocalDescriptorResult {
         }
     }
 }
-impl windows_core::RuntimeType for GattLocalDescriptorResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalDescriptorResult>();
-}
 unsafe impl windows_core::Interface for GattLocalDescriptorResult {
-    type Vtable = IGattLocalDescriptorResult_Vtbl;
+    type Vtable = <IGattLocalDescriptorResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattLocalDescriptorResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattLocalDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorResult";
 }
-unsafe impl Send for GattLocalDescriptorResult {}
-unsafe impl Sync for GattLocalDescriptorResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalService(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattLocalService {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalService>();
+}
 windows_core::imp::interface_hierarchy!(GattLocalService, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattLocalService,);
 impl GattLocalService {
     pub fn Uuid(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -2696,9 +2666,9 @@ impl GattLocalService {
             (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateCharacteristicAsync<P0>(&self, characteristicuuid: windows_core::GUID, parameters: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>>
+    pub fn CreateCharacteristicAsync<P1>(&self, characteristicuuid: windows_core::GUID, parameters: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>>
     where
-        P0: windows_core::Param<GattLocalCharacteristicParameters>,
+        P1: windows_core::Param<GattLocalCharacteristicParameters>,
     {
         let this = self;
         unsafe {
@@ -2715,22 +2685,21 @@ impl GattLocalService {
         }
     }
 }
-impl windows_core::RuntimeType for GattLocalService {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalService>();
-}
 unsafe impl windows_core::Interface for GattLocalService {
-    type Vtable = IGattLocalService_Vtbl;
+    type Vtable = <IGattLocalService as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattLocalService as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattLocalService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalService";
 }
-unsafe impl Send for GattLocalService {}
-unsafe impl Sync for GattLocalService {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattPresentationFormat(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattPresentationFormat {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattPresentationFormat>();
+}
 windows_core::imp::interface_hierarchy!(GattPresentationFormat, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattPresentationFormat,);
 impl GattPresentationFormat {
     pub fn FormatType(&self) -> windows_core::Result<u8> {
         let this = self;
@@ -2788,18 +2757,13 @@ impl GattPresentationFormat {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for GattPresentationFormat {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattPresentationFormat>();
-}
 unsafe impl windows_core::Interface for GattPresentationFormat {
-    type Vtable = IGattPresentationFormat_Vtbl;
+    type Vtable = <IGattPresentationFormat as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattPresentationFormat as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattPresentationFormat {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat";
 }
-unsafe impl Send for GattPresentationFormat {}
-unsafe impl Sync for GattPresentationFormat {}
 pub struct GattPresentationFormatTypes;
 impl GattPresentationFormatTypes {
     pub fn Boolean() -> windows_core::Result<u8> {
@@ -3087,7 +3051,11 @@ impl windows_core::RuntimeName for GattProtocolError {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattReadClientCharacteristicConfigurationDescriptorResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattReadClientCharacteristicConfigurationDescriptorResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadClientCharacteristicConfigurationDescriptorResult>();
+}
 windows_core::imp::interface_hierarchy!(GattReadClientCharacteristicConfigurationDescriptorResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattReadClientCharacteristicConfigurationDescriptorResult,);
 impl GattReadClientCharacteristicConfigurationDescriptorResult {
     pub fn Status(&self) -> windows_core::Result<GattCommunicationStatus> {
         let this = self;
@@ -3111,22 +3079,21 @@ impl GattReadClientCharacteristicConfigurationDescriptorResult {
         }
     }
 }
-impl windows_core::RuntimeType for GattReadClientCharacteristicConfigurationDescriptorResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadClientCharacteristicConfigurationDescriptorResult>();
-}
 unsafe impl windows_core::Interface for GattReadClientCharacteristicConfigurationDescriptorResult {
-    type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl;
+    type Vtable = <IGattReadClientCharacteristicConfigurationDescriptorResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattReadClientCharacteristicConfigurationDescriptorResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattReadClientCharacteristicConfigurationDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadClientCharacteristicConfigurationDescriptorResult";
 }
-unsafe impl Send for GattReadClientCharacteristicConfigurationDescriptorResult {}
-unsafe impl Sync for GattReadClientCharacteristicConfigurationDescriptorResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattReadRequest(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattReadRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadRequest>();
+}
 windows_core::imp::interface_hierarchy!(GattReadRequest, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattReadRequest,);
 impl GattReadRequest {
     pub fn Offset(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -3176,22 +3143,21 @@ impl GattReadRequest {
         unsafe { (windows_core::Interface::vtable(this).RespondWithProtocolError)(windows_core::Interface::as_raw(this), protocolerror).ok() }
     }
 }
-impl windows_core::RuntimeType for GattReadRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadRequest>();
-}
 unsafe impl windows_core::Interface for GattReadRequest {
-    type Vtable = IGattReadRequest_Vtbl;
+    type Vtable = <IGattReadRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattReadRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattReadRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequest";
 }
-unsafe impl Send for GattReadRequest {}
-unsafe impl Sync for GattReadRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattReadRequestedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattReadRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadRequestedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(GattReadRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattReadRequestedEventArgs,);
 impl GattReadRequestedEventArgs {
     pub fn Session(&self) -> windows_core::Result<GattSession> {
         let this = self;
@@ -3215,22 +3181,21 @@ impl GattReadRequestedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for GattReadRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadRequestedEventArgs>();
-}
 unsafe impl windows_core::Interface for GattReadRequestedEventArgs {
-    type Vtable = IGattReadRequestedEventArgs_Vtbl;
+    type Vtable = <IGattReadRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattReadRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattReadRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs";
 }
-unsafe impl Send for GattReadRequestedEventArgs {}
-unsafe impl Sync for GattReadRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattReadResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattReadResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadResult>();
+}
 windows_core::imp::interface_hierarchy!(GattReadResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattReadResult,);
 impl GattReadResult {
     pub fn Status(&self) -> windows_core::Result<GattCommunicationStatus> {
         let this = self;
@@ -3255,22 +3220,21 @@ impl GattReadResult {
         }
     }
 }
-impl windows_core::RuntimeType for GattReadResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadResult>();
-}
 unsafe impl windows_core::Interface for GattReadResult {
-    type Vtable = IGattReadResult_Vtbl;
+    type Vtable = <IGattReadResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattReadResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattReadResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadResult";
 }
-unsafe impl Send for GattReadResult {}
-unsafe impl Sync for GattReadResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattReliableWriteTransaction(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattReliableWriteTransaction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReliableWriteTransaction>();
+}
 windows_core::imp::interface_hierarchy!(GattReliableWriteTransaction, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattReliableWriteTransaction,);
 impl GattReliableWriteTransaction {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3303,22 +3267,21 @@ impl GattReliableWriteTransaction {
         }
     }
 }
-impl windows_core::RuntimeType for GattReliableWriteTransaction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReliableWriteTransaction>();
-}
 unsafe impl windows_core::Interface for GattReliableWriteTransaction {
-    type Vtable = IGattReliableWriteTransaction_Vtbl;
+    type Vtable = <IGattReliableWriteTransaction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattReliableWriteTransaction as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattReliableWriteTransaction {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction";
 }
-unsafe impl Send for GattReliableWriteTransaction {}
-unsafe impl Sync for GattReliableWriteTransaction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattRequestStateChangedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattRequestStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattRequestStateChangedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(GattRequestStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattRequestStateChangedEventArgs,);
 impl GattRequestStateChangedEventArgs {
     pub fn State(&self) -> windows_core::Result<GattRequestState> {
         let this = self;
@@ -3335,22 +3298,21 @@ impl GattRequestStateChangedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for GattRequestStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattRequestStateChangedEventArgs>();
-}
 unsafe impl windows_core::Interface for GattRequestStateChangedEventArgs {
-    type Vtable = IGattRequestStateChangedEventArgs_Vtbl;
+    type Vtable = <IGattRequestStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattRequestStateChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattRequestStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestStateChangedEventArgs";
 }
-unsafe impl Send for GattRequestStateChangedEventArgs {}
-unsafe impl Sync for GattRequestStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProvider(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattServiceProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProvider>();
+}
 windows_core::imp::interface_hierarchy!(GattServiceProvider, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattServiceProvider,);
 impl GattServiceProvider {
     pub fn Service(&self) -> windows_core::Result<GattLocalService> {
         let this = self;
@@ -3406,22 +3368,21 @@ impl GattServiceProvider {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for GattServiceProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProvider>();
-}
 unsafe impl windows_core::Interface for GattServiceProvider {
-    type Vtable = IGattServiceProvider_Vtbl;
+    type Vtable = <IGattServiceProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattServiceProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProvider";
 }
-unsafe impl Send for GattServiceProvider {}
-unsafe impl Sync for GattServiceProvider {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderAdvertisementStatusChangedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattServiceProviderAdvertisementStatusChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderAdvertisementStatusChangedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(GattServiceProviderAdvertisementStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattServiceProviderAdvertisementStatusChangedEventArgs,);
 impl GattServiceProviderAdvertisementStatusChangedEventArgs {
     pub fn Error(&self) -> windows_core::Result<super::BluetoothError> {
         let this = self;
@@ -3438,22 +3399,21 @@ impl GattServiceProviderAdvertisementStatusChangedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for GattServiceProviderAdvertisementStatusChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderAdvertisementStatusChangedEventArgs>();
-}
 unsafe impl windows_core::Interface for GattServiceProviderAdvertisementStatusChangedEventArgs {
-    type Vtable = IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl;
+    type Vtable = <IGattServiceProviderAdvertisementStatusChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattServiceProviderAdvertisementStatusChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattServiceProviderAdvertisementStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatusChangedEventArgs";
 }
-unsafe impl Send for GattServiceProviderAdvertisementStatusChangedEventArgs {}
-unsafe impl Sync for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderAdvertisingParameters(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattServiceProviderAdvertisingParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderAdvertisingParameters>();
+}
 windows_core::imp::interface_hierarchy!(GattServiceProviderAdvertisingParameters, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattServiceProviderAdvertisingParameters,);
 impl GattServiceProviderAdvertisingParameters {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3501,22 +3461,21 @@ impl GattServiceProviderAdvertisingParameters {
         }
     }
 }
-impl windows_core::RuntimeType for GattServiceProviderAdvertisingParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderAdvertisingParameters>();
-}
 unsafe impl windows_core::Interface for GattServiceProviderAdvertisingParameters {
-    type Vtable = IGattServiceProviderAdvertisingParameters_Vtbl;
+    type Vtable = <IGattServiceProviderAdvertisingParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattServiceProviderAdvertisingParameters as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattServiceProviderAdvertisingParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters";
 }
-unsafe impl Send for GattServiceProviderAdvertisingParameters {}
-unsafe impl Sync for GattServiceProviderAdvertisingParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattServiceProviderResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderResult>();
+}
 windows_core::imp::interface_hierarchy!(GattServiceProviderResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattServiceProviderResult,);
 impl GattServiceProviderResult {
     pub fn Error(&self) -> windows_core::Result<super::BluetoothError> {
         let this = self;
@@ -3533,18 +3492,13 @@ impl GattServiceProviderResult {
         }
     }
 }
-impl windows_core::RuntimeType for GattServiceProviderResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderResult>();
-}
 unsafe impl windows_core::Interface for GattServiceProviderResult {
-    type Vtable = IGattServiceProviderResult_Vtbl;
+    type Vtable = <IGattServiceProviderResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattServiceProviderResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattServiceProviderResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderResult";
 }
-unsafe impl Send for GattServiceProviderResult {}
-unsafe impl Sync for GattServiceProviderResult {}
 pub struct GattServiceUuids;
 impl GattServiceUuids {
     pub fn Battery() -> windows_core::Result<windows_core::GUID> {
@@ -3694,13 +3648,12 @@ impl windows_core::RuntimeName for GattServiceUuids {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattSession(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattSession>();
+}
 windows_core::imp::interface_hierarchy!(GattSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattSession, super::super::super::Foundation::IClosable);
 impl GattSession {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn DeviceId(&self) -> windows_core::Result<super::BluetoothDeviceId> {
         let this = self;
         unsafe {
@@ -3777,27 +3730,30 @@ impl GattSession {
             (windows_core::Interface::vtable(this).FromDeviceIdAsync)(windows_core::Interface::as_raw(this), deviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     fn IGattSessionStatics<R, F: FnOnce(&IGattSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattSession, IGattSessionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for GattSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattSession>();
-}
 unsafe impl windows_core::Interface for GattSession {
-    type Vtable = IGattSession_Vtbl;
+    type Vtable = <IGattSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattSession as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattSession {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSession";
 }
-unsafe impl Send for GattSession {}
-unsafe impl Sync for GattSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattSessionStatusChangedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattSessionStatusChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattSessionStatusChangedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(GattSessionStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattSessionStatusChangedEventArgs,);
 impl GattSessionStatusChangedEventArgs {
     pub fn Error(&self) -> windows_core::Result<super::BluetoothError> {
         let this = self;
@@ -3814,22 +3770,21 @@ impl GattSessionStatusChangedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for GattSessionStatusChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattSessionStatusChangedEventArgs>();
-}
 unsafe impl windows_core::Interface for GattSessionStatusChangedEventArgs {
-    type Vtable = IGattSessionStatusChangedEventArgs_Vtbl;
+    type Vtable = <IGattSessionStatusChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattSessionStatusChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattSessionStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatusChangedEventArgs";
 }
-unsafe impl Send for GattSessionStatusChangedEventArgs {}
-unsafe impl Sync for GattSessionStatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattSubscribedClient(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattSubscribedClient {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattSubscribedClient>();
+}
 windows_core::imp::interface_hierarchy!(GattSubscribedClient, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattSubscribedClient,);
 impl GattSubscribedClient {
     pub fn Session(&self) -> windows_core::Result<GattSession> {
         let this = self;
@@ -3860,22 +3815,21 @@ impl GattSubscribedClient {
         unsafe { (windows_core::Interface::vtable(this).RemoveMaxNotificationSizeChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl windows_core::RuntimeType for GattSubscribedClient {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattSubscribedClient>();
-}
 unsafe impl windows_core::Interface for GattSubscribedClient {
-    type Vtable = IGattSubscribedClient_Vtbl;
+    type Vtable = <IGattSubscribedClient as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattSubscribedClient as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattSubscribedClient {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient";
 }
-unsafe impl Send for GattSubscribedClient {}
-unsafe impl Sync for GattSubscribedClient {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattValueChangedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattValueChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattValueChangedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(GattValueChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattValueChangedEventArgs,);
 impl GattValueChangedEventArgs {
     #[cfg(feature = "Storage_Streams")]
     pub fn CharacteristicValue(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
@@ -3893,22 +3847,21 @@ impl GattValueChangedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for GattValueChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattValueChangedEventArgs>();
-}
 unsafe impl windows_core::Interface for GattValueChangedEventArgs {
-    type Vtable = IGattValueChangedEventArgs_Vtbl;
+    type Vtable = <IGattValueChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattValueChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs";
 }
-unsafe impl Send for GattValueChangedEventArgs {}
-unsafe impl Sync for GattValueChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattWriteRequest(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattWriteRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattWriteRequest>();
+}
 windows_core::imp::interface_hierarchy!(GattWriteRequest, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattWriteRequest,);
 impl GattWriteRequest {
     #[cfg(feature = "Storage_Streams")]
     pub fn Value(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
@@ -3962,22 +3915,21 @@ impl GattWriteRequest {
         unsafe { (windows_core::Interface::vtable(this).RespondWithProtocolError)(windows_core::Interface::as_raw(this), protocolerror).ok() }
     }
 }
-impl windows_core::RuntimeType for GattWriteRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattWriteRequest>();
-}
 unsafe impl windows_core::Interface for GattWriteRequest {
-    type Vtable = IGattWriteRequest_Vtbl;
+    type Vtable = <IGattWriteRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattWriteRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattWriteRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequest";
 }
-unsafe impl Send for GattWriteRequest {}
-unsafe impl Sync for GattWriteRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattWriteRequestedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattWriteRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattWriteRequestedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(GattWriteRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattWriteRequestedEventArgs,);
 impl GattWriteRequestedEventArgs {
     pub fn Session(&self) -> windows_core::Result<GattSession> {
         let this = self;
@@ -4001,22 +3953,21 @@ impl GattWriteRequestedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for GattWriteRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattWriteRequestedEventArgs>();
-}
 unsafe impl windows_core::Interface for GattWriteRequestedEventArgs {
-    type Vtable = IGattWriteRequestedEventArgs_Vtbl;
+    type Vtable = <IGattWriteRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattWriteRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattWriteRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs";
 }
-unsafe impl Send for GattWriteRequestedEventArgs {}
-unsafe impl Sync for GattWriteRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattWriteResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for GattWriteResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattWriteResult>();
+}
 windows_core::imp::interface_hierarchy!(GattWriteResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GattWriteResult,);
 impl GattWriteResult {
     pub fn Status(&self) -> windows_core::Result<GattCommunicationStatus> {
         let this = self;
@@ -4033,20 +3984,15 @@ impl GattWriteResult {
         }
     }
 }
-impl windows_core::RuntimeType for GattWriteResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattWriteResult>();
-}
 unsafe impl windows_core::Interface for GattWriteResult {
-    type Vtable = IGattWriteResult_Vtbl;
+    type Vtable = <IGattWriteResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattWriteResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GattWriteResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteResult";
 }
-unsafe impl Send for GattWriteResult {}
-unsafe impl Sync for GattWriteResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GattCharacteristicProperties(pub u32);
 impl GattCharacteristicProperties {
     pub const None: Self = Self(0u32);
@@ -4064,49 +4010,11 @@ impl GattCharacteristicProperties {
 impl windows_core::TypeKind for GattCharacteristicProperties {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GattCharacteristicProperties {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GattCharacteristicProperties").field(&self.0).finish()
-    }
-}
-impl GattCharacteristicProperties {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GattCharacteristicProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GattCharacteristicProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GattCharacteristicProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GattCharacteristicProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GattCharacteristicProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for GattCharacteristicProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GattClientCharacteristicConfigurationDescriptorValue(pub i32);
 impl GattClientCharacteristicConfigurationDescriptorValue {
     pub const None: Self = Self(0i32);
@@ -4116,16 +4024,11 @@ impl GattClientCharacteristicConfigurationDescriptorValue {
 impl windows_core::TypeKind for GattClientCharacteristicConfigurationDescriptorValue {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GattClientCharacteristicConfigurationDescriptorValue {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GattClientCharacteristicConfigurationDescriptorValue").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GattClientCharacteristicConfigurationDescriptorValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientCharacteristicConfigurationDescriptorValue;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GattCommunicationStatus(pub i32);
 impl GattCommunicationStatus {
     pub const Success: Self = Self(0i32);
@@ -4136,16 +4039,11 @@ impl GattCommunicationStatus {
 impl windows_core::TypeKind for GattCommunicationStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GattCommunicationStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GattCommunicationStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GattCommunicationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCommunicationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GattOpenStatus(pub i32);
 impl GattOpenStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -4158,16 +4056,11 @@ impl GattOpenStatus {
 impl windows_core::TypeKind for GattOpenStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GattOpenStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GattOpenStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GattOpenStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattOpenStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GattProtectionLevel(pub i32);
 impl GattProtectionLevel {
     pub const Plain: Self = Self(0i32);
@@ -4178,16 +4071,11 @@ impl GattProtectionLevel {
 impl windows_core::TypeKind for GattProtectionLevel {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GattProtectionLevel {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GattProtectionLevel").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GattProtectionLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtectionLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GattRequestState(pub i32);
 impl GattRequestState {
     pub const Pending: Self = Self(0i32);
@@ -4197,16 +4085,11 @@ impl GattRequestState {
 impl windows_core::TypeKind for GattRequestState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GattRequestState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GattRequestState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GattRequestState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GattServiceProviderAdvertisementStatus(pub i32);
 impl GattServiceProviderAdvertisementStatus {
     pub const Created: Self = Self(0i32);
@@ -4218,16 +4101,11 @@ impl GattServiceProviderAdvertisementStatus {
 impl windows_core::TypeKind for GattServiceProviderAdvertisementStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GattServiceProviderAdvertisementStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GattServiceProviderAdvertisementStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GattServiceProviderAdvertisementStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GattSessionStatus(pub i32);
 impl GattSessionStatus {
     pub const Closed: Self = Self(0i32);
@@ -4236,16 +4114,11 @@ impl GattSessionStatus {
 impl windows_core::TypeKind for GattSessionStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GattSessionStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GattSessionStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GattSessionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GattSharingMode(pub i32);
 impl GattSharingMode {
     pub const Unspecified: Self = Self(0i32);
@@ -4256,16 +4129,11 @@ impl GattSharingMode {
 impl windows_core::TypeKind for GattSharingMode {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GattSharingMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GattSharingMode").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GattSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSharingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GattWriteOption(pub i32);
 impl GattWriteOption {
     pub const WriteWithResponse: Self = Self(0i32);
@@ -4273,11 +4141,6 @@ impl GattWriteOption {
 }
 impl windows_core::TypeKind for GattWriteOption {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GattWriteOption {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GattWriteOption").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for GattWriteOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteOption;i4)");

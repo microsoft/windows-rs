@@ -9,9 +9,9 @@ pub struct ILocalContentSuggestionSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
     pub Locations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Search")))]
     Locations: usize,
     pub SetAqsFilter: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub AqsFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
@@ -134,15 +134,11 @@ pub struct ISearchPane_Vtbl {
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(ISearchPaneQueryChangedEventArgs, ISearchPaneQueryChangedEventArgs_Vtbl, 0x3c064fe9_2351_4248_a529_7110f464a785);
 #[cfg(feature = "deprecated")]
-impl core::ops::Deref for ISearchPaneQueryChangedEventArgs {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for ISearchPaneQueryChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(ISearchPaneQueryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
 impl ISearchPaneQueryChangedEventArgs {
     #[cfg(feature = "deprecated")]
     pub fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -170,10 +166,6 @@ impl ISearchPaneQueryChangedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for ISearchPaneQueryChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[cfg(feature = "deprecated")]
 #[repr(C)]
 pub struct ISearchPaneQueryChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -191,18 +183,18 @@ pub struct ISearchPaneQueryChangedEventArgs_Vtbl {
     LinguisticDetails: usize,
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeName for ISearchPaneQueryChangedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs";
+}
+#[cfg(feature = "deprecated")]
 pub trait ISearchPaneQueryChangedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
     fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Language(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn LinguisticDetails(&self) -> windows_core::Result<SearchPaneQueryLinguisticDetails>;
 }
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeName for ISearchPaneQueryChangedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs";
-}
-#[cfg(feature = "deprecated")]
 impl ISearchPaneQueryChangedEventArgs_Vtbl {
-    pub const fn new<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>() -> ISearchPaneQueryChangedEventArgs_Vtbl {
+    pub const fn new<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryText<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISearchPaneQueryChangedEventArgs_Impl::QueryText(this) {
@@ -476,7 +468,11 @@ pub struct ISearchSuggestionsRequestDeferral_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocalContentSuggestionSettings(windows_core::IUnknown);
+impl windows_core::RuntimeType for LocalContentSuggestionSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocalContentSuggestionSettings>();
+}
 windows_core::imp::interface_hierarchy!(LocalContentSuggestionSettings, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(LocalContentSuggestionSettings,);
 impl LocalContentSuggestionSettings {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -496,7 +492,7 @@ impl LocalContentSuggestionSettings {
             (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
     pub fn Locations(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::StorageFolder>> {
         let this = self;
         unsafe {
@@ -524,11 +520,8 @@ impl LocalContentSuggestionSettings {
         }
     }
 }
-impl windows_core::RuntimeType for LocalContentSuggestionSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocalContentSuggestionSettings>();
-}
 unsafe impl windows_core::Interface for LocalContentSuggestionSettings {
-    type Vtable = ILocalContentSuggestionSettings_Vtbl;
+    type Vtable = <ILocalContentSuggestionSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILocalContentSuggestionSettings as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LocalContentSuggestionSettings {
@@ -539,7 +532,13 @@ impl windows_core::RuntimeName for LocalContentSuggestionSettings {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchPane(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for SearchPane {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPane>();
+}
+#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SearchPane, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(SearchPane,);
 #[cfg(feature = "deprecated")]
 impl SearchPane {
     #[cfg(feature = "deprecated")]
@@ -735,24 +734,18 @@ impl SearchPane {
     pub fn HideThisApplication() -> windows_core::Result<()> {
         Self::ISearchPaneStaticsWithHideThisApplication(|this| unsafe { (windows_core::Interface::vtable(this).HideThisApplication)(windows_core::Interface::as_raw(this)).ok() })
     }
-    #[cfg(feature = "deprecated")]
     fn ISearchPaneStatics<R, F: FnOnce(&ISearchPaneStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SearchPane, ISearchPaneStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "deprecated")]
     fn ISearchPaneStaticsWithHideThisApplication<R, F: FnOnce(&ISearchPaneStaticsWithHideThisApplication) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SearchPane, ISearchPaneStaticsWithHideThisApplication> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for SearchPane {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPane>();
-}
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPane {
-    type Vtable = ISearchPane_Vtbl;
+    type Vtable = <ISearchPane as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchPane as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -764,7 +757,13 @@ impl windows_core::RuntimeName for SearchPane {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchPaneQueryChangedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(SearchPaneQueryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable, ISearchPaneQueryChangedEventArgs);
+impl windows_core::RuntimeType for SearchPaneQueryChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneQueryChangedEventArgs>();
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::interface_hierarchy!(SearchPaneQueryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(SearchPaneQueryChangedEventArgs, ISearchPaneQueryChangedEventArgs);
 #[cfg(feature = "deprecated")]
 impl SearchPaneQueryChangedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -793,26 +792,22 @@ impl SearchPaneQueryChangedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for SearchPaneQueryChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneQueryChangedEventArgs>();
-}
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPaneQueryChangedEventArgs {
-    type Vtable = ISearchPaneQueryChangedEventArgs_Vtbl;
+    type Vtable = <ISearchPaneQueryChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchPaneQueryChangedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for SearchPaneQueryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQueryChangedEventArgs";
 }
-#[cfg(feature = "deprecated")]
-unsafe impl Send for SearchPaneQueryChangedEventArgs {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for SearchPaneQueryChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchPaneQueryLinguisticDetails(windows_core::IUnknown);
+impl windows_core::RuntimeType for SearchPaneQueryLinguisticDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneQueryLinguisticDetails>();
+}
 windows_core::imp::interface_hierarchy!(SearchPaneQueryLinguisticDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SearchPaneQueryLinguisticDetails,);
 impl SearchPaneQueryLinguisticDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn QueryTextAlternatives(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
@@ -837,24 +832,25 @@ impl SearchPaneQueryLinguisticDetails {
         }
     }
 }
-impl windows_core::RuntimeType for SearchPaneQueryLinguisticDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneQueryLinguisticDetails>();
-}
 unsafe impl windows_core::Interface for SearchPaneQueryLinguisticDetails {
-    type Vtable = ISearchPaneQueryLinguisticDetails_Vtbl;
+    type Vtable = <ISearchPaneQueryLinguisticDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchPaneQueryLinguisticDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SearchPaneQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQueryLinguisticDetails";
 }
-unsafe impl Send for SearchPaneQueryLinguisticDetails {}
-unsafe impl Sync for SearchPaneQueryLinguisticDetails {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchPaneQuerySubmittedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for SearchPaneQuerySubmittedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneQuerySubmittedEventArgs>();
+}
+#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SearchPaneQuerySubmittedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(SearchPaneQuerySubmittedEventArgs,);
 #[cfg(feature = "deprecated")]
 impl SearchPaneQuerySubmittedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -883,12 +879,8 @@ impl SearchPaneQuerySubmittedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for SearchPaneQuerySubmittedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneQuerySubmittedEventArgs>();
-}
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPaneQuerySubmittedEventArgs {
-    type Vtable = ISearchPaneQuerySubmittedEventArgs_Vtbl;
+    type Vtable = <ISearchPaneQuerySubmittedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchPaneQuerySubmittedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -896,15 +888,17 @@ impl windows_core::RuntimeName for SearchPaneQuerySubmittedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQuerySubmittedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-unsafe impl Send for SearchPaneQuerySubmittedEventArgs {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for SearchPaneQuerySubmittedEventArgs {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchPaneResultSuggestionChosenEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for SearchPaneResultSuggestionChosenEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneResultSuggestionChosenEventArgs>();
+}
+#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SearchPaneResultSuggestionChosenEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(SearchPaneResultSuggestionChosenEventArgs,);
 #[cfg(feature = "deprecated")]
 impl SearchPaneResultSuggestionChosenEventArgs {
     #[cfg(feature = "deprecated")]
@@ -917,12 +911,8 @@ impl SearchPaneResultSuggestionChosenEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for SearchPaneResultSuggestionChosenEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneResultSuggestionChosenEventArgs>();
-}
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPaneResultSuggestionChosenEventArgs {
-    type Vtable = ISearchPaneResultSuggestionChosenEventArgs_Vtbl;
+    type Vtable = <ISearchPaneResultSuggestionChosenEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchPaneResultSuggestionChosenEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -930,15 +920,17 @@ impl windows_core::RuntimeName for SearchPaneResultSuggestionChosenEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneResultSuggestionChosenEventArgs";
 }
 #[cfg(feature = "deprecated")]
-unsafe impl Send for SearchPaneResultSuggestionChosenEventArgs {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for SearchPaneResultSuggestionChosenEventArgs {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchPaneSuggestionsRequest(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for SearchPaneSuggestionsRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneSuggestionsRequest>();
+}
+#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SearchPaneSuggestionsRequest, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(SearchPaneSuggestionsRequest,);
 #[cfg(feature = "deprecated")]
 impl SearchPaneSuggestionsRequest {
     #[cfg(feature = "deprecated")]
@@ -967,12 +959,8 @@ impl SearchPaneSuggestionsRequest {
     }
 }
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for SearchPaneSuggestionsRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneSuggestionsRequest>();
-}
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPaneSuggestionsRequest {
-    type Vtable = ISearchPaneSuggestionsRequest_Vtbl;
+    type Vtable = <ISearchPaneSuggestionsRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchPaneSuggestionsRequest as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -980,15 +968,17 @@ impl windows_core::RuntimeName for SearchPaneSuggestionsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneSuggestionsRequest";
 }
 #[cfg(feature = "deprecated")]
-unsafe impl Send for SearchPaneSuggestionsRequest {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for SearchPaneSuggestionsRequest {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchPaneSuggestionsRequestDeferral(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for SearchPaneSuggestionsRequestDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneSuggestionsRequestDeferral>();
+}
+#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SearchPaneSuggestionsRequestDeferral, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(SearchPaneSuggestionsRequestDeferral,);
 #[cfg(feature = "deprecated")]
 impl SearchPaneSuggestionsRequestDeferral {
     #[cfg(feature = "deprecated")]
@@ -998,12 +988,8 @@ impl SearchPaneSuggestionsRequestDeferral {
     }
 }
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for SearchPaneSuggestionsRequestDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneSuggestionsRequestDeferral>();
-}
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPaneSuggestionsRequestDeferral {
-    type Vtable = ISearchPaneSuggestionsRequestDeferral_Vtbl;
+    type Vtable = <ISearchPaneSuggestionsRequestDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchPaneSuggestionsRequestDeferral as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1011,13 +997,13 @@ impl windows_core::RuntimeName for SearchPaneSuggestionsRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneSuggestionsRequestDeferral";
 }
 #[cfg(feature = "deprecated")]
-unsafe impl Send for SearchPaneSuggestionsRequestDeferral {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for SearchPaneSuggestionsRequestDeferral {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchPaneSuggestionsRequestedEventArgs(windows_core::IUnknown);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for SearchPaneSuggestionsRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneSuggestionsRequestedEventArgs>();
+}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SearchPaneSuggestionsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1058,12 +1044,8 @@ impl SearchPaneSuggestionsRequestedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for SearchPaneSuggestionsRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneSuggestionsRequestedEventArgs>();
-}
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPaneSuggestionsRequestedEventArgs {
-    type Vtable = ISearchPaneSuggestionsRequestedEventArgs_Vtbl;
+    type Vtable = <ISearchPaneSuggestionsRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchPaneSuggestionsRequestedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1071,15 +1053,17 @@ impl windows_core::RuntimeName for SearchPaneSuggestionsRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneSuggestionsRequestedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-unsafe impl Send for SearchPaneSuggestionsRequestedEventArgs {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for SearchPaneSuggestionsRequestedEventArgs {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchPaneVisibilityChangedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for SearchPaneVisibilityChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneVisibilityChangedEventArgs>();
+}
+#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SearchPaneVisibilityChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(SearchPaneVisibilityChangedEventArgs,);
 #[cfg(feature = "deprecated")]
 impl SearchPaneVisibilityChangedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -1092,26 +1076,22 @@ impl SearchPaneVisibilityChangedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for SearchPaneVisibilityChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchPaneVisibilityChangedEventArgs>();
-}
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SearchPaneVisibilityChangedEventArgs {
-    type Vtable = ISearchPaneVisibilityChangedEventArgs_Vtbl;
+    type Vtable = <ISearchPaneVisibilityChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchPaneVisibilityChangedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for SearchPaneVisibilityChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneVisibilityChangedEventArgs";
 }
-#[cfg(feature = "deprecated")]
-unsafe impl Send for SearchPaneVisibilityChangedEventArgs {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for SearchPaneVisibilityChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchQueryLinguisticDetails(windows_core::IUnknown);
+impl windows_core::RuntimeType for SearchQueryLinguisticDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchQueryLinguisticDetails>();
+}
 windows_core::imp::interface_hierarchy!(SearchQueryLinguisticDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SearchQueryLinguisticDetails,);
 impl SearchQueryLinguisticDetails {
     #[cfg(feature = "Foundation_Collections")]
     pub fn QueryTextAlternatives(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
@@ -1150,22 +1130,21 @@ impl SearchQueryLinguisticDetails {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for SearchQueryLinguisticDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchQueryLinguisticDetails>();
-}
 unsafe impl windows_core::Interface for SearchQueryLinguisticDetails {
-    type Vtable = ISearchQueryLinguisticDetails_Vtbl;
+    type Vtable = <ISearchQueryLinguisticDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchQueryLinguisticDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SearchQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchQueryLinguisticDetails";
 }
-unsafe impl Send for SearchQueryLinguisticDetails {}
-unsafe impl Sync for SearchQueryLinguisticDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestionCollection(windows_core::IUnknown);
+impl windows_core::RuntimeType for SearchSuggestionCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestionCollection>();
+}
 windows_core::imp::interface_hierarchy!(SearchSuggestionCollection, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SearchSuggestionCollection,);
 impl SearchSuggestionCollection {
     pub fn Size(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -1187,9 +1166,9 @@ impl SearchSuggestionCollection {
         unsafe { (windows_core::Interface::vtable(this).AppendQuerySuggestions)(windows_core::Interface::as_raw(this), suggestions.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn AppendResultSuggestion<P0>(&self, text: &windows_core::HSTRING, detailtext: &windows_core::HSTRING, tag: &windows_core::HSTRING, image: P0, imagealternatetext: &windows_core::HSTRING) -> windows_core::Result<()>
+    pub fn AppendResultSuggestion<P3>(&self, text: &windows_core::HSTRING, detailtext: &windows_core::HSTRING, tag: &windows_core::HSTRING, image: P3, imagealternatetext: &windows_core::HSTRING) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P3: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AppendResultSuggestion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), core::mem::transmute_copy(detailtext), core::mem::transmute_copy(tag), image.param().abi(), core::mem::transmute_copy(imagealternatetext)).ok() }
@@ -1199,22 +1178,21 @@ impl SearchSuggestionCollection {
         unsafe { (windows_core::Interface::vtable(this).AppendSearchSeparator)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label)).ok() }
     }
 }
-impl windows_core::RuntimeType for SearchSuggestionCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestionCollection>();
-}
 unsafe impl windows_core::Interface for SearchSuggestionCollection {
-    type Vtable = ISearchSuggestionCollection_Vtbl;
+    type Vtable = <ISearchSuggestionCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchSuggestionCollection as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SearchSuggestionCollection {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionCollection";
 }
-unsafe impl Send for SearchSuggestionCollection {}
-unsafe impl Sync for SearchSuggestionCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestionsRequest(windows_core::IUnknown);
+impl windows_core::RuntimeType for SearchSuggestionsRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestionsRequest>();
+}
 windows_core::imp::interface_hierarchy!(SearchSuggestionsRequest, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SearchSuggestionsRequest,);
 impl SearchSuggestionsRequest {
     pub fn IsCanceled(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -1238,37 +1216,31 @@ impl SearchSuggestionsRequest {
         }
     }
 }
-impl windows_core::RuntimeType for SearchSuggestionsRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestionsRequest>();
-}
 unsafe impl windows_core::Interface for SearchSuggestionsRequest {
-    type Vtable = ISearchSuggestionsRequest_Vtbl;
+    type Vtable = <ISearchSuggestionsRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchSuggestionsRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SearchSuggestionsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionsRequest";
 }
-unsafe impl Send for SearchSuggestionsRequest {}
-unsafe impl Sync for SearchSuggestionsRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestionsRequestDeferral(windows_core::IUnknown);
+impl windows_core::RuntimeType for SearchSuggestionsRequestDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestionsRequestDeferral>();
+}
 windows_core::imp::interface_hierarchy!(SearchSuggestionsRequestDeferral, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SearchSuggestionsRequestDeferral,);
 impl SearchSuggestionsRequestDeferral {
     pub fn Complete(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for SearchSuggestionsRequestDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestionsRequestDeferral>();
-}
 unsafe impl windows_core::Interface for SearchSuggestionsRequestDeferral {
-    type Vtable = ISearchSuggestionsRequestDeferral_Vtbl;
+    type Vtable = <ISearchSuggestionsRequestDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchSuggestionsRequestDeferral as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SearchSuggestionsRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionsRequestDeferral";
 }
-unsafe impl Send for SearchSuggestionsRequestDeferral {}
-unsafe impl Sync for SearchSuggestionsRequestDeferral {}

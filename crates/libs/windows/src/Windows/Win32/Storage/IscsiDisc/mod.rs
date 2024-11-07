@@ -41,21 +41,21 @@ where
     AddIScsiSendTargetPortalW(initiatorinstance.param().abi(), initiatorportnumber, loginoptions, securityflags, portal)
 }
 #[inline]
-pub unsafe fn AddIScsiStaticTargetA<P0, P1, P2>(targetname: P0, targetalias: P1, targetflags: u32, persist: P2, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32
+pub unsafe fn AddIScsiStaticTargetA<P0, P1, P3>(targetname: P0, targetalias: P1, targetflags: u32, persist: P3, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOLEAN>,
+    P3: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiStaticTargetA(targetname : windows_core::PCSTR, targetalias : windows_core::PCSTR, targetflags : u32, persist : super::super::Foundation:: BOOLEAN, mappings : *mut ISCSI_TARGET_MAPPINGA, loginoptions : *mut ISCSI_LOGIN_OPTIONS, portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32);
     AddIScsiStaticTargetA(targetname.param().abi(), targetalias.param().abi(), targetflags, persist.param().abi(), mappings, loginoptions, portalgroup)
 }
 #[inline]
-pub unsafe fn AddIScsiStaticTargetW<P0, P1, P2>(targetname: P0, targetalias: P1, targetflags: u32, persist: P2, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32
+pub unsafe fn AddIScsiStaticTargetW<P0, P1, P3>(targetname: P0, targetalias: P1, targetflags: u32, persist: P3, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOLEAN>,
+    P3: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiStaticTargetW(targetname : windows_core::PCWSTR, targetalias : windows_core::PCWSTR, targetflags : u32, persist : super::super::Foundation:: BOOLEAN, mappings : *mut ISCSI_TARGET_MAPPINGW, loginoptions : *mut ISCSI_LOGIN_OPTIONS, portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32);
     AddIScsiStaticTargetW(targetname.param().abi(), targetalias.param().abi(), targetflags, persist.param().abi(), mappings, loginoptions, portalgroup)
@@ -174,23 +174,23 @@ pub unsafe fn GetIScsiVersionInformation(versioninfo: *mut ISCSI_VERSION_INFO) -
     GetIScsiVersionInformation(versioninfo)
 }
 #[inline]
-pub unsafe fn LoginIScsiTargetA<P0, P1, P2, P3>(targetname: P0, isinformationalsession: P1, initiatorinstance: P2, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, key: Option<&[u8]>, ispersistent: P3, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32
+pub unsafe fn LoginIScsiTargetA<P0, P1, P2, P10>(targetname: P0, isinformationalsession: P1, initiatorinstance: P2, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, key: Option<&[u8]>, ispersistent: P10, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<super::super::Foundation::BOOLEAN>,
     P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOLEAN>,
+    P10: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iscsidsc.dll" "system" fn LoginIScsiTargetA(targetname : windows_core::PCSTR, isinformationalsession : super::super::Foundation:: BOOLEAN, initiatorinstance : windows_core::PCSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALA, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGA, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : windows_core::PCSTR, ispersistent : super::super::Foundation:: BOOLEAN, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
     LoginIScsiTargetA(targetname.param().abi(), isinformationalsession.param().abi(), initiatorinstance.param().abi(), initiatorportnumber, targetportal, securityflags, mappings, loginoptions, key.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(key.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ispersistent.param().abi(), uniquesessionid, uniqueconnectionid)
 }
 #[inline]
-pub unsafe fn LoginIScsiTargetW<P0, P1, P2, P3>(targetname: P0, isinformationalsession: P1, initiatorinstance: P2, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, key: Option<&[u8]>, ispersistent: P3, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32
+pub unsafe fn LoginIScsiTargetW<P0, P1, P2, P10>(targetname: P0, isinformationalsession: P1, initiatorinstance: P2, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, key: Option<&[u8]>, ispersistent: P10, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<super::super::Foundation::BOOLEAN>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOLEAN>,
+    P10: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iscsidsc.dll" "system" fn LoginIScsiTargetW(targetname : windows_core::PCWSTR, isinformationalsession : super::super::Foundation:: BOOLEAN, initiatorinstance : windows_core::PCWSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALW, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGW, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : windows_core::PCSTR, ispersistent : super::super::Foundation:: BOOLEAN, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
     LoginIScsiTargetW(targetname.param().abi(), isinformationalsession.param().abi(), initiatorinstance.param().abi(), initiatorportnumber, targetportal, securityflags, mappings, loginoptions, key.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(key.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ispersistent.param().abi(), uniquesessionid, uniqueconnectionid)
@@ -254,19 +254,19 @@ pub unsafe fn RemoveIScsiConnection(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_I
     RemoveIScsiConnection(uniquesessionid, connectionid)
 }
 #[inline]
-pub unsafe fn RemoveIScsiPersistentTargetA<P0, P1>(initiatorinstance: P0, initiatorportnumber: u32, targetname: P1, portal: *mut ISCSI_TARGET_PORTALA) -> u32
+pub unsafe fn RemoveIScsiPersistentTargetA<P0, P2>(initiatorinstance: P0, initiatorportnumber: u32, targetname: P2, portal: *mut ISCSI_TARGET_PORTALA) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("iscsidsc.dll" "system" fn RemoveIScsiPersistentTargetA(initiatorinstance : windows_core::PCSTR, initiatorportnumber : u32, targetname : windows_core::PCSTR, portal : *mut ISCSI_TARGET_PORTALA) -> u32);
     RemoveIScsiPersistentTargetA(initiatorinstance.param().abi(), initiatorportnumber, targetname.param().abi(), portal)
 }
 #[inline]
-pub unsafe fn RemoveIScsiPersistentTargetW<P0, P1>(initiatorinstance: P0, initiatorportnumber: u32, targetname: P1, portal: *mut ISCSI_TARGET_PORTALW) -> u32
+pub unsafe fn RemoveIScsiPersistentTargetW<P0, P2>(initiatorinstance: P0, initiatorportnumber: u32, targetname: P2, portal: *mut ISCSI_TARGET_PORTALW) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("iscsidsc.dll" "system" fn RemoveIScsiPersistentTargetW(initiatorinstance : windows_core::PCWSTR, initiatorportnumber : u32, targetname : windows_core::PCWSTR, portal : *mut ISCSI_TARGET_PORTALW) -> u32);
     RemoveIScsiPersistentTargetW(initiatorinstance.param().abi(), initiatorportnumber, targetname.param().abi(), portal)
@@ -465,27 +465,27 @@ pub unsafe fn SendScsiReportLuns(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, 
     SendScsiReportLuns(uniquesessionid, scsistatus, responsesize, responsebuffer, sensesize, sensebuffer)
 }
 #[inline]
-pub unsafe fn SetIScsiGroupPresharedKey<P0>(keylength: u32, key: *mut u8, persist: P0) -> u32
+pub unsafe fn SetIScsiGroupPresharedKey<P2>(keylength: u32, key: *mut u8, persist: P2) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiGroupPresharedKey(keylength : u32, key : *mut u8, persist : super::super::Foundation:: BOOLEAN) -> u32);
     SetIScsiGroupPresharedKey(keylength, key, persist.param().abi())
 }
 #[inline]
-pub unsafe fn SetIScsiIKEInfoA<P0, P1>(initiatorname: P0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: P1) -> u32
+pub unsafe fn SetIScsiIKEInfoA<P0, P3>(initiatorname: P0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: P3) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOLEAN>,
+    P3: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiIKEInfoA(initiatorname : windows_core::PCSTR, initiatorportnumber : u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION, persist : super::super::Foundation:: BOOLEAN) -> u32);
     SetIScsiIKEInfoA(initiatorname.param().abi(), initiatorportnumber, authinfo, persist.param().abi())
 }
 #[inline]
-pub unsafe fn SetIScsiIKEInfoW<P0, P1>(initiatorname: P0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: P1) -> u32
+pub unsafe fn SetIScsiIKEInfoW<P0, P3>(initiatorname: P0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: P3) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOLEAN>,
+    P3: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiIKEInfoW(initiatorname : windows_core::PCWSTR, initiatorportnumber : u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION, persist : super::super::Foundation:: BOOLEAN) -> u32);
     SetIScsiIKEInfoW(initiatorname.param().abi(), initiatorportnumber, authinfo, persist.param().abi())
@@ -517,23 +517,23 @@ pub unsafe fn SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: u32, share
     SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength, sharedsecret)
 }
 #[inline]
-pub unsafe fn SetIScsiTunnelModeOuterAddressA<P0, P1, P2, P3>(initiatorname: P0, initiatorportnumber: u32, destinationaddress: P1, outermodeaddress: P2, persist: P3) -> u32
+pub unsafe fn SetIScsiTunnelModeOuterAddressA<P0, P2, P3, P4>(initiatorname: P0, initiatorportnumber: u32, destinationaddress: P2, outermodeaddress: P3, persist: P4) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOLEAN>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+    P4: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiTunnelModeOuterAddressA(initiatorname : windows_core::PCSTR, initiatorportnumber : u32, destinationaddress : windows_core::PCSTR, outermodeaddress : windows_core::PCSTR, persist : super::super::Foundation:: BOOLEAN) -> u32);
     SetIScsiTunnelModeOuterAddressA(initiatorname.param().abi(), initiatorportnumber, destinationaddress.param().abi(), outermodeaddress.param().abi(), persist.param().abi())
 }
 #[inline]
-pub unsafe fn SetIScsiTunnelModeOuterAddressW<P0, P1, P2, P3>(initiatorname: P0, initiatorportnumber: u32, destinationaddress: P1, outermodeaddress: P2, persist: P3) -> u32
+pub unsafe fn SetIScsiTunnelModeOuterAddressW<P0, P2, P3, P4>(initiatorname: P0, initiatorportnumber: u32, destinationaddress: P2, outermodeaddress: P3, persist: P4) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOLEAN>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiTunnelModeOuterAddressW(initiatorname : windows_core::PCWSTR, initiatorportnumber : u32, destinationaddress : windows_core::PCWSTR, outermodeaddress : windows_core::PCWSTR, persist : super::super::Foundation:: BOOLEAN) -> u32);
     SetIScsiTunnelModeOuterAddressW(initiatorname.param().abi(), initiatorportnumber, destinationaddress.param().abi(), outermodeaddress.param().abi(), persist.param().abi())
@@ -764,117 +764,67 @@ pub const TargetAlias: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(1i32)
 pub const TargetFlags: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(6i32);
 pub const WmiScsiAddressGuid: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630f_b6bf_11d0_94f2_00a0c91efb8b);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IKE_AUTHENTICATION_METHOD(pub i32);
 impl windows_core::TypeKind for IKE_AUTHENTICATION_METHOD {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IKE_AUTHENTICATION_METHOD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IKE_AUTHENTICATION_METHOD").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ISCSI_AUTH_TYPES(pub i32);
 impl windows_core::TypeKind for ISCSI_AUTH_TYPES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ISCSI_AUTH_TYPES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ISCSI_AUTH_TYPES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ISCSI_DIGEST_TYPES(pub i32);
 impl windows_core::TypeKind for ISCSI_DIGEST_TYPES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ISCSI_DIGEST_TYPES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ISCSI_DIGEST_TYPES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MP_STORAGE_DIAGNOSTIC_LEVEL(pub i32);
 impl windows_core::TypeKind for MP_STORAGE_DIAGNOSTIC_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MP_STORAGE_DIAGNOSTIC_LEVEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MP_STORAGE_DIAGNOSTIC_LEVEL").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(pub i32);
 impl windows_core::TypeKind for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MP_STORAGE_DIAGNOSTIC_TARGET_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NVCACHE_STATUS(pub i32);
 impl windows_core::TypeKind for NVCACHE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NVCACHE_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NVCACHE_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NVCACHE_TYPE(pub i32);
 impl windows_core::TypeKind for NVCACHE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NVCACHE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NVCACHE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NV_SEP_WRITE_CACHE_TYPE(pub i32);
 impl windows_core::TypeKind for NV_SEP_WRITE_CACHE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NV_SEP_WRITE_CACHE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NV_SEP_WRITE_CACHE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TARGETPROTOCOLTYPE(pub i32);
 impl windows_core::TypeKind for TARGETPROTOCOLTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TARGETPROTOCOLTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TARGETPROTOCOLTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TARGET_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for TARGET_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TARGET_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TARGET_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ATA_PASS_THROUGH_DIRECT {
     pub Length: u16,
     pub AtaFlags: u16,
@@ -889,17 +839,17 @@ pub struct ATA_PASS_THROUGH_DIRECT {
     pub PreviousTaskFile: [u8; 8],
     pub CurrentTaskFile: [u8; 8],
 }
-impl windows_core::TypeKind for ATA_PASS_THROUGH_DIRECT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ATA_PASS_THROUGH_DIRECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ATA_PASS_THROUGH_DIRECT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ATA_PASS_THROUGH_DIRECT32 {
     pub Length: u16,
     pub AtaFlags: u16,
@@ -915,17 +865,17 @@ pub struct ATA_PASS_THROUGH_DIRECT32 {
     pub CurrentTaskFile: [u8; 8],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ATA_PASS_THROUGH_DIRECT32 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for ATA_PASS_THROUGH_DIRECT32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ATA_PASS_THROUGH_DIRECT32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ATA_PASS_THROUGH_EX {
     pub Length: u16,
     pub AtaFlags: u16,
@@ -940,17 +890,17 @@ pub struct ATA_PASS_THROUGH_EX {
     pub PreviousTaskFile: [u8; 8],
     pub CurrentTaskFile: [u8; 8],
 }
-impl windows_core::TypeKind for ATA_PASS_THROUGH_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ATA_PASS_THROUGH_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ATA_PASS_THROUGH_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ATA_PASS_THROUGH_EX32 {
     pub Length: u16,
     pub AtaFlags: u16,
@@ -966,17 +916,17 @@ pub struct ATA_PASS_THROUGH_EX32 {
     pub CurrentTaskFile: [u8; 8],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ATA_PASS_THROUGH_EX32 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for ATA_PASS_THROUGH_EX32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ATA_PASS_THROUGH_EX32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DSM_NOTIFICATION_REQUEST_BLOCK {
     pub Size: u32,
     pub Version: u32,
@@ -986,47 +936,47 @@ pub struct DSM_NOTIFICATION_REQUEST_BLOCK {
     pub DataSetRangesCount: u32,
     pub DataSetRanges: [MP_DEVICE_DATA_SET_RANGE; 1],
 }
-impl windows_core::TypeKind for DSM_NOTIFICATION_REQUEST_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DSM_NOTIFICATION_REQUEST_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DSM_NOTIFICATION_REQUEST_BLOCK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DUMP_DRIVER {
     pub DumpDriverList: *mut core::ffi::c_void,
     pub DriverName: [u16; 15],
     pub BaseName: [u16; 15],
-}
-impl windows_core::TypeKind for DUMP_DRIVER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DUMP_DRIVER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DUMP_DRIVER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DUMP_DRIVER_EX {
     pub DumpDriverList: *mut core::ffi::c_void,
     pub DriverName: [u16; 15],
     pub BaseName: [u16; 15],
     pub DriverFullPath: NTSCSI_UNICODE_STRING,
 }
-impl windows_core::TypeKind for DUMP_DRIVER_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DUMP_DRIVER_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DUMP_DRIVER_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DUMP_POINTERS {
     pub AdapterObject: *mut _ADAPTER_OBJECT,
     pub MappedRegisterBase: *mut core::ffi::c_void,
@@ -1039,16 +989,16 @@ pub struct DUMP_POINTERS {
     pub Spare1: [u8; 2],
     pub DeviceObject: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for DUMP_POINTERS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DUMP_POINTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DUMP_POINTERS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DUMP_POINTERS_EX {
     pub Header: DUMP_POINTERS_VERSION,
     pub DumpData: *mut core::ffi::c_void,
@@ -1067,30 +1017,30 @@ pub struct DUMP_POINTERS_EX {
     pub DumpDevicePowerOn: PDUMP_DEVICE_POWERON_ROUTINE,
     pub DumpDevicePowerOnContext: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for DUMP_POINTERS_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DUMP_POINTERS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DUMP_POINTERS_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DUMP_POINTERS_VERSION {
     pub Version: u32,
     pub Size: u32,
-}
-impl windows_core::TypeKind for DUMP_POINTERS_VERSION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DUMP_POINTERS_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DUMP_POINTERS_VERSION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FIRMWARE_REQUEST_BLOCK {
     pub Version: u32,
     pub Size: u32,
@@ -1099,16 +1049,16 @@ pub struct FIRMWARE_REQUEST_BLOCK {
     pub DataBufferOffset: u32,
     pub DataBufferLength: u32,
 }
-impl windows_core::TypeKind for FIRMWARE_REQUEST_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for FIRMWARE_REQUEST_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FIRMWARE_REQUEST_BLOCK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HYBRID_DEMOTE_BY_SIZE {
     pub Version: u32,
     pub Size: u32,
@@ -1118,32 +1068,32 @@ pub struct HYBRID_DEMOTE_BY_SIZE {
     pub Reserved1: u32,
     pub LbaCount: u64,
 }
-impl windows_core::TypeKind for HYBRID_DEMOTE_BY_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HYBRID_DEMOTE_BY_SIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HYBRID_DEMOTE_BY_SIZE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HYBRID_DIRTY_THRESHOLDS {
     pub Version: u32,
     pub Size: u32,
     pub DirtyLowThreshold: u32,
     pub DirtyHighThreshold: u32,
 }
-impl windows_core::TypeKind for HYBRID_DIRTY_THRESHOLDS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HYBRID_DIRTY_THRESHOLDS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HYBRID_DIRTY_THRESHOLDS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HYBRID_INFORMATION {
     pub Version: u32,
     pub Size: u32,
@@ -1156,29 +1106,29 @@ pub struct HYBRID_INFORMATION {
     pub Attributes: HYBRID_INFORMATION_0,
     pub Priorities: HYBRID_INFORMATION_1,
 }
-impl windows_core::TypeKind for HYBRID_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HYBRID_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HYBRID_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HYBRID_INFORMATION_0 {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for HYBRID_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HYBRID_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HYBRID_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HYBRID_INFORMATION_1 {
     pub PriorityLevelCount: u8,
     pub MaxPriorityBehavior: super::super::Foundation::BOOLEAN,
@@ -1189,32 +1139,32 @@ pub struct HYBRID_INFORMATION_1 {
     pub SupportedCommands: HYBRID_INFORMATION_1_0,
     pub Priority: [NVCACHE_PRIORITY_LEVEL_DESCRIPTOR; 1],
 }
-impl windows_core::TypeKind for HYBRID_INFORMATION_1 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HYBRID_INFORMATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HYBRID_INFORMATION_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HYBRID_INFORMATION_1_0 {
     pub _bitfield: u32,
     pub MaxEvictCommands: u32,
     pub MaxLbaRangeCountForEvict: u32,
     pub MaxLbaRangeCountForChangeLba: u32,
 }
-impl windows_core::TypeKind for HYBRID_INFORMATION_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HYBRID_INFORMATION_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HYBRID_INFORMATION_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HYBRID_REQUEST_BLOCK {
     pub Version: u32,
     pub Size: u32,
@@ -1223,16 +1173,16 @@ pub struct HYBRID_REQUEST_BLOCK {
     pub DataBufferOffset: u32,
     pub DataBufferLength: u32,
 }
-impl windows_core::TypeKind for HYBRID_REQUEST_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HYBRID_REQUEST_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HYBRID_REQUEST_BLOCK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IDE_IO_CONTROL {
     pub HeaderLength: u32,
     pub Signature: [u8; 8],
@@ -1241,43 +1191,43 @@ pub struct IDE_IO_CONTROL {
     pub ReturnStatus: u32,
     pub DataLength: u32,
 }
-impl windows_core::TypeKind for IDE_IO_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IDE_IO_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IDE_IO_CONTROL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IKE_AUTHENTICATION_INFORMATION {
     pub AuthMethod: IKE_AUTHENTICATION_METHOD,
     pub Anonymous: IKE_AUTHENTICATION_INFORMATION_0,
-}
-impl windows_core::TypeKind for IKE_AUTHENTICATION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IKE_AUTHENTICATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IKE_AUTHENTICATION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union IKE_AUTHENTICATION_INFORMATION_0 {
     pub PsKey: IKE_AUTHENTICATION_PRESHARED_KEY,
-}
-impl windows_core::TypeKind for IKE_AUTHENTICATION_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IKE_AUTHENTICATION_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IKE_AUTHENTICATION_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IKE_AUTHENTICATION_PRESHARED_KEY {
     pub SecurityFlags: u64,
     pub IdType: u8,
@@ -1286,16 +1236,16 @@ pub struct IKE_AUTHENTICATION_PRESHARED_KEY {
     pub KeyLengthInBytes: u32,
     pub Key: *mut u8,
 }
-impl windows_core::TypeKind for IKE_AUTHENTICATION_PRESHARED_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IKE_AUTHENTICATION_PRESHARED_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IKE_AUTHENTICATION_PRESHARED_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IO_SCSI_CAPABILITIES {
     pub Length: u32,
     pub MaximumTransferLength: u32,
@@ -1306,16 +1256,16 @@ pub struct IO_SCSI_CAPABILITIES {
     pub AdapterScansDown: super::super::Foundation::BOOLEAN,
     pub AdapterUsesPio: super::super::Foundation::BOOLEAN,
 }
-impl windows_core::TypeKind for IO_SCSI_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IO_SCSI_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IO_SCSI_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_CONNECTION_INFOA {
     pub ConnectionId: ISCSI_UNIQUE_SESSION_ID,
     pub InitiatorAddress: windows_core::PSTR,
@@ -1324,16 +1274,16 @@ pub struct ISCSI_CONNECTION_INFOA {
     pub TargetSocket: u16,
     pub CID: [u8; 2],
 }
-impl windows_core::TypeKind for ISCSI_CONNECTION_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ISCSI_CONNECTION_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_CONNECTION_INFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_CONNECTION_INFOW {
     pub ConnectionId: ISCSI_UNIQUE_SESSION_ID,
     pub InitiatorAddress: windows_core::PWSTR,
@@ -1342,16 +1292,16 @@ pub struct ISCSI_CONNECTION_INFOW {
     pub TargetSocket: u16,
     pub CID: [u8; 2],
 }
-impl windows_core::TypeKind for ISCSI_CONNECTION_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ISCSI_CONNECTION_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_CONNECTION_INFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_CONNECTION_INFO_EX {
     pub ConnectionId: ISCSI_UNIQUE_SESSION_ID,
     pub State: u8,
@@ -1363,17 +1313,17 @@ pub struct ISCSI_CONNECTION_INFO_EX {
     pub EstimatedThroughput: u64,
     pub MaxDatagramSize: u32,
 }
-impl windows_core::TypeKind for ISCSI_CONNECTION_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ISCSI_CONNECTION_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_CONNECTION_INFO_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ioctl")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_DEVICE_ON_SESSIONA {
     pub InitiatorName: [i8; 256],
     pub TargetName: [i8; 224],
@@ -1385,18 +1335,18 @@ pub struct ISCSI_DEVICE_ON_SESSIONA {
     pub DeviceInstance: u32,
 }
 #[cfg(feature = "Win32_System_Ioctl")]
-impl windows_core::TypeKind for ISCSI_DEVICE_ON_SESSIONA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Ioctl")]
 impl Default for ISCSI_DEVICE_ON_SESSIONA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Ioctl")]
+impl windows_core::TypeKind for ISCSI_DEVICE_ON_SESSIONA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ioctl")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_DEVICE_ON_SESSIONW {
     pub InitiatorName: [u16; 256],
     pub TargetName: [u16; 224],
@@ -1408,17 +1358,17 @@ pub struct ISCSI_DEVICE_ON_SESSIONW {
     pub DeviceInstance: u32,
 }
 #[cfg(feature = "Win32_System_Ioctl")]
-impl windows_core::TypeKind for ISCSI_DEVICE_ON_SESSIONW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Ioctl")]
 impl Default for ISCSI_DEVICE_ON_SESSIONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Ioctl")]
+impl windows_core::TypeKind for ISCSI_DEVICE_ON_SESSIONW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_LOGIN_OPTIONS {
     pub Version: u32,
     pub InformationSpecified: u32,
@@ -1434,16 +1384,16 @@ pub struct ISCSI_LOGIN_OPTIONS {
     pub Username: *mut u8,
     pub Password: *mut u8,
 }
-impl windows_core::TypeKind for ISCSI_LOGIN_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ISCSI_LOGIN_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_LOGIN_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_SESSION_INFOA {
     pub SessionId: ISCSI_UNIQUE_SESSION_ID,
     pub InitiatorName: windows_core::PSTR,
@@ -1454,16 +1404,16 @@ pub struct ISCSI_SESSION_INFOA {
     pub ConnectionCount: u32,
     pub Connections: *mut ISCSI_CONNECTION_INFOA,
 }
-impl windows_core::TypeKind for ISCSI_SESSION_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ISCSI_SESSION_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_SESSION_INFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_SESSION_INFOW {
     pub SessionId: ISCSI_UNIQUE_SESSION_ID,
     pub InitiatorName: windows_core::PWSTR,
@@ -1474,16 +1424,16 @@ pub struct ISCSI_SESSION_INFOW {
     pub ConnectionCount: u32,
     pub Connections: *mut ISCSI_CONNECTION_INFOW,
 }
-impl windows_core::TypeKind for ISCSI_SESSION_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ISCSI_SESSION_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_SESSION_INFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_SESSION_INFO_EX {
     pub SessionId: ISCSI_UNIQUE_SESSION_ID,
     pub InitialR2t: super::super::Foundation::BOOLEAN,
@@ -1499,16 +1449,16 @@ pub struct ISCSI_SESSION_INFO_EX {
     pub ConnectionCount: u32,
     pub Connections: *mut ISCSI_CONNECTION_INFO_EX,
 }
-impl windows_core::TypeKind for ISCSI_SESSION_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ISCSI_SESSION_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_SESSION_INFO_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_TARGET_MAPPINGA {
     pub InitiatorName: [i8; 256],
     pub TargetName: [i8; 224],
@@ -1519,16 +1469,16 @@ pub struct ISCSI_TARGET_MAPPINGA {
     pub LUNCount: u32,
     pub LUNList: *mut SCSI_LUN_LIST,
 }
-impl windows_core::TypeKind for ISCSI_TARGET_MAPPINGA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ISCSI_TARGET_MAPPINGA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_TARGET_MAPPINGA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_TARGET_MAPPINGW {
     pub InitiatorName: [u16; 256],
     pub TargetName: [u16; 224],
@@ -1539,74 +1489,74 @@ pub struct ISCSI_TARGET_MAPPINGW {
     pub LUNCount: u32,
     pub LUNList: *mut SCSI_LUN_LIST,
 }
-impl windows_core::TypeKind for ISCSI_TARGET_MAPPINGW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ISCSI_TARGET_MAPPINGW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_TARGET_MAPPINGW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_TARGET_PORTALA {
     pub SymbolicName: [i8; 256],
     pub Address: [i8; 256],
     pub Socket: u16,
-}
-impl windows_core::TypeKind for ISCSI_TARGET_PORTALA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ISCSI_TARGET_PORTALA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_TARGET_PORTALA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_TARGET_PORTALW {
     pub SymbolicName: [u16; 256],
     pub Address: [u16; 256],
     pub Socket: u16,
-}
-impl windows_core::TypeKind for ISCSI_TARGET_PORTALW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ISCSI_TARGET_PORTALW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_TARGET_PORTALW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_TARGET_PORTAL_GROUPA {
     pub Count: u32,
     pub Portals: [ISCSI_TARGET_PORTALA; 1],
-}
-impl windows_core::TypeKind for ISCSI_TARGET_PORTAL_GROUPA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ISCSI_TARGET_PORTAL_GROUPA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_TARGET_PORTAL_GROUPA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_TARGET_PORTAL_GROUPW {
     pub Count: u32,
     pub Portals: [ISCSI_TARGET_PORTALW; 1],
-}
-impl windows_core::TypeKind for ISCSI_TARGET_PORTAL_GROUPW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ISCSI_TARGET_PORTAL_GROUPW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_TARGET_PORTAL_GROUPW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_TARGET_PORTAL_INFOA {
     pub InitiatorName: [i8; 256],
     pub InitiatorPortNumber: u32,
@@ -1614,16 +1564,16 @@ pub struct ISCSI_TARGET_PORTAL_INFOA {
     pub Address: [i8; 256],
     pub Socket: u16,
 }
-impl windows_core::TypeKind for ISCSI_TARGET_PORTAL_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ISCSI_TARGET_PORTAL_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_TARGET_PORTAL_INFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_TARGET_PORTAL_INFOW {
     pub InitiatorName: [u16; 256],
     pub InitiatorPortNumber: u32,
@@ -1631,16 +1581,16 @@ pub struct ISCSI_TARGET_PORTAL_INFOW {
     pub Address: [u16; 256],
     pub Socket: u16,
 }
-impl windows_core::TypeKind for ISCSI_TARGET_PORTAL_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ISCSI_TARGET_PORTAL_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_TARGET_PORTAL_INFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_TARGET_PORTAL_INFO_EXA {
     pub InitiatorName: [i8; 256],
     pub InitiatorPortNumber: u32,
@@ -1650,16 +1600,16 @@ pub struct ISCSI_TARGET_PORTAL_INFO_EXA {
     pub SecurityFlags: u64,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
-impl windows_core::TypeKind for ISCSI_TARGET_PORTAL_INFO_EXA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ISCSI_TARGET_PORTAL_INFO_EXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_TARGET_PORTAL_INFO_EXA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_TARGET_PORTAL_INFO_EXW {
     pub InitiatorName: [u16; 256],
     pub InitiatorPortNumber: u32,
@@ -1669,45 +1619,45 @@ pub struct ISCSI_TARGET_PORTAL_INFO_EXW {
     pub SecurityFlags: u64,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
-impl windows_core::TypeKind for ISCSI_TARGET_PORTAL_INFO_EXW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ISCSI_TARGET_PORTAL_INFO_EXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_TARGET_PORTAL_INFO_EXW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_UNIQUE_SESSION_ID {
     pub AdapterUnique: u64,
     pub AdapterSpecific: u64,
-}
-impl windows_core::TypeKind for ISCSI_UNIQUE_SESSION_ID {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ISCSI_UNIQUE_SESSION_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_UNIQUE_SESSION_ID {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ISCSI_VERSION_INFO {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
     pub BuildNumber: u32,
-}
-impl windows_core::TypeKind for ISCSI_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ISCSI_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ISCSI_VERSION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH {
     pub PassThrough: SCSI_PASS_THROUGH,
     pub Version: u32,
@@ -1716,17 +1666,17 @@ pub struct MPIO_PASS_THROUGH_PATH {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MPIO_PASS_THROUGH_PATH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH32 {
     pub PassThrough: SCSI_PASS_THROUGH32,
     pub Version: u32,
@@ -1736,18 +1686,18 @@ pub struct MPIO_PASS_THROUGH_PATH32 {
     pub MpioPathId: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH32 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for MPIO_PASS_THROUGH_PATH32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH32_EX {
     pub PassThroughOffset: u32,
     pub Version: u32,
@@ -1757,17 +1707,17 @@ pub struct MPIO_PASS_THROUGH_PATH32_EX {
     pub MpioPathId: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH32_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for MPIO_PASS_THROUGH_PATH32_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH32_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT {
     pub PassThrough: SCSI_PASS_THROUGH_DIRECT,
     pub Version: u32,
@@ -1776,17 +1726,17 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH_DIRECT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MPIO_PASS_THROUGH_PATH_DIRECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH_DIRECT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT32 {
     pub PassThrough: SCSI_PASS_THROUGH_DIRECT32,
     pub Version: u32,
@@ -1796,18 +1746,18 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT32 {
     pub MpioPathId: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH_DIRECT32 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for MPIO_PASS_THROUGH_PATH_DIRECT32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH_DIRECT32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     pub PassThroughOffset: u32,
     pub Version: u32,
@@ -1817,17 +1767,17 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     pub MpioPathId: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT_EX {
     pub PassThroughOffset: u32,
     pub Version: u32,
@@ -1836,16 +1786,16 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT_EX {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH_EX {
     pub PassThroughOffset: u32,
     pub Version: u32,
@@ -1854,45 +1804,45 @@ pub struct MPIO_PASS_THROUGH_PATH_EX {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
-impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MPIO_PASS_THROUGH_PATH_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MPIO_PASS_THROUGH_PATH_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MP_DEVICE_DATA_SET_RANGE {
     pub StartingOffset: i64,
     pub LengthInBytes: u64,
-}
-impl windows_core::TypeKind for MP_DEVICE_DATA_SET_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MP_DEVICE_DATA_SET_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MP_DEVICE_DATA_SET_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NTSCSI_UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for NTSCSI_UNICODE_STRING {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NTSCSI_UNICODE_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NTSCSI_UNICODE_STRING {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NVCACHE_HINT_PAYLOAD {
     pub Command: u8,
     pub Feature7_0: u8,
@@ -1908,16 +1858,16 @@ pub struct NVCACHE_HINT_PAYLOAD {
     pub Auxiliary23_16: u8,
     pub Reserved: [u8; 4],
 }
-impl windows_core::TypeKind for NVCACHE_HINT_PAYLOAD {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NVCACHE_HINT_PAYLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NVCACHE_HINT_PAYLOAD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
     pub PriorityLevel: u8,
     pub Reserved0: [u8; 3],
@@ -1927,16 +1877,16 @@ pub struct NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
     pub ConsumedMappingResourcesForDirtyDataFraction: u32,
     pub Reserved1: u32,
 }
-impl windows_core::TypeKind for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NVCACHE_REQUEST_BLOCK {
     pub NRBSize: u32,
     pub Function: u16,
@@ -1948,16 +1898,16 @@ pub struct NVCACHE_REQUEST_BLOCK {
     pub NVCacheStatus: u32,
     pub NVCacheSubStatus: u32,
 }
-impl windows_core::TypeKind for NVCACHE_REQUEST_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NVCACHE_REQUEST_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NVCACHE_REQUEST_BLOCK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NV_FEATURE_PARAMETER {
     pub NVPowerModeEnabled: u16,
     pub NVParameterReserv1: u16,
@@ -1970,16 +1920,16 @@ pub struct NV_FEATURE_PARAMETER {
     pub NVWrtSpeed: u16,
     pub DeviceSpinUpTime: u32,
 }
-impl windows_core::TypeKind for NV_FEATURE_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NV_FEATURE_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NV_FEATURE_PARAMETER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NV_SEP_CACHE_PARAMETER {
     pub Version: u32,
     pub Size: u32,
@@ -1988,43 +1938,43 @@ pub struct NV_SEP_CACHE_PARAMETER {
     pub WriteCacheTypeEffective: u8,
     pub ParameterReserve1: [u8; 3],
 }
-impl windows_core::TypeKind for NV_SEP_CACHE_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NV_SEP_CACHE_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NV_SEP_CACHE_PARAMETER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union NV_SEP_CACHE_PARAMETER_0 {
     pub CacheFlags: NV_SEP_CACHE_PARAMETER_0_0,
     pub CacheFlagsSet: u8,
-}
-impl windows_core::TypeKind for NV_SEP_CACHE_PARAMETER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NV_SEP_CACHE_PARAMETER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NV_SEP_CACHE_PARAMETER_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NV_SEP_CACHE_PARAMETER_0_0 {
     pub _bitfield: u8,
-}
-impl windows_core::TypeKind for NV_SEP_CACHE_PARAMETER_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NV_SEP_CACHE_PARAMETER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NV_SEP_CACHE_PARAMETER_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOA {
     pub TargetName: [i8; 224],
     pub IsInformationalSession: super::super::Foundation::BOOLEAN,
@@ -2035,16 +1985,16 @@ pub struct PERSISTENT_ISCSI_LOGIN_INFOA {
     pub Mappings: *mut ISCSI_TARGET_MAPPINGA,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
-impl windows_core::TypeKind for PERSISTENT_ISCSI_LOGIN_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PERSISTENT_ISCSI_LOGIN_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PERSISTENT_ISCSI_LOGIN_INFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOW {
     pub TargetName: [u16; 224],
     pub IsInformationalSession: super::super::Foundation::BOOLEAN,
@@ -2055,30 +2005,30 @@ pub struct PERSISTENT_ISCSI_LOGIN_INFOW {
     pub Mappings: *mut ISCSI_TARGET_MAPPINGW,
     pub LoginOptions: ISCSI_LOGIN_OPTIONS,
 }
-impl windows_core::TypeKind for PERSISTENT_ISCSI_LOGIN_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PERSISTENT_ISCSI_LOGIN_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PERSISTENT_ISCSI_LOGIN_INFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCSI_ADAPTER_BUS_INFO {
     pub NumberOfBuses: u8,
     pub BusData: [SCSI_BUS_DATA; 1],
-}
-impl windows_core::TypeKind for SCSI_ADAPTER_BUS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SCSI_ADAPTER_BUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCSI_ADAPTER_BUS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCSI_ADDRESS {
     pub Length: u32,
     pub PortNumber: u8,
@@ -2086,31 +2036,31 @@ pub struct SCSI_ADDRESS {
     pub TargetId: u8,
     pub Lun: u8,
 }
-impl windows_core::TypeKind for SCSI_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SCSI_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCSI_ADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCSI_BUS_DATA {
     pub NumberOfLogicalUnits: u8,
     pub InitiatorBusId: u8,
     pub InquiryDataOffset: u32,
-}
-impl windows_core::TypeKind for SCSI_BUS_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SCSI_BUS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCSI_BUS_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCSI_INQUIRY_DATA {
     pub PathId: u8,
     pub TargetId: u8,
@@ -2120,30 +2070,30 @@ pub struct SCSI_INQUIRY_DATA {
     pub NextInquiryDataOffset: u32,
     pub InquiryData: [u8; 1],
 }
-impl windows_core::TypeKind for SCSI_INQUIRY_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SCSI_INQUIRY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCSI_INQUIRY_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCSI_LUN_LIST {
     pub OSLUN: u32,
     pub TargetLUN: u64,
-}
-impl windows_core::TypeKind for SCSI_LUN_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SCSI_LUN_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCSI_LUN_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCSI_PASS_THROUGH {
     pub Length: u16,
     pub ScsiStatus: u8,
@@ -2159,17 +2109,17 @@ pub struct SCSI_PASS_THROUGH {
     pub SenseInfoOffset: u32,
     pub Cdb: [u8; 16],
 }
-impl windows_core::TypeKind for SCSI_PASS_THROUGH {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SCSI_PASS_THROUGH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCSI_PASS_THROUGH {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCSI_PASS_THROUGH32 {
     pub Length: u16,
     pub ScsiStatus: u8,
@@ -2186,18 +2136,18 @@ pub struct SCSI_PASS_THROUGH32 {
     pub Cdb: [u8; 16],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SCSI_PASS_THROUGH32 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SCSI_PASS_THROUGH32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SCSI_PASS_THROUGH32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCSI_PASS_THROUGH32_EX {
     pub Version: u32,
     pub Length: u32,
@@ -2217,17 +2167,17 @@ pub struct SCSI_PASS_THROUGH32_EX {
     pub Cdb: [u8; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SCSI_PASS_THROUGH32_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SCSI_PASS_THROUGH32_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SCSI_PASS_THROUGH32_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCSI_PASS_THROUGH_DIRECT {
     pub Length: u16,
     pub ScsiStatus: u8,
@@ -2243,17 +2193,17 @@ pub struct SCSI_PASS_THROUGH_DIRECT {
     pub SenseInfoOffset: u32,
     pub Cdb: [u8; 16],
 }
-impl windows_core::TypeKind for SCSI_PASS_THROUGH_DIRECT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SCSI_PASS_THROUGH_DIRECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCSI_PASS_THROUGH_DIRECT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCSI_PASS_THROUGH_DIRECT32 {
     pub Length: u16,
     pub ScsiStatus: u8,
@@ -2270,18 +2220,18 @@ pub struct SCSI_PASS_THROUGH_DIRECT32 {
     pub Cdb: [u8; 16],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SCSI_PASS_THROUGH_DIRECT32 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SCSI_PASS_THROUGH_DIRECT32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SCSI_PASS_THROUGH_DIRECT32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCSI_PASS_THROUGH_DIRECT32_EX {
     pub Version: u32,
     pub Length: u32,
@@ -2301,17 +2251,17 @@ pub struct SCSI_PASS_THROUGH_DIRECT32_EX {
     pub Cdb: [u8; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SCSI_PASS_THROUGH_DIRECT32_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SCSI_PASS_THROUGH_DIRECT32_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SCSI_PASS_THROUGH_DIRECT32_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCSI_PASS_THROUGH_DIRECT_EX {
     pub Version: u32,
     pub Length: u32,
@@ -2330,16 +2280,16 @@ pub struct SCSI_PASS_THROUGH_DIRECT_EX {
     pub DataInBuffer: *mut core::ffi::c_void,
     pub Cdb: [u8; 1],
 }
-impl windows_core::TypeKind for SCSI_PASS_THROUGH_DIRECT_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SCSI_PASS_THROUGH_DIRECT_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCSI_PASS_THROUGH_DIRECT_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCSI_PASS_THROUGH_EX {
     pub Version: u32,
     pub Length: u32,
@@ -2358,16 +2308,16 @@ pub struct SCSI_PASS_THROUGH_EX {
     pub DataInBufferOffset: usize,
     pub Cdb: [u8; 1],
 }
-impl windows_core::TypeKind for SCSI_PASS_THROUGH_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SCSI_PASS_THROUGH_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCSI_PASS_THROUGH_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SRB_IO_CONTROL {
     pub HeaderLength: u32,
     pub Signature: [u8; 8],
@@ -2376,16 +2326,16 @@ pub struct SRB_IO_CONTROL {
     pub ReturnCode: u32,
     pub Length: u32,
 }
-impl windows_core::TypeKind for SRB_IO_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SRB_IO_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SRB_IO_CONTROL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct STORAGE_DIAGNOSTIC_MP_REQUEST {
     pub Version: u32,
     pub Size: u32,
@@ -2396,31 +2346,31 @@ pub struct STORAGE_DIAGNOSTIC_MP_REQUEST {
     pub Reserved: u32,
     pub DataBuffer: [u8; 1],
 }
-impl windows_core::TypeKind for STORAGE_DIAGNOSTIC_MP_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for STORAGE_DIAGNOSTIC_MP_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for STORAGE_DIAGNOSTIC_MP_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct STORAGE_ENDURANCE_DATA_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub EnduranceInfo: STORAGE_ENDURANCE_INFO,
-}
-impl windows_core::TypeKind for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct STORAGE_ENDURANCE_INFO {
     pub ValidFields: u32,
     pub GroupId: u32,
@@ -2429,45 +2379,45 @@ pub struct STORAGE_ENDURANCE_INFO {
     pub BytesReadCount: [u8; 16],
     pub ByteWriteCount: [u8; 16],
 }
-impl windows_core::TypeKind for STORAGE_ENDURANCE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for STORAGE_ENDURANCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for STORAGE_ENDURANCE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct STORAGE_ENDURANCE_INFO_0 {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for STORAGE_ENDURANCE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for STORAGE_ENDURANCE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for STORAGE_ENDURANCE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct STORAGE_FIRMWARE_ACTIVATE {
     pub Version: u32,
     pub Size: u32,
     pub SlotToActivate: u8,
     pub Reserved0: [u8; 3],
 }
-impl windows_core::TypeKind for STORAGE_FIRMWARE_ACTIVATE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for STORAGE_FIRMWARE_ACTIVATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for STORAGE_FIRMWARE_ACTIVATE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct STORAGE_FIRMWARE_DOWNLOAD {
     pub Version: u32,
     pub Size: u32,
@@ -2475,16 +2425,16 @@ pub struct STORAGE_FIRMWARE_DOWNLOAD {
     pub BufferSize: u64,
     pub ImageBuffer: [u8; 1],
 }
-impl windows_core::TypeKind for STORAGE_FIRMWARE_DOWNLOAD {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for STORAGE_FIRMWARE_DOWNLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for STORAGE_FIRMWARE_DOWNLOAD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct STORAGE_FIRMWARE_DOWNLOAD_V2 {
     pub Version: u32,
     pub Size: u32,
@@ -2495,16 +2445,16 @@ pub struct STORAGE_FIRMWARE_DOWNLOAD_V2 {
     pub ImageSize: u32,
     pub ImageBuffer: [u8; 1],
 }
-impl windows_core::TypeKind for STORAGE_FIRMWARE_DOWNLOAD_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for STORAGE_FIRMWARE_DOWNLOAD_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for STORAGE_FIRMWARE_DOWNLOAD_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct STORAGE_FIRMWARE_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -2515,16 +2465,16 @@ pub struct STORAGE_FIRMWARE_INFO {
     pub Reserved: u32,
     pub Slot: [STORAGE_FIRMWARE_SLOT_INFO; 1],
 }
-impl windows_core::TypeKind for STORAGE_FIRMWARE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for STORAGE_FIRMWARE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for STORAGE_FIRMWARE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct STORAGE_FIRMWARE_INFO_V2 {
     pub Version: u32,
     pub Size: u32,
@@ -2538,68 +2488,63 @@ pub struct STORAGE_FIRMWARE_INFO_V2 {
     pub ImagePayloadMaxSize: u32,
     pub Slot: [STORAGE_FIRMWARE_SLOT_INFO_V2; 1],
 }
-impl windows_core::TypeKind for STORAGE_FIRMWARE_INFO_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for STORAGE_FIRMWARE_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for STORAGE_FIRMWARE_INFO_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct STORAGE_FIRMWARE_SLOT_INFO {
     pub SlotNumber: u8,
     pub ReadOnly: super::super::Foundation::BOOLEAN,
     pub Reserved: [u8; 6],
     pub Revision: STORAGE_FIRMWARE_SLOT_INFO_0,
 }
-impl windows_core::TypeKind for STORAGE_FIRMWARE_SLOT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for STORAGE_FIRMWARE_SLOT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for STORAGE_FIRMWARE_SLOT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union STORAGE_FIRMWARE_SLOT_INFO_0 {
     pub Info: [u8; 8],
     pub AsUlonglong: u64,
-}
-impl windows_core::TypeKind for STORAGE_FIRMWARE_SLOT_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for STORAGE_FIRMWARE_SLOT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for STORAGE_FIRMWARE_SLOT_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct STORAGE_FIRMWARE_SLOT_INFO_V2 {
     pub SlotNumber: u8,
     pub ReadOnly: super::super::Foundation::BOOLEAN,
     pub Reserved: [u8; 6],
     pub Revision: [u8; 16],
 }
-impl windows_core::TypeKind for STORAGE_FIRMWARE_SLOT_INFO_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for STORAGE_FIRMWARE_SLOT_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct _ADAPTER_OBJECT(pub isize);
-impl Default for _ADAPTER_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+impl windows_core::TypeKind for STORAGE_FIRMWARE_SLOT_INFO_V2 {
+    type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct _ADAPTER_OBJECT(pub isize);
 impl windows_core::TypeKind for _ADAPTER_OBJECT {
     type TypeKind = windows_core::CopyType;
 }

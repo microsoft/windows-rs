@@ -27,7 +27,11 @@ pub struct IHolographicKeyboardStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicKeyboard(windows_core::IUnknown);
+impl windows_core::RuntimeType for HolographicKeyboard {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicKeyboard>();
+}
 windows_core::imp::interface_hierarchy!(HolographicKeyboard, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(HolographicKeyboard,);
 impl HolographicKeyboard {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn SetPlacementOverride<P0>(&self, coordinatesystem: P0, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<()>
@@ -60,15 +64,10 @@ impl HolographicKeyboard {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for HolographicKeyboard {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicKeyboard>();
-}
 unsafe impl windows_core::Interface for HolographicKeyboard {
-    type Vtable = IHolographicKeyboard_Vtbl;
+    type Vtable = <IHolographicKeyboard as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicKeyboard as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicKeyboard {
     const NAME: &'static str = "Windows.ApplicationModel.Holographic.HolographicKeyboard";
 }
-unsafe impl Send for HolographicKeyboard {}
-unsafe impl Sync for HolographicKeyboard {}

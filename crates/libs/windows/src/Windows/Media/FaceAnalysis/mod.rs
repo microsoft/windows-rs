@@ -109,7 +109,11 @@ pub struct IFaceTrackerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DetectedFace(windows_core::IUnknown);
+impl windows_core::RuntimeType for DetectedFace {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDetectedFace>();
+}
 windows_core::imp::interface_hierarchy!(DetectedFace, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(DetectedFace,);
 impl DetectedFace {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn FaceBox(&self) -> windows_core::Result<super::super::Graphics::Imaging::BitmapBounds> {
@@ -120,22 +124,21 @@ impl DetectedFace {
         }
     }
 }
-impl windows_core::RuntimeType for DetectedFace {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDetectedFace>();
-}
 unsafe impl windows_core::Interface for DetectedFace {
-    type Vtable = IDetectedFace_Vtbl;
+    type Vtable = <IDetectedFace as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDetectedFace as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DetectedFace {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.DetectedFace";
 }
-unsafe impl Send for DetectedFace {}
-unsafe impl Sync for DetectedFace {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FaceDetector(windows_core::IUnknown);
+impl windows_core::RuntimeType for FaceDetector {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFaceDetector>();
+}
 windows_core::imp::interface_hierarchy!(FaceDetector, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(FaceDetector,);
 impl FaceDetector {
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
     pub fn DetectFacesAsync<P0>(&self, image: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
@@ -216,22 +219,21 @@ impl FaceDetector {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for FaceDetector {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFaceDetector>();
-}
 unsafe impl windows_core::Interface for FaceDetector {
-    type Vtable = IFaceDetector_Vtbl;
+    type Vtable = <IFaceDetector as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFaceDetector as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FaceDetector {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceDetector";
 }
-unsafe impl Send for FaceDetector {}
-unsafe impl Sync for FaceDetector {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FaceTracker(windows_core::IUnknown);
+impl windows_core::RuntimeType for FaceTracker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFaceTracker>();
+}
 windows_core::imp::interface_hierarchy!(FaceTracker, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(FaceTracker,);
 impl FaceTracker {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProcessNextFrameAsync<P0>(&self, videoframe: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
@@ -301,15 +303,10 @@ impl FaceTracker {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for FaceTracker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFaceTracker>();
-}
 unsafe impl windows_core::Interface for FaceTracker {
-    type Vtable = IFaceTracker_Vtbl;
+    type Vtable = <IFaceTracker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFaceTracker as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FaceTracker {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceTracker";
 }
-unsafe impl Send for FaceTracker {}
-unsafe impl Sync for FaceTracker {}

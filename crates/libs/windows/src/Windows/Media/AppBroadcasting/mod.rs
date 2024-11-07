@@ -61,7 +61,11 @@ pub struct IAppBroadcastingUIStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastingMonitor(windows_core::IUnknown);
+impl windows_core::RuntimeType for AppBroadcastingMonitor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastingMonitor>();
+}
 windows_core::imp::interface_hierarchy!(AppBroadcastingMonitor, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(AppBroadcastingMonitor,);
 impl AppBroadcastingMonitor {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -92,22 +96,21 @@ impl AppBroadcastingMonitor {
         unsafe { (windows_core::Interface::vtable(this).RemoveIsCurrentAppBroadcastingChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl windows_core::RuntimeType for AppBroadcastingMonitor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastingMonitor>();
-}
 unsafe impl windows_core::Interface for AppBroadcastingMonitor {
-    type Vtable = IAppBroadcastingMonitor_Vtbl;
+    type Vtable = <IAppBroadcastingMonitor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppBroadcastingMonitor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppBroadcastingMonitor {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingMonitor";
 }
-unsafe impl Send for AppBroadcastingMonitor {}
-unsafe impl Sync for AppBroadcastingMonitor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastingStatus(windows_core::IUnknown);
+impl windows_core::RuntimeType for AppBroadcastingStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastingStatus>();
+}
 windows_core::imp::interface_hierarchy!(AppBroadcastingStatus, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(AppBroadcastingStatus,);
 impl AppBroadcastingStatus {
     pub fn CanStartBroadcast(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -124,22 +127,21 @@ impl AppBroadcastingStatus {
         }
     }
 }
-impl windows_core::RuntimeType for AppBroadcastingStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastingStatus>();
-}
 unsafe impl windows_core::Interface for AppBroadcastingStatus {
-    type Vtable = IAppBroadcastingStatus_Vtbl;
+    type Vtable = <IAppBroadcastingStatus as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppBroadcastingStatus as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppBroadcastingStatus {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingStatus";
 }
-unsafe impl Send for AppBroadcastingStatus {}
-unsafe impl Sync for AppBroadcastingStatus {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastingStatusDetails(windows_core::IUnknown);
+impl windows_core::RuntimeType for AppBroadcastingStatusDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastingStatusDetails>();
+}
 windows_core::imp::interface_hierarchy!(AppBroadcastingStatusDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(AppBroadcastingStatusDetails,);
 impl AppBroadcastingStatusDetails {
     pub fn IsAnyAppBroadcasting(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -198,22 +200,21 @@ impl AppBroadcastingStatusDetails {
         }
     }
 }
-impl windows_core::RuntimeType for AppBroadcastingStatusDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastingStatusDetails>();
-}
 unsafe impl windows_core::Interface for AppBroadcastingStatusDetails {
-    type Vtable = IAppBroadcastingStatusDetails_Vtbl;
+    type Vtable = <IAppBroadcastingStatusDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppBroadcastingStatusDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppBroadcastingStatusDetails {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails";
 }
-unsafe impl Send for AppBroadcastingStatusDetails {}
-unsafe impl Sync for AppBroadcastingStatusDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastingUI(windows_core::IUnknown);
+impl windows_core::RuntimeType for AppBroadcastingUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastingUI>();
+}
 windows_core::imp::interface_hierarchy!(AppBroadcastingUI, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(AppBroadcastingUI,);
 impl AppBroadcastingUI {
     pub fn GetStatus(&self) -> windows_core::Result<AppBroadcastingStatus> {
         let this = self;
@@ -247,15 +248,10 @@ impl AppBroadcastingUI {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for AppBroadcastingUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastingUI>();
-}
 unsafe impl windows_core::Interface for AppBroadcastingUI {
-    type Vtable = IAppBroadcastingUI_Vtbl;
+    type Vtable = <IAppBroadcastingUI as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppBroadcastingUI as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppBroadcastingUI {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingUI";
 }
-unsafe impl Send for AppBroadcastingUI {}
-unsafe impl Sync for AppBroadcastingUI {}

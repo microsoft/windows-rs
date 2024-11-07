@@ -412,11 +412,8 @@ pub struct IContactEmail_Vtbl {
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactField, IContactField_Vtbl, 0xb176486a_d293_492c_a058_db575b3e3c0f);
-impl core::ops::Deref for IContactField {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IContactField {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IContactField, windows_core::IUnknown, windows_core::IInspectable);
 impl IContactField {
@@ -449,9 +446,6 @@ impl IContactField {
         }
     }
 }
-impl windows_core::RuntimeType for IContactField {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IContactField_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -460,17 +454,17 @@ pub struct IContactField_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
+impl windows_core::RuntimeName for IContactField {
+    const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactField";
+}
 pub trait IContactField_Impl: Sized + windows_core::IUnknownImpl {
     fn Type(&self) -> windows_core::Result<ContactFieldType>;
     fn Category(&self) -> windows_core::Result<ContactFieldCategory>;
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Value(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
-impl windows_core::RuntimeName for IContactField {
-    const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactField";
-}
 impl IContactField_Vtbl {
-    pub const fn new<Identity: IContactField_Impl, const OFFSET: isize>() -> IContactField_Vtbl {
+    pub const fn new<Identity: IContactField_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Type<Identity: IContactField_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ContactFieldType) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IContactField_Impl::Type(this) {
@@ -526,11 +520,8 @@ impl IContactField_Vtbl {
     }
 }
 windows_core::imp::define_interface!(IContactFieldFactory, IContactFieldFactory_Vtbl, 0x85e2913f_0e4a_4a3e_8994_406ae7ed646e);
-impl core::ops::Deref for IContactFieldFactory {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IContactFieldFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IContactFieldFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IContactFieldFactory {
@@ -556,9 +547,6 @@ impl IContactFieldFactory {
         }
     }
 }
-impl windows_core::RuntimeType for IContactFieldFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IContactFieldFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -566,16 +554,16 @@ pub struct IContactFieldFactory_Vtbl {
     pub CreateField_Category: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, ContactFieldType, ContactFieldCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateField_Custom: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, ContactFieldType, ContactFieldCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+impl windows_core::RuntimeName for IContactFieldFactory {
+    const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactFieldFactory";
+}
 pub trait IContactFieldFactory_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateField_Default(&self, value: &windows_core::HSTRING, r#type: ContactFieldType) -> windows_core::Result<ContactField>;
     fn CreateField_Category(&self, value: &windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> windows_core::Result<ContactField>;
     fn CreateField_Custom(&self, name: &windows_core::HSTRING, value: &windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> windows_core::Result<ContactField>;
 }
-impl windows_core::RuntimeName for IContactFieldFactory {
-    const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactFieldFactory";
-}
 impl IContactFieldFactory_Vtbl {
-    pub const fn new<Identity: IContactFieldFactory_Impl, const OFFSET: isize>() -> IContactFieldFactory_Vtbl {
+    pub const fn new<Identity: IContactFieldFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateField_Default<Identity: IContactFieldFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>, r#type: ContactFieldType, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IContactFieldFactory_Impl::CreateField_Default(this, core::mem::transmute(&value), r#type) {
@@ -678,11 +666,8 @@ pub struct IContactInstantMessageField_Vtbl {
     pub LaunchUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactInstantMessageFieldFactory, IContactInstantMessageFieldFactory_Vtbl, 0xba0b6794_91a3_4bb2_b1b9_69a5dff0ba09);
-impl core::ops::Deref for IContactInstantMessageFieldFactory {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IContactInstantMessageFieldFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IContactInstantMessageFieldFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IContactInstantMessageFieldFactory {
@@ -700,9 +685,9 @@ impl IContactInstantMessageFieldFactory {
             (windows_core::Interface::vtable(this).CreateInstantMessage_Category)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(username), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstantMessage_All<P0>(&self, username: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displaytext: &windows_core::HSTRING, verb: P0) -> windows_core::Result<ContactInstantMessageField>
+    pub fn CreateInstantMessage_All<P4>(&self, username: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displaytext: &windows_core::HSTRING, verb: P4) -> windows_core::Result<ContactInstantMessageField>
     where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
+        P4: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe {
@@ -711,9 +696,6 @@ impl IContactInstantMessageFieldFactory {
         }
     }
 }
-impl windows_core::RuntimeType for IContactInstantMessageFieldFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IContactInstantMessageFieldFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -721,16 +703,16 @@ pub struct IContactInstantMessageFieldFactory_Vtbl {
     pub CreateInstantMessage_Category: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, ContactFieldCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateInstantMessage_All: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, ContactFieldCategory, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IContactInstantMessageFieldFactory_Impl: Sized + windows_core::IUnknownImpl {
-    fn CreateInstantMessage_Default(&self, username: &windows_core::HSTRING) -> windows_core::Result<ContactInstantMessageField>;
-    fn CreateInstantMessage_Category(&self, username: &windows_core::HSTRING, category: ContactFieldCategory) -> windows_core::Result<ContactInstantMessageField>;
-    fn CreateInstantMessage_All(&self, username: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displaytext: &windows_core::HSTRING, verb: Option<&super::super::Foundation::Uri>) -> windows_core::Result<ContactInstantMessageField>;
-}
 impl windows_core::RuntimeName for IContactInstantMessageFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactInstantMessageFieldFactory";
 }
+pub trait IContactInstantMessageFieldFactory_Impl: Sized + windows_core::IUnknownImpl {
+    fn CreateInstantMessage_Default(&self, userName: &windows_core::HSTRING) -> windows_core::Result<ContactInstantMessageField>;
+    fn CreateInstantMessage_Category(&self, userName: &windows_core::HSTRING, category: ContactFieldCategory) -> windows_core::Result<ContactInstantMessageField>;
+    fn CreateInstantMessage_All(&self, userName: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displayText: &windows_core::HSTRING, verb: Option<&super::super::Foundation::Uri>) -> windows_core::Result<ContactInstantMessageField>;
+}
 impl IContactInstantMessageFieldFactory_Vtbl {
-    pub const fn new<Identity: IContactInstantMessageFieldFactory_Impl, const OFFSET: isize>() -> IContactInstantMessageFieldFactory_Vtbl {
+    pub const fn new<Identity: IContactInstantMessageFieldFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateInstantMessage_Default<Identity: IContactInstantMessageFieldFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, username: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IContactInstantMessageFieldFactory_Impl::CreateInstantMessage_Default(this, core::mem::transmute(&username)) {
@@ -980,11 +962,8 @@ pub struct IContactLocationField_Vtbl {
     pub PostalCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContactLocationFieldFactory, IContactLocationFieldFactory_Vtbl, 0xf79932d7_2fdf_43fe_8f18_41897390bcfe);
-impl core::ops::Deref for IContactLocationFieldFactory {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IContactLocationFieldFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IContactLocationFieldFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IContactLocationFieldFactory {
@@ -1010,9 +989,6 @@ impl IContactLocationFieldFactory {
         }
     }
 }
-impl windows_core::RuntimeType for IContactLocationFieldFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IContactLocationFieldFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1020,16 +996,16 @@ pub struct IContactLocationFieldFactory_Vtbl {
     pub CreateLocation_Category: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, ContactFieldCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateLocation_All: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, ContactFieldCategory, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IContactLocationFieldFactory_Impl: Sized + windows_core::IUnknownImpl {
-    fn CreateLocation_Default(&self, unstructuredaddress: &windows_core::HSTRING) -> windows_core::Result<ContactLocationField>;
-    fn CreateLocation_Category(&self, unstructuredaddress: &windows_core::HSTRING, category: ContactFieldCategory) -> windows_core::Result<ContactLocationField>;
-    fn CreateLocation_All(&self, unstructuredaddress: &windows_core::HSTRING, category: ContactFieldCategory, street: &windows_core::HSTRING, city: &windows_core::HSTRING, region: &windows_core::HSTRING, country: &windows_core::HSTRING, postalcode: &windows_core::HSTRING) -> windows_core::Result<ContactLocationField>;
-}
 impl windows_core::RuntimeName for IContactLocationFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactLocationFieldFactory";
 }
+pub trait IContactLocationFieldFactory_Impl: Sized + windows_core::IUnknownImpl {
+    fn CreateLocation_Default(&self, unstructuredAddress: &windows_core::HSTRING) -> windows_core::Result<ContactLocationField>;
+    fn CreateLocation_Category(&self, unstructuredAddress: &windows_core::HSTRING, category: ContactFieldCategory) -> windows_core::Result<ContactLocationField>;
+    fn CreateLocation_All(&self, unstructuredAddress: &windows_core::HSTRING, category: ContactFieldCategory, street: &windows_core::HSTRING, city: &windows_core::HSTRING, region: &windows_core::HSTRING, country: &windows_core::HSTRING, postalCode: &windows_core::HSTRING) -> windows_core::Result<ContactLocationField>;
+}
 impl IContactLocationFieldFactory_Vtbl {
-    pub const fn new<Identity: IContactLocationFieldFactory_Impl, const OFFSET: isize>() -> IContactLocationFieldFactory_Vtbl {
+    pub const fn new<Identity: IContactLocationFieldFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateLocation_Default<Identity: IContactLocationFieldFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unstructuredaddress: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IContactLocationFieldFactory_Impl::CreateLocation_Default(this, core::mem::transmute(&unstructuredaddress)) {
@@ -1616,7 +1592,11 @@ pub struct IPinnedContactManagerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AggregateContactManager(windows_core::IUnknown);
+impl windows_core::RuntimeType for AggregateContactManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAggregateContactManager>();
+}
 windows_core::imp::interface_hierarchy!(AggregateContactManager, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(AggregateContactManager,);
 impl AggregateContactManager {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindRawContactsAsync<P0>(&self, contact: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>
@@ -1669,22 +1649,21 @@ impl AggregateContactManager {
         }
     }
 }
-impl windows_core::RuntimeType for AggregateContactManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAggregateContactManager>();
-}
 unsafe impl windows_core::Interface for AggregateContactManager {
-    type Vtable = IAggregateContactManager_Vtbl;
+    type Vtable = <IAggregateContactManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAggregateContactManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AggregateContactManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.AggregateContactManager";
 }
-unsafe impl Send for AggregateContactManager {}
-unsafe impl Sync for AggregateContactManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Contact(windows_core::IUnknown);
+impl windows_core::RuntimeType for Contact {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContact>();
+}
 windows_core::imp::interface_hierarchy!(Contact, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(Contact,);
 impl Contact {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1694,19 +1673,19 @@ impl Contact {
         SHARED.call(callback)
     }
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContact>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContact>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContact>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Thumbnail)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1717,12 +1696,12 @@ impl Contact {
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContact>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Fields(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<IContactField>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContact>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Fields)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2069,22 +2048,21 @@ impl Contact {
         }
     }
 }
-impl windows_core::RuntimeType for Contact {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContact>();
-}
 unsafe impl windows_core::Interface for Contact {
-    type Vtable = IContact_Vtbl;
+    type Vtable = <IContact as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContact as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Contact {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Contact";
 }
-unsafe impl Send for Contact {}
-unsafe impl Sync for Contact {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactAddress(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactAddress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactAddress>();
+}
 windows_core::imp::interface_hierarchy!(ContactAddress, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactAddress,);
 impl ContactAddress {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2171,22 +2149,21 @@ impl ContactAddress {
         unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactAddress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactAddress>();
-}
 unsafe impl windows_core::Interface for ContactAddress {
-    type Vtable = IContactAddress_Vtbl;
+    type Vtable = <IContactAddress as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactAddress as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAddress";
 }
-unsafe impl Send for ContactAddress {}
-unsafe impl Sync for ContactAddress {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactAnnotation(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactAnnotation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactAnnotation>();
+}
 windows_core::imp::interface_hierarchy!(ContactAnnotation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactAnnotation,);
 impl ContactAnnotation {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2269,22 +2246,21 @@ impl ContactAnnotation {
         unsafe { (windows_core::Interface::vtable(this).SetContactListId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactAnnotation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactAnnotation>();
-}
 unsafe impl windows_core::Interface for ContactAnnotation {
-    type Vtable = IContactAnnotation_Vtbl;
+    type Vtable = <IContactAnnotation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactAnnotation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactAnnotation {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAnnotation";
 }
-unsafe impl Send for ContactAnnotation {}
-unsafe impl Sync for ContactAnnotation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactAnnotationList(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactAnnotationList {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactAnnotationList>();
+}
 windows_core::imp::interface_hierarchy!(ContactAnnotationList, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactAnnotationList,);
 impl ContactAnnotationList {
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2358,22 +2334,21 @@ impl ContactAnnotationList {
         }
     }
 }
-impl windows_core::RuntimeType for ContactAnnotationList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactAnnotationList>();
-}
 unsafe impl windows_core::Interface for ContactAnnotationList {
-    type Vtable = IContactAnnotationList_Vtbl;
+    type Vtable = <IContactAnnotationList as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactAnnotationList as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactAnnotationList {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAnnotationList";
 }
-unsafe impl Send for ContactAnnotationList {}
-unsafe impl Sync for ContactAnnotationList {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactAnnotationStore(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactAnnotationStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactAnnotationStore>();
+}
 windows_core::imp::interface_hierarchy!(ContactAnnotationStore, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactAnnotationStore,);
 impl ContactAnnotationStore {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindContactIdsByEmailAsync(&self, emailaddress: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>> {
@@ -2450,22 +2425,21 @@ impl ContactAnnotationStore {
         }
     }
 }
-impl windows_core::RuntimeType for ContactAnnotationStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactAnnotationStore>();
-}
 unsafe impl windows_core::Interface for ContactAnnotationStore {
-    type Vtable = IContactAnnotationStore_Vtbl;
+    type Vtable = <IContactAnnotationStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactAnnotationStore as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactAnnotationStore {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAnnotationStore";
 }
-unsafe impl Send for ContactAnnotationStore {}
-unsafe impl Sync for ContactAnnotationStore {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactBatch(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactBatch {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactBatch>();
+}
 windows_core::imp::interface_hierarchy!(ContactBatch, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactBatch,);
 impl ContactBatch {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Contacts(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<Contact>> {
@@ -2483,28 +2457,22 @@ impl ContactBatch {
         }
     }
 }
-impl windows_core::RuntimeType for ContactBatch {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactBatch>();
-}
 unsafe impl windows_core::Interface for ContactBatch {
-    type Vtable = IContactBatch_Vtbl;
+    type Vtable = <IContactBatch as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactBatch as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactBatch";
 }
-unsafe impl Send for ContactBatch {}
-unsafe impl Sync for ContactBatch {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactCardDelayedDataLoader(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactCardDelayedDataLoader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactCardDelayedDataLoader>();
+}
 windows_core::imp::interface_hierarchy!(ContactCardDelayedDataLoader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactCardDelayedDataLoader, super::super::Foundation::IClosable);
 impl ContactCardDelayedDataLoader {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn SetData<P0>(&self, contact: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<Contact>,
@@ -2512,23 +2480,26 @@ impl ContactCardDelayedDataLoader {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), contact.param().abi()).ok() }
     }
-}
-impl windows_core::RuntimeType for ContactCardDelayedDataLoader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactCardDelayedDataLoader>();
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
 }
 unsafe impl windows_core::Interface for ContactCardDelayedDataLoader {
-    type Vtable = IContactCardDelayedDataLoader_Vtbl;
+    type Vtable = <IContactCardDelayedDataLoader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactCardDelayedDataLoader as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactCardDelayedDataLoader {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactCardDelayedDataLoader";
 }
-unsafe impl Send for ContactCardDelayedDataLoader {}
-unsafe impl Sync for ContactCardDelayedDataLoader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactCardOptions(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactCardOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactCardOptions>();
+}
 windows_core::imp::interface_hierarchy!(ContactCardOptions, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactCardOptions,);
 impl ContactCardOptions {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2538,25 +2509,25 @@ impl ContactCardOptions {
         SHARED.call(callback)
     }
     pub fn HeaderKind(&self) -> windows_core::Result<ContactCardHeaderKind> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContactCardOptions>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HeaderKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetHeaderKind(&self, value: ContactCardHeaderKind) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContactCardOptions>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetHeaderKind)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn InitialTabKind(&self) -> windows_core::Result<ContactCardTabKind> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContactCardOptions>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialTabKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetInitialTabKind(&self, value: ContactCardTabKind) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContactCardOptions>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInitialTabKind)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2568,22 +2539,21 @@ impl ContactCardOptions {
         }
     }
 }
-impl windows_core::RuntimeType for ContactCardOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactCardOptions>();
-}
 unsafe impl windows_core::Interface for ContactCardOptions {
-    type Vtable = IContactCardOptions_Vtbl;
+    type Vtable = <IContactCardOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactCardOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactCardOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactCardOptions";
 }
-unsafe impl Send for ContactCardOptions {}
-unsafe impl Sync for ContactCardOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactChange(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactChange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactChange>();
+}
 windows_core::imp::interface_hierarchy!(ContactChange, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactChange,);
 impl ContactChange {
     pub fn ChangeType(&self) -> windows_core::Result<ContactChangeType> {
         let this = self;
@@ -2600,22 +2570,21 @@ impl ContactChange {
         }
     }
 }
-impl windows_core::RuntimeType for ContactChange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactChange>();
-}
 unsafe impl windows_core::Interface for ContactChange {
-    type Vtable = IContactChange_Vtbl;
+    type Vtable = <IContactChange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactChange as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactChange {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChange";
 }
-unsafe impl Send for ContactChange {}
-unsafe impl Sync for ContactChange {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactChangeReader(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactChangeReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactChangeReader>();
+}
 windows_core::imp::interface_hierarchy!(ContactChangeReader, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactChangeReader,);
 impl ContactChangeReader {
     pub fn AcceptChanges(&self) -> windows_core::Result<()> {
         let this = self;
@@ -2637,22 +2606,21 @@ impl ContactChangeReader {
         }
     }
 }
-impl windows_core::RuntimeType for ContactChangeReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactChangeReader>();
-}
 unsafe impl windows_core::Interface for ContactChangeReader {
-    type Vtable = IContactChangeReader_Vtbl;
+    type Vtable = <IContactChangeReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactChangeReader as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangeReader";
 }
-unsafe impl Send for ContactChangeReader {}
-unsafe impl Sync for ContactChangeReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactChangeTracker(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactChangeTracker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactChangeTracker>();
+}
 windows_core::imp::interface_hierarchy!(ContactChangeTracker, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactChangeTracker,);
 impl ContactChangeTracker {
     pub fn Enable(&self) -> windows_core::Result<()> {
         let this = self;
@@ -2677,44 +2645,42 @@ impl ContactChangeTracker {
         }
     }
 }
-impl windows_core::RuntimeType for ContactChangeTracker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactChangeTracker>();
-}
 unsafe impl windows_core::Interface for ContactChangeTracker {
-    type Vtable = IContactChangeTracker_Vtbl;
+    type Vtable = <IContactChangeTracker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactChangeTracker as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangeTracker";
 }
-unsafe impl Send for ContactChangeTracker {}
-unsafe impl Sync for ContactChangeTracker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactChangedDeferral(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactChangedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactChangedDeferral>();
+}
 windows_core::imp::interface_hierarchy!(ContactChangedDeferral, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactChangedDeferral,);
 impl ContactChangedDeferral {
     pub fn Complete(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactChangedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactChangedDeferral>();
-}
 unsafe impl windows_core::Interface for ContactChangedDeferral {
-    type Vtable = IContactChangedDeferral_Vtbl;
+    type Vtable = <IContactChangedDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactChangedDeferral as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangedDeferral";
 }
-unsafe impl Send for ContactChangedDeferral {}
-unsafe impl Sync for ContactChangedDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactChangedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactChangedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(ContactChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactChangedEventArgs,);
 impl ContactChangedEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<ContactChangedDeferral> {
         let this = self;
@@ -2724,22 +2690,21 @@ impl ContactChangedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for ContactChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactChangedEventArgs>();
-}
 unsafe impl windows_core::Interface for ContactChangedEventArgs {
-    type Vtable = IContactChangedEventArgs_Vtbl;
+    type Vtable = <IContactChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangedEventArgs";
 }
-unsafe impl Send for ContactChangedEventArgs {}
-unsafe impl Sync for ContactChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactConnectedServiceAccount(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactConnectedServiceAccount {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactConnectedServiceAccount>();
+}
 windows_core::imp::interface_hierarchy!(ContactConnectedServiceAccount, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactConnectedServiceAccount,);
 impl ContactConnectedServiceAccount {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2771,22 +2736,21 @@ impl ContactConnectedServiceAccount {
         unsafe { (windows_core::Interface::vtable(this).SetServiceName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactConnectedServiceAccount {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactConnectedServiceAccount>();
-}
 unsafe impl windows_core::Interface for ContactConnectedServiceAccount {
-    type Vtable = IContactConnectedServiceAccount_Vtbl;
+    type Vtable = <IContactConnectedServiceAccount as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactConnectedServiceAccount as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactConnectedServiceAccount {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactConnectedServiceAccount";
 }
-unsafe impl Send for ContactConnectedServiceAccount {}
-unsafe impl Sync for ContactConnectedServiceAccount {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactDate(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactDate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactDate>();
+}
 windows_core::imp::interface_hierarchy!(ContactDate, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactDate,);
 impl ContactDate {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2860,22 +2824,21 @@ impl ContactDate {
         unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactDate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactDate>();
-}
 unsafe impl windows_core::Interface for ContactDate {
-    type Vtable = IContactDate_Vtbl;
+    type Vtable = <IContactDate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactDate as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactDate {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactDate";
 }
-unsafe impl Send for ContactDate {}
-unsafe impl Sync for ContactDate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactEmail(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactEmail {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactEmail>();
+}
 windows_core::imp::interface_hierarchy!(ContactEmail, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactEmail,);
 impl ContactEmail {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2918,22 +2881,21 @@ impl ContactEmail {
         unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactEmail {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactEmail>();
-}
 unsafe impl windows_core::Interface for ContactEmail {
-    type Vtable = IContactEmail_Vtbl;
+    type Vtable = <IContactEmail as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactEmail as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactEmail {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactEmail";
 }
-unsafe impl Send for ContactEmail {}
-unsafe impl Sync for ContactEmail {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactField(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ContactField, windows_core::IUnknown, windows_core::IInspectable, IContactField);
+impl windows_core::RuntimeType for ContactField {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactField>();
+}
+windows_core::imp::interface_hierarchy!(ContactField, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactField, IContactField, IContactFieldFactory);
 impl ContactField {
     pub fn Type(&self) -> windows_core::Result<ContactFieldType> {
         let this = self;
@@ -2986,23 +2948,21 @@ impl ContactField {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for ContactField {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactField>();
-}
 unsafe impl windows_core::Interface for ContactField {
-    type Vtable = IContactField_Vtbl;
+    type Vtable = <IContactField as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactField as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactField";
 }
-unsafe impl Send for ContactField {}
-unsafe impl Sync for ContactField {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactFieldFactory(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ContactFieldFactory, windows_core::IUnknown, windows_core::IInspectable, IContactFieldFactory);
-windows_core::imp::required_hierarchy!(ContactFieldFactory, IContactInstantMessageFieldFactory, IContactLocationFieldFactory);
+impl windows_core::RuntimeType for ContactFieldFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactFieldFactory>();
+}
+windows_core::imp::interface_hierarchy!(ContactFieldFactory, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactFieldFactory, IContactFieldFactory, IContactInstantMessageFieldFactory, IContactLocationFieldFactory);
 impl ContactFieldFactory {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3046,9 +3006,9 @@ impl ContactFieldFactory {
             (windows_core::Interface::vtable(this).CreateInstantMessage_Category)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(username), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstantMessage_All<P0>(&self, username: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displaytext: &windows_core::HSTRING, verb: P0) -> windows_core::Result<ContactInstantMessageField>
+    pub fn CreateInstantMessage_All<P4>(&self, username: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displaytext: &windows_core::HSTRING, verb: P4) -> windows_core::Result<ContactInstantMessageField>
     where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
+        P4: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IContactInstantMessageFieldFactory>(self)?;
         unsafe {
@@ -3078,39 +3038,37 @@ impl ContactFieldFactory {
         }
     }
 }
-impl windows_core::RuntimeType for ContactFieldFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactFieldFactory>();
-}
 unsafe impl windows_core::Interface for ContactFieldFactory {
-    type Vtable = IContactFieldFactory_Vtbl;
+    type Vtable = <IContactFieldFactory as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactFieldFactory as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactFieldFactory";
 }
-unsafe impl Send for ContactFieldFactory {}
-unsafe impl Sync for ContactFieldFactory {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactGroup(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ContactGroup, windows_core::IUnknown, windows_core::IInspectable);
-impl ContactGroup {}
 impl windows_core::RuntimeType for ContactGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactGroup>();
 }
+windows_core::imp::interface_hierarchy!(ContactGroup, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactGroup,);
+impl ContactGroup {}
 unsafe impl windows_core::Interface for ContactGroup {
-    type Vtable = IContactGroup_Vtbl;
+    type Vtable = <IContactGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactGroup as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactGroup {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactGroup";
 }
-unsafe impl Send for ContactGroup {}
-unsafe impl Sync for ContactGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactInformation(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactInformation>();
+}
 windows_core::imp::interface_hierarchy!(ContactInformation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactInformation,);
 impl ContactInformation {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -3176,11 +3134,8 @@ impl ContactInformation {
         }
     }
 }
-impl windows_core::RuntimeType for ContactInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactInformation>();
-}
 unsafe impl windows_core::Interface for ContactInformation {
-    type Vtable = IContactInformation_Vtbl;
+    type Vtable = <IContactInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactInformation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactInformation {
@@ -3189,8 +3144,11 @@ impl windows_core::RuntimeName for ContactInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactInstantMessageField(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactInstantMessageField {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactInstantMessageField>();
+}
 windows_core::imp::interface_hierarchy!(ContactInstantMessageField, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ContactInstantMessageField, IContactField);
+windows_core::imp::required_hierarchy!(ContactInstantMessageField, IContactField, IContactInstantMessageFieldFactory);
 impl ContactInstantMessageField {
     pub fn Type(&self) -> windows_core::Result<ContactFieldType> {
         let this = &windows_core::Interface::cast::<IContactField>(self)?;
@@ -3260,9 +3218,9 @@ impl ContactInstantMessageField {
             (windows_core::Interface::vtable(this).CreateInstantMessage_Category)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(username), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstantMessage_All<P0>(username: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displaytext: &windows_core::HSTRING, verb: P0) -> windows_core::Result<ContactInstantMessageField>
+    pub fn CreateInstantMessage_All<P4>(username: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displaytext: &windows_core::HSTRING, verb: P4) -> windows_core::Result<ContactInstantMessageField>
     where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
+        P4: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::IContactInstantMessageFieldFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3274,22 +3232,21 @@ impl ContactInstantMessageField {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for ContactInstantMessageField {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactInstantMessageField>();
-}
 unsafe impl windows_core::Interface for ContactInstantMessageField {
-    type Vtable = IContactInstantMessageField_Vtbl;
+    type Vtable = <IContactInstantMessageField as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactInstantMessageField as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactInstantMessageField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactInstantMessageField";
 }
-unsafe impl Send for ContactInstantMessageField {}
-unsafe impl Sync for ContactInstantMessageField {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactJobInfo(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactJobInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactJobInfo>();
+}
 windows_core::imp::interface_hierarchy!(ContactJobInfo, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactJobInfo,);
 impl ContactJobInfo {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3387,18 +3344,13 @@ impl ContactJobInfo {
         unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactJobInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactJobInfo>();
-}
 unsafe impl windows_core::Interface for ContactJobInfo {
-    type Vtable = IContactJobInfo_Vtbl;
+    type Vtable = <IContactJobInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactJobInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactJobInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactJobInfo";
 }
-unsafe impl Send for ContactJobInfo {}
-unsafe impl Sync for ContactJobInfo {}
 pub struct ContactLaunchActionVerbs;
 impl ContactLaunchActionVerbs {
     pub fn Call() -> windows_core::Result<windows_core::HSTRING> {
@@ -3442,7 +3394,11 @@ impl windows_core::RuntimeName for ContactLaunchActionVerbs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactList(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactList {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactList>();
+}
 windows_core::imp::interface_hierarchy!(ContactList, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactList,);
 impl ContactList {
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -3649,22 +3605,21 @@ impl ContactList {
         }
     }
 }
-impl windows_core::RuntimeType for ContactList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactList>();
-}
 unsafe impl windows_core::Interface for ContactList {
-    type Vtable = IContactList_Vtbl;
+    type Vtable = <IContactList as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactList as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactList {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactList";
 }
-unsafe impl Send for ContactList {}
-unsafe impl Sync for ContactList {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListLimitedWriteOperations(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactListLimitedWriteOperations {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListLimitedWriteOperations>();
+}
 windows_core::imp::interface_hierarchy!(ContactListLimitedWriteOperations, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactListLimitedWriteOperations,);
 impl ContactListLimitedWriteOperations {
     pub fn TryCreateOrUpdateContactAsync<P0>(&self, contact: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -3684,22 +3639,21 @@ impl ContactListLimitedWriteOperations {
         }
     }
 }
-impl windows_core::RuntimeType for ContactListLimitedWriteOperations {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListLimitedWriteOperations>();
-}
 unsafe impl windows_core::Interface for ContactListLimitedWriteOperations {
-    type Vtable = IContactListLimitedWriteOperations_Vtbl;
+    type Vtable = <IContactListLimitedWriteOperations as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactListLimitedWriteOperations as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactListLimitedWriteOperations {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactListLimitedWriteOperations";
 }
-unsafe impl Send for ContactListLimitedWriteOperations {}
-unsafe impl Sync for ContactListLimitedWriteOperations {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListSyncConstraints(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactListSyncConstraints {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListSyncConstraints>();
+}
 windows_core::imp::interface_hierarchy!(ContactListSyncConstraints, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactListSyncConstraints,);
 impl ContactListSyncConstraints {
     pub fn CanSyncDescriptions(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -4091,22 +4045,21 @@ impl ContactListSyncConstraints {
         unsafe { (windows_core::Interface::vtable(this).SetMaxWebsites)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactListSyncConstraints {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListSyncConstraints>();
-}
 unsafe impl windows_core::Interface for ContactListSyncConstraints {
-    type Vtable = IContactListSyncConstraints_Vtbl;
+    type Vtable = <IContactListSyncConstraints as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactListSyncConstraints as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactListSyncConstraints {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactListSyncConstraints";
 }
-unsafe impl Send for ContactListSyncConstraints {}
-unsafe impl Sync for ContactListSyncConstraints {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListSyncManager(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactListSyncManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListSyncManager>();
+}
 windows_core::imp::interface_hierarchy!(ContactListSyncManager, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactListSyncManager,);
 impl ContactListSyncManager {
     pub fn Status(&self) -> windows_core::Result<ContactListSyncStatus> {
         let this = self;
@@ -4163,23 +4116,21 @@ impl ContactListSyncManager {
         unsafe { (windows_core::Interface::vtable(this).SetLastAttemptedSyncTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactListSyncManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListSyncManager>();
-}
 unsafe impl windows_core::Interface for ContactListSyncManager {
-    type Vtable = IContactListSyncManager_Vtbl;
+    type Vtable = <IContactListSyncManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactListSyncManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactListSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactListSyncManager";
 }
-unsafe impl Send for ContactListSyncManager {}
-unsafe impl Sync for ContactListSyncManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactLocationField(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactLocationField {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactLocationField>();
+}
 windows_core::imp::interface_hierarchy!(ContactLocationField, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ContactLocationField, IContactField);
+windows_core::imp::required_hierarchy!(ContactLocationField, IContactField, IContactLocationFieldFactory);
 impl ContactLocationField {
     pub fn Type(&self) -> windows_core::Result<ContactFieldType> {
         let this = &windows_core::Interface::cast::<IContactField>(self)?;
@@ -4274,18 +4225,13 @@ impl ContactLocationField {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for ContactLocationField {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactLocationField>();
-}
 unsafe impl windows_core::Interface for ContactLocationField {
-    type Vtable = IContactLocationField_Vtbl;
+    type Vtable = <IContactLocationField as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactLocationField as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactLocationField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactLocationField";
 }
-unsafe impl Send for ContactLocationField {}
-unsafe impl Sync for ContactLocationField {}
 pub struct ContactManager;
 impl ContactManager {
     pub fn ShowContactCard<P0>(contact: P0, selection: super::super::Foundation::Rect) -> windows_core::Result<()>
@@ -4366,10 +4312,10 @@ impl ContactManager {
         })
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowContactCardWithOptions<P0, P1>(contact: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: P1) -> windows_core::Result<()>
+    pub fn ShowContactCardWithOptions<P0, P3>(contact: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<Contact>,
-        P1: windows_core::Param<ContactCardOptions>,
+        P3: windows_core::Param<ContactCardOptions>,
     {
         Self::IContactManagerStatics3(|this| unsafe { (windows_core::Interface::vtable(this).ShowContactCardWithOptions)(windows_core::Interface::as_raw(this), contact.param().abi(), selection, preferredplacement, contactcardoptions.param().abi()).ok() })
     }
@@ -4380,10 +4326,10 @@ impl ContactManager {
         })
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowDelayLoadedContactCardWithOptions<P0, P1>(contact: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: P1) -> windows_core::Result<ContactCardDelayedDataLoader>
+    pub fn ShowDelayLoadedContactCardWithOptions<P0, P3>(contact: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: P3) -> windows_core::Result<ContactCardDelayedDataLoader>
     where
         P0: windows_core::Param<Contact>,
-        P1: windows_core::Param<ContactCardOptions>,
+        P3: windows_core::Param<ContactCardOptions>,
     {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4467,7 +4413,11 @@ impl windows_core::RuntimeName for ContactManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactManagerForUser(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactManagerForUser>();
+}
 windows_core::imp::interface_hierarchy!(ContactManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactManagerForUser,);
 impl ContactManagerForUser {
     #[cfg(feature = "Storage_Streams")]
     pub fn ConvertContactToVCardAsync<P0>(&self, contact: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>
@@ -4555,22 +4505,21 @@ impl ContactManagerForUser {
         unsafe { (windows_core::Interface::vtable(this).ShowFullContactCard)(windows_core::Interface::as_raw(this), contact.param().abi(), fullcontactcardoptions.param().abi()).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactManagerForUser>();
-}
 unsafe impl windows_core::Interface for ContactManagerForUser {
-    type Vtable = IContactManagerForUser_Vtbl;
+    type Vtable = <IContactManagerForUser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactManagerForUser as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactManagerForUser";
 }
-unsafe impl Send for ContactManagerForUser {}
-unsafe impl Sync for ContactManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactMatchReason(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactMatchReason {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactMatchReason>();
+}
 windows_core::imp::interface_hierarchy!(ContactMatchReason, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactMatchReason,);
 impl ContactMatchReason {
     pub fn Field(&self) -> windows_core::Result<ContactMatchReasonKind> {
         let this = self;
@@ -4595,22 +4544,21 @@ impl ContactMatchReason {
         }
     }
 }
-impl windows_core::RuntimeType for ContactMatchReason {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactMatchReason>();
-}
 unsafe impl windows_core::Interface for ContactMatchReason {
-    type Vtable = IContactMatchReason_Vtbl;
+    type Vtable = <IContactMatchReason as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactMatchReason as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactMatchReason {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactMatchReason";
 }
-unsafe impl Send for ContactMatchReason {}
-unsafe impl Sync for ContactMatchReason {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPanel(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactPanel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPanel>();
+}
 windows_core::imp::interface_hierarchy!(ContactPanel, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactPanel,);
 impl ContactPanel {
     pub fn ClosePanel(&self) -> windows_core::Result<()> {
         let this = self;
@@ -4661,22 +4609,21 @@ impl ContactPanel {
         unsafe { (windows_core::Interface::vtable(this).RemoveClosing)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactPanel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPanel>();
-}
 unsafe impl windows_core::Interface for ContactPanel {
-    type Vtable = IContactPanel_Vtbl;
+    type Vtable = <IContactPanel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactPanel as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactPanel {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPanel";
 }
-unsafe impl Send for ContactPanel {}
-unsafe impl Sync for ContactPanel {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPanelClosingEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactPanelClosingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPanelClosingEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(ContactPanelClosingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactPanelClosingEventArgs,);
 impl ContactPanelClosingEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -4686,22 +4633,21 @@ impl ContactPanelClosingEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for ContactPanelClosingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPanelClosingEventArgs>();
-}
 unsafe impl windows_core::Interface for ContactPanelClosingEventArgs {
-    type Vtable = IContactPanelClosingEventArgs_Vtbl;
+    type Vtable = <IContactPanelClosingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactPanelClosingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactPanelClosingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPanelClosingEventArgs";
 }
-unsafe impl Send for ContactPanelClosingEventArgs {}
-unsafe impl Sync for ContactPanelClosingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPanelLaunchFullAppRequestedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactPanelLaunchFullAppRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPanelLaunchFullAppRequestedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(ContactPanelLaunchFullAppRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactPanelLaunchFullAppRequestedEventArgs,);
 impl ContactPanelLaunchFullAppRequestedEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -4715,22 +4661,21 @@ impl ContactPanelLaunchFullAppRequestedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactPanelLaunchFullAppRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPanelLaunchFullAppRequestedEventArgs>();
-}
 unsafe impl windows_core::Interface for ContactPanelLaunchFullAppRequestedEventArgs {
-    type Vtable = IContactPanelLaunchFullAppRequestedEventArgs_Vtbl;
+    type Vtable = <IContactPanelLaunchFullAppRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactPanelLaunchFullAppRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactPanelLaunchFullAppRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPanelLaunchFullAppRequestedEventArgs";
 }
-unsafe impl Send for ContactPanelLaunchFullAppRequestedEventArgs {}
-unsafe impl Sync for ContactPanelLaunchFullAppRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPhone(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactPhone {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPhone>();
+}
 windows_core::imp::interface_hierarchy!(ContactPhone, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactPhone,);
 impl ContactPhone {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -4773,22 +4718,21 @@ impl ContactPhone {
         unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactPhone {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPhone>();
-}
 unsafe impl windows_core::Interface for ContactPhone {
-    type Vtable = IContactPhone_Vtbl;
+    type Vtable = <IContactPhone as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactPhone as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactPhone {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPhone";
 }
-unsafe impl Send for ContactPhone {}
-unsafe impl Sync for ContactPhone {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPicker(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactPicker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPicker>();
+}
 windows_core::imp::interface_hierarchy!(ContactPicker, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactPicker,);
 impl ContactPicker {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -4894,11 +4838,8 @@ impl ContactPicker {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for ContactPicker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPicker>();
-}
 unsafe impl windows_core::Interface for ContactPicker {
-    type Vtable = IContactPicker_Vtbl;
+    type Vtable = <IContactPicker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactPicker as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactPicker {
@@ -4907,7 +4848,11 @@ impl windows_core::RuntimeName for ContactPicker {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactQueryOptions(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactQueryOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactQueryOptions>();
+}
 windows_core::imp::interface_hierarchy!(ContactQueryOptions, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactQueryOptions,);
 impl ContactQueryOptions {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -4989,22 +4934,21 @@ impl ContactQueryOptions {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for ContactQueryOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactQueryOptions>();
-}
 unsafe impl windows_core::Interface for ContactQueryOptions {
-    type Vtable = IContactQueryOptions_Vtbl;
+    type Vtable = <IContactQueryOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactQueryOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactQueryOptions";
 }
-unsafe impl Send for ContactQueryOptions {}
-unsafe impl Sync for ContactQueryOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactQueryTextSearch(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactQueryTextSearch {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactQueryTextSearch>();
+}
 windows_core::imp::interface_hierarchy!(ContactQueryTextSearch, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactQueryTextSearch,);
 impl ContactQueryTextSearch {
     pub fn Fields(&self) -> windows_core::Result<ContactQuerySearchFields> {
         let this = self;
@@ -5040,22 +4984,21 @@ impl ContactQueryTextSearch {
         unsafe { (windows_core::Interface::vtable(this).SetSearchScope)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactQueryTextSearch {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactQueryTextSearch>();
-}
 unsafe impl windows_core::Interface for ContactQueryTextSearch {
-    type Vtable = IContactQueryTextSearch_Vtbl;
+    type Vtable = <IContactQueryTextSearch as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactQueryTextSearch as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactQueryTextSearch {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactQueryTextSearch";
 }
-unsafe impl Send for ContactQueryTextSearch {}
-unsafe impl Sync for ContactQueryTextSearch {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactReader(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactReader>();
+}
 windows_core::imp::interface_hierarchy!(ContactReader, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactReader,);
 impl ContactReader {
     pub fn ReadBatchAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ContactBatch>> {
         let this = self;
@@ -5076,22 +5019,21 @@ impl ContactReader {
         }
     }
 }
-impl windows_core::RuntimeType for ContactReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactReader>();
-}
 unsafe impl windows_core::Interface for ContactReader {
-    type Vtable = IContactReader_Vtbl;
+    type Vtable = <IContactReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactReader as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactReader {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactReader";
 }
-unsafe impl Send for ContactReader {}
-unsafe impl Sync for ContactReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactSignificantOther(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactSignificantOther {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactSignificantOther>();
+}
 windows_core::imp::interface_hierarchy!(ContactSignificantOther, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactSignificantOther,);
 impl ContactSignificantOther {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -5101,25 +5043,25 @@ impl ContactSignificantOther {
         SHARED.call(callback)
     }
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContactSignificantOther>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContactSignificantOther>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContactSignificantOther>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContactSignificantOther>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn Relationship(&self) -> windows_core::Result<ContactRelationship> {
@@ -5134,26 +5076,25 @@ impl ContactSignificantOther {
         unsafe { (windows_core::Interface::vtable(this).SetRelationship)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactSignificantOther {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactSignificantOther>();
-}
 unsafe impl windows_core::Interface for ContactSignificantOther {
-    type Vtable = IContactSignificantOther_Vtbl;
+    type Vtable = <IContactSignificantOther as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactSignificantOther as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactSignificantOther {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactSignificantOther";
 }
-unsafe impl Send for ContactSignificantOther {}
-unsafe impl Sync for ContactSignificantOther {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactStore(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactStore>();
+}
 windows_core::imp::interface_hierarchy!(ContactStore, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactStore,);
 impl ContactStore {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindContactsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContactStore>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindContactsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5161,14 +5102,14 @@ impl ContactStore {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindContactsWithSearchTextAsync(&self, searchtext: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContactStore>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindContactsWithSearchTextAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(searchtext), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetContactAsync(&self, contactid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContactStore>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetContactAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contactid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5263,39 +5204,37 @@ impl ContactStore {
         }
     }
 }
-impl windows_core::RuntimeType for ContactStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactStore>();
-}
 unsafe impl windows_core::Interface for ContactStore {
-    type Vtable = IContactStore_Vtbl;
+    type Vtable = <IContactStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactStore as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactStore {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactStore";
 }
-unsafe impl Send for ContactStore {}
-unsafe impl Sync for ContactStore {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactStoreNotificationTriggerDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ContactStoreNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl ContactStoreNotificationTriggerDetails {}
 impl windows_core::RuntimeType for ContactStoreNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactStoreNotificationTriggerDetails>();
 }
+windows_core::imp::interface_hierarchy!(ContactStoreNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactStoreNotificationTriggerDetails,);
+impl ContactStoreNotificationTriggerDetails {}
 unsafe impl windows_core::Interface for ContactStoreNotificationTriggerDetails {
-    type Vtable = IContactStoreNotificationTriggerDetails_Vtbl;
+    type Vtable = <IContactStoreNotificationTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactStoreNotificationTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactStoreNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactStoreNotificationTriggerDetails";
 }
-unsafe impl Send for ContactStoreNotificationTriggerDetails {}
-unsafe impl Sync for ContactStoreNotificationTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactWebsite(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactWebsite {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactWebsite>();
+}
 windows_core::imp::interface_hierarchy!(ContactWebsite, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactWebsite,);
 impl ContactWebsite {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -5305,7 +5244,7 @@ impl ContactWebsite {
         SHARED.call(callback)
     }
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContactWebsite>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5315,18 +5254,18 @@ impl ContactWebsite {
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContactWebsite>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContactWebsite>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IContactWebsite>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn RawValue(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -5341,22 +5280,21 @@ impl ContactWebsite {
         unsafe { (windows_core::Interface::vtable(this).SetRawValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactWebsite {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactWebsite>();
-}
 unsafe impl windows_core::Interface for ContactWebsite {
-    type Vtable = IContactWebsite_Vtbl;
+    type Vtable = <IContactWebsite as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactWebsite as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactWebsite {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactWebsite";
 }
-unsafe impl Send for ContactWebsite {}
-unsafe impl Sync for ContactWebsite {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FullContactCardOptions(windows_core::IUnknown);
+impl windows_core::RuntimeType for FullContactCardOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFullContactCardOptions>();
+}
 windows_core::imp::interface_hierarchy!(FullContactCardOptions, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(FullContactCardOptions,);
 impl FullContactCardOptions {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -5379,18 +5317,13 @@ impl FullContactCardOptions {
         unsafe { (windows_core::Interface::vtable(this).SetDesiredRemainingView)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl windows_core::RuntimeType for FullContactCardOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFullContactCardOptions>();
-}
 unsafe impl windows_core::Interface for FullContactCardOptions {
-    type Vtable = IFullContactCardOptions_Vtbl;
+    type Vtable = <IFullContactCardOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFullContactCardOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FullContactCardOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.FullContactCardOptions";
 }
-unsafe impl Send for FullContactCardOptions {}
-unsafe impl Sync for FullContactCardOptions {}
 #[cfg(feature = "deprecated")]
 pub struct KnownContactField;
 #[cfg(feature = "deprecated")]
@@ -5437,7 +5370,6 @@ impl KnownContactField {
             (windows_core::Interface::vtable(this).ConvertTypeToName)(windows_core::Interface::as_raw(this), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     fn IKnownContactFieldStatics<R, F: FnOnce(&IKnownContactFieldStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownContactField, IKnownContactFieldStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -5450,7 +5382,11 @@ impl windows_core::RuntimeName for KnownContactField {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PinnedContactIdsQueryResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for PinnedContactIdsQueryResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPinnedContactIdsQueryResult>();
+}
 windows_core::imp::interface_hierarchy!(PinnedContactIdsQueryResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PinnedContactIdsQueryResult,);
 impl PinnedContactIdsQueryResult {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContactIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
@@ -5461,22 +5397,21 @@ impl PinnedContactIdsQueryResult {
         }
     }
 }
-impl windows_core::RuntimeType for PinnedContactIdsQueryResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPinnedContactIdsQueryResult>();
-}
 unsafe impl windows_core::Interface for PinnedContactIdsQueryResult {
-    type Vtable = IPinnedContactIdsQueryResult_Vtbl;
+    type Vtable = <IPinnedContactIdsQueryResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPinnedContactIdsQueryResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PinnedContactIdsQueryResult {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.PinnedContactIdsQueryResult";
 }
-unsafe impl Send for PinnedContactIdsQueryResult {}
-unsafe impl Sync for PinnedContactIdsQueryResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PinnedContactManager(windows_core::IUnknown);
+impl windows_core::RuntimeType for PinnedContactManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPinnedContactManager>();
+}
 windows_core::imp::interface_hierarchy!(PinnedContactManager, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PinnedContactManager,);
 impl PinnedContactManager {
     #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
@@ -5575,20 +5510,15 @@ impl PinnedContactManager {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for PinnedContactManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPinnedContactManager>();
-}
 unsafe impl windows_core::Interface for PinnedContactManager {
-    type Vtable = IPinnedContactManager_Vtbl;
+    type Vtable = <IPinnedContactManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPinnedContactManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PinnedContactManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.PinnedContactManager";
 }
-unsafe impl Send for PinnedContactManager {}
-unsafe impl Sync for PinnedContactManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactAddressKind(pub i32);
 impl ContactAddressKind {
     pub const Home: Self = Self(0i32);
@@ -5598,16 +5528,11 @@ impl ContactAddressKind {
 impl windows_core::TypeKind for ContactAddressKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactAddressKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactAddressKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactAddressKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAddressKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactAnnotationOperations(pub u32);
 impl ContactAnnotationOperations {
     pub const None: Self = Self(0u32);
@@ -5621,49 +5546,11 @@ impl ContactAnnotationOperations {
 impl windows_core::TypeKind for ContactAnnotationOperations {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactAnnotationOperations {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactAnnotationOperations").field(&self.0).finish()
-    }
-}
-impl ContactAnnotationOperations {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for ContactAnnotationOperations {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for ContactAnnotationOperations {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for ContactAnnotationOperations {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for ContactAnnotationOperations {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for ContactAnnotationOperations {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for ContactAnnotationOperations {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationOperations;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactAnnotationStoreAccessType(pub i32);
 impl ContactAnnotationStoreAccessType {
     pub const AppAnnotationsReadWrite: Self = Self(0i32);
@@ -5672,16 +5559,11 @@ impl ContactAnnotationStoreAccessType {
 impl windows_core::TypeKind for ContactAnnotationStoreAccessType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactAnnotationStoreAccessType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactAnnotationStoreAccessType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactAnnotationStoreAccessType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactBatchStatus(pub i32);
 impl ContactBatchStatus {
     pub const Success: Self = Self(0i32);
@@ -5691,16 +5573,11 @@ impl ContactBatchStatus {
 impl windows_core::TypeKind for ContactBatchStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactBatchStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactBatchStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactBatchStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactBatchStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactCardHeaderKind(pub i32);
 impl ContactCardHeaderKind {
     pub const Default: Self = Self(0i32);
@@ -5710,16 +5587,11 @@ impl ContactCardHeaderKind {
 impl windows_core::TypeKind for ContactCardHeaderKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactCardHeaderKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactCardHeaderKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactCardHeaderKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardHeaderKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactCardTabKind(pub i32);
 impl ContactCardTabKind {
     pub const Default: Self = Self(0i32);
@@ -5732,16 +5604,11 @@ impl ContactCardTabKind {
 impl windows_core::TypeKind for ContactCardTabKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactCardTabKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactCardTabKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactCardTabKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardTabKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactChangeType(pub i32);
 impl ContactChangeType {
     pub const Created: Self = Self(0i32);
@@ -5752,16 +5619,11 @@ impl ContactChangeType {
 impl windows_core::TypeKind for ContactChangeType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactChangeType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactChangeType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactChangeType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactChangeType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactDateKind(pub i32);
 impl ContactDateKind {
     pub const Birthday: Self = Self(0i32);
@@ -5771,16 +5633,11 @@ impl ContactDateKind {
 impl windows_core::TypeKind for ContactDateKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactDateKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactDateKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactDateKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactDateKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactEmailKind(pub i32);
 impl ContactEmailKind {
     pub const Personal: Self = Self(0i32);
@@ -5790,16 +5647,11 @@ impl ContactEmailKind {
 impl windows_core::TypeKind for ContactEmailKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactEmailKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactEmailKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactEmailKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactEmailKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactFieldCategory(pub i32);
 impl ContactFieldCategory {
     pub const None: Self = Self(0i32);
@@ -5811,16 +5663,11 @@ impl ContactFieldCategory {
 impl windows_core::TypeKind for ContactFieldCategory {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactFieldCategory {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactFieldCategory").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactFieldCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldCategory;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactFieldType(pub i32);
 impl ContactFieldType {
     pub const Email: Self = Self(0i32);
@@ -5839,16 +5686,11 @@ impl ContactFieldType {
 impl windows_core::TypeKind for ContactFieldType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactFieldType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactFieldType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactFieldType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactListOtherAppReadAccess(pub i32);
 impl ContactListOtherAppReadAccess {
     pub const SystemOnly: Self = Self(0i32);
@@ -5859,16 +5701,11 @@ impl ContactListOtherAppReadAccess {
 impl windows_core::TypeKind for ContactListOtherAppReadAccess {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactListOtherAppReadAccess {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactListOtherAppReadAccess").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactListOtherAppReadAccess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactListOtherAppWriteAccess(pub i32);
 impl ContactListOtherAppWriteAccess {
     pub const None: Self = Self(0i32);
@@ -5878,16 +5715,11 @@ impl ContactListOtherAppWriteAccess {
 impl windows_core::TypeKind for ContactListOtherAppWriteAccess {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactListOtherAppWriteAccess {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactListOtherAppWriteAccess").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactListOtherAppWriteAccess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactListSyncStatus(pub i32);
 impl ContactListSyncStatus {
     pub const Idle: Self = Self(0i32);
@@ -5901,16 +5733,11 @@ impl ContactListSyncStatus {
 impl windows_core::TypeKind for ContactListSyncStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactListSyncStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactListSyncStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactListSyncStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListSyncStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactMatchReasonKind(pub i32);
 impl ContactMatchReasonKind {
     pub const Name: Self = Self(0i32);
@@ -5923,16 +5750,11 @@ impl ContactMatchReasonKind {
 impl windows_core::TypeKind for ContactMatchReasonKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactMatchReasonKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactMatchReasonKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactMatchReasonKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactMatchReasonKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactNameOrder(pub i32);
 impl ContactNameOrder {
     pub const FirstNameLastName: Self = Self(0i32);
@@ -5941,16 +5763,11 @@ impl ContactNameOrder {
 impl windows_core::TypeKind for ContactNameOrder {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactNameOrder {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactNameOrder").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactNameOrder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactNameOrder;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactPhoneKind(pub i32);
 impl ContactPhoneKind {
     pub const Home: Self = Self(0i32);
@@ -5967,16 +5784,11 @@ impl ContactPhoneKind {
 impl windows_core::TypeKind for ContactPhoneKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactPhoneKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactPhoneKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactPhoneKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactPhoneKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactQueryDesiredFields(pub u32);
 impl ContactQueryDesiredFields {
     pub const None: Self = Self(0u32);
@@ -5987,49 +5799,11 @@ impl ContactQueryDesiredFields {
 impl windows_core::TypeKind for ContactQueryDesiredFields {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactQueryDesiredFields {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactQueryDesiredFields").field(&self.0).finish()
-    }
-}
-impl ContactQueryDesiredFields {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for ContactQueryDesiredFields {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for ContactQueryDesiredFields {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for ContactQueryDesiredFields {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for ContactQueryDesiredFields {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for ContactQueryDesiredFields {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for ContactQueryDesiredFields {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQueryDesiredFields;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactQuerySearchFields(pub u32);
 impl ContactQuerySearchFields {
     pub const None: Self = Self(0u32);
@@ -6041,49 +5815,11 @@ impl ContactQuerySearchFields {
 impl windows_core::TypeKind for ContactQuerySearchFields {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactQuerySearchFields {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactQuerySearchFields").field(&self.0).finish()
-    }
-}
-impl ContactQuerySearchFields {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for ContactQuerySearchFields {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for ContactQuerySearchFields {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for ContactQuerySearchFields {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for ContactQuerySearchFields {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for ContactQuerySearchFields {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for ContactQuerySearchFields {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchFields;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactQuerySearchScope(pub i32);
 impl ContactQuerySearchScope {
     pub const Local: Self = Self(0i32);
@@ -6092,16 +5828,11 @@ impl ContactQuerySearchScope {
 impl windows_core::TypeKind for ContactQuerySearchScope {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactQuerySearchScope {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactQuerySearchScope").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactQuerySearchScope {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchScope;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactRelationship(pub i32);
 impl ContactRelationship {
     pub const Other: Self = Self(0i32);
@@ -6114,16 +5845,11 @@ impl ContactRelationship {
 impl windows_core::TypeKind for ContactRelationship {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactRelationship {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactRelationship").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactRelationship {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactRelationship;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactSelectionMode(pub i32);
 impl ContactSelectionMode {
     pub const Contacts: Self = Self(0i32);
@@ -6132,16 +5858,11 @@ impl ContactSelectionMode {
 impl windows_core::TypeKind for ContactSelectionMode {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactSelectionMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactSelectionMode").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactSelectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactSelectionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ContactStoreAccessType(pub i32);
 impl ContactStoreAccessType {
     pub const AppContactsReadWrite: Self = Self(0i32);
@@ -6151,16 +5872,11 @@ impl ContactStoreAccessType {
 impl windows_core::TypeKind for ContactStoreAccessType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ContactStoreAccessType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ContactStoreAccessType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ContactStoreAccessType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactStoreAccessType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PinnedContactSurface(pub i32);
 impl PinnedContactSurface {
     pub const StartMenu: Self = Self(0i32);
@@ -6168,11 +5884,6 @@ impl PinnedContactSurface {
 }
 impl windows_core::TypeKind for PinnedContactSurface {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PinnedContactSurface {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PinnedContactSurface").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for PinnedContactSurface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.PinnedContactSurface;i4)");

@@ -26,11 +26,8 @@ pub struct IProviderSpiConnectionSettingsFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpiControllerProvider, ISpiControllerProvider_Vtbl, 0xc1686504_02ce_4226_a385_4f11fb04b41b);
-impl core::ops::Deref for ISpiControllerProvider {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for ISpiControllerProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(ISpiControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ISpiControllerProvider {
@@ -45,22 +42,19 @@ impl ISpiControllerProvider {
         }
     }
 }
-impl windows_core::RuntimeType for ISpiControllerProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISpiControllerProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ISpiControllerProvider_Impl: Sized + windows_core::IUnknownImpl {
-    fn GetDeviceProvider(&self, settings: Option<&ProviderSpiConnectionSettings>) -> windows_core::Result<ISpiDeviceProvider>;
-}
 impl windows_core::RuntimeName for ISpiControllerProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiControllerProvider";
 }
+pub trait ISpiControllerProvider_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetDeviceProvider(&self, settings: Option<&ProviderSpiConnectionSettings>) -> windows_core::Result<ISpiDeviceProvider>;
+}
 impl ISpiControllerProvider_Vtbl {
-    pub const fn new<Identity: ISpiControllerProvider_Impl, const OFFSET: isize>() -> ISpiControllerProvider_Vtbl {
+    pub const fn new<Identity: ISpiControllerProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDeviceProvider<Identity: ISpiControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, settings: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISpiControllerProvider_Impl::GetDeviceProvider(this, windows_core::from_raw_borrowed(&settings)) {
@@ -82,11 +76,8 @@ impl ISpiControllerProvider_Vtbl {
     }
 }
 windows_core::imp::define_interface!(ISpiDeviceProvider, ISpiDeviceProvider_Vtbl, 0x0d1c3443_304b_405c_b4f7_f5ab1074461e);
-impl core::ops::Deref for ISpiDeviceProvider {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for ISpiDeviceProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(ISpiDeviceProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ISpiDeviceProvider, super::super::super::Foundation::IClosable);
@@ -126,9 +117,6 @@ impl ISpiDeviceProvider {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for ISpiDeviceProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISpiDeviceProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -139,19 +127,19 @@ pub struct ISpiDeviceProvider_Vtbl {
     pub TransferSequential: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
     pub TransferFullDuplex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8) -> windows_core::HRESULT,
 }
-pub trait ISpiDeviceProvider_Impl: Sized + windows_core::IUnknownImpl + super::super::super::Foundation::IClosable_Impl {
+impl windows_core::RuntimeName for ISpiDeviceProvider {
+    const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiDeviceProvider";
+}
+pub trait ISpiDeviceProvider_Impl: super::super::super::Foundation::IClosable_Impl {
     fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn ConnectionSettings(&self) -> windows_core::Result<ProviderSpiConnectionSettings>;
     fn Write(&self, buffer: &[u8]) -> windows_core::Result<()>;
     fn Read(&self, buffer: &mut [u8]) -> windows_core::Result<()>;
-    fn TransferSequential(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> windows_core::Result<()>;
-    fn TransferFullDuplex(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> windows_core::Result<()>;
-}
-impl windows_core::RuntimeName for ISpiDeviceProvider {
-    const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiDeviceProvider";
+    fn TransferSequential(&self, writeBuffer: &[u8], readBuffer: &mut [u8]) -> windows_core::Result<()>;
+    fn TransferFullDuplex(&self, writeBuffer: &[u8], readBuffer: &mut [u8]) -> windows_core::Result<()>;
 }
 impl ISpiDeviceProvider_Vtbl {
-    pub const fn new<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>() -> ISpiDeviceProvider_Vtbl {
+    pub const fn new<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DeviceId<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISpiDeviceProvider_Impl::DeviceId(this) {
@@ -182,13 +170,13 @@ impl ISpiDeviceProvider_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISpiDeviceProvider_Impl::Read(this, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&buffer), buffer_array_size as usize)).into()
         }
-        unsafe extern "system" fn TransferSequential<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransferSequential<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, writebuffer_array_size: u32, writebuffer: *const u8, readbuffer_array_size: u32, readbuffer: *mut u8) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISpiDeviceProvider_Impl::TransferSequential(this, core::slice::from_raw_parts(core::mem::transmute_copy(&writebuffer), writeBuffer_array_size as usize), core::slice::from_raw_parts_mut(core::mem::transmute_copy(&readbuffer), readBuffer_array_size as usize)).into()
+            ISpiDeviceProvider_Impl::TransferSequential(this, core::slice::from_raw_parts(core::mem::transmute_copy(&writebuffer), writebuffer_array_size as usize), core::slice::from_raw_parts_mut(core::mem::transmute_copy(&readbuffer), readbuffer_array_size as usize)).into()
         }
-        unsafe extern "system" fn TransferFullDuplex<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransferFullDuplex<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, writebuffer_array_size: u32, writebuffer: *const u8, readbuffer_array_size: u32, readbuffer: *mut u8) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            ISpiDeviceProvider_Impl::TransferFullDuplex(this, core::slice::from_raw_parts(core::mem::transmute_copy(&writebuffer), writeBuffer_array_size as usize), core::slice::from_raw_parts_mut(core::mem::transmute_copy(&readbuffer), readBuffer_array_size as usize)).into()
+            ISpiDeviceProvider_Impl::TransferFullDuplex(this, core::slice::from_raw_parts(core::mem::transmute_copy(&writebuffer), writebuffer_array_size as usize), core::slice::from_raw_parts_mut(core::mem::transmute_copy(&readbuffer), readbuffer_array_size as usize)).into()
         }
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, ISpiDeviceProvider, OFFSET>(),
@@ -205,11 +193,8 @@ impl ISpiDeviceProvider_Vtbl {
     }
 }
 windows_core::imp::define_interface!(ISpiProvider, ISpiProvider_Vtbl, 0x96b461e2_77d4_48ce_aaa0_75715a8362cf);
-impl core::ops::Deref for ISpiProvider {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for ISpiProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(ISpiProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ISpiProvider {
@@ -222,9 +207,6 @@ impl ISpiProvider {
         }
     }
 }
-impl windows_core::RuntimeType for ISpiProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISpiProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -234,16 +216,16 @@ pub struct ISpiProvider_Vtbl {
     GetControllersAsync: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait ISpiProvider_Impl: Sized + windows_core::IUnknownImpl {
-    fn GetControllersAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>>;
-}
-#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for ISpiProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiProvider";
 }
 #[cfg(feature = "Foundation_Collections")]
+pub trait ISpiProvider_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetControllersAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>>;
+}
+#[cfg(feature = "Foundation_Collections")]
 impl ISpiProvider_Vtbl {
-    pub const fn new<Identity: ISpiProvider_Impl, const OFFSET: isize>() -> ISpiProvider_Vtbl {
+    pub const fn new<Identity: ISpiProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetControllersAsync<Identity: ISpiProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISpiProvider_Impl::GetControllersAsync(this) {
@@ -264,7 +246,11 @@ impl ISpiProvider_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProviderSpiConnectionSettings(windows_core::IUnknown);
+impl windows_core::RuntimeType for ProviderSpiConnectionSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProviderSpiConnectionSettings>();
+}
 windows_core::imp::interface_hierarchy!(ProviderSpiConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ProviderSpiConnectionSettings,);
 impl ProviderSpiConnectionSettings {
     pub fn ChipSelectLine(&self) -> windows_core::Result<i32> {
         let this = self;
@@ -332,20 +318,15 @@ impl ProviderSpiConnectionSettings {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for ProviderSpiConnectionSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProviderSpiConnectionSettings>();
-}
 unsafe impl windows_core::Interface for ProviderSpiConnectionSettings {
-    type Vtable = IProviderSpiConnectionSettings_Vtbl;
+    type Vtable = <IProviderSpiConnectionSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProviderSpiConnectionSettings as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ProviderSpiConnectionSettings {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings";
 }
-unsafe impl Send for ProviderSpiConnectionSettings {}
-unsafe impl Sync for ProviderSpiConnectionSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ProviderSpiMode(pub i32);
 impl ProviderSpiMode {
     pub const Mode0: Self = Self(0i32);
@@ -356,16 +337,11 @@ impl ProviderSpiMode {
 impl windows_core::TypeKind for ProviderSpiMode {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ProviderSpiMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ProviderSpiMode").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ProviderSpiMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiMode;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ProviderSpiSharingMode(pub i32);
 impl ProviderSpiSharingMode {
     pub const Exclusive: Self = Self(0i32);
@@ -373,11 +349,6 @@ impl ProviderSpiSharingMode {
 }
 impl windows_core::TypeKind for ProviderSpiSharingMode {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for ProviderSpiSharingMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ProviderSpiSharingMode").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for ProviderSpiSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiSharingMode;i4)");

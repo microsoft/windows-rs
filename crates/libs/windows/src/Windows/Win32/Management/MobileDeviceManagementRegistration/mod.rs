@@ -195,43 +195,38 @@ pub const MREGISTER_E_DISCOVERY_REDIRECTED: windows_core::HRESULT = windows_core
 pub const MREGISTER_E_REGISTRATION_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x80190009_u32 as _);
 pub const MaxDeviceInfoClass: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(2i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct REGISTRATION_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for REGISTRATION_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for REGISTRATION_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("REGISTRATION_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MANAGEMENT_REGISTRATION_INFO {
     pub fDeviceRegisteredWithManagement: super::super::Foundation::BOOL,
     pub dwDeviceRegistionKind: u32,
     pub pszUPN: windows_core::PWSTR,
     pub pszMDMServiceUri: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for MANAGEMENT_REGISTRATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MANAGEMENT_REGISTRATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MANAGEMENT_REGISTRATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MANAGEMENT_SERVICE_INFO {
     pub pszMDMServiceUri: windows_core::PWSTR,
     pub pszAuthenticationUri: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for MANAGEMENT_SERVICE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MANAGEMENT_SERVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for MANAGEMENT_SERVICE_INFO {
+    type TypeKind = windows_core::CopyType;
 }

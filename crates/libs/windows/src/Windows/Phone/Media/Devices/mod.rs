@@ -23,7 +23,11 @@ pub struct IAudioRoutingManagerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioRoutingManager(windows_core::IUnknown);
+impl windows_core::RuntimeType for AudioRoutingManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioRoutingManager>();
+}
 windows_core::imp::interface_hierarchy!(AudioRoutingManager, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(AudioRoutingManager,);
 impl AudioRoutingManager {
     pub fn GetAudioEndpoint(&self) -> windows_core::Result<AudioRoutingEndpoint> {
         let this = self;
@@ -68,20 +72,15 @@ impl AudioRoutingManager {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for AudioRoutingManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioRoutingManager>();
-}
 unsafe impl windows_core::Interface for AudioRoutingManager {
-    type Vtable = IAudioRoutingManager_Vtbl;
+    type Vtable = <IAudioRoutingManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioRoutingManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AudioRoutingManager {
     const NAME: &'static str = "Windows.Phone.Media.Devices.AudioRoutingManager";
 }
-unsafe impl Send for AudioRoutingManager {}
-unsafe impl Sync for AudioRoutingManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AudioRoutingEndpoint(pub i32);
 impl AudioRoutingEndpoint {
     pub const Default: Self = Self(0i32);
@@ -96,16 +95,11 @@ impl AudioRoutingEndpoint {
 impl windows_core::TypeKind for AudioRoutingEndpoint {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for AudioRoutingEndpoint {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AudioRoutingEndpoint").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for AudioRoutingEndpoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AudioRoutingEndpoint;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AvailableAudioRoutingEndpoints(pub u32);
 impl AvailableAudioRoutingEndpoints {
     pub const None: Self = Self(0u32);
@@ -115,44 +109,6 @@ impl AvailableAudioRoutingEndpoints {
 }
 impl windows_core::TypeKind for AvailableAudioRoutingEndpoints {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for AvailableAudioRoutingEndpoints {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AvailableAudioRoutingEndpoints").field(&self.0).finish()
-    }
-}
-impl AvailableAudioRoutingEndpoints {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for AvailableAudioRoutingEndpoints {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for AvailableAudioRoutingEndpoints {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for AvailableAudioRoutingEndpoints {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for AvailableAudioRoutingEndpoints {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for AvailableAudioRoutingEndpoints {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 impl windows_core::RuntimeType for AvailableAudioRoutingEndpoints {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AvailableAudioRoutingEndpoints;u4)");

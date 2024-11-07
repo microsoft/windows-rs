@@ -317,10 +317,10 @@ where
     EvtSaveChannelConfig(channelconfig.param().abi(), flags).ok()
 }
 #[inline]
-pub unsafe fn EvtSeek<P0, P1>(resultset: P0, position: i64, bookmark: P1, timeout: u32, flags: u32) -> windows_core::Result<()>
+pub unsafe fn EvtSeek<P0, P2>(resultset: P0, position: i64, bookmark: P2, timeout: u32, flags: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<EVT_HANDLE>,
-    P1: windows_core::Param<EVT_HANDLE>,
+    P2: windows_core::Param<EVT_HANDLE>,
 {
     windows_targets::link!("wevtapi.dll" "system" fn EvtSeek(resultset : EVT_HANDLE, position : i64, bookmark : EVT_HANDLE, timeout : u32, flags : u32) -> super::super::Foundation:: BOOL);
     EvtSeek(resultset.param().abi(), position, bookmark.param().abi(), timeout, flags).ok()
@@ -467,20 +467,20 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn ReportEventA<P0, P1>(heventlog: P0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: P1, dwdatasize: u32, lpstrings: Option<&[windows_core::PCSTR]>, lprawdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn ReportEventA<P0, P4>(heventlog: P0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: P4, dwdatasize: u32, lpstrings: Option<&[windows_core::PCSTR]>, lprawdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Security::PSID>,
+    P4: windows_core::Param<super::super::Security::PSID>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_core::PCSTR, lprawdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     ReportEventA(heventlog.param().abi(), wtype, wcategory, dweventid, lpusersid.param().abi(), lpstrings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwdatasize, core::mem::transmute(lpstrings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(lprawdata.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn ReportEventW<P0, P1>(heventlog: P0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: P1, dwdatasize: u32, lpstrings: Option<&[windows_core::PCWSTR]>, lprawdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn ReportEventW<P0, P4>(heventlog: P0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: P4, dwdatasize: u32, lpstrings: Option<&[windows_core::PCWSTR]>, lprawdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Security::PSID>,
+    P4: windows_core::Param<super::super::Security::PSID>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_core::PCWSTR, lprawdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     ReportEventW(heventlog.param().abi(), wtype, wcategory, dweventid, lpusersid.param().abi(), lpstrings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwdatasize, core::mem::transmute(lpstrings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(lprawdata.unwrap_or(core::ptr::null()))).ok()
@@ -676,293 +676,163 @@ pub const EvtVarTypeUInt16: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(6i32);
 pub const EvtVarTypeUInt32: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(8i32);
 pub const EvtVarTypeUInt64: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(10i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_CHANNEL_CLOCK_TYPE(pub i32);
 impl windows_core::TypeKind for EVT_CHANNEL_CLOCK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_CHANNEL_CLOCK_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_CHANNEL_CLOCK_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_CHANNEL_CONFIG_PROPERTY_ID(pub i32);
 impl windows_core::TypeKind for EVT_CHANNEL_CONFIG_PROPERTY_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_CHANNEL_CONFIG_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_CHANNEL_CONFIG_PROPERTY_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_CHANNEL_ISOLATION_TYPE(pub i32);
 impl windows_core::TypeKind for EVT_CHANNEL_ISOLATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_CHANNEL_ISOLATION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_CHANNEL_ISOLATION_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_CHANNEL_REFERENCE_FLAGS(pub u32);
 impl windows_core::TypeKind for EVT_CHANNEL_REFERENCE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_CHANNEL_REFERENCE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_CHANNEL_REFERENCE_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_CHANNEL_SID_TYPE(pub i32);
 impl windows_core::TypeKind for EVT_CHANNEL_SID_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_CHANNEL_SID_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_CHANNEL_SID_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_CHANNEL_TYPE(pub i32);
 impl windows_core::TypeKind for EVT_CHANNEL_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_CHANNEL_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_CHANNEL_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_EVENT_METADATA_PROPERTY_ID(pub i32);
 impl windows_core::TypeKind for EVT_EVENT_METADATA_PROPERTY_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_EVENT_METADATA_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_EVENT_METADATA_PROPERTY_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_EVENT_PROPERTY_ID(pub i32);
 impl windows_core::TypeKind for EVT_EVENT_PROPERTY_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_EVENT_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_EVENT_PROPERTY_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_EXPORTLOG_FLAGS(pub u32);
 impl windows_core::TypeKind for EVT_EXPORTLOG_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_EXPORTLOG_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_EXPORTLOG_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_FORMAT_MESSAGE_FLAGS(pub u32);
 impl windows_core::TypeKind for EVT_FORMAT_MESSAGE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_FORMAT_MESSAGE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_FORMAT_MESSAGE_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_LOGIN_CLASS(pub i32);
 impl windows_core::TypeKind for EVT_LOGIN_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_LOGIN_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_LOGIN_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_LOG_PROPERTY_ID(pub i32);
 impl windows_core::TypeKind for EVT_LOG_PROPERTY_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_LOG_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_LOG_PROPERTY_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_OPEN_LOG_FLAGS(pub u32);
 impl windows_core::TypeKind for EVT_OPEN_LOG_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_OPEN_LOG_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_OPEN_LOG_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_PUBLISHER_METADATA_PROPERTY_ID(pub i32);
 impl windows_core::TypeKind for EVT_PUBLISHER_METADATA_PROPERTY_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_PUBLISHER_METADATA_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_PUBLISHER_METADATA_PROPERTY_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_QUERY_FLAGS(pub u32);
 impl windows_core::TypeKind for EVT_QUERY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_QUERY_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_QUERY_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_QUERY_PROPERTY_ID(pub i32);
 impl windows_core::TypeKind for EVT_QUERY_PROPERTY_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_QUERY_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_QUERY_PROPERTY_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_RENDER_CONTEXT_FLAGS(pub u32);
 impl windows_core::TypeKind for EVT_RENDER_CONTEXT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_RENDER_CONTEXT_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_RENDER_CONTEXT_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_RENDER_FLAGS(pub u32);
 impl windows_core::TypeKind for EVT_RENDER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_RENDER_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_RENDER_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_RPC_LOGIN_FLAGS(pub u32);
 impl windows_core::TypeKind for EVT_RPC_LOGIN_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_RPC_LOGIN_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_RPC_LOGIN_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_SEEK_FLAGS(pub u32);
 impl windows_core::TypeKind for EVT_SEEK_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_SEEK_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_SEEK_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_SUBSCRIBE_FLAGS(pub u32);
 impl windows_core::TypeKind for EVT_SUBSCRIBE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_SUBSCRIBE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_SUBSCRIBE_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_SUBSCRIBE_NOTIFY_ACTION(pub i32);
 impl windows_core::TypeKind for EVT_SUBSCRIBE_NOTIFY_ACTION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_SUBSCRIBE_NOTIFY_ACTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_SUBSCRIBE_NOTIFY_ACTION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_SYSTEM_PROPERTY_ID(pub i32);
 impl windows_core::TypeKind for EVT_SYSTEM_PROPERTY_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_SYSTEM_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_SYSTEM_PROPERTY_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EVT_VARIANT_TYPE(pub i32);
 impl windows_core::TypeKind for EVT_VARIANT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EVT_VARIANT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EVT_VARIANT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct READ_EVENT_LOG_READ_FLAGS(pub u32);
 impl windows_core::TypeKind for READ_EVENT_LOG_READ_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for READ_EVENT_LOG_READ_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("READ_EVENT_LOG_READ_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct REPORT_EVENT_TYPE(pub u16);
 impl windows_core::TypeKind for REPORT_EVENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for REPORT_EVENT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("REPORT_EVENT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENTLOGRECORD {
     pub Length: u32,
     pub Reserved: u32,
@@ -981,46 +851,49 @@ pub struct EVENTLOGRECORD {
     pub DataLength: u32,
     pub DataOffset: u32,
 }
-impl windows_core::TypeKind for EVENTLOGRECORD {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENTLOGRECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENTLOGRECORD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENTLOG_FULL_INFORMATION {
     pub dwFull: u32,
-}
-impl windows_core::TypeKind for EVENTLOG_FULL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENTLOG_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENTLOG_FULL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVENTSFORLOGFILE {
     pub ulSize: u32,
     pub szLogicalLogFile: [u16; 256],
     pub ulNumRecords: u32,
     pub pEventLogRecords: [EVENTLOGRECORD; 1],
 }
-impl windows_core::TypeKind for EVENTSFORLOGFILE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVENTSFORLOGFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVENTSFORLOGFILE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct EVT_HANDLE(pub isize);
+impl windows_core::TypeKind for EVT_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl EVT_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
@@ -1030,20 +903,13 @@ impl windows_core::Free for EVT_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = EvtClose(*self);
+            windows_targets::link!("wevtapi.dll" "system" fn EvtClose(object : isize) -> i32);
+            EvtClose(self.0);
         }
     }
 }
-impl Default for EVT_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for EVT_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EVT_RPC_LOGIN {
     pub Server: windows_core::PWSTR,
     pub User: windows_core::PWSTR,
@@ -1051,25 +917,21 @@ pub struct EVT_RPC_LOGIN {
     pub Password: windows_core::PWSTR,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for EVT_RPC_LOGIN {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EVT_RPC_LOGIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EVT_RPC_LOGIN {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVT_VARIANT {
     pub Anonymous: EVT_VARIANT_0,
     pub Count: u32,
     pub Type: u32,
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for EVT_VARIANT {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl Default for EVT_VARIANT {
@@ -1077,9 +939,13 @@ impl Default for EVT_VARIANT {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for EVT_VARIANT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVT_VARIANT_0 {
     pub BooleanVal: super::super::Foundation::BOOL,
     pub SByteVal: i8,
@@ -1123,13 +989,13 @@ pub union EVT_VARIANT_0 {
     pub XmlValArr: *const windows_core::PCWSTR,
 }
 #[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for EVT_VARIANT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
 impl Default for EVT_VARIANT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for EVT_VARIANT_0 {
+    type TypeKind = windows_core::CopyType;
 }
 pub type EVT_SUBSCRIBE_CALLBACK = Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const core::ffi::c_void, event: EVT_HANDLE) -> u32>;

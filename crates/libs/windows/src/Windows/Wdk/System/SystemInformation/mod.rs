@@ -40,13 +40,8 @@ pub const SystemProcessorPerformanceInformation: SYSTEM_INFORMATION_CLASS = SYST
 pub const SystemRegistryQuotaInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(37i32);
 pub const SystemTimeOfDayInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(3i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SYSTEM_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for SYSTEM_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SYSTEM_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYSTEM_INFORMATION_CLASS").field(&self.0).finish()
-    }
 }

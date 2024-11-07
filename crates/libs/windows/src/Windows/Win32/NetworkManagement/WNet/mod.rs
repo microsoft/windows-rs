@@ -9,20 +9,20 @@ pub unsafe fn MultinetGetConnectionPerformanceW(lpnetresource: *const NETRESOURC
     MultinetGetConnectionPerformanceW(lpnetresource, lpnetconnectinfostruct)
 }
 #[inline]
-pub unsafe fn NPAddConnection<P0, P1>(lpnetresource: *const NETRESOURCEW, lppassword: P0, lpusername: P1) -> u32
+pub unsafe fn NPAddConnection<P1, P2>(lpnetresource: *const NETRESOURCEW, lppassword: P1, lpusername: P2) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("davclnt.dll" "system" fn NPAddConnection(lpnetresource : *const NETRESOURCEW, lppassword : windows_core::PCWSTR, lpusername : windows_core::PCWSTR) -> u32);
     NPAddConnection(lpnetresource, lppassword.param().abi(), lpusername.param().abi())
 }
 #[inline]
-pub unsafe fn NPAddConnection3<P0, P1, P2>(hwndowner: P0, lpnetresource: *const NETRESOURCEW, lppassword: P1, lpusername: P2, dwflags: NET_CONNECT_FLAGS) -> u32
+pub unsafe fn NPAddConnection3<P0, P2, P3>(hwndowner: P0, lpnetresource: *const NETRESOURCEW, lppassword: P2, lpusername: P3, dwflags: NET_CONNECT_FLAGS) -> u32
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("davclnt.dll" "system" fn NPAddConnection3(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : windows_core::PCWSTR, lpusername : windows_core::PCWSTR, dwflags : NET_CONNECT_FLAGS) -> u32);
     NPAddConnection3(hwndowner.param().abi(), lpnetresource, lppassword.param().abi(), lpusername.param().abi(), dwflags)
@@ -146,39 +146,39 @@ pub unsafe fn NPOpenEnum(dwscope: u32, dwtype: u32, dwusage: u32, lpnetresource:
     NPOpenEnum(dwscope, dwtype, dwusage, core::mem::transmute(lpnetresource.unwrap_or(core::ptr::null())), lphenum)
 }
 #[inline]
-pub unsafe fn WNetAddConnection2A<P0, P1>(lpnetresource: *const NETRESOURCEA, lppassword: P0, lpusername: P1, dwflags: NET_CONNECT_FLAGS) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn WNetAddConnection2A<P1, P2>(lpnetresource: *const NETRESOURCEA, lppassword: P1, lpusername: P2, dwflags: NET_CONNECT_FLAGS) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("mpr.dll" "system" fn WNetAddConnection2A(lpnetresource : *const NETRESOURCEA, lppassword : windows_core::PCSTR, lpusername : windows_core::PCSTR, dwflags : NET_CONNECT_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
     WNetAddConnection2A(lpnetresource, lppassword.param().abi(), lpusername.param().abi(), dwflags)
 }
 #[inline]
-pub unsafe fn WNetAddConnection2W<P0, P1>(lpnetresource: *const NETRESOURCEW, lppassword: P0, lpusername: P1, dwflags: NET_CONNECT_FLAGS) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn WNetAddConnection2W<P1, P2>(lpnetresource: *const NETRESOURCEW, lppassword: P1, lpusername: P2, dwflags: NET_CONNECT_FLAGS) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mpr.dll" "system" fn WNetAddConnection2W(lpnetresource : *const NETRESOURCEW, lppassword : windows_core::PCWSTR, lpusername : windows_core::PCWSTR, dwflags : NET_CONNECT_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
     WNetAddConnection2W(lpnetresource, lppassword.param().abi(), lpusername.param().abi(), dwflags)
 }
 #[inline]
-pub unsafe fn WNetAddConnection3A<P0, P1, P2>(hwndowner: P0, lpnetresource: *const NETRESOURCEA, lppassword: P1, lpusername: P2, dwflags: NET_CONNECT_FLAGS) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn WNetAddConnection3A<P0, P2, P3>(hwndowner: P0, lpnetresource: *const NETRESOURCEA, lppassword: P2, lpusername: P3, dwflags: NET_CONNECT_FLAGS) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("mpr.dll" "system" fn WNetAddConnection3A(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, lppassword : windows_core::PCSTR, lpusername : windows_core::PCSTR, dwflags : NET_CONNECT_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
     WNetAddConnection3A(hwndowner.param().abi(), lpnetresource, lppassword.param().abi(), lpusername.param().abi(), dwflags)
 }
 #[inline]
-pub unsafe fn WNetAddConnection3W<P0, P1, P2>(hwndowner: P0, lpnetresource: *const NETRESOURCEW, lppassword: P1, lpusername: P2, dwflags: NET_CONNECT_FLAGS) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn WNetAddConnection3W<P0, P2, P3>(hwndowner: P0, lpnetresource: *const NETRESOURCEW, lppassword: P2, lpusername: P3, dwflags: NET_CONNECT_FLAGS) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mpr.dll" "system" fn WNetAddConnection3W(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : windows_core::PCWSTR, lpusername : windows_core::PCWSTR, dwflags : NET_CONNECT_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
     WNetAddConnection3W(hwndowner.param().abi(), lpnetresource, lppassword.param().abi(), lpusername.param().abi(), dwflags)
@@ -220,19 +220,19 @@ where
     WNetAddConnectionW(lpremotename.param().abi(), lppassword.param().abi(), lplocalname.param().abi())
 }
 #[inline]
-pub unsafe fn WNetCancelConnection2A<P0, P1>(lpname: P0, dwflags: NET_CONNECT_FLAGS, fforce: P1) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn WNetCancelConnection2A<P0, P2>(lpname: P0, dwflags: NET_CONNECT_FLAGS, fforce: P2) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2A(lpname : windows_core::PCSTR, dwflags : NET_CONNECT_FLAGS, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
     WNetCancelConnection2A(lpname.param().abi(), dwflags, fforce.param().abi())
 }
 #[inline]
-pub unsafe fn WNetCancelConnection2W<P0, P1>(lpname: P0, dwflags: NET_CONNECT_FLAGS, fforce: P1) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn WNetCancelConnection2W<P0, P2>(lpname: P0, dwflags: NET_CONNECT_FLAGS, fforce: P2) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("mpr.dll" "system" fn WNetCancelConnection2W(lpname : windows_core::PCWSTR, dwflags : NET_CONNECT_FLAGS, fforce : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
     WNetCancelConnection2W(lpname.param().abi(), dwflags, fforce.param().abi())
@@ -430,19 +430,19 @@ pub unsafe fn WNetOpenEnumW(dwscope: NET_RESOURCE_SCOPE, dwtype: NET_RESOURCE_TY
     WNetOpenEnumW(dwscope, dwtype, dwusage, core::mem::transmute(lpnetresource.unwrap_or(core::ptr::null())), lphenum)
 }
 #[inline]
-pub unsafe fn WNetSetLastErrorA<P0, P1>(err: u32, lperror: P0, lpproviders: P1)
+pub unsafe fn WNetSetLastErrorA<P1, P2>(err: u32, lperror: P1, lpproviders: P2)
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorA(err : u32, lperror : windows_core::PCSTR, lpproviders : windows_core::PCSTR));
     WNetSetLastErrorA(err, lperror.param().abi(), lpproviders.param().abi())
 }
 #[inline]
-pub unsafe fn WNetSetLastErrorW<P0, P1>(err: u32, lperror: P0, lpproviders: P1)
+pub unsafe fn WNetSetLastErrorW<P1, P2>(err: u32, lperror: P1, lpproviders: P2)
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mpr.dll" "system" fn WNetSetLastErrorW(err : u32, lperror : windows_core::PCWSTR, lpproviders : windows_core::PCWSTR));
     WNetSetLastErrorW(err, lperror.param().abi(), lpproviders.param().abi())
@@ -464,21 +464,21 @@ where
     WNetUseConnection4W(hwndowner.param().abi(), lpnetresource, core::mem::transmute(pauthbuffer.unwrap_or(core::ptr::null())), cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpaccessname), core::mem::transmute(lpbuffersize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpresult.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn WNetUseConnectionA<P0, P1, P2>(hwndowner: P0, lpnetresource: *const NETRESOURCEA, lppassword: P1, lpuserid: P2, dwflags: NET_CONNECT_FLAGS, lpaccessname: windows_core::PSTR, lpbuffersize: Option<*mut u32>, lpresult: Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn WNetUseConnectionA<P0, P2, P3>(hwndowner: P0, lpnetresource: *const NETRESOURCEA, lppassword: P2, lpuserid: P3, dwflags: NET_CONNECT_FLAGS, lpaccessname: windows_core::PSTR, lpbuffersize: Option<*mut u32>, lpresult: Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("mpr.dll" "system" fn WNetUseConnectionA(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEA, lppassword : windows_core::PCSTR, lpuserid : windows_core::PCSTR, dwflags : NET_CONNECT_FLAGS, lpaccessname : windows_core::PSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
     WNetUseConnectionA(hwndowner.param().abi(), lpnetresource, lppassword.param().abi(), lpuserid.param().abi(), dwflags, core::mem::transmute(lpaccessname), core::mem::transmute(lpbuffersize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpresult.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn WNetUseConnectionW<P0, P1, P2>(hwndowner: P0, lpnetresource: *const NETRESOURCEW, lppassword: P1, lpuserid: P2, dwflags: NET_CONNECT_FLAGS, lpaccessname: windows_core::PWSTR, lpbuffersize: Option<*mut u32>, lpresult: Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn WNetUseConnectionW<P0, P2, P3>(hwndowner: P0, lpnetresource: *const NETRESOURCEW, lppassword: P2, lpuserid: P3, dwflags: NET_CONNECT_FLAGS, lpaccessname: windows_core::PWSTR, lpbuffersize: Option<*mut u32>, lpresult: Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mpr.dll" "system" fn WNetUseConnectionW(hwndowner : super::super::Foundation:: HWND, lpnetresource : *const NETRESOURCEW, lppassword : windows_core::PCWSTR, lpuserid : windows_core::PCWSTR, dwflags : NET_CONNECT_FLAGS, lpaccessname : windows_core::PWSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
     WNetUseConnectionW(hwndowner.param().abi(), lpnetresource, lppassword.param().abi(), lpuserid.param().abi(), dwflags, core::mem::transmute(lpaccessname), core::mem::transmute(lpbuffersize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpresult.unwrap_or(core::ptr::null_mut())))
@@ -612,15 +612,10 @@ pub const WN_PRIMARY_AUTHENT_CLASS: u32 = 4u32;
 pub const WN_SERVICE_CLASS: u32 = 8u32;
 pub const WN_VALID_LOGON_ACCOUNT: u32 = 1u32;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CONNECTDLGSTRUCT_FLAGS(pub u32);
 impl windows_core::TypeKind for CONNECTDLGSTRUCT_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CONNECTDLGSTRUCT_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CONNECTDLGSTRUCT_FLAGS").field(&self.0).finish()
-    }
 }
 impl CONNECTDLGSTRUCT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -656,15 +651,10 @@ impl core::ops::Not for CONNECTDLGSTRUCT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DISCDLGSTRUCT_FLAGS(pub u32);
 impl windows_core::TypeKind for DISCDLGSTRUCT_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DISCDLGSTRUCT_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DISCDLGSTRUCT_FLAGS").field(&self.0).finish()
-    }
 }
 impl DISCDLGSTRUCT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -700,15 +690,10 @@ impl core::ops::Not for DISCDLGSTRUCT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NETINFOSTRUCT_CHARACTERISTICS(pub u32);
 impl windows_core::TypeKind for NETINFOSTRUCT_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NETINFOSTRUCT_CHARACTERISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NETINFOSTRUCT_CHARACTERISTICS").field(&self.0).finish()
-    }
 }
 impl NETINFOSTRUCT_CHARACTERISTICS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -744,26 +729,16 @@ impl core::ops::Not for NETINFOSTRUCT_CHARACTERISTICS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NETWORK_NAME_FORMAT_FLAGS(pub u32);
 impl windows_core::TypeKind for NETWORK_NAME_FORMAT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NETWORK_NAME_FORMAT_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NETWORK_NAME_FORMAT_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NET_CONNECT_FLAGS(pub u32);
 impl windows_core::TypeKind for NET_CONNECT_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NET_CONNECT_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NET_CONNECT_FLAGS").field(&self.0).finish()
-    }
 }
 impl NET_CONNECT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -799,26 +774,16 @@ impl core::ops::Not for NET_CONNECT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NET_RESOURCE_SCOPE(pub u32);
 impl windows_core::TypeKind for NET_RESOURCE_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NET_RESOURCE_SCOPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NET_RESOURCE_SCOPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NET_RESOURCE_TYPE(pub u32);
 impl windows_core::TypeKind for NET_RESOURCE_TYPE {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NET_RESOURCE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NET_RESOURCE_TYPE").field(&self.0).finish()
-    }
 }
 impl NET_RESOURCE_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -854,48 +819,28 @@ impl core::ops::Not for NET_RESOURCE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NPDIRECTORY_NOTIFY_OPERATION(pub u32);
 impl windows_core::TypeKind for NPDIRECTORY_NOTIFY_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NPDIRECTORY_NOTIFY_OPERATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NPDIRECTORY_NOTIFY_OPERATION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NP_PROPERTY_DIALOG_SELECTION(pub u32);
 impl windows_core::TypeKind for NP_PROPERTY_DIALOG_SELECTION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NP_PROPERTY_DIALOG_SELECTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NP_PROPERTY_DIALOG_SELECTION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct UNC_INFO_LEVEL(pub u32);
 impl windows_core::TypeKind for UNC_INFO_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UNC_INFO_LEVEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UNC_INFO_LEVEL").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WNET_OPEN_ENUM_USAGE(pub u32);
 impl windows_core::TypeKind for WNET_OPEN_ENUM_USAGE {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WNET_OPEN_ENUM_USAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WNET_OPEN_ENUM_USAGE").field(&self.0).finish()
-    }
 }
 impl WNET_OPEN_ENUM_USAGE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -931,18 +876,13 @@ impl core::ops::Not for WNET_OPEN_ENUM_USAGE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WNPERM_DLG(pub u32);
 impl windows_core::TypeKind for WNPERM_DLG {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WNPERM_DLG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WNPERM_DLG").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CONNECTDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -950,16 +890,16 @@ pub struct CONNECTDLGSTRUCTA {
     pub dwFlags: CONNECTDLGSTRUCT_FLAGS,
     pub dwDevNum: u32,
 }
-impl windows_core::TypeKind for CONNECTDLGSTRUCTA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CONNECTDLGSTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CONNECTDLGSTRUCTA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CONNECTDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -967,16 +907,16 @@ pub struct CONNECTDLGSTRUCTW {
     pub dwFlags: CONNECTDLGSTRUCT_FLAGS,
     pub dwDevNum: u32,
 }
-impl windows_core::TypeKind for CONNECTDLGSTRUCTW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CONNECTDLGSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CONNECTDLGSTRUCTW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DISCDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -984,16 +924,16 @@ pub struct DISCDLGSTRUCTA {
     pub lpRemoteName: windows_core::PSTR,
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
 }
-impl windows_core::TypeKind for DISCDLGSTRUCTA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DISCDLGSTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DISCDLGSTRUCTA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DISCDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -1001,16 +941,16 @@ pub struct DISCDLGSTRUCTW {
     pub lpRemoteName: windows_core::PWSTR,
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
 }
-impl windows_core::TypeKind for DISCDLGSTRUCTW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DISCDLGSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DISCDLGSTRUCTW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NETCONNECTINFOSTRUCT {
     pub cbStructure: u32,
     pub dwFlags: u32,
@@ -1018,16 +958,16 @@ pub struct NETCONNECTINFOSTRUCT {
     pub dwDelay: u32,
     pub dwOptDataSize: u32,
 }
-impl windows_core::TypeKind for NETCONNECTINFOSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NETCONNECTINFOSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NETCONNECTINFOSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NETINFOSTRUCT {
     pub cbStructure: u32,
     pub dwProviderVersion: u32,
@@ -1038,16 +978,16 @@ pub struct NETINFOSTRUCT {
     pub dwPrinters: u32,
     pub dwDrives: u32,
 }
-impl windows_core::TypeKind for NETINFOSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NETINFOSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NETINFOSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NETRESOURCEA {
     pub dwScope: NET_RESOURCE_SCOPE,
     pub dwType: NET_RESOURCE_TYPE,
@@ -1058,16 +998,16 @@ pub struct NETRESOURCEA {
     pub lpComment: windows_core::PSTR,
     pub lpProvider: windows_core::PSTR,
 }
-impl windows_core::TypeKind for NETRESOURCEA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NETRESOURCEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NETRESOURCEA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NETRESOURCEW {
     pub dwScope: NET_RESOURCE_SCOPE,
     pub dwType: NET_RESOURCE_TYPE,
@@ -1078,115 +1018,115 @@ pub struct NETRESOURCEW {
     pub lpComment: windows_core::PWSTR,
     pub lpProvider: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for NETRESOURCEW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NETRESOURCEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NETRESOURCEW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NOTIFYADD {
     pub hwndOwner: super::super::Foundation::HWND,
     pub NetResource: NETRESOURCEA,
     pub dwAddFlags: NET_CONNECT_FLAGS,
-}
-impl windows_core::TypeKind for NOTIFYADD {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NOTIFYADD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NOTIFYADD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NOTIFYCANCEL {
     pub lpName: windows_core::PWSTR,
     pub lpProvider: windows_core::PWSTR,
     pub dwFlags: u32,
     pub fForce: super::super::Foundation::BOOL,
 }
-impl windows_core::TypeKind for NOTIFYCANCEL {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NOTIFYCANCEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NOTIFYCANCEL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NOTIFYINFO {
     pub dwNotifyStatus: u32,
     pub dwOperationStatus: u32,
     pub lpContext: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for NOTIFYINFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NOTIFYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NOTIFYINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct REMOTE_NAME_INFOA {
     pub lpUniversalName: windows_core::PSTR,
     pub lpConnectionName: windows_core::PSTR,
     pub lpRemainingPath: windows_core::PSTR,
-}
-impl windows_core::TypeKind for REMOTE_NAME_INFOA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for REMOTE_NAME_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for REMOTE_NAME_INFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct REMOTE_NAME_INFOW {
     pub lpUniversalName: windows_core::PWSTR,
     pub lpConnectionName: windows_core::PWSTR,
     pub lpRemainingPath: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for REMOTE_NAME_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for REMOTE_NAME_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for REMOTE_NAME_INFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct UNIVERSAL_NAME_INFOA {
     pub lpUniversalName: windows_core::PSTR,
-}
-impl windows_core::TypeKind for UNIVERSAL_NAME_INFOA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for UNIVERSAL_NAME_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for UNIVERSAL_NAME_INFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct UNIVERSAL_NAME_INFOW {
     pub lpUniversalName: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for UNIVERSAL_NAME_INFOW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for UNIVERSAL_NAME_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for UNIVERSAL_NAME_INFOW {
+    type TypeKind = windows_core::CopyType;
 }
 pub type PF_AddConnectNotify = Option<unsafe extern "system" fn(lpnotifyinfo: *mut NOTIFYINFO, lpaddinfo: *const NOTIFYADD) -> u32>;
 pub type PF_CancelConnectNotify = Option<unsafe extern "system" fn(lpnotifyinfo: *mut NOTIFYINFO, lpcancelinfo: *const NOTIFYCANCEL) -> u32>;

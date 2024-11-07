@@ -220,7 +220,11 @@ pub struct IHidOutputReport_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidBooleanControl(windows_core::IUnknown);
+impl windows_core::RuntimeType for HidBooleanControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidBooleanControl>();
+}
 windows_core::imp::interface_hierarchy!(HidBooleanControl, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(HidBooleanControl,);
 impl HidBooleanControl {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -262,22 +266,21 @@ impl HidBooleanControl {
         }
     }
 }
-impl windows_core::RuntimeType for HidBooleanControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidBooleanControl>();
-}
 unsafe impl windows_core::Interface for HidBooleanControl {
-    type Vtable = IHidBooleanControl_Vtbl;
+    type Vtable = <IHidBooleanControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHidBooleanControl as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HidBooleanControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControl";
 }
-unsafe impl Send for HidBooleanControl {}
-unsafe impl Sync for HidBooleanControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidBooleanControlDescription(windows_core::IUnknown);
+impl windows_core::RuntimeType for HidBooleanControlDescription {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidBooleanControlDescription>();
+}
 windows_core::imp::interface_hierarchy!(HidBooleanControlDescription, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(HidBooleanControlDescription,);
 impl HidBooleanControlDescription {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -330,22 +333,21 @@ impl HidBooleanControlDescription {
         }
     }
 }
-impl windows_core::RuntimeType for HidBooleanControlDescription {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidBooleanControlDescription>();
-}
 unsafe impl windows_core::Interface for HidBooleanControlDescription {
-    type Vtable = IHidBooleanControlDescription_Vtbl;
+    type Vtable = <IHidBooleanControlDescription as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHidBooleanControlDescription as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HidBooleanControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription";
 }
-unsafe impl Send for HidBooleanControlDescription {}
-unsafe impl Sync for HidBooleanControlDescription {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidCollection(windows_core::IUnknown);
+impl windows_core::RuntimeType for HidCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidCollection>();
+}
 windows_core::imp::interface_hierarchy!(HidCollection, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(HidCollection,);
 impl HidCollection {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -376,28 +378,22 @@ impl HidCollection {
         }
     }
 }
-impl windows_core::RuntimeType for HidCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidCollection>();
-}
 unsafe impl windows_core::Interface for HidCollection {
-    type Vtable = IHidCollection_Vtbl;
+    type Vtable = <IHidCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHidCollection as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HidCollection {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidCollection";
 }
-unsafe impl Send for HidCollection {}
-unsafe impl Sync for HidCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidDevice(windows_core::IUnknown);
+impl windows_core::RuntimeType for HidDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidDevice>();
+}
 windows_core::imp::interface_hierarchy!(HidDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HidDevice, super::super::Foundation::IClosable);
 impl HidDevice {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn VendorId(&self) -> windows_core::Result<u16> {
         let this = self;
         unsafe {
@@ -558,27 +554,30 @@ impl HidDevice {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), accessmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     fn IHidDeviceStatics<R, F: FnOnce(&IHidDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HidDevice, IHidDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for HidDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidDevice>();
-}
 unsafe impl windows_core::Interface for HidDevice {
-    type Vtable = IHidDevice_Vtbl;
+    type Vtable = <IHidDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHidDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HidDevice {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidDevice";
 }
-unsafe impl Send for HidDevice {}
-unsafe impl Sync for HidDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidFeatureReport(windows_core::IUnknown);
+impl windows_core::RuntimeType for HidFeatureReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidFeatureReport>();
+}
 windows_core::imp::interface_hierarchy!(HidFeatureReport, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(HidFeatureReport,);
 impl HidFeatureReport {
     pub fn Id(&self) -> windows_core::Result<u16> {
         let this = self;
@@ -638,22 +637,21 @@ impl HidFeatureReport {
         }
     }
 }
-impl windows_core::RuntimeType for HidFeatureReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidFeatureReport>();
-}
 unsafe impl windows_core::Interface for HidFeatureReport {
-    type Vtable = IHidFeatureReport_Vtbl;
+    type Vtable = <IHidFeatureReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHidFeatureReport as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HidFeatureReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidFeatureReport";
 }
-unsafe impl Send for HidFeatureReport {}
-unsafe impl Sync for HidFeatureReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidInputReport(windows_core::IUnknown);
+impl windows_core::RuntimeType for HidInputReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidInputReport>();
+}
 windows_core::imp::interface_hierarchy!(HidInputReport, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(HidInputReport,);
 impl HidInputReport {
     pub fn Id(&self) -> windows_core::Result<u16> {
         let this = self;
@@ -721,22 +719,21 @@ impl HidInputReport {
         }
     }
 }
-impl windows_core::RuntimeType for HidInputReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidInputReport>();
-}
 unsafe impl windows_core::Interface for HidInputReport {
-    type Vtable = IHidInputReport_Vtbl;
+    type Vtable = <IHidInputReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHidInputReport as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HidInputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReport";
 }
-unsafe impl Send for HidInputReport {}
-unsafe impl Sync for HidInputReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidInputReportReceivedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for HidInputReportReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidInputReportReceivedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(HidInputReportReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(HidInputReportReceivedEventArgs,);
 impl HidInputReportReceivedEventArgs {
     pub fn Report(&self) -> windows_core::Result<HidInputReport> {
         let this = self;
@@ -746,22 +743,21 @@ impl HidInputReportReceivedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for HidInputReportReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidInputReportReceivedEventArgs>();
-}
 unsafe impl windows_core::Interface for HidInputReportReceivedEventArgs {
-    type Vtable = IHidInputReportReceivedEventArgs_Vtbl;
+    type Vtable = <IHidInputReportReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHidInputReportReceivedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HidInputReportReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReportReceivedEventArgs";
 }
-unsafe impl Send for HidInputReportReceivedEventArgs {}
-unsafe impl Sync for HidInputReportReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidNumericControl(windows_core::IUnknown);
+impl windows_core::RuntimeType for HidNumericControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidNumericControl>();
+}
 windows_core::imp::interface_hierarchy!(HidNumericControl, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(HidNumericControl,);
 impl HidNumericControl {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -821,22 +817,21 @@ impl HidNumericControl {
         }
     }
 }
-impl windows_core::RuntimeType for HidNumericControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidNumericControl>();
-}
 unsafe impl windows_core::Interface for HidNumericControl {
-    type Vtable = IHidNumericControl_Vtbl;
+    type Vtable = <IHidNumericControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHidNumericControl as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HidNumericControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControl";
 }
-unsafe impl Send for HidNumericControl {}
-unsafe impl Sync for HidNumericControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidNumericControlDescription(windows_core::IUnknown);
+impl windows_core::RuntimeType for HidNumericControlDescription {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidNumericControlDescription>();
+}
 windows_core::imp::interface_hierarchy!(HidNumericControlDescription, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(HidNumericControlDescription,);
 impl HidNumericControlDescription {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -952,22 +947,21 @@ impl HidNumericControlDescription {
         }
     }
 }
-impl windows_core::RuntimeType for HidNumericControlDescription {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidNumericControlDescription>();
-}
 unsafe impl windows_core::Interface for HidNumericControlDescription {
-    type Vtable = IHidNumericControlDescription_Vtbl;
+    type Vtable = <IHidNumericControlDescription as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHidNumericControlDescription as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HidNumericControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription";
 }
-unsafe impl Send for HidNumericControlDescription {}
-unsafe impl Sync for HidNumericControlDescription {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidOutputReport(windows_core::IUnknown);
+impl windows_core::RuntimeType for HidOutputReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidOutputReport>();
+}
 windows_core::imp::interface_hierarchy!(HidOutputReport, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(HidOutputReport,);
 impl HidOutputReport {
     pub fn Id(&self) -> windows_core::Result<u16> {
         let this = self;
@@ -1027,20 +1021,15 @@ impl HidOutputReport {
         }
     }
 }
-impl windows_core::RuntimeType for HidOutputReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidOutputReport>();
-}
 unsafe impl windows_core::Interface for HidOutputReport {
-    type Vtable = IHidOutputReport_Vtbl;
+    type Vtable = <IHidOutputReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHidOutputReport as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HidOutputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidOutputReport";
 }
-unsafe impl Send for HidOutputReport {}
-unsafe impl Sync for HidOutputReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct HidCollectionType(pub i32);
 impl HidCollectionType {
     pub const Physical: Self = Self(0i32);
@@ -1055,16 +1044,11 @@ impl HidCollectionType {
 impl windows_core::TypeKind for HidCollectionType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HidCollectionType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HidCollectionType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for HidCollectionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidCollectionType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct HidReportType(pub i32);
 impl HidReportType {
     pub const Input: Self = Self(0i32);
@@ -1073,11 +1057,6 @@ impl HidReportType {
 }
 impl windows_core::TypeKind for HidReportType {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for HidReportType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HidReportType").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for HidReportType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidReportType;i4)");

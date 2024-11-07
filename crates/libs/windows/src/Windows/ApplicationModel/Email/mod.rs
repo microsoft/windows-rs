@@ -313,9 +313,9 @@ pub struct IEmailMailbox3_Vtbl {
     pub ResolveRecipientsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ResolveRecipientsAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub ValidateCertificatesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     ValidateCertificatesAsync: usize,
     pub TryEmptyFolderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryCreateFolderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -920,7 +920,11 @@ pub struct IEmailStoreNotificationTriggerDetails_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailAttachment(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailAttachment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailAttachment>();
+}
 windows_core::imp::interface_hierarchy!(EmailAttachment, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailAttachment,);
 impl EmailAttachment {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1037,9 +1041,9 @@ impl EmailAttachment {
         unsafe { (windows_core::Interface::vtable(this).SetMimeType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<P0>(filename: &windows_core::HSTRING, data: P0) -> windows_core::Result<EmailAttachment>
+    pub fn Create<P1>(filename: &windows_core::HSTRING, data: P1) -> windows_core::Result<EmailAttachment>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         Self::IEmailAttachmentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1047,9 +1051,9 @@ impl EmailAttachment {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create2<P0>(filename: &windows_core::HSTRING, data: P0, mimetype: &windows_core::HSTRING) -> windows_core::Result<EmailAttachment>
+    pub fn Create2<P1>(filename: &windows_core::HSTRING, data: P1, mimetype: &windows_core::HSTRING) -> windows_core::Result<EmailAttachment>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         Self::IEmailAttachmentFactory2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1065,22 +1069,21 @@ impl EmailAttachment {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for EmailAttachment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailAttachment>();
-}
 unsafe impl windows_core::Interface for EmailAttachment {
-    type Vtable = IEmailAttachment_Vtbl;
+    type Vtable = <IEmailAttachment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailAttachment as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailAttachment {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailAttachment";
 }
-unsafe impl Send for EmailAttachment {}
-unsafe impl Sync for EmailAttachment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailConversation(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailConversation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailConversation>();
+}
 windows_core::imp::interface_hierarchy!(EmailConversation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailConversation,);
 impl EmailConversation {
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1190,22 +1193,21 @@ impl EmailConversation {
         }
     }
 }
-impl windows_core::RuntimeType for EmailConversation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailConversation>();
-}
 unsafe impl windows_core::Interface for EmailConversation {
-    type Vtable = IEmailConversation_Vtbl;
+    type Vtable = <IEmailConversation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailConversation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailConversation {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversation";
 }
-unsafe impl Send for EmailConversation {}
-unsafe impl Sync for EmailConversation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailConversationBatch(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailConversationBatch {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailConversationBatch>();
+}
 windows_core::imp::interface_hierarchy!(EmailConversationBatch, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailConversationBatch,);
 impl EmailConversationBatch {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Conversations(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<EmailConversation>> {
@@ -1223,22 +1225,21 @@ impl EmailConversationBatch {
         }
     }
 }
-impl windows_core::RuntimeType for EmailConversationBatch {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailConversationBatch>();
-}
 unsafe impl windows_core::Interface for EmailConversationBatch {
-    type Vtable = IEmailConversationBatch_Vtbl;
+    type Vtable = <IEmailConversationBatch as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailConversationBatch as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailConversationBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversationBatch";
 }
-unsafe impl Send for EmailConversationBatch {}
-unsafe impl Sync for EmailConversationBatch {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailConversationReader(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailConversationReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailConversationReader>();
+}
 windows_core::imp::interface_hierarchy!(EmailConversationReader, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailConversationReader,);
 impl EmailConversationReader {
     pub fn ReadBatchAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<EmailConversationBatch>> {
         let this = self;
@@ -1248,22 +1249,21 @@ impl EmailConversationReader {
         }
     }
 }
-impl windows_core::RuntimeType for EmailConversationReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailConversationReader>();
-}
 unsafe impl windows_core::Interface for EmailConversationReader {
-    type Vtable = IEmailConversationReader_Vtbl;
+    type Vtable = <IEmailConversationReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailConversationReader as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailConversationReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversationReader";
 }
-unsafe impl Send for EmailConversationReader {}
-unsafe impl Sync for EmailConversationReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailFolder(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailFolder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailFolder>();
+}
 windows_core::imp::interface_hierarchy!(EmailFolder, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailFolder,);
 impl EmailFolder {
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1445,22 +1445,21 @@ impl EmailFolder {
         }
     }
 }
-impl windows_core::RuntimeType for EmailFolder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailFolder>();
-}
 unsafe impl windows_core::Interface for EmailFolder {
-    type Vtable = IEmailFolder_Vtbl;
+    type Vtable = <IEmailFolder as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailFolder as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailFolder {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailFolder";
 }
-unsafe impl Send for EmailFolder {}
-unsafe impl Sync for EmailFolder {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailIrmInfo(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailIrmInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailIrmInfo>();
+}
 windows_core::imp::interface_hierarchy!(EmailIrmInfo, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailIrmInfo,);
 impl EmailIrmInfo {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1604,9 +1603,9 @@ impl EmailIrmInfo {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTemplate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Create<P0>(expiration: super::super::Foundation::DateTime, irmtemplate: P0) -> windows_core::Result<EmailIrmInfo>
+    pub fn Create<P1>(expiration: super::super::Foundation::DateTime, irmtemplate: P1) -> windows_core::Result<EmailIrmInfo>
     where
-        P0: windows_core::Param<EmailIrmTemplate>,
+        P1: windows_core::Param<EmailIrmTemplate>,
     {
         Self::IEmailIrmInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1618,22 +1617,21 @@ impl EmailIrmInfo {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for EmailIrmInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailIrmInfo>();
-}
 unsafe impl windows_core::Interface for EmailIrmInfo {
-    type Vtable = IEmailIrmInfo_Vtbl;
+    type Vtable = <IEmailIrmInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailIrmInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailIrmInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailIrmInfo";
 }
-unsafe impl Send for EmailIrmInfo {}
-unsafe impl Sync for EmailIrmInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailIrmTemplate(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailIrmTemplate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailIrmTemplate>();
+}
 windows_core::imp::interface_hierarchy!(EmailIrmTemplate, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailIrmTemplate,);
 impl EmailIrmTemplate {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1686,22 +1684,21 @@ impl EmailIrmTemplate {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for EmailIrmTemplate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailIrmTemplate>();
-}
 unsafe impl windows_core::Interface for EmailIrmTemplate {
-    type Vtable = IEmailIrmTemplate_Vtbl;
+    type Vtable = <IEmailIrmTemplate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailIrmTemplate as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailIrmTemplate {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailIrmTemplate";
 }
-unsafe impl Send for EmailIrmTemplate {}
-unsafe impl Sync for EmailIrmTemplate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailItemCounts(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailItemCounts {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailItemCounts>();
+}
 windows_core::imp::interface_hierarchy!(EmailItemCounts, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailItemCounts,);
 impl EmailItemCounts {
     pub fn Flagged(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -1732,140 +1729,139 @@ impl EmailItemCounts {
         }
     }
 }
-impl windows_core::RuntimeType for EmailItemCounts {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailItemCounts>();
-}
 unsafe impl windows_core::Interface for EmailItemCounts {
-    type Vtable = IEmailItemCounts_Vtbl;
+    type Vtable = <IEmailItemCounts as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailItemCounts as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailItemCounts {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailItemCounts";
 }
-unsafe impl Send for EmailItemCounts {}
-unsafe impl Sync for EmailItemCounts {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailbox(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMailbox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailbox>();
+}
 windows_core::imp::interface_hierarchy!(EmailMailbox, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMailbox,);
 impl EmailMailbox {
     pub fn Capabilities(&self) -> windows_core::Result<EmailMailboxCapabilities> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Capabilities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ChangeTracker(&self) -> windows_core::Result<EmailMailboxChangeTracker> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChangeTracker)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsOwnedByCurrentApp(&self) -> windows_core::Result<bool> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsOwnedByCurrentApp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsDataEncryptedUnderLock(&self) -> windows_core::Result<bool> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsDataEncryptedUnderLock)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MailAddress(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MailAddress)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetMailAddress(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMailAddress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn MailAddressAliases(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MailAddressAliases)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OtherAppReadAccess(&self) -> windows_core::Result<EmailMailboxOtherAppReadAccess> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OtherAppReadAccess)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetOtherAppReadAccess(&self, value: EmailMailboxOtherAppReadAccess) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOtherAppReadAccess)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn OtherAppWriteAccess(&self) -> windows_core::Result<EmailMailboxOtherAppWriteAccess> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OtherAppWriteAccess)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetOtherAppWriteAccess(&self, value: EmailMailboxOtherAppWriteAccess) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOtherAppWriteAccess)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn Policies(&self) -> windows_core::Result<EmailMailboxPolicies> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Policies)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SourceDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourceDisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SyncManager(&self) -> windows_core::Result<EmailMailboxSyncManager> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SyncManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UserDataAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserDataAccountId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetConversationReader(&self) -> windows_core::Result<EmailConversationReader> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetConversationReader)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1875,14 +1871,14 @@ impl EmailMailbox {
     where
         P0: windows_core::Param<EmailQueryOptions>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetConversationReaderWithOptions)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetMessageReader(&self) -> windows_core::Result<EmailMessageReader> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMessageReader)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1892,112 +1888,112 @@ impl EmailMailbox {
     where
         P0: windows_core::Param<EmailQueryOptions>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMessageReaderWithOptions)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DeleteAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetConversationAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<EmailConversation>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetConversationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetFolderAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFolderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetMessageAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetSpecialFolderAsync(&self, foldertype: EmailSpecialFolderKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSpecialFolderAsync)(windows_core::Interface::as_raw(this), foldertype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SaveAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SaveAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MarkMessageAsSeenAsync(&self, messageid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MarkMessageAsSeenAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messageid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MarkFolderAsSeenAsync(&self, folderid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MarkFolderAsSeenAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(folderid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MarkMessageReadAsync(&self, messageid: &windows_core::HSTRING, isread: bool) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MarkMessageReadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messageid), isread, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ChangeMessageFlagStateAsync(&self, messageid: &windows_core::HSTRING, flagstate: EmailFlagState) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChangeMessageFlagStateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messageid), flagstate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryMoveMessageAsync(&self, messageid: &windows_core::HSTRING, newparentfolderid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryMoveMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messageid), core::mem::transmute_copy(newparentfolderid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryMoveFolderAsync(&self, folderid: &windows_core::HSTRING, newparentfolderid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryMoveFolderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(folderid), core::mem::transmute_copy(newparentfolderid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryMoveFolderWithNewNameAsync(&self, folderid: &windows_core::HSTRING, newparentfolderid: &windows_core::HSTRING, newfoldername: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryMoveFolderWithNewNameAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(folderid), core::mem::transmute_copy(newparentfolderid), core::mem::transmute_copy(newfoldername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DeleteMessageAsync(&self, messageid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messageid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MarkFolderSyncEnabledAsync(&self, folderid: &windows_core::HSTRING, issyncenabled: bool) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MarkFolderSyncEnabledAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(folderid), issyncenabled, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2007,7 +2003,7 @@ impl EmailMailbox {
     where
         P0: windows_core::Param<EmailMessage>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendMessageAsync)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2017,28 +2013,28 @@ impl EmailMailbox {
     where
         P0: windows_core::Param<EmailMessage>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SaveDraftAsync)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DownloadMessageAsync(&self, messageid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DownloadMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messageid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DownloadAttachmentAsync(&self, attachmentid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DownloadAttachmentAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(attachmentid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateResponseMessageAsync(&self, messageid: &windows_core::HSTRING, responsetype: EmailMessageResponseKind, subject: &windows_core::HSTRING, responseheadertype: EmailMessageBodyKind, responseheader: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateResponseMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messageid), responsetype, core::mem::transmute_copy(subject), responseheadertype, core::mem::transmute_copy(responseheader), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2048,7 +2044,7 @@ impl EmailMailbox {
     where
         P0: windows_core::Param<EmailMessage>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryUpdateMeetingResponseAsync)(windows_core::Interface::as_raw(this), meeting.param().abi(), response, core::mem::transmute_copy(subject), core::mem::transmute_copy(comment), sendupdate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2060,7 +2056,7 @@ impl EmailMailbox {
         P0: windows_core::Param<EmailMessage>,
         P1: windows_core::Param<super::super::Foundation::Collections::IIterable<EmailRecipient>>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryForwardMeetingAsync)(windows_core::Interface::as_raw(this), meeting.param().abi(), recipients.param().abi(), core::mem::transmute_copy(subject), forwardheadertype, core::mem::transmute_copy(forwardheader), core::mem::transmute_copy(comment), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2070,7 +2066,7 @@ impl EmailMailbox {
     where
         P0: windows_core::Param<EmailMessage>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryProposeNewTimeForMeetingAsync)(windows_core::Interface::as_raw(this), meeting.param().abi(), newstarttime, newduration, core::mem::transmute_copy(subject), core::mem::transmute_copy(comment), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2080,21 +2076,21 @@ impl EmailMailbox {
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<EmailMailbox, EmailMailboxChangedEventArgs>>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MailboxChanged)(windows_core::Interface::as_raw(this), phandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMailboxChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveMailboxChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn SmartSendMessageAsync<P0>(&self, message: P0, smartsend: bool) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: windows_core::Param<EmailMessage>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SmartSendMessageAsync)(windows_core::Interface::as_raw(this), message.param().abi(), smartsend, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2104,14 +2100,14 @@ impl EmailMailbox {
     where
         P0: windows_core::Param<EmailMailboxAutoReplySettings>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySetAutoReplySettingsAsync)(windows_core::Interface::as_raw(this), autoreplysettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryGetAutoReplySettingsAsync(&self, requestedformat: EmailMailboxAutoReplyMessageResponseKind) -> windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxAutoReplySettings>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IEmailMailbox>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetAutoReplySettingsAsync)(windows_core::Interface::as_raw(this), requestedformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2149,7 +2145,7 @@ impl EmailMailbox {
             (windows_core::Interface::vtable(this).ResolveRecipientsAsync)(windows_core::Interface::as_raw(this), recipients.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn ValidateCertificatesAsync<P0>(&self, certificates: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailCertificateValidationStatus>>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>>,
@@ -2196,22 +2192,21 @@ impl EmailMailbox {
         }
     }
 }
-impl windows_core::RuntimeType for EmailMailbox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailbox>();
-}
 unsafe impl windows_core::Interface for EmailMailbox {
-    type Vtable = IEmailMailbox_Vtbl;
+    type Vtable = <IEmailMailbox as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailbox as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMailbox {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailbox";
 }
-unsafe impl Send for EmailMailbox {}
-unsafe impl Sync for EmailMailbox {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxAction(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMailboxAction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxAction>();
+}
 windows_core::imp::interface_hierarchy!(EmailMailboxAction, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMailboxAction,);
 impl EmailMailboxAction {
     pub fn Kind(&self) -> windows_core::Result<EmailMailboxActionKind> {
         let this = self;
@@ -2228,22 +2223,21 @@ impl EmailMailboxAction {
         }
     }
 }
-impl windows_core::RuntimeType for EmailMailboxAction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxAction>();
-}
 unsafe impl windows_core::Interface for EmailMailboxAction {
-    type Vtable = IEmailMailboxAction_Vtbl;
+    type Vtable = <IEmailMailboxAction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxAction as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMailboxAction {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAction";
 }
-unsafe impl Send for EmailMailboxAction {}
-unsafe impl Sync for EmailMailboxAction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxAutoReply(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMailboxAutoReply {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxAutoReply>();
+}
 windows_core::imp::interface_hierarchy!(EmailMailboxAutoReply, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMailboxAutoReply,);
 impl EmailMailboxAutoReply {
     pub fn IsEnabled(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -2268,22 +2262,21 @@ impl EmailMailboxAutoReply {
         unsafe { (windows_core::Interface::vtable(this).SetResponse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-impl windows_core::RuntimeType for EmailMailboxAutoReply {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxAutoReply>();
-}
 unsafe impl windows_core::Interface for EmailMailboxAutoReply {
-    type Vtable = IEmailMailboxAutoReply_Vtbl;
+    type Vtable = <IEmailMailboxAutoReply as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxAutoReply as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMailboxAutoReply {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAutoReply";
 }
-unsafe impl Send for EmailMailboxAutoReply {}
-unsafe impl Sync for EmailMailboxAutoReply {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxAutoReplySettings(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMailboxAutoReplySettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxAutoReplySettings>();
+}
 windows_core::imp::interface_hierarchy!(EmailMailboxAutoReplySettings, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMailboxAutoReplySettings,);
 impl EmailMailboxAutoReplySettings {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2364,22 +2357,21 @@ impl EmailMailboxAutoReplySettings {
         }
     }
 }
-impl windows_core::RuntimeType for EmailMailboxAutoReplySettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxAutoReplySettings>();
-}
 unsafe impl windows_core::Interface for EmailMailboxAutoReplySettings {
-    type Vtable = IEmailMailboxAutoReplySettings_Vtbl;
+    type Vtable = <IEmailMailboxAutoReplySettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxAutoReplySettings as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMailboxAutoReplySettings {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAutoReplySettings";
 }
-unsafe impl Send for EmailMailboxAutoReplySettings {}
-unsafe impl Sync for EmailMailboxAutoReplySettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxCapabilities(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMailboxCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxCapabilities>();
+}
 windows_core::imp::interface_hierarchy!(EmailMailboxCapabilities, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMailboxCapabilities,);
 impl EmailMailboxCapabilities {
     pub fn CanForwardMeetings(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -2536,22 +2528,21 @@ impl EmailMailboxCapabilities {
         unsafe { (windows_core::Interface::vtable(this).SetCanMoveFolder)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl windows_core::RuntimeType for EmailMailboxCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxCapabilities>();
-}
 unsafe impl windows_core::Interface for EmailMailboxCapabilities {
-    type Vtable = IEmailMailboxCapabilities_Vtbl;
+    type Vtable = <IEmailMailboxCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxCapabilities as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMailboxCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxCapabilities";
 }
-unsafe impl Send for EmailMailboxCapabilities {}
-unsafe impl Sync for EmailMailboxCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxChange(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMailboxChange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChange>();
+}
 windows_core::imp::interface_hierarchy!(EmailMailboxChange, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMailboxChange,);
 impl EmailMailboxChange {
     pub fn ChangeType(&self) -> windows_core::Result<EmailMailboxChangeType> {
         let this = self;
@@ -2583,22 +2574,21 @@ impl EmailMailboxChange {
         }
     }
 }
-impl windows_core::RuntimeType for EmailMailboxChange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChange>();
-}
 unsafe impl windows_core::Interface for EmailMailboxChange {
-    type Vtable = IEmailMailboxChange_Vtbl;
+    type Vtable = <IEmailMailboxChange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxChange as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMailboxChange {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChange";
 }
-unsafe impl Send for EmailMailboxChange {}
-unsafe impl Sync for EmailMailboxChange {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxChangeReader(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMailboxChangeReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangeReader>();
+}
 windows_core::imp::interface_hierarchy!(EmailMailboxChangeReader, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMailboxChangeReader,);
 impl EmailMailboxChangeReader {
     pub fn AcceptChanges(&self) -> windows_core::Result<()> {
         let this = self;
@@ -2620,22 +2610,21 @@ impl EmailMailboxChangeReader {
         }
     }
 }
-impl windows_core::RuntimeType for EmailMailboxChangeReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangeReader>();
-}
 unsafe impl windows_core::Interface for EmailMailboxChangeReader {
-    type Vtable = IEmailMailboxChangeReader_Vtbl;
+    type Vtable = <IEmailMailboxChangeReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxChangeReader as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMailboxChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangeReader";
 }
-unsafe impl Send for EmailMailboxChangeReader {}
-unsafe impl Sync for EmailMailboxChangeReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxChangeTracker(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMailboxChangeTracker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangeTracker>();
+}
 windows_core::imp::interface_hierarchy!(EmailMailboxChangeTracker, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMailboxChangeTracker,);
 impl EmailMailboxChangeTracker {
     pub fn IsTracking(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -2660,44 +2649,42 @@ impl EmailMailboxChangeTracker {
         unsafe { (windows_core::Interface::vtable(this).Reset)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for EmailMailboxChangeTracker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangeTracker>();
-}
 unsafe impl windows_core::Interface for EmailMailboxChangeTracker {
-    type Vtable = IEmailMailboxChangeTracker_Vtbl;
+    type Vtable = <IEmailMailboxChangeTracker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxChangeTracker as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMailboxChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangeTracker";
 }
-unsafe impl Send for EmailMailboxChangeTracker {}
-unsafe impl Sync for EmailMailboxChangeTracker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxChangedDeferral(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMailboxChangedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangedDeferral>();
+}
 windows_core::imp::interface_hierarchy!(EmailMailboxChangedDeferral, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMailboxChangedDeferral,);
 impl EmailMailboxChangedDeferral {
     pub fn Complete(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for EmailMailboxChangedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangedDeferral>();
-}
 unsafe impl windows_core::Interface for EmailMailboxChangedDeferral {
-    type Vtable = IEmailMailboxChangedDeferral_Vtbl;
+    type Vtable = <IEmailMailboxChangedDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxChangedDeferral as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMailboxChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangedDeferral";
 }
-unsafe impl Send for EmailMailboxChangedDeferral {}
-unsafe impl Sync for EmailMailboxChangedDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxChangedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMailboxChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(EmailMailboxChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMailboxChangedEventArgs,);
 impl EmailMailboxChangedEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<EmailMailboxChangedDeferral> {
         let this = self;
@@ -2707,22 +2694,21 @@ impl EmailMailboxChangedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for EmailMailboxChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangedEventArgs>();
-}
 unsafe impl windows_core::Interface for EmailMailboxChangedEventArgs {
-    type Vtable = IEmailMailboxChangedEventArgs_Vtbl;
+    type Vtable = <IEmailMailboxChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMailboxChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangedEventArgs";
 }
-unsafe impl Send for EmailMailboxChangedEventArgs {}
-unsafe impl Sync for EmailMailboxChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxCreateFolderResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMailboxCreateFolderResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxCreateFolderResult>();
+}
 windows_core::imp::interface_hierarchy!(EmailMailboxCreateFolderResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMailboxCreateFolderResult,);
 impl EmailMailboxCreateFolderResult {
     pub fn Status(&self) -> windows_core::Result<EmailMailboxCreateFolderStatus> {
         let this = self;
@@ -2739,22 +2725,21 @@ impl EmailMailboxCreateFolderResult {
         }
     }
 }
-impl windows_core::RuntimeType for EmailMailboxCreateFolderResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxCreateFolderResult>();
-}
 unsafe impl windows_core::Interface for EmailMailboxCreateFolderResult {
-    type Vtable = IEmailMailboxCreateFolderResult_Vtbl;
+    type Vtable = <IEmailMailboxCreateFolderResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxCreateFolderResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMailboxCreateFolderResult {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxCreateFolderResult";
 }
-unsafe impl Send for EmailMailboxCreateFolderResult {}
-unsafe impl Sync for EmailMailboxCreateFolderResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxPolicies(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMailboxPolicies {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxPolicies>();
+}
 windows_core::imp::interface_hierarchy!(EmailMailboxPolicies, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMailboxPolicies,);
 impl EmailMailboxPolicies {
     pub fn AllowedSmimeEncryptionAlgorithmNegotiation(&self) -> windows_core::Result<EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation> {
         let this = self;
@@ -2829,22 +2814,21 @@ impl EmailMailboxPolicies {
         unsafe { (windows_core::Interface::vtable(this).SetMustSignSmimeMessages)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl windows_core::RuntimeType for EmailMailboxPolicies {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxPolicies>();
-}
 unsafe impl windows_core::Interface for EmailMailboxPolicies {
-    type Vtable = IEmailMailboxPolicies_Vtbl;
+    type Vtable = <IEmailMailboxPolicies as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxPolicies as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMailboxPolicies {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxPolicies";
 }
-unsafe impl Send for EmailMailboxPolicies {}
-unsafe impl Sync for EmailMailboxPolicies {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxSyncManager(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMailboxSyncManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxSyncManager>();
+}
 windows_core::imp::interface_hierarchy!(EmailMailboxSyncManager, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMailboxSyncManager,);
 impl EmailMailboxSyncManager {
     pub fn Status(&self) -> windows_core::Result<EmailMailboxSyncStatus> {
         let this = self;
@@ -2901,18 +2885,13 @@ impl EmailMailboxSyncManager {
         unsafe { (windows_core::Interface::vtable(this).SetLastAttemptedSyncTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl windows_core::RuntimeType for EmailMailboxSyncManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxSyncManager>();
-}
 unsafe impl windows_core::Interface for EmailMailboxSyncManager {
-    type Vtable = IEmailMailboxSyncManager_Vtbl;
+    type Vtable = <IEmailMailboxSyncManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxSyncManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMailboxSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxSyncManager";
 }
-unsafe impl Send for EmailMailboxSyncManager {}
-unsafe impl Sync for EmailMailboxSyncManager {}
 pub struct EmailManager;
 impl EmailManager {
     pub fn ShowComposeNewEmailAsync<P0>(message: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
@@ -2959,7 +2938,11 @@ impl windows_core::RuntimeName for EmailManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailManagerForUser(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailManagerForUser>();
+}
 windows_core::imp::interface_hierarchy!(EmailManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailManagerForUser,);
 impl EmailManagerForUser {
     pub fn ShowComposeNewEmailAsync<P0>(&self, message: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2987,22 +2970,21 @@ impl EmailManagerForUser {
         }
     }
 }
-impl windows_core::RuntimeType for EmailManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailManagerForUser>();
-}
 unsafe impl windows_core::Interface for EmailManagerForUser {
-    type Vtable = IEmailManagerForUser_Vtbl;
+    type Vtable = <IEmailManagerForUser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailManagerForUser as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailManagerForUser";
 }
-unsafe impl Send for EmailManagerForUser {}
-unsafe impl Sync for EmailManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMeetingInfo(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMeetingInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMeetingInfo>();
+}
 windows_core::imp::interface_hierarchy!(EmailMeetingInfo, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMeetingInfo,);
 impl EmailMeetingInfo {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3179,22 +3161,21 @@ impl EmailMeetingInfo {
         }
     }
 }
-impl windows_core::RuntimeType for EmailMeetingInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMeetingInfo>();
-}
 unsafe impl windows_core::Interface for EmailMeetingInfo {
-    type Vtable = IEmailMeetingInfo_Vtbl;
+    type Vtable = <IEmailMeetingInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMeetingInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMeetingInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMeetingInfo";
 }
-unsafe impl Send for EmailMeetingInfo {}
-unsafe impl Sync for EmailMeetingInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMessage(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMessage>();
+}
 windows_core::imp::interface_hierarchy!(EmailMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMessage,);
 impl EmailMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3531,9 +3512,9 @@ impl EmailMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetBodyStream<P0>(&self, r#type: EmailMessageBodyKind, stream: P0) -> windows_core::Result<()>
+    pub fn SetBodyStream<P1>(&self, r#type: EmailMessageBodyKind, stream: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
+        P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = &windows_core::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetBodyStream)(windows_core::Interface::as_raw(this), r#type, stream.param().abi()).ok() }
@@ -3588,22 +3569,21 @@ impl EmailMessage {
         unsafe { (windows_core::Interface::vtable(this).SetSentRepresenting)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
-impl windows_core::RuntimeType for EmailMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMessage>();
-}
 unsafe impl windows_core::Interface for EmailMessage {
-    type Vtable = IEmailMessage_Vtbl;
+    type Vtable = <IEmailMessage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessage";
 }
-unsafe impl Send for EmailMessage {}
-unsafe impl Sync for EmailMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMessageBatch(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMessageBatch {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMessageBatch>();
+}
 windows_core::imp::interface_hierarchy!(EmailMessageBatch, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMessageBatch,);
 impl EmailMessageBatch {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Messages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<EmailMessage>> {
@@ -3621,22 +3601,21 @@ impl EmailMessageBatch {
         }
     }
 }
-impl windows_core::RuntimeType for EmailMessageBatch {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMessageBatch>();
-}
 unsafe impl windows_core::Interface for EmailMessageBatch {
-    type Vtable = IEmailMessageBatch_Vtbl;
+    type Vtable = <IEmailMessageBatch as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMessageBatch as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMessageBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessageBatch";
 }
-unsafe impl Send for EmailMessageBatch {}
-unsafe impl Sync for EmailMessageBatch {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMessageReader(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailMessageReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMessageReader>();
+}
 windows_core::imp::interface_hierarchy!(EmailMessageReader, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailMessageReader,);
 impl EmailMessageReader {
     pub fn ReadBatchAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<EmailMessageBatch>> {
         let this = self;
@@ -3646,22 +3625,21 @@ impl EmailMessageReader {
         }
     }
 }
-impl windows_core::RuntimeType for EmailMessageReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMessageReader>();
-}
 unsafe impl windows_core::Interface for EmailMessageReader {
-    type Vtable = IEmailMessageReader_Vtbl;
+    type Vtable = <IEmailMessageReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMessageReader as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailMessageReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessageReader";
 }
-unsafe impl Send for EmailMessageReader {}
-unsafe impl Sync for EmailMessageReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailQueryOptions(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailQueryOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailQueryOptions>();
+}
 windows_core::imp::interface_hierarchy!(EmailQueryOptions, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailQueryOptions,);
 impl EmailQueryOptions {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3735,22 +3713,21 @@ impl EmailQueryOptions {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for EmailQueryOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailQueryOptions>();
-}
 unsafe impl windows_core::Interface for EmailQueryOptions {
-    type Vtable = IEmailQueryOptions_Vtbl;
+    type Vtable = <IEmailQueryOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailQueryOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailQueryOptions";
 }
-unsafe impl Send for EmailQueryOptions {}
-unsafe impl Sync for EmailQueryOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailQueryTextSearch(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailQueryTextSearch {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailQueryTextSearch>();
+}
 windows_core::imp::interface_hierarchy!(EmailQueryTextSearch, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailQueryTextSearch,);
 impl EmailQueryTextSearch {
     pub fn Fields(&self) -> windows_core::Result<EmailQuerySearchFields> {
         let this = self;
@@ -3786,22 +3763,21 @@ impl EmailQueryTextSearch {
         unsafe { (windows_core::Interface::vtable(this).SetText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-impl windows_core::RuntimeType for EmailQueryTextSearch {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailQueryTextSearch>();
-}
 unsafe impl windows_core::Interface for EmailQueryTextSearch {
-    type Vtable = IEmailQueryTextSearch_Vtbl;
+    type Vtable = <IEmailQueryTextSearch as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailQueryTextSearch as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailQueryTextSearch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailQueryTextSearch";
 }
-unsafe impl Send for EmailQueryTextSearch {}
-unsafe impl Sync for EmailQueryTextSearch {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailRecipient(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailRecipient {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailRecipient>();
+}
 windows_core::imp::interface_hierarchy!(EmailRecipient, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailRecipient,);
 impl EmailRecipient {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3849,22 +3825,21 @@ impl EmailRecipient {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for EmailRecipient {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailRecipient>();
-}
 unsafe impl windows_core::Interface for EmailRecipient {
-    type Vtable = IEmailRecipient_Vtbl;
+    type Vtable = <IEmailRecipient as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailRecipient as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailRecipient {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailRecipient";
 }
-unsafe impl Send for EmailRecipient {}
-unsafe impl Sync for EmailRecipient {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailRecipientResolutionResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailRecipientResolutionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailRecipientResolutionResult>();
+}
 windows_core::imp::interface_hierarchy!(EmailRecipientResolutionResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailRecipientResolutionResult,);
 impl EmailRecipientResolutionResult {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3901,22 +3876,21 @@ impl EmailRecipientResolutionResult {
         unsafe { (windows_core::Interface::vtable(this).SetPublicKeys)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
-impl windows_core::RuntimeType for EmailRecipientResolutionResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailRecipientResolutionResult>();
-}
 unsafe impl windows_core::Interface for EmailRecipientResolutionResult {
-    type Vtable = IEmailRecipientResolutionResult_Vtbl;
+    type Vtable = <IEmailRecipientResolutionResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailRecipientResolutionResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailRecipientResolutionResult {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailRecipientResolutionResult";
 }
-unsafe impl Send for EmailRecipientResolutionResult {}
-unsafe impl Sync for EmailRecipientResolutionResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailStore(windows_core::IUnknown);
+impl windows_core::RuntimeType for EmailStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailStore>();
+}
 windows_core::imp::interface_hierarchy!(EmailStore, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailStore,);
 impl EmailStore {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindMailboxesAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMailbox>>> {
@@ -4003,37 +3977,31 @@ impl EmailStore {
         }
     }
 }
-impl windows_core::RuntimeType for EmailStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailStore>();
-}
 unsafe impl windows_core::Interface for EmailStore {
-    type Vtable = IEmailStore_Vtbl;
+    type Vtable = <IEmailStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailStore as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailStore {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailStore";
 }
-unsafe impl Send for EmailStore {}
-unsafe impl Sync for EmailStore {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailStoreNotificationTriggerDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(EmailStoreNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-impl EmailStoreNotificationTriggerDetails {}
 impl windows_core::RuntimeType for EmailStoreNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailStoreNotificationTriggerDetails>();
 }
+windows_core::imp::interface_hierarchy!(EmailStoreNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(EmailStoreNotificationTriggerDetails,);
+impl EmailStoreNotificationTriggerDetails {}
 unsafe impl windows_core::Interface for EmailStoreNotificationTriggerDetails {
-    type Vtable = IEmailStoreNotificationTriggerDetails_Vtbl;
+    type Vtable = <IEmailStoreNotificationTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailStoreNotificationTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmailStoreNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailStoreNotificationTriggerDetails";
 }
-unsafe impl Send for EmailStoreNotificationTriggerDetails {}
-unsafe impl Sync for EmailStoreNotificationTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailAttachmentDownloadState(pub i32);
 impl EmailAttachmentDownloadState {
     pub const NotDownloaded: Self = Self(0i32);
@@ -4044,16 +4012,11 @@ impl EmailAttachmentDownloadState {
 impl windows_core::TypeKind for EmailAttachmentDownloadState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailAttachmentDownloadState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailAttachmentDownloadState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailAttachmentDownloadState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailAttachmentDownloadState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailBatchStatus(pub i32);
 impl EmailBatchStatus {
     pub const Success: Self = Self(0i32);
@@ -4063,16 +4026,11 @@ impl EmailBatchStatus {
 impl windows_core::TypeKind for EmailBatchStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailBatchStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailBatchStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailBatchStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailBatchStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailCertificateValidationStatus(pub i32);
 impl EmailCertificateValidationStatus {
     pub const Success: Self = Self(0i32);
@@ -4090,16 +4048,11 @@ impl EmailCertificateValidationStatus {
 impl windows_core::TypeKind for EmailCertificateValidationStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailCertificateValidationStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailCertificateValidationStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailCertificateValidationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailCertificateValidationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailFlagState(pub i32);
 impl EmailFlagState {
     pub const Unflagged: Self = Self(0i32);
@@ -4110,16 +4063,11 @@ impl EmailFlagState {
 impl windows_core::TypeKind for EmailFlagState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailFlagState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailFlagState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailFlagState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailFlagState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailImportance(pub i32);
 impl EmailImportance {
     pub const Normal: Self = Self(0i32);
@@ -4129,16 +4077,11 @@ impl EmailImportance {
 impl windows_core::TypeKind for EmailImportance {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailImportance {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailImportance").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailImportance {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailImportance;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMailboxActionKind(pub i32);
 impl EmailMailboxActionKind {
     pub const MarkMessageAsSeen: Self = Self(0i32);
@@ -4156,16 +4099,11 @@ impl EmailMailboxActionKind {
 impl windows_core::TypeKind for EmailMailboxActionKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMailboxActionKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMailboxActionKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMailboxActionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxActionKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation(pub i32);
 impl EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     pub const None: Self = Self(0i32);
@@ -4175,16 +4113,11 @@ impl EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
 impl windows_core::TypeKind for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMailboxAutoReplyMessageResponseKind(pub i32);
 impl EmailMailboxAutoReplyMessageResponseKind {
     pub const Html: Self = Self(0i32);
@@ -4193,16 +4126,11 @@ impl EmailMailboxAutoReplyMessageResponseKind {
 impl windows_core::TypeKind for EmailMailboxAutoReplyMessageResponseKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMailboxAutoReplyMessageResponseKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMailboxAutoReplyMessageResponseKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMailboxAutoReplyMessageResponseKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAutoReplyMessageResponseKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMailboxChangeType(pub i32);
 impl EmailMailboxChangeType {
     pub const MessageCreated: Self = Self(0i32);
@@ -4216,16 +4144,11 @@ impl EmailMailboxChangeType {
 impl windows_core::TypeKind for EmailMailboxChangeType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMailboxChangeType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMailboxChangeType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMailboxChangeType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxChangeType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMailboxCreateFolderStatus(pub i32);
 impl EmailMailboxCreateFolderStatus {
     pub const Success: Self = Self(0i32);
@@ -4239,16 +4162,11 @@ impl EmailMailboxCreateFolderStatus {
 impl windows_core::TypeKind for EmailMailboxCreateFolderStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMailboxCreateFolderStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMailboxCreateFolderStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMailboxCreateFolderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxCreateFolderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMailboxDeleteFolderStatus(pub i32);
 impl EmailMailboxDeleteFolderStatus {
     pub const Success: Self = Self(0i32);
@@ -4261,16 +4179,11 @@ impl EmailMailboxDeleteFolderStatus {
 impl windows_core::TypeKind for EmailMailboxDeleteFolderStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMailboxDeleteFolderStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMailboxDeleteFolderStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMailboxDeleteFolderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxDeleteFolderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMailboxEmptyFolderStatus(pub i32);
 impl EmailMailboxEmptyFolderStatus {
     pub const Success: Self = Self(0i32);
@@ -4283,16 +4196,11 @@ impl EmailMailboxEmptyFolderStatus {
 impl windows_core::TypeKind for EmailMailboxEmptyFolderStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMailboxEmptyFolderStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMailboxEmptyFolderStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMailboxEmptyFolderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxEmptyFolderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMailboxOtherAppReadAccess(pub i32);
 impl EmailMailboxOtherAppReadAccess {
     pub const SystemOnly: Self = Self(0i32);
@@ -4302,16 +4210,11 @@ impl EmailMailboxOtherAppReadAccess {
 impl windows_core::TypeKind for EmailMailboxOtherAppReadAccess {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMailboxOtherAppReadAccess {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMailboxOtherAppReadAccess").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMailboxOtherAppReadAccess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppReadAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMailboxOtherAppWriteAccess(pub i32);
 impl EmailMailboxOtherAppWriteAccess {
     pub const None: Self = Self(0i32);
@@ -4320,16 +4223,11 @@ impl EmailMailboxOtherAppWriteAccess {
 impl windows_core::TypeKind for EmailMailboxOtherAppWriteAccess {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMailboxOtherAppWriteAccess {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMailboxOtherAppWriteAccess").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMailboxOtherAppWriteAccess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppWriteAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMailboxSmimeEncryptionAlgorithm(pub i32);
 impl EmailMailboxSmimeEncryptionAlgorithm {
     pub const Any: Self = Self(0i32);
@@ -4342,16 +4240,11 @@ impl EmailMailboxSmimeEncryptionAlgorithm {
 impl windows_core::TypeKind for EmailMailboxSmimeEncryptionAlgorithm {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMailboxSmimeEncryptionAlgorithm {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMailboxSmimeEncryptionAlgorithm").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMailboxSmimeEncryptionAlgorithm {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeEncryptionAlgorithm;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMailboxSmimeSigningAlgorithm(pub i32);
 impl EmailMailboxSmimeSigningAlgorithm {
     pub const Any: Self = Self(0i32);
@@ -4361,16 +4254,11 @@ impl EmailMailboxSmimeSigningAlgorithm {
 impl windows_core::TypeKind for EmailMailboxSmimeSigningAlgorithm {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMailboxSmimeSigningAlgorithm {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMailboxSmimeSigningAlgorithm").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMailboxSmimeSigningAlgorithm {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeSigningAlgorithm;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMailboxSyncStatus(pub i32);
 impl EmailMailboxSyncStatus {
     pub const Idle: Self = Self(0i32);
@@ -4384,16 +4272,11 @@ impl EmailMailboxSyncStatus {
 impl windows_core::TypeKind for EmailMailboxSyncStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMailboxSyncStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMailboxSyncStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMailboxSyncStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSyncStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMeetingResponseType(pub i32);
 impl EmailMeetingResponseType {
     pub const Accept: Self = Self(0i32);
@@ -4403,16 +4286,11 @@ impl EmailMeetingResponseType {
 impl windows_core::TypeKind for EmailMeetingResponseType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMeetingResponseType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMeetingResponseType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMeetingResponseType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMeetingResponseType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMessageBodyKind(pub i32);
 impl EmailMessageBodyKind {
     pub const Html: Self = Self(0i32);
@@ -4421,16 +4299,11 @@ impl EmailMessageBodyKind {
 impl windows_core::TypeKind for EmailMessageBodyKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMessageBodyKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMessageBodyKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMessageBodyKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageBodyKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMessageDownloadState(pub i32);
 impl EmailMessageDownloadState {
     pub const PartiallyDownloaded: Self = Self(0i32);
@@ -4441,16 +4314,11 @@ impl EmailMessageDownloadState {
 impl windows_core::TypeKind for EmailMessageDownloadState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMessageDownloadState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMessageDownloadState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMessageDownloadState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageDownloadState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMessageResponseKind(pub i32);
 impl EmailMessageResponseKind {
     pub const None: Self = Self(0i32);
@@ -4461,16 +4329,11 @@ impl EmailMessageResponseKind {
 impl windows_core::TypeKind for EmailMessageResponseKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMessageResponseKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMessageResponseKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMessageResponseKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageResponseKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailMessageSmimeKind(pub i32);
 impl EmailMessageSmimeKind {
     pub const None: Self = Self(0i32);
@@ -4481,16 +4344,11 @@ impl EmailMessageSmimeKind {
 impl windows_core::TypeKind for EmailMessageSmimeKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailMessageSmimeKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailMessageSmimeKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailMessageSmimeKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageSmimeKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailQueryKind(pub i32);
 impl EmailQueryKind {
     pub const All: Self = Self(0i32);
@@ -4503,16 +4361,11 @@ impl EmailQueryKind {
 impl windows_core::TypeKind for EmailQueryKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailQueryKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailQueryKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailQueryKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQueryKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailQuerySearchFields(pub u32);
 impl EmailQuerySearchFields {
     pub const None: Self = Self(0u32);
@@ -4525,49 +4378,11 @@ impl EmailQuerySearchFields {
 impl windows_core::TypeKind for EmailQuerySearchFields {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailQuerySearchFields {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailQuerySearchFields").field(&self.0).finish()
-    }
-}
-impl EmailQuerySearchFields {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for EmailQuerySearchFields {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for EmailQuerySearchFields {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for EmailQuerySearchFields {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for EmailQuerySearchFields {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for EmailQuerySearchFields {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for EmailQuerySearchFields {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchFields;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailQuerySearchScope(pub i32);
 impl EmailQuerySearchScope {
     pub const Local: Self = Self(0i32);
@@ -4576,16 +4391,11 @@ impl EmailQuerySearchScope {
 impl windows_core::TypeKind for EmailQuerySearchScope {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailQuerySearchScope {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailQuerySearchScope").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailQuerySearchScope {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchScope;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailQuerySortDirection(pub i32);
 impl EmailQuerySortDirection {
     pub const Descending: Self = Self(0i32);
@@ -4594,16 +4404,11 @@ impl EmailQuerySortDirection {
 impl windows_core::TypeKind for EmailQuerySortDirection {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailQuerySortDirection {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailQuerySortDirection").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailQuerySortDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortDirection;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailQuerySortProperty(pub i32);
 impl EmailQuerySortProperty {
     pub const Date: Self = Self(0i32);
@@ -4611,16 +4416,11 @@ impl EmailQuerySortProperty {
 impl windows_core::TypeKind for EmailQuerySortProperty {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailQuerySortProperty {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailQuerySortProperty").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailQuerySortProperty {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortProperty;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailRecipientResolutionStatus(pub i32);
 impl EmailRecipientResolutionStatus {
     pub const Success: Self = Self(0i32);
@@ -4635,16 +4435,11 @@ impl EmailRecipientResolutionStatus {
 impl windows_core::TypeKind for EmailRecipientResolutionStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailRecipientResolutionStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailRecipientResolutionStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailRecipientResolutionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailRecipientResolutionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailSpecialFolderKind(pub i32);
 impl EmailSpecialFolderKind {
     pub const None: Self = Self(0i32);
@@ -4658,16 +4453,11 @@ impl EmailSpecialFolderKind {
 impl windows_core::TypeKind for EmailSpecialFolderKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EmailSpecialFolderKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailSpecialFolderKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EmailSpecialFolderKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailSpecialFolderKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EmailStoreAccessType(pub i32);
 impl EmailStoreAccessType {
     pub const AppMailboxesReadWrite: Self = Self(0i32);
@@ -4675,11 +4465,6 @@ impl EmailStoreAccessType {
 }
 impl windows_core::TypeKind for EmailStoreAccessType {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for EmailStoreAccessType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EmailStoreAccessType").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for EmailStoreAccessType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailStoreAccessType;i4)");

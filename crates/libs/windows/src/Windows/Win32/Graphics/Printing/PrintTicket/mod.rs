@@ -8,10 +8,10 @@ where
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn PTConvertDevModeToPrintTicket<P0, P1>(hprovider: P0, cbdevmode: u32, pdevmode: *const super::super::Gdi::DEVMODEA, scope: EPrintTicketScope, pprintticket: P1) -> windows_core::Result<()>
+pub unsafe fn PTConvertDevModeToPrintTicket<P0, P4>(hprovider: P0, cbdevmode: u32, pdevmode: *const super::super::Gdi::DEVMODEA, scope: EPrintTicketScope, pprintticket: P4) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HPTPROVIDER>,
-    P1: windows_core::Param<super::super::super::System::Com::IStream>,
+    P4: windows_core::Param<super::super::super::System::Com::IStream>,
 {
     windows_targets::link!("prntvpt.dll" "system" fn PTConvertDevModeToPrintTicket(hprovider : HPTPROVIDER, cbdevmode : u32, pdevmode : *const super::super::Gdi:: DEVMODEA, scope : EPrintTicketScope, pprintticket : * mut core::ffi::c_void) -> windows_core::HRESULT);
     PTConvertDevModeToPrintTicket(hprovider.param().abi(), cbdevmode, pdevmode, scope, pprintticket.param().abi()).ok()
@@ -62,12 +62,12 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn PTMergeAndValidatePrintTicket<P0, P1, P2, P3>(hprovider: P0, pbaseticket: P1, pdeltaticket: P2, scope: EPrintTicketScope, presultticket: P3, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
+pub unsafe fn PTMergeAndValidatePrintTicket<P0, P1, P2, P4>(hprovider: P0, pbaseticket: P1, pdeltaticket: P2, scope: EPrintTicketScope, presultticket: P4, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HPTPROVIDER>,
     P1: windows_core::Param<super::super::super::System::Com::IStream>,
     P2: windows_core::Param<super::super::super::System::Com::IStream>,
-    P3: windows_core::Param<super::super::super::System::Com::IStream>,
+    P4: windows_core::Param<super::super::super::System::Com::IStream>,
 {
     windows_targets::link!("prntvpt.dll" "system" fn PTMergeAndValidatePrintTicket(hprovider : HPTPROVIDER, pbaseticket : * mut core::ffi::c_void, pdeltaticket : * mut core::ffi::c_void, scope : EPrintTicketScope, presultticket : * mut core::ffi::c_void, pbstrerrormessage : *mut core::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
     PTMergeAndValidatePrintTicket(hprovider.param().abi(), pbaseticket.param().abi(), pdeltaticket.param().abi(), scope, presultticket.param().abi(), core::mem::transmute(pbstrerrormessage.unwrap_or(core::ptr::null_mut()))).ok()
@@ -116,30 +116,23 @@ pub const kPTPageScope: EPrintTicketScope = EPrintTicketScope(0i32);
 pub const kPrinterDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(1i32);
 pub const kUserDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(0i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EDefaultDevmodeType(pub i32);
 impl windows_core::TypeKind for EDefaultDevmodeType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EDefaultDevmodeType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EDefaultDevmodeType").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EPrintTicketScope(pub i32);
 impl windows_core::TypeKind for EPrintTicketScope {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EPrintTicketScope {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EPrintTicketScope").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPTPROVIDER(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HPTPROVIDER {
+    type TypeKind = windows_core::CopyType;
+}
 impl HPTPROVIDER {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -149,7 +142,8 @@ impl windows_core::Free for HPTPROVIDER {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = PTCloseProvider(*self);
+            windows_targets::link!("prntvpt.dll" "system" fn PTCloseProvider(hprovider : *mut core::ffi::c_void) -> i32);
+            PTCloseProvider(self.0);
         }
     }
 }
@@ -157,7 +151,4 @@ impl Default for HPTPROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HPTPROVIDER {
-    type TypeKind = windows_core::CopyType;
 }

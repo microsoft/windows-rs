@@ -440,10 +440,7 @@ impl windows_core::RuntimeType for IPhoneLine2 {
 #[repr(C)]
 pub struct IPhoneLine2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
     pub EnableTextReply: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    EnableTextReply: usize,
     pub TransportDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhoneLine3, IPhoneLine3_Vtbl, 0xe2e33cf7_2406_57f3_826a_e5a5f40d6fb5);
@@ -702,7 +699,11 @@ pub struct IVoipPhoneCall3_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CallAnswerEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for CallAnswerEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICallAnswerEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(CallAnswerEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CallAnswerEventArgs,);
 impl CallAnswerEventArgs {
     pub fn AcceptedMedia(&self) -> windows_core::Result<VoipPhoneCallMedia> {
         let this = self;
@@ -712,22 +713,21 @@ impl CallAnswerEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for CallAnswerEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICallAnswerEventArgs>();
-}
 unsafe impl windows_core::Interface for CallAnswerEventArgs {
-    type Vtable = ICallAnswerEventArgs_Vtbl;
+    type Vtable = <ICallAnswerEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICallAnswerEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CallAnswerEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallAnswerEventArgs";
 }
-unsafe impl Send for CallAnswerEventArgs {}
-unsafe impl Sync for CallAnswerEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CallRejectEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for CallRejectEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICallRejectEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(CallRejectEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CallRejectEventArgs,);
 impl CallRejectEventArgs {
     pub fn RejectReason(&self) -> windows_core::Result<VoipPhoneCallRejectReason> {
         let this = self;
@@ -737,22 +737,21 @@ impl CallRejectEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for CallRejectEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICallRejectEventArgs>();
-}
 unsafe impl windows_core::Interface for CallRejectEventArgs {
-    type Vtable = ICallRejectEventArgs_Vtbl;
+    type Vtable = <ICallRejectEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICallRejectEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CallRejectEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallRejectEventArgs";
 }
-unsafe impl Send for CallRejectEventArgs {}
-unsafe impl Sync for CallRejectEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CallStateChangeEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for CallStateChangeEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICallStateChangeEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(CallStateChangeEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CallStateChangeEventArgs,);
 impl CallStateChangeEventArgs {
     pub fn State(&self) -> windows_core::Result<VoipPhoneCallState> {
         let this = self;
@@ -762,44 +761,42 @@ impl CallStateChangeEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for CallStateChangeEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICallStateChangeEventArgs>();
-}
 unsafe impl windows_core::Interface for CallStateChangeEventArgs {
-    type Vtable = ICallStateChangeEventArgs_Vtbl;
+    type Vtable = <ICallStateChangeEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICallStateChangeEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CallStateChangeEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallStateChangeEventArgs";
 }
-unsafe impl Send for CallStateChangeEventArgs {}
-unsafe impl Sync for CallStateChangeEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenCallEndCallDeferral(windows_core::IUnknown);
+impl windows_core::RuntimeType for LockScreenCallEndCallDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallEndCallDeferral>();
+}
 windows_core::imp::interface_hierarchy!(LockScreenCallEndCallDeferral, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(LockScreenCallEndCallDeferral,);
 impl LockScreenCallEndCallDeferral {
     pub fn Complete(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for LockScreenCallEndCallDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallEndCallDeferral>();
-}
 unsafe impl windows_core::Interface for LockScreenCallEndCallDeferral {
-    type Vtable = ILockScreenCallEndCallDeferral_Vtbl;
+    type Vtable = <ILockScreenCallEndCallDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockScreenCallEndCallDeferral as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LockScreenCallEndCallDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndCallDeferral";
 }
-unsafe impl Send for LockScreenCallEndCallDeferral {}
-unsafe impl Sync for LockScreenCallEndCallDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenCallEndRequestedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for LockScreenCallEndRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallEndRequestedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(LockScreenCallEndRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(LockScreenCallEndRequestedEventArgs,);
 impl LockScreenCallEndRequestedEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<LockScreenCallEndCallDeferral> {
         let this = self;
@@ -816,22 +813,21 @@ impl LockScreenCallEndRequestedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for LockScreenCallEndRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallEndRequestedEventArgs>();
-}
 unsafe impl windows_core::Interface for LockScreenCallEndRequestedEventArgs {
-    type Vtable = ILockScreenCallEndRequestedEventArgs_Vtbl;
+    type Vtable = <ILockScreenCallEndRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockScreenCallEndRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LockScreenCallEndRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndRequestedEventArgs";
 }
-unsafe impl Send for LockScreenCallEndRequestedEventArgs {}
-unsafe impl Sync for LockScreenCallEndRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenCallUI(windows_core::IUnknown);
+impl windows_core::RuntimeType for LockScreenCallUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallUI>();
+}
 windows_core::imp::interface_hierarchy!(LockScreenCallUI, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(LockScreenCallUI,);
 impl LockScreenCallUI {
     pub fn Dismiss(&self) -> windows_core::Result<()> {
         let this = self;
@@ -877,22 +873,21 @@ impl LockScreenCallUI {
         unsafe { (windows_core::Interface::vtable(this).SetCallTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-impl windows_core::RuntimeType for LockScreenCallUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallUI>();
-}
 unsafe impl windows_core::Interface for LockScreenCallUI {
-    type Vtable = ILockScreenCallUI_Vtbl;
+    type Vtable = <ILockScreenCallUI as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockScreenCallUI as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LockScreenCallUI {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallUI";
 }
-unsafe impl Send for LockScreenCallUI {}
-unsafe impl Sync for LockScreenCallUI {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MuteChangeEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for MuteChangeEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMuteChangeEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(MuteChangeEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MuteChangeEventArgs,);
 impl MuteChangeEventArgs {
     pub fn Muted(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -902,22 +897,21 @@ impl MuteChangeEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for MuteChangeEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMuteChangeEventArgs>();
-}
 unsafe impl windows_core::Interface for MuteChangeEventArgs {
-    type Vtable = IMuteChangeEventArgs_Vtbl;
+    type Vtable = <IMuteChangeEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMuteChangeEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MuteChangeEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.MuteChangeEventArgs";
 }
-unsafe impl Send for MuteChangeEventArgs {}
-unsafe impl Sync for MuteChangeEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCall(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneCall {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCall>();
+}
 windows_core::imp::interface_hierarchy!(PhoneCall, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneCall,);
 impl PhoneCall {
     pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1140,18 +1134,13 @@ impl PhoneCall {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for PhoneCall {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCall>();
-}
 unsafe impl windows_core::Interface for PhoneCall {
-    type Vtable = IPhoneCall_Vtbl;
+    type Vtable = <IPhoneCall as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCall as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneCall {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCall";
 }
-unsafe impl Send for PhoneCall {}
-unsafe impl Sync for PhoneCall {}
 pub struct PhoneCallBlocking;
 impl PhoneCallBlocking {
     pub fn BlockUnknownNumbers() -> windows_core::Result<bool> {
@@ -1193,7 +1182,11 @@ impl windows_core::RuntimeName for PhoneCallBlocking {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryEntry(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneCallHistoryEntry {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntry>();
+}
 windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntry, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneCallHistoryEntry,);
 impl PhoneCallHistoryEntry {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1399,22 +1392,21 @@ impl PhoneCallHistoryEntry {
         unsafe { (windows_core::Interface::vtable(this).SetStartTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl windows_core::RuntimeType for PhoneCallHistoryEntry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntry>();
-}
 unsafe impl windows_core::Interface for PhoneCallHistoryEntry {
-    type Vtable = IPhoneCallHistoryEntry_Vtbl;
+    type Vtable = <IPhoneCallHistoryEntry as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCallHistoryEntry as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneCallHistoryEntry {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntry";
 }
-unsafe impl Send for PhoneCallHistoryEntry {}
-unsafe impl Sync for PhoneCallHistoryEntry {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryEntryAddress(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneCallHistoryEntryAddress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntryAddress>();
+}
 windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntryAddress, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneCallHistoryEntryAddress,);
 impl PhoneCallHistoryEntryAddress {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1478,22 +1470,21 @@ impl PhoneCallHistoryEntryAddress {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for PhoneCallHistoryEntryAddress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntryAddress>();
-}
 unsafe impl windows_core::Interface for PhoneCallHistoryEntryAddress {
-    type Vtable = IPhoneCallHistoryEntryAddress_Vtbl;
+    type Vtable = <IPhoneCallHistoryEntryAddress as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCallHistoryEntryAddress as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneCallHistoryEntryAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress";
 }
-unsafe impl Send for PhoneCallHistoryEntryAddress {}
-unsafe impl Sync for PhoneCallHistoryEntryAddress {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryEntryQueryOptions(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneCallHistoryEntryQueryOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntryQueryOptions>();
+}
 windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntryQueryOptions, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneCallHistoryEntryQueryOptions,);
 impl PhoneCallHistoryEntryQueryOptions {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1522,22 +1513,21 @@ impl PhoneCallHistoryEntryQueryOptions {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneCallHistoryEntryQueryOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntryQueryOptions>();
-}
 unsafe impl windows_core::Interface for PhoneCallHistoryEntryQueryOptions {
-    type Vtable = IPhoneCallHistoryEntryQueryOptions_Vtbl;
+    type Vtable = <IPhoneCallHistoryEntryQueryOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCallHistoryEntryQueryOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneCallHistoryEntryQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions";
 }
-unsafe impl Send for PhoneCallHistoryEntryQueryOptions {}
-unsafe impl Sync for PhoneCallHistoryEntryQueryOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryEntryReader(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneCallHistoryEntryReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntryReader>();
+}
 windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntryReader, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneCallHistoryEntryReader,);
 impl PhoneCallHistoryEntryReader {
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadBatchAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhoneCallHistoryEntry>>> {
@@ -1548,18 +1538,13 @@ impl PhoneCallHistoryEntryReader {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneCallHistoryEntryReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryEntryReader>();
-}
 unsafe impl windows_core::Interface for PhoneCallHistoryEntryReader {
-    type Vtable = IPhoneCallHistoryEntryReader_Vtbl;
+    type Vtable = <IPhoneCallHistoryEntryReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCallHistoryEntryReader as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneCallHistoryEntryReader {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryReader";
 }
-unsafe impl Send for PhoneCallHistoryEntryReader {}
-unsafe impl Sync for PhoneCallHistoryEntryReader {}
 pub struct PhoneCallHistoryManager;
 impl PhoneCallHistoryManager {
     pub fn RequestStoreAsync(accesstype: PhoneCallHistoryStoreAccessType) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>> {
@@ -1593,7 +1578,11 @@ impl windows_core::RuntimeName for PhoneCallHistoryManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryManagerForUser(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneCallHistoryManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryManagerForUser>();
+}
 windows_core::imp::interface_hierarchy!(PhoneCallHistoryManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneCallHistoryManagerForUser,);
 impl PhoneCallHistoryManagerForUser {
     pub fn RequestStoreAsync(&self, accesstype: PhoneCallHistoryStoreAccessType) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>> {
         let this = self;
@@ -1611,22 +1600,21 @@ impl PhoneCallHistoryManagerForUser {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneCallHistoryManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryManagerForUser>();
-}
 unsafe impl windows_core::Interface for PhoneCallHistoryManagerForUser {
-    type Vtable = IPhoneCallHistoryManagerForUser_Vtbl;
+    type Vtable = <IPhoneCallHistoryManagerForUser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCallHistoryManagerForUser as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneCallHistoryManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryManagerForUser";
 }
-unsafe impl Send for PhoneCallHistoryManagerForUser {}
-unsafe impl Sync for PhoneCallHistoryManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryStore(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneCallHistoryStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryStore>();
+}
 windows_core::imp::interface_hierarchy!(PhoneCallHistoryStore, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneCallHistoryStore,);
 impl PhoneCallHistoryStore {
     pub fn GetEntryAsync(&self, callhistoryentryid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryEntry>> {
         let this = self;
@@ -1741,22 +1729,21 @@ impl PhoneCallHistoryStore {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneCallHistoryStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallHistoryStore>();
-}
 unsafe impl windows_core::Interface for PhoneCallHistoryStore {
-    type Vtable = IPhoneCallHistoryStore_Vtbl;
+    type Vtable = <IPhoneCallHistoryStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCallHistoryStore as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneCallHistoryStore {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryStore";
 }
-unsafe impl Send for PhoneCallHistoryStore {}
-unsafe impl Sync for PhoneCallHistoryStore {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallInfo(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneCallInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallInfo>();
+}
 windows_core::imp::interface_hierarchy!(PhoneCallInfo, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneCallInfo,);
 impl PhoneCallInfo {
     pub fn LineId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -1801,18 +1788,13 @@ impl PhoneCallInfo {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneCallInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallInfo>();
-}
 unsafe impl windows_core::Interface for PhoneCallInfo {
-    type Vtable = IPhoneCallInfo_Vtbl;
+    type Vtable = <IPhoneCallInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCallInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneCallInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallInfo";
 }
-unsafe impl Send for PhoneCallInfo {}
-unsafe impl Sync for PhoneCallInfo {}
 pub struct PhoneCallManager;
 impl PhoneCallManager {
     pub fn ShowPhoneCallUI(phonenumber: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1866,7 +1848,11 @@ impl windows_core::RuntimeName for PhoneCallManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallStore(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneCallStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallStore>();
+}
 windows_core::imp::interface_hierarchy!(PhoneCallStore, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneCallStore,);
 impl PhoneCallStore {
     pub fn IsEmergencyPhoneNumberAsync(&self, number: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1890,22 +1876,21 @@ impl PhoneCallStore {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneCallStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallStore>();
-}
 unsafe impl windows_core::Interface for PhoneCallStore {
-    type Vtable = IPhoneCallStore_Vtbl;
+    type Vtable = <IPhoneCallStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCallStore as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneCallStore {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallStore";
 }
-unsafe impl Send for PhoneCallStore {}
-unsafe impl Sync for PhoneCallStore {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallVideoCapabilities(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneCallVideoCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallVideoCapabilities>();
+}
 windows_core::imp::interface_hierarchy!(PhoneCallVideoCapabilities, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneCallVideoCapabilities,);
 impl PhoneCallVideoCapabilities {
     pub fn IsVideoCallingCapable(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -1915,18 +1900,13 @@ impl PhoneCallVideoCapabilities {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneCallVideoCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallVideoCapabilities>();
-}
 unsafe impl windows_core::Interface for PhoneCallVideoCapabilities {
-    type Vtable = IPhoneCallVideoCapabilities_Vtbl;
+    type Vtable = <IPhoneCallVideoCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCallVideoCapabilities as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneCallVideoCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallVideoCapabilities";
 }
-unsafe impl Send for PhoneCallVideoCapabilities {}
-unsafe impl Sync for PhoneCallVideoCapabilities {}
 pub struct PhoneCallVideoCapabilitiesManager;
 impl PhoneCallVideoCapabilitiesManager {
     pub fn GetCapabilitiesAsync(phonenumber: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallVideoCapabilities>> {
@@ -1946,7 +1926,11 @@ impl windows_core::RuntimeName for PhoneCallVideoCapabilitiesManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallsResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneCallsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallsResult>();
+}
 windows_core::imp::interface_hierarchy!(PhoneCallsResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneCallsResult,);
 impl PhoneCallsResult {
     pub fn OperationStatus(&self) -> windows_core::Result<PhoneLineOperationStatus> {
         let this = self;
@@ -1964,22 +1948,21 @@ impl PhoneCallsResult {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneCallsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallsResult>();
-}
 unsafe impl windows_core::Interface for PhoneCallsResult {
-    type Vtable = IPhoneCallsResult_Vtbl;
+    type Vtable = <IPhoneCallsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCallsResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneCallsResult {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallsResult";
 }
-unsafe impl Send for PhoneCallsResult {}
-unsafe impl Sync for PhoneCallsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneDialOptions(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneDialOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneDialOptions>();
+}
 windows_core::imp::interface_hierarchy!(PhoneDialOptions, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneDialOptions,);
 impl PhoneDialOptions {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2065,22 +2048,21 @@ impl PhoneDialOptions {
         unsafe { (windows_core::Interface::vtable(this).SetAudioEndpoint)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl windows_core::RuntimeType for PhoneDialOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneDialOptions>();
-}
 unsafe impl windows_core::Interface for PhoneDialOptions {
-    type Vtable = IPhoneDialOptions_Vtbl;
+    type Vtable = <IPhoneDialOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneDialOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneDialOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneDialOptions";
 }
-unsafe impl Send for PhoneDialOptions {}
-unsafe impl Sync for PhoneDialOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLine(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneLine {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLine>();
+}
 windows_core::imp::interface_hierarchy!(PhoneLine, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneLine,);
 impl PhoneLine {
     pub fn LineChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2199,7 +2181,6 @@ impl PhoneLine {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).DialWithOptions)(windows_core::Interface::as_raw(this), options.param().abi()).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn EnableTextReply(&self, value: bool) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPhoneLine2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).EnableTextReply)(windows_core::Interface::as_raw(this), value).ok() }
@@ -2250,22 +2231,21 @@ impl PhoneLine {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for PhoneLine {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLine>();
-}
 unsafe impl windows_core::Interface for PhoneLine {
-    type Vtable = IPhoneLine_Vtbl;
+    type Vtable = <IPhoneLine as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneLine as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneLine {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLine";
 }
-unsafe impl Send for PhoneLine {}
-unsafe impl Sync for PhoneLine {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineCellularDetails(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneLineCellularDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineCellularDetails>();
+}
 windows_core::imp::interface_hierarchy!(PhoneLineCellularDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneLineCellularDetails,);
 impl PhoneLineCellularDetails {
     pub fn SimState(&self) -> windows_core::Result<PhoneSimState> {
         let this = self;
@@ -2303,22 +2283,21 @@ impl PhoneLineCellularDetails {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneLineCellularDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineCellularDetails>();
-}
 unsafe impl windows_core::Interface for PhoneLineCellularDetails {
-    type Vtable = IPhoneLineCellularDetails_Vtbl;
+    type Vtable = <IPhoneLineCellularDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneLineCellularDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneLineCellularDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineCellularDetails";
 }
-unsafe impl Send for PhoneLineCellularDetails {}
-unsafe impl Sync for PhoneLineCellularDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineConfiguration(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneLineConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineConfiguration>();
+}
 windows_core::imp::interface_hierarchy!(PhoneLineConfiguration, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneLineConfiguration,);
 impl PhoneLineConfiguration {
     pub fn IsVideoCallingEnabled(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -2336,22 +2315,21 @@ impl PhoneLineConfiguration {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneLineConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineConfiguration>();
-}
 unsafe impl windows_core::Interface for PhoneLineConfiguration {
-    type Vtable = IPhoneLineConfiguration_Vtbl;
+    type Vtable = <IPhoneLineConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneLineConfiguration as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneLineConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineConfiguration";
 }
-unsafe impl Send for PhoneLineConfiguration {}
-unsafe impl Sync for PhoneLineConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineDialResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneLineDialResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineDialResult>();
+}
 windows_core::imp::interface_hierarchy!(PhoneLineDialResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneLineDialResult,);
 impl PhoneLineDialResult {
     pub fn DialCallStatus(&self) -> windows_core::Result<PhoneCallOperationStatus> {
         let this = self;
@@ -2368,22 +2346,21 @@ impl PhoneLineDialResult {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneLineDialResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineDialResult>();
-}
 unsafe impl windows_core::Interface for PhoneLineDialResult {
-    type Vtable = IPhoneLineDialResult_Vtbl;
+    type Vtable = <IPhoneLineDialResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneLineDialResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneLineDialResult {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineDialResult";
 }
-unsafe impl Send for PhoneLineDialResult {}
-unsafe impl Sync for PhoneLineDialResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineTransportDevice(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneLineTransportDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineTransportDevice>();
+}
 windows_core::imp::interface_hierarchy!(PhoneLineTransportDevice, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneLineTransportDevice,);
 impl PhoneLineTransportDevice {
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2517,22 +2494,21 @@ impl PhoneLineTransportDevice {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for PhoneLineTransportDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineTransportDevice>();
-}
 unsafe impl windows_core::Interface for PhoneLineTransportDevice {
-    type Vtable = IPhoneLineTransportDevice_Vtbl;
+    type Vtable = <IPhoneLineTransportDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneLineTransportDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneLineTransportDevice {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineTransportDevice";
 }
-unsafe impl Send for PhoneLineTransportDevice {}
-unsafe impl Sync for PhoneLineTransportDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineWatcher(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneLineWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineWatcher>();
+}
 windows_core::imp::interface_hierarchy!(PhoneLineWatcher, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneLineWatcher,);
 impl PhoneLineWatcher {
     pub fn Start(&self) -> windows_core::Result<()> {
         let this = self;
@@ -2620,22 +2596,21 @@ impl PhoneLineWatcher {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneLineWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineWatcher>();
-}
 unsafe impl windows_core::Interface for PhoneLineWatcher {
-    type Vtable = IPhoneLineWatcher_Vtbl;
+    type Vtable = <IPhoneLineWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneLineWatcher as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneLineWatcher {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcher";
 }
-unsafe impl Send for PhoneLineWatcher {}
-unsafe impl Sync for PhoneLineWatcher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineWatcherEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneLineWatcherEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineWatcherEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(PhoneLineWatcherEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneLineWatcherEventArgs,);
 impl PhoneLineWatcherEventArgs {
     pub fn LineId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -2645,22 +2620,21 @@ impl PhoneLineWatcherEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneLineWatcherEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineWatcherEventArgs>();
-}
 unsafe impl windows_core::Interface for PhoneLineWatcherEventArgs {
-    type Vtable = IPhoneLineWatcherEventArgs_Vtbl;
+    type Vtable = <IPhoneLineWatcherEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneLineWatcherEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneLineWatcherEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcherEventArgs";
 }
-unsafe impl Send for PhoneLineWatcherEventArgs {}
-unsafe impl Sync for PhoneLineWatcherEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneVoicemail(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneVoicemail {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneVoicemail>();
+}
 windows_core::imp::interface_hierarchy!(PhoneVoicemail, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneVoicemail,);
 impl PhoneVoicemail {
     pub fn Number(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2691,25 +2665,24 @@ impl PhoneVoicemail {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneVoicemail {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneVoicemail>();
-}
 unsafe impl windows_core::Interface for PhoneVoicemail {
-    type Vtable = IPhoneVoicemail_Vtbl;
+    type Vtable = <IPhoneVoicemail as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneVoicemail as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneVoicemail {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneVoicemail";
 }
-unsafe impl Send for PhoneVoicemail {}
-unsafe impl Sync for PhoneVoicemail {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoipCallCoordinator(windows_core::IUnknown);
+impl windows_core::RuntimeType for VoipCallCoordinator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoipCallCoordinator>();
+}
 windows_core::imp::interface_hierarchy!(VoipCallCoordinator, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VoipCallCoordinator,);
 impl VoipCallCoordinator {
     pub fn ReserveCallResourcesAsync(&self, taskentrypoint: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VoipPhoneCallResourceReservationStatus>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReserveCallResourcesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(taskentrypoint), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2719,68 +2692,68 @@ impl VoipCallCoordinator {
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipCallCoordinator, MuteChangeEventArgs>>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MuteStateChanged)(windows_core::Interface::as_raw(this), mutechangehandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMuteStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveMuteStateChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn RequestNewIncomingCall<P0, P1, P2>(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, contactimage: P0, servicename: &windows_core::HSTRING, brandingimage: P1, calldetails: &windows_core::HSTRING, ringtone: P2, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan) -> windows_core::Result<VoipPhoneCall>
+    pub fn RequestNewIncomingCall<P3, P5, P7>(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, contactimage: P3, servicename: &windows_core::HSTRING, brandingimage: P5, calldetails: &windows_core::HSTRING, ringtone: P7, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan) -> windows_core::Result<VoipPhoneCall>
     where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Uri>,
-        P2: windows_core::Param<super::super::Foundation::Uri>,
+        P3: windows_core::Param<super::super::Foundation::Uri>,
+        P5: windows_core::Param<super::super::Foundation::Uri>,
+        P7: windows_core::Param<super::super::Foundation::Uri>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestNewIncomingCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), contactimage.param().abi(), core::mem::transmute_copy(servicename), brandingimage.param().abi(), core::mem::transmute_copy(calldetails), ringtone.param().abi(), media, ringtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestNewOutgoingCall(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, servicename: &windows_core::HSTRING, media: VoipPhoneCallMedia) -> windows_core::Result<VoipPhoneCall> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestNewOutgoingCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(servicename), media, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn NotifyMuted(&self) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator>(self)?;
         unsafe { (windows_core::Interface::vtable(this).NotifyMuted)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn NotifyUnmuted(&self) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator>(self)?;
         unsafe { (windows_core::Interface::vtable(this).NotifyUnmuted)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn RequestOutgoingUpgradeToVideoCall(&self, callupgradeguid: windows_core::GUID, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, servicename: &windows_core::HSTRING) -> windows_core::Result<VoipPhoneCall> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestOutgoingUpgradeToVideoCall)(windows_core::Interface::as_raw(this), callupgradeguid, core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(servicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestIncomingUpgradeToVideoCall<P0, P1, P2>(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, contactimage: P0, servicename: &windows_core::HSTRING, brandingimage: P1, calldetails: &windows_core::HSTRING, ringtone: P2, ringtimeout: super::super::Foundation::TimeSpan) -> windows_core::Result<VoipPhoneCall>
+    pub fn RequestIncomingUpgradeToVideoCall<P3, P5, P7>(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, contactimage: P3, servicename: &windows_core::HSTRING, brandingimage: P5, calldetails: &windows_core::HSTRING, ringtone: P7, ringtimeout: super::super::Foundation::TimeSpan) -> windows_core::Result<VoipPhoneCall>
     where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Uri>,
-        P2: windows_core::Param<super::super::Foundation::Uri>,
+        P3: windows_core::Param<super::super::Foundation::Uri>,
+        P5: windows_core::Param<super::super::Foundation::Uri>,
+        P7: windows_core::Param<super::super::Foundation::Uri>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestIncomingUpgradeToVideoCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), contactimage.param().abi(), core::mem::transmute_copy(servicename), brandingimage.param().abi(), core::mem::transmute_copy(calldetails), ringtone.param().abi(), ringtimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TerminateCellularCall(&self, callupgradeguid: windows_core::GUID) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator>(self)?;
         unsafe { (windows_core::Interface::vtable(this).TerminateCellularCall)(windows_core::Interface::as_raw(this), callupgradeguid).ok() }
     }
     pub fn CancelUpgrade(&self, callupgradeguid: windows_core::GUID) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipCallCoordinator>(self)?;
         unsafe { (windows_core::Interface::vtable(this).CancelUpgrade)(windows_core::Interface::as_raw(this), callupgradeguid).ok() }
     }
     pub fn SetupNewAcceptedCall(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, servicename: &windows_core::HSTRING, media: VoipPhoneCallMedia) -> windows_core::Result<VoipPhoneCall> {
@@ -2797,11 +2770,11 @@ impl VoipCallCoordinator {
             (windows_core::Interface::vtable(this).RequestNewAppInitiatedCall)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), core::mem::transmute_copy(contactname), core::mem::transmute_copy(contactnumber), core::mem::transmute_copy(servicename), media, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestNewIncomingCallWithContactRemoteId<P0, P1, P2>(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, contactimage: P0, servicename: &windows_core::HSTRING, brandingimage: P1, calldetails: &windows_core::HSTRING, ringtone: P2, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan, contactremoteid: &windows_core::HSTRING) -> windows_core::Result<VoipPhoneCall>
+    pub fn RequestNewIncomingCallWithContactRemoteId<P3, P5, P7>(&self, context: &windows_core::HSTRING, contactname: &windows_core::HSTRING, contactnumber: &windows_core::HSTRING, contactimage: P3, servicename: &windows_core::HSTRING, brandingimage: P5, calldetails: &windows_core::HSTRING, ringtone: P7, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan, contactremoteid: &windows_core::HSTRING) -> windows_core::Result<VoipPhoneCall>
     where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
-        P1: windows_core::Param<super::super::Foundation::Uri>,
-        P2: windows_core::Param<super::super::Foundation::Uri>,
+        P3: windows_core::Param<super::super::Foundation::Uri>,
+        P5: windows_core::Param<super::super::Foundation::Uri>,
+        P7: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IVoipCallCoordinator3>(self)?;
         unsafe {
@@ -2827,140 +2800,139 @@ impl VoipCallCoordinator {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for VoipCallCoordinator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoipCallCoordinator>();
-}
 unsafe impl windows_core::Interface for VoipCallCoordinator {
-    type Vtable = IVoipCallCoordinator_Vtbl;
+    type Vtable = <IVoipCallCoordinator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVoipCallCoordinator as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for VoipCallCoordinator {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipCallCoordinator";
 }
-unsafe impl Send for VoipCallCoordinator {}
-unsafe impl Sync for VoipCallCoordinator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoipPhoneCall(windows_core::IUnknown);
+impl windows_core::RuntimeType for VoipPhoneCall {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoipPhoneCall>();
+}
 windows_core::imp::interface_hierarchy!(VoipPhoneCall, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VoipPhoneCall,);
 impl VoipPhoneCall {
     pub fn EndRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EndRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveEndRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveEndRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn HoldRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HoldRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveHoldRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveHoldRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn ResumeRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallStateChangeEventArgs>>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResumeRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveResumeRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveResumeRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn AnswerRequested<P0>(&self, accepthandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallAnswerEventArgs>>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AnswerRequested)(windows_core::Interface::as_raw(this), accepthandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAnswerRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAnswerRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn RejectRequested<P0>(&self, rejecthandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<VoipPhoneCall, CallRejectEventArgs>>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RejectRequested)(windows_core::Interface::as_raw(this), rejecthandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRejectRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveRejectRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn NotifyCallHeld(&self) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe { (windows_core::Interface::vtable(this).NotifyCallHeld)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn NotifyCallActive(&self) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe { (windows_core::Interface::vtable(this).NotifyCallActive)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn NotifyCallEnded(&self) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe { (windows_core::Interface::vtable(this).NotifyCallEnded)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ContactName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContactName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetContactName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetContactName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn StartTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetStartTime(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStartTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn CallMedia(&self) -> windows_core::Result<VoipPhoneCallMedia> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CallMedia)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetCallMedia(&self, value: VoipPhoneCallMedia) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCallMedia)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn NotifyCallReady(&self) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IVoipPhoneCall>(self)?;
         unsafe { (windows_core::Interface::vtable(this).NotifyCallReady)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn TryShowAppUI(&self) -> windows_core::Result<()> {
@@ -2972,20 +2944,15 @@ impl VoipPhoneCall {
         unsafe { (windows_core::Interface::vtable(this).NotifyCallAccepted)(windows_core::Interface::as_raw(this), media).ok() }
     }
 }
-impl windows_core::RuntimeType for VoipPhoneCall {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoipPhoneCall>();
-}
 unsafe impl windows_core::Interface for VoipPhoneCall {
-    type Vtable = IVoipPhoneCall_Vtbl;
+    type Vtable = <IVoipPhoneCall as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVoipPhoneCall as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for VoipPhoneCall {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipPhoneCall";
 }
-unsafe impl Send for VoipPhoneCall {}
-unsafe impl Sync for VoipPhoneCall {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct CellularDtmfMode(pub i32);
 impl CellularDtmfMode {
     pub const Continuous: Self = Self(0i32);
@@ -2994,16 +2961,11 @@ impl CellularDtmfMode {
 impl windows_core::TypeKind for CellularDtmfMode {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CellularDtmfMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CellularDtmfMode").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for CellularDtmfMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.CellularDtmfMode;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DtmfKey(pub i32);
 impl DtmfKey {
     pub const D0: Self = Self(0i32);
@@ -3022,16 +2984,11 @@ impl DtmfKey {
 impl windows_core::TypeKind for DtmfKey {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DtmfKey {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DtmfKey").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DtmfKey {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfKey;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DtmfToneAudioPlayback(pub i32);
 impl DtmfToneAudioPlayback {
     pub const Play: Self = Self(0i32);
@@ -3040,16 +2997,11 @@ impl DtmfToneAudioPlayback {
 impl windows_core::TypeKind for DtmfToneAudioPlayback {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DtmfToneAudioPlayback {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DtmfToneAudioPlayback").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DtmfToneAudioPlayback {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfToneAudioPlayback;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneAudioRoutingEndpoint(pub i32);
 impl PhoneAudioRoutingEndpoint {
     pub const Default: Self = Self(0i32);
@@ -3059,16 +3011,11 @@ impl PhoneAudioRoutingEndpoint {
 impl windows_core::TypeKind for PhoneAudioRoutingEndpoint {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneAudioRoutingEndpoint {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneAudioRoutingEndpoint").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneAudioRoutingEndpoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneAudioRoutingEndpoint;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneCallAudioDevice(pub i32);
 impl PhoneCallAudioDevice {
     pub const Unknown: Self = Self(0i32);
@@ -3078,16 +3025,11 @@ impl PhoneCallAudioDevice {
 impl windows_core::TypeKind for PhoneCallAudioDevice {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneCallAudioDevice {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneCallAudioDevice").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneCallAudioDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallAudioDevice;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneCallDirection(pub i32);
 impl PhoneCallDirection {
     pub const Unknown: Self = Self(0i32);
@@ -3097,16 +3039,11 @@ impl PhoneCallDirection {
 impl windows_core::TypeKind for PhoneCallDirection {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneCallDirection {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneCallDirection").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneCallDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallDirection;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneCallHistoryEntryMedia(pub i32);
 impl PhoneCallHistoryEntryMedia {
     pub const Audio: Self = Self(0i32);
@@ -3115,16 +3052,11 @@ impl PhoneCallHistoryEntryMedia {
 impl windows_core::TypeKind for PhoneCallHistoryEntryMedia {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneCallHistoryEntryMedia {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntryMedia").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneCallHistoryEntryMedia {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryMedia;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneCallHistoryEntryOtherAppReadAccess(pub i32);
 impl PhoneCallHistoryEntryOtherAppReadAccess {
     pub const Full: Self = Self(0i32);
@@ -3133,16 +3065,11 @@ impl PhoneCallHistoryEntryOtherAppReadAccess {
 impl windows_core::TypeKind for PhoneCallHistoryEntryOtherAppReadAccess {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneCallHistoryEntryOtherAppReadAccess {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntryOtherAppReadAccess").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneCallHistoryEntryOtherAppReadAccess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryOtherAppReadAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneCallHistoryEntryQueryDesiredMedia(pub u32);
 impl PhoneCallHistoryEntryQueryDesiredMedia {
     pub const None: Self = Self(0u32);
@@ -3153,49 +3080,11 @@ impl PhoneCallHistoryEntryQueryDesiredMedia {
 impl windows_core::TypeKind for PhoneCallHistoryEntryQueryDesiredMedia {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneCallHistoryEntryQueryDesiredMedia {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntryQueryDesiredMedia").field(&self.0).finish()
-    }
-}
-impl PhoneCallHistoryEntryQueryDesiredMedia {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for PhoneCallHistoryEntryQueryDesiredMedia {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for PhoneCallHistoryEntryQueryDesiredMedia {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for PhoneCallHistoryEntryQueryDesiredMedia {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for PhoneCallHistoryEntryQueryDesiredMedia {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for PhoneCallHistoryEntryQueryDesiredMedia {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for PhoneCallHistoryEntryQueryDesiredMedia {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryDesiredMedia;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneCallHistoryEntryRawAddressKind(pub i32);
 impl PhoneCallHistoryEntryRawAddressKind {
     pub const PhoneNumber: Self = Self(0i32);
@@ -3204,16 +3093,11 @@ impl PhoneCallHistoryEntryRawAddressKind {
 impl windows_core::TypeKind for PhoneCallHistoryEntryRawAddressKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneCallHistoryEntryRawAddressKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntryRawAddressKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneCallHistoryEntryRawAddressKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryRawAddressKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneCallHistorySourceIdKind(pub i32);
 impl PhoneCallHistorySourceIdKind {
     pub const CellularPhoneLineId: Self = Self(0i32);
@@ -3222,16 +3106,11 @@ impl PhoneCallHistorySourceIdKind {
 impl windows_core::TypeKind for PhoneCallHistorySourceIdKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneCallHistorySourceIdKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneCallHistorySourceIdKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneCallHistorySourceIdKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistorySourceIdKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneCallHistoryStoreAccessType(pub i32);
 impl PhoneCallHistoryStoreAccessType {
     pub const AppEntriesReadWrite: Self = Self(0i32);
@@ -3241,16 +3120,11 @@ impl PhoneCallHistoryStoreAccessType {
 impl windows_core::TypeKind for PhoneCallHistoryStoreAccessType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneCallHistoryStoreAccessType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryStoreAccessType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneCallHistoryStoreAccessType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryStoreAccessType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneCallMedia(pub i32);
 impl PhoneCallMedia {
     pub const Audio: Self = Self(0i32);
@@ -3260,16 +3134,11 @@ impl PhoneCallMedia {
 impl windows_core::TypeKind for PhoneCallMedia {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneCallMedia {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneCallMedia").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneCallMedia {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallMedia;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneCallOperationStatus(pub i32);
 impl PhoneCallOperationStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -3281,16 +3150,11 @@ impl PhoneCallOperationStatus {
 impl windows_core::TypeKind for PhoneCallOperationStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneCallOperationStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneCallOperationStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneCallOperationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallOperationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneCallStatus(pub i32);
 impl PhoneCallStatus {
     pub const Lost: Self = Self(0i32);
@@ -3303,16 +3167,11 @@ impl PhoneCallStatus {
 impl windows_core::TypeKind for PhoneCallStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneCallStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneCallStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneCallStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneLineNetworkOperatorDisplayTextLocation(pub i32);
 impl PhoneLineNetworkOperatorDisplayTextLocation {
     pub const Default: Self = Self(0i32);
@@ -3323,16 +3182,11 @@ impl PhoneLineNetworkOperatorDisplayTextLocation {
 impl windows_core::TypeKind for PhoneLineNetworkOperatorDisplayTextLocation {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneLineNetworkOperatorDisplayTextLocation {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneLineNetworkOperatorDisplayTextLocation").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneLineNetworkOperatorDisplayTextLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineNetworkOperatorDisplayTextLocation;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneLineOperationStatus(pub i32);
 impl PhoneLineOperationStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -3344,16 +3198,11 @@ impl PhoneLineOperationStatus {
 impl windows_core::TypeKind for PhoneLineOperationStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneLineOperationStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneLineOperationStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneLineOperationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineOperationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneLineTransport(pub i32);
 impl PhoneLineTransport {
     pub const Cellular: Self = Self(0i32);
@@ -3363,16 +3212,11 @@ impl PhoneLineTransport {
 impl windows_core::TypeKind for PhoneLineTransport {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneLineTransport {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneLineTransport").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneLineTransport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineTransport;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneLineWatcherStatus(pub i32);
 impl PhoneLineWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -3383,16 +3227,11 @@ impl PhoneLineWatcherStatus {
 impl windows_core::TypeKind for PhoneLineWatcherStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneLineWatcherStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneLineWatcherStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneLineWatcherStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneNetworkState(pub i32);
 impl PhoneNetworkState {
     pub const Unknown: Self = Self(0i32);
@@ -3407,16 +3246,11 @@ impl PhoneNetworkState {
 impl windows_core::TypeKind for PhoneNetworkState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneNetworkState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneNetworkState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneNetworkState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneNetworkState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneSimState(pub i32);
 impl PhoneSimState {
     pub const Unknown: Self = Self(0i32);
@@ -3431,16 +3265,11 @@ impl PhoneSimState {
 impl windows_core::TypeKind for PhoneSimState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneSimState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneSimState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneSimState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneSimState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneVoicemailType(pub i32);
 impl PhoneVoicemailType {
     pub const None: Self = Self(0i32);
@@ -3450,16 +3279,11 @@ impl PhoneVoicemailType {
 impl windows_core::TypeKind for PhoneVoicemailType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneVoicemailType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneVoicemailType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneVoicemailType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneVoicemailType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct TransportDeviceAudioRoutingStatus(pub i32);
 impl TransportDeviceAudioRoutingStatus {
     pub const Unknown: Self = Self(0i32);
@@ -3469,16 +3293,11 @@ impl TransportDeviceAudioRoutingStatus {
 impl windows_core::TypeKind for TransportDeviceAudioRoutingStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TransportDeviceAudioRoutingStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TransportDeviceAudioRoutingStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for TransportDeviceAudioRoutingStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.TransportDeviceAudioRoutingStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct VoipPhoneCallMedia(pub u32);
 impl VoipPhoneCallMedia {
     pub const None: Self = Self(0u32);
@@ -3488,49 +3307,11 @@ impl VoipPhoneCallMedia {
 impl windows_core::TypeKind for VoipPhoneCallMedia {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VoipPhoneCallMedia {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VoipPhoneCallMedia").field(&self.0).finish()
-    }
-}
-impl VoipPhoneCallMedia {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for VoipPhoneCallMedia {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for VoipPhoneCallMedia {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for VoipPhoneCallMedia {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for VoipPhoneCallMedia {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for VoipPhoneCallMedia {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for VoipPhoneCallMedia {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallMedia;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct VoipPhoneCallRejectReason(pub i32);
 impl VoipPhoneCallRejectReason {
     pub const UserIgnored: Self = Self(0i32);
@@ -3542,16 +3323,11 @@ impl VoipPhoneCallRejectReason {
 impl windows_core::TypeKind for VoipPhoneCallRejectReason {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VoipPhoneCallRejectReason {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VoipPhoneCallRejectReason").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for VoipPhoneCallRejectReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallRejectReason;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct VoipPhoneCallResourceReservationStatus(pub i32);
 impl VoipPhoneCallResourceReservationStatus {
     pub const Success: Self = Self(0i32);
@@ -3560,16 +3336,11 @@ impl VoipPhoneCallResourceReservationStatus {
 impl windows_core::TypeKind for VoipPhoneCallResourceReservationStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VoipPhoneCallResourceReservationStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VoipPhoneCallResourceReservationStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for VoipPhoneCallResourceReservationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallResourceReservationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct VoipPhoneCallState(pub i32);
 impl VoipPhoneCallState {
     pub const Ended: Self = Self(0i32);
@@ -3580,11 +3351,6 @@ impl VoipPhoneCallState {
 }
 impl windows_core::TypeKind for VoipPhoneCallState {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for VoipPhoneCallState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VoipPhoneCallState").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for VoipPhoneCallState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallState;i4)");

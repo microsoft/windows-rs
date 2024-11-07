@@ -125,7 +125,11 @@ pub struct IContactListSyncManagerSyncRequestEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactDataProviderConnection(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactDataProviderConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactDataProviderConnection>();
+}
 windows_core::imp::interface_hierarchy!(ContactDataProviderConnection, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactDataProviderConnection,);
 impl ContactDataProviderConnection {
     pub fn SyncRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -188,22 +192,21 @@ impl ContactDataProviderConnection {
         unsafe { (windows_core::Interface::vtable(this).RemoveDeleteContactRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl windows_core::RuntimeType for ContactDataProviderConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactDataProviderConnection>();
-}
 unsafe impl windows_core::Interface for ContactDataProviderConnection {
-    type Vtable = IContactDataProviderConnection_Vtbl;
+    type Vtable = <IContactDataProviderConnection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactDataProviderConnection as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderConnection";
 }
-unsafe impl Send for ContactDataProviderConnection {}
-unsafe impl Sync for ContactDataProviderConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactDataProviderTriggerDetails(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactDataProviderTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactDataProviderTriggerDetails>();
+}
 windows_core::imp::interface_hierarchy!(ContactDataProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactDataProviderTriggerDetails,);
 impl ContactDataProviderTriggerDetails {
     pub fn Connection(&self) -> windows_core::Result<ContactDataProviderConnection> {
         let this = self;
@@ -213,22 +216,21 @@ impl ContactDataProviderTriggerDetails {
         }
     }
 }
-impl windows_core::RuntimeType for ContactDataProviderTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactDataProviderTriggerDetails>();
-}
 unsafe impl windows_core::Interface for ContactDataProviderTriggerDetails {
-    type Vtable = IContactDataProviderTriggerDetails_Vtbl;
+    type Vtable = <IContactDataProviderTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactDataProviderTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderTriggerDetails";
 }
-unsafe impl Send for ContactDataProviderTriggerDetails {}
-unsafe impl Sync for ContactDataProviderTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListCreateOrUpdateContactRequest(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactListCreateOrUpdateContactRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListCreateOrUpdateContactRequest>();
+}
 windows_core::imp::interface_hierarchy!(ContactListCreateOrUpdateContactRequest, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactListCreateOrUpdateContactRequest,);
 impl ContactListCreateOrUpdateContactRequest {
     pub fn ContactListId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -262,22 +264,21 @@ impl ContactListCreateOrUpdateContactRequest {
         }
     }
 }
-impl windows_core::RuntimeType for ContactListCreateOrUpdateContactRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListCreateOrUpdateContactRequest>();
-}
 unsafe impl windows_core::Interface for ContactListCreateOrUpdateContactRequest {
-    type Vtable = IContactListCreateOrUpdateContactRequest_Vtbl;
+    type Vtable = <IContactListCreateOrUpdateContactRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactListCreateOrUpdateContactRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactListCreateOrUpdateContactRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequest";
 }
-unsafe impl Send for ContactListCreateOrUpdateContactRequest {}
-unsafe impl Sync for ContactListCreateOrUpdateContactRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListCreateOrUpdateContactRequestEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactListCreateOrUpdateContactRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListCreateOrUpdateContactRequestEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(ContactListCreateOrUpdateContactRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactListCreateOrUpdateContactRequestEventArgs,);
 impl ContactListCreateOrUpdateContactRequestEventArgs {
     pub fn Request(&self) -> windows_core::Result<ContactListCreateOrUpdateContactRequest> {
         let this = self;
@@ -294,22 +295,21 @@ impl ContactListCreateOrUpdateContactRequestEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for ContactListCreateOrUpdateContactRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListCreateOrUpdateContactRequestEventArgs>();
-}
 unsafe impl windows_core::Interface for ContactListCreateOrUpdateContactRequestEventArgs {
-    type Vtable = IContactListCreateOrUpdateContactRequestEventArgs_Vtbl;
+    type Vtable = <IContactListCreateOrUpdateContactRequestEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactListCreateOrUpdateContactRequestEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactListCreateOrUpdateContactRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequestEventArgs";
 }
-unsafe impl Send for ContactListCreateOrUpdateContactRequestEventArgs {}
-unsafe impl Sync for ContactListCreateOrUpdateContactRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListDeleteContactRequest(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactListDeleteContactRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListDeleteContactRequest>();
+}
 windows_core::imp::interface_hierarchy!(ContactListDeleteContactRequest, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactListDeleteContactRequest,);
 impl ContactListDeleteContactRequest {
     pub fn ContactListId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -340,22 +340,21 @@ impl ContactListDeleteContactRequest {
         }
     }
 }
-impl windows_core::RuntimeType for ContactListDeleteContactRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListDeleteContactRequest>();
-}
 unsafe impl windows_core::Interface for ContactListDeleteContactRequest {
-    type Vtable = IContactListDeleteContactRequest_Vtbl;
+    type Vtable = <IContactListDeleteContactRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactListDeleteContactRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactListDeleteContactRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequest";
 }
-unsafe impl Send for ContactListDeleteContactRequest {}
-unsafe impl Sync for ContactListDeleteContactRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListDeleteContactRequestEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactListDeleteContactRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListDeleteContactRequestEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(ContactListDeleteContactRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactListDeleteContactRequestEventArgs,);
 impl ContactListDeleteContactRequestEventArgs {
     pub fn Request(&self) -> windows_core::Result<ContactListDeleteContactRequest> {
         let this = self;
@@ -372,22 +371,21 @@ impl ContactListDeleteContactRequestEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for ContactListDeleteContactRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListDeleteContactRequestEventArgs>();
-}
 unsafe impl windows_core::Interface for ContactListDeleteContactRequestEventArgs {
-    type Vtable = IContactListDeleteContactRequestEventArgs_Vtbl;
+    type Vtable = <IContactListDeleteContactRequestEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactListDeleteContactRequestEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactListDeleteContactRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequestEventArgs";
 }
-unsafe impl Send for ContactListDeleteContactRequestEventArgs {}
-unsafe impl Sync for ContactListDeleteContactRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListServerSearchReadBatchRequest(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactListServerSearchReadBatchRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListServerSearchReadBatchRequest>();
+}
 windows_core::imp::interface_hierarchy!(ContactListServerSearchReadBatchRequest, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactListServerSearchReadBatchRequest,);
 impl ContactListServerSearchReadBatchRequest {
     pub fn SessionId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -442,22 +440,21 @@ impl ContactListServerSearchReadBatchRequest {
         }
     }
 }
-impl windows_core::RuntimeType for ContactListServerSearchReadBatchRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListServerSearchReadBatchRequest>();
-}
 unsafe impl windows_core::Interface for ContactListServerSearchReadBatchRequest {
-    type Vtable = IContactListServerSearchReadBatchRequest_Vtbl;
+    type Vtable = <IContactListServerSearchReadBatchRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactListServerSearchReadBatchRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactListServerSearchReadBatchRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequest";
 }
-unsafe impl Send for ContactListServerSearchReadBatchRequest {}
-unsafe impl Sync for ContactListServerSearchReadBatchRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListServerSearchReadBatchRequestEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactListServerSearchReadBatchRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListServerSearchReadBatchRequestEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(ContactListServerSearchReadBatchRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactListServerSearchReadBatchRequestEventArgs,);
 impl ContactListServerSearchReadBatchRequestEventArgs {
     pub fn Request(&self) -> windows_core::Result<ContactListServerSearchReadBatchRequest> {
         let this = self;
@@ -474,22 +471,21 @@ impl ContactListServerSearchReadBatchRequestEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for ContactListServerSearchReadBatchRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListServerSearchReadBatchRequestEventArgs>();
-}
 unsafe impl windows_core::Interface for ContactListServerSearchReadBatchRequestEventArgs {
-    type Vtable = IContactListServerSearchReadBatchRequestEventArgs_Vtbl;
+    type Vtable = <IContactListServerSearchReadBatchRequestEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactListServerSearchReadBatchRequestEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactListServerSearchReadBatchRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequestEventArgs";
 }
-unsafe impl Send for ContactListServerSearchReadBatchRequestEventArgs {}
-unsafe impl Sync for ContactListServerSearchReadBatchRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListSyncManagerSyncRequest(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactListSyncManagerSyncRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListSyncManagerSyncRequest>();
+}
 windows_core::imp::interface_hierarchy!(ContactListSyncManagerSyncRequest, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactListSyncManagerSyncRequest,);
 impl ContactListSyncManagerSyncRequest {
     pub fn ContactListId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -513,22 +509,21 @@ impl ContactListSyncManagerSyncRequest {
         }
     }
 }
-impl windows_core::RuntimeType for ContactListSyncManagerSyncRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListSyncManagerSyncRequest>();
-}
 unsafe impl windows_core::Interface for ContactListSyncManagerSyncRequest {
-    type Vtable = IContactListSyncManagerSyncRequest_Vtbl;
+    type Vtable = <IContactListSyncManagerSyncRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactListSyncManagerSyncRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactListSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequest";
 }
-unsafe impl Send for ContactListSyncManagerSyncRequest {}
-unsafe impl Sync for ContactListSyncManagerSyncRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListSyncManagerSyncRequestEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for ContactListSyncManagerSyncRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListSyncManagerSyncRequestEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(ContactListSyncManagerSyncRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ContactListSyncManagerSyncRequestEventArgs,);
 impl ContactListSyncManagerSyncRequestEventArgs {
     pub fn Request(&self) -> windows_core::Result<ContactListSyncManagerSyncRequest> {
         let this = self;
@@ -545,15 +540,10 @@ impl ContactListSyncManagerSyncRequestEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for ContactListSyncManagerSyncRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactListSyncManagerSyncRequestEventArgs>();
-}
 unsafe impl windows_core::Interface for ContactListSyncManagerSyncRequestEventArgs {
-    type Vtable = IContactListSyncManagerSyncRequestEventArgs_Vtbl;
+    type Vtable = <IContactListSyncManagerSyncRequestEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactListSyncManagerSyncRequestEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContactListSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequestEventArgs";
 }
-unsafe impl Send for ContactListSyncManagerSyncRequestEventArgs {}
-unsafe impl Sync for ContactListSyncManagerSyncRequestEventArgs {}

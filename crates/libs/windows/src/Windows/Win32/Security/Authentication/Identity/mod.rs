@@ -28,20 +28,20 @@ where
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn AddCredentialsA<P0, P1>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: P0, pszpackage: P1, fcredentialuse: u32, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
+pub unsafe fn AddCredentialsA<P1, P2>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: P1, pszpackage: P2, fcredentialuse: u32, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("secur32.dll" "system" fn AddCredentialsA(hcredentials : *const super::super::Credentials:: SecHandle, pszprincipal : windows_core::PCSTR, pszpackage : windows_core::PCSTR, fcredentialuse : u32, pauthdata : *const core::ffi::c_void, pgetkeyfn : SEC_GET_KEY_FN, pvgetkeyargument : *const core::ffi::c_void, ptsexpiry : *mut i64) -> windows_core::HRESULT);
     AddCredentialsA(hcredentials, pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, core::mem::transmute(pauthdata.unwrap_or(core::ptr::null())), pgetkeyfn, core::mem::transmute(pvgetkeyargument.unwrap_or(core::ptr::null())), core::mem::transmute(ptsexpiry.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn AddCredentialsW<P0, P1>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: P0, pszpackage: P1, fcredentialuse: u32, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
+pub unsafe fn AddCredentialsW<P1, P2>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: P1, pszpackage: P2, fcredentialuse: u32, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, ptsexpiry: Option<*mut i64>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("secur32.dll" "system" fn AddCredentialsW(hcredentials : *const super::super::Credentials:: SecHandle, pszprincipal : windows_core::PCWSTR, pszpackage : windows_core::PCWSTR, fcredentialuse : u32, pauthdata : *const core::ffi::c_void, pgetkeyfn : SEC_GET_KEY_FN, pvgetkeyargument : *const core::ffi::c_void, ptsexpiry : *mut i64) -> windows_core::HRESULT);
     AddCredentialsW(hcredentials, pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, core::mem::transmute(pauthdata.unwrap_or(core::ptr::null())), pgetkeyfn, core::mem::transmute(pvgetkeyargument.unwrap_or(core::ptr::null())), core::mem::transmute(ptsexpiry.unwrap_or(core::ptr::null_mut()))).ok()
@@ -95,9 +95,9 @@ pub unsafe fn AuditEnumeratePerUserPolicy(ppauditsidarray: *mut *mut POLICY_AUDI
     AuditEnumeratePerUserPolicy(ppauditsidarray)
 }
 #[inline]
-pub unsafe fn AuditEnumerateSubCategories<P0>(pauditcategoryguid: Option<*const windows_core::GUID>, bretrieveallsubcategories: P0, ppauditsubcategoriesarray: *mut *mut windows_core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN
+pub unsafe fn AuditEnumerateSubCategories<P1>(pauditcategoryguid: Option<*const windows_core::GUID>, bretrieveallsubcategories: P1, ppauditsubcategoriesarray: *mut *mut windows_core::GUID, pdwcountreturned: *mut u32) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("advapi32.dll" "system" fn AuditEnumerateSubCategories(pauditcategoryguid : *const windows_core::GUID, bretrieveallsubcategories : super::super::super::Foundation:: BOOLEAN, ppauditsubcategoriesarray : *mut *mut windows_core::GUID, pdwcountreturned : *mut u32) -> super::super::super::Foundation:: BOOLEAN);
     AuditEnumerateSubCategories(core::mem::transmute(pauditcategoryguid.unwrap_or(core::ptr::null())), bretrieveallsubcategories.param().abi(), ppauditsubcategoriesarray, pdwcountreturned)
@@ -196,9 +196,9 @@ where
     AuditSetPerUserPolicy(psid.param().abi(), core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn AuditSetSecurity<P0>(securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P0) -> super::super::super::Foundation::BOOLEAN
+pub unsafe fn AuditSetSecurity<P1>(securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P1) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: windows_core::Param<super::super::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn AuditSetSecurity(securityinformation : super::super:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super:: PSECURITY_DESCRIPTOR) -> super::super::super::Foundation:: BOOLEAN);
     AuditSetSecurity(securityinformation, psecuritydescriptor.param().abi())
@@ -209,17 +209,17 @@ pub unsafe fn AuditSetSystemPolicy(pauditpolicy: &[AUDIT_POLICY_INFORMATION]) ->
     AuditSetSystemPolicy(core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn ChangeAccountPasswordA<P0>(pszpackagename: *const i8, pszdomainname: *const i8, pszaccountname: *const i8, pszoldpassword: *const i8, psznewpassword: *const i8, bimpersonating: P0, dwreserved: u32, poutput: *mut SecBufferDesc) -> windows_core::Result<()>
+pub unsafe fn ChangeAccountPasswordA<P5>(pszpackagename: *const i8, pszdomainname: *const i8, pszaccountname: *const i8, pszoldpassword: *const i8, psznewpassword: *const i8, bimpersonating: P5, dwreserved: u32, poutput: *mut SecBufferDesc) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
+    P5: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("secur32.dll" "system" fn ChangeAccountPasswordA(pszpackagename : *const i8, pszdomainname : *const i8, pszaccountname : *const i8, pszoldpassword : *const i8, psznewpassword : *const i8, bimpersonating : super::super::super::Foundation:: BOOLEAN, dwreserved : u32, poutput : *mut SecBufferDesc) -> windows_core::HRESULT);
     ChangeAccountPasswordA(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating.param().abi(), dwreserved, poutput).ok()
 }
 #[inline]
-pub unsafe fn ChangeAccountPasswordW<P0>(pszpackagename: *const u16, pszdomainname: *const u16, pszaccountname: *const u16, pszoldpassword: *const u16, psznewpassword: *const u16, bimpersonating: P0, dwreserved: u32, poutput: *mut SecBufferDesc) -> windows_core::Result<()>
+pub unsafe fn ChangeAccountPasswordW<P5>(pszpackagename: *const u16, pszdomainname: *const u16, pszaccountname: *const u16, pszoldpassword: *const u16, psznewpassword: *const u16, bimpersonating: P5, dwreserved: u32, poutput: *mut SecBufferDesc) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
+    P5: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("secur32.dll" "system" fn ChangeAccountPasswordW(pszpackagename : *const u16, pszdomainname : *const u16, pszaccountname : *const u16, pszoldpassword : *const u16, psznewpassword : *const u16, bimpersonating : super::super::super::Foundation:: BOOLEAN, dwreserved : u32, poutput : *mut SecBufferDesc) -> windows_core::HRESULT);
     ChangeAccountPasswordW(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating.param().abi(), dwreserved, poutput).ok()
@@ -641,9 +641,9 @@ pub unsafe fn LsaRegisterLogonProcess(logonprocessname: *const LSA_STRING, lsaha
     LsaRegisterLogonProcess(logonprocessname, lsahandle, securitymode)
 }
 #[inline]
-pub unsafe fn LsaRegisterPolicyChangeNotification<P0>(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: P0) -> super::super::super::Foundation::NTSTATUS
+pub unsafe fn LsaRegisterPolicyChangeNotification<P1>(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: P1) -> super::super::super::Foundation::NTSTATUS
 where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("secur32.dll" "system" fn LsaRegisterPolicyChangeNotification(informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle : super::super::super::Foundation:: HANDLE) -> super::super::super::Foundation:: NTSTATUS);
     LsaRegisterPolicyChangeNotification(informationclass, notificationeventhandle.param().abi())
@@ -680,19 +680,19 @@ where
     LsaSetDomainInformationPolicy(policyhandle.param().abi(), informationclass, core::mem::transmute(buffer.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn LsaSetForestTrustInformation<P0, P1>(policyhandle: P0, trusteddomainname: *const LSA_UNICODE_STRING, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION, checkonly: P1, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS
+pub unsafe fn LsaSetForestTrustInformation<P0, P3>(policyhandle: P0, trusteddomainname: *const LSA_UNICODE_STRING, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION, checkonly: P3, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS
 where
     P0: windows_core::Param<LSA_HANDLE>,
-    P1: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
+    P3: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : *const LSA_UNICODE_STRING, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION, checkonly : super::super::super::Foundation:: BOOLEAN, collisioninfo : *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation:: NTSTATUS);
     LsaSetForestTrustInformation(policyhandle.param().abi(), trusteddomainname, foresttrustinfo, checkonly.param().abi(), collisioninfo)
 }
 #[inline]
-pub unsafe fn LsaSetForestTrustInformation2<P0, P1>(policyhandle: P0, trusteddomainname: *const LSA_UNICODE_STRING, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION2, checkonly: P1, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS
+pub unsafe fn LsaSetForestTrustInformation2<P0, P4>(policyhandle: P0, trusteddomainname: *const LSA_UNICODE_STRING, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION2, checkonly: P4, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS
 where
     P0: windows_core::Param<LSA_HANDLE>,
-    P1: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
+    P4: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : *const LSA_UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION2, checkonly : super::super::super::Foundation:: BOOLEAN, collisioninfo : *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation:: NTSTATUS);
     LsaSetForestTrustInformation2(policyhandle.param().abi(), trusteddomainname, highestrecordtype, foresttrustinfo, checkonly.param().abi(), collisioninfo)
@@ -731,9 +731,9 @@ where
     LsaStorePrivateData(policyhandle.param().abi(), keyname, core::mem::transmute(privatedata.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn LsaUnregisterPolicyChangeNotification<P0>(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: P0) -> super::super::super::Foundation::NTSTATUS
+pub unsafe fn LsaUnregisterPolicyChangeNotification<P1>(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: P1) -> super::super::super::Foundation::NTSTATUS
 where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("secur32.dll" "system" fn LsaUnregisterPolicyChangeNotification(informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle : super::super::super::Foundation:: HANDLE) -> super::super::super::Foundation:: NTSTATUS);
     LsaUnregisterPolicyChangeNotification(informationclass, notificationeventhandle.param().abi())
@@ -838,19 +838,19 @@ pub unsafe fn RtlGenRandom(randombuffer: *mut core::ffi::c_void, randombufferlen
     RtlGenRandom(randombuffer, randombufferlength)
 }
 #[inline]
-pub unsafe fn SLAcquireGenuineTicket<P0, P1, P2>(ppticketblob: *mut *mut core::ffi::c_void, pcbticketblob: *mut u32, pwsztemplateid: P0, pwszserverurl: P1, pwszclienttoken: P2) -> windows_core::Result<()>
+pub unsafe fn SLAcquireGenuineTicket<P2, P3, P4>(ppticketblob: *mut *mut core::ffi::c_void, pcbticketblob: *mut u32, pwsztemplateid: P2, pwszserverurl: P3, pwszclienttoken: P4) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slcext.dll" "system" fn SLAcquireGenuineTicket(ppticketblob : *mut *mut core::ffi::c_void, pcbticketblob : *mut u32, pwsztemplateid : windows_core::PCWSTR, pwszserverurl : windows_core::PCWSTR, pwszclienttoken : windows_core::PCWSTR) -> windows_core::HRESULT);
     SLAcquireGenuineTicket(ppticketblob, pcbticketblob, pwsztemplateid.param().abi(), pwszserverurl.param().abi(), pwszclienttoken.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SLActivateProduct<P0>(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, cbappspecificdata: u32, pvappspecificdata: Option<*const core::ffi::c_void>, pactivationinfo: Option<*const SL_ACTIVATION_INFO_HEADER>, pwszproxyserver: P0, wproxyport: u16) -> windows_core::Result<()>
+pub unsafe fn SLActivateProduct<P5>(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, cbappspecificdata: u32, pvappspecificdata: Option<*const core::ffi::c_void>, pactivationinfo: Option<*const SL_ACTIVATION_INFO_HEADER>, pwszproxyserver: P5, wproxyport: u16) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slcext.dll" "system" fn SLActivateProduct(hslc : *const core::ffi::c_void, pproductskuid : *const windows_core::GUID, cbappspecificdata : u32, pvappspecificdata : *const core::ffi::c_void, pactivationinfo : *const SL_ACTIVATION_INFO_HEADER, pwszproxyserver : windows_core::PCWSTR, wproxyport : u16) -> windows_core::HRESULT);
     SLActivateProduct(hslc, pproductskuid, cbappspecificdata, core::mem::transmute(pvappspecificdata.unwrap_or(core::ptr::null())), core::mem::transmute(pactivationinfo.unwrap_or(core::ptr::null())), pwszproxyserver.param().abi(), wproxyport).ok()
@@ -861,35 +861,35 @@ pub unsafe fn SLClose(hslc: *const core::ffi::c_void) -> windows_core::Result<()
     SLClose(hslc).ok()
 }
 #[inline]
-pub unsafe fn SLConsumeRight<P0>(hslc: *const core::ffi::c_void, pappid: *const windows_core::GUID, pproductskuid: Option<*const windows_core::GUID>, pwszrightname: P0, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SLConsumeRight<P3>(hslc: *const core::ffi::c_void, pappid: *const windows_core::GUID, pproductskuid: Option<*const windows_core::GUID>, pwszrightname: P3, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLConsumeRight(hslc : *const core::ffi::c_void, pappid : *const windows_core::GUID, pproductskuid : *const windows_core::GUID, pwszrightname : windows_core::PCWSTR, pvreserved : *const core::ffi::c_void) -> windows_core::HRESULT);
     SLConsumeRight(hslc, pappid, core::mem::transmute(pproductskuid.unwrap_or(core::ptr::null())), pwszrightname.param().abi(), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SLDepositOfflineConfirmationId<P0, P1>(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, pwszinstallationid: P0, pwszconfirmationid: P1) -> windows_core::Result<()>
+pub unsafe fn SLDepositOfflineConfirmationId<P2, P3>(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, pwszinstallationid: P2, pwszconfirmationid: P3) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLDepositOfflineConfirmationId(hslc : *const core::ffi::c_void, pproductskuid : *const windows_core::GUID, pwszinstallationid : windows_core::PCWSTR, pwszconfirmationid : windows_core::PCWSTR) -> windows_core::HRESULT);
     SLDepositOfflineConfirmationId(hslc, pproductskuid, pwszinstallationid.param().abi(), pwszconfirmationid.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SLDepositOfflineConfirmationIdEx<P0, P1>(hslc: *const core::ffi::c_void, pproductskuid: Option<*const windows_core::GUID>, pactivationinfo: Option<*const SL_ACTIVATION_INFO_HEADER>, pwszinstallationid: P0, pwszconfirmationid: P1) -> windows_core::Result<()>
+pub unsafe fn SLDepositOfflineConfirmationIdEx<P3, P4>(hslc: *const core::ffi::c_void, pproductskuid: Option<*const windows_core::GUID>, pactivationinfo: Option<*const SL_ACTIVATION_INFO_HEADER>, pwszinstallationid: P3, pwszconfirmationid: P4) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLDepositOfflineConfirmationIdEx(hslc : *const core::ffi::c_void, pproductskuid : *const windows_core::GUID, pactivationinfo : *const SL_ACTIVATION_INFO_HEADER, pwszinstallationid : windows_core::PCWSTR, pwszconfirmationid : windows_core::PCWSTR) -> windows_core::HRESULT);
     SLDepositOfflineConfirmationIdEx(hslc, core::mem::transmute(pproductskuid.unwrap_or(core::ptr::null())), core::mem::transmute(pactivationinfo.unwrap_or(core::ptr::null())), pwszinstallationid.param().abi(), pwszconfirmationid.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SLFireEvent<P0>(hslc: *const core::ffi::c_void, pwszeventid: P0, papplicationid: *const windows_core::GUID) -> windows_core::Result<()>
+pub unsafe fn SLFireEvent<P1>(hslc: *const core::ffi::c_void, pwszeventid: P1, papplicationid: *const windows_core::GUID) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLFireEvent(hslc : *const core::ffi::c_void, pwszeventid : windows_core::PCWSTR, papplicationid : *const windows_core::GUID) -> windows_core::HRESULT);
     SLFireEvent(hslc, pwszeventid.param().abi(), papplicationid).ok()
@@ -907,17 +907,17 @@ pub unsafe fn SLGenerateOfflineInstallationIdEx(hslc: *const core::ffi::c_void, 
     SLGenerateOfflineInstallationIdEx(hslc, core::mem::transmute(pproductskuid.unwrap_or(core::ptr::null())), core::mem::transmute(pactivationinfo.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn SLGetApplicationInformation<P0>(hslc: *const core::ffi::c_void, papplicationid: *const windows_core::GUID, pwszvaluename: P0, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SLGetApplicationInformation<P2>(hslc: *const core::ffi::c_void, papplicationid: *const windows_core::GUID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLGetApplicationInformation(hslc : *const core::ffi::c_void, papplicationid : *const windows_core::GUID, pwszvaluename : windows_core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut *mut u8) -> windows_core::HRESULT);
     SLGetApplicationInformation(hslc, papplicationid, pwszvaluename.param().abi(), core::mem::transmute(pedatatype.unwrap_or(core::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[inline]
-pub unsafe fn SLGetGenuineInformation<P0>(pqueryid: *const windows_core::GUID, pwszvaluename: P0, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SLGetGenuineInformation<P1>(pqueryid: *const windows_core::GUID, pwszvaluename: P1, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLGetGenuineInformation(pqueryid : *const windows_core::GUID, pwszvaluename : windows_core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut *mut u8) -> windows_core::HRESULT);
     SLGetGenuineInformation(pqueryid, pwszvaluename.param().abi(), core::mem::transmute(pedatatype.unwrap_or(core::ptr::null_mut())), pcbvalue, ppbvalue).ok()
@@ -939,68 +939,68 @@ pub unsafe fn SLGetLicenseFileId(hslc: *const core::ffi::c_void, pblicenseblob: 
     SLGetLicenseFileId(hslc, pblicenseblob.len().try_into().unwrap(), core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn SLGetLicenseInformation<P0>(hslc: *const core::ffi::c_void, psllicenseid: *const windows_core::GUID, pwszvaluename: P0, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SLGetLicenseInformation<P2>(hslc: *const core::ffi::c_void, psllicenseid: *const windows_core::GUID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLGetLicenseInformation(hslc : *const core::ffi::c_void, psllicenseid : *const windows_core::GUID, pwszvaluename : windows_core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut *mut u8) -> windows_core::HRESULT);
     SLGetLicenseInformation(hslc, psllicenseid, pwszvaluename.param().abi(), core::mem::transmute(pedatatype.unwrap_or(core::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[inline]
-pub unsafe fn SLGetLicensingStatusInformation<P0>(hslc: *const core::ffi::c_void, pappid: Option<*const windows_core::GUID>, pproductskuid: Option<*const windows_core::GUID>, pwszrightname: P0, pnstatuscount: *mut u32, pplicensingstatus: *mut *mut SL_LICENSING_STATUS) -> windows_core::Result<()>
+pub unsafe fn SLGetLicensingStatusInformation<P3>(hslc: *const core::ffi::c_void, pappid: Option<*const windows_core::GUID>, pproductskuid: Option<*const windows_core::GUID>, pwszrightname: P3, pnstatuscount: *mut u32, pplicensingstatus: *mut *mut SL_LICENSING_STATUS) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLGetLicensingStatusInformation(hslc : *const core::ffi::c_void, pappid : *const windows_core::GUID, pproductskuid : *const windows_core::GUID, pwszrightname : windows_core::PCWSTR, pnstatuscount : *mut u32, pplicensingstatus : *mut *mut SL_LICENSING_STATUS) -> windows_core::HRESULT);
     SLGetLicensingStatusInformation(hslc, core::mem::transmute(pappid.unwrap_or(core::ptr::null())), core::mem::transmute(pproductskuid.unwrap_or(core::ptr::null())), pwszrightname.param().abi(), pnstatuscount, pplicensingstatus).ok()
 }
 #[inline]
-pub unsafe fn SLGetPKeyId<P0, P1>(hslc: *const core::ffi::c_void, pwszpkeyalgorithm: P0, pwszpkeystring: P1, pbpkeyspecificdata: Option<&[u8]>) -> windows_core::Result<windows_core::GUID>
+pub unsafe fn SLGetPKeyId<P1, P2>(hslc: *const core::ffi::c_void, pwszpkeyalgorithm: P1, pwszpkeystring: P2, pbpkeyspecificdata: Option<&[u8]>) -> windows_core::Result<windows_core::GUID>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLGetPKeyId(hslc : *const core::ffi::c_void, pwszpkeyalgorithm : windows_core::PCWSTR, pwszpkeystring : windows_core::PCWSTR, cbpkeyspecificdata : u32, pbpkeyspecificdata : *const u8, ppkeyid : *mut windows_core::GUID) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     SLGetPKeyId(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbpkeyspecificdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn SLGetPKeyInformation<P0>(hslc: *const core::ffi::c_void, ppkeyid: *const windows_core::GUID, pwszvaluename: P0, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SLGetPKeyInformation<P2>(hslc: *const core::ffi::c_void, ppkeyid: *const windows_core::GUID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLGetPKeyInformation(hslc : *const core::ffi::c_void, ppkeyid : *const windows_core::GUID, pwszvaluename : windows_core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut *mut u8) -> windows_core::HRESULT);
     SLGetPKeyInformation(hslc, ppkeyid, pwszvaluename.param().abi(), core::mem::transmute(pedatatype.unwrap_or(core::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[inline]
-pub unsafe fn SLGetPolicyInformation<P0>(hslc: *const core::ffi::c_void, pwszvaluename: P0, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SLGetPolicyInformation<P1>(hslc: *const core::ffi::c_void, pwszvaluename: P1, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLGetPolicyInformation(hslc : *const core::ffi::c_void, pwszvaluename : windows_core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut *mut u8) -> windows_core::HRESULT);
     SLGetPolicyInformation(hslc, pwszvaluename.param().abi(), core::mem::transmute(pedatatype.unwrap_or(core::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[inline]
-pub unsafe fn SLGetPolicyInformationDWORD<P0>(hslc: *const core::ffi::c_void, pwszvaluename: P0) -> windows_core::Result<u32>
+pub unsafe fn SLGetPolicyInformationDWORD<P1>(hslc: *const core::ffi::c_void, pwszvaluename: P1) -> windows_core::Result<u32>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLGetPolicyInformationDWORD(hslc : *const core::ffi::c_void, pwszvaluename : windows_core::PCWSTR, pdwvalue : *mut u32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     SLGetPolicyInformationDWORD(hslc, pwszvaluename.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn SLGetProductSkuInformation<P0>(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, pwszvaluename: P0, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SLGetProductSkuInformation<P2>(hslc: *const core::ffi::c_void, pproductskuid: *const windows_core::GUID, pwszvaluename: P2, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLGetProductSkuInformation(hslc : *const core::ffi::c_void, pproductskuid : *const windows_core::GUID, pwszvaluename : windows_core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut *mut u8) -> windows_core::HRESULT);
     SLGetProductSkuInformation(hslc, pproductskuid, pwszvaluename.param().abi(), core::mem::transmute(pedatatype.unwrap_or(core::ptr::null_mut())), pcbvalue, ppbvalue).ok()
 }
 #[inline]
-pub unsafe fn SLGetReferralInformation<P0>(hslc: *const core::ffi::c_void, ereferraltype: SLREFERRALTYPE, pskuorappid: *const windows_core::GUID, pwszvaluename: P0) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn SLGetReferralInformation<P3>(hslc: *const core::ffi::c_void, ereferraltype: SLREFERRALTYPE, pskuorappid: *const windows_core::GUID, pwszvaluename: P3) -> windows_core::Result<windows_core::PWSTR>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slcext.dll" "system" fn SLGetReferralInformation(hslc : *const core::ffi::c_void, ereferraltype : SLREFERRALTYPE, pskuorappid : *const windows_core::GUID, pwszvaluename : windows_core::PCWSTR, ppwszvalue : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
@@ -1023,9 +1023,9 @@ where
     SLGetServerStatus(pwszserverurl.param().abi(), pwszacquisitiontype.param().abi(), pwszproxyserver.param().abi(), wproxyport, &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn SLGetServiceInformation<P0>(hslc: *const core::ffi::c_void, pwszvaluename: P0, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SLGetServiceInformation<P1>(hslc: *const core::ffi::c_void, pwszvaluename: P1, pedatatype: Option<*mut SLDATATYPE>, pcbvalue: *mut u32, ppbvalue: *mut *mut u8) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLGetServiceInformation(hslc : *const core::ffi::c_void, pwszvaluename : windows_core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut *mut u8) -> windows_core::HRESULT);
     SLGetServiceInformation(hslc, pwszvaluename.param().abi(), core::mem::transmute(pedatatype.unwrap_or(core::ptr::null_mut())), pcbvalue, ppbvalue).ok()
@@ -1054,10 +1054,10 @@ pub unsafe fn SLInstallLicense(hslc: *const core::ffi::c_void, pblicenseblob: &[
     SLInstallLicense(hslc, pblicenseblob.len().try_into().unwrap(), core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn SLInstallProofOfPurchase<P0, P1>(hslc: *const core::ffi::c_void, pwszpkeyalgorithm: P0, pwszpkeystring: P1, pbpkeyspecificdata: Option<&[u8]>) -> windows_core::Result<windows_core::GUID>
+pub unsafe fn SLInstallProofOfPurchase<P1, P2>(hslc: *const core::ffi::c_void, pwszpkeyalgorithm: P1, pwszpkeystring: P2, pbpkeyspecificdata: Option<&[u8]>) -> windows_core::Result<windows_core::GUID>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLInstallProofOfPurchase(hslc : *const core::ffi::c_void, pwszpkeyalgorithm : windows_core::PCWSTR, pwszpkeystring : windows_core::PCWSTR, cbpkeyspecificdata : u32, pbpkeyspecificdata : *const u8, ppkeyid : *mut windows_core::GUID) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
@@ -1082,10 +1082,10 @@ where
     SLQueryLicenseValueFromApp(valuename.param().abi(), core::mem::transmute(valuetype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(databuffer.unwrap_or(core::ptr::null_mut())), datasize, resultdatasize).ok()
 }
 #[inline]
-pub unsafe fn SLRegisterEvent<P0, P1>(hslc: Option<*const core::ffi::c_void>, pwszeventid: P0, papplicationid: *const windows_core::GUID, hevent: P1) -> windows_core::Result<()>
+pub unsafe fn SLRegisterEvent<P1, P3>(hslc: Option<*const core::ffi::c_void>, pwszeventid: P1, papplicationid: *const windows_core::GUID, hevent: P3) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("slc.dll" "system" fn SLRegisterEvent(hslc : *const core::ffi::c_void, pwszeventid : windows_core::PCWSTR, papplicationid : *const windows_core::GUID, hevent : super::super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     SLRegisterEvent(core::mem::transmute(hslc.unwrap_or(core::ptr::null())), pwszeventid.param().abi(), papplicationid, hevent.param().abi()).ok()
@@ -1096,9 +1096,9 @@ pub unsafe fn SLSetCurrentProductKey(hslc: *const core::ffi::c_void, pproductsku
     SLSetCurrentProductKey(hslc, pproductskuid, pproductkeyid).ok()
 }
 #[inline]
-pub unsafe fn SLSetGenuineInformation<P0>(pqueryid: *const windows_core::GUID, pwszvaluename: P0, edatatype: SLDATATYPE, pbvalue: Option<&[u8]>) -> windows_core::Result<()>
+pub unsafe fn SLSetGenuineInformation<P1>(pqueryid: *const windows_core::GUID, pwszvaluename: P1, edatatype: SLDATATYPE, pbvalue: Option<&[u8]>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("slc.dll" "system" fn SLSetGenuineInformation(pqueryid : *const windows_core::GUID, pwszvaluename : windows_core::PCWSTR, edatatype : SLDATATYPE, cbvalue : u32, pbvalue : *const u8) -> windows_core::HRESULT);
     SLSetGenuineInformation(pqueryid, pwszvaluename.param().abi(), edatatype, pbvalue.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbvalue.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok()
@@ -1114,10 +1114,10 @@ pub unsafe fn SLUninstallProofOfPurchase(hslc: *const core::ffi::c_void, ppkeyid
     SLUninstallProofOfPurchase(hslc, ppkeyid).ok()
 }
 #[inline]
-pub unsafe fn SLUnregisterEvent<P0, P1>(hslc: Option<*const core::ffi::c_void>, pwszeventid: P0, papplicationid: *const windows_core::GUID, hevent: P1) -> windows_core::Result<()>
+pub unsafe fn SLUnregisterEvent<P1, P3>(hslc: Option<*const core::ffi::c_void>, pwszeventid: P1, papplicationid: *const windows_core::GUID, hevent: P3) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("slc.dll" "system" fn SLUnregisterEvent(hslc : *const core::ffi::c_void, pwszeventid : windows_core::PCWSTR, papplicationid : *const windows_core::GUID, hevent : super::super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     SLUnregisterEvent(core::mem::transmute(hslc.unwrap_or(core::ptr::null())), pwszeventid.param().abi(), papplicationid, hevent.param().abi()).ok()
@@ -1176,18 +1176,18 @@ pub unsafe fn SaslIdentifyPackageW(pinput: *const SecBufferDesc) -> windows_core
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn SaslInitializeSecurityContextA<P0>(phcredential: Option<*const super::super::Credentials::SecHandle>, phcontext: Option<*const super::super::Credentials::SecHandle>, psztargetname: P0, fcontextreq: ISC_REQ_FLAGS, reserved1: u32, targetdatarep: u32, pinput: Option<*const SecBufferDesc>, reserved2: u32, phnewcontext: Option<*mut super::super::Credentials::SecHandle>, poutput: Option<*mut SecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: Option<*mut i64>) -> windows_core::HRESULT
+pub unsafe fn SaslInitializeSecurityContextA<P2>(phcredential: Option<*const super::super::Credentials::SecHandle>, phcontext: Option<*const super::super::Credentials::SecHandle>, psztargetname: P2, fcontextreq: ISC_REQ_FLAGS, reserved1: u32, targetdatarep: u32, pinput: Option<*const SecBufferDesc>, reserved2: u32, phnewcontext: Option<*mut super::super::Credentials::SecHandle>, poutput: Option<*mut SecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: Option<*mut i64>) -> windows_core::HRESULT
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("secur32.dll" "system" fn SaslInitializeSecurityContextA(phcredential : *const super::super::Credentials:: SecHandle, phcontext : *const super::super::Credentials:: SecHandle, psztargetname : windows_core::PCSTR, fcontextreq : ISC_REQ_FLAGS, reserved1 : u32, targetdatarep : u32, pinput : *const SecBufferDesc, reserved2 : u32, phnewcontext : *mut super::super::Credentials:: SecHandle, poutput : *mut SecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : *mut i64) -> windows_core::HRESULT);
     SaslInitializeSecurityContextA(core::mem::transmute(phcredential.unwrap_or(core::ptr::null())), core::mem::transmute(phcontext.unwrap_or(core::ptr::null())), psztargetname.param().abi(), fcontextreq, reserved1, targetdatarep, core::mem::transmute(pinput.unwrap_or(core::ptr::null())), reserved2, core::mem::transmute(phnewcontext.unwrap_or(core::ptr::null_mut())), core::mem::transmute(poutput.unwrap_or(core::ptr::null_mut())), pfcontextattr, core::mem::transmute(ptsexpiry.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
-pub unsafe fn SaslInitializeSecurityContextW<P0>(phcredential: Option<*const super::super::Credentials::SecHandle>, phcontext: Option<*const super::super::Credentials::SecHandle>, psztargetname: P0, fcontextreq: ISC_REQ_FLAGS, reserved1: u32, targetdatarep: u32, pinput: Option<*const SecBufferDesc>, reserved2: u32, phnewcontext: Option<*mut super::super::Credentials::SecHandle>, poutput: Option<*mut SecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: Option<*mut i64>) -> windows_core::HRESULT
+pub unsafe fn SaslInitializeSecurityContextW<P2>(phcredential: Option<*const super::super::Credentials::SecHandle>, phcontext: Option<*const super::super::Credentials::SecHandle>, psztargetname: P2, fcontextreq: ISC_REQ_FLAGS, reserved1: u32, targetdatarep: u32, pinput: Option<*const SecBufferDesc>, reserved2: u32, phnewcontext: Option<*mut super::super::Credentials::SecHandle>, poutput: Option<*mut SecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: Option<*mut i64>) -> windows_core::HRESULT
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("secur32.dll" "system" fn SaslInitializeSecurityContextW(phcredential : *const super::super::Credentials:: SecHandle, phcontext : *const super::super::Credentials:: SecHandle, psztargetname : windows_core::PCWSTR, fcontextreq : ISC_REQ_FLAGS, reserved1 : u32, targetdatarep : u32, pinput : *const SecBufferDesc, reserved2 : u32, phnewcontext : *mut super::super::Credentials:: SecHandle, poutput : *mut SecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : *mut i64) -> windows_core::HRESULT);
     SaslInitializeSecurityContextW(core::mem::transmute(phcredential.unwrap_or(core::ptr::null())), core::mem::transmute(phcontext.unwrap_or(core::ptr::null())), psztargetname.param().abi(), fcontextreq, reserved1, targetdatarep, core::mem::transmute(pinput.unwrap_or(core::ptr::null())), reserved2, core::mem::transmute(phnewcontext.unwrap_or(core::ptr::null_mut())), core::mem::transmute(poutput.unwrap_or(core::ptr::null_mut())), pfcontextattr, core::mem::transmute(ptsexpiry.unwrap_or(core::ptr::null_mut())))
@@ -1331,9 +1331,9 @@ pub unsafe fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut core::ffi::
     SspiEncryptAuthIdentityEx(options, authdata).ok()
 }
 #[inline]
-pub unsafe fn SspiExcludePackage<P0>(authidentity: Option<*const core::ffi::c_void>, pszpackagename: P0, ppnewauthidentity: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn SspiExcludePackage<P1>(authidentity: Option<*const core::ffi::c_void>, pszpackagename: P1, ppnewauthidentity: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("secur32.dll" "system" fn SspiExcludePackage(authidentity : *const core::ffi::c_void, pszpackagename : windows_core::PCWSTR, ppnewauthidentity : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     SspiExcludePackage(core::mem::transmute(authidentity.unwrap_or(core::ptr::null())), pszpackagename.param().abi(), ppnewauthidentity).ok()
@@ -1373,35 +1373,35 @@ pub unsafe fn SspiMarshalAuthIdentity(authidentity: *const core::ffi::c_void, au
     SspiMarshalAuthIdentity(authidentity, authidentitylength, authidentitybytearray).ok()
 }
 #[inline]
-pub unsafe fn SspiPrepareForCredRead<P0>(authidentity: *const core::ffi::c_void, psztargetname: P0, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut windows_core::PCWSTR) -> windows_core::Result<()>
+pub unsafe fn SspiPrepareForCredRead<P1>(authidentity: *const core::ffi::c_void, psztargetname: P1, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut windows_core::PCWSTR) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("secur32.dll" "system" fn SspiPrepareForCredRead(authidentity : *const core::ffi::c_void, psztargetname : windows_core::PCWSTR, pcredmancredentialtype : *mut u32, ppszcredmantargetname : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
     SspiPrepareForCredRead(authidentity, psztargetname.param().abi(), pcredmancredentialtype, ppszcredmantargetname).ok()
 }
 #[inline]
-pub unsafe fn SspiPrepareForCredWrite<P0>(authidentity: *const core::ffi::c_void, psztargetname: P0, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut windows_core::PCWSTR, ppszcredmanusername: *mut windows_core::PCWSTR, ppcredentialblob: *mut *mut u8, pcredentialblobsize: *mut u32) -> windows_core::Result<()>
+pub unsafe fn SspiPrepareForCredWrite<P1>(authidentity: *const core::ffi::c_void, psztargetname: P1, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut windows_core::PCWSTR, ppszcredmanusername: *mut windows_core::PCWSTR, ppcredentialblob: *mut *mut u8, pcredentialblobsize: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("secur32.dll" "system" fn SspiPrepareForCredWrite(authidentity : *const core::ffi::c_void, psztargetname : windows_core::PCWSTR, pcredmancredentialtype : *mut u32, ppszcredmantargetname : *mut windows_core::PCWSTR, ppszcredmanusername : *mut windows_core::PCWSTR, ppcredentialblob : *mut *mut u8, pcredentialblobsize : *mut u32) -> windows_core::HRESULT);
     SspiPrepareForCredWrite(authidentity, psztargetname.param().abi(), pcredmancredentialtype, ppszcredmantargetname, ppszcredmanusername, ppcredentialblob, pcredentialblobsize).ok()
 }
 #[inline]
-pub unsafe fn SspiPromptForCredentialsA<P0, P1>(psztargetname: P0, puiinfo: Option<*const core::ffi::c_void>, dwautherror: u32, pszpackage: P1, pinputauthidentity: Option<*const core::ffi::c_void>, ppauthidentity: *mut *mut core::ffi::c_void, pfsave: Option<*mut i32>, dwflags: u32) -> u32
+pub unsafe fn SspiPromptForCredentialsA<P0, P3>(psztargetname: P0, puiinfo: Option<*const core::ffi::c_void>, dwautherror: u32, pszpackage: P3, pinputauthidentity: Option<*const core::ffi::c_void>, ppauthidentity: *mut *mut core::ffi::c_void, pfsave: Option<*mut i32>, dwflags: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("credui.dll" "system" fn SspiPromptForCredentialsA(psztargetname : windows_core::PCSTR, puiinfo : *const core::ffi::c_void, dwautherror : u32, pszpackage : windows_core::PCSTR, pinputauthidentity : *const core::ffi::c_void, ppauthidentity : *mut *mut core::ffi::c_void, pfsave : *mut i32, dwflags : u32) -> u32);
     SspiPromptForCredentialsA(psztargetname.param().abi(), core::mem::transmute(puiinfo.unwrap_or(core::ptr::null())), dwautherror, pszpackage.param().abi(), core::mem::transmute(pinputauthidentity.unwrap_or(core::ptr::null())), ppauthidentity, core::mem::transmute(pfsave.unwrap_or(core::ptr::null_mut())), dwflags)
 }
 #[inline]
-pub unsafe fn SspiPromptForCredentialsW<P0, P1>(psztargetname: P0, puiinfo: Option<*const core::ffi::c_void>, dwautherror: u32, pszpackage: P1, pinputauthidentity: Option<*const core::ffi::c_void>, ppauthidentity: *mut *mut core::ffi::c_void, pfsave: Option<*mut i32>, dwflags: u32) -> u32
+pub unsafe fn SspiPromptForCredentialsW<P0, P3>(psztargetname: P0, puiinfo: Option<*const core::ffi::c_void>, dwautherror: u32, pszpackage: P3, pinputauthidentity: Option<*const core::ffi::c_void>, ppauthidentity: *mut *mut core::ffi::c_void, pfsave: Option<*mut i32>, dwflags: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("credui.dll" "system" fn SspiPromptForCredentialsW(psztargetname : windows_core::PCWSTR, puiinfo : *const core::ffi::c_void, dwautherror : u32, pszpackage : windows_core::PCWSTR, pinputauthidentity : *const core::ffi::c_void, ppauthidentity : *mut *mut core::ffi::c_void, pfsave : *mut i32, dwflags : u32) -> u32);
     SspiPromptForCredentialsW(psztargetname.param().abi(), core::mem::transmute(puiinfo.unwrap_or(core::ptr::null())), dwautherror, pszpackage.param().abi(), core::mem::transmute(pinputauthidentity.unwrap_or(core::ptr::null())), ppauthidentity, core::mem::transmute(pfsave.unwrap_or(core::ptr::null_mut())), dwflags)
@@ -1440,9 +1440,9 @@ where
     TokenBindingDeleteBinding(targeturl.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn TokenBindingGenerateBinding<P0>(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturl: P0, bindingtype: TOKENBINDING_TYPE, tlsekm: *const core::ffi::c_void, tlsekmsize: u32, extensionformat: TOKENBINDING_EXTENSION_FORMAT, extensiondata: *const core::ffi::c_void, tokenbinding: *mut *mut core::ffi::c_void, tokenbindingsize: *mut u32, resultdata: Option<*mut *mut TOKENBINDING_RESULT_DATA>) -> windows_core::Result<()>
+pub unsafe fn TokenBindingGenerateBinding<P1>(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturl: P1, bindingtype: TOKENBINDING_TYPE, tlsekm: *const core::ffi::c_void, tlsekmsize: u32, extensionformat: TOKENBINDING_EXTENSION_FORMAT, extensiondata: *const core::ffi::c_void, tokenbinding: *mut *mut core::ffi::c_void, tokenbindingsize: *mut u32, resultdata: Option<*mut *mut TOKENBINDING_RESULT_DATA>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tokenbinding.dll" "system" fn TokenBindingGenerateBinding(keytype : TOKENBINDING_KEY_PARAMETERS_TYPE, targeturl : windows_core::PCWSTR, bindingtype : TOKENBINDING_TYPE, tlsekm : *const core::ffi::c_void, tlsekmsize : u32, extensionformat : TOKENBINDING_EXTENSION_FORMAT, extensiondata : *const core::ffi::c_void, tokenbinding : *mut *mut core::ffi::c_void, tokenbindingsize : *mut u32, resultdata : *mut *mut TOKENBINDING_RESULT_DATA) -> windows_core::HRESULT);
     TokenBindingGenerateBinding(keytype, targeturl.param().abi(), bindingtype, tlsekm, tlsekmsize, extensionformat, extensiondata, tokenbinding, tokenbindingsize, core::mem::transmute(resultdata.unwrap_or(core::ptr::null_mut()))).ok()
@@ -1454,9 +1454,9 @@ pub unsafe fn TokenBindingGenerateID(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, 
     TokenBindingGenerateID(keytype, publickey, publickeysize, &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn TokenBindingGenerateIDForUri<P0>(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturi: P0) -> windows_core::Result<*mut TOKENBINDING_RESULT_DATA>
+pub unsafe fn TokenBindingGenerateIDForUri<P1>(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturi: P1) -> windows_core::Result<*mut TOKENBINDING_RESULT_DATA>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("tokenbinding.dll" "system" fn TokenBindingGenerateIDForUri(keytype : TOKENBINDING_KEY_PARAMETERS_TYPE, targeturi : windows_core::PCWSTR, resultdata : *mut *mut TOKENBINDING_RESULT_DATA) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
@@ -1514,12 +1514,6 @@ pub unsafe fn VerifySignature(phcontext: *const super::super::Credentials::SecHa
     VerifySignature(phcontext, pmessage, messageseqno, &mut result__).map(|| result__)
 }
 windows_core::imp::define_interface!(ICcgDomainAuthCredentials, ICcgDomainAuthCredentials_Vtbl, 0x6ecda518_2010_4437_8bc3_46e752b7b172);
-impl core::ops::Deref for ICcgDomainAuthCredentials {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ICcgDomainAuthCredentials, windows_core::IUnknown);
 impl ICcgDomainAuthCredentials {
     pub unsafe fn GetPasswordCredentials<P0>(&self, plugininput: P0, domainname: *mut windows_core::PWSTR, username: *mut windows_core::PWSTR, password: *mut windows_core::PWSTR) -> windows_core::Result<()>
@@ -1534,12 +1528,11 @@ pub struct ICcgDomainAuthCredentials_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPasswordCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-pub trait ICcgDomainAuthCredentials_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ICcgDomainAuthCredentials_Impl: windows_core::IUnknownImpl {
     fn GetPasswordCredentials(&self, plugininput: &windows_core::PCWSTR, domainname: *mut windows_core::PWSTR, username: *mut windows_core::PWSTR, password: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ICcgDomainAuthCredentials {}
 impl ICcgDomainAuthCredentials_Vtbl {
-    pub const fn new<Identity: ICcgDomainAuthCredentials_Impl, const OFFSET: isize>() -> ICcgDomainAuthCredentials_Vtbl {
+    pub const fn new<Identity: ICcgDomainAuthCredentials_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPasswordCredentials<Identity: ICcgDomainAuthCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plugininput: windows_core::PCWSTR, domainname: *mut windows_core::PWSTR, username: *mut windows_core::PWSTR, password: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICcgDomainAuthCredentials_Impl::GetPasswordCredentials(this, core::mem::transmute(&plugininput), core::mem::transmute_copy(&domainname), core::mem::transmute_copy(&username), core::mem::transmute_copy(&password)).into()
@@ -1550,6 +1543,7 @@ impl ICcgDomainAuthCredentials_Vtbl {
         iid == &<ICcgDomainAuthCredentials as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ICcgDomainAuthCredentials {}
 pub const ACCOUNT_ADJUST_PRIVILEGES: i32 = 2i32;
 pub const ACCOUNT_ADJUST_QUOTAS: i32 = 4i32;
 pub const ACCOUNT_ADJUST_SYSTEM_ACCESS: i32 = 8i32;
@@ -3513,15 +3507,10 @@ pub const WDIGEST_SP_NAME_W: windows_core::PCWSTR = windows_core::w!("WDigest");
 pub const WINDOWS_SLID: windows_core::GUID = windows_core::GUID::from_u128(0x55c92734_d682_4d71_983e_d6ec3f16059f);
 pub const _FACILITY_WINDOWS_STORE: u32 = 63u32;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ASC_REQ_FLAGS(pub u32);
 impl windows_core::TypeKind for ASC_REQ_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for ASC_REQ_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ASC_REQ_FLAGS").field(&self.0).finish()
-    }
 }
 impl ASC_REQ_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -3557,15 +3546,10 @@ impl core::ops::Not for ASC_REQ_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ASC_REQ_HIGH_FLAGS(pub u64);
 impl windows_core::TypeKind for ASC_REQ_HIGH_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for ASC_REQ_HIGH_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ASC_REQ_HIGH_FLAGS").field(&self.0).finish()
-    }
 }
 impl ASC_REQ_HIGH_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -3601,26 +3585,16 @@ impl core::ops::Not for ASC_REQ_HIGH_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CRED_FETCH(pub i32);
 impl windows_core::TypeKind for CRED_FETCH {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CRED_FETCH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CRED_FETCH").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DOMAIN_PASSWORD_PROPERTIES(pub u32);
 impl windows_core::TypeKind for DOMAIN_PASSWORD_PROPERTIES {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DOMAIN_PASSWORD_PROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DOMAIN_PASSWORD_PROPERTIES").field(&self.0).finish()
-    }
 }
 impl DOMAIN_PASSWORD_PROPERTIES {
     pub const fn contains(&self, other: Self) -> bool {
@@ -3656,15 +3630,10 @@ impl core::ops::Not for DOMAIN_PASSWORD_PROPERTIES {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EXPORT_SECURITY_CONTEXT_FLAGS(pub u32);
 impl windows_core::TypeKind for EXPORT_SECURITY_CONTEXT_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for EXPORT_SECURITY_CONTEXT_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EXPORT_SECURITY_CONTEXT_FLAGS").field(&self.0).finish()
-    }
 }
 impl EXPORT_SECURITY_CONTEXT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -3700,26 +3669,16 @@ impl core::ops::Not for EXPORT_SECURITY_CONTEXT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EXTENDED_NAME_FORMAT(pub i32);
 impl windows_core::TypeKind for EXTENDED_NAME_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EXTENDED_NAME_FORMAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EXTENDED_NAME_FORMAT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ISC_REQ_FLAGS(pub u32);
 impl windows_core::TypeKind for ISC_REQ_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for ISC_REQ_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ISC_REQ_FLAGS").field(&self.0).finish()
-    }
 }
 impl ISC_REQ_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -3755,15 +3714,10 @@ impl core::ops::Not for ISC_REQ_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ISC_REQ_HIGH_FLAGS(pub u64);
 impl windows_core::TypeKind for ISC_REQ_HIGH_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for ISC_REQ_HIGH_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ISC_REQ_HIGH_FLAGS").field(&self.0).finish()
-    }
 }
 impl ISC_REQ_HIGH_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -3799,92 +3753,52 @@ impl core::ops::Not for ISC_REQ_HIGH_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct KERB_ADDRESS_TYPE(pub u32);
 impl windows_core::TypeKind for KERB_ADDRESS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for KERB_ADDRESS_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KERB_ADDRESS_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct KERB_CERTIFICATE_INFO_TYPE(pub i32);
 impl windows_core::TypeKind for KERB_CERTIFICATE_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for KERB_CERTIFICATE_INFO_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KERB_CERTIFICATE_INFO_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct KERB_CRYPTO_KEY_TYPE(pub i32);
 impl windows_core::TypeKind for KERB_CRYPTO_KEY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for KERB_CRYPTO_KEY_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KERB_CRYPTO_KEY_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct KERB_LOGON_SUBMIT_TYPE(pub i32);
 impl windows_core::TypeKind for KERB_LOGON_SUBMIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for KERB_LOGON_SUBMIT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KERB_LOGON_SUBMIT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct KERB_PROFILE_BUFFER_TYPE(pub i32);
 impl windows_core::TypeKind for KERB_PROFILE_BUFFER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for KERB_PROFILE_BUFFER_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KERB_PROFILE_BUFFER_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct KERB_PROTOCOL_MESSAGE_TYPE(pub i32);
 impl windows_core::TypeKind for KERB_PROTOCOL_MESSAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for KERB_PROTOCOL_MESSAGE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KERB_PROTOCOL_MESSAGE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct KERB_REQUEST_FLAGS(pub u32);
 impl windows_core::TypeKind for KERB_REQUEST_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for KERB_REQUEST_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KERB_REQUEST_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct KERB_TICKET_FLAGS(pub u32);
 impl windows_core::TypeKind for KERB_TICKET_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for KERB_TICKET_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KERB_TICKET_FLAGS").field(&self.0).finish()
-    }
 }
 impl KERB_TICKET_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -3920,147 +3834,82 @@ impl core::ops::Not for KERB_TICKET_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct KSEC_CONTEXT_TYPE(pub i32);
 impl windows_core::TypeKind for KSEC_CONTEXT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for KSEC_CONTEXT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KSEC_CONTEXT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct LSA_AUTH_INFORMATION_AUTH_TYPE(pub u32);
 impl windows_core::TypeKind for LSA_AUTH_INFORMATION_AUTH_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LSA_AUTH_INFORMATION_AUTH_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LSA_AUTH_INFORMATION_AUTH_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(pub i32);
 impl windows_core::TypeKind for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LSA_FOREST_TRUST_COLLISION_RECORD_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct LSA_FOREST_TRUST_RECORD_TYPE(pub i32);
 impl windows_core::TypeKind for LSA_FOREST_TRUST_RECORD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LSA_FOREST_TRUST_RECORD_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LSA_FOREST_TRUST_RECORD_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct LSA_LOOKUP_DOMAIN_INFO_CLASS(pub i32);
 impl windows_core::TypeKind for LSA_LOOKUP_DOMAIN_INFO_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LSA_LOOKUP_DOMAIN_INFO_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LSA_LOOKUP_DOMAIN_INFO_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct LSA_TOKEN_INFORMATION_TYPE(pub i32);
 impl windows_core::TypeKind for LSA_TOKEN_INFORMATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LSA_TOKEN_INFORMATION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LSA_TOKEN_INFORMATION_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MSV1_0(pub u32);
 impl windows_core::TypeKind for MSV1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MSV1_0 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MSV1_0").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MSV1_0_AVID(pub i32);
 impl windows_core::TypeKind for MSV1_0_AVID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MSV1_0_AVID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MSV1_0_AVID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MSV1_0_CREDENTIAL_KEY_TYPE(pub i32);
 impl windows_core::TypeKind for MSV1_0_CREDENTIAL_KEY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MSV1_0_CREDENTIAL_KEY_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MSV1_0_CREDENTIAL_KEY_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MSV1_0_LOGON_SUBMIT_TYPE(pub i32);
 impl windows_core::TypeKind for MSV1_0_LOGON_SUBMIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MSV1_0_LOGON_SUBMIT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MSV1_0_LOGON_SUBMIT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MSV1_0_PROFILE_BUFFER_TYPE(pub i32);
 impl windows_core::TypeKind for MSV1_0_PROFILE_BUFFER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MSV1_0_PROFILE_BUFFER_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MSV1_0_PROFILE_BUFFER_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MSV1_0_PROTOCOL_MESSAGE_TYPE(pub i32);
 impl windows_core::TypeKind for MSV1_0_PROTOCOL_MESSAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MSV1_0_PROTOCOL_MESSAGE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MSV1_0_PROTOCOL_MESSAGE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(pub u32);
 impl windows_core::TypeKind for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MSV_SUBAUTH_LOGON_PARAMETER_CONTROL").field(&self.0).finish()
-    }
 }
 impl MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
     pub const fn contains(&self, other: Self) -> bool {
@@ -4096,26 +3945,16 @@ impl core::ops::Not for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MSV_SUB_AUTHENTICATION_FILTER(pub u32);
 impl windows_core::TypeKind for MSV_SUB_AUTHENTICATION_FILTER {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MSV_SUB_AUTHENTICATION_FILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MSV_SUB_AUTHENTICATION_FILTER").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(pub u32);
 impl windows_core::TypeKind for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS").field(&self.0).finish()
-    }
 }
 impl MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -4151,125 +3990,70 @@ impl core::ops::Not for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NEGOTIATE_MESSAGES(pub i32);
 impl windows_core::TypeKind for NEGOTIATE_MESSAGES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NEGOTIATE_MESSAGES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NEGOTIATE_MESSAGES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NETLOGON_LOGON_INFO_CLASS(pub i32);
 impl windows_core::TypeKind for NETLOGON_LOGON_INFO_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NETLOGON_LOGON_INFO_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NETLOGON_LOGON_INFO_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PKU2U_LOGON_SUBMIT_TYPE(pub i32);
 impl windows_core::TypeKind for PKU2U_LOGON_SUBMIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PKU2U_LOGON_SUBMIT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PKU2U_LOGON_SUBMIT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct POLICY_AUDIT_EVENT_TYPE(pub i32);
 impl windows_core::TypeKind for POLICY_AUDIT_EVENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POLICY_AUDIT_EVENT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POLICY_AUDIT_EVENT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct POLICY_DOMAIN_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for POLICY_DOMAIN_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POLICY_DOMAIN_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POLICY_DOMAIN_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct POLICY_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for POLICY_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POLICY_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POLICY_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct POLICY_LSA_SERVER_ROLE(pub i32);
 impl windows_core::TypeKind for POLICY_LSA_SERVER_ROLE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POLICY_LSA_SERVER_ROLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POLICY_LSA_SERVER_ROLE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct POLICY_NOTIFICATION_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for POLICY_NOTIFICATION_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POLICY_NOTIFICATION_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POLICY_NOTIFICATION_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SASL_AUTHZID_STATE(pub i32);
 impl windows_core::TypeKind for SASL_AUTHZID_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SASL_AUTHZID_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SASL_AUTHZID_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SCHANNEL_ALERT_TOKEN_ALERT_TYPE(pub u32);
 impl windows_core::TypeKind for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SCHANNEL_ALERT_TOKEN_ALERT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SCHANNEL_CRED_FLAGS(pub u32);
 impl windows_core::TypeKind for SCHANNEL_CRED_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SCHANNEL_CRED_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SCHANNEL_CRED_FLAGS").field(&self.0).finish()
-    }
 }
 impl SCHANNEL_CRED_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -4305,117 +4089,67 @@ impl core::ops::Not for SCHANNEL_CRED_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SCHANNEL_SESSION_TOKEN_FLAGS(pub u32);
 impl windows_core::TypeKind for SCHANNEL_SESSION_TOKEN_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SCHANNEL_SESSION_TOKEN_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SCHANNEL_SESSION_TOKEN_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SECPKG_ATTR(pub u32);
 impl windows_core::TypeKind for SECPKG_ATTR {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SECPKG_ATTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SECPKG_ATTR").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SECPKG_ATTR_LCT_STATUS(pub i32);
 impl windows_core::TypeKind for SECPKG_ATTR_LCT_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SECPKG_ATTR_LCT_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SECPKG_ATTR_LCT_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SECPKG_CALL_PACKAGE_MESSAGE_TYPE(pub i32);
 impl windows_core::TypeKind for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SECPKG_CALL_PACKAGE_MESSAGE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SECPKG_CRED(pub u32);
 impl windows_core::TypeKind for SECPKG_CRED {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SECPKG_CRED {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SECPKG_CRED").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SECPKG_CRED_CLASS(pub i32);
 impl windows_core::TypeKind for SECPKG_CRED_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SECPKG_CRED_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SECPKG_CRED_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SECPKG_EXTENDED_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for SECPKG_EXTENDED_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SECPKG_EXTENDED_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SECPKG_EXTENDED_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SECPKG_NAME_TYPE(pub i32);
 impl windows_core::TypeKind for SECPKG_NAME_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SECPKG_NAME_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SECPKG_NAME_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SECPKG_PACKAGE_CHANGE_TYPE(pub u32);
 impl windows_core::TypeKind for SECPKG_PACKAGE_CHANGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SECPKG_PACKAGE_CHANGE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SECPKG_PACKAGE_CHANGE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SECPKG_SESSIONINFO_TYPE(pub i32);
 impl windows_core::TypeKind for SECPKG_SESSIONINFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SECPKG_SESSIONINFO_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SECPKG_SESSIONINFO_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SECURITY_LOGON_TYPE(pub i32);
 impl SECURITY_LOGON_TYPE {
     pub const UndefinedLogonType: Self = Self(0i32);
@@ -4435,142 +4169,77 @@ impl SECURITY_LOGON_TYPE {
 impl windows_core::TypeKind for SECURITY_LOGON_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SECURITY_LOGON_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SECURITY_LOGON_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SECURITY_PACKAGE_OPTIONS_TYPE(pub u32);
 impl windows_core::TypeKind for SECURITY_PACKAGE_OPTIONS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SECURITY_PACKAGE_OPTIONS_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SECURITY_PACKAGE_OPTIONS_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(pub i32);
 impl windows_core::TypeKind for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(pub i32);
 impl windows_core::TypeKind for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SEC_TRAFFIC_SECRET_TYPE(pub i32);
 impl windows_core::TypeKind for SEC_TRAFFIC_SECRET_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SEC_TRAFFIC_SECRET_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SEC_TRAFFIC_SECRET_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SE_ADT_PARAMETER_TYPE(pub i32);
 impl windows_core::TypeKind for SE_ADT_PARAMETER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SE_ADT_PARAMETER_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SE_ADT_PARAMETER_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SLDATATYPE(pub u32);
 impl windows_core::TypeKind for SLDATATYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SLDATATYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SLDATATYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SLIDTYPE(pub i32);
 impl windows_core::TypeKind for SLIDTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SLIDTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SLIDTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SLLICENSINGSTATUS(pub i32);
 impl windows_core::TypeKind for SLLICENSINGSTATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SLLICENSINGSTATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SLLICENSINGSTATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SLREFERRALTYPE(pub i32);
 impl windows_core::TypeKind for SLREFERRALTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SLREFERRALTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SLREFERRALTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SL_ACTIVATION_TYPE(pub i32);
 impl windows_core::TypeKind for SL_ACTIVATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SL_ACTIVATION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SL_ACTIVATION_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SL_GENUINE_STATE(pub i32);
 impl windows_core::TypeKind for SL_GENUINE_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SL_GENUINE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SL_GENUINE_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SchGetExtensionsOptions(pub i32);
 impl windows_core::TypeKind for SchGetExtensionsOptions {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SchGetExtensionsOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SchGetExtensionsOptions").field(&self.0).finish()
-    }
 }
 impl SchGetExtensionsOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -4606,143 +4275,88 @@ impl core::ops::Not for SchGetExtensionsOptions {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SecDelegationType(pub i32);
 impl windows_core::TypeKind for SecDelegationType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SecDelegationType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SecDelegationType").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TOKENBINDING_EXTENSION_FORMAT(pub i32);
 impl windows_core::TypeKind for TOKENBINDING_EXTENSION_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TOKENBINDING_EXTENSION_FORMAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TOKENBINDING_EXTENSION_FORMAT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TOKENBINDING_KEY_PARAMETERS_TYPE(pub i32);
 impl windows_core::TypeKind for TOKENBINDING_KEY_PARAMETERS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TOKENBINDING_KEY_PARAMETERS_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TOKENBINDING_KEY_PARAMETERS_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TOKENBINDING_TYPE(pub i32);
 impl windows_core::TypeKind for TOKENBINDING_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TOKENBINDING_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TOKENBINDING_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TRUSTED_DOMAIN_TRUST_ATTRIBUTES(pub u32);
 impl windows_core::TypeKind for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRUSTED_DOMAIN_TRUST_ATTRIBUTES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TRUSTED_DOMAIN_TRUST_DIRECTION(pub u32);
 impl windows_core::TypeKind for TRUSTED_DOMAIN_TRUST_DIRECTION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRUSTED_DOMAIN_TRUST_DIRECTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRUSTED_DOMAIN_TRUST_DIRECTION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TRUSTED_DOMAIN_TRUST_TYPE(pub u32);
 impl windows_core::TypeKind for TRUSTED_DOMAIN_TRUST_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRUSTED_DOMAIN_TRUST_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRUSTED_DOMAIN_TRUST_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TRUSTED_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for TRUSTED_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRUSTED_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRUSTED_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct eTlsAlgorithmUsage(pub i32);
 impl windows_core::TypeKind for eTlsAlgorithmUsage {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for eTlsAlgorithmUsage {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("eTlsAlgorithmUsage").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct eTlsHashAlgorithm(pub i32);
 impl windows_core::TypeKind for eTlsHashAlgorithm {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for eTlsHashAlgorithm {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("eTlsHashAlgorithm").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct eTlsSignatureAlgorithm(pub i32);
 impl windows_core::TypeKind for eTlsSignatureAlgorithm {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for eTlsSignatureAlgorithm {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("eTlsSignatureAlgorithm").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct AUDIT_POLICY_INFORMATION {
     pub AuditSubCategoryGuid: windows_core::GUID,
     pub AuditingInformation: u32,
     pub AuditCategoryGuid: windows_core::GUID,
-}
-impl windows_core::TypeKind for AUDIT_POLICY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for AUDIT_POLICY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for AUDIT_POLICY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CENTRAL_ACCESS_POLICY {
     pub CAPID: super::super::PSID,
     pub Name: LSA_UNICODE_STRING,
@@ -4752,16 +4366,16 @@ pub struct CENTRAL_ACCESS_POLICY {
     pub CAPECount: u32,
     pub CAPEs: *mut *mut CENTRAL_ACCESS_POLICY_ENTRY,
 }
-impl windows_core::TypeKind for CENTRAL_ACCESS_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CENTRAL_ACCESS_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CENTRAL_ACCESS_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CENTRAL_ACCESS_POLICY_ENTRY {
     pub Name: LSA_UNICODE_STRING,
     pub Description: LSA_UNICODE_STRING,
@@ -4774,29 +4388,29 @@ pub struct CENTRAL_ACCESS_POLICY_ENTRY {
     pub StagedSD: super::super::PSECURITY_DESCRIPTOR,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for CENTRAL_ACCESS_POLICY_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CENTRAL_ACCESS_POLICY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CENTRAL_ACCESS_POLICY_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLEAR_BLOCK {
     pub data: [i8; 8],
-}
-impl windows_core::TypeKind for CLEAR_BLOCK {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLEAR_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLEAR_BLOCK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CRYPTO_SETTINGS {
     pub eAlgorithmUsage: eTlsAlgorithmUsage,
     pub strCngAlgId: LSA_UNICODE_STRING,
@@ -4805,16 +4419,16 @@ pub struct CRYPTO_SETTINGS {
     pub dwMinBitLength: u32,
     pub dwMaxBitLength: u32,
 }
-impl windows_core::TypeKind for CRYPTO_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CRYPTO_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CRYPTO_SETTINGS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DOMAIN_PASSWORD_INFORMATION {
     pub MinPasswordLength: u16,
     pub PasswordHistoryLength: u16,
@@ -4822,24 +4436,20 @@ pub struct DOMAIN_PASSWORD_INFORMATION {
     pub MaxPasswordAge: i64,
     pub MinPasswordAge: i64,
 }
-impl windows_core::TypeKind for DOMAIN_PASSWORD_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DOMAIN_PASSWORD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DOMAIN_PASSWORD_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Credentials")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ENCRYPTED_CREDENTIALW {
     pub Cred: super::super::Credentials::CREDENTIALW,
     pub ClearCredentialBlobSize: u32,
-}
-#[cfg(feature = "Win32_Security_Credentials")]
-impl windows_core::TypeKind for ENCRYPTED_CREDENTIALW {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 impl Default for ENCRYPTED_CREDENTIALW {
@@ -4847,8 +4457,12 @@ impl Default for ENCRYPTED_CREDENTIALW {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security_Credentials")]
+impl windows_core::TypeKind for ENCRYPTED_CREDENTIALW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KDC_PROXY_CACHE_ENTRY_DATA {
     pub SinceLastUsed: u64,
     pub DomainName: LSA_UNICODE_STRING,
@@ -4860,16 +4474,16 @@ pub struct KDC_PROXY_CACHE_ENTRY_DATA {
     pub CredDomainName: LSA_UNICODE_STRING,
     pub GlobalCache: super::super::super::Foundation::BOOLEAN,
 }
-impl windows_core::TypeKind for KDC_PROXY_CACHE_ENTRY_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KDC_PROXY_CACHE_ENTRY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KDC_PROXY_CACHE_ENTRY_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub RealmName: LSA_UNICODE_STRING,
@@ -4877,32 +4491,32 @@ pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     pub AddressType: KERB_ADDRESS_TYPE,
     pub DcFlags: u32,
 }
-impl windows_core::TypeKind for KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub RealmName: LSA_UNICODE_STRING,
     pub KdcAddress: LSA_UNICODE_STRING,
     pub AddressType: KERB_ADDRESS_TYPE,
 }
-impl windows_core::TypeKind for KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_ADD_CREDENTIALS_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub UserName: LSA_UNICODE_STRING,
@@ -4911,46 +4525,46 @@ pub struct KERB_ADD_CREDENTIALS_REQUEST {
     pub LogonId: super::super::super::Foundation::LUID,
     pub Flags: KERB_REQUEST_FLAGS,
 }
-impl windows_core::TypeKind for KERB_ADD_CREDENTIALS_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_ADD_CREDENTIALS_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_ADD_CREDENTIALS_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_ADD_CREDENTIALS_REQUEST_EX {
     pub Credentials: KERB_ADD_CREDENTIALS_REQUEST,
     pub PrincipalNameCount: u32,
     pub PrincipalNames: [LSA_UNICODE_STRING; 1],
-}
-impl windows_core::TypeKind for KERB_ADD_CREDENTIALS_REQUEST_EX {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_ADD_CREDENTIALS_REQUEST_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_ADD_CREDENTIALS_REQUEST_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_AUTH_DATA {
     pub Type: u32,
     pub Length: u32,
     pub Data: *mut u8,
-}
-impl windows_core::TypeKind for KERB_AUTH_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_AUTH_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_AUTH_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_BINDING_CACHE_ENTRY_DATA {
     pub DiscoveryTime: u64,
     pub RealmName: LSA_UNICODE_STRING,
@@ -4961,44 +4575,44 @@ pub struct KERB_BINDING_CACHE_ENTRY_DATA {
     pub CacheFlags: u32,
     pub KdcName: LSA_UNICODE_STRING,
 }
-impl windows_core::TypeKind for KERB_BINDING_CACHE_ENTRY_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_BINDING_CACHE_ENTRY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_BINDING_CACHE_ENTRY_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_CERTIFICATE_HASHINFO {
     pub StoreNameLength: u16,
     pub HashLength: u16,
-}
-impl windows_core::TypeKind for KERB_CERTIFICATE_HASHINFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_CERTIFICATE_HASHINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_CERTIFICATE_HASHINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_CERTIFICATE_INFO {
     pub CertInfoSize: u32,
     pub InfoType: u32,
-}
-impl windows_core::TypeKind for KERB_CERTIFICATE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_CERTIFICATE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_CERTIFICATE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_CERTIFICATE_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub DomainName: LSA_UNICODE_STRING,
@@ -5008,16 +4622,16 @@ pub struct KERB_CERTIFICATE_LOGON {
     pub CspDataLength: u32,
     pub CspData: *mut u8,
 }
-impl windows_core::TypeKind for KERB_CERTIFICATE_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_CERTIFICATE_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_CERTIFICATE_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_CERTIFICATE_S4U_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
@@ -5026,30 +4640,30 @@ pub struct KERB_CERTIFICATE_S4U_LOGON {
     pub CertificateLength: u32,
     pub Certificate: *mut u8,
 }
-impl windows_core::TypeKind for KERB_CERTIFICATE_S4U_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_CERTIFICATE_S4U_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_CERTIFICATE_S4U_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_CERTIFICATE_UNLOCK_LOGON {
     pub Logon: KERB_CERTIFICATE_LOGON,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl windows_core::TypeKind for KERB_CERTIFICATE_UNLOCK_LOGON {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_CERTIFICATE_UNLOCK_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_CERTIFICATE_UNLOCK_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_CHANGEPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub DomainName: LSA_UNICODE_STRING,
@@ -5058,116 +4672,116 @@ pub struct KERB_CHANGEPASSWORD_REQUEST {
     pub NewPassword: LSA_UNICODE_STRING,
     pub Impersonating: super::super::super::Foundation::BOOLEAN,
 }
-impl windows_core::TypeKind for KERB_CHANGEPASSWORD_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_CHANGEPASSWORD_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_CHANGEPASSWORD_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl windows_core::TypeKind for KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_DATA {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_CLOUD_KERBEROS_DEBUG_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl windows_core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Version: u32,
     pub Length: u32,
     pub Data: [u32; 1],
 }
-impl windows_core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_CRYPTO_KEY {
     pub KeyType: KERB_CRYPTO_KEY_TYPE,
     pub Length: u32,
     pub Value: *mut u8,
-}
-impl windows_core::TypeKind for KERB_CRYPTO_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_CRYPTO_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_CRYPTO_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_CRYPTO_KEY32 {
     pub KeyType: i32,
     pub Length: u32,
     pub Offset: u32,
-}
-impl windows_core::TypeKind for KERB_CRYPTO_KEY32 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_CRYPTO_KEY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_CRYPTO_KEY32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_DECRYPT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
@@ -5180,44 +4794,44 @@ pub struct KERB_DECRYPT_REQUEST {
     pub InitialVector: *mut u8,
     pub EncryptedData: *mut u8,
 }
-impl windows_core::TypeKind for KERB_DECRYPT_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_DECRYPT_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_DECRYPT_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_DECRYPT_RESPONSE {
     pub DecryptedData: [u8; 1],
-}
-impl windows_core::TypeKind for KERB_DECRYPT_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_DECRYPT_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_DECRYPT_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_EXTERNAL_NAME {
     pub NameType: i16,
     pub NameCount: u16,
     pub Names: [LSA_UNICODE_STRING; 1],
-}
-impl windows_core::TypeKind for KERB_EXTERNAL_NAME {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_EXTERNAL_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_EXTERNAL_NAME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_EXTERNAL_TICKET {
     pub ServiceName: *mut KERB_EXTERNAL_NAME,
     pub TargetName: *mut KERB_EXTERNAL_NAME,
@@ -5236,32 +4850,32 @@ pub struct KERB_EXTERNAL_TICKET {
     pub EncodedTicketSize: u32,
     pub EncodedTicket: *mut u8,
 }
-impl windows_core::TypeKind for KERB_EXTERNAL_TICKET {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_EXTERNAL_TICKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_EXTERNAL_TICKET {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_INTERACTIVE_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub LogonDomainName: LSA_UNICODE_STRING,
     pub UserName: LSA_UNICODE_STRING,
     pub Password: LSA_UNICODE_STRING,
 }
-impl windows_core::TypeKind for KERB_INTERACTIVE_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_INTERACTIVE_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_INTERACTIVE_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_INTERACTIVE_PROFILE {
     pub MessageType: KERB_PROFILE_BUFFER_TYPE,
     pub LogonCount: u16,
@@ -5280,370 +4894,370 @@ pub struct KERB_INTERACTIVE_PROFILE {
     pub LogonServer: LSA_UNICODE_STRING,
     pub UserFlags: u32,
 }
-impl windows_core::TypeKind for KERB_INTERACTIVE_PROFILE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_INTERACTIVE_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_INTERACTIVE_PROFILE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_INTERACTIVE_UNLOCK_LOGON {
     pub Logon: KERB_INTERACTIVE_LOGON,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl windows_core::TypeKind for KERB_INTERACTIVE_UNLOCK_LOGON {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_INTERACTIVE_UNLOCK_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_INTERACTIVE_UNLOCK_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_NET_ADDRESS {
     pub Family: u32,
     pub Length: u32,
     pub Address: windows_core::PSTR,
-}
-impl windows_core::TypeKind for KERB_NET_ADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_NET_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_NET_ADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_NET_ADDRESSES {
     pub Number: u32,
     pub Addresses: [KERB_NET_ADDRESS; 1],
-}
-impl windows_core::TypeKind for KERB_NET_ADDRESSES {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_NET_ADDRESSES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_NET_ADDRESSES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_PURGE_BINDING_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-}
-impl windows_core::TypeKind for KERB_PURGE_BINDING_CACHE_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_PURGE_BINDING_CACHE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_PURGE_BINDING_CACHE_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl windows_core::TypeKind for KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfPurged: u32,
-}
-impl windows_core::TypeKind for KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_PURGE_TKT_CACHE_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
     pub Flags: u32,
     pub TicketTemplate: KERB_TICKET_CACHE_INFO_EX,
 }
-impl windows_core::TypeKind for KERB_PURGE_TKT_CACHE_EX_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_PURGE_TKT_CACHE_EX_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_PURGE_TKT_CACHE_EX_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_PURGE_TKT_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
     pub ServerName: LSA_UNICODE_STRING,
     pub RealmName: LSA_UNICODE_STRING,
 }
-impl windows_core::TypeKind for KERB_PURGE_TKT_CACHE_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_PURGE_TKT_CACHE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_PURGE_TKT_CACHE_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_QUERY_BINDING_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
-}
-impl windows_core::TypeKind for KERB_QUERY_BINDING_CACHE_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_QUERY_BINDING_CACHE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_QUERY_BINDING_CACHE_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_QUERY_BINDING_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfEntries: u32,
     pub Entries: *mut KERB_BINDING_CACHE_ENTRY_DATA,
-}
-impl windows_core::TypeKind for KERB_QUERY_BINDING_CACHE_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_QUERY_BINDING_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_QUERY_BINDING_CACHE_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
     pub DomainName: LSA_UNICODE_STRING,
-}
-impl windows_core::TypeKind for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
     pub ExtendedPolicies: u32,
     pub DsFlags: u32,
 }
-impl windows_core::TypeKind for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl windows_core::TypeKind for KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfEntries: u32,
     pub Entries: *mut KDC_PROXY_CACHE_ENTRY_DATA,
-}
-impl windows_core::TypeKind for KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl windows_core::TypeKind for KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfCreds: u32,
     pub Creds: *mut KERB_S4U2PROXY_CRED,
-}
-impl windows_core::TypeKind for KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO_EX2; 1],
-}
-impl windows_core::TypeKind for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO_EX3; 1],
-}
-impl windows_core::TypeKind for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_EX_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO_EX; 1],
-}
-impl windows_core::TypeKind for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl windows_core::TypeKind for KERB_QUERY_TKT_CACHE_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_QUERY_TKT_CACHE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_QUERY_TKT_CACHE_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
     pub Tickets: [KERB_TICKET_CACHE_INFO; 1],
-}
-impl windows_core::TypeKind for KERB_QUERY_TKT_CACHE_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_QUERY_TKT_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_QUERY_TKT_CACHE_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_REFRESH_POLICY_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
-}
-impl windows_core::TypeKind for KERB_REFRESH_POLICY_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_REFRESH_POLICY_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_REFRESH_POLICY_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_REFRESH_POLICY_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
-}
-impl windows_core::TypeKind for KERB_REFRESH_POLICY_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_REFRESH_POLICY_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_REFRESH_POLICY_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_REFRESH_SCCRED_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CredentialBlob: LSA_UNICODE_STRING,
     pub LogonId: super::super::super::Foundation::LUID,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for KERB_REFRESH_SCCRED_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_REFRESH_SCCRED_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_REFRESH_SCCRED_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_RETRIEVE_KEY_TAB_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
@@ -5651,32 +5265,32 @@ pub struct KERB_RETRIEVE_KEY_TAB_REQUEST {
     pub DomainName: LSA_UNICODE_STRING,
     pub Password: LSA_UNICODE_STRING,
 }
-impl windows_core::TypeKind for KERB_RETRIEVE_KEY_TAB_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_RETRIEVE_KEY_TAB_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_RETRIEVE_KEY_TAB_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_RETRIEVE_KEY_TAB_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub KeyTabLength: u32,
     pub KeyTab: *mut u8,
-}
-impl windows_core::TypeKind for KERB_RETRIEVE_KEY_TAB_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_RETRIEVE_KEY_TAB_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_RETRIEVE_KEY_TAB_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Credentials")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_RETRIEVE_TKT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
@@ -5687,46 +5301,46 @@ pub struct KERB_RETRIEVE_TKT_REQUEST {
     pub CredentialsHandle: super::super::Credentials::SecHandle,
 }
 #[cfg(feature = "Win32_Security_Credentials")]
-impl windows_core::TypeKind for KERB_RETRIEVE_TKT_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Credentials")]
 impl Default for KERB_RETRIEVE_TKT_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security_Credentials")]
+impl windows_core::TypeKind for KERB_RETRIEVE_TKT_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_RETRIEVE_TKT_RESPONSE {
     pub Ticket: KERB_EXTERNAL_TICKET,
-}
-impl windows_core::TypeKind for KERB_RETRIEVE_TKT_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_RETRIEVE_TKT_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_RETRIEVE_TKT_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_S4U2PROXY_CACHE_ENTRY_INFO {
     pub ServerName: LSA_UNICODE_STRING,
     pub Flags: u32,
     pub LastStatus: super::super::super::Foundation::NTSTATUS,
     pub Expiry: i64,
 }
-impl windows_core::TypeKind for KERB_S4U2PROXY_CACHE_ENTRY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_S4U2PROXY_CACHE_ENTRY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_S4U2PROXY_CACHE_ENTRY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_S4U2PROXY_CRED {
     pub UserName: LSA_UNICODE_STRING,
     pub DomainName: LSA_UNICODE_STRING,
@@ -5736,33 +5350,33 @@ pub struct KERB_S4U2PROXY_CRED {
     pub CountOfEntries: u32,
     pub Entries: *mut KERB_S4U2PROXY_CACHE_ENTRY_INFO,
 }
-impl windows_core::TypeKind for KERB_S4U2PROXY_CRED {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_S4U2PROXY_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_S4U2PROXY_CRED {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_S4U_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
     pub ClientUpn: LSA_UNICODE_STRING,
     pub ClientRealm: LSA_UNICODE_STRING,
 }
-impl windows_core::TypeKind for KERB_S4U_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_S4U_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_S4U_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Credentials")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_SETPASSWORD_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
@@ -5778,18 +5392,18 @@ pub struct KERB_SETPASSWORD_EX_REQUEST {
     pub KdcAddressType: u32,
 }
 #[cfg(feature = "Win32_Security_Credentials")]
-impl windows_core::TypeKind for KERB_SETPASSWORD_EX_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Credentials")]
 impl Default for KERB_SETPASSWORD_EX_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security_Credentials")]
+impl windows_core::TypeKind for KERB_SETPASSWORD_EX_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Credentials")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_SETPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
@@ -5800,62 +5414,62 @@ pub struct KERB_SETPASSWORD_REQUEST {
     pub Password: LSA_UNICODE_STRING,
 }
 #[cfg(feature = "Win32_Security_Credentials")]
-impl windows_core::TypeKind for KERB_SETPASSWORD_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Credentials")]
 impl Default for KERB_SETPASSWORD_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security_Credentials")]
+impl windows_core::TypeKind for KERB_SETPASSWORD_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_SMART_CARD_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub Pin: LSA_UNICODE_STRING,
     pub CspDataLength: u32,
     pub CspData: *mut u8,
 }
-impl windows_core::TypeKind for KERB_SMART_CARD_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_SMART_CARD_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_SMART_CARD_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_SMART_CARD_PROFILE {
     pub Profile: KERB_INTERACTIVE_PROFILE,
     pub CertificateSize: u32,
     pub CertificateData: *mut u8,
-}
-impl windows_core::TypeKind for KERB_SMART_CARD_PROFILE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_SMART_CARD_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_SMART_CARD_PROFILE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_SMART_CARD_UNLOCK_LOGON {
     pub Logon: KERB_SMART_CARD_LOGON,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl windows_core::TypeKind for KERB_SMART_CARD_UNLOCK_LOGON {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_SMART_CARD_UNLOCK_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_SMART_CARD_UNLOCK_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_SUBMIT_TKT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Foundation::LUID,
@@ -5864,16 +5478,16 @@ pub struct KERB_SUBMIT_TKT_REQUEST {
     pub KerbCredSize: u32,
     pub KerbCredOffset: u32,
 }
-impl windows_core::TypeKind for KERB_SUBMIT_TKT_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_SUBMIT_TKT_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_SUBMIT_TKT_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO {
     pub ServerName: LSA_UNICODE_STRING,
     pub RealmName: LSA_UNICODE_STRING,
@@ -5883,16 +5497,16 @@ pub struct KERB_TICKET_CACHE_INFO {
     pub EncryptionType: i32,
     pub TicketFlags: KERB_TICKET_FLAGS,
 }
-impl windows_core::TypeKind for KERB_TICKET_CACHE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_TICKET_CACHE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_TICKET_CACHE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO_EX {
     pub ClientName: LSA_UNICODE_STRING,
     pub ClientRealm: LSA_UNICODE_STRING,
@@ -5904,16 +5518,16 @@ pub struct KERB_TICKET_CACHE_INFO_EX {
     pub EncryptionType: i32,
     pub TicketFlags: u32,
 }
-impl windows_core::TypeKind for KERB_TICKET_CACHE_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_TICKET_CACHE_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_TICKET_CACHE_INFO_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO_EX2 {
     pub ClientName: LSA_UNICODE_STRING,
     pub ClientRealm: LSA_UNICODE_STRING,
@@ -5927,16 +5541,16 @@ pub struct KERB_TICKET_CACHE_INFO_EX2 {
     pub SessionKeyType: u32,
     pub BranchId: u32,
 }
-impl windows_core::TypeKind for KERB_TICKET_CACHE_INFO_EX2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_TICKET_CACHE_INFO_EX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_TICKET_CACHE_INFO_EX2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO_EX3 {
     pub ClientName: LSA_UNICODE_STRING,
     pub ClientRealm: LSA_UNICODE_STRING,
@@ -5952,16 +5566,16 @@ pub struct KERB_TICKET_CACHE_INFO_EX3 {
     pub CacheFlags: u32,
     pub KdcCalled: LSA_UNICODE_STRING,
 }
-impl windows_core::TypeKind for KERB_TICKET_CACHE_INFO_EX3 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_TICKET_CACHE_INFO_EX3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_TICKET_CACHE_INFO_EX3 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_TICKET_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
@@ -5970,61 +5584,61 @@ pub struct KERB_TICKET_LOGON {
     pub ServiceTicket: *mut u8,
     pub TicketGrantingTicket: *mut u8,
 }
-impl windows_core::TypeKind for KERB_TICKET_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_TICKET_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_TICKET_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_TICKET_PROFILE {
     pub Profile: KERB_INTERACTIVE_PROFILE,
     pub SessionKey: KERB_CRYPTO_KEY,
-}
-impl windows_core::TypeKind for KERB_TICKET_PROFILE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_TICKET_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_TICKET_PROFILE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_TICKET_UNLOCK_LOGON {
     pub Logon: KERB_TICKET_LOGON,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl windows_core::TypeKind for KERB_TICKET_UNLOCK_LOGON {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERB_TICKET_UNLOCK_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_TICKET_UNLOCK_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KERB_TRANSFER_CRED_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub OriginLogonId: super::super::super::Foundation::LUID,
     pub DestinationLogonId: super::super::super::Foundation::LUID,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for KERB_TRANSFER_CRED_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KERB_TRANSFER_CRED_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KERB_TRANSFER_CRED_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KSEC_LIST_ENTRY {
     pub List: super::super::super::System::Kernel::LIST_ENTRY,
     pub RefCount: i32,
@@ -6033,47 +5647,47 @@ pub struct KSEC_LIST_ENTRY {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KSEC_LIST_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for KSEC_LIST_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for KSEC_LIST_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LOGON_HOURS {
     pub UnitsPerWeek: u16,
     pub LogonHours: *mut u8,
-}
-impl windows_core::TypeKind for LOGON_HOURS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LOGON_HOURS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LOGON_HOURS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_AUTH_INFORMATION {
     pub LastUpdateTime: i64,
     pub AuthType: LSA_AUTH_INFORMATION_AUTH_TYPE,
     pub AuthInfoLength: u32,
     pub AuthInfo: *mut u8,
 }
-impl windows_core::TypeKind for LSA_AUTH_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LSA_AUTH_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_AUTH_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_DISPATCH_TABLE {
     pub CreateLogonSession: PLSA_CREATE_LOGON_SESSION,
     pub DeleteLogonSession: PLSA_DELETE_LOGON_SESSION,
@@ -6087,195 +5701,198 @@ pub struct LSA_DISPATCH_TABLE {
     pub CopyToClientBuffer: PLSA_COPY_TO_CLIENT_BUFFER,
     pub CopyFromClientBuffer: PLSA_COPY_FROM_CLIENT_BUFFER,
 }
-impl windows_core::TypeKind for LSA_DISPATCH_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LSA_DISPATCH_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_DISPATCH_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_ENUMERATION_INFORMATION {
     pub Sid: super::super::PSID,
-}
-impl windows_core::TypeKind for LSA_ENUMERATION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_ENUMERATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_ENUMERATION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_FOREST_TRUST_BINARY_DATA {
     pub Length: u32,
     pub Buffer: *mut u8,
-}
-impl windows_core::TypeKind for LSA_FOREST_TRUST_BINARY_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_FOREST_TRUST_BINARY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_FOREST_TRUST_BINARY_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_FOREST_TRUST_COLLISION_INFORMATION {
     pub RecordCount: u32,
     pub Entries: *mut *mut LSA_FOREST_TRUST_COLLISION_RECORD,
-}
-impl windows_core::TypeKind for LSA_FOREST_TRUST_COLLISION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_FOREST_TRUST_COLLISION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_FOREST_TRUST_COLLISION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_FOREST_TRUST_COLLISION_RECORD {
     pub Index: u32,
     pub Type: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE,
     pub Flags: u32,
     pub Name: LSA_UNICODE_STRING,
 }
-impl windows_core::TypeKind for LSA_FOREST_TRUST_COLLISION_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LSA_FOREST_TRUST_COLLISION_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_FOREST_TRUST_COLLISION_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_FOREST_TRUST_DOMAIN_INFO {
     pub Sid: super::super::PSID,
     pub DnsName: LSA_UNICODE_STRING,
     pub NetbiosName: LSA_UNICODE_STRING,
-}
-impl windows_core::TypeKind for LSA_FOREST_TRUST_DOMAIN_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_FOREST_TRUST_DOMAIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_FOREST_TRUST_DOMAIN_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_FOREST_TRUST_INFORMATION {
     pub RecordCount: u32,
     pub Entries: *mut *mut LSA_FOREST_TRUST_RECORD,
-}
-impl windows_core::TypeKind for LSA_FOREST_TRUST_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_FOREST_TRUST_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_FOREST_TRUST_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_FOREST_TRUST_INFORMATION2 {
     pub RecordCount: u32,
     pub Entries: *mut *mut LSA_FOREST_TRUST_RECORD2,
-}
-impl windows_core::TypeKind for LSA_FOREST_TRUST_INFORMATION2 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_FOREST_TRUST_INFORMATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_FOREST_TRUST_INFORMATION2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LSA_FOREST_TRUST_RECORD {
     pub Flags: u32,
     pub ForestTrustType: LSA_FOREST_TRUST_RECORD_TYPE,
     pub Time: i64,
     pub ForestTrustData: LSA_FOREST_TRUST_RECORD_0,
 }
-impl windows_core::TypeKind for LSA_FOREST_TRUST_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LSA_FOREST_TRUST_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_FOREST_TRUST_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union LSA_FOREST_TRUST_RECORD_0 {
     pub TopLevelName: LSA_UNICODE_STRING,
     pub DomainInfo: LSA_FOREST_TRUST_DOMAIN_INFO,
     pub Data: LSA_FOREST_TRUST_BINARY_DATA,
-}
-impl windows_core::TypeKind for LSA_FOREST_TRUST_RECORD_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_FOREST_TRUST_RECORD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_FOREST_TRUST_RECORD_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LSA_FOREST_TRUST_RECORD2 {
     pub Flags: u32,
     pub ForestTrustType: LSA_FOREST_TRUST_RECORD_TYPE,
     pub Time: i64,
     pub ForestTrustData: LSA_FOREST_TRUST_RECORD2_0,
 }
-impl windows_core::TypeKind for LSA_FOREST_TRUST_RECORD2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LSA_FOREST_TRUST_RECORD2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_FOREST_TRUST_RECORD2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union LSA_FOREST_TRUST_RECORD2_0 {
     pub TopLevelName: LSA_UNICODE_STRING,
     pub DomainInfo: LSA_FOREST_TRUST_DOMAIN_INFO,
     pub BinaryData: LSA_FOREST_TRUST_BINARY_DATA,
     pub ScannerInfo: LSA_FOREST_TRUST_SCANNER_INFO,
 }
-impl windows_core::TypeKind for LSA_FOREST_TRUST_RECORD2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LSA_FOREST_TRUST_RECORD2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_FOREST_TRUST_RECORD2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_FOREST_TRUST_SCANNER_INFO {
     pub DomainSid: super::super::PSID,
     pub DnsName: LSA_UNICODE_STRING,
     pub NetbiosName: LSA_UNICODE_STRING,
-}
-impl windows_core::TypeKind for LSA_FOREST_TRUST_SCANNER_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_FOREST_TRUST_SCANNER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_FOREST_TRUST_SCANNER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LSA_HANDLE(pub isize);
+impl windows_core::TypeKind for LSA_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl LSA_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -6285,35 +5902,28 @@ impl windows_core::Free for LSA_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = LsaClose(*self);
+            windows_targets::link!("advapi32.dll" "system" fn LsaClose(objecthandle : isize) -> i32);
+            LsaClose(self.0);
         }
     }
 }
-impl Default for LSA_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for LSA_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_LAST_INTER_LOGON_INFO {
     pub LastSuccessfulLogon: i64,
     pub LastFailedLogon: i64,
     pub FailedAttemptCountSinceLastSuccessfulLogon: u32,
-}
-impl windows_core::TypeKind for LSA_LAST_INTER_LOGON_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_LAST_INTER_LOGON_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_LAST_INTER_LOGON_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_OBJECT_ATTRIBUTES {
     pub Length: u32,
     pub RootDirectory: super::super::super::Foundation::HANDLE,
@@ -6322,31 +5932,31 @@ pub struct LSA_OBJECT_ATTRIBUTES {
     pub SecurityDescriptor: *mut core::ffi::c_void,
     pub SecurityQualityOfService: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for LSA_OBJECT_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LSA_OBJECT_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_OBJECT_ATTRIBUTES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_REFERENCED_DOMAIN_LIST {
     pub Entries: u32,
     pub Domains: *mut LSA_TRUST_INFORMATION,
-}
-impl windows_core::TypeKind for LSA_REFERENCED_DOMAIN_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_REFERENCED_DOMAIN_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_REFERENCED_DOMAIN_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_SECPKG_FUNCTION_TABLE {
     pub CreateLogonSession: PLSA_CREATE_LOGON_SESSION,
     pub DeleteLogonSession: PLSA_DELETE_LOGON_SESSION,
@@ -6414,46 +6024,46 @@ pub struct LSA_SECPKG_FUNCTION_TABLE {
     pub GetClientInfoEx: PLSA_GET_CLIENT_INFO_EX,
 }
 #[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
-impl windows_core::TypeKind for LSA_SECPKG_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
 impl Default for LSA_SECPKG_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
+impl windows_core::TypeKind for LSA_SECPKG_FUNCTION_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: windows_core::PSTR,
-}
-impl windows_core::TypeKind for LSA_STRING {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_STRING {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_TOKEN_INFORMATION_NULL {
     pub ExpirationTime: i64,
     pub Groups: *mut super::super::TOKEN_GROUPS,
-}
-impl windows_core::TypeKind for LSA_TOKEN_INFORMATION_NULL {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_TOKEN_INFORMATION_NULL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_TOKEN_INFORMATION_NULL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_TOKEN_INFORMATION_V1 {
     pub ExpirationTime: i64,
     pub User: super::super::TOKEN_USER,
@@ -6463,16 +6073,16 @@ pub struct LSA_TOKEN_INFORMATION_V1 {
     pub Owner: super::super::TOKEN_OWNER,
     pub DefaultDacl: super::super::TOKEN_DEFAULT_DACL,
 }
-impl windows_core::TypeKind for LSA_TOKEN_INFORMATION_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LSA_TOKEN_INFORMATION_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_TOKEN_INFORMATION_V1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_TOKEN_INFORMATION_V3 {
     pub ExpirationTime: i64,
     pub User: super::super::TOKEN_USER,
@@ -6485,105 +6095,105 @@ pub struct LSA_TOKEN_INFORMATION_V3 {
     pub DeviceClaims: super::super::TOKEN_DEVICE_CLAIMS,
     pub DeviceGroups: *mut super::super::TOKEN_GROUPS,
 }
-impl windows_core::TypeKind for LSA_TOKEN_INFORMATION_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LSA_TOKEN_INFORMATION_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_TOKEN_INFORMATION_V3 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_TRANSLATED_NAME {
     pub Use: super::super::SID_NAME_USE,
     pub Name: LSA_UNICODE_STRING,
     pub DomainIndex: i32,
-}
-impl windows_core::TypeKind for LSA_TRANSLATED_NAME {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_TRANSLATED_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_TRANSLATED_NAME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_TRANSLATED_SID {
     pub Use: super::super::SID_NAME_USE,
     pub RelativeId: u32,
     pub DomainIndex: i32,
-}
-impl windows_core::TypeKind for LSA_TRANSLATED_SID {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_TRANSLATED_SID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_TRANSLATED_SID {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_TRANSLATED_SID2 {
     pub Use: super::super::SID_NAME_USE,
     pub Sid: super::super::PSID,
     pub DomainIndex: i32,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for LSA_TRANSLATED_SID2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LSA_TRANSLATED_SID2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_TRANSLATED_SID2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_TRUST_INFORMATION {
     pub Name: LSA_UNICODE_STRING,
     pub Sid: super::super::PSID,
-}
-impl windows_core::TypeKind for LSA_TRUST_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_TRUST_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_TRUST_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LSA_UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for LSA_UNICODE_STRING {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LSA_UNICODE_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LSA_UNICODE_STRING {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_AV_PAIR {
     pub AvId: u16,
     pub AvLen: u16,
-}
-impl windows_core::TypeKind for MSV1_0_AV_PAIR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MSV1_0_AV_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_AV_PAIR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_CHANGEPASSWORD_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub DomainName: LSA_UNICODE_STRING,
@@ -6592,60 +6202,60 @@ pub struct MSV1_0_CHANGEPASSWORD_REQUEST {
     pub NewPassword: LSA_UNICODE_STRING,
     pub Impersonating: super::super::super::Foundation::BOOLEAN,
 }
-impl windows_core::TypeKind for MSV1_0_CHANGEPASSWORD_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MSV1_0_CHANGEPASSWORD_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_CHANGEPASSWORD_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_CHANGEPASSWORD_RESPONSE {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub PasswordInfoValid: super::super::super::Foundation::BOOLEAN,
     pub DomainPasswordInfo: DOMAIN_PASSWORD_INFORMATION,
-}
-impl windows_core::TypeKind for MSV1_0_CHANGEPASSWORD_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MSV1_0_CHANGEPASSWORD_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_CHANGEPASSWORD_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_CREDENTIAL_KEY {
     pub Data: [u8; 20],
-}
-impl windows_core::TypeKind for MSV1_0_CREDENTIAL_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MSV1_0_CREDENTIAL_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_CREDENTIAL_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_INTERACTIVE_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
     pub LogonDomainName: LSA_UNICODE_STRING,
     pub UserName: LSA_UNICODE_STRING,
     pub Password: LSA_UNICODE_STRING,
 }
-impl windows_core::TypeKind for MSV1_0_INTERACTIVE_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MSV1_0_INTERACTIVE_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_INTERACTIVE_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_INTERACTIVE_PROFILE {
     pub MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
     pub LogonCount: u16,
@@ -6664,31 +6274,31 @@ pub struct MSV1_0_INTERACTIVE_PROFILE {
     pub LogonServer: LSA_UNICODE_STRING,
     pub UserFlags: u32,
 }
-impl windows_core::TypeKind for MSV1_0_INTERACTIVE_PROFILE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MSV1_0_INTERACTIVE_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_INTERACTIVE_PROFILE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
     pub Version: u32,
     pub EncryptedCredsSize: u32,
     pub EncryptedCreds: [u8; 1],
-}
-impl windows_core::TypeKind for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_LM20_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
     pub LogonDomainName: LSA_UNICODE_STRING,
@@ -6699,16 +6309,16 @@ pub struct MSV1_0_LM20_LOGON {
     pub CaseInsensitiveChallengeResponse: LSA_STRING,
     pub ParameterControl: u32,
 }
-impl windows_core::TypeKind for MSV1_0_LM20_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MSV1_0_LM20_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_LM20_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_LM20_LOGON_PROFILE {
     pub MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
     pub KickOffTime: i64,
@@ -6720,16 +6330,16 @@ pub struct MSV1_0_LM20_LOGON_PROFILE {
     pub LogonServer: LSA_UNICODE_STRING,
     pub UserParameters: LSA_UNICODE_STRING,
 }
-impl windows_core::TypeKind for MSV1_0_LM20_LOGON_PROFILE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MSV1_0_LM20_LOGON_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_LM20_LOGON_PROFILE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_NTLM3_RESPONSE {
     pub Response: [u8; 16],
     pub RespType: u8,
@@ -6741,16 +6351,16 @@ pub struct MSV1_0_NTLM3_RESPONSE {
     pub AvPairsOff: u32,
     pub Buffer: [u8; 1],
 }
-impl windows_core::TypeKind for MSV1_0_NTLM3_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MSV1_0_NTLM3_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_NTLM3_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_PASSTHROUGH_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub DomainName: LSA_UNICODE_STRING,
@@ -6759,32 +6369,32 @@ pub struct MSV1_0_PASSTHROUGH_REQUEST {
     pub LogonData: *mut u8,
     pub Pad: u32,
 }
-impl windows_core::TypeKind for MSV1_0_PASSTHROUGH_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MSV1_0_PASSTHROUGH_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_PASSTHROUGH_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_PASSTHROUGH_RESPONSE {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub Pad: u32,
     pub DataLength: u32,
     pub ValidationData: *mut u8,
 }
-impl windows_core::TypeKind for MSV1_0_PASSTHROUGH_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MSV1_0_PASSTHROUGH_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_PASSTHROUGH_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
     pub Version: u32,
     pub Flags: u32,
@@ -6793,32 +6403,32 @@ pub struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
     pub EncryptedCredsSize: u32,
     pub EncryptedCreds: [u8; 1],
 }
-impl windows_core::TypeKind for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_S4U_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
     pub UserPrincipalName: LSA_UNICODE_STRING,
     pub DomainName: LSA_UNICODE_STRING,
 }
-impl windows_core::TypeKind for MSV1_0_S4U_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MSV1_0_S4U_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_S4U_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_SUBAUTH_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
     pub LogonDomainName: LSA_UNICODE_STRING,
@@ -6830,79 +6440,79 @@ pub struct MSV1_0_SUBAUTH_LOGON {
     pub ParameterControl: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL,
     pub SubAuthPackageId: u32,
 }
-impl windows_core::TypeKind for MSV1_0_SUBAUTH_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MSV1_0_SUBAUTH_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_SUBAUTH_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_SUBAUTH_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub SubAuthPackageId: u32,
     pub SubAuthInfoLength: u32,
     pub SubAuthSubmitBuffer: *mut u8,
 }
-impl windows_core::TypeKind for MSV1_0_SUBAUTH_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MSV1_0_SUBAUTH_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_SUBAUTH_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_SUBAUTH_RESPONSE {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub SubAuthInfoLength: u32,
     pub SubAuthReturnBuffer: *mut u8,
-}
-impl windows_core::TypeKind for MSV1_0_SUBAUTH_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MSV1_0_SUBAUTH_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_SUBAUTH_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_SUPPLEMENTAL_CREDENTIAL {
     pub Version: u32,
     pub Flags: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS,
     pub LmPassword: [u8; 16],
     pub NtPassword: [u8; 16],
 }
-impl windows_core::TypeKind for MSV1_0_SUPPLEMENTAL_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MSV1_0_SUPPLEMENTAL_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_SUPPLEMENTAL_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
     pub Version: u32,
     pub Flags: u32,
     pub NtPassword: [u8; 16],
     pub CredentialKey: MSV1_0_CREDENTIAL_KEY,
 }
-impl windows_core::TypeKind for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
     pub Version: u32,
     pub Flags: u32,
@@ -6911,17 +6521,17 @@ pub struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
     pub CredentialKey: MSV1_0_CREDENTIAL_KEY,
     pub ShaPassword: [u8; 20],
 }
-impl windows_core::TypeKind for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_PasswordManagement")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MSV1_0_VALIDATION_INFO {
     pub LogoffTime: i64,
     pub KickoffTime: i64,
@@ -6934,45 +6544,45 @@ pub struct MSV1_0_VALIDATION_INFO {
     pub UserId: u32,
 }
 #[cfg(feature = "Win32_System_PasswordManagement")]
-impl windows_core::TypeKind for MSV1_0_VALIDATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_PasswordManagement")]
 impl Default for MSV1_0_VALIDATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_PasswordManagement")]
+impl windows_core::TypeKind for MSV1_0_VALIDATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NEGOTIATE_CALLER_NAME_REQUEST {
     pub MessageType: u32,
     pub LogonId: super::super::super::Foundation::LUID,
-}
-impl windows_core::TypeKind for NEGOTIATE_CALLER_NAME_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NEGOTIATE_CALLER_NAME_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NEGOTIATE_CALLER_NAME_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NEGOTIATE_CALLER_NAME_RESPONSE {
     pub MessageType: u32,
     pub CallerName: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for NEGOTIATE_CALLER_NAME_RESPONSE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NEGOTIATE_CALLER_NAME_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NEGOTIATE_CALLER_NAME_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NEGOTIATE_PACKAGE_PREFIX {
     pub PackageId: usize,
     pub PackageDataA: *mut core::ffi::c_void,
@@ -6980,57 +6590,53 @@ pub struct NEGOTIATE_PACKAGE_PREFIX {
     pub PrefixLen: usize,
     pub Prefix: [u8; 32],
 }
-impl windows_core::TypeKind for NEGOTIATE_PACKAGE_PREFIX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NEGOTIATE_PACKAGE_PREFIX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NEGOTIATE_PACKAGE_PREFIX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NEGOTIATE_PACKAGE_PREFIXES {
     pub MessageType: u32,
     pub PrefixCount: u32,
     pub Offset: u32,
     pub Pad: u32,
 }
-impl windows_core::TypeKind for NEGOTIATE_PACKAGE_PREFIXES {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NEGOTIATE_PACKAGE_PREFIXES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NEGOTIATE_PACKAGE_PREFIXES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NETLOGON_GENERIC_INFO {
     pub Identity: NETLOGON_LOGON_IDENTITY_INFO,
     pub PackageName: LSA_UNICODE_STRING,
     pub DataLength: u32,
     pub LogonData: *mut u8,
 }
-impl windows_core::TypeKind for NETLOGON_GENERIC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NETLOGON_GENERIC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NETLOGON_GENERIC_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_PasswordManagement")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NETLOGON_INTERACTIVE_INFO {
     pub Identity: NETLOGON_LOGON_IDENTITY_INFO,
     pub LmOwfPassword: super::super::super::System::PasswordManagement::LM_OWF_PASSWORD,
     pub NtOwfPassword: super::super::super::System::PasswordManagement::LM_OWF_PASSWORD,
-}
-#[cfg(feature = "Win32_System_PasswordManagement")]
-impl windows_core::TypeKind for NETLOGON_INTERACTIVE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_PasswordManagement")]
 impl Default for NETLOGON_INTERACTIVE_INFO {
@@ -7038,8 +6644,12 @@ impl Default for NETLOGON_INTERACTIVE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_PasswordManagement")]
+impl windows_core::TypeKind for NETLOGON_INTERACTIVE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NETLOGON_LOGON_IDENTITY_INFO {
     pub LogonDomainName: LSA_UNICODE_STRING,
     pub ParameterControl: u32,
@@ -7047,41 +6657,37 @@ pub struct NETLOGON_LOGON_IDENTITY_INFO {
     pub UserName: LSA_UNICODE_STRING,
     pub Workstation: LSA_UNICODE_STRING,
 }
-impl windows_core::TypeKind for NETLOGON_LOGON_IDENTITY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NETLOGON_LOGON_IDENTITY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NETLOGON_LOGON_IDENTITY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NETLOGON_NETWORK_INFO {
     pub Identity: NETLOGON_LOGON_IDENTITY_INFO,
     pub LmChallenge: CLEAR_BLOCK,
     pub NtChallengeResponse: LSA_STRING,
     pub LmChallengeResponse: LSA_STRING,
 }
-impl windows_core::TypeKind for NETLOGON_NETWORK_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NETLOGON_NETWORK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NETLOGON_NETWORK_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_PasswordManagement")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NETLOGON_SERVICE_INFO {
     pub Identity: NETLOGON_LOGON_IDENTITY_INFO,
     pub LmOwfPassword: super::super::super::System::PasswordManagement::LM_OWF_PASSWORD,
     pub NtOwfPassword: super::super::super::System::PasswordManagement::LM_OWF_PASSWORD,
-}
-#[cfg(feature = "Win32_System_PasswordManagement")]
-impl windows_core::TypeKind for NETLOGON_SERVICE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_PasswordManagement")]
 impl Default for NETLOGON_SERVICE_INFO {
@@ -7089,8 +6695,12 @@ impl Default for NETLOGON_SERVICE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_PasswordManagement")]
+impl windows_core::TypeKind for NETLOGON_SERVICE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PKU2U_CERTIFICATE_S4U_LOGON {
     pub MessageType: PKU2U_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
@@ -7099,30 +6709,30 @@ pub struct PKU2U_CERTIFICATE_S4U_LOGON {
     pub CertificateLength: u32,
     pub Certificate: *mut u8,
 }
-impl windows_core::TypeKind for PKU2U_CERTIFICATE_S4U_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PKU2U_CERTIFICATE_S4U_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PKU2U_CERTIFICATE_S4U_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PKU2U_CERT_BLOB {
     pub CertOffset: u32,
     pub CertLength: u16,
-}
-impl windows_core::TypeKind for PKU2U_CERT_BLOB {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PKU2U_CERT_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PKU2U_CERT_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PKU2U_CREDUI_CONTEXT {
     pub Version: u64,
     pub cbHeaderLength: u16,
@@ -7130,86 +6740,86 @@ pub struct PKU2U_CREDUI_CONTEXT {
     pub CertArrayCount: u16,
     pub CertArrayOffset: u32,
 }
-impl windows_core::TypeKind for PKU2U_CREDUI_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PKU2U_CREDUI_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PKU2U_CREDUI_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_ACCOUNT_DOMAIN_INFO {
     pub DomainName: LSA_UNICODE_STRING,
     pub DomainSid: super::super::PSID,
-}
-impl windows_core::TypeKind for POLICY_ACCOUNT_DOMAIN_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_ACCOUNT_DOMAIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_ACCOUNT_DOMAIN_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_AUDIT_CATEGORIES_INFO {
     pub MaximumCategoryCount: u32,
     pub SubCategoriesInfo: *mut POLICY_AUDIT_SUBCATEGORIES_INFO,
-}
-impl windows_core::TypeKind for POLICY_AUDIT_CATEGORIES_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_AUDIT_CATEGORIES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_AUDIT_CATEGORIES_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_AUDIT_EVENTS_INFO {
     pub AuditingMode: super::super::super::Foundation::BOOLEAN,
     pub EventAuditingOptions: *mut u32,
     pub MaximumAuditEventCount: u32,
-}
-impl windows_core::TypeKind for POLICY_AUDIT_EVENTS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_AUDIT_EVENTS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_AUDIT_EVENTS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_AUDIT_FULL_QUERY_INFO {
     pub ShutDownOnFull: super::super::super::Foundation::BOOLEAN,
     pub LogIsFull: super::super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for POLICY_AUDIT_FULL_QUERY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_AUDIT_FULL_QUERY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_AUDIT_FULL_QUERY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_AUDIT_FULL_SET_INFO {
     pub ShutDownOnFull: super::super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for POLICY_AUDIT_FULL_SET_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_AUDIT_FULL_SET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_AUDIT_FULL_SET_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_AUDIT_LOG_INFO {
     pub AuditLogPercentFull: u32,
     pub MaximumLogSize: u32,
@@ -7218,57 +6828,57 @@ pub struct POLICY_AUDIT_LOG_INFO {
     pub TimeToShutdown: i64,
     pub NextAuditRecordId: u32,
 }
-impl windows_core::TypeKind for POLICY_AUDIT_LOG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for POLICY_AUDIT_LOG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_AUDIT_LOG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_AUDIT_SID_ARRAY {
     pub UsersCount: u32,
     pub UserSidArray: *mut super::super::PSID,
-}
-impl windows_core::TypeKind for POLICY_AUDIT_SID_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_AUDIT_SID_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_AUDIT_SID_ARRAY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_AUDIT_SUBCATEGORIES_INFO {
     pub MaximumSubCategoryCount: u32,
     pub EventAuditingOptions: *mut u32,
-}
-impl windows_core::TypeKind for POLICY_AUDIT_SUBCATEGORIES_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_AUDIT_SUBCATEGORIES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_AUDIT_SUBCATEGORIES_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_DEFAULT_QUOTA_INFO {
     pub QuotaLimits: super::super::QUOTA_LIMITS,
-}
-impl windows_core::TypeKind for POLICY_DEFAULT_QUOTA_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_DEFAULT_QUOTA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_DEFAULT_QUOTA_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_DNS_DOMAIN_INFO {
     pub Name: LSA_UNICODE_STRING,
     pub DnsDomainName: LSA_UNICODE_STRING,
@@ -7276,30 +6886,30 @@ pub struct POLICY_DNS_DOMAIN_INFO {
     pub DomainGuid: windows_core::GUID,
     pub Sid: super::super::PSID,
 }
-impl windows_core::TypeKind for POLICY_DNS_DOMAIN_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for POLICY_DNS_DOMAIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_DNS_DOMAIN_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_DOMAIN_EFS_INFO {
     pub InfoLength: u32,
     pub EfsBlob: *mut u8,
-}
-impl windows_core::TypeKind for POLICY_DOMAIN_EFS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_DOMAIN_EFS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_DOMAIN_EFS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     pub AuthenticationOptions: u32,
     pub MaxServiceTicketAge: i64,
@@ -7308,202 +6918,202 @@ pub struct POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     pub MaxClockSkew: i64,
     pub Reserved: i64,
 }
-impl windows_core::TypeKind for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_LSA_SERVER_ROLE_INFO {
     pub LsaServerRole: POLICY_LSA_SERVER_ROLE,
-}
-impl windows_core::TypeKind for POLICY_LSA_SERVER_ROLE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_LSA_SERVER_ROLE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_LSA_SERVER_ROLE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_MACHINE_ACCT_INFO {
     pub Rid: u32,
     pub Sid: super::super::PSID,
-}
-impl windows_core::TypeKind for POLICY_MACHINE_ACCT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_MACHINE_ACCT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_MACHINE_ACCT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_MACHINE_ACCT_INFO2 {
     pub Rid: u32,
     pub Sid: super::super::PSID,
     pub ObjectGuid: windows_core::GUID,
-}
-impl windows_core::TypeKind for POLICY_MACHINE_ACCT_INFO2 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_MACHINE_ACCT_INFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_MACHINE_ACCT_INFO2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_MODIFICATION_INFO {
     pub ModifiedId: i64,
     pub DatabaseCreationTime: i64,
-}
-impl windows_core::TypeKind for POLICY_MODIFICATION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_MODIFICATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_MODIFICATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_PD_ACCOUNT_INFO {
     pub Name: LSA_UNICODE_STRING,
-}
-impl windows_core::TypeKind for POLICY_PD_ACCOUNT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_PD_ACCOUNT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_PD_ACCOUNT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_PRIMARY_DOMAIN_INFO {
     pub Name: LSA_UNICODE_STRING,
     pub Sid: super::super::PSID,
-}
-impl windows_core::TypeKind for POLICY_PRIMARY_DOMAIN_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_PRIMARY_DOMAIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_PRIMARY_DOMAIN_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POLICY_REPLICA_SOURCE_INFO {
     pub ReplicaSource: LSA_UNICODE_STRING,
     pub ReplicaAccountName: LSA_UNICODE_STRING,
-}
-impl windows_core::TypeKind for POLICY_REPLICA_SOURCE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POLICY_REPLICA_SOURCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POLICY_REPLICA_SOURCE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PctPublicKey {
     pub Type: u32,
     pub cbKey: u32,
     pub pKey: [u8; 1],
-}
-impl windows_core::TypeKind for PctPublicKey {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PctPublicKey {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PctPublicKey {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SAM_REGISTER_MAPPING_ELEMENT {
     pub Original: windows_core::PSTR,
     pub Mapped: windows_core::PSTR,
     pub Continuable: super::super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for SAM_REGISTER_MAPPING_ELEMENT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SAM_REGISTER_MAPPING_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SAM_REGISTER_MAPPING_ELEMENT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SAM_REGISTER_MAPPING_LIST {
     pub Count: u32,
     pub Elements: *mut SAM_REGISTER_MAPPING_ELEMENT,
-}
-impl windows_core::TypeKind for SAM_REGISTER_MAPPING_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SAM_REGISTER_MAPPING_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SAM_REGISTER_MAPPING_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SAM_REGISTER_MAPPING_TABLE {
     pub Count: u32,
     pub Lists: *mut SAM_REGISTER_MAPPING_LIST,
-}
-impl windows_core::TypeKind for SAM_REGISTER_MAPPING_TABLE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SAM_REGISTER_MAPPING_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SAM_REGISTER_MAPPING_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCHANNEL_ALERT_TOKEN {
     pub dwTokenType: u32,
     pub dwAlertType: SCHANNEL_ALERT_TOKEN_ALERT_TYPE,
     pub dwAlertNumber: u32,
-}
-impl windows_core::TypeKind for SCHANNEL_ALERT_TOKEN {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SCHANNEL_ALERT_TOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCHANNEL_ALERT_TOKEN {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCHANNEL_CERT_HASH {
     pub dwLength: u32,
     pub dwFlags: u32,
     pub hProv: usize,
     pub ShaHash: [u8; 20],
 }
-impl windows_core::TypeKind for SCHANNEL_CERT_HASH {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SCHANNEL_CERT_HASH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCHANNEL_CERT_HASH {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCHANNEL_CERT_HASH_STORE {
     pub dwLength: u32,
     pub dwFlags: u32,
@@ -7511,17 +7121,17 @@ pub struct SCHANNEL_CERT_HASH_STORE {
     pub ShaHash: [u8; 20],
     pub pwszStoreName: [u16; 128],
 }
-impl windows_core::TypeKind for SCHANNEL_CERT_HASH_STORE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SCHANNEL_CERT_HASH_STORE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCHANNEL_CERT_HASH_STORE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCHANNEL_CLIENT_SIGNATURE {
     pub cbLength: u32,
     pub aiHash: super::super::Cryptography::ALG_ID,
@@ -7530,18 +7140,18 @@ pub struct SCHANNEL_CLIENT_SIGNATURE {
     pub CertThumbprint: [u8; 20],
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SCHANNEL_CLIENT_SIGNATURE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SCHANNEL_CLIENT_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for SCHANNEL_CLIENT_SIGNATURE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCHANNEL_CRED {
     pub dwVersion: u32,
     pub cCreds: u32,
@@ -7559,31 +7169,31 @@ pub struct SCHANNEL_CRED {
     pub dwCredFormat: u32,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SCHANNEL_CRED {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SCHANNEL_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for SCHANNEL_CRED {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCHANNEL_SESSION_TOKEN {
     pub dwTokenType: u32,
     pub dwFlags: SCHANNEL_SESSION_TOKEN_FLAGS,
-}
-impl windows_core::TypeKind for SCHANNEL_SESSION_TOKEN {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SCHANNEL_SESSION_TOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCHANNEL_SESSION_TOKEN {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCH_CRED {
     pub dwVersion: u32,
     pub cCreds: u32,
@@ -7592,17 +7202,17 @@ pub struct SCH_CRED {
     pub cMappers: u32,
     pub aphMappers: *mut *mut _HMAPPER,
 }
-impl windows_core::TypeKind for SCH_CRED {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SCH_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCH_CRED {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCH_CREDENTIALS {
     pub dwVersion: u32,
     pub dwCredFormat: u32,
@@ -7617,77 +7227,77 @@ pub struct SCH_CREDENTIALS {
     pub pTlsParameters: *mut TLS_PARAMETERS,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SCH_CREDENTIALS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SCH_CREDENTIALS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for SCH_CREDENTIALS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCH_CRED_PUBLIC_CERTCHAIN {
     pub dwType: u32,
     pub cbCertChain: u32,
     pub pCertChain: *mut u8,
-}
-impl windows_core::TypeKind for SCH_CRED_PUBLIC_CERTCHAIN {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SCH_CRED_PUBLIC_CERTCHAIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCH_CRED_PUBLIC_CERTCHAIN {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCH_CRED_SECRET_CAPI {
     pub dwType: u32,
     pub hProv: usize,
-}
-impl windows_core::TypeKind for SCH_CRED_SECRET_CAPI {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SCH_CRED_SECRET_CAPI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCH_CRED_SECRET_CAPI {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCH_CRED_SECRET_PRIVKEY {
     pub dwType: u32,
     pub pPrivateKey: *mut u8,
     pub cbPrivateKey: u32,
     pub pszPassword: windows_core::PSTR,
 }
-impl windows_core::TypeKind for SCH_CRED_SECRET_PRIVKEY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SCH_CRED_SECRET_PRIVKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCH_CRED_SECRET_PRIVKEY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCH_EXTENSION_DATA {
     pub ExtensionType: u16,
     pub pExtData: *const u8,
     pub cbExtData: u32,
-}
-impl windows_core::TypeKind for SCH_EXTENSION_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SCH_EXTENSION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCH_EXTENSION_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_APP_MODE_INFO {
     pub UserFunction: u32,
     pub Argument1: usize,
@@ -7695,30 +7305,30 @@ pub struct SECPKG_APP_MODE_INFO {
     pub UserData: SecBuffer,
     pub ReturnToLsa: super::super::super::Foundation::BOOLEAN,
 }
-impl windows_core::TypeKind for SECPKG_APP_MODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_APP_MODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_APP_MODE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_BYTE_VECTOR {
     pub ByteArrayOffset: u32,
     pub ByteArrayLength: u16,
-}
-impl windows_core::TypeKind for SECPKG_BYTE_VECTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_BYTE_VECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_BYTE_VECTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_CALL_INFO {
     pub ProcessId: u32,
     pub ThreadId: u32,
@@ -7726,16 +7336,16 @@ pub struct SECPKG_CALL_INFO {
     pub CallCount: u32,
     pub MechOid: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for SECPKG_CALL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_CALL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_CALL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
     pub MessageType: u32,
     pub Flags: u32,
@@ -7743,46 +7353,46 @@ pub struct SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
     pub DcName: LSA_UNICODE_STRING,
     pub DcFlags: u32,
 }
-impl windows_core::TypeKind for SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
     pub MessageType: u32,
     pub OriginLogonId: super::super::super::Foundation::LUID,
     pub DestinationLogonId: super::super::super::Foundation::LUID,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
     pub MessageType: u32,
     pub Flags: u32,
-}
-impl windows_core::TypeKind for SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_CLIENT_INFO {
     pub LogonId: super::super::super::Foundation::LUID,
     pub ProcessID: u32,
@@ -7794,16 +7404,16 @@ pub struct SECPKG_CLIENT_INFO {
     pub ImpersonationLevel: super::super::SECURITY_IMPERSONATION_LEVEL,
     pub ClientToken: super::super::super::Foundation::HANDLE,
 }
-impl windows_core::TypeKind for SECPKG_CLIENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_CLIENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_CLIENT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_CLIENT_INFO_EX {
     pub LogonId: super::super::super::Foundation::LUID,
     pub ProcessID: u32,
@@ -7817,30 +7427,30 @@ pub struct SECPKG_CLIENT_INFO_EX {
     pub IdentificationLogonId: super::super::super::Foundation::LUID,
     pub IdentificationToken: super::super::super::Foundation::HANDLE,
 }
-impl windows_core::TypeKind for SECPKG_CLIENT_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_CLIENT_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_CLIENT_INFO_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_CONTEXT_THUNKS {
     pub InfoLevelCount: u32,
     pub Levels: [u32; 1],
-}
-impl windows_core::TypeKind for SECPKG_CONTEXT_THUNKS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_CONTEXT_THUNKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_CONTEXT_THUNKS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_CREDENTIAL {
     pub Version: u64,
     pub cbHeaderLength: u16,
@@ -7857,32 +7467,32 @@ pub struct SECPKG_CREDENTIAL {
     pub PackageList: SECPKG_BYTE_VECTOR,
     pub MarshaledSuppliedCreds: SECPKG_BYTE_VECTOR,
 }
-impl windows_core::TypeKind for SECPKG_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_DLL_FUNCTIONS {
     pub AllocateHeap: PLSA_ALLOCATE_LSA_HEAP,
     pub FreeHeap: PLSA_FREE_LSA_HEAP,
     pub RegisterCallback: PLSA_REGISTER_CALLBACK,
     pub LocatePackageById: PLSA_LOCATE_PKG_BY_ID,
 }
-impl windows_core::TypeKind for SECPKG_DLL_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_DLL_FUNCTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_DLL_FUNCTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_EVENT_NOTIFY {
     pub EventClass: u32,
     pub Reserved: u32,
@@ -7890,59 +7500,59 @@ pub struct SECPKG_EVENT_NOTIFY {
     pub EventData: *mut core::ffi::c_void,
     pub PackageParameter: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for SECPKG_EVENT_NOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_EVENT_NOTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_EVENT_NOTIFY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_EVENT_PACKAGE_CHANGE {
     pub ChangeType: SECPKG_PACKAGE_CHANGE_TYPE,
     pub PackageId: usize,
     pub PackageName: SECURITY_STRING,
-}
-impl windows_core::TypeKind for SECPKG_EVENT_PACKAGE_CHANGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_EVENT_PACKAGE_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_EVENT_PACKAGE_CHANGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_EVENT_ROLE_CHANGE {
     pub PreviousRole: u32,
     pub NewRole: u32,
-}
-impl windows_core::TypeKind for SECPKG_EVENT_ROLE_CHANGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_EVENT_ROLE_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_EVENT_ROLE_CHANGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SECPKG_EXTENDED_INFORMATION {
     pub Class: SECPKG_EXTENDED_INFORMATION_CLASS,
     pub Info: SECPKG_EXTENDED_INFORMATION_0,
-}
-impl windows_core::TypeKind for SECPKG_EXTENDED_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_EXTENDED_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_EXTENDED_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union SECPKG_EXTENDED_INFORMATION_0 {
     pub GssInfo: SECPKG_GSS_INFO,
     pub ContextThunks: SECPKG_CONTEXT_THUNKS,
@@ -7951,31 +7561,31 @@ pub union SECPKG_EXTENDED_INFORMATION_0 {
     pub ExtraOids: SECPKG_EXTRA_OIDS,
     pub Nego2Info: SECPKG_NEGO2_INFO,
 }
-impl windows_core::TypeKind for SECPKG_EXTENDED_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_EXTENDED_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_EXTENDED_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_EXTRA_OIDS {
     pub OidCount: u32,
     pub Oids: [SECPKG_SERIALIZED_OID; 1],
-}
-impl windows_core::TypeKind for SECPKG_EXTRA_OIDS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_EXTRA_OIDS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_EXTRA_OIDS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_FUNCTION_TABLE {
     pub InitializePackage: PLSA_AP_INITIALIZE_PACKAGE,
     pub LogonUserA: PLSA_AP_LOGON_USER,
@@ -8022,32 +7632,32 @@ pub struct SECPKG_FUNCTION_TABLE {
     pub ExtractTargetInfo: SpExtractTargetInfoFn,
 }
 #[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
-impl windows_core::TypeKind for SECPKG_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
 impl Default for SECPKG_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
+impl windows_core::TypeKind for SECPKG_FUNCTION_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_GSS_INFO {
     pub EncodedIdLength: u32,
     pub EncodedId: [u8; 4],
-}
-impl windows_core::TypeKind for SECPKG_GSS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_GSS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_GSS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_KERNEL_FUNCTIONS {
     pub AllocateHeap: PLSA_ALLOCATE_LSA_HEAP,
     pub FreeHeap: PLSA_FREE_LSA_HEAP,
@@ -8060,18 +7670,18 @@ pub struct SECPKG_KERNEL_FUNCTIONS {
     pub LocatePackageById: PKSEC_LOCATE_PKG_BY_ID,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for SECPKG_KERNEL_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for SECPKG_KERNEL_FUNCTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for SECPKG_KERNEL_FUNCTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_KERNEL_FUNCTION_TABLE {
     pub Initialize: KspInitPackageFn,
     pub DeleteContext: KspDeleteContextFn,
@@ -8090,44 +7700,44 @@ pub struct SECPKG_KERNEL_FUNCTION_TABLE {
     pub SerializeAuthData: KspSerializeAuthDataFn,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for SECPKG_KERNEL_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for SECPKG_KERNEL_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for SECPKG_KERNEL_FUNCTION_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_MUTUAL_AUTH_LEVEL {
     pub MutualAuthLevel: u32,
-}
-impl windows_core::TypeKind for SECPKG_MUTUAL_AUTH_LEVEL {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_MUTUAL_AUTH_LEVEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_MUTUAL_AUTH_LEVEL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_NEGO2_INFO {
     pub AuthScheme: [u8; 16],
     pub PackageFlags: u32,
-}
-impl windows_core::TypeKind for SECPKG_NEGO2_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_NEGO2_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_NEGO2_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_NTLM_TARGETINFO {
     pub Flags: u32,
     pub MsvAvNbComputerName: windows_core::PWSTR,
@@ -8139,16 +7749,16 @@ pub struct SECPKG_NTLM_TARGETINFO {
     pub MsvAvTimestamp: super::super::super::Foundation::FILETIME,
     pub MsvAvTargetName: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for SECPKG_NTLM_TARGETINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_NTLM_TARGETINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_NTLM_TARGETINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_PARAMETERS {
     pub Version: u32,
     pub MachineState: u32,
@@ -8158,31 +7768,31 @@ pub struct SECPKG_PARAMETERS {
     pub DnsDomainName: LSA_UNICODE_STRING,
     pub DomainGuid: windows_core::GUID,
 }
-impl windows_core::TypeKind for SECPKG_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_POST_LOGON_USER_INFO {
     pub Flags: u32,
     pub LogonId: super::super::super::Foundation::LUID,
     pub LinkedLogonId: super::super::super::Foundation::LUID,
-}
-impl windows_core::TypeKind for SECPKG_POST_LOGON_USER_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_POST_LOGON_USER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_POST_LOGON_USER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_PRIMARY_CRED {
     pub LogonId: super::super::super::Foundation::LUID,
     pub DownlevelName: LSA_UNICODE_STRING,
@@ -8199,16 +7809,16 @@ pub struct SECPKG_PRIMARY_CRED {
     pub Spare3: LSA_UNICODE_STRING,
     pub Spare4: LSA_UNICODE_STRING,
 }
-impl windows_core::TypeKind for SECPKG_PRIMARY_CRED {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_PRIMARY_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_PRIMARY_CRED {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_PRIMARY_CRED_EX {
     pub LogonId: super::super::super::Foundation::LUID,
     pub DownlevelName: LSA_UNICODE_STRING,
@@ -8228,16 +7838,16 @@ pub struct SECPKG_PRIMARY_CRED_EX {
     pub PrevLogonId: super::super::super::Foundation::LUID,
     pub FlagsEx: u32,
 }
-impl windows_core::TypeKind for SECPKG_PRIMARY_CRED_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_PRIMARY_CRED_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_PRIMARY_CRED_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub RedirectedLogonGuid: windows_core::GUID,
     pub RedirectedLogonHandle: super::super::super::Foundation::HANDLE,
@@ -8248,74 +7858,74 @@ pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub GetSupplementalCreds: PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS,
     pub GetRedirectedLogonSid: PLSA_REDIRECTED_LOGON_GET_SID,
 }
-impl windows_core::TypeKind for SECPKG_REDIRECTED_LOGON_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_REDIRECTED_LOGON_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_REDIRECTED_LOGON_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_SERIALIZED_OID {
     pub OidLength: u32,
     pub OidAttributes: u32,
     pub OidValue: [u8; 32],
-}
-impl windows_core::TypeKind for SECPKG_SERIALIZED_OID {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_SERIALIZED_OID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_SERIALIZED_OID {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_SHORT_VECTOR {
     pub ShortArrayOffset: u32,
     pub ShortArrayCount: u16,
-}
-impl windows_core::TypeKind for SECPKG_SHORT_VECTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_SHORT_VECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_SHORT_VECTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_SUPPLEMENTAL_CRED {
     pub PackageName: LSA_UNICODE_STRING,
     pub CredentialSize: u32,
     pub Credentials: *mut u8,
-}
-impl windows_core::TypeKind for SECPKG_SUPPLEMENTAL_CRED {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_SUPPLEMENTAL_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_SUPPLEMENTAL_CRED {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_SUPPLEMENTAL_CRED_ARRAY {
     pub CredentialCount: u32,
     pub Credentials: [SECPKG_SUPPLEMENTAL_CRED; 1],
-}
-impl windows_core::TypeKind for SECPKG_SUPPLEMENTAL_CRED_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_SUPPLEMENTAL_CRED_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_SUPPLEMENTAL_CRED_ARRAY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_SUPPLIED_CREDENTIAL {
     pub cbHeaderLength: u16,
     pub cbStructureLength: u16,
@@ -8324,60 +7934,60 @@ pub struct SECPKG_SUPPLIED_CREDENTIAL {
     pub PackedCredentials: SECPKG_BYTE_VECTOR,
     pub CredFlags: u32,
 }
-impl windows_core::TypeKind for SECPKG_SUPPLIED_CREDENTIAL {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_SUPPLIED_CREDENTIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_SUPPLIED_CREDENTIAL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_SURROGATE_LOGON {
     pub Version: u32,
     pub SurrogateLogonID: super::super::super::Foundation::LUID,
     pub EntryCount: u32,
     pub Entries: *mut SECPKG_SURROGATE_LOGON_ENTRY,
 }
-impl windows_core::TypeKind for SECPKG_SURROGATE_LOGON {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_SURROGATE_LOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_SURROGATE_LOGON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_SURROGATE_LOGON_ENTRY {
     pub Type: windows_core::GUID,
     pub Data: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for SECPKG_SURROGATE_LOGON_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_SURROGATE_LOGON_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_SURROGATE_LOGON_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_TARGETINFO {
     pub DomainSid: super::super::PSID,
     pub ComputerName: windows_core::PCWSTR,
-}
-impl windows_core::TypeKind for SECPKG_TARGETINFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_TARGETINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_TARGETINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_USER_FUNCTION_TABLE {
     pub InstanceInit: SpInstanceInitFn,
     pub InitUserModeContext: SpInitUserModeContextFn,
@@ -8395,29 +8005,29 @@ pub struct SECPKG_USER_FUNCTION_TABLE {
     pub ImportContext: SpImportSecurityContextFn,
     pub MarshalAttributeData: SpMarshalAttributeDataFn,
 }
-impl windows_core::TypeKind for SECPKG_USER_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECPKG_USER_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_USER_FUNCTION_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECPKG_WOW_CLIENT_DLL {
     pub WowClientDllPath: SECURITY_STRING,
-}
-impl windows_core::TypeKind for SECPKG_WOW_CLIENT_DLL {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECPKG_WOW_CLIENT_DLL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECPKG_WOW_CLIENT_DLL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECURITY_LOGON_SESSION_DATA {
     pub Size: u32,
     pub LogonId: super::super::super::Foundation::LUID,
@@ -8443,16 +8053,16 @@ pub struct SECURITY_LOGON_SESSION_DATA {
     pub PasswordCanChange: i64,
     pub PasswordMustChange: i64,
 }
-impl windows_core::TypeKind for SECURITY_LOGON_SESSION_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECURITY_LOGON_SESSION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECURITY_LOGON_SESSION_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECURITY_PACKAGE_OPTIONS {
     pub Size: u32,
     pub Type: SECURITY_PACKAGE_OPTIONS_TYPE,
@@ -8460,90 +8070,90 @@ pub struct SECURITY_PACKAGE_OPTIONS {
     pub SignatureSize: u32,
     pub Signature: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for SECURITY_PACKAGE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECURITY_PACKAGE_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECURITY_PACKAGE_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECURITY_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: *mut u16,
-}
-impl windows_core::TypeKind for SECURITY_STRING {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SECURITY_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECURITY_STRING {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SECURITY_USER_DATA {
     pub UserName: SECURITY_STRING,
     pub LogonDomainName: SECURITY_STRING,
     pub LogonServer: SECURITY_STRING,
     pub pSid: super::super::PSID,
 }
-impl windows_core::TypeKind for SECURITY_USER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SECURITY_USER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SECURITY_USER_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_APPLICATION_PROTOCOLS {
     pub ProtocolListsSize: u32,
     pub ProtocolLists: [SEC_APPLICATION_PROTOCOL_LIST; 1],
-}
-impl windows_core::TypeKind for SEC_APPLICATION_PROTOCOLS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SEC_APPLICATION_PROTOCOLS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_APPLICATION_PROTOCOLS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_APPLICATION_PROTOCOL_LIST {
     pub ProtoNegoExt: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT,
     pub ProtocolListSize: u16,
     pub ProtocolList: [u8; 1],
-}
-impl windows_core::TypeKind for SEC_APPLICATION_PROTOCOL_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SEC_APPLICATION_PROTOCOL_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_APPLICATION_PROTOCOL_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_CERTIFICATE_REQUEST_CONTEXT {
     pub cbCertificateRequestContext: u8,
     pub rgCertificateRequestContext: [u8; 1],
-}
-impl windows_core::TypeKind for SEC_CERTIFICATE_REQUEST_CONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SEC_CERTIFICATE_REQUEST_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_CERTIFICATE_REQUEST_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_CHANNEL_BINDINGS {
     pub dwInitiatorAddrType: u32,
     pub cbInitiatorLength: u32,
@@ -8554,16 +8164,16 @@ pub struct SEC_CHANNEL_BINDINGS {
     pub cbApplicationDataLength: u32,
     pub dwApplicationDataOffset: u32,
 }
-impl windows_core::TypeKind for SEC_CHANNEL_BINDINGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SEC_CHANNEL_BINDINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_CHANNEL_BINDINGS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_CHANNEL_BINDINGS_EX {
     pub magicNumber: u32,
     pub flags: u32,
@@ -8578,143 +8188,143 @@ pub struct SEC_CHANNEL_BINDINGS_EX {
     pub cbApplicationDataLength: u32,
     pub dwApplicationDataOffset: u32,
 }
-impl windows_core::TypeKind for SEC_CHANNEL_BINDINGS_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SEC_CHANNEL_BINDINGS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_CHANNEL_BINDINGS_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_CHANNEL_BINDINGS_RESULT {
     pub flags: u32,
-}
-impl windows_core::TypeKind for SEC_CHANNEL_BINDINGS_RESULT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SEC_CHANNEL_BINDINGS_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_CHANNEL_BINDINGS_RESULT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_DTLS_MTU {
     pub PathMTU: u16,
-}
-impl windows_core::TypeKind for SEC_DTLS_MTU {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SEC_DTLS_MTU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_DTLS_MTU {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_FLAGS {
     pub Flags: u64,
-}
-impl windows_core::TypeKind for SEC_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SEC_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_NEGOTIATION_INFO {
     pub Size: u32,
     pub NameLength: u32,
     pub Name: *mut u16,
     pub Reserved: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for SEC_NEGOTIATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SEC_NEGOTIATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_NEGOTIATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_PRESHAREDKEY {
     pub KeySize: u16,
     pub Key: [u8; 1],
-}
-impl windows_core::TypeKind for SEC_PRESHAREDKEY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SEC_PRESHAREDKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_PRESHAREDKEY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_PRESHAREDKEY_IDENTITY {
     pub KeyIdentitySize: u16,
     pub KeyIdentity: [u8; 1],
-}
-impl windows_core::TypeKind for SEC_PRESHAREDKEY_IDENTITY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SEC_PRESHAREDKEY_IDENTITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_PRESHAREDKEY_IDENTITY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_SRTP_MASTER_KEY_IDENTIFIER {
     pub MasterKeyIdentifierSize: u8,
     pub MasterKeyIdentifier: [u8; 1],
-}
-impl windows_core::TypeKind for SEC_SRTP_MASTER_KEY_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SEC_SRTP_MASTER_KEY_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_SRTP_MASTER_KEY_IDENTIFIER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_SRTP_PROTECTION_PROFILES {
     pub ProfilesSize: u16,
     pub ProfilesList: [u16; 1],
-}
-impl windows_core::TypeKind for SEC_SRTP_PROTECTION_PROFILES {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SEC_SRTP_PROTECTION_PROFILES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_SRTP_PROTECTION_PROFILES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_TOKEN_BINDING {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
     pub KeyParametersSize: u16,
     pub KeyParameters: [u8; 1],
 }
-impl windows_core::TypeKind for SEC_TOKEN_BINDING {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SEC_TOKEN_BINDING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_TOKEN_BINDING {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_TRAFFIC_SECRETS {
     pub SymmetricAlgId: [u16; 64],
     pub ChainingMode: [u16; 64],
@@ -8727,16 +8337,16 @@ pub struct SEC_TRAFFIC_SECRETS {
     pub TrafficSecretSize: u16,
     pub TrafficSecret: [u8; 1],
 }
-impl windows_core::TypeKind for SEC_TRAFFIC_SECRETS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SEC_TRAFFIC_SECRETS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_TRAFFIC_SECRETS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY32 {
     pub User: u32,
     pub UserLength: u32,
@@ -8746,16 +8356,16 @@ pub struct SEC_WINNT_AUTH_IDENTITY32 {
     pub PasswordLength: u32,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY32 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SEC_WINNT_AUTH_IDENTITY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY_EX2 {
     pub Version: u32,
     pub cbHeaderLength: u16,
@@ -8770,16 +8380,16 @@ pub struct SEC_WINNT_AUTH_IDENTITY_EX2 {
     pub PackageListOffset: u32,
     pub PackageListLength: u16,
 }
-impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EX2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SEC_WINNT_AUTH_IDENTITY_EX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EX2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY_EX32 {
     pub Version: u32,
     pub Length: u32,
@@ -8793,16 +8403,16 @@ pub struct SEC_WINNT_AUTH_IDENTITY_EX32 {
     pub PackageList: u32,
     pub PackageListLength: u32,
 }
-impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EX32 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SEC_WINNT_AUTH_IDENTITY_EX32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EX32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY_EXA {
     pub Version: u32,
     pub Length: u32,
@@ -8816,16 +8426,16 @@ pub struct SEC_WINNT_AUTH_IDENTITY_EXA {
     pub PackageList: *mut u8,
     pub PackageListLength: u32,
 }
-impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EXA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SEC_WINNT_AUTH_IDENTITY_EXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EXA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY_EXW {
     pub Version: u32,
     pub Length: u32,
@@ -8839,17 +8449,17 @@ pub struct SEC_WINNT_AUTH_IDENTITY_EXW {
     pub PackageList: *mut u16,
     pub PackageListLength: u32,
 }
-impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EXW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SEC_WINNT_AUTH_IDENTITY_EXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_EXW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Rpc")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union SEC_WINNT_AUTH_IDENTITY_INFO {
     pub AuthIdExw: SEC_WINNT_AUTH_IDENTITY_EXW,
     pub AuthIdExa: SEC_WINNT_AUTH_IDENTITY_EXA,
@@ -8858,17 +8468,17 @@ pub union SEC_WINNT_AUTH_IDENTITY_INFO {
     pub AuthIdEx2: SEC_WINNT_AUTH_IDENTITY_EX2,
 }
 #[cfg(feature = "Win32_System_Rpc")]
-impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Rpc")]
 impl Default for SEC_WINNT_AUTH_IDENTITY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Rpc")]
+impl windows_core::TypeKind for SEC_WINNT_AUTH_IDENTITY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SEND_GENERIC_TLS_EXTENSION {
     pub ExtensionType: u16,
     pub HandshakeType: u16,
@@ -8876,16 +8486,16 @@ pub struct SEND_GENERIC_TLS_EXTENSION {
     pub BufferSize: u16,
     pub Buffer: [u8; 1],
 }
-impl windows_core::TypeKind for SEND_GENERIC_TLS_EXTENSION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SEND_GENERIC_TLS_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SEND_GENERIC_TLS_EXTENSION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SE_ADT_ACCESS_REASON {
     pub AccessMask: u32,
     pub AccessReasons: [u32; 32],
@@ -8893,46 +8503,46 @@ pub struct SE_ADT_ACCESS_REASON {
     pub AccessGranted: u32,
     pub SecurityDescriptor: super::super::PSECURITY_DESCRIPTOR,
 }
-impl windows_core::TypeKind for SE_ADT_ACCESS_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SE_ADT_ACCESS_REASON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SE_ADT_ACCESS_REASON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SE_ADT_CLAIMS {
     pub Length: u32,
     pub Claims: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for SE_ADT_CLAIMS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SE_ADT_CLAIMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SE_ADT_CLAIMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SE_ADT_OBJECT_TYPE {
     pub ObjectType: windows_core::GUID,
     pub Flags: u16,
     pub Level: u16,
     pub AccessMask: u32,
 }
-impl windows_core::TypeKind for SE_ADT_OBJECT_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SE_ADT_OBJECT_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SE_ADT_OBJECT_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SE_ADT_PARAMETER_ARRAY {
     pub CategoryId: u32,
     pub AuditId: u32,
@@ -8943,32 +8553,32 @@ pub struct SE_ADT_PARAMETER_ARRAY {
     pub Flags: u32,
     pub Parameters: [SE_ADT_PARAMETER_ARRAY_ENTRY; 32],
 }
-impl windows_core::TypeKind for SE_ADT_PARAMETER_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SE_ADT_PARAMETER_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SE_ADT_PARAMETER_ARRAY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SE_ADT_PARAMETER_ARRAY_ENTRY {
     pub Type: SE_ADT_PARAMETER_TYPE,
     pub Length: u32,
     pub Data: [usize; 2],
     pub Address: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for SE_ADT_PARAMETER_ARRAY_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SE_ADT_PARAMETER_ARRAY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SE_ADT_PARAMETER_ARRAY_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SE_ADT_PARAMETER_ARRAY_EX {
     pub CategoryId: u32,
     pub AuditId: u32,
@@ -8980,45 +8590,45 @@ pub struct SE_ADT_PARAMETER_ARRAY_EX {
     pub Flags: u32,
     pub Parameters: [SE_ADT_PARAMETER_ARRAY_ENTRY; 32],
 }
-impl windows_core::TypeKind for SE_ADT_PARAMETER_ARRAY_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SE_ADT_PARAMETER_ARRAY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SE_ADT_PARAMETER_ARRAY_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SL_ACTIVATION_INFO_HEADER {
     pub cbSize: u32,
     pub r#type: SL_ACTIVATION_TYPE,
-}
-impl windows_core::TypeKind for SL_ACTIVATION_INFO_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SL_ACTIVATION_INFO_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SL_ACTIVATION_INFO_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SL_AD_ACTIVATION_INFO {
     pub header: SL_ACTIVATION_INFO_HEADER,
     pub pwszProductKey: windows_core::PCWSTR,
     pub pwszActivationObjectName: windows_core::PCWSTR,
-}
-impl windows_core::TypeKind for SL_AD_ACTIVATION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SL_AD_ACTIVATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SL_AD_ACTIVATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SL_LICENSING_STATUS {
     pub SkuId: windows_core::GUID,
     pub eStatus: SLLICENSINGSTATUS,
@@ -9027,59 +8637,59 @@ pub struct SL_LICENSING_STATUS {
     pub hrReason: windows_core::HRESULT,
     pub qwValidityExpiration: u64,
 }
-impl windows_core::TypeKind for SL_LICENSING_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SL_LICENSING_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SL_LICENSING_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SL_NONGENUINE_UI_OPTIONS {
     pub cbSize: u32,
     pub pComponentId: *const windows_core::GUID,
     pub hResultUI: windows_core::HRESULT,
-}
-impl windows_core::TypeKind for SL_NONGENUINE_UI_OPTIONS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SL_NONGENUINE_UI_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SL_NONGENUINE_UI_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SL_SYSTEM_POLICY_INFORMATION {
     pub Reserved1: [*mut core::ffi::c_void; 2],
     pub Reserved2: [u32; 3],
-}
-impl windows_core::TypeKind for SL_SYSTEM_POLICY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SL_SYSTEM_POLICY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SL_SYSTEM_POLICY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SR_SECURITY_DESCRIPTOR {
     pub Length: u32,
     pub SecurityDescriptor: *mut u8,
-}
-impl windows_core::TypeKind for SR_SECURITY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SR_SECURITY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SR_SECURITY_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SSL_CREDENTIAL_CERTIFICATE {
     pub cbPrivateKey: u32,
     pub pPrivateKey: *mut u8,
@@ -9087,144 +8697,144 @@ pub struct SSL_CREDENTIAL_CERTIFICATE {
     pub pCertificate: *mut u8,
     pub pszPassword: windows_core::PSTR,
 }
-impl windows_core::TypeKind for SSL_CREDENTIAL_CERTIFICATE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SSL_CREDENTIAL_CERTIFICATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SSL_CREDENTIAL_CERTIFICATE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SUBSCRIBE_GENERIC_TLS_EXTENSION {
     pub Flags: u32,
     pub SubscriptionsCount: u32,
     pub Subscriptions: [TLS_EXTENSION_SUBSCRIPTION; 1],
-}
-impl windows_core::TypeKind for SUBSCRIBE_GENERIC_TLS_EXTENSION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SUBSCRIBE_GENERIC_TLS_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SUBSCRIBE_GENERIC_TLS_EXTENSION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecBuffer {
     pub cbBuffer: u32,
     pub BufferType: u32,
     pub pvBuffer: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for SecBuffer {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecBuffer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecBuffer {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecBufferDesc {
     pub ulVersion: u32,
     pub cBuffers: u32,
     pub pBuffers: *mut SecBuffer,
-}
-impl windows_core::TypeKind for SecBufferDesc {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecBufferDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecBufferDesc {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_AccessToken {
     pub AccessToken: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for SecPkgContext_AccessToken {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_AccessToken {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_AccessToken {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_ApplicationProtocol {
     pub ProtoNegoStatus: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS,
     pub ProtoNegoExt: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT,
     pub ProtocolIdSize: u8,
     pub ProtocolId: [u8; 255],
 }
-impl windows_core::TypeKind for SecPkgContext_ApplicationProtocol {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgContext_ApplicationProtocol {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_ApplicationProtocol {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_AuthorityA {
     pub sAuthorityName: *mut i8,
-}
-impl windows_core::TypeKind for SecPkgContext_AuthorityA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_AuthorityA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_AuthorityA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_AuthorityW {
     pub sAuthorityName: *mut u16,
-}
-impl windows_core::TypeKind for SecPkgContext_AuthorityW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_AuthorityW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_AuthorityW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_AuthzID {
     pub AuthzIDLength: u32,
     pub AuthzID: windows_core::PSTR,
-}
-impl windows_core::TypeKind for SecPkgContext_AuthzID {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_AuthzID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_AuthzID {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_Bindings {
     pub BindingsLength: u32,
     pub Bindings: *mut SEC_CHANNEL_BINDINGS,
-}
-impl windows_core::TypeKind for SecPkgContext_Bindings {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_Bindings {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_Bindings {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_CertInfo {
     pub dwVersion: u32,
     pub cbSubjectName: u32,
@@ -9233,45 +8843,45 @@ pub struct SecPkgContext_CertInfo {
     pub pwszIssuerName: windows_core::PWSTR,
     pub dwKeySize: u32,
 }
-impl windows_core::TypeKind for SecPkgContext_CertInfo {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgContext_CertInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_CertInfo {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_CertificateValidationResult {
     pub dwChainErrorStatus: u32,
     pub hrVerifyChainStatus: windows_core::HRESULT,
-}
-impl windows_core::TypeKind for SecPkgContext_CertificateValidationResult {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_CertificateValidationResult {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_CertificateValidationResult {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_Certificates {
     pub cCertificates: u32,
     pub cbCertificateChain: u32,
     pub pbCertificateChain: *mut u8,
-}
-impl windows_core::TypeKind for SecPkgContext_Certificates {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_Certificates {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_Certificates {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_CipherInfo {
     pub dwVersion: u32,
     pub dwProtocol: u32,
@@ -9289,44 +8899,44 @@ pub struct SecPkgContext_CipherInfo {
     pub szCertificate: [u16; 64],
     pub dwKeyType: u32,
 }
-impl windows_core::TypeKind for SecPkgContext_CipherInfo {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgContext_CipherInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_CipherInfo {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_ClientCertPolicyResult {
     pub dwPolicyResult: windows_core::HRESULT,
     pub guidPolicyId: windows_core::GUID,
-}
-impl windows_core::TypeKind for SecPkgContext_ClientCertPolicyResult {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_ClientCertPolicyResult {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_ClientCertPolicyResult {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_ClientSpecifiedTarget {
     pub sTargetName: *mut u16,
-}
-impl windows_core::TypeKind for SecPkgContext_ClientSpecifiedTarget {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_ClientSpecifiedTarget {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_ClientSpecifiedTarget {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_ConnectionInfo {
     pub dwProtocol: u32,
     pub aiCipher: super::super::Cryptography::ALG_ID,
@@ -9337,17 +8947,17 @@ pub struct SecPkgContext_ConnectionInfo {
     pub dwExchStrength: u32,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SecPkgContext_ConnectionInfo {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SecPkgContext_ConnectionInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for SecPkgContext_ConnectionInfo {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_ConnectionInfoEx {
     pub dwVersion: u32,
     pub dwProtocol: u32,
@@ -9358,135 +8968,131 @@ pub struct SecPkgContext_ConnectionInfoEx {
     pub szExchange: [u16; 64],
     pub dwExchStrength: u32,
 }
-impl windows_core::TypeKind for SecPkgContext_ConnectionInfoEx {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgContext_ConnectionInfoEx {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_ConnectionInfoEx {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_CredInfo {
     pub CredClass: SECPKG_CRED_CLASS,
     pub IsPromptingNeeded: u32,
-}
-impl windows_core::TypeKind for SecPkgContext_CredInfo {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_CredInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_CredInfo {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_CredentialNameA {
     pub CredentialType: u32,
     pub sCredentialName: *mut i8,
-}
-impl windows_core::TypeKind for SecPkgContext_CredentialNameA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_CredentialNameA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_CredentialNameA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_CredentialNameW {
     pub CredentialType: u32,
     pub sCredentialName: *mut u16,
-}
-impl windows_core::TypeKind for SecPkgContext_CredentialNameW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_CredentialNameW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_CredentialNameW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_DceInfo {
     pub AuthzSvc: u32,
     pub pPac: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for SecPkgContext_DceInfo {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_DceInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_DceInfo {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_EapKeyBlock {
     pub rgbKeys: [u8; 128],
     pub rgbIVs: [u8; 64],
-}
-impl windows_core::TypeKind for SecPkgContext_EapKeyBlock {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_EapKeyBlock {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_EapKeyBlock {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_EapPrfInfo {
     pub dwVersion: u32,
     pub cbPrfData: u32,
     pub pbPrfData: *mut u8,
-}
-impl windows_core::TypeKind for SecPkgContext_EapPrfInfo {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_EapPrfInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_EapPrfInfo {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_EarlyStart {
     pub dwEarlyStartFlags: u32,
-}
-impl windows_core::TypeKind for SecPkgContext_EarlyStart {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_EarlyStart {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_EarlyStart {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_Flags {
     pub Flags: u32,
-}
-impl windows_core::TypeKind for SecPkgContext_Flags {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_Flags {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_Flags {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_IssuerListInfoEx {
     pub aIssuers: *mut super::super::Cryptography::CRYPT_INTEGER_BLOB,
     pub cIssuers: u32,
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SecPkgContext_IssuerListInfoEx {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SecPkgContext_IssuerListInfoEx {
@@ -9494,8 +9100,12 @@ impl Default for SecPkgContext_IssuerListInfoEx {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for SecPkgContext_IssuerListInfoEx {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_KeyInfoA {
     pub sSignatureAlgorithmName: *mut i8,
     pub sEncryptAlgorithmName: *mut i8,
@@ -9503,16 +9113,16 @@ pub struct SecPkgContext_KeyInfoA {
     pub SignatureAlgorithm: u32,
     pub EncryptAlgorithm: u32,
 }
-impl windows_core::TypeKind for SecPkgContext_KeyInfoA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgContext_KeyInfoA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_KeyInfoA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_KeyInfoW {
     pub sSignatureAlgorithmName: *mut u16,
     pub sEncryptAlgorithmName: *mut u16,
@@ -9520,30 +9130,30 @@ pub struct SecPkgContext_KeyInfoW {
     pub SignatureAlgorithm: u32,
     pub EncryptAlgorithm: u32,
 }
-impl windows_core::TypeKind for SecPkgContext_KeyInfoW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgContext_KeyInfoW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_KeyInfoW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_KeyingMaterial {
     pub cbKeyingMaterial: u32,
     pub pbKeyingMaterial: *mut u8,
-}
-impl windows_core::TypeKind for SecPkgContext_KeyingMaterial {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_KeyingMaterial {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_KeyingMaterial {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_KeyingMaterialInfo {
     pub cbLabel: u16,
     pub pszLabel: windows_core::PSTR,
@@ -9551,16 +9161,16 @@ pub struct SecPkgContext_KeyingMaterialInfo {
     pub pbContextValue: *mut u8,
     pub cbKeyingMaterial: u32,
 }
-impl windows_core::TypeKind for SecPkgContext_KeyingMaterialInfo {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgContext_KeyingMaterialInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_KeyingMaterialInfo {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_KeyingMaterial_Inproc {
     pub cbLabel: u16,
     pub pszLabel: windows_core::PSTR,
@@ -9569,43 +9179,43 @@ pub struct SecPkgContext_KeyingMaterial_Inproc {
     pub cbKeyingMaterial: u32,
     pub pbKeyingMaterial: *mut u8,
 }
-impl windows_core::TypeKind for SecPkgContext_KeyingMaterial_Inproc {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgContext_KeyingMaterial_Inproc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_KeyingMaterial_Inproc {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_LastClientTokenStatus {
     pub LastClientTokenStatus: SECPKG_ATTR_LCT_STATUS,
-}
-impl windows_core::TypeKind for SecPkgContext_LastClientTokenStatus {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_LastClientTokenStatus {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_LastClientTokenStatus {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_Lifespan {
     pub tsStart: i64,
     pub tsExpiry: i64,
-}
-impl windows_core::TypeKind for SecPkgContext_Lifespan {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_Lifespan {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_Lifespan {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_LocalCredentialInfo {
     pub cbCertificateChain: u32,
     pub pbCertificateChain: *mut u8,
@@ -9613,97 +9223,97 @@ pub struct SecPkgContext_LocalCredentialInfo {
     pub fFlags: u32,
     pub dwBits: u32,
 }
-impl windows_core::TypeKind for SecPkgContext_LocalCredentialInfo {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgContext_LocalCredentialInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_LocalCredentialInfo {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_LogoffTime {
     pub tsLogoffTime: i64,
-}
-impl windows_core::TypeKind for SecPkgContext_LogoffTime {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_LogoffTime {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_LogoffTime {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_MappedCredAttr {
     pub dwAttribute: u32,
     pub pvBuffer: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for SecPkgContext_MappedCredAttr {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_MappedCredAttr {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_MappedCredAttr {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_NamesA {
     pub sUserName: *mut i8,
-}
-impl windows_core::TypeKind for SecPkgContext_NamesA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_NamesA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_NamesA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_NamesW {
     pub sUserName: *mut u16,
-}
-impl windows_core::TypeKind for SecPkgContext_NamesW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_NamesW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_NamesW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_NativeNamesA {
     pub sClientName: *mut i8,
     pub sServerName: *mut i8,
-}
-impl windows_core::TypeKind for SecPkgContext_NativeNamesA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_NativeNamesA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_NativeNamesA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_NativeNamesW {
     pub sClientName: *mut u16,
     pub sServerName: *mut u16,
-}
-impl windows_core::TypeKind for SecPkgContext_NativeNamesW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_NativeNamesW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_NativeNamesW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_NegoKeys {
     pub KeyType: u32,
     pub KeyLength: u16,
@@ -9712,153 +9322,153 @@ pub struct SecPkgContext_NegoKeys {
     pub VerifyKeyLength: u16,
     pub VerifyKeyValue: *mut u8,
 }
-impl windows_core::TypeKind for SecPkgContext_NegoKeys {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgContext_NegoKeys {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_NegoKeys {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_NegoPackageInfo {
     pub PackageMask: u32,
-}
-impl windows_core::TypeKind for SecPkgContext_NegoPackageInfo {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_NegoPackageInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_NegoPackageInfo {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_NegoStatus {
     pub LastStatus: u32,
-}
-impl windows_core::TypeKind for SecPkgContext_NegoStatus {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_NegoStatus {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_NegoStatus {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_NegotiatedTlsExtensions {
     pub ExtensionsCount: u32,
     pub Extensions: *mut u16,
-}
-impl windows_core::TypeKind for SecPkgContext_NegotiatedTlsExtensions {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_NegotiatedTlsExtensions {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_NegotiatedTlsExtensions {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_NegotiationInfoA {
     pub PackageInfo: *mut SecPkgInfoA,
     pub NegotiationState: u32,
-}
-impl windows_core::TypeKind for SecPkgContext_NegotiationInfoA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_NegotiationInfoA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_NegotiationInfoA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_NegotiationInfoW {
     pub PackageInfo: *mut SecPkgInfoW,
     pub NegotiationState: u32,
-}
-impl windows_core::TypeKind for SecPkgContext_NegotiationInfoW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_NegotiationInfoW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_NegotiationInfoW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_PackageInfoA {
     pub PackageInfo: *mut SecPkgInfoA,
-}
-impl windows_core::TypeKind for SecPkgContext_PackageInfoA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_PackageInfoA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_PackageInfoA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_PackageInfoW {
     pub PackageInfo: *mut SecPkgInfoW,
-}
-impl windows_core::TypeKind for SecPkgContext_PackageInfoW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_PackageInfoW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_PackageInfoW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_PasswordExpiry {
     pub tsPasswordExpires: i64,
-}
-impl windows_core::TypeKind for SecPkgContext_PasswordExpiry {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_PasswordExpiry {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_PasswordExpiry {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_ProtoInfoA {
     pub sProtocolName: *mut i8,
     pub majorVersion: u32,
     pub minorVersion: u32,
-}
-impl windows_core::TypeKind for SecPkgContext_ProtoInfoA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_ProtoInfoA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_ProtoInfoA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_ProtoInfoW {
     pub sProtocolName: *mut u16,
     pub majorVersion: u32,
     pub minorVersion: u32,
-}
-impl windows_core::TypeKind for SecPkgContext_ProtoInfoW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_ProtoInfoW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_ProtoInfoW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_RemoteCredentialInfo {
     pub cbCertificateChain: u32,
     pub pbCertificateChain: *mut u8,
@@ -9866,104 +9476,104 @@ pub struct SecPkgContext_RemoteCredentialInfo {
     pub fFlags: u32,
     pub dwBits: u32,
 }
-impl windows_core::TypeKind for SecPkgContext_RemoteCredentialInfo {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgContext_RemoteCredentialInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_RemoteCredentialInfo {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_SaslContext {
     pub SaslContext: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for SecPkgContext_SaslContext {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_SaslContext {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_SaslContext {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_SessionAppData {
     pub dwFlags: u32,
     pub cbAppData: u32,
     pub pbAppData: *mut u8,
-}
-impl windows_core::TypeKind for SecPkgContext_SessionAppData {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_SessionAppData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_SessionAppData {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_SessionInfo {
     pub dwFlags: u32,
     pub cbSessionId: u32,
     pub rgbSessionId: [u8; 32],
-}
-impl windows_core::TypeKind for SecPkgContext_SessionInfo {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_SessionInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_SessionInfo {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_SessionKey {
     pub SessionKeyLength: u32,
     pub SessionKey: *mut u8,
-}
-impl windows_core::TypeKind for SecPkgContext_SessionKey {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_SessionKey {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_SessionKey {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_Sizes {
     pub cbMaxToken: u32,
     pub cbMaxSignature: u32,
     pub cbBlockSize: u32,
     pub cbSecurityTrailer: u32,
 }
-impl windows_core::TypeKind for SecPkgContext_Sizes {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgContext_Sizes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_Sizes {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_SrtpParameters {
     pub ProtectionProfile: u16,
     pub MasterKeyIdentifierSize: u8,
     pub MasterKeyIdentifier: *mut u8,
-}
-impl windows_core::TypeKind for SecPkgContext_SrtpParameters {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_SrtpParameters {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_SrtpParameters {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_StreamSizes {
     pub cbHeader: u32,
     pub cbTrailer: u32,
@@ -9971,127 +9581,127 @@ pub struct SecPkgContext_StreamSizes {
     pub cBuffers: u32,
     pub cbBlockSize: u32,
 }
-impl windows_core::TypeKind for SecPkgContext_StreamSizes {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgContext_StreamSizes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_StreamSizes {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_SubjectAttributes {
     pub AttributeInfo: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for SecPkgContext_SubjectAttributes {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_SubjectAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_SubjectAttributes {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_SupportedSignatures {
     pub cSignatureAndHashAlgorithms: u16,
     pub pSignatureAndHashAlgorithms: *mut u16,
-}
-impl windows_core::TypeKind for SecPkgContext_SupportedSignatures {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_SupportedSignatures {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_SupportedSignatures {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_Target {
     pub TargetLength: u32,
     pub Target: windows_core::PSTR,
-}
-impl windows_core::TypeKind for SecPkgContext_Target {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_Target {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_Target {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_TargetInformation {
     pub MarshalledTargetInfoLength: u32,
     pub MarshalledTargetInfo: *mut u8,
-}
-impl windows_core::TypeKind for SecPkgContext_TargetInformation {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_TargetInformation {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_TargetInformation {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_TokenBinding {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
     pub KeyParametersSize: u16,
     pub KeyParameters: *mut u8,
 }
-impl windows_core::TypeKind for SecPkgContext_TokenBinding {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgContext_TokenBinding {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_TokenBinding {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_UiInfo {
     pub hParentWindow: super::super::super::Foundation::HWND,
-}
-impl windows_core::TypeKind for SecPkgContext_UiInfo {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_UiInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_UiInfo {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_UserFlags {
     pub UserFlags: u32,
-}
-impl windows_core::TypeKind for SecPkgContext_UserFlags {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_UserFlags {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_UserFlags {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgCred_CipherStrengths {
     pub dwMinimumCipherStrength: u32,
     pub dwMaximumCipherStrength: u32,
-}
-impl windows_core::TypeKind for SecPkgCred_CipherStrengths {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgCred_CipherStrengths {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgCred_CipherStrengths {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgCred_ClientCertPolicy {
     pub dwFlags: u32,
     pub guidPolicyId: windows_core::GUID,
@@ -10103,54 +9713,50 @@ pub struct SecPkgCred_ClientCertPolicy {
     pub pwszSslCtlStoreName: windows_core::PWSTR,
     pub pwszSslCtlIdentifier: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for SecPkgCred_ClientCertPolicy {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgCred_ClientCertPolicy {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgCred_ClientCertPolicy {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgCred_SessionTicketKey {
     pub TicketInfoVersion: u32,
     pub KeyId: [u8; 16],
     pub KeyingMaterial: [u8; 64],
     pub KeyingMaterialSize: u8,
 }
-impl windows_core::TypeKind for SecPkgCred_SessionTicketKey {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgCred_SessionTicketKey {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgCred_SessionTicketKey {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgCred_SessionTicketKeys {
     pub cSessionTicketKeys: u32,
     pub pSessionTicketKeys: *mut SecPkgCred_SessionTicketKey,
-}
-impl windows_core::TypeKind for SecPkgCred_SessionTicketKeys {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgCred_SessionTicketKeys {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgCred_SessionTicketKeys {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgCred_SupportedAlgs {
     pub cSupportedAlgs: u32,
     pub palgSupportedAlgs: *mut super::super::Cryptography::ALG_ID,
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SecPkgCred_SupportedAlgs {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SecPkgCred_SupportedAlgs {
@@ -10158,35 +9764,39 @@ impl Default for SecPkgCred_SupportedAlgs {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for SecPkgCred_SupportedAlgs {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgCred_SupportedProtocols {
     pub grbitProtocol: u32,
-}
-impl windows_core::TypeKind for SecPkgCred_SupportedProtocols {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgCred_SupportedProtocols {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgCred_SupportedProtocols {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgCredentials_Cert {
     pub EncodedCertSize: u32,
     pub EncodedCert: *mut u8,
-}
-impl windows_core::TypeKind for SecPkgCredentials_Cert {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgCredentials_Cert {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgCredentials_Cert {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgCredentials_KdcProxySettingsW {
     pub Version: u32,
     pub Flags: u32,
@@ -10195,72 +9805,72 @@ pub struct SecPkgCredentials_KdcProxySettingsW {
     pub ClientTlsCredOffset: u16,
     pub ClientTlsCredLength: u16,
 }
-impl windows_core::TypeKind for SecPkgCredentials_KdcProxySettingsW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgCredentials_KdcProxySettingsW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgCredentials_KdcProxySettingsW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgCredentials_NamesA {
     pub sUserName: *mut i8,
-}
-impl windows_core::TypeKind for SecPkgCredentials_NamesA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgCredentials_NamesA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgCredentials_NamesA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgCredentials_NamesW {
     pub sUserName: *mut u16,
-}
-impl windows_core::TypeKind for SecPkgCredentials_NamesW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgCredentials_NamesW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgCredentials_NamesW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgCredentials_SSIProviderA {
     pub sProviderName: *mut i8,
     pub ProviderInfoLength: u32,
     pub ProviderInfo: windows_core::PSTR,
-}
-impl windows_core::TypeKind for SecPkgCredentials_SSIProviderA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgCredentials_SSIProviderA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgCredentials_SSIProviderA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgCredentials_SSIProviderW {
     pub sProviderName: *mut u16,
     pub ProviderInfoLength: u32,
     pub ProviderInfo: windows_core::PSTR,
-}
-impl windows_core::TypeKind for SecPkgCredentials_SSIProviderW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgCredentials_SSIProviderW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgCredentials_SSIProviderW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgInfoA {
     pub fCapabilities: u32,
     pub wVersion: u16,
@@ -10269,16 +9879,16 @@ pub struct SecPkgInfoA {
     pub Name: *mut i8,
     pub Comment: *mut i8,
 }
-impl windows_core::TypeKind for SecPkgInfoA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgInfoA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgInfoA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgInfoW {
     pub fCapabilities: u32,
     pub wVersion: u16,
@@ -10287,17 +9897,17 @@ pub struct SecPkgInfoW {
     pub Name: *mut u16,
     pub Comment: *mut u16,
 }
-impl windows_core::TypeKind for SecPkgInfoW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SecPkgInfoW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgInfoW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Credentials")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecurityFunctionTableA {
     pub dwVersion: u32,
     pub EnumerateSecurityPackagesA: ENUMERATE_SECURITY_PACKAGES_FN_A,
@@ -10333,18 +9943,18 @@ pub struct SecurityFunctionTableA {
     pub QueryCredentialsAttributesExA: QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A,
 }
 #[cfg(feature = "Win32_Security_Credentials")]
-impl windows_core::TypeKind for SecurityFunctionTableA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Credentials")]
 impl Default for SecurityFunctionTableA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security_Credentials")]
+impl windows_core::TypeKind for SecurityFunctionTableA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Credentials")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecurityFunctionTableW {
     pub dwVersion: u32,
     pub EnumerateSecurityPackagesW: ENUMERATE_SECURITY_PACKAGES_FN_W,
@@ -10380,31 +9990,31 @@ pub struct SecurityFunctionTableW {
     pub QueryCredentialsAttributesExW: QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W,
 }
 #[cfg(feature = "Win32_Security_Credentials")]
-impl windows_core::TypeKind for SecurityFunctionTableW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Credentials")]
 impl Default for SecurityFunctionTableW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security_Credentials")]
+impl windows_core::TypeKind for SecurityFunctionTableW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TLS_EXTENSION_SUBSCRIPTION {
     pub ExtensionType: u16,
     pub HandshakeType: u16,
-}
-impl windows_core::TypeKind for TLS_EXTENSION_SUBSCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TLS_EXTENSION_SUBSCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TLS_EXTENSION_SUBSCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TLS_PARAMETERS {
     pub cAlpnIds: u32,
     pub rgstrAlpnIds: *mut LSA_UNICODE_STRING,
@@ -10413,43 +10023,43 @@ pub struct TLS_PARAMETERS {
     pub pDisabledCrypto: *mut CRYPTO_SETTINGS,
     pub dwFlags: u32,
 }
-impl windows_core::TypeKind for TLS_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TLS_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TLS_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TOKENBINDING_IDENTIFIER {
     pub keyType: u8,
-}
-impl windows_core::TypeKind for TOKENBINDING_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TOKENBINDING_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TOKENBINDING_IDENTIFIER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TOKENBINDING_KEY_TYPES {
     pub keyCount: u32,
     pub keyType: *mut TOKENBINDING_KEY_PARAMETERS_TYPE,
-}
-impl windows_core::TypeKind for TOKENBINDING_KEY_TYPES {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TOKENBINDING_KEY_TYPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TOKENBINDING_KEY_TYPES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TOKENBINDING_RESULT_DATA {
     pub bindingType: TOKENBINDING_TYPE,
     pub identifierSize: u32,
@@ -10458,44 +10068,44 @@ pub struct TOKENBINDING_RESULT_DATA {
     pub extensionSize: u32,
     pub extensionData: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for TOKENBINDING_RESULT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TOKENBINDING_RESULT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TOKENBINDING_RESULT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TOKENBINDING_RESULT_LIST {
     pub resultCount: u32,
     pub resultData: *mut TOKENBINDING_RESULT_DATA,
-}
-impl windows_core::TypeKind for TOKENBINDING_RESULT_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TOKENBINDING_RESULT_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TOKENBINDING_RESULT_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRUSTED_CONTROLLERS_INFO {
     pub Entries: u32,
     pub Names: *mut LSA_UNICODE_STRING,
-}
-impl windows_core::TypeKind for TRUSTED_CONTROLLERS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRUSTED_CONTROLLERS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRUSTED_CONTROLLERS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRUSTED_DOMAIN_AUTH_INFORMATION {
     pub IncomingAuthInfos: u32,
     pub IncomingAuthenticationInformation: *mut LSA_AUTH_INFORMATION,
@@ -10504,46 +10114,46 @@ pub struct TRUSTED_DOMAIN_AUTH_INFORMATION {
     pub OutgoingAuthenticationInformation: *mut LSA_AUTH_INFORMATION,
     pub OutgoingPreviousAuthenticationInformation: *mut LSA_AUTH_INFORMATION,
 }
-impl windows_core::TypeKind for TRUSTED_DOMAIN_AUTH_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TRUSTED_DOMAIN_AUTH_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRUSTED_DOMAIN_AUTH_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRUSTED_DOMAIN_FULL_INFORMATION {
     pub Information: TRUSTED_DOMAIN_INFORMATION_EX,
     pub PosixOffset: TRUSTED_POSIX_OFFSET_INFO,
     pub AuthInformation: TRUSTED_DOMAIN_AUTH_INFORMATION,
-}
-impl windows_core::TypeKind for TRUSTED_DOMAIN_FULL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRUSTED_DOMAIN_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRUSTED_DOMAIN_FULL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRUSTED_DOMAIN_FULL_INFORMATION2 {
     pub Information: TRUSTED_DOMAIN_INFORMATION_EX2,
     pub PosixOffset: TRUSTED_POSIX_OFFSET_INFO,
     pub AuthInformation: TRUSTED_DOMAIN_AUTH_INFORMATION,
-}
-impl windows_core::TypeKind for TRUSTED_DOMAIN_FULL_INFORMATION2 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRUSTED_DOMAIN_FULL_INFORMATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRUSTED_DOMAIN_FULL_INFORMATION2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRUSTED_DOMAIN_INFORMATION_EX {
     pub Name: LSA_UNICODE_STRING,
     pub FlatName: LSA_UNICODE_STRING,
@@ -10552,16 +10162,16 @@ pub struct TRUSTED_DOMAIN_INFORMATION_EX {
     pub TrustType: TRUSTED_DOMAIN_TRUST_TYPE,
     pub TrustAttributes: TRUSTED_DOMAIN_TRUST_ATTRIBUTES,
 }
-impl windows_core::TypeKind for TRUSTED_DOMAIN_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TRUSTED_DOMAIN_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRUSTED_DOMAIN_INFORMATION_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRUSTED_DOMAIN_INFORMATION_EX2 {
     pub Name: LSA_UNICODE_STRING,
     pub FlatName: LSA_UNICODE_STRING,
@@ -10572,69 +10182,69 @@ pub struct TRUSTED_DOMAIN_INFORMATION_EX2 {
     pub ForestTrustLength: u32,
     pub ForestTrustInfo: *mut u8,
 }
-impl windows_core::TypeKind for TRUSTED_DOMAIN_INFORMATION_EX2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TRUSTED_DOMAIN_INFORMATION_EX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRUSTED_DOMAIN_INFORMATION_EX2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRUSTED_DOMAIN_NAME_INFO {
     pub Name: LSA_UNICODE_STRING,
-}
-impl windows_core::TypeKind for TRUSTED_DOMAIN_NAME_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRUSTED_DOMAIN_NAME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRUSTED_DOMAIN_NAME_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
     pub SupportedEncryptionTypes: u32,
-}
-impl windows_core::TypeKind for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRUSTED_PASSWORD_INFO {
     pub Password: LSA_UNICODE_STRING,
     pub OldPassword: LSA_UNICODE_STRING,
-}
-impl windows_core::TypeKind for TRUSTED_PASSWORD_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRUSTED_PASSWORD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRUSTED_PASSWORD_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TRUSTED_POSIX_OFFSET_INFO {
     pub Offset: u32,
-}
-impl windows_core::TypeKind for TRUSTED_POSIX_OFFSET_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRUSTED_POSIX_OFFSET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TRUSTED_POSIX_OFFSET_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct USER_ALL_INFORMATION {
     pub LastLogon: i64,
     pub LastLogoff: i64,
@@ -10670,23 +10280,19 @@ pub struct USER_ALL_INFORMATION {
     pub PasswordExpired: super::super::super::Foundation::BOOLEAN,
     pub PrivateDataSensitive: super::super::super::Foundation::BOOLEAN,
 }
-impl windows_core::TypeKind for USER_ALL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for USER_ALL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for USER_ALL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_PasswordManagement")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct USER_SESSION_KEY {
     pub data: [super::super::super::System::PasswordManagement::CYPHER_BLOCK; 2],
-}
-#[cfg(feature = "Win32_System_PasswordManagement")]
-impl windows_core::TypeKind for USER_SESSION_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_PasswordManagement")]
 impl Default for USER_SESSION_KEY {
@@ -10694,9 +10300,13 @@ impl Default for USER_SESSION_KEY {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_PasswordManagement")]
+impl windows_core::TypeKind for USER_SESSION_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct X509Certificate {
     pub Version: u32,
     pub SerialNumber: [u32; 4],
@@ -10708,23 +10318,18 @@ pub struct X509Certificate {
     pub pPublicKey: *mut PctPublicKey,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for X509Certificate {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for X509Certificate {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct _HMAPPER(pub isize);
-impl Default for _HMAPPER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for X509Certificate {
+    type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct _HMAPPER(pub isize);
 impl windows_core::TypeKind for _HMAPPER {
     type TypeKind = windows_core::CopyType;
 }

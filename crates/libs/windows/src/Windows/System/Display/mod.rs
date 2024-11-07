@@ -11,7 +11,11 @@ pub struct IDisplayRequest_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayRequest(windows_core::IUnknown);
+impl windows_core::RuntimeType for DisplayRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayRequest>();
+}
 windows_core::imp::interface_hierarchy!(DisplayRequest, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(DisplayRequest,);
 impl DisplayRequest {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -29,11 +33,8 @@ impl DisplayRequest {
         unsafe { (windows_core::Interface::vtable(this).RequestRelease)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for DisplayRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayRequest>();
-}
 unsafe impl windows_core::Interface for DisplayRequest {
-    type Vtable = IDisplayRequest_Vtbl;
+    type Vtable = <IDisplayRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayRequest {

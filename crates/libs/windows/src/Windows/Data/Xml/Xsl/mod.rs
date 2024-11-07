@@ -37,7 +37,11 @@ pub struct IXsltProcessorFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XsltProcessor(windows_core::IUnknown);
+impl windows_core::RuntimeType for XsltProcessor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXsltProcessor>();
+}
 windows_core::imp::interface_hierarchy!(XsltProcessor, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(XsltProcessor,);
 impl XsltProcessor {
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn TransformToString<P0>(&self, inputnode: P0) -> windows_core::Result<windows_core::HSTRING>
@@ -76,15 +80,10 @@ impl XsltProcessor {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for XsltProcessor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXsltProcessor>();
-}
 unsafe impl windows_core::Interface for XsltProcessor {
-    type Vtable = IXsltProcessor_Vtbl;
+    type Vtable = <IXsltProcessor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXsltProcessor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for XsltProcessor {
     const NAME: &'static str = "Windows.Data.Xml.Xsl.XsltProcessor";
 }
-unsafe impl Send for XsltProcessor {}
-unsafe impl Sync for XsltProcessor {}

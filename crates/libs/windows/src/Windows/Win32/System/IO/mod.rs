@@ -49,19 +49,19 @@ where
     DeviceIoControl(hdevice.param().abi(), dwiocontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn GetOverlappedResult<P0, P1>(hfile: P0, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: P1) -> windows_core::Result<()>
+pub unsafe fn GetOverlappedResult<P0, P3>(hfile: P0, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: P3) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetOverlappedResult(hfile : super::super::Foundation:: HANDLE, lpoverlapped : *const OVERLAPPED, lpnumberofbytestransferred : *mut u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     GetOverlappedResult(hfile.param().abi(), lpoverlapped, lpnumberofbytestransferred, bwait.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn GetOverlappedResultEx<P0, P1>(hfile: P0, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, dwmilliseconds: u32, balertable: P1) -> windows_core::Result<()>
+pub unsafe fn GetOverlappedResultEx<P0, P4>(hfile: P0, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, dwmilliseconds: u32, balertable: P4) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P4: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetOverlappedResultEx(hfile : super::super::Foundation:: HANDLE, lpoverlapped : *const OVERLAPPED, lpnumberofbytestransferred : *mut u32, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     GetOverlappedResultEx(hfile.param().abi(), lpoverlapped, lpnumberofbytestransferred, dwmilliseconds, balertable.param().abi()).ok()
@@ -75,10 +75,10 @@ where
     GetQueuedCompletionStatus(completionport.param().abi(), lpnumberofbytestransferred, lpcompletionkey, lpoverlapped, dwmilliseconds).ok()
 }
 #[inline]
-pub unsafe fn GetQueuedCompletionStatusEx<P0, P1>(completionport: P0, lpcompletionportentries: &mut [OVERLAPPED_ENTRY], ulnumentriesremoved: *mut u32, dwmilliseconds: u32, falertable: P1) -> windows_core::Result<()>
+pub unsafe fn GetQueuedCompletionStatusEx<P0, P5>(completionport: P0, lpcompletionportentries: &mut [OVERLAPPED_ENTRY], ulnumentriesremoved: *mut u32, dwmilliseconds: u32, falertable: P5) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetQueuedCompletionStatusEx(completionport : super::super::Foundation:: HANDLE, lpcompletionportentries : *mut OVERLAPPED_ENTRY, ulcount : u32, ulnumentriesremoved : *mut u32, dwmilliseconds : u32, falertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     GetQueuedCompletionStatusEx(completionport.param().abi(), core::mem::transmute(lpcompletionportentries.as_ptr()), lpcompletionportentries.len().try_into().unwrap(), ulnumentriesremoved, dwmilliseconds, falertable.param().abi()).ok()
@@ -92,92 +92,92 @@ where
     PostQueuedCompletionStatus(completionport.param().abi(), dwnumberofbytestransferred, dwcompletionkey, core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null()))).ok()
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IO_STATUS_BLOCK {
     pub Anonymous: IO_STATUS_BLOCK_0,
     pub Information: usize,
-}
-impl windows_core::TypeKind for IO_STATUS_BLOCK {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IO_STATUS_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IO_STATUS_BLOCK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union IO_STATUS_BLOCK_0 {
     pub Status: super::super::Foundation::NTSTATUS,
     pub Pointer: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for IO_STATUS_BLOCK_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IO_STATUS_BLOCK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IO_STATUS_BLOCK_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OVERLAPPED {
     pub Internal: usize,
     pub InternalHigh: usize,
     pub Anonymous: OVERLAPPED_0,
     pub hEvent: super::super::Foundation::HANDLE,
 }
-impl windows_core::TypeKind for OVERLAPPED {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for OVERLAPPED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for OVERLAPPED {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union OVERLAPPED_0 {
     pub Anonymous: OVERLAPPED_0_0,
     pub Pointer: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for OVERLAPPED_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for OVERLAPPED_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for OVERLAPPED_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct OVERLAPPED_0_0 {
     pub Offset: u32,
     pub OffsetHigh: u32,
-}
-impl windows_core::TypeKind for OVERLAPPED_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for OVERLAPPED_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for OVERLAPPED_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct OVERLAPPED_ENTRY {
     pub lpCompletionKey: usize,
     pub lpOverlapped: *mut OVERLAPPED,
     pub Internal: usize,
     pub dwNumberOfBytesTransferred: u32,
 }
-impl windows_core::TypeKind for OVERLAPPED_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for OVERLAPPED_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for OVERLAPPED_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 pub type LPOVERLAPPED_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED)>;
 pub type PIO_APC_ROUTINE = Option<unsafe extern "system" fn(apccontext: *mut core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, reserved: u32)>;

@@ -3,11 +3,8 @@ pub mod Management;
 #[cfg(feature = "UI_Notifications_Preview")]
 pub mod Preview;
 windows_core::imp::define_interface!(IAdaptiveNotificationContent, IAdaptiveNotificationContent_Vtbl, 0xeb0dbe66_7448_448d_9db8_d78acd2abba9);
-impl core::ops::Deref for IAdaptiveNotificationContent {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IAdaptiveNotificationContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IAdaptiveNotificationContent, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdaptiveNotificationContent {
@@ -27,9 +24,6 @@ impl IAdaptiveNotificationContent {
         }
     }
 }
-impl windows_core::RuntimeType for IAdaptiveNotificationContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAdaptiveNotificationContent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -40,17 +34,17 @@ pub struct IAdaptiveNotificationContent_Vtbl {
     Hints: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeName for IAdaptiveNotificationContent {
+    const NAME: &'static str = "Windows.UI.Notifications.IAdaptiveNotificationContent";
+}
+#[cfg(feature = "Foundation_Collections")]
 pub trait IAdaptiveNotificationContent_Impl: Sized + windows_core::IUnknownImpl {
     fn Kind(&self) -> windows_core::Result<AdaptiveNotificationContentKind>;
     fn Hints(&self) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>;
 }
 #[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeName for IAdaptiveNotificationContent {
-    const NAME: &'static str = "Windows.UI.Notifications.IAdaptiveNotificationContent";
-}
-#[cfg(feature = "Foundation_Collections")]
 impl IAdaptiveNotificationContent_Vtbl {
-    pub const fn new<Identity: IAdaptiveNotificationContent_Impl, const OFFSET: isize>() -> IAdaptiveNotificationContent_Vtbl {
+    pub const fn new<Identity: IAdaptiveNotificationContent_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Kind<Identity: IAdaptiveNotificationContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut AdaptiveNotificationContentKind) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAdaptiveNotificationContent_Impl::Kind(this) {
@@ -962,6 +956,9 @@ pub struct IUserNotificationChangedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveNotificationText(windows_core::IUnknown);
+impl windows_core::RuntimeType for AdaptiveNotificationText {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdaptiveNotificationText>();
+}
 windows_core::imp::interface_hierarchy!(AdaptiveNotificationText, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AdaptiveNotificationText, IAdaptiveNotificationContent);
 impl AdaptiveNotificationText {
@@ -1010,22 +1007,21 @@ impl AdaptiveNotificationText {
         unsafe { (windows_core::Interface::vtable(this).SetLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
-impl windows_core::RuntimeType for AdaptiveNotificationText {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdaptiveNotificationText>();
-}
 unsafe impl windows_core::Interface for AdaptiveNotificationText {
-    type Vtable = IAdaptiveNotificationText_Vtbl;
+    type Vtable = <IAdaptiveNotificationText as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAdaptiveNotificationText as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AdaptiveNotificationText {
     const NAME: &'static str = "Windows.UI.Notifications.AdaptiveNotificationText";
 }
-unsafe impl Send for AdaptiveNotificationText {}
-unsafe impl Sync for AdaptiveNotificationText {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BadgeNotification(windows_core::IUnknown);
+impl windows_core::RuntimeType for BadgeNotification {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBadgeNotification>();
+}
 windows_core::imp::interface_hierarchy!(BadgeNotification, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(BadgeNotification,);
 impl BadgeNotification {
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn Content(&self) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
@@ -1064,18 +1060,13 @@ impl BadgeNotification {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for BadgeNotification {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBadgeNotification>();
-}
 unsafe impl windows_core::Interface for BadgeNotification {
-    type Vtable = IBadgeNotification_Vtbl;
+    type Vtable = <IBadgeNotification as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBadgeNotification as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for BadgeNotification {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeNotification";
 }
-unsafe impl Send for BadgeNotification {}
-unsafe impl Sync for BadgeNotification {}
 pub struct BadgeUpdateManager;
 impl BadgeUpdateManager {
     pub fn CreateBadgeUpdaterForApplication() -> windows_core::Result<BadgeUpdater> {
@@ -1128,7 +1119,11 @@ impl windows_core::RuntimeName for BadgeUpdateManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BadgeUpdateManagerForUser(windows_core::IUnknown);
+impl windows_core::RuntimeType for BadgeUpdateManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBadgeUpdateManagerForUser>();
+}
 windows_core::imp::interface_hierarchy!(BadgeUpdateManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(BadgeUpdateManagerForUser,);
 impl BadgeUpdateManagerForUser {
     pub fn CreateBadgeUpdaterForApplication(&self) -> windows_core::Result<BadgeUpdater> {
         let this = self;
@@ -1160,22 +1155,21 @@ impl BadgeUpdateManagerForUser {
         }
     }
 }
-impl windows_core::RuntimeType for BadgeUpdateManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBadgeUpdateManagerForUser>();
-}
 unsafe impl windows_core::Interface for BadgeUpdateManagerForUser {
-    type Vtable = IBadgeUpdateManagerForUser_Vtbl;
+    type Vtable = <IBadgeUpdateManagerForUser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBadgeUpdateManagerForUser as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for BadgeUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdateManagerForUser";
 }
-unsafe impl Send for BadgeUpdateManagerForUser {}
-unsafe impl Sync for BadgeUpdateManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BadgeUpdater(windows_core::IUnknown);
+impl windows_core::RuntimeType for BadgeUpdater {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBadgeUpdater>();
+}
 windows_core::imp::interface_hierarchy!(BadgeUpdater, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(BadgeUpdater,);
 impl BadgeUpdater {
     pub fn Update<P0>(&self, notification: P0) -> windows_core::Result<()>
     where
@@ -1207,18 +1201,13 @@ impl BadgeUpdater {
         unsafe { (windows_core::Interface::vtable(this).StopPeriodicUpdate)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for BadgeUpdater {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBadgeUpdater>();
-}
 unsafe impl windows_core::Interface for BadgeUpdater {
-    type Vtable = IBadgeUpdater_Vtbl;
+    type Vtable = <IBadgeUpdater as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBadgeUpdater as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for BadgeUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdater";
 }
-unsafe impl Send for BadgeUpdater {}
-unsafe impl Sync for BadgeUpdater {}
 pub struct KnownAdaptiveNotificationHints;
 impl KnownAdaptiveNotificationHints {
     pub fn Style() -> windows_core::Result<windows_core::HSTRING> {
@@ -1408,7 +1397,11 @@ impl windows_core::RuntimeName for KnownNotificationBindings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Notification(windows_core::IUnknown);
+impl windows_core::RuntimeType for Notification {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INotification>();
+}
 windows_core::imp::interface_hierarchy!(Notification, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(Notification,);
 impl Notification {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1446,22 +1439,21 @@ impl Notification {
         unsafe { (windows_core::Interface::vtable(this).SetVisual)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
-impl windows_core::RuntimeType for Notification {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INotification>();
-}
 unsafe impl windows_core::Interface for Notification {
-    type Vtable = INotification_Vtbl;
+    type Vtable = <INotification as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INotification as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Notification {
     const NAME: &'static str = "Windows.UI.Notifications.Notification";
 }
-unsafe impl Send for Notification {}
-unsafe impl Sync for Notification {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NotificationBinding(windows_core::IUnknown);
+impl windows_core::RuntimeType for NotificationBinding {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INotificationBinding>();
+}
 windows_core::imp::interface_hierarchy!(NotificationBinding, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(NotificationBinding,);
 impl NotificationBinding {
     pub fn Template(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1502,22 +1494,21 @@ impl NotificationBinding {
         }
     }
 }
-impl windows_core::RuntimeType for NotificationBinding {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INotificationBinding>();
-}
 unsafe impl windows_core::Interface for NotificationBinding {
-    type Vtable = INotificationBinding_Vtbl;
+    type Vtable = <INotificationBinding as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INotificationBinding as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for NotificationBinding {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationBinding";
 }
-unsafe impl Send for NotificationBinding {}
-unsafe impl Sync for NotificationBinding {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NotificationData(windows_core::IUnknown);
+impl windows_core::RuntimeType for NotificationData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INotificationData>();
+}
 windows_core::imp::interface_hierarchy!(NotificationData, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(NotificationData,);
 impl NotificationData {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1570,22 +1561,21 @@ impl NotificationData {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for NotificationData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INotificationData>();
-}
 unsafe impl windows_core::Interface for NotificationData {
-    type Vtable = INotificationData_Vtbl;
+    type Vtable = <INotificationData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INotificationData as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for NotificationData {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationData";
 }
-unsafe impl Send for NotificationData {}
-unsafe impl Sync for NotificationData {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NotificationVisual(windows_core::IUnknown);
+impl windows_core::RuntimeType for NotificationVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INotificationVisual>();
+}
 windows_core::imp::interface_hierarchy!(NotificationVisual, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(NotificationVisual,);
 impl NotificationVisual {
     pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1614,22 +1604,21 @@ impl NotificationVisual {
         }
     }
 }
-impl windows_core::RuntimeType for NotificationVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INotificationVisual>();
-}
 unsafe impl windows_core::Interface for NotificationVisual {
-    type Vtable = INotificationVisual_Vtbl;
+    type Vtable = <INotificationVisual as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INotificationVisual as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for NotificationVisual {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationVisual";
 }
-unsafe impl Send for NotificationVisual {}
-unsafe impl Sync for NotificationVisual {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScheduledTileNotification(windows_core::IUnknown);
+impl windows_core::RuntimeType for ScheduledTileNotification {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScheduledTileNotification>();
+}
 windows_core::imp::interface_hierarchy!(ScheduledTileNotification, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ScheduledTileNotification,);
 impl ScheduledTileNotification {
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn Content(&self) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
@@ -1697,22 +1686,21 @@ impl ScheduledTileNotification {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for ScheduledTileNotification {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScheduledTileNotification>();
-}
 unsafe impl windows_core::Interface for ScheduledTileNotification {
-    type Vtable = IScheduledTileNotification_Vtbl;
+    type Vtable = <IScheduledTileNotification as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IScheduledTileNotification as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ScheduledTileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledTileNotification";
 }
-unsafe impl Send for ScheduledTileNotification {}
-unsafe impl Sync for ScheduledTileNotification {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScheduledToastNotification(windows_core::IUnknown);
+impl windows_core::RuntimeType for ScheduledToastNotification {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScheduledToastNotification>();
+}
 windows_core::imp::interface_hierarchy!(ScheduledToastNotification, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ScheduledToastNotification,);
 impl ScheduledToastNotification {
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn Content(&self) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
@@ -1848,22 +1836,21 @@ impl ScheduledToastNotification {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for ScheduledToastNotification {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScheduledToastNotification>();
-}
 unsafe impl windows_core::Interface for ScheduledToastNotification {
-    type Vtable = IScheduledToastNotification_Vtbl;
+    type Vtable = <IScheduledToastNotification as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IScheduledToastNotification as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ScheduledToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledToastNotification";
 }
-unsafe impl Send for ScheduledToastNotification {}
-unsafe impl Sync for ScheduledToastNotification {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScheduledToastNotificationShowingEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for ScheduledToastNotificationShowingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScheduledToastNotificationShowingEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(ScheduledToastNotificationShowingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ScheduledToastNotificationShowingEventArgs,);
 impl ScheduledToastNotificationShowingEventArgs {
     pub fn Cancel(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -1891,22 +1878,21 @@ impl ScheduledToastNotificationShowingEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for ScheduledToastNotificationShowingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScheduledToastNotificationShowingEventArgs>();
-}
 unsafe impl windows_core::Interface for ScheduledToastNotificationShowingEventArgs {
-    type Vtable = IScheduledToastNotificationShowingEventArgs_Vtbl;
+    type Vtable = <IScheduledToastNotificationShowingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IScheduledToastNotificationShowingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ScheduledToastNotificationShowingEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledToastNotificationShowingEventArgs";
 }
-unsafe impl Send for ScheduledToastNotificationShowingEventArgs {}
-unsafe impl Sync for ScheduledToastNotificationShowingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShownTileNotification(windows_core::IUnknown);
+impl windows_core::RuntimeType for ShownTileNotification {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShownTileNotification>();
+}
 windows_core::imp::interface_hierarchy!(ShownTileNotification, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ShownTileNotification,);
 impl ShownTileNotification {
     pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1916,22 +1902,21 @@ impl ShownTileNotification {
         }
     }
 }
-impl windows_core::RuntimeType for ShownTileNotification {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShownTileNotification>();
-}
 unsafe impl windows_core::Interface for ShownTileNotification {
-    type Vtable = IShownTileNotification_Vtbl;
+    type Vtable = <IShownTileNotification as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShownTileNotification as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ShownTileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ShownTileNotification";
 }
-unsafe impl Send for ShownTileNotification {}
-unsafe impl Sync for ShownTileNotification {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TileFlyoutNotification(windows_core::IUnknown);
+impl windows_core::RuntimeType for TileFlyoutNotification {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITileFlyoutNotification>();
+}
 windows_core::imp::interface_hierarchy!(TileFlyoutNotification, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(TileFlyoutNotification,);
 impl TileFlyoutNotification {
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn Content(&self) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
@@ -1970,18 +1955,13 @@ impl TileFlyoutNotification {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for TileFlyoutNotification {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITileFlyoutNotification>();
-}
 unsafe impl windows_core::Interface for TileFlyoutNotification {
-    type Vtable = ITileFlyoutNotification_Vtbl;
+    type Vtable = <ITileFlyoutNotification as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITileFlyoutNotification as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TileFlyoutNotification {
     const NAME: &'static str = "Windows.UI.Notifications.TileFlyoutNotification";
 }
-unsafe impl Send for TileFlyoutNotification {}
-unsafe impl Sync for TileFlyoutNotification {}
 pub struct TileFlyoutUpdateManager;
 impl TileFlyoutUpdateManager {
     pub fn CreateTileFlyoutUpdaterForApplication() -> windows_core::Result<TileFlyoutUpdater> {
@@ -2020,7 +2000,11 @@ impl windows_core::RuntimeName for TileFlyoutUpdateManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TileFlyoutUpdater(windows_core::IUnknown);
+impl windows_core::RuntimeType for TileFlyoutUpdater {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITileFlyoutUpdater>();
+}
 windows_core::imp::interface_hierarchy!(TileFlyoutUpdater, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(TileFlyoutUpdater,);
 impl TileFlyoutUpdater {
     pub fn Update<P0>(&self, notification: P0) -> windows_core::Result<()>
     where
@@ -2059,11 +2043,8 @@ impl TileFlyoutUpdater {
         }
     }
 }
-impl windows_core::RuntimeType for TileFlyoutUpdater {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITileFlyoutUpdater>();
-}
 unsafe impl windows_core::Interface for TileFlyoutUpdater {
-    type Vtable = ITileFlyoutUpdater_Vtbl;
+    type Vtable = <ITileFlyoutUpdater as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITileFlyoutUpdater as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TileFlyoutUpdater {
@@ -2072,7 +2053,11 @@ impl windows_core::RuntimeName for TileFlyoutUpdater {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TileNotification(windows_core::IUnknown);
+impl windows_core::RuntimeType for TileNotification {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITileNotification>();
+}
 windows_core::imp::interface_hierarchy!(TileNotification, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(TileNotification,);
 impl TileNotification {
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn Content(&self) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
@@ -2122,18 +2107,13 @@ impl TileNotification {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for TileNotification {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITileNotification>();
-}
 unsafe impl windows_core::Interface for TileNotification {
-    type Vtable = ITileNotification_Vtbl;
+    type Vtable = <ITileNotification as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITileNotification as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.TileNotification";
 }
-unsafe impl Send for TileNotification {}
-unsafe impl Sync for TileNotification {}
 pub struct TileUpdateManager;
 impl TileUpdateManager {
     pub fn CreateTileUpdaterForApplication() -> windows_core::Result<TileUpdater> {
@@ -2186,7 +2166,11 @@ impl windows_core::RuntimeName for TileUpdateManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TileUpdateManagerForUser(windows_core::IUnknown);
+impl windows_core::RuntimeType for TileUpdateManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITileUpdateManagerForUser>();
+}
 windows_core::imp::interface_hierarchy!(TileUpdateManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(TileUpdateManagerForUser,);
 impl TileUpdateManagerForUser {
     pub fn CreateTileUpdaterForApplication(&self) -> windows_core::Result<TileUpdater> {
         let this = self;
@@ -2218,22 +2202,21 @@ impl TileUpdateManagerForUser {
         }
     }
 }
-impl windows_core::RuntimeType for TileUpdateManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITileUpdateManagerForUser>();
-}
 unsafe impl windows_core::Interface for TileUpdateManagerForUser {
-    type Vtable = ITileUpdateManagerForUser_Vtbl;
+    type Vtable = <ITileUpdateManagerForUser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITileUpdateManagerForUser as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TileUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdateManagerForUser";
 }
-unsafe impl Send for TileUpdateManagerForUser {}
-unsafe impl Sync for TileUpdateManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TileUpdater(windows_core::IUnknown);
+impl windows_core::RuntimeType for TileUpdater {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITileUpdater>();
+}
 windows_core::imp::interface_hierarchy!(TileUpdater, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(TileUpdater,);
 impl TileUpdater {
     pub fn Update<P0>(&self, notification: P0) -> windows_core::Result<()>
     where
@@ -2326,22 +2309,21 @@ impl TileUpdater {
         unsafe { (windows_core::Interface::vtable(this).EnableNotificationQueueForSquare310x310)(windows_core::Interface::as_raw(this), enable).ok() }
     }
 }
-impl windows_core::RuntimeType for TileUpdater {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITileUpdater>();
-}
 unsafe impl windows_core::Interface for TileUpdater {
-    type Vtable = ITileUpdater_Vtbl;
+    type Vtable = <ITileUpdater as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITileUpdater as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TileUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdater";
 }
-unsafe impl Send for TileUpdater {}
-unsafe impl Sync for TileUpdater {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastActivatedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for ToastActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastActivatedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(ToastActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ToastActivatedEventArgs,);
 impl ToastActivatedEventArgs {
     pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2359,11 +2341,8 @@ impl ToastActivatedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for ToastActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastActivatedEventArgs>();
-}
 unsafe impl windows_core::Interface for ToastActivatedEventArgs {
-    type Vtable = IToastActivatedEventArgs_Vtbl;
+    type Vtable = <IToastActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IToastActivatedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ToastActivatedEventArgs {
@@ -2372,7 +2351,11 @@ impl windows_core::RuntimeName for ToastActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastCollection(windows_core::IUnknown);
+impl windows_core::RuntimeType for ToastCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastCollection>();
+}
 windows_core::imp::interface_hierarchy!(ToastCollection, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ToastCollection,);
 impl ToastCollection {
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2417,9 +2400,9 @@ impl ToastCollection {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn CreateInstance<P0>(collectionid: &windows_core::HSTRING, displayname: &windows_core::HSTRING, launchargs: &windows_core::HSTRING, iconuri: P0) -> windows_core::Result<ToastCollection>
+    pub fn CreateInstance<P3>(collectionid: &windows_core::HSTRING, displayname: &windows_core::HSTRING, launchargs: &windows_core::HSTRING, iconuri: P3) -> windows_core::Result<ToastCollection>
     where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
+        P3: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::IToastCollectionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2431,22 +2414,21 @@ impl ToastCollection {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for ToastCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastCollection>();
-}
 unsafe impl windows_core::Interface for ToastCollection {
-    type Vtable = IToastCollection_Vtbl;
+    type Vtable = <IToastCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IToastCollection as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ToastCollection {
     const NAME: &'static str = "Windows.UI.Notifications.ToastCollection";
 }
-unsafe impl Send for ToastCollection {}
-unsafe impl Sync for ToastCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastCollectionManager(windows_core::IUnknown);
+impl windows_core::RuntimeType for ToastCollectionManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastCollectionManager>();
+}
 windows_core::imp::interface_hierarchy!(ToastCollectionManager, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ToastCollectionManager,);
 impl ToastCollectionManager {
     pub fn SaveToastCollectionAsync<P0>(&self, collection: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2503,22 +2485,21 @@ impl ToastCollectionManager {
         }
     }
 }
-impl windows_core::RuntimeType for ToastCollectionManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastCollectionManager>();
-}
 unsafe impl windows_core::Interface for ToastCollectionManager {
-    type Vtable = IToastCollectionManager_Vtbl;
+    type Vtable = <IToastCollectionManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IToastCollectionManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ToastCollectionManager {
     const NAME: &'static str = "Windows.UI.Notifications.ToastCollectionManager";
 }
-unsafe impl Send for ToastCollectionManager {}
-unsafe impl Sync for ToastCollectionManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastDismissedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for ToastDismissedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastDismissedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(ToastDismissedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ToastDismissedEventArgs,);
 impl ToastDismissedEventArgs {
     pub fn Reason(&self) -> windows_core::Result<ToastDismissalReason> {
         let this = self;
@@ -2528,22 +2509,21 @@ impl ToastDismissedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for ToastDismissedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastDismissedEventArgs>();
-}
 unsafe impl windows_core::Interface for ToastDismissedEventArgs {
-    type Vtable = IToastDismissedEventArgs_Vtbl;
+    type Vtable = <IToastDismissedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IToastDismissedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ToastDismissedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastDismissedEventArgs";
 }
-unsafe impl Send for ToastDismissedEventArgs {}
-unsafe impl Sync for ToastDismissedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastFailedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for ToastFailedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastFailedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(ToastFailedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ToastFailedEventArgs,);
 impl ToastFailedEventArgs {
     pub fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT> {
         let this = self;
@@ -2553,22 +2533,21 @@ impl ToastFailedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for ToastFailedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastFailedEventArgs>();
-}
 unsafe impl windows_core::Interface for ToastFailedEventArgs {
-    type Vtable = IToastFailedEventArgs_Vtbl;
+    type Vtable = <IToastFailedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IToastFailedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ToastFailedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastFailedEventArgs";
 }
-unsafe impl Send for ToastFailedEventArgs {}
-unsafe impl Sync for ToastFailedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotification(windows_core::IUnknown);
+impl windows_core::RuntimeType for ToastNotification {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastNotification>();
+}
 windows_core::imp::interface_hierarchy!(ToastNotification, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ToastNotification,);
 impl ToastNotification {
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn Content(&self) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
@@ -2740,22 +2719,21 @@ impl ToastNotification {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for ToastNotification {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastNotification>();
-}
 unsafe impl windows_core::Interface for ToastNotification {
-    type Vtable = IToastNotification_Vtbl;
+    type Vtable = <IToastNotification as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IToastNotification as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotification";
 }
-unsafe impl Send for ToastNotification {}
-unsafe impl Sync for ToastNotification {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotificationActionTriggerDetail(windows_core::IUnknown);
+impl windows_core::RuntimeType for ToastNotificationActionTriggerDetail {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastNotificationActionTriggerDetail>();
+}
 windows_core::imp::interface_hierarchy!(ToastNotificationActionTriggerDetail, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ToastNotificationActionTriggerDetail,);
 impl ToastNotificationActionTriggerDetail {
     pub fn Argument(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2773,11 +2751,8 @@ impl ToastNotificationActionTriggerDetail {
         }
     }
 }
-impl windows_core::RuntimeType for ToastNotificationActionTriggerDetail {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastNotificationActionTriggerDetail>();
-}
 unsafe impl windows_core::Interface for ToastNotificationActionTriggerDetail {
-    type Vtable = IToastNotificationActionTriggerDetail_Vtbl;
+    type Vtable = <IToastNotificationActionTriggerDetail as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IToastNotificationActionTriggerDetail as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ToastNotificationActionTriggerDetail {
@@ -2786,7 +2761,11 @@ impl windows_core::RuntimeName for ToastNotificationActionTriggerDetail {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotificationHistory(windows_core::IUnknown);
+impl windows_core::RuntimeType for ToastNotificationHistory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastNotificationHistory>();
+}
 windows_core::imp::interface_hierarchy!(ToastNotificationHistory, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ToastNotificationHistory,);
 impl ToastNotificationHistory {
     pub fn RemoveGroup(&self, group: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
@@ -2833,11 +2812,8 @@ impl ToastNotificationHistory {
         }
     }
 }
-impl windows_core::RuntimeType for ToastNotificationHistory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastNotificationHistory>();
-}
 unsafe impl windows_core::Interface for ToastNotificationHistory {
-    type Vtable = IToastNotificationHistory_Vtbl;
+    type Vtable = <IToastNotificationHistory as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IToastNotificationHistory as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ToastNotificationHistory {
@@ -2846,7 +2822,11 @@ impl windows_core::RuntimeName for ToastNotificationHistory {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotificationHistoryChangedTriggerDetail(windows_core::IUnknown);
+impl windows_core::RuntimeType for ToastNotificationHistoryChangedTriggerDetail {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastNotificationHistoryChangedTriggerDetail>();
+}
 windows_core::imp::interface_hierarchy!(ToastNotificationHistoryChangedTriggerDetail, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ToastNotificationHistoryChangedTriggerDetail,);
 impl ToastNotificationHistoryChangedTriggerDetail {
     pub fn ChangeType(&self) -> windows_core::Result<ToastHistoryChangedType> {
         let this = self;
@@ -2863,11 +2843,8 @@ impl ToastNotificationHistoryChangedTriggerDetail {
         }
     }
 }
-impl windows_core::RuntimeType for ToastNotificationHistoryChangedTriggerDetail {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastNotificationHistoryChangedTriggerDetail>();
-}
 unsafe impl windows_core::Interface for ToastNotificationHistoryChangedTriggerDetail {
-    type Vtable = IToastNotificationHistoryChangedTriggerDetail_Vtbl;
+    type Vtable = <IToastNotificationHistoryChangedTriggerDetail as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IToastNotificationHistoryChangedTriggerDetail as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ToastNotificationHistoryChangedTriggerDetail {
@@ -2942,7 +2919,11 @@ impl windows_core::RuntimeName for ToastNotificationManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotificationManagerForUser(windows_core::IUnknown);
+impl windows_core::RuntimeType for ToastNotificationManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastNotificationManagerForUser>();
+}
 windows_core::imp::interface_hierarchy!(ToastNotificationManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ToastNotificationManagerForUser,);
 impl ToastNotificationManagerForUser {
     pub fn CreateToastNotifier(&self) -> windows_core::Result<ToastNotifier> {
         let this = self;
@@ -3023,22 +3004,21 @@ impl ToastNotificationManagerForUser {
         unsafe { (windows_core::Interface::vtable(this).RemoveNotificationModeChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl windows_core::RuntimeType for ToastNotificationManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastNotificationManagerForUser>();
-}
 unsafe impl windows_core::Interface for ToastNotificationManagerForUser {
-    type Vtable = IToastNotificationManagerForUser_Vtbl;
+    type Vtable = <IToastNotificationManagerForUser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IToastNotificationManagerForUser as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ToastNotificationManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationManagerForUser";
 }
-unsafe impl Send for ToastNotificationManagerForUser {}
-unsafe impl Sync for ToastNotificationManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotifier(windows_core::IUnknown);
+impl windows_core::RuntimeType for ToastNotifier {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastNotifier>();
+}
 windows_core::imp::interface_hierarchy!(ToastNotifier, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ToastNotifier,);
 impl ToastNotifier {
     pub fn Show<P0>(&self, notification: P0) -> windows_core::Result<()>
     where
@@ -3118,22 +3098,21 @@ impl ToastNotifier {
         unsafe { (windows_core::Interface::vtable(this).RemoveScheduledToastNotificationShowing)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl windows_core::RuntimeType for ToastNotifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastNotifier>();
-}
 unsafe impl windows_core::Interface for ToastNotifier {
-    type Vtable = IToastNotifier_Vtbl;
+    type Vtable = <IToastNotifier as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IToastNotifier as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ToastNotifier {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotifier";
 }
-unsafe impl Send for ToastNotifier {}
-unsafe impl Sync for ToastNotifier {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserNotification(windows_core::IUnknown);
+impl windows_core::RuntimeType for UserNotification {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserNotification>();
+}
 windows_core::imp::interface_hierarchy!(UserNotification, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UserNotification,);
 impl UserNotification {
     pub fn Notification(&self) -> windows_core::Result<Notification> {
         let this = self;
@@ -3165,22 +3144,21 @@ impl UserNotification {
         }
     }
 }
-impl windows_core::RuntimeType for UserNotification {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserNotification>();
-}
 unsafe impl windows_core::Interface for UserNotification {
-    type Vtable = IUserNotification_Vtbl;
+    type Vtable = <IUserNotification as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserNotification as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserNotification {
     const NAME: &'static str = "Windows.UI.Notifications.UserNotification";
 }
-unsafe impl Send for UserNotification {}
-unsafe impl Sync for UserNotification {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserNotificationChangedEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for UserNotificationChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserNotificationChangedEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(UserNotificationChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UserNotificationChangedEventArgs,);
 impl UserNotificationChangedEventArgs {
     pub fn ChangeKind(&self) -> windows_core::Result<UserNotificationChangedKind> {
         let this = self;
@@ -3197,20 +3175,15 @@ impl UserNotificationChangedEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for UserNotificationChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserNotificationChangedEventArgs>();
-}
 unsafe impl windows_core::Interface for UserNotificationChangedEventArgs {
-    type Vtable = IUserNotificationChangedEventArgs_Vtbl;
+    type Vtable = <IUserNotificationChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserNotificationChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserNotificationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.UserNotificationChangedEventArgs";
 }
-unsafe impl Send for UserNotificationChangedEventArgs {}
-unsafe impl Sync for UserNotificationChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AdaptiveNotificationContentKind(pub i32);
 impl AdaptiveNotificationContentKind {
     pub const Text: Self = Self(0i32);
@@ -3218,16 +3191,11 @@ impl AdaptiveNotificationContentKind {
 impl windows_core::TypeKind for AdaptiveNotificationContentKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for AdaptiveNotificationContentKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AdaptiveNotificationContentKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for AdaptiveNotificationContentKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.AdaptiveNotificationContentKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct BadgeTemplateType(pub i32);
 impl BadgeTemplateType {
     pub const BadgeGlyph: Self = Self(0i32);
@@ -3236,16 +3204,11 @@ impl BadgeTemplateType {
 impl windows_core::TypeKind for BadgeTemplateType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BadgeTemplateType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BadgeTemplateType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for BadgeTemplateType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.BadgeTemplateType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct NotificationKinds(pub u32);
 impl NotificationKinds {
     pub const Unknown: Self = Self(0u32);
@@ -3254,49 +3217,11 @@ impl NotificationKinds {
 impl windows_core::TypeKind for NotificationKinds {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NotificationKinds {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NotificationKinds").field(&self.0).finish()
-    }
-}
-impl NotificationKinds {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for NotificationKinds {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for NotificationKinds {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for NotificationKinds {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for NotificationKinds {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for NotificationKinds {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for NotificationKinds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationKinds;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct NotificationMirroring(pub i32);
 impl NotificationMirroring {
     pub const Allowed: Self = Self(0i32);
@@ -3305,16 +3230,11 @@ impl NotificationMirroring {
 impl windows_core::TypeKind for NotificationMirroring {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NotificationMirroring {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NotificationMirroring").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for NotificationMirroring {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationMirroring;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct NotificationSetting(pub i32);
 impl NotificationSetting {
     pub const Enabled: Self = Self(0i32);
@@ -3326,16 +3246,11 @@ impl NotificationSetting {
 impl windows_core::TypeKind for NotificationSetting {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NotificationSetting {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NotificationSetting").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for NotificationSetting {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationSetting;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct NotificationUpdateResult(pub i32);
 impl NotificationUpdateResult {
     pub const Succeeded: Self = Self(0i32);
@@ -3345,16 +3260,11 @@ impl NotificationUpdateResult {
 impl windows_core::TypeKind for NotificationUpdateResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NotificationUpdateResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NotificationUpdateResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for NotificationUpdateResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationUpdateResult;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PeriodicUpdateRecurrence(pub i32);
 impl PeriodicUpdateRecurrence {
     pub const HalfHour: Self = Self(0i32);
@@ -3366,16 +3276,11 @@ impl PeriodicUpdateRecurrence {
 impl windows_core::TypeKind for PeriodicUpdateRecurrence {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PeriodicUpdateRecurrence {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PeriodicUpdateRecurrence").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PeriodicUpdateRecurrence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.PeriodicUpdateRecurrence;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct TileFlyoutTemplateType(pub i32);
 impl TileFlyoutTemplateType {
     pub const TileFlyoutTemplate01: Self = Self(0i32);
@@ -3383,16 +3288,11 @@ impl TileFlyoutTemplateType {
 impl windows_core::TypeKind for TileFlyoutTemplateType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TileFlyoutTemplateType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TileFlyoutTemplateType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for TileFlyoutTemplateType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileFlyoutTemplateType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct TileTemplateType(pub i32);
 impl TileTemplateType {
     pub const TileSquareImage: Self = Self(0i32);
@@ -3525,16 +3425,11 @@ impl TileTemplateType {
 impl windows_core::TypeKind for TileTemplateType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TileTemplateType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TileTemplateType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for TileTemplateType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileTemplateType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ToastDismissalReason(pub i32);
 impl ToastDismissalReason {
     pub const UserCanceled: Self = Self(0i32);
@@ -3544,16 +3439,11 @@ impl ToastDismissalReason {
 impl windows_core::TypeKind for ToastDismissalReason {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ToastDismissalReason {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ToastDismissalReason").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ToastDismissalReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastDismissalReason;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ToastHistoryChangedType(pub i32);
 impl ToastHistoryChangedType {
     pub const Cleared: Self = Self(0i32);
@@ -3564,16 +3454,11 @@ impl ToastHistoryChangedType {
 impl windows_core::TypeKind for ToastHistoryChangedType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ToastHistoryChangedType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ToastHistoryChangedType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ToastHistoryChangedType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastHistoryChangedType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ToastNotificationMode(pub i32);
 impl ToastNotificationMode {
     pub const Unrestricted: Self = Self(0i32);
@@ -3583,16 +3468,11 @@ impl ToastNotificationMode {
 impl windows_core::TypeKind for ToastNotificationMode {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ToastNotificationMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ToastNotificationMode").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ToastNotificationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationMode;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ToastNotificationPriority(pub i32);
 impl ToastNotificationPriority {
     pub const Default: Self = Self(0i32);
@@ -3601,16 +3481,11 @@ impl ToastNotificationPriority {
 impl windows_core::TypeKind for ToastNotificationPriority {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ToastNotificationPriority {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ToastNotificationPriority").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ToastNotificationPriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationPriority;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ToastTemplateType(pub i32);
 impl ToastTemplateType {
     pub const ToastImageAndText01: Self = Self(0i32);
@@ -3625,16 +3500,11 @@ impl ToastTemplateType {
 impl windows_core::TypeKind for ToastTemplateType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ToastTemplateType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ToastTemplateType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ToastTemplateType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastTemplateType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct UserNotificationChangedKind(pub i32);
 impl UserNotificationChangedKind {
     pub const Added: Self = Self(0i32);
@@ -3642,11 +3512,6 @@ impl UserNotificationChangedKind {
 }
 impl windows_core::TypeKind for UserNotificationChangedKind {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for UserNotificationChangedKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UserNotificationChangedKind").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for UserNotificationChangedKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.UserNotificationChangedKind;i4)");

@@ -1,10 +1,4 @@
 windows_core::imp::define_interface!(IUIAnimationInterpolator, IUIAnimationInterpolator_Vtbl, 0x7815cbba_ddf7_478c_a46c_7b6c738b7978);
-impl core::ops::Deref for IUIAnimationInterpolator {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationInterpolator, windows_core::IUnknown);
 impl IUIAnimationInterpolator {
     pub unsafe fn SetInitialValueAndVelocity(&self, initialvalue: f64, initialvelocity: f64) -> windows_core::Result<()> {
@@ -44,7 +38,7 @@ pub struct IUIAnimationInterpolator_Vtbl {
     pub InterpolateVelocity: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *mut f64) -> windows_core::HRESULT,
     pub GetDependencies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UI_ANIMATION_DEPENDENCIES, *mut UI_ANIMATION_DEPENDENCIES, *mut UI_ANIMATION_DEPENDENCIES) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationInterpolator_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationInterpolator_Impl: windows_core::IUnknownImpl {
     fn SetInitialValueAndVelocity(&self, initialvalue: f64, initialvelocity: f64) -> windows_core::Result<()>;
     fn SetDuration(&self, duration: f64) -> windows_core::Result<()>;
     fn GetDuration(&self) -> windows_core::Result<f64>;
@@ -53,9 +47,8 @@ pub trait IUIAnimationInterpolator_Impl: Sized + windows_core::IUnknownImpl {
     fn InterpolateVelocity(&self, offset: f64) -> windows_core::Result<f64>;
     fn GetDependencies(&self, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationInterpolator {}
 impl IUIAnimationInterpolator_Vtbl {
-    pub const fn new<Identity: IUIAnimationInterpolator_Impl, const OFFSET: isize>() -> IUIAnimationInterpolator_Vtbl {
+    pub const fn new<Identity: IUIAnimationInterpolator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetInitialValueAndVelocity<Identity: IUIAnimationInterpolator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initialvalue: f64, initialvelocity: f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationInterpolator_Impl::SetInitialValueAndVelocity(this, core::mem::transmute_copy(&initialvalue), core::mem::transmute_copy(&initialvelocity)).into()
@@ -123,13 +116,8 @@ impl IUIAnimationInterpolator_Vtbl {
         iid == &<IUIAnimationInterpolator as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationInterpolator {}
 windows_core::imp::define_interface!(IUIAnimationInterpolator2, IUIAnimationInterpolator2_Vtbl, 0xea76aff8_ea22_4a23_a0ef_a6a966703518);
-impl core::ops::Deref for IUIAnimationInterpolator2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationInterpolator2, windows_core::IUnknown);
 impl IUIAnimationInterpolator2 {
     pub unsafe fn GetDimension(&self) -> windows_core::Result<u32> {
@@ -178,7 +166,7 @@ pub struct IUIAnimationInterpolator2_Vtbl {
     pub GetPrimitiveInterpolation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetDependencies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UI_ANIMATION_DEPENDENCIES, *mut UI_ANIMATION_DEPENDENCIES, *mut UI_ANIMATION_DEPENDENCIES) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationInterpolator2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationInterpolator2_Impl: windows_core::IUnknownImpl {
     fn GetDimension(&self) -> windows_core::Result<u32>;
     fn SetInitialValueAndVelocity(&self, initialvalue: *const f64, initialvelocity: *const f64, cdimension: u32) -> windows_core::Result<()>;
     fn SetDuration(&self, duration: f64) -> windows_core::Result<()>;
@@ -189,9 +177,8 @@ pub trait IUIAnimationInterpolator2_Impl: Sized + windows_core::IUnknownImpl {
     fn GetPrimitiveInterpolation(&self, interpolation: Option<&IUIAnimationPrimitiveInterpolation>, cdimension: u32) -> windows_core::Result<()>;
     fn GetDependencies(&self, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationInterpolator2 {}
 impl IUIAnimationInterpolator2_Vtbl {
-    pub const fn new<Identity: IUIAnimationInterpolator2_Impl, const OFFSET: isize>() -> IUIAnimationInterpolator2_Vtbl {
+    pub const fn new<Identity: IUIAnimationInterpolator2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDimension<Identity: IUIAnimationInterpolator2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dimension: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAnimationInterpolator2_Impl::GetDimension(this) {
@@ -257,13 +244,8 @@ impl IUIAnimationInterpolator2_Vtbl {
         iid == &<IUIAnimationInterpolator2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationInterpolator2 {}
 windows_core::imp::define_interface!(IUIAnimationLoopIterationChangeHandler2, IUIAnimationLoopIterationChangeHandler2_Vtbl, 0x2d3b15a4_4762_47ab_a030_b23221df3ae0);
-impl core::ops::Deref for IUIAnimationLoopIterationChangeHandler2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationLoopIterationChangeHandler2, windows_core::IUnknown);
 impl IUIAnimationLoopIterationChangeHandler2 {
     pub unsafe fn OnLoopIterationChanged<P0>(&self, storyboard: P0, id: usize, newiterationcount: u32, olditerationcount: u32) -> windows_core::Result<()>
@@ -278,12 +260,11 @@ pub struct IUIAnimationLoopIterationChangeHandler2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnLoopIterationChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, usize, u32, u32) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationLoopIterationChangeHandler2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationLoopIterationChangeHandler2_Impl: windows_core::IUnknownImpl {
     fn OnLoopIterationChanged(&self, storyboard: Option<&IUIAnimationStoryboard2>, id: usize, newiterationcount: u32, olditerationcount: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationLoopIterationChangeHandler2 {}
 impl IUIAnimationLoopIterationChangeHandler2_Vtbl {
-    pub const fn new<Identity: IUIAnimationLoopIterationChangeHandler2_Impl, const OFFSET: isize>() -> IUIAnimationLoopIterationChangeHandler2_Vtbl {
+    pub const fn new<Identity: IUIAnimationLoopIterationChangeHandler2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnLoopIterationChanged<Identity: IUIAnimationLoopIterationChangeHandler2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storyboard: *mut core::ffi::c_void, id: usize, newiterationcount: u32, olditerationcount: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationLoopIterationChangeHandler2_Impl::OnLoopIterationChanged(this, windows_core::from_raw_borrowed(&storyboard), core::mem::transmute_copy(&id), core::mem::transmute_copy(&newiterationcount), core::mem::transmute_copy(&olditerationcount)).into()
@@ -294,13 +275,8 @@ impl IUIAnimationLoopIterationChangeHandler2_Vtbl {
         iid == &<IUIAnimationLoopIterationChangeHandler2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationLoopIterationChangeHandler2 {}
 windows_core::imp::define_interface!(IUIAnimationManager, IUIAnimationManager_Vtbl, 0x9169896c_ac8d_4e7d_94e5_67fa4dc2f2e8);
-impl core::ops::Deref for IUIAnimationManager {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationManager, windows_core::IUnknown);
 impl IUIAnimationManager {
     pub unsafe fn CreateAnimationVariable(&self, initialvalue: f64) -> windows_core::Result<IUIAnimationVariable> {
@@ -414,7 +390,7 @@ pub struct IUIAnimationManager_Vtbl {
     pub SetDefaultLongestAcceptableDelay: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationManager_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationManager_Impl: windows_core::IUnknownImpl {
     fn CreateAnimationVariable(&self, initialvalue: f64) -> windows_core::Result<IUIAnimationVariable>;
     fn ScheduleTransition(&self, variable: Option<&IUIAnimationVariable>, transition: Option<&IUIAnimationTransition>, timenow: f64) -> windows_core::Result<()>;
     fn CreateStoryboard(&self) -> windows_core::Result<IUIAnimationStoryboard>;
@@ -435,9 +411,8 @@ pub trait IUIAnimationManager_Impl: Sized + windows_core::IUnknownImpl {
     fn SetDefaultLongestAcceptableDelay(&self, delay: f64) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationManager {}
 impl IUIAnimationManager_Vtbl {
-    pub const fn new<Identity: IUIAnimationManager_Impl, const OFFSET: isize>() -> IUIAnimationManager_Vtbl {
+    pub const fn new<Identity: IUIAnimationManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateAnimationVariable<Identity: IUIAnimationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initialvalue: f64, variable: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAnimationManager_Impl::CreateAnimationVariable(this, core::mem::transmute_copy(&initialvalue)) {
@@ -571,13 +546,8 @@ impl IUIAnimationManager_Vtbl {
         iid == &<IUIAnimationManager as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationManager {}
 windows_core::imp::define_interface!(IUIAnimationManager2, IUIAnimationManager2_Vtbl, 0xd8b6f7d4_4109_4d3f_acee_879926968cb1);
-impl core::ops::Deref for IUIAnimationManager2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationManager2, windows_core::IUnknown);
 impl IUIAnimationManager2 {
     pub unsafe fn CreateAnimationVectorVariable(&self, initialvalue: &[f64]) -> windows_core::Result<IUIAnimationVariable2> {
@@ -702,7 +672,7 @@ pub struct IUIAnimationManager2_Vtbl {
     pub SetDefaultLongestAcceptableDelay: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationManager2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationManager2_Impl: windows_core::IUnknownImpl {
     fn CreateAnimationVectorVariable(&self, initialvalue: *const f64, cdimension: u32) -> windows_core::Result<IUIAnimationVariable2>;
     fn CreateAnimationVariable(&self, initialvalue: f64) -> windows_core::Result<IUIAnimationVariable2>;
     fn ScheduleTransition(&self, variable: Option<&IUIAnimationVariable2>, transition: Option<&IUIAnimationTransition2>, timenow: f64) -> windows_core::Result<()>;
@@ -725,9 +695,8 @@ pub trait IUIAnimationManager2_Impl: Sized + windows_core::IUnknownImpl {
     fn SetDefaultLongestAcceptableDelay(&self, delay: f64) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationManager2 {}
 impl IUIAnimationManager2_Vtbl {
-    pub const fn new<Identity: IUIAnimationManager2_Impl, const OFFSET: isize>() -> IUIAnimationManager2_Vtbl {
+    pub const fn new<Identity: IUIAnimationManager2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateAnimationVectorVariable<Identity: IUIAnimationManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initialvalue: *const f64, cdimension: u32, variable: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAnimationManager2_Impl::CreateAnimationVectorVariable(this, core::mem::transmute_copy(&initialvalue), core::mem::transmute_copy(&cdimension)) {
@@ -883,13 +852,8 @@ impl IUIAnimationManager2_Vtbl {
         iid == &<IUIAnimationManager2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationManager2 {}
 windows_core::imp::define_interface!(IUIAnimationManagerEventHandler, IUIAnimationManagerEventHandler_Vtbl, 0x783321ed_78a3_4366_b574_6af607a64788);
-impl core::ops::Deref for IUIAnimationManagerEventHandler {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationManagerEventHandler, windows_core::IUnknown);
 impl IUIAnimationManagerEventHandler {
     pub unsafe fn OnManagerStatusChanged(&self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> windows_core::Result<()> {
@@ -901,12 +865,11 @@ pub struct IUIAnimationManagerEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnManagerStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, UI_ANIMATION_MANAGER_STATUS, UI_ANIMATION_MANAGER_STATUS) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationManagerEventHandler_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationManagerEventHandler_Impl: windows_core::IUnknownImpl {
     fn OnManagerStatusChanged(&self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationManagerEventHandler {}
 impl IUIAnimationManagerEventHandler_Vtbl {
-    pub const fn new<Identity: IUIAnimationManagerEventHandler_Impl, const OFFSET: isize>() -> IUIAnimationManagerEventHandler_Vtbl {
+    pub const fn new<Identity: IUIAnimationManagerEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnManagerStatusChanged<Identity: IUIAnimationManagerEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationManagerEventHandler_Impl::OnManagerStatusChanged(this, core::mem::transmute_copy(&newstatus), core::mem::transmute_copy(&previousstatus)).into()
@@ -917,13 +880,8 @@ impl IUIAnimationManagerEventHandler_Vtbl {
         iid == &<IUIAnimationManagerEventHandler as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationManagerEventHandler {}
 windows_core::imp::define_interface!(IUIAnimationManagerEventHandler2, IUIAnimationManagerEventHandler2_Vtbl, 0xf6e022ba_bff3_42ec_9033_e073f33e83c3);
-impl core::ops::Deref for IUIAnimationManagerEventHandler2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationManagerEventHandler2, windows_core::IUnknown);
 impl IUIAnimationManagerEventHandler2 {
     pub unsafe fn OnManagerStatusChanged(&self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> windows_core::Result<()> {
@@ -935,12 +893,11 @@ pub struct IUIAnimationManagerEventHandler2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnManagerStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, UI_ANIMATION_MANAGER_STATUS, UI_ANIMATION_MANAGER_STATUS) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationManagerEventHandler2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationManagerEventHandler2_Impl: windows_core::IUnknownImpl {
     fn OnManagerStatusChanged(&self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationManagerEventHandler2 {}
 impl IUIAnimationManagerEventHandler2_Vtbl {
-    pub const fn new<Identity: IUIAnimationManagerEventHandler2_Impl, const OFFSET: isize>() -> IUIAnimationManagerEventHandler2_Vtbl {
+    pub const fn new<Identity: IUIAnimationManagerEventHandler2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnManagerStatusChanged<Identity: IUIAnimationManagerEventHandler2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationManagerEventHandler2_Impl::OnManagerStatusChanged(this, core::mem::transmute_copy(&newstatus), core::mem::transmute_copy(&previousstatus)).into()
@@ -951,13 +908,8 @@ impl IUIAnimationManagerEventHandler2_Vtbl {
         iid == &<IUIAnimationManagerEventHandler2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationManagerEventHandler2 {}
 windows_core::imp::define_interface!(IUIAnimationPrimitiveInterpolation, IUIAnimationPrimitiveInterpolation_Vtbl, 0xbab20d63_4361_45da_a24f_ab8508846b5b);
-impl core::ops::Deref for IUIAnimationPrimitiveInterpolation {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationPrimitiveInterpolation, windows_core::IUnknown);
 impl IUIAnimationPrimitiveInterpolation {
     pub unsafe fn AddCubic(&self, dimension: u32, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> windows_core::Result<()> {
@@ -973,13 +925,12 @@ pub struct IUIAnimationPrimitiveInterpolation_Vtbl {
     pub AddCubic: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f64, f32, f32, f32, f32) -> windows_core::HRESULT,
     pub AddSinusoidal: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f64, f32, f32, f32, f32) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationPrimitiveInterpolation_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationPrimitiveInterpolation_Impl: windows_core::IUnknownImpl {
     fn AddCubic(&self, dimension: u32, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> windows_core::Result<()>;
     fn AddSinusoidal(&self, dimension: u32, beginoffset: f64, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationPrimitiveInterpolation {}
 impl IUIAnimationPrimitiveInterpolation_Vtbl {
-    pub const fn new<Identity: IUIAnimationPrimitiveInterpolation_Impl, const OFFSET: isize>() -> IUIAnimationPrimitiveInterpolation_Vtbl {
+    pub const fn new<Identity: IUIAnimationPrimitiveInterpolation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddCubic<Identity: IUIAnimationPrimitiveInterpolation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dimension: u32, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationPrimitiveInterpolation_Impl::AddCubic(this, core::mem::transmute_copy(&dimension), core::mem::transmute_copy(&beginoffset), core::mem::transmute_copy(&constantcoefficient), core::mem::transmute_copy(&linearcoefficient), core::mem::transmute_copy(&quadraticcoefficient), core::mem::transmute_copy(&cubiccoefficient)).into()
@@ -998,13 +949,8 @@ impl IUIAnimationPrimitiveInterpolation_Vtbl {
         iid == &<IUIAnimationPrimitiveInterpolation as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationPrimitiveInterpolation {}
 windows_core::imp::define_interface!(IUIAnimationPriorityComparison, IUIAnimationPriorityComparison_Vtbl, 0x83fa9b74_5f86_4618_bc6a_a2fac19b3f44);
-impl core::ops::Deref for IUIAnimationPriorityComparison {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationPriorityComparison, windows_core::IUnknown);
 impl IUIAnimationPriorityComparison {
     pub unsafe fn HasPriority<P0, P1>(&self, scheduledstoryboard: P0, newstoryboard: P1, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> windows_core::Result<()>
@@ -1020,12 +966,11 @@ pub struct IUIAnimationPriorityComparison_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HasPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, UI_ANIMATION_PRIORITY_EFFECT) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationPriorityComparison_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationPriorityComparison_Impl: windows_core::IUnknownImpl {
     fn HasPriority(&self, scheduledstoryboard: Option<&IUIAnimationStoryboard>, newstoryboard: Option<&IUIAnimationStoryboard>, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationPriorityComparison {}
 impl IUIAnimationPriorityComparison_Vtbl {
-    pub const fn new<Identity: IUIAnimationPriorityComparison_Impl, const OFFSET: isize>() -> IUIAnimationPriorityComparison_Vtbl {
+    pub const fn new<Identity: IUIAnimationPriorityComparison_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HasPriority<Identity: IUIAnimationPriorityComparison_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scheduledstoryboard: *mut core::ffi::c_void, newstoryboard: *mut core::ffi::c_void, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationPriorityComparison_Impl::HasPriority(this, windows_core::from_raw_borrowed(&scheduledstoryboard), windows_core::from_raw_borrowed(&newstoryboard), core::mem::transmute_copy(&priorityeffect)).into()
@@ -1036,13 +981,8 @@ impl IUIAnimationPriorityComparison_Vtbl {
         iid == &<IUIAnimationPriorityComparison as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationPriorityComparison {}
 windows_core::imp::define_interface!(IUIAnimationPriorityComparison2, IUIAnimationPriorityComparison2_Vtbl, 0x5b6d7a37_4621_467c_8b05_70131de62ddb);
-impl core::ops::Deref for IUIAnimationPriorityComparison2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationPriorityComparison2, windows_core::IUnknown);
 impl IUIAnimationPriorityComparison2 {
     pub unsafe fn HasPriority<P0, P1>(&self, scheduledstoryboard: P0, newstoryboard: P1, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> windows_core::Result<()>
@@ -1058,12 +998,11 @@ pub struct IUIAnimationPriorityComparison2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub HasPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, UI_ANIMATION_PRIORITY_EFFECT) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationPriorityComparison2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationPriorityComparison2_Impl: windows_core::IUnknownImpl {
     fn HasPriority(&self, scheduledstoryboard: Option<&IUIAnimationStoryboard2>, newstoryboard: Option<&IUIAnimationStoryboard2>, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationPriorityComparison2 {}
 impl IUIAnimationPriorityComparison2_Vtbl {
-    pub const fn new<Identity: IUIAnimationPriorityComparison2_Impl, const OFFSET: isize>() -> IUIAnimationPriorityComparison2_Vtbl {
+    pub const fn new<Identity: IUIAnimationPriorityComparison2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HasPriority<Identity: IUIAnimationPriorityComparison2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scheduledstoryboard: *mut core::ffi::c_void, newstoryboard: *mut core::ffi::c_void, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationPriorityComparison2_Impl::HasPriority(this, windows_core::from_raw_borrowed(&scheduledstoryboard), windows_core::from_raw_borrowed(&newstoryboard), core::mem::transmute_copy(&priorityeffect)).into()
@@ -1074,13 +1013,8 @@ impl IUIAnimationPriorityComparison2_Vtbl {
         iid == &<IUIAnimationPriorityComparison2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationPriorityComparison2 {}
 windows_core::imp::define_interface!(IUIAnimationStoryboard, IUIAnimationStoryboard_Vtbl, 0xa8ff128f_9bf9_4af1_9e67_e5e410defb84);
-impl core::ops::Deref for IUIAnimationStoryboard {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationStoryboard, windows_core::IUnknown);
 impl IUIAnimationStoryboard {
     pub unsafe fn AddTransition<P0, P1>(&self, variable: P0, transition: P1) -> windows_core::Result<()>
@@ -1194,7 +1128,7 @@ pub struct IUIAnimationStoryboard_Vtbl {
     pub GetElapsedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetStoryboardEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationStoryboard_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationStoryboard_Impl: windows_core::IUnknownImpl {
     fn AddTransition(&self, variable: Option<&IUIAnimationVariable>, transition: Option<&IUIAnimationTransition>) -> windows_core::Result<()>;
     fn AddKeyframeAtOffset(&self, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64) -> windows_core::Result<UI_ANIMATION_KEYFRAME>;
     fn AddKeyframeAfterTransition(&self, transition: Option<&IUIAnimationTransition>) -> windows_core::Result<UI_ANIMATION_KEYFRAME>;
@@ -1213,9 +1147,8 @@ pub trait IUIAnimationStoryboard_Impl: Sized + windows_core::IUnknownImpl {
     fn GetElapsedTime(&self) -> windows_core::Result<f64>;
     fn SetStoryboardEventHandler(&self, handler: Option<&IUIAnimationStoryboardEventHandler>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationStoryboard {}
 impl IUIAnimationStoryboard_Vtbl {
-    pub const fn new<Identity: IUIAnimationStoryboard_Impl, const OFFSET: isize>() -> IUIAnimationStoryboard_Vtbl {
+    pub const fn new<Identity: IUIAnimationStoryboard_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddTransition<Identity: IUIAnimationStoryboard_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, variable: *mut core::ffi::c_void, transition: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationStoryboard_Impl::AddTransition(this, windows_core::from_raw_borrowed(&variable), windows_core::from_raw_borrowed(&transition)).into()
@@ -1333,13 +1266,8 @@ impl IUIAnimationStoryboard_Vtbl {
         iid == &<IUIAnimationStoryboard as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationStoryboard {}
 windows_core::imp::define_interface!(IUIAnimationStoryboard2, IUIAnimationStoryboard2_Vtbl, 0xae289cd2_12d4_4945_9419_9e41be034df2);
-impl core::ops::Deref for IUIAnimationStoryboard2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationStoryboard2, windows_core::IUnknown);
 impl IUIAnimationStoryboard2 {
     pub unsafe fn AddTransition<P0, P1>(&self, variable: P0, transition: P1) -> windows_core::Result<()>
@@ -1380,12 +1308,12 @@ impl IUIAnimationStoryboard2 {
     {
         (windows_core::Interface::vtable(self).AddTransitionBetweenKeyframes)(windows_core::Interface::as_raw(self), variable.param().abi(), transition.param().abi(), startkeyframe.param().abi(), endkeyframe.param().abi()).ok()
     }
-    pub unsafe fn RepeatBetweenKeyframes<P0, P1, P2, P3>(&self, startkeyframe: P0, endkeyframe: P1, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: P2, id: usize, fregisterfornextanimationevent: P3) -> windows_core::Result<()>
+    pub unsafe fn RepeatBetweenKeyframes<P0, P1, P4, P6>(&self, startkeyframe: P0, endkeyframe: P1, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: P4, id: usize, fregisterfornextanimationevent: P6) -> windows_core::Result<()>
     where
         P0: windows_core::Param<UI_ANIMATION_KEYFRAME>,
         P1: windows_core::Param<UI_ANIMATION_KEYFRAME>,
-        P2: windows_core::Param<IUIAnimationLoopIterationChangeHandler2>,
-        P3: windows_core::Param<super::super::Foundation::BOOL>,
+        P4: windows_core::Param<IUIAnimationLoopIterationChangeHandler2>,
+        P6: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).RepeatBetweenKeyframes)(windows_core::Interface::as_raw(self), startkeyframe.param().abi(), endkeyframe.param().abi(), crepetition, repeatmode, piterationchangehandler.param().abi(), id, fregisterfornextanimationevent.param().abi()).ok()
     }
@@ -1461,7 +1389,7 @@ pub struct IUIAnimationStoryboard2_Vtbl {
     pub GetElapsedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetStoryboardEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationStoryboard2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationStoryboard2_Impl: windows_core::IUnknownImpl {
     fn AddTransition(&self, variable: Option<&IUIAnimationVariable2>, transition: Option<&IUIAnimationTransition2>) -> windows_core::Result<()>;
     fn AddKeyframeAtOffset(&self, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64) -> windows_core::Result<UI_ANIMATION_KEYFRAME>;
     fn AddKeyframeAfterTransition(&self, transition: Option<&IUIAnimationTransition2>) -> windows_core::Result<UI_ANIMATION_KEYFRAME>;
@@ -1481,9 +1409,8 @@ pub trait IUIAnimationStoryboard2_Impl: Sized + windows_core::IUnknownImpl {
     fn GetElapsedTime(&self) -> windows_core::Result<f64>;
     fn SetStoryboardEventHandler(&self, handler: Option<&IUIAnimationStoryboardEventHandler2>, fregisterstatuschangefornextanimationevent: super::super::Foundation::BOOL, fregisterupdatefornextanimationevent: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationStoryboard2 {}
 impl IUIAnimationStoryboard2_Vtbl {
-    pub const fn new<Identity: IUIAnimationStoryboard2_Impl, const OFFSET: isize>() -> IUIAnimationStoryboard2_Vtbl {
+    pub const fn new<Identity: IUIAnimationStoryboard2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddTransition<Identity: IUIAnimationStoryboard2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, variable: *mut core::ffi::c_void, transition: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationStoryboard2_Impl::AddTransition(this, windows_core::from_raw_borrowed(&variable), windows_core::from_raw_borrowed(&transition)).into()
@@ -1606,13 +1533,8 @@ impl IUIAnimationStoryboard2_Vtbl {
         iid == &<IUIAnimationStoryboard2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationStoryboard2 {}
 windows_core::imp::define_interface!(IUIAnimationStoryboardEventHandler, IUIAnimationStoryboardEventHandler_Vtbl, 0x3d5c9008_ec7c_4364_9f8a_9af3c58cbae6);
-impl core::ops::Deref for IUIAnimationStoryboardEventHandler {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationStoryboardEventHandler, windows_core::IUnknown);
 impl IUIAnimationStoryboardEventHandler {
     pub unsafe fn OnStoryboardStatusChanged<P0>(&self, storyboard: P0, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> windows_core::Result<()>
@@ -1634,13 +1556,12 @@ pub struct IUIAnimationStoryboardEventHandler_Vtbl {
     pub OnStoryboardStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, UI_ANIMATION_STORYBOARD_STATUS, UI_ANIMATION_STORYBOARD_STATUS) -> windows_core::HRESULT,
     pub OnStoryboardUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationStoryboardEventHandler_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationStoryboardEventHandler_Impl: windows_core::IUnknownImpl {
     fn OnStoryboardStatusChanged(&self, storyboard: Option<&IUIAnimationStoryboard>, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> windows_core::Result<()>;
     fn OnStoryboardUpdated(&self, storyboard: Option<&IUIAnimationStoryboard>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationStoryboardEventHandler {}
 impl IUIAnimationStoryboardEventHandler_Vtbl {
-    pub const fn new<Identity: IUIAnimationStoryboardEventHandler_Impl, const OFFSET: isize>() -> IUIAnimationStoryboardEventHandler_Vtbl {
+    pub const fn new<Identity: IUIAnimationStoryboardEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnStoryboardStatusChanged<Identity: IUIAnimationStoryboardEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storyboard: *mut core::ffi::c_void, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationStoryboardEventHandler_Impl::OnStoryboardStatusChanged(this, windows_core::from_raw_borrowed(&storyboard), core::mem::transmute_copy(&newstatus), core::mem::transmute_copy(&previousstatus)).into()
@@ -1659,13 +1580,8 @@ impl IUIAnimationStoryboardEventHandler_Vtbl {
         iid == &<IUIAnimationStoryboardEventHandler as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationStoryboardEventHandler {}
 windows_core::imp::define_interface!(IUIAnimationStoryboardEventHandler2, IUIAnimationStoryboardEventHandler2_Vtbl, 0xbac5f55a_ba7c_414c_b599_fbf850f553c6);
-impl core::ops::Deref for IUIAnimationStoryboardEventHandler2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationStoryboardEventHandler2, windows_core::IUnknown);
 impl IUIAnimationStoryboardEventHandler2 {
     pub unsafe fn OnStoryboardStatusChanged<P0>(&self, storyboard: P0, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> windows_core::Result<()>
@@ -1687,13 +1603,12 @@ pub struct IUIAnimationStoryboardEventHandler2_Vtbl {
     pub OnStoryboardStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, UI_ANIMATION_STORYBOARD_STATUS, UI_ANIMATION_STORYBOARD_STATUS) -> windows_core::HRESULT,
     pub OnStoryboardUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationStoryboardEventHandler2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationStoryboardEventHandler2_Impl: windows_core::IUnknownImpl {
     fn OnStoryboardStatusChanged(&self, storyboard: Option<&IUIAnimationStoryboard2>, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> windows_core::Result<()>;
     fn OnStoryboardUpdated(&self, storyboard: Option<&IUIAnimationStoryboard2>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationStoryboardEventHandler2 {}
 impl IUIAnimationStoryboardEventHandler2_Vtbl {
-    pub const fn new<Identity: IUIAnimationStoryboardEventHandler2_Impl, const OFFSET: isize>() -> IUIAnimationStoryboardEventHandler2_Vtbl {
+    pub const fn new<Identity: IUIAnimationStoryboardEventHandler2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnStoryboardStatusChanged<Identity: IUIAnimationStoryboardEventHandler2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storyboard: *mut core::ffi::c_void, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationStoryboardEventHandler2_Impl::OnStoryboardStatusChanged(this, windows_core::from_raw_borrowed(&storyboard), core::mem::transmute_copy(&newstatus), core::mem::transmute_copy(&previousstatus)).into()
@@ -1712,13 +1627,8 @@ impl IUIAnimationStoryboardEventHandler2_Vtbl {
         iid == &<IUIAnimationStoryboardEventHandler2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationStoryboardEventHandler2 {}
 windows_core::imp::define_interface!(IUIAnimationTimer, IUIAnimationTimer_Vtbl, 0x6b0efad1_a053_41d6_9085_33a689144665);
-impl core::ops::Deref for IUIAnimationTimer {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationTimer, windows_core::IUnknown);
 impl IUIAnimationTimer {
     pub unsafe fn SetTimerUpdateHandler<P0>(&self, updatehandler: P0, idlebehavior: UI_ANIMATION_IDLE_BEHAVIOR) -> windows_core::Result<()>
@@ -1761,7 +1671,7 @@ pub struct IUIAnimationTimer_Vtbl {
     pub GetTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SetFrameRateThreshold: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationTimer_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationTimer_Impl: windows_core::IUnknownImpl {
     fn SetTimerUpdateHandler(&self, updatehandler: Option<&IUIAnimationTimerUpdateHandler>, idlebehavior: UI_ANIMATION_IDLE_BEHAVIOR) -> windows_core::Result<()>;
     fn SetTimerEventHandler(&self, handler: Option<&IUIAnimationTimerEventHandler>) -> windows_core::Result<()>;
     fn Enable(&self) -> windows_core::Result<()>;
@@ -1770,9 +1680,8 @@ pub trait IUIAnimationTimer_Impl: Sized + windows_core::IUnknownImpl {
     fn GetTime(&self) -> windows_core::Result<f64>;
     fn SetFrameRateThreshold(&self, framespersecond: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationTimer {}
 impl IUIAnimationTimer_Vtbl {
-    pub const fn new<Identity: IUIAnimationTimer_Impl, const OFFSET: isize>() -> IUIAnimationTimer_Vtbl {
+    pub const fn new<Identity: IUIAnimationTimer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetTimerUpdateHandler<Identity: IUIAnimationTimer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updatehandler: *mut core::ffi::c_void, idlebehavior: UI_ANIMATION_IDLE_BEHAVIOR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationTimer_Impl::SetTimerUpdateHandler(this, windows_core::from_raw_borrowed(&updatehandler), core::mem::transmute_copy(&idlebehavior)).into()
@@ -1822,13 +1731,8 @@ impl IUIAnimationTimer_Vtbl {
         iid == &<IUIAnimationTimer as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationTimer {}
 windows_core::imp::define_interface!(IUIAnimationTimerClientEventHandler, IUIAnimationTimerClientEventHandler_Vtbl, 0xbedb4db6_94fa_4bfb_a47f_ef2d9e408c25);
-impl core::ops::Deref for IUIAnimationTimerClientEventHandler {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationTimerClientEventHandler, windows_core::IUnknown);
 impl IUIAnimationTimerClientEventHandler {
     pub unsafe fn OnTimerClientStatusChanged(&self, newstatus: UI_ANIMATION_TIMER_CLIENT_STATUS, previousstatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> windows_core::Result<()> {
@@ -1840,12 +1744,11 @@ pub struct IUIAnimationTimerClientEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnTimerClientStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, UI_ANIMATION_TIMER_CLIENT_STATUS, UI_ANIMATION_TIMER_CLIENT_STATUS) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationTimerClientEventHandler_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationTimerClientEventHandler_Impl: windows_core::IUnknownImpl {
     fn OnTimerClientStatusChanged(&self, newstatus: UI_ANIMATION_TIMER_CLIENT_STATUS, previousstatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationTimerClientEventHandler {}
 impl IUIAnimationTimerClientEventHandler_Vtbl {
-    pub const fn new<Identity: IUIAnimationTimerClientEventHandler_Impl, const OFFSET: isize>() -> IUIAnimationTimerClientEventHandler_Vtbl {
+    pub const fn new<Identity: IUIAnimationTimerClientEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnTimerClientStatusChanged<Identity: IUIAnimationTimerClientEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newstatus: UI_ANIMATION_TIMER_CLIENT_STATUS, previousstatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationTimerClientEventHandler_Impl::OnTimerClientStatusChanged(this, core::mem::transmute_copy(&newstatus), core::mem::transmute_copy(&previousstatus)).into()
@@ -1856,13 +1759,8 @@ impl IUIAnimationTimerClientEventHandler_Vtbl {
         iid == &<IUIAnimationTimerClientEventHandler as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationTimerClientEventHandler {}
 windows_core::imp::define_interface!(IUIAnimationTimerEventHandler, IUIAnimationTimerEventHandler_Vtbl, 0x274a7dea_d771_4095_abbd_8df7abd23ce3);
-impl core::ops::Deref for IUIAnimationTimerEventHandler {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationTimerEventHandler, windows_core::IUnknown);
 impl IUIAnimationTimerEventHandler {
     pub unsafe fn OnPreUpdate(&self) -> windows_core::Result<()> {
@@ -1882,14 +1780,13 @@ pub struct IUIAnimationTimerEventHandler_Vtbl {
     pub OnPostUpdate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnRenderingTooSlow: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationTimerEventHandler_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationTimerEventHandler_Impl: windows_core::IUnknownImpl {
     fn OnPreUpdate(&self) -> windows_core::Result<()>;
     fn OnPostUpdate(&self) -> windows_core::Result<()>;
     fn OnRenderingTooSlow(&self, framespersecond: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationTimerEventHandler {}
 impl IUIAnimationTimerEventHandler_Vtbl {
-    pub const fn new<Identity: IUIAnimationTimerEventHandler_Impl, const OFFSET: isize>() -> IUIAnimationTimerEventHandler_Vtbl {
+    pub const fn new<Identity: IUIAnimationTimerEventHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnPreUpdate<Identity: IUIAnimationTimerEventHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationTimerEventHandler_Impl::OnPreUpdate(this).into()
@@ -1913,13 +1810,8 @@ impl IUIAnimationTimerEventHandler_Vtbl {
         iid == &<IUIAnimationTimerEventHandler as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationTimerEventHandler {}
 windows_core::imp::define_interface!(IUIAnimationTimerUpdateHandler, IUIAnimationTimerUpdateHandler_Vtbl, 0x195509b7_5d5e_4e3e_b278_ee3759b367ad);
-impl core::ops::Deref for IUIAnimationTimerUpdateHandler {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationTimerUpdateHandler, windows_core::IUnknown);
 impl IUIAnimationTimerUpdateHandler {
     pub unsafe fn OnUpdate(&self, timenow: f64) -> windows_core::Result<UI_ANIMATION_UPDATE_RESULT> {
@@ -1943,14 +1835,13 @@ pub struct IUIAnimationTimerUpdateHandler_Vtbl {
     pub SetTimerClientEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearTimerClientEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationTimerUpdateHandler_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationTimerUpdateHandler_Impl: windows_core::IUnknownImpl {
     fn OnUpdate(&self, timenow: f64) -> windows_core::Result<UI_ANIMATION_UPDATE_RESULT>;
     fn SetTimerClientEventHandler(&self, handler: Option<&IUIAnimationTimerClientEventHandler>) -> windows_core::Result<()>;
     fn ClearTimerClientEventHandler(&self) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationTimerUpdateHandler {}
 impl IUIAnimationTimerUpdateHandler_Vtbl {
-    pub const fn new<Identity: IUIAnimationTimerUpdateHandler_Impl, const OFFSET: isize>() -> IUIAnimationTimerUpdateHandler_Vtbl {
+    pub const fn new<Identity: IUIAnimationTimerUpdateHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnUpdate<Identity: IUIAnimationTimerUpdateHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timenow: f64, result: *mut UI_ANIMATION_UPDATE_RESULT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAnimationTimerUpdateHandler_Impl::OnUpdate(this, core::mem::transmute_copy(&timenow)) {
@@ -1980,13 +1871,8 @@ impl IUIAnimationTimerUpdateHandler_Vtbl {
         iid == &<IUIAnimationTimerUpdateHandler as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationTimerUpdateHandler {}
 windows_core::imp::define_interface!(IUIAnimationTransition, IUIAnimationTransition_Vtbl, 0xdc6ce252_f731_41cf_b610_614b6ca049ad);
-impl core::ops::Deref for IUIAnimationTransition {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationTransition, windows_core::IUnknown);
 impl IUIAnimationTransition {
     pub unsafe fn SetInitialValue(&self, value: f64) -> windows_core::Result<()> {
@@ -2011,15 +1897,14 @@ pub struct IUIAnimationTransition_Vtbl {
     pub IsDurationKnown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationTransition_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationTransition_Impl: windows_core::IUnknownImpl {
     fn SetInitialValue(&self, value: f64) -> windows_core::Result<()>;
     fn SetInitialVelocity(&self, velocity: f64) -> windows_core::Result<()>;
     fn IsDurationKnown(&self) -> windows_core::Result<()>;
     fn GetDuration(&self) -> windows_core::Result<f64>;
 }
-impl windows_core::RuntimeName for IUIAnimationTransition {}
 impl IUIAnimationTransition_Vtbl {
-    pub const fn new<Identity: IUIAnimationTransition_Impl, const OFFSET: isize>() -> IUIAnimationTransition_Vtbl {
+    pub const fn new<Identity: IUIAnimationTransition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetInitialValue<Identity: IUIAnimationTransition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationTransition_Impl::SetInitialValue(this, core::mem::transmute_copy(&value)).into()
@@ -2054,13 +1939,8 @@ impl IUIAnimationTransition_Vtbl {
         iid == &<IUIAnimationTransition as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationTransition {}
 windows_core::imp::define_interface!(IUIAnimationTransition2, IUIAnimationTransition2_Vtbl, 0x62ff9123_a85a_4e9b_a218_435a93e268fd);
-impl core::ops::Deref for IUIAnimationTransition2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationTransition2, windows_core::IUnknown);
 impl IUIAnimationTransition2 {
     pub unsafe fn GetDimension(&self) -> windows_core::Result<u32> {
@@ -2098,7 +1978,7 @@ pub struct IUIAnimationTransition2_Vtbl {
     pub IsDurationKnown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationTransition2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationTransition2_Impl: windows_core::IUnknownImpl {
     fn GetDimension(&self) -> windows_core::Result<u32>;
     fn SetInitialValue(&self, value: f64) -> windows_core::Result<()>;
     fn SetInitialVectorValue(&self, value: *const f64, cdimension: u32) -> windows_core::Result<()>;
@@ -2107,9 +1987,8 @@ pub trait IUIAnimationTransition2_Impl: Sized + windows_core::IUnknownImpl {
     fn IsDurationKnown(&self) -> windows_core::Result<()>;
     fn GetDuration(&self) -> windows_core::Result<f64>;
 }
-impl windows_core::RuntimeName for IUIAnimationTransition2 {}
 impl IUIAnimationTransition2_Vtbl {
-    pub const fn new<Identity: IUIAnimationTransition2_Impl, const OFFSET: isize>() -> IUIAnimationTransition2_Vtbl {
+    pub const fn new<Identity: IUIAnimationTransition2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDimension<Identity: IUIAnimationTransition2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dimension: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAnimationTransition2_Impl::GetDimension(this) {
@@ -2165,13 +2044,8 @@ impl IUIAnimationTransition2_Vtbl {
         iid == &<IUIAnimationTransition2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationTransition2 {}
 windows_core::imp::define_interface!(IUIAnimationTransitionFactory, IUIAnimationTransitionFactory_Vtbl, 0xfcd91e03_3e3b_45ad_bbb1_6dfc8153743d);
-impl core::ops::Deref for IUIAnimationTransitionFactory {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationTransitionFactory, windows_core::IUnknown);
 impl IUIAnimationTransitionFactory {
     pub unsafe fn CreateTransition<P0>(&self, interpolator: P0) -> windows_core::Result<IUIAnimationTransition>
@@ -2187,12 +2061,11 @@ pub struct IUIAnimationTransitionFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateTransition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationTransitionFactory_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationTransitionFactory_Impl: windows_core::IUnknownImpl {
     fn CreateTransition(&self, interpolator: Option<&IUIAnimationInterpolator>) -> windows_core::Result<IUIAnimationTransition>;
 }
-impl windows_core::RuntimeName for IUIAnimationTransitionFactory {}
 impl IUIAnimationTransitionFactory_Vtbl {
-    pub const fn new<Identity: IUIAnimationTransitionFactory_Impl, const OFFSET: isize>() -> IUIAnimationTransitionFactory_Vtbl {
+    pub const fn new<Identity: IUIAnimationTransitionFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateTransition<Identity: IUIAnimationTransitionFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interpolator: *mut core::ffi::c_void, transition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAnimationTransitionFactory_Impl::CreateTransition(this, windows_core::from_raw_borrowed(&interpolator)) {
@@ -2209,13 +2082,8 @@ impl IUIAnimationTransitionFactory_Vtbl {
         iid == &<IUIAnimationTransitionFactory as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationTransitionFactory {}
 windows_core::imp::define_interface!(IUIAnimationTransitionFactory2, IUIAnimationTransitionFactory2_Vtbl, 0x937d4916_c1a6_42d5_88d8_30344d6efe31);
-impl core::ops::Deref for IUIAnimationTransitionFactory2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationTransitionFactory2, windows_core::IUnknown);
 impl IUIAnimationTransitionFactory2 {
     pub unsafe fn CreateTransition<P0>(&self, interpolator: P0) -> windows_core::Result<IUIAnimationTransition2>
@@ -2231,12 +2099,11 @@ pub struct IUIAnimationTransitionFactory2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateTransition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationTransitionFactory2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationTransitionFactory2_Impl: windows_core::IUnknownImpl {
     fn CreateTransition(&self, interpolator: Option<&IUIAnimationInterpolator2>) -> windows_core::Result<IUIAnimationTransition2>;
 }
-impl windows_core::RuntimeName for IUIAnimationTransitionFactory2 {}
 impl IUIAnimationTransitionFactory2_Vtbl {
-    pub const fn new<Identity: IUIAnimationTransitionFactory2_Impl, const OFFSET: isize>() -> IUIAnimationTransitionFactory2_Vtbl {
+    pub const fn new<Identity: IUIAnimationTransitionFactory2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateTransition<Identity: IUIAnimationTransitionFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interpolator: *mut core::ffi::c_void, transition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAnimationTransitionFactory2_Impl::CreateTransition(this, windows_core::from_raw_borrowed(&interpolator)) {
@@ -2253,13 +2120,8 @@ impl IUIAnimationTransitionFactory2_Vtbl {
         iid == &<IUIAnimationTransitionFactory2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationTransitionFactory2 {}
 windows_core::imp::define_interface!(IUIAnimationTransitionLibrary, IUIAnimationTransitionLibrary_Vtbl, 0xca5a14b1_d24f_48b8_8fe4_c78169ba954e);
-impl core::ops::Deref for IUIAnimationTransitionLibrary {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationTransitionLibrary, windows_core::IUnknown);
 impl IUIAnimationTransitionLibrary {
     pub unsafe fn CreateInstantaneousTransition(&self, finalvalue: f64) -> windows_core::Result<IUIAnimationTransition> {
@@ -2327,7 +2189,7 @@ pub struct IUIAnimationTransitionLibrary_Vtbl {
     pub CreateSmoothStopTransition: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateParabolicTransitionFromAcceleration: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationTransitionLibrary_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationTransitionLibrary_Impl: windows_core::IUnknownImpl {
     fn CreateInstantaneousTransition(&self, finalvalue: f64) -> windows_core::Result<IUIAnimationTransition>;
     fn CreateConstantTransition(&self, duration: f64) -> windows_core::Result<IUIAnimationTransition>;
     fn CreateDiscreteTransition(&self, delay: f64, finalvalue: f64, hold: f64) -> windows_core::Result<IUIAnimationTransition>;
@@ -2341,9 +2203,8 @@ pub trait IUIAnimationTransitionLibrary_Impl: Sized + windows_core::IUnknownImpl
     fn CreateSmoothStopTransition(&self, maximumduration: f64, finalvalue: f64) -> windows_core::Result<IUIAnimationTransition>;
     fn CreateParabolicTransitionFromAcceleration(&self, finalvalue: f64, finalvelocity: f64, acceleration: f64) -> windows_core::Result<IUIAnimationTransition>;
 }
-impl windows_core::RuntimeName for IUIAnimationTransitionLibrary {}
 impl IUIAnimationTransitionLibrary_Vtbl {
-    pub const fn new<Identity: IUIAnimationTransitionLibrary_Impl, const OFFSET: isize>() -> IUIAnimationTransitionLibrary_Vtbl {
+    pub const fn new<Identity: IUIAnimationTransitionLibrary_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateInstantaneousTransition<Identity: IUIAnimationTransitionLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, finalvalue: f64, transition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAnimationTransitionLibrary_Impl::CreateInstantaneousTransition(this, core::mem::transmute_copy(&finalvalue)) {
@@ -2484,13 +2345,8 @@ impl IUIAnimationTransitionLibrary_Vtbl {
         iid == &<IUIAnimationTransitionLibrary as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationTransitionLibrary {}
 windows_core::imp::define_interface!(IUIAnimationTransitionLibrary2, IUIAnimationTransitionLibrary2_Vtbl, 0x03cfae53_9580_4ee3_b363_2ece51b4af6a);
-impl core::ops::Deref for IUIAnimationTransitionLibrary2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationTransitionLibrary2, windows_core::IUnknown);
 impl IUIAnimationTransitionLibrary2 {
     pub unsafe fn CreateInstantaneousTransition(&self, finalvalue: f64) -> windows_core::Result<IUIAnimationTransition2> {
@@ -2593,7 +2449,7 @@ pub struct IUIAnimationTransitionLibrary2_Vtbl {
     pub CreateCubicBezierLinearTransition: unsafe extern "system" fn(*mut core::ffi::c_void, f64, f64, f64, f64, f64, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateCubicBezierLinearVectorTransition: unsafe extern "system" fn(*mut core::ffi::c_void, f64, *const f64, u32, f64, f64, f64, f64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationTransitionLibrary2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationTransitionLibrary2_Impl: windows_core::IUnknownImpl {
     fn CreateInstantaneousTransition(&self, finalvalue: f64) -> windows_core::Result<IUIAnimationTransition2>;
     fn CreateInstantaneousVectorTransition(&self, finalvalue: *const f64, cdimension: u32) -> windows_core::Result<IUIAnimationTransition2>;
     fn CreateConstantTransition(&self, duration: f64) -> windows_core::Result<IUIAnimationTransition2>;
@@ -2614,9 +2470,8 @@ pub trait IUIAnimationTransitionLibrary2_Impl: Sized + windows_core::IUnknownImp
     fn CreateCubicBezierLinearTransition(&self, duration: f64, finalvalue: f64, x1: f64, y1: f64, x2: f64, y2: f64) -> windows_core::Result<IUIAnimationTransition2>;
     fn CreateCubicBezierLinearVectorTransition(&self, duration: f64, finalvalue: *const f64, cdimension: u32, x1: f64, y1: f64, x2: f64, y2: f64) -> windows_core::Result<IUIAnimationTransition2>;
 }
-impl windows_core::RuntimeName for IUIAnimationTransitionLibrary2 {}
 impl IUIAnimationTransitionLibrary2_Vtbl {
-    pub const fn new<Identity: IUIAnimationTransitionLibrary2_Impl, const OFFSET: isize>() -> IUIAnimationTransitionLibrary2_Vtbl {
+    pub const fn new<Identity: IUIAnimationTransitionLibrary2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateInstantaneousTransition<Identity: IUIAnimationTransitionLibrary2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, finalvalue: f64, transition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAnimationTransitionLibrary2_Impl::CreateInstantaneousTransition(this, core::mem::transmute_copy(&finalvalue)) {
@@ -2834,13 +2689,8 @@ impl IUIAnimationTransitionLibrary2_Vtbl {
         iid == &<IUIAnimationTransitionLibrary2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationTransitionLibrary2 {}
 windows_core::imp::define_interface!(IUIAnimationVariable, IUIAnimationVariable_Vtbl, 0x8ceeb155_2849_4ce5_9448_91ff70e1e4d9);
-impl core::ops::Deref for IUIAnimationVariable {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationVariable, windows_core::IUnknown);
 impl IUIAnimationVariable {
     pub unsafe fn GetValue(&self) -> windows_core::Result<f64> {
@@ -2920,7 +2770,7 @@ pub struct IUIAnimationVariable_Vtbl {
     pub SetVariableChangeHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetVariableIntegerChangeHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationVariable_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationVariable_Impl: windows_core::IUnknownImpl {
     fn GetValue(&self) -> windows_core::Result<f64>;
     fn GetFinalValue(&self) -> windows_core::Result<f64>;
     fn GetPreviousValue(&self) -> windows_core::Result<f64>;
@@ -2936,9 +2786,8 @@ pub trait IUIAnimationVariable_Impl: Sized + windows_core::IUnknownImpl {
     fn SetVariableChangeHandler(&self, handler: Option<&IUIAnimationVariableChangeHandler>) -> windows_core::Result<()>;
     fn SetVariableIntegerChangeHandler(&self, handler: Option<&IUIAnimationVariableIntegerChangeHandler>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationVariable {}
 impl IUIAnimationVariable_Vtbl {
-    pub const fn new<Identity: IUIAnimationVariable_Impl, const OFFSET: isize>() -> IUIAnimationVariable_Vtbl {
+    pub const fn new<Identity: IUIAnimationVariable_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetValue<Identity: IUIAnimationVariable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAnimationVariable_Impl::GetValue(this) {
@@ -3059,13 +2908,8 @@ impl IUIAnimationVariable_Vtbl {
         iid == &<IUIAnimationVariable as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationVariable {}
 windows_core::imp::define_interface!(IUIAnimationVariable2, IUIAnimationVariable2_Vtbl, 0x4914b304_96ab_44d9_9e77_d5109b7e7466);
-impl core::ops::Deref for IUIAnimationVariable2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationVariable2, windows_core::IUnknown);
 impl IUIAnimationVariable2 {
     pub unsafe fn GetDimension(&self) -> windows_core::Result<u32> {
@@ -3211,7 +3055,7 @@ pub struct IUIAnimationVariable2_Vtbl {
     pub SetVariableCurveChangeHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_DirectComposition")]
-pub trait IUIAnimationVariable2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationVariable2_Impl: windows_core::IUnknownImpl {
     fn GetDimension(&self) -> windows_core::Result<u32>;
     fn GetValue(&self) -> windows_core::Result<f64>;
     fn GetVectorValue(&self, value: *mut f64, cdimension: u32) -> windows_core::Result<()>;
@@ -3240,10 +3084,8 @@ pub trait IUIAnimationVariable2_Impl: Sized + windows_core::IUnknownImpl {
     fn SetVariableCurveChangeHandler(&self, handler: Option<&IUIAnimationVariableCurveChangeHandler2>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_DirectComposition")]
-impl windows_core::RuntimeName for IUIAnimationVariable2 {}
-#[cfg(feature = "Win32_Graphics_DirectComposition")]
 impl IUIAnimationVariable2_Vtbl {
-    pub const fn new<Identity: IUIAnimationVariable2_Impl, const OFFSET: isize>() -> IUIAnimationVariable2_Vtbl {
+    pub const fn new<Identity: IUIAnimationVariable2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDimension<Identity: IUIAnimationVariable2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dimension: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IUIAnimationVariable2_Impl::GetDimension(this) {
@@ -3430,13 +3272,9 @@ impl IUIAnimationVariable2_Vtbl {
         iid == &<IUIAnimationVariable2 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_DirectComposition")]
+impl windows_core::RuntimeName for IUIAnimationVariable2 {}
 windows_core::imp::define_interface!(IUIAnimationVariableChangeHandler, IUIAnimationVariableChangeHandler_Vtbl, 0x6358b7ba_87d2_42d5_bf71_82e919dd5862);
-impl core::ops::Deref for IUIAnimationVariableChangeHandler {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationVariableChangeHandler, windows_core::IUnknown);
 impl IUIAnimationVariableChangeHandler {
     pub unsafe fn OnValueChanged<P0, P1>(&self, storyboard: P0, variable: P1, newvalue: f64, previousvalue: f64) -> windows_core::Result<()>
@@ -3452,12 +3290,11 @@ pub struct IUIAnimationVariableChangeHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, f64, f64) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationVariableChangeHandler_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationVariableChangeHandler_Impl: windows_core::IUnknownImpl {
     fn OnValueChanged(&self, storyboard: Option<&IUIAnimationStoryboard>, variable: Option<&IUIAnimationVariable>, newvalue: f64, previousvalue: f64) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationVariableChangeHandler {}
 impl IUIAnimationVariableChangeHandler_Vtbl {
-    pub const fn new<Identity: IUIAnimationVariableChangeHandler_Impl, const OFFSET: isize>() -> IUIAnimationVariableChangeHandler_Vtbl {
+    pub const fn new<Identity: IUIAnimationVariableChangeHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnValueChanged<Identity: IUIAnimationVariableChangeHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storyboard: *mut core::ffi::c_void, variable: *mut core::ffi::c_void, newvalue: f64, previousvalue: f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationVariableChangeHandler_Impl::OnValueChanged(this, windows_core::from_raw_borrowed(&storyboard), windows_core::from_raw_borrowed(&variable), core::mem::transmute_copy(&newvalue), core::mem::transmute_copy(&previousvalue)).into()
@@ -3468,13 +3305,8 @@ impl IUIAnimationVariableChangeHandler_Vtbl {
         iid == &<IUIAnimationVariableChangeHandler as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationVariableChangeHandler {}
 windows_core::imp::define_interface!(IUIAnimationVariableChangeHandler2, IUIAnimationVariableChangeHandler2_Vtbl, 0x63acc8d2_6eae_4bb0_b879_586dd8cfbe42);
-impl core::ops::Deref for IUIAnimationVariableChangeHandler2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationVariableChangeHandler2, windows_core::IUnknown);
 impl IUIAnimationVariableChangeHandler2 {
     pub unsafe fn OnValueChanged<P0, P1>(&self, storyboard: P0, variable: P1, newvalue: *const f64, previousvalue: *const f64, cdimension: u32) -> windows_core::Result<()>
@@ -3490,12 +3322,11 @@ pub struct IUIAnimationVariableChangeHandler2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const f64, *const f64, u32) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationVariableChangeHandler2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationVariableChangeHandler2_Impl: windows_core::IUnknownImpl {
     fn OnValueChanged(&self, storyboard: Option<&IUIAnimationStoryboard2>, variable: Option<&IUIAnimationVariable2>, newvalue: *const f64, previousvalue: *const f64, cdimension: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationVariableChangeHandler2 {}
 impl IUIAnimationVariableChangeHandler2_Vtbl {
-    pub const fn new<Identity: IUIAnimationVariableChangeHandler2_Impl, const OFFSET: isize>() -> IUIAnimationVariableChangeHandler2_Vtbl {
+    pub const fn new<Identity: IUIAnimationVariableChangeHandler2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnValueChanged<Identity: IUIAnimationVariableChangeHandler2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storyboard: *mut core::ffi::c_void, variable: *mut core::ffi::c_void, newvalue: *const f64, previousvalue: *const f64, cdimension: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationVariableChangeHandler2_Impl::OnValueChanged(this, windows_core::from_raw_borrowed(&storyboard), windows_core::from_raw_borrowed(&variable), core::mem::transmute_copy(&newvalue), core::mem::transmute_copy(&previousvalue), core::mem::transmute_copy(&cdimension)).into()
@@ -3506,13 +3337,8 @@ impl IUIAnimationVariableChangeHandler2_Vtbl {
         iid == &<IUIAnimationVariableChangeHandler2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationVariableChangeHandler2 {}
 windows_core::imp::define_interface!(IUIAnimationVariableCurveChangeHandler2, IUIAnimationVariableCurveChangeHandler2_Vtbl, 0x72895e91_0145_4c21_9192_5aab40eddf80);
-impl core::ops::Deref for IUIAnimationVariableCurveChangeHandler2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationVariableCurveChangeHandler2, windows_core::IUnknown);
 impl IUIAnimationVariableCurveChangeHandler2 {
     pub unsafe fn OnCurveChanged<P0>(&self, variable: P0) -> windows_core::Result<()>
@@ -3527,12 +3353,11 @@ pub struct IUIAnimationVariableCurveChangeHandler2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnCurveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationVariableCurveChangeHandler2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationVariableCurveChangeHandler2_Impl: windows_core::IUnknownImpl {
     fn OnCurveChanged(&self, variable: Option<&IUIAnimationVariable2>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationVariableCurveChangeHandler2 {}
 impl IUIAnimationVariableCurveChangeHandler2_Vtbl {
-    pub const fn new<Identity: IUIAnimationVariableCurveChangeHandler2_Impl, const OFFSET: isize>() -> IUIAnimationVariableCurveChangeHandler2_Vtbl {
+    pub const fn new<Identity: IUIAnimationVariableCurveChangeHandler2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnCurveChanged<Identity: IUIAnimationVariableCurveChangeHandler2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, variable: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationVariableCurveChangeHandler2_Impl::OnCurveChanged(this, windows_core::from_raw_borrowed(&variable)).into()
@@ -3543,13 +3368,8 @@ impl IUIAnimationVariableCurveChangeHandler2_Vtbl {
         iid == &<IUIAnimationVariableCurveChangeHandler2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationVariableCurveChangeHandler2 {}
 windows_core::imp::define_interface!(IUIAnimationVariableIntegerChangeHandler, IUIAnimationVariableIntegerChangeHandler_Vtbl, 0xbb3e1550_356e_44b0_99da_85ac6017865e);
-impl core::ops::Deref for IUIAnimationVariableIntegerChangeHandler {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationVariableIntegerChangeHandler, windows_core::IUnknown);
 impl IUIAnimationVariableIntegerChangeHandler {
     pub unsafe fn OnIntegerValueChanged<P0, P1>(&self, storyboard: P0, variable: P1, newvalue: i32, previousvalue: i32) -> windows_core::Result<()>
@@ -3565,12 +3385,11 @@ pub struct IUIAnimationVariableIntegerChangeHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnIntegerValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationVariableIntegerChangeHandler_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationVariableIntegerChangeHandler_Impl: windows_core::IUnknownImpl {
     fn OnIntegerValueChanged(&self, storyboard: Option<&IUIAnimationStoryboard>, variable: Option<&IUIAnimationVariable>, newvalue: i32, previousvalue: i32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationVariableIntegerChangeHandler {}
 impl IUIAnimationVariableIntegerChangeHandler_Vtbl {
-    pub const fn new<Identity: IUIAnimationVariableIntegerChangeHandler_Impl, const OFFSET: isize>() -> IUIAnimationVariableIntegerChangeHandler_Vtbl {
+    pub const fn new<Identity: IUIAnimationVariableIntegerChangeHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnIntegerValueChanged<Identity: IUIAnimationVariableIntegerChangeHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storyboard: *mut core::ffi::c_void, variable: *mut core::ffi::c_void, newvalue: i32, previousvalue: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationVariableIntegerChangeHandler_Impl::OnIntegerValueChanged(this, windows_core::from_raw_borrowed(&storyboard), windows_core::from_raw_borrowed(&variable), core::mem::transmute_copy(&newvalue), core::mem::transmute_copy(&previousvalue)).into()
@@ -3581,13 +3400,8 @@ impl IUIAnimationVariableIntegerChangeHandler_Vtbl {
         iid == &<IUIAnimationVariableIntegerChangeHandler as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationVariableIntegerChangeHandler {}
 windows_core::imp::define_interface!(IUIAnimationVariableIntegerChangeHandler2, IUIAnimationVariableIntegerChangeHandler2_Vtbl, 0x829b6cf1_4f3a_4412_ae09_b243eb4c6b58);
-impl core::ops::Deref for IUIAnimationVariableIntegerChangeHandler2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUIAnimationVariableIntegerChangeHandler2, windows_core::IUnknown);
 impl IUIAnimationVariableIntegerChangeHandler2 {
     pub unsafe fn OnIntegerValueChanged<P0, P1>(&self, storyboard: P0, variable: P1, newvalue: *const i32, previousvalue: *const i32, cdimension: u32) -> windows_core::Result<()>
@@ -3603,12 +3417,11 @@ pub struct IUIAnimationVariableIntegerChangeHandler2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnIntegerValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const i32, *const i32, u32) -> windows_core::HRESULT,
 }
-pub trait IUIAnimationVariableIntegerChangeHandler2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IUIAnimationVariableIntegerChangeHandler2_Impl: windows_core::IUnknownImpl {
     fn OnIntegerValueChanged(&self, storyboard: Option<&IUIAnimationStoryboard2>, variable: Option<&IUIAnimationVariable2>, newvalue: *const i32, previousvalue: *const i32, cdimension: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IUIAnimationVariableIntegerChangeHandler2 {}
 impl IUIAnimationVariableIntegerChangeHandler2_Vtbl {
-    pub const fn new<Identity: IUIAnimationVariableIntegerChangeHandler2_Impl, const OFFSET: isize>() -> IUIAnimationVariableIntegerChangeHandler2_Vtbl {
+    pub const fn new<Identity: IUIAnimationVariableIntegerChangeHandler2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnIntegerValueChanged<Identity: IUIAnimationVariableIntegerChangeHandler2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storyboard: *mut core::ffi::c_void, variable: *mut core::ffi::c_void, newvalue: *const i32, previousvalue: *const i32, cdimension: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IUIAnimationVariableIntegerChangeHandler2_Impl::OnIntegerValueChanged(this, windows_core::from_raw_borrowed(&storyboard), windows_core::from_raw_borrowed(&variable), core::mem::transmute_copy(&newvalue), core::mem::transmute_copy(&previousvalue), core::mem::transmute_copy(&cdimension)).into()
@@ -3619,6 +3432,7 @@ impl IUIAnimationVariableIntegerChangeHandler2_Vtbl {
         iid == &<IUIAnimationVariableIntegerChangeHandler2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IUIAnimationVariableIntegerChangeHandler2 {}
 pub const UI_ANIMATION_DEPENDENCY_DURATION: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(8i32);
 pub const UI_ANIMATION_DEPENDENCY_FINAL_VALUE: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(2i32);
 pub const UI_ANIMATION_DEPENDENCY_FINAL_VELOCITY: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(4i32);
@@ -3663,15 +3477,10 @@ pub const UI_ANIMATION_TIMER_CLIENT_IDLE: UI_ANIMATION_TIMER_CLIENT_STATUS = UI_
 pub const UI_ANIMATION_UPDATE_NO_CHANGE: UI_ANIMATION_UPDATE_RESULT = UI_ANIMATION_UPDATE_RESULT(0i32);
 pub const UI_ANIMATION_UPDATE_VARIABLES_CHANGED: UI_ANIMATION_UPDATE_RESULT = UI_ANIMATION_UPDATE_RESULT(1i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct UI_ANIMATION_DEPENDENCIES(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_DEPENDENCIES {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for UI_ANIMATION_DEPENDENCIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_DEPENDENCIES").field(&self.0).finish()
-    }
 }
 impl UI_ANIMATION_DEPENDENCIES {
     pub const fn contains(&self, other: Self) -> bool {
@@ -3707,125 +3516,70 @@ impl core::ops::Not for UI_ANIMATION_DEPENDENCIES {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct UI_ANIMATION_IDLE_BEHAVIOR(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_IDLE_BEHAVIOR {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UI_ANIMATION_IDLE_BEHAVIOR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_IDLE_BEHAVIOR").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct UI_ANIMATION_MANAGER_STATUS(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_MANAGER_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UI_ANIMATION_MANAGER_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_MANAGER_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct UI_ANIMATION_MODE(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_MODE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UI_ANIMATION_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_MODE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct UI_ANIMATION_PRIORITY_EFFECT(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_PRIORITY_EFFECT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UI_ANIMATION_PRIORITY_EFFECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_PRIORITY_EFFECT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct UI_ANIMATION_REPEAT_MODE(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_REPEAT_MODE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UI_ANIMATION_REPEAT_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_REPEAT_MODE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct UI_ANIMATION_ROUNDING_MODE(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_ROUNDING_MODE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UI_ANIMATION_ROUNDING_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_ROUNDING_MODE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct UI_ANIMATION_SCHEDULING_RESULT(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_SCHEDULING_RESULT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UI_ANIMATION_SCHEDULING_RESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_SCHEDULING_RESULT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct UI_ANIMATION_SLOPE(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_SLOPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UI_ANIMATION_SLOPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_SLOPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct UI_ANIMATION_STORYBOARD_STATUS(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_STORYBOARD_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UI_ANIMATION_STORYBOARD_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_STORYBOARD_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct UI_ANIMATION_TIMER_CLIENT_STATUS(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_TIMER_CLIENT_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UI_ANIMATION_TIMER_CLIENT_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_TIMER_CLIENT_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct UI_ANIMATION_UPDATE_RESULT(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_UPDATE_RESULT {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for UI_ANIMATION_UPDATE_RESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_UPDATE_RESULT").field(&self.0).finish()
-    }
 }
 pub const UIAnimationManager: windows_core::GUID = windows_core::GUID::from_u128(0x4c1fc63a_695c_47e8_a339_1a194be3d0b8);
 pub const UIAnimationManager2: windows_core::GUID = windows_core::GUID::from_u128(0xd25d8842_8884_4a4a_b321_091314379bdd);
@@ -3835,13 +3589,8 @@ pub const UIAnimationTransitionFactory2: windows_core::GUID = windows_core::GUID
 pub const UIAnimationTransitionLibrary: windows_core::GUID = windows_core::GUID::from_u128(0x1d6322ad_aa85_4ef5_a828_86d71067d145);
 pub const UIAnimationTransitionLibrary2: windows_core::GUID = windows_core::GUID::from_u128(0x812f944a_c5c8_4cd9_b0a6_b3da802f228d);
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UI_ANIMATION_KEYFRAME(pub isize);
-impl Default for UI_ANIMATION_KEYFRAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for UI_ANIMATION_KEYFRAME {
     type TypeKind = windows_core::CopyType;
 }

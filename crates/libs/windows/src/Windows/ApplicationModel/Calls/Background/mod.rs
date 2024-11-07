@@ -98,7 +98,11 @@ pub struct IPhoneNewVoicemailMessageTriggerDetails_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallBlockedTriggerDetails(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneCallBlockedTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallBlockedTriggerDetails>();
+}
 windows_core::imp::interface_hierarchy!(PhoneCallBlockedTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneCallBlockedTriggerDetails,);
 impl PhoneCallBlockedTriggerDetails {
     pub fn PhoneNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -122,24 +126,25 @@ impl PhoneCallBlockedTriggerDetails {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneCallBlockedTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallBlockedTriggerDetails>();
-}
 unsafe impl windows_core::Interface for PhoneCallBlockedTriggerDetails {
-    type Vtable = IPhoneCallBlockedTriggerDetails_Vtbl;
+    type Vtable = <IPhoneCallBlockedTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCallBlockedTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneCallBlockedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneCallBlockedTriggerDetails";
 }
-unsafe impl Send for PhoneCallBlockedTriggerDetails {}
-unsafe impl Sync for PhoneCallBlockedTriggerDetails {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallOriginDataRequestTriggerDetails(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for PhoneCallOriginDataRequestTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallOriginDataRequestTriggerDetails>();
+}
+#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PhoneCallOriginDataRequestTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(PhoneCallOriginDataRequestTriggerDetails,);
 #[cfg(feature = "deprecated")]
 impl PhoneCallOriginDataRequestTriggerDetails {
     #[cfg(feature = "deprecated")]
@@ -160,12 +165,8 @@ impl PhoneCallOriginDataRequestTriggerDetails {
     }
 }
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for PhoneCallOriginDataRequestTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallOriginDataRequestTriggerDetails>();
-}
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PhoneCallOriginDataRequestTriggerDetails {
-    type Vtable = IPhoneCallOriginDataRequestTriggerDetails_Vtbl;
+    type Vtable = <IPhoneCallOriginDataRequestTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCallOriginDataRequestTriggerDetails as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -173,15 +174,17 @@ impl windows_core::RuntimeName for PhoneCallOriginDataRequestTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneCallOriginDataRequestTriggerDetails";
 }
 #[cfg(feature = "deprecated")]
-unsafe impl Send for PhoneCallOriginDataRequestTriggerDetails {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for PhoneCallOriginDataRequestTriggerDetails {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneIncomingCallDismissedTriggerDetails(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for PhoneIncomingCallDismissedTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneIncomingCallDismissedTriggerDetails>();
+}
+#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PhoneIncomingCallDismissedTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(PhoneIncomingCallDismissedTriggerDetails,);
 #[cfg(feature = "deprecated")]
 impl PhoneIncomingCallDismissedTriggerDetails {
     #[cfg(feature = "deprecated")]
@@ -234,26 +237,22 @@ impl PhoneIncomingCallDismissedTriggerDetails {
     }
 }
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for PhoneIncomingCallDismissedTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneIncomingCallDismissedTriggerDetails>();
-}
-#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PhoneIncomingCallDismissedTriggerDetails {
-    type Vtable = IPhoneIncomingCallDismissedTriggerDetails_Vtbl;
+    type Vtable = <IPhoneIncomingCallDismissedTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneIncomingCallDismissedTriggerDetails as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for PhoneIncomingCallDismissedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedTriggerDetails";
 }
-#[cfg(feature = "deprecated")]
-unsafe impl Send for PhoneIncomingCallDismissedTriggerDetails {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for PhoneIncomingCallDismissedTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneIncomingCallNotificationTriggerDetails(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneIncomingCallNotificationTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneIncomingCallNotificationTriggerDetails>();
+}
 windows_core::imp::interface_hierarchy!(PhoneIncomingCallNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneIncomingCallNotificationTriggerDetails,);
 impl PhoneIncomingCallNotificationTriggerDetails {
     pub fn LineId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -270,22 +269,21 @@ impl PhoneIncomingCallNotificationTriggerDetails {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneIncomingCallNotificationTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneIncomingCallNotificationTriggerDetails>();
-}
 unsafe impl windows_core::Interface for PhoneIncomingCallNotificationTriggerDetails {
-    type Vtable = IPhoneIncomingCallNotificationTriggerDetails_Vtbl;
+    type Vtable = <IPhoneIncomingCallNotificationTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneIncomingCallNotificationTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneIncomingCallNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails";
 }
-unsafe impl Send for PhoneIncomingCallNotificationTriggerDetails {}
-unsafe impl Sync for PhoneIncomingCallNotificationTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineChangedTriggerDetails(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneLineChangedTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineChangedTriggerDetails>();
+}
 windows_core::imp::interface_hierarchy!(PhoneLineChangedTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneLineChangedTriggerDetails,);
 impl PhoneLineChangedTriggerDetails {
     pub fn LineId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -309,22 +307,21 @@ impl PhoneLineChangedTriggerDetails {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneLineChangedTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneLineChangedTriggerDetails>();
-}
 unsafe impl windows_core::Interface for PhoneLineChangedTriggerDetails {
-    type Vtable = IPhoneLineChangedTriggerDetails_Vtbl;
+    type Vtable = <IPhoneLineChangedTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneLineChangedTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneLineChangedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneLineChangedTriggerDetails";
 }
-unsafe impl Send for PhoneLineChangedTriggerDetails {}
-unsafe impl Sync for PhoneLineChangedTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneNewVoicemailMessageTriggerDetails(windows_core::IUnknown);
+impl windows_core::RuntimeType for PhoneNewVoicemailMessageTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneNewVoicemailMessageTriggerDetails>();
+}
 windows_core::imp::interface_hierarchy!(PhoneNewVoicemailMessageTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PhoneNewVoicemailMessageTriggerDetails,);
 impl PhoneNewVoicemailMessageTriggerDetails {
     pub fn LineId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -348,20 +345,15 @@ impl PhoneNewVoicemailMessageTriggerDetails {
         }
     }
 }
-impl windows_core::RuntimeType for PhoneNewVoicemailMessageTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneNewVoicemailMessageTriggerDetails>();
-}
 unsafe impl windows_core::Interface for PhoneNewVoicemailMessageTriggerDetails {
-    type Vtable = IPhoneNewVoicemailMessageTriggerDetails_Vtbl;
+    type Vtable = <IPhoneNewVoicemailMessageTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneNewVoicemailMessageTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhoneNewVoicemailMessageTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneNewVoicemailMessageTriggerDetails";
 }
-unsafe impl Send for PhoneNewVoicemailMessageTriggerDetails {}
-unsafe impl Sync for PhoneNewVoicemailMessageTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneCallBlockedReason(pub i32);
 impl PhoneCallBlockedReason {
     pub const InCallBlockingList: Self = Self(0i32);
@@ -371,41 +363,26 @@ impl PhoneCallBlockedReason {
 impl windows_core::TypeKind for PhoneCallBlockedReason {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneCallBlockedReason {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneCallBlockedReason").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneCallBlockedReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedReason;i4)");
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneIncomingCallDismissedReason(pub i32);
-#[cfg(feature = "deprecated")]
 impl PhoneIncomingCallDismissedReason {
     pub const Unknown: Self = Self(0i32);
     pub const CallRejected: Self = Self(1i32);
     pub const TextReply: Self = Self(2i32);
     pub const ConnectionLost: Self = Self(3i32);
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::TypeKind for PhoneIncomingCallDismissedReason {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "deprecated")]
-impl core::fmt::Debug for PhoneIncomingCallDismissedReason {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneIncomingCallDismissedReason").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for PhoneIncomingCallDismissedReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedReason;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneLineChangeKind(pub i32);
 impl PhoneLineChangeKind {
     pub const Added: Self = Self(0i32);
@@ -415,16 +392,11 @@ impl PhoneLineChangeKind {
 impl windows_core::TypeKind for PhoneLineChangeKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneLineChangeKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneLineChangeKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PhoneLineChangeKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineChangeKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneLineProperties(pub u32);
 impl PhoneLineProperties {
     pub const None: Self = Self(0u32);
@@ -441,49 +413,11 @@ impl PhoneLineProperties {
 impl windows_core::TypeKind for PhoneLineProperties {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PhoneLineProperties {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneLineProperties").field(&self.0).finish()
-    }
-}
-impl PhoneLineProperties {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for PhoneLineProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for PhoneLineProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for PhoneLineProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for PhoneLineProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for PhoneLineProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for PhoneLineProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineProperties;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PhoneTriggerType(pub i32);
 impl PhoneTriggerType {
     pub const NewVoicemailMessage: Self = Self(0i32);
@@ -497,11 +431,6 @@ impl PhoneTriggerType {
 }
 impl windows_core::TypeKind for PhoneTriggerType {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PhoneTriggerType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PhoneTriggerType").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for PhoneTriggerType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneTriggerType;i4)");

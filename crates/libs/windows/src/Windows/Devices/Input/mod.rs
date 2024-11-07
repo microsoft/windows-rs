@@ -222,7 +222,11 @@ pub struct ITouchCapabilities_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyboardCapabilities(windows_core::IUnknown);
+impl windows_core::RuntimeType for KeyboardCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyboardCapabilities>();
+}
 windows_core::imp::interface_hierarchy!(KeyboardCapabilities, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(KeyboardCapabilities,);
 impl KeyboardCapabilities {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -239,22 +243,21 @@ impl KeyboardCapabilities {
         }
     }
 }
-impl windows_core::RuntimeType for KeyboardCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyboardCapabilities>();
-}
 unsafe impl windows_core::Interface for KeyboardCapabilities {
-    type Vtable = IKeyboardCapabilities_Vtbl;
+    type Vtable = <IKeyboardCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IKeyboardCapabilities as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for KeyboardCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.KeyboardCapabilities";
 }
-unsafe impl Send for KeyboardCapabilities {}
-unsafe impl Sync for KeyboardCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MouseCapabilities(windows_core::IUnknown);
+impl windows_core::RuntimeType for MouseCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMouseCapabilities>();
+}
 windows_core::imp::interface_hierarchy!(MouseCapabilities, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MouseCapabilities,);
 impl MouseCapabilities {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -299,22 +302,21 @@ impl MouseCapabilities {
         }
     }
 }
-impl windows_core::RuntimeType for MouseCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMouseCapabilities>();
-}
 unsafe impl windows_core::Interface for MouseCapabilities {
-    type Vtable = IMouseCapabilities_Vtbl;
+    type Vtable = <IMouseCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMouseCapabilities as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MouseCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.MouseCapabilities";
 }
-unsafe impl Send for MouseCapabilities {}
-unsafe impl Sync for MouseCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MouseDevice(windows_core::IUnknown);
+impl windows_core::RuntimeType for MouseDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMouseDevice>();
+}
 windows_core::imp::interface_hierarchy!(MouseDevice, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MouseDevice,);
 impl MouseDevice {
     pub fn MouseMoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -341,11 +343,8 @@ impl MouseDevice {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for MouseDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMouseDevice>();
-}
 unsafe impl windows_core::Interface for MouseDevice {
-    type Vtable = IMouseDevice_Vtbl;
+    type Vtable = <IMouseDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMouseDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MouseDevice {
@@ -354,7 +353,11 @@ impl windows_core::RuntimeName for MouseDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MouseEventArgs(windows_core::IUnknown);
+impl windows_core::RuntimeType for MouseEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMouseEventArgs>();
+}
 windows_core::imp::interface_hierarchy!(MouseEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MouseEventArgs,);
 impl MouseEventArgs {
     pub fn MouseDelta(&self) -> windows_core::Result<MouseDelta> {
         let this = self;
@@ -364,11 +367,8 @@ impl MouseEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for MouseEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMouseEventArgs>();
-}
 unsafe impl windows_core::Interface for MouseEventArgs {
-    type Vtable = IMouseEventArgs_Vtbl;
+    type Vtable = <IMouseEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMouseEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MouseEventArgs {
@@ -377,7 +377,11 @@ impl windows_core::RuntimeName for MouseEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenButtonListener(windows_core::IUnknown);
+impl windows_core::RuntimeType for PenButtonListener {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenButtonListener>();
+}
 windows_core::imp::interface_hierarchy!(PenButtonListener, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PenButtonListener,);
 impl PenButtonListener {
     pub fn IsSupported(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -453,22 +457,21 @@ impl PenButtonListener {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for PenButtonListener {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenButtonListener>();
-}
 unsafe impl windows_core::Interface for PenButtonListener {
-    type Vtable = IPenButtonListener_Vtbl;
+    type Vtable = <IPenButtonListener as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPenButtonListener as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PenButtonListener {
     const NAME: &'static str = "Windows.Devices.Input.PenButtonListener";
 }
-unsafe impl Send for PenButtonListener {}
-unsafe impl Sync for PenButtonListener {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenDevice(windows_core::IUnknown);
+impl windows_core::RuntimeType for PenDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenDevice>();
+}
 windows_core::imp::interface_hierarchy!(PenDevice, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PenDevice,);
 impl PenDevice {
     pub fn PenId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -496,22 +499,21 @@ impl PenDevice {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for PenDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenDevice>();
-}
 unsafe impl windows_core::Interface for PenDevice {
-    type Vtable = IPenDevice_Vtbl;
+    type Vtable = <IPenDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPenDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PenDevice {
     const NAME: &'static str = "Windows.Devices.Input.PenDevice";
 }
-unsafe impl Send for PenDevice {}
-unsafe impl Sync for PenDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenDockListener(windows_core::IUnknown);
+impl windows_core::RuntimeType for PenDockListener {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenDockListener>();
+}
 windows_core::imp::interface_hierarchy!(PenDockListener, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PenDockListener,);
 impl PenDockListener {
     pub fn IsSupported(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -573,107 +575,101 @@ impl PenDockListener {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for PenDockListener {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenDockListener>();
-}
 unsafe impl windows_core::Interface for PenDockListener {
-    type Vtable = IPenDockListener_Vtbl;
+    type Vtable = <IPenDockListener as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPenDockListener as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PenDockListener {
     const NAME: &'static str = "Windows.Devices.Input.PenDockListener";
 }
-unsafe impl Send for PenDockListener {}
-unsafe impl Sync for PenDockListener {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenDockedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PenDockedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PenDockedEventArgs {}
 impl windows_core::RuntimeType for PenDockedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenDockedEventArgs>();
 }
+windows_core::imp::interface_hierarchy!(PenDockedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PenDockedEventArgs,);
+impl PenDockedEventArgs {}
 unsafe impl windows_core::Interface for PenDockedEventArgs {
-    type Vtable = IPenDockedEventArgs_Vtbl;
+    type Vtable = <IPenDockedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPenDockedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PenDockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenDockedEventArgs";
 }
-unsafe impl Send for PenDockedEventArgs {}
-unsafe impl Sync for PenDockedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenTailButtonClickedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PenTailButtonClickedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PenTailButtonClickedEventArgs {}
 impl windows_core::RuntimeType for PenTailButtonClickedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenTailButtonClickedEventArgs>();
 }
+windows_core::imp::interface_hierarchy!(PenTailButtonClickedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PenTailButtonClickedEventArgs,);
+impl PenTailButtonClickedEventArgs {}
 unsafe impl windows_core::Interface for PenTailButtonClickedEventArgs {
-    type Vtable = IPenTailButtonClickedEventArgs_Vtbl;
+    type Vtable = <IPenTailButtonClickedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPenTailButtonClickedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PenTailButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonClickedEventArgs";
 }
-unsafe impl Send for PenTailButtonClickedEventArgs {}
-unsafe impl Sync for PenTailButtonClickedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenTailButtonDoubleClickedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PenTailButtonDoubleClickedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PenTailButtonDoubleClickedEventArgs {}
 impl windows_core::RuntimeType for PenTailButtonDoubleClickedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenTailButtonDoubleClickedEventArgs>();
 }
+windows_core::imp::interface_hierarchy!(PenTailButtonDoubleClickedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PenTailButtonDoubleClickedEventArgs,);
+impl PenTailButtonDoubleClickedEventArgs {}
 unsafe impl windows_core::Interface for PenTailButtonDoubleClickedEventArgs {
-    type Vtable = IPenTailButtonDoubleClickedEventArgs_Vtbl;
+    type Vtable = <IPenTailButtonDoubleClickedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPenTailButtonDoubleClickedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PenTailButtonDoubleClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonDoubleClickedEventArgs";
 }
-unsafe impl Send for PenTailButtonDoubleClickedEventArgs {}
-unsafe impl Sync for PenTailButtonDoubleClickedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenTailButtonLongPressedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PenTailButtonLongPressedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PenTailButtonLongPressedEventArgs {}
 impl windows_core::RuntimeType for PenTailButtonLongPressedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenTailButtonLongPressedEventArgs>();
 }
+windows_core::imp::interface_hierarchy!(PenTailButtonLongPressedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PenTailButtonLongPressedEventArgs,);
+impl PenTailButtonLongPressedEventArgs {}
 unsafe impl windows_core::Interface for PenTailButtonLongPressedEventArgs {
-    type Vtable = IPenTailButtonLongPressedEventArgs_Vtbl;
+    type Vtable = <IPenTailButtonLongPressedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPenTailButtonLongPressedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PenTailButtonLongPressedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonLongPressedEventArgs";
 }
-unsafe impl Send for PenTailButtonLongPressedEventArgs {}
-unsafe impl Sync for PenTailButtonLongPressedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenUndockedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PenUndockedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl PenUndockedEventArgs {}
 impl windows_core::RuntimeType for PenUndockedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenUndockedEventArgs>();
 }
+windows_core::imp::interface_hierarchy!(PenUndockedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PenUndockedEventArgs,);
+impl PenUndockedEventArgs {}
 unsafe impl windows_core::Interface for PenUndockedEventArgs {
-    type Vtable = IPenUndockedEventArgs_Vtbl;
+    type Vtable = <IPenUndockedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPenUndockedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PenUndockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenUndockedEventArgs";
 }
-unsafe impl Send for PenUndockedEventArgs {}
-unsafe impl Sync for PenUndockedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PointerDevice(windows_core::IUnknown);
+impl windows_core::RuntimeType for PointerDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPointerDevice>();
+}
 windows_core::imp::interface_hierarchy!(PointerDevice, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PointerDevice,);
 impl PointerDevice {
     pub fn PointerDeviceType(&self) -> windows_core::Result<PointerDeviceType> {
         let this = self;
@@ -743,11 +739,8 @@ impl PointerDevice {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for PointerDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPointerDevice>();
-}
 unsafe impl windows_core::Interface for PointerDevice {
-    type Vtable = IPointerDevice_Vtbl;
+    type Vtable = <IPointerDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPointerDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PointerDevice {
@@ -756,7 +749,11 @@ impl windows_core::RuntimeName for PointerDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TouchCapabilities(windows_core::IUnknown);
+impl windows_core::RuntimeType for TouchCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITouchCapabilities>();
+}
 windows_core::imp::interface_hierarchy!(TouchCapabilities, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(TouchCapabilities,);
 impl TouchCapabilities {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -780,20 +777,15 @@ impl TouchCapabilities {
         }
     }
 }
-impl windows_core::RuntimeType for TouchCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITouchCapabilities>();
-}
 unsafe impl windows_core::Interface for TouchCapabilities {
-    type Vtable = ITouchCapabilities_Vtbl;
+    type Vtable = <ITouchCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITouchCapabilities as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TouchCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.TouchCapabilities";
 }
-unsafe impl Send for TouchCapabilities {}
-unsafe impl Sync for TouchCapabilities {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PointerDeviceType(pub i32);
 impl PointerDeviceType {
     pub const Touch: Self = Self(0i32);
@@ -803,16 +795,11 @@ impl PointerDeviceType {
 impl windows_core::TypeKind for PointerDeviceType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PointerDeviceType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PointerDeviceType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PointerDeviceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.PointerDeviceType;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MouseDelta {
     pub X: i32,
     pub Y: i32,
@@ -823,13 +810,8 @@ impl windows_core::TypeKind for MouseDelta {
 impl windows_core::RuntimeType for MouseDelta {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.MouseDelta;i4;i4)");
 }
-impl Default for MouseDelta {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PointerDeviceUsage {
     pub UsagePage: u32,
     pub Usage: u32,
@@ -845,9 +827,4 @@ impl windows_core::TypeKind for PointerDeviceUsage {
 }
 impl windows_core::RuntimeType for PointerDeviceUsage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Input.PointerDeviceUsage;u4;u4;i4;i4;i4;i4;u4;f4)");
-}
-impl Default for PointerDeviceUsage {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

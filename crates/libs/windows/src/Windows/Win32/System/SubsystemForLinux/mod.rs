@@ -69,15 +69,10 @@ pub const WSL_DISTRIBUTION_FLAGS_ENABLE_DRIVE_MOUNTING: WSL_DISTRIBUTION_FLAGS =
 pub const WSL_DISTRIBUTION_FLAGS_ENABLE_INTEROP: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(1i32);
 pub const WSL_DISTRIBUTION_FLAGS_NONE: WSL_DISTRIBUTION_FLAGS = WSL_DISTRIBUTION_FLAGS(0i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WSL_DISTRIBUTION_FLAGS(pub i32);
 impl windows_core::TypeKind for WSL_DISTRIBUTION_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WSL_DISTRIBUTION_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WSL_DISTRIBUTION_FLAGS").field(&self.0).finish()
-    }
 }
 impl WSL_DISTRIBUTION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {

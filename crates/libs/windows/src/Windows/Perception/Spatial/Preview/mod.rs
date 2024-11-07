@@ -50,7 +50,11 @@ pub struct ISpatialGraphInteropPreviewStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialGraphInteropFrameOfReferencePreview(windows_core::IUnknown);
+impl windows_core::RuntimeType for SpatialGraphInteropFrameOfReferencePreview {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialGraphInteropFrameOfReferencePreview>();
+}
 windows_core::imp::interface_hierarchy!(SpatialGraphInteropFrameOfReferencePreview, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialGraphInteropFrameOfReferencePreview,);
 impl SpatialGraphInteropFrameOfReferencePreview {
     pub fn CoordinateSystem(&self) -> windows_core::Result<super::SpatialCoordinateSystem> {
         let this = self;
@@ -75,18 +79,13 @@ impl SpatialGraphInteropFrameOfReferencePreview {
         }
     }
 }
-impl windows_core::RuntimeType for SpatialGraphInteropFrameOfReferencePreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialGraphInteropFrameOfReferencePreview>();
-}
 unsafe impl windows_core::Interface for SpatialGraphInteropFrameOfReferencePreview {
-    type Vtable = ISpatialGraphInteropFrameOfReferencePreview_Vtbl;
+    type Vtable = <ISpatialGraphInteropFrameOfReferencePreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialGraphInteropFrameOfReferencePreview as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialGraphInteropFrameOfReferencePreview {
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.SpatialGraphInteropFrameOfReferencePreview";
 }
-unsafe impl Send for SpatialGraphInteropFrameOfReferencePreview {}
-unsafe impl Sync for SpatialGraphInteropFrameOfReferencePreview {}
 pub struct SpatialGraphInteropPreview;
 impl SpatialGraphInteropPreview {
     pub fn CreateCoordinateSystemForNode(nodeid: windows_core::GUID) -> windows_core::Result<super::SpatialCoordinateSystem> {

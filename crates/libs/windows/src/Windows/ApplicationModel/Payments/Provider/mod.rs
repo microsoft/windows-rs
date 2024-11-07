@@ -70,7 +70,11 @@ pub struct IPaymentTransactionStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentAppCanMakePaymentTriggerDetails(windows_core::IUnknown);
+impl windows_core::RuntimeType for PaymentAppCanMakePaymentTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentAppCanMakePaymentTriggerDetails>();
+}
 windows_core::imp::interface_hierarchy!(PaymentAppCanMakePaymentTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentAppCanMakePaymentTriggerDetails,);
 impl PaymentAppCanMakePaymentTriggerDetails {
     pub fn Request(&self) -> windows_core::Result<super::PaymentRequest> {
         let this = self;
@@ -87,22 +91,21 @@ impl PaymentAppCanMakePaymentTriggerDetails {
         unsafe { (windows_core::Interface::vtable(this).ReportCanMakePaymentResult)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
-impl windows_core::RuntimeType for PaymentAppCanMakePaymentTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentAppCanMakePaymentTriggerDetails>();
-}
 unsafe impl windows_core::Interface for PaymentAppCanMakePaymentTriggerDetails {
-    type Vtable = IPaymentAppCanMakePaymentTriggerDetails_Vtbl;
+    type Vtable = <IPaymentAppCanMakePaymentTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentAppCanMakePaymentTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentAppCanMakePaymentTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentAppCanMakePaymentTriggerDetails";
 }
-unsafe impl Send for PaymentAppCanMakePaymentTriggerDetails {}
-unsafe impl Sync for PaymentAppCanMakePaymentTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentAppManager(windows_core::IUnknown);
+impl windows_core::RuntimeType for PaymentAppManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentAppManager>();
+}
 windows_core::imp::interface_hierarchy!(PaymentAppManager, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentAppManager,);
 impl PaymentAppManager {
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterAsync<P0>(&self, supportedpaymentmethodids: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
@@ -133,22 +136,21 @@ impl PaymentAppManager {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for PaymentAppManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentAppManager>();
-}
 unsafe impl windows_core::Interface for PaymentAppManager {
-    type Vtable = IPaymentAppManager_Vtbl;
+    type Vtable = <IPaymentAppManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentAppManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentAppManager";
 }
-unsafe impl Send for PaymentAppManager {}
-unsafe impl Sync for PaymentAppManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentTransaction(windows_core::IUnknown);
+impl windows_core::RuntimeType for PaymentTransaction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentTransaction>();
+}
 windows_core::imp::interface_hierarchy!(PaymentTransaction, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentTransaction,);
 impl PaymentTransaction {
     pub fn PaymentRequest(&self) -> windows_core::Result<super::PaymentRequest> {
         let this = self;
@@ -235,22 +237,21 @@ impl PaymentTransaction {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for PaymentTransaction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentTransaction>();
-}
 unsafe impl windows_core::Interface for PaymentTransaction {
-    type Vtable = IPaymentTransaction_Vtbl;
+    type Vtable = <IPaymentTransaction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentTransaction as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentTransaction {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentTransaction";
 }
-unsafe impl Send for PaymentTransaction {}
-unsafe impl Sync for PaymentTransaction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentTransactionAcceptResult(windows_core::IUnknown);
+impl windows_core::RuntimeType for PaymentTransactionAcceptResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentTransactionAcceptResult>();
+}
 windows_core::imp::interface_hierarchy!(PaymentTransactionAcceptResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentTransactionAcceptResult,);
 impl PaymentTransactionAcceptResult {
     pub fn Status(&self) -> windows_core::Result<super::PaymentRequestCompletionStatus> {
         let this = self;
@@ -260,15 +261,10 @@ impl PaymentTransactionAcceptResult {
         }
     }
 }
-impl windows_core::RuntimeType for PaymentTransactionAcceptResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentTransactionAcceptResult>();
-}
 unsafe impl windows_core::Interface for PaymentTransactionAcceptResult {
-    type Vtable = IPaymentTransactionAcceptResult_Vtbl;
+    type Vtable = <IPaymentTransactionAcceptResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentTransactionAcceptResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentTransactionAcceptResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentTransactionAcceptResult";
 }
-unsafe impl Send for PaymentTransactionAcceptResult {}
-unsafe impl Sync for PaymentTransactionAcceptResult {}

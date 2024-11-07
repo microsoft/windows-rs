@@ -22,7 +22,11 @@ pub struct IBatteryStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Battery(windows_core::IUnknown);
+impl windows_core::RuntimeType for Battery {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBattery>();
+}
 windows_core::imp::interface_hierarchy!(Battery, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(Battery,);
 impl Battery {
     pub fn RemainingChargePercent(&self) -> windows_core::Result<i32> {
         let this = self;
@@ -63,15 +67,10 @@ impl Battery {
         SHARED.call(callback)
     }
 }
-impl windows_core::RuntimeType for Battery {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBattery>();
-}
 unsafe impl windows_core::Interface for Battery {
-    type Vtable = IBattery_Vtbl;
+    type Vtable = <IBattery as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBattery as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Battery {
     const NAME: &'static str = "Windows.Phone.Devices.Power.Battery";
 }
-unsafe impl Send for Battery {}
-unsafe impl Sync for Battery {}

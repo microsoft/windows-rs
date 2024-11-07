@@ -67,7 +67,11 @@ pub struct IReplaceAppointmentOperation_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AddAppointmentOperation(windows_core::IUnknown);
+impl windows_core::RuntimeType for AddAppointmentOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAddAppointmentOperation>();
+}
 windows_core::imp::interface_hierarchy!(AddAppointmentOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(AddAppointmentOperation,);
 impl AddAppointmentOperation {
     pub fn AppointmentInformation(&self) -> windows_core::Result<super::Appointment> {
         let this = self;
@@ -100,18 +104,13 @@ impl AddAppointmentOperation {
         unsafe { (windows_core::Interface::vtable(this).DismissUI)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for AddAppointmentOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAddAppointmentOperation>();
-}
 unsafe impl windows_core::Interface for AddAppointmentOperation {
-    type Vtable = IAddAppointmentOperation_Vtbl;
+    type Vtable = <IAddAppointmentOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAddAppointmentOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AddAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.AddAppointmentOperation";
 }
-unsafe impl Send for AddAppointmentOperation {}
-unsafe impl Sync for AddAppointmentOperation {}
 pub struct AppointmentsProviderLaunchActionVerbs;
 impl AppointmentsProviderLaunchActionVerbs {
     pub fn AddAppointment() -> windows_core::Result<windows_core::HSTRING> {
@@ -159,7 +158,11 @@ impl windows_core::RuntimeName for AppointmentsProviderLaunchActionVerbs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoveAppointmentOperation(windows_core::IUnknown);
+impl windows_core::RuntimeType for RemoveAppointmentOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoveAppointmentOperation>();
+}
 windows_core::imp::interface_hierarchy!(RemoveAppointmentOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(RemoveAppointmentOperation,);
 impl RemoveAppointmentOperation {
     pub fn AppointmentId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -199,22 +202,21 @@ impl RemoveAppointmentOperation {
         unsafe { (windows_core::Interface::vtable(this).DismissUI)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for RemoveAppointmentOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoveAppointmentOperation>();
-}
 unsafe impl windows_core::Interface for RemoveAppointmentOperation {
-    type Vtable = IRemoveAppointmentOperation_Vtbl;
+    type Vtable = <IRemoveAppointmentOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoveAppointmentOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RemoveAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.RemoveAppointmentOperation";
 }
-unsafe impl Send for RemoveAppointmentOperation {}
-unsafe impl Sync for RemoveAppointmentOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ReplaceAppointmentOperation(windows_core::IUnknown);
+impl windows_core::RuntimeType for ReplaceAppointmentOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IReplaceAppointmentOperation>();
+}
 windows_core::imp::interface_hierarchy!(ReplaceAppointmentOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ReplaceAppointmentOperation,);
 impl ReplaceAppointmentOperation {
     pub fn AppointmentId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -261,15 +263,10 @@ impl ReplaceAppointmentOperation {
         unsafe { (windows_core::Interface::vtable(this).DismissUI)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for ReplaceAppointmentOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IReplaceAppointmentOperation>();
-}
 unsafe impl windows_core::Interface for ReplaceAppointmentOperation {
-    type Vtable = IReplaceAppointmentOperation_Vtbl;
+    type Vtable = <IReplaceAppointmentOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IReplaceAppointmentOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ReplaceAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.ReplaceAppointmentOperation";
 }
-unsafe impl Send for ReplaceAppointmentOperation {}
-unsafe impl Sync for ReplaceAppointmentOperation {}
