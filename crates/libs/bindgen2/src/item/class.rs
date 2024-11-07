@@ -116,11 +116,24 @@ impl Class {
 
         if let Some(default_interface) = self.default_interface() {
             let default_interface = default_interface.write(writer);
-            let interfaces = self
+
+            let required_hierarchy = {
+            let interfaces: Vec<_> = self
                 .required_interfaces
                 .iter()
                 .filter(|ty|!ty.def.has_attribute("ExclusiveToAttribute"))
-                .map(|ty| ty.write_name(writer));
+                .map(|ty| ty.write_name(writer))
+                .collect();
+
+                if interfaces.is_empty() {
+                    quote! {}
+                } else {
+                    quote! {
+                        #cfg
+                        windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
+                    }
+                }
+            };
 
             quote! {
                 #cfg
@@ -129,8 +142,7 @@ impl Class {
                 pub struct #name(windows_core::IUnknown);
                 #cfg
                 windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
-                #cfg
-                windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
+                #required_hierarchy
                 #cfg
                 impl #name {
                     #new

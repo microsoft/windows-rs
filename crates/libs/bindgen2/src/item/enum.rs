@@ -27,7 +27,7 @@ impl Enum {
 
         quote! {
             #[repr(transparent)]
-            #[derive(Clone, Debug, Default, PartialEq)]
+            #[derive(Copy, Clone, Debug, Default, PartialEq)]
             pub struct #name(pub #underlying_type);
             impl #name {
                 #(#fields)*
