@@ -318,7 +318,7 @@ impl CppInterface {
                         if self.has_unknown_base () {
                             quote! { base__: #ty::new::<Identity, OFFSET>(), }
                         } else {
-                            quote! { base__: #ty::new::<Impl>(), }
+                            quote! { base__: #ty::new::<Identity>(), }
                         }
                     }
                     rest => unimplemented!("{rest:?}"),
