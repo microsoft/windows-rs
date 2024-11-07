@@ -66,7 +66,7 @@ impl MethodDef {
                         if let Some(attribute) = param.find_attribute("AssociatedEnumAttribute") {
                             if let Some((_, Value::String(name))) = attribute.args().first() {
                                 if let Some(item) =
-                                    param.reader().with_full_name(namespace, &name).next()
+                                    param.reader().with_full_name(namespace, name).next()
                                 {
                                     ty = Type::PrimitiveOrEnum(Box::new(ty), item);
                                 }
