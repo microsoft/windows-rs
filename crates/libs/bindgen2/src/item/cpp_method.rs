@@ -169,10 +169,10 @@ impl CppMethod {
                         *hint = ParamHint::OptionalPointer;
                     } else if signature.params[position].0.is_primitive()
                         && (!signature.params[position].0.is_pointer()
-                            || signature.params[position].0.deref().is_blittable())
+                            || signature.params[position].0.deref().is_copyable())
                     {
                         *hint = ParamHint::ValueType;
-                    } else if signature.params[position].0.is_blittable() {
+                    } else if signature.params[position].0.is_copyable() {
                         *hint = ParamHint::Blittable;
                     }
                 }
@@ -288,7 +288,6 @@ impl CppMethod {
         let args = self.write_args();
         let params = self.write_params(writer);
         let generics = self.write_generics();
-        let abi_return_type = self.write_return(writer);
 
         // TODO: make sure these are consistent across CppFn and CppInterface -
         // maybe find a way to consolidate code gen?
@@ -319,10 +318,12 @@ impl CppMethod {
                     .0
                     .deref();
 
-                let map = if return_type.is_blittable() {
+                let map = if return_type.is_copyable() {
                     quote! { map(||result__) }
-                } else {
+                } else if return_type.is_nullable() {
                     quote! { and_then(||windows_core::Type::from_abi(result__)) }
+                } else {
+                    quote! { map(||core::mem::transmute(result__)) }
                 };
 
                 let return_type = return_type.write(writer);
@@ -361,7 +362,7 @@ impl CppMethod {
                         }
                     }
                 } else {
-                    let map = if return_type.is_blittable() {
+                    let map = if return_type.is_copyable() {
                         quote! { result__ }
                     } else {
                         quote! { core::mem::transmute(result__) }
@@ -379,23 +380,25 @@ impl CppMethod {
                     }
                 }
             }
-            ReturnHint::ReturnStruct | ReturnHint::None => {
+            ReturnHint::ReturnStruct => {
+                let return_type = self.signature.return_type.0.write(writer);
                 let where_clause = self.write_where(writer, false);
 
-                if self.handle_last_error() {
-                    let return_type = self.signature.return_type.0.write(writer);
-
-                    quote! {
-                        pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> #where_clause {
-                            let result__ = (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args);
-                            (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
-                        }
+                quote! {
+                    pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
+                        let mut result__ = core::mem::zeroed();
+                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), &mut result__, #args);
+                        result__
                     }
-                } else {
-                    quote! {
-                        pub unsafe fn #name<#generics>(&self, #params) #abi_return_type #where_clause {
-                            (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args)
-                        }
+                }
+            }
+            ReturnHint::None => {
+                let return_type = self.signature.return_type.0.write_default(writer);
+                let where_clause = self.write_where(writer, false);
+                
+                quote! {
+                    pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
+                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args)
                     }
                 }
             }
@@ -506,7 +509,7 @@ impl CppMethod {
     }
 
     pub fn write_abi(&self, writer: &Writer, named_params: bool) -> TokenStream {
-        let params = self.signature.params.iter().map(|(ty, param)| {
+        let mut params: Vec<_> = self.signature.params.iter().map(|(ty, param)| {
             // TODO: use ty.underlying_types() ?
             let ty = ty.write_abi(writer);
 
@@ -516,9 +519,26 @@ impl CppMethod {
             } else {
                 ty
             }
-        });
+        }).collect();
 
-        let return_sig = writer.write_return_sig(self.def, &self.signature, false);
+        let mut return_sig = quote! {};
+
+        match self.return_hint {
+            ReturnHint::ReturnStruct => {
+                let return_type = self.signature.return_type.0.write_abi(writer);
+
+                if named_params{
+                    params.push(quote! { result__: *mut #return_type });
+                } else {
+                    params.push(quote! { *mut #return_type });
+                }
+            }
+            _ => {
+                return_sig = writer.write_return_sig(self.def, &self.signature, false);
+            }
+        }
+
+        
 
         let this = if named_params {
             quote! { this: *mut core::ffi::c_void }

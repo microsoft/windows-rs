@@ -67,7 +67,7 @@ impl Struct {
         }
     }
 
-    pub fn is_blittable(&self) -> bool {
-        self.def.fields().all(|field| field.ty(None).is_blittable())
+    pub fn is_copyable(&self) -> bool {
+        self.def.fields().all(|field| field.ty(None).is_copyable())
     }
 }

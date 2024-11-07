@@ -122,7 +122,7 @@ impl CppFn {
                 let where_clause = method.write_where(writer, false);
                 let return_type = signature.params[signature.params.len() - 1].0.deref();
 
-                let map = if return_type.is_blittable() {
+                let map = if return_type.is_copyable() {
                     quote! { map(||result__) }
                 } else {
                     quote! { and_then(||windows_core::Type::from_abi(result__)) }
@@ -173,7 +173,7 @@ impl CppFn {
                         }
                     }
                 } else {
-                    let map = if return_type.is_blittable() {
+                    let map = if return_type.is_copyable() {
                         quote! { result__ }
                     } else {
                         quote! { core::mem::transmute(result__) }

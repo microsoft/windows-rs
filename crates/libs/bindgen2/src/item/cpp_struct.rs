@@ -70,8 +70,7 @@ impl CppStruct {
             .map(|field| (field.name(), field.ty(Some(self))))
             .collect();
 
-        let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable());
-        let is_blittable = fields.iter().all(|(_, ty)| ty.is_blittable());
+        let is_copyable = self.is_copyable();
 
         let fields = {
             let fields = fields.iter().map(|(name, ty)| {
@@ -95,7 +94,7 @@ impl CppStruct {
 
         let mut derive = quote! {};
 
-        if writer.config.sys || is_blittable {
+        if writer.config.sys || is_copyable {
             derive.combine(quote! { Copy, Clone, });
         }
 
@@ -211,13 +210,19 @@ impl CppStruct {
         }
     }
 
-    pub fn is_blittable(&self) -> bool {
-        // TODO: for compat may need to return true for VARIANT and PROPVARIANT
-        !matches!(
+    pub fn is_copyable(&self) -> bool {
+        if matches!(
             TypeName(self.def.namespace(), self.def.name()),
             TypeName::VARIANT | TypeName::PROPVARIANT
-        )
+        ) {
+            return false;
+        }
+
+        self
+                .def
+                .fields().all(|field|field.ty(Some(self)).is_copyable())
     }
+
 
     pub fn has_explicit_layout(&self) -> bool {
         self.def.flags().contains(TypeAttributes::ExplicitLayout)

@@ -236,15 +236,8 @@ impl Type {
     pub fn is_nullable(&self) -> bool {
         match self {
             Self::Item(item) => item.is_nullable(),
-            Self::IUnknown => true,
+            Self::IUnknown | Self::Object => true,
             _ => false,
-        }
-    }
-
-    pub fn is_copyable(&self) -> bool {
-        match self {
-            Self::Item(item) => item.is_copyable(),
-            _ => true,
         }
     }
 
@@ -355,7 +348,7 @@ impl Type {
     }
 
     pub fn write_blittable(&self, writer: &Writer) -> TokenStream {
-        if self.is_blittable() {
+        if self.is_copyable() {
             self.write(writer)
         } else {
             match self {
@@ -410,7 +403,7 @@ impl Type {
             }
             Self::Item(Item::Struct(item)) => {
                 let name = self.write(writer);
-                if item.is_blittable() {
+                if item.is_copyable() {
                     name
                 } else {
                     quote! { core::mem::MaybeUninit<#name> }
@@ -512,19 +505,19 @@ impl Type {
         matches!(self, Self::ArrayRef(_))
     }
 
-    pub fn is_blittable(&self) -> bool {
+    pub fn is_copyable(&self) -> bool {
         match self {
-            Self::Item(item) => item.is_blittable(),
+            Self::Item(item) => item.is_copyable(),
             Self::String | Self::BSTR | Self::Object | Self::IUnknown | Self::Param(_) => false,
-            Self::ArrayFixed(ty, _) => ty.is_blittable(),
-            Self::Array(ty) => ty.is_blittable(),
+            Self::ArrayFixed(ty, _) => ty.is_copyable(),
+            Self::Array(ty) => ty.is_copyable(),
             _ => true,
         }
     }
 
     pub fn is_borrowed(&self) -> bool {
         match self {
-            Self::Item(item) => !item.is_blittable(),
+            Self::Item(item) => !item.is_copyable(),
             Self::BSTR
             | Self::PCSTR
             | Self::PCWSTR

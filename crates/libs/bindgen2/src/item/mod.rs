@@ -168,16 +168,11 @@ impl Item {
     }
 
     pub fn is_copyable(&self) -> bool {
-        matches!(self, Self::Enum(_) | Self::CppEnum(_))
-    }
-
-    pub fn is_blittable(&self) -> bool {
         match self {
-            Self::Struct(item) => item.is_blittable(),
-            Self::CppStruct(item) => item.is_blittable(),
+            Self::Struct(item) => item.is_copyable(),
+            Self::CppStruct(item) => item.is_copyable(),
             Self::Enum(_) => true,
             Self::CppEnum(_) => true,
-            Self::Delegate(_) => false,
             Self::CppDelegate(_) => true,
             _ => false,
         }

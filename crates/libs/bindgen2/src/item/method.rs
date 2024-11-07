@@ -104,7 +104,7 @@ impl Method {
                 }
             }
             _ => {
-                let forget = if self.signature.return_type.0.is_blittable() {
+                let forget = if self.signature.return_type.0.is_copyable() {
                     quote! {}
                 } else {
                     quote! { core::mem::forget(ok__); }
@@ -312,14 +312,14 @@ impl Method {
 
                 if param.1.flags().contains(ParamAttributes::In) {
                     if param.0.is_winrt_array() {
-                        if param.0.is_blittable() {
+                        if param.0.is_copyable() {
                             quote! { #name.len().try_into().unwrap(), #name.as_ptr() }
                         } else {
                             quote! { #name.len().try_into().unwrap(), core::mem::transmute(#name.as_ptr()) }
                         }
                     } else if param.0.is_borrowed() {
                         quote! { #name.param().abi() }
-                    } else if param.0.is_blittable() {
+                    } else if param.0.is_copyable() {
                         if param.0.is_const_ref() {
                             quote! { &#name }
                         } else {
@@ -329,14 +329,14 @@ impl Method {
                         quote! { core::mem::transmute_copy(#name) }
                     }
                 } else if param.0.is_winrt_array() {
-                    if param.0.is_blittable() {
+                    if param.0.is_copyable() {
                         quote! { #name.len().try_into().unwrap(), #name.as_mut_ptr() }
                     } else {
                         quote! { #name.len().try_into().unwrap(), core::mem::transmute_copy(&#name) }
                     }
                 } else if param.0.is_winrt_array_ref() {
                     quote! { #name.set_abi_len(), #name as *mut _ as _ }
-                } else if param.0.is_blittable() {
+                } else if param.0.is_copyable() {
                     quote! { #name }
                 } else {
                     quote! { #name as *mut _ as _ }
@@ -412,7 +412,7 @@ impl Method {
                 } else if is_convertible(&param.0, param.1) {
                     let kind: TokenStream = format!("P{position}").into();
                     quote! { #name: #kind, }
-                } else if param.0.is_blittable() {
+                } else if param.0.is_copyable() {
                     quote! { #name: #kind, }
                 } else {
                     quote! { #name: &#kind, }
@@ -487,7 +487,7 @@ impl Method {
             }
             _ => {
                 if noexcept {
-                    if self.signature.return_type.0.is_blittable() {
+                    if self.signature.return_type.0.is_copyable() {
                         quote! {
                         let mut result__ = core::mem::zeroed();
                         let hresult__ = #vcall;
@@ -500,7 +500,7 @@ impl Method {
                         debug_assert!(hresult__.0 == 0);
                         core::mem::transmute(result__) }
                     }
-                } else if self.signature.return_type.0.is_blittable() {
+                } else if self.signature.return_type.0.is_copyable() {
                     quote! {
                     let mut result__ = core::mem::zeroed();
                     #vcall
