@@ -178,6 +178,17 @@ impl Item {
         }
     }
 
+    pub fn is_convertible(&self) -> bool {
+        match self {
+            Self::CppStruct(item) => item.is_convertible(),
+            Self::Delegate(..) |
+            Self::Interface(..) |
+            Self::Class(..) |
+            Self::CppInterface(..) => true,
+            _ => false,
+        }
+    }
+
     pub fn is_primitive(&self) -> bool {
         match self {
             Self::Enum(_) | Self::CppEnum(_) | Self::CppDelegate(_) => true,

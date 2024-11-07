@@ -515,9 +515,9 @@ impl Type {
         }
     }
 
-    pub fn is_borrowed(&self) -> bool {
+    pub fn is_convertible(&self) -> bool {
         match self {
-            Self::Item(item) => !item.is_copyable(),
+            Self::Item(item) => item.is_convertible(),
             Self::BSTR
             | Self::PCSTR
             | Self::PCWSTR

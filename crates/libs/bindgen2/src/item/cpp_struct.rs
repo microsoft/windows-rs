@@ -210,6 +210,10 @@ impl CppStruct {
         }
     }
 
+    pub fn is_convertible(&self) -> bool {
+        self.is_handle()
+    }
+
     pub fn is_copyable(&self) -> bool {
         if matches!(
             TypeName(self.def.namespace(), self.def.name()),

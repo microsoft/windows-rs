@@ -317,7 +317,7 @@ impl Method {
                         } else {
                             quote! { #name.len().try_into().unwrap(), core::mem::transmute(#name.as_ptr()) }
                         }
-                    } else if param.0.is_borrowed() {
+                    } else if param.0.is_convertible() {
                         quote! { #name.param().abi() }
                     } else if param.0.is_copyable() {
                         if param.0.is_const_ref() {
@@ -549,5 +549,5 @@ impl Method {
 }
 
 fn is_convertible(ty: &Type, param: Param) -> bool {
-    param.flags().contains(ParamAttributes::In) && ty.is_borrowed()
+    param.flags().contains(ParamAttributes::In) && ty.is_convertible()
 }
