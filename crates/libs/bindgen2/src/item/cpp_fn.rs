@@ -222,7 +222,7 @@ impl CppFn {
             }
             ReturnHint::ReturnVoid => {
                 let where_clause = method.write_where(writer, false);
-                
+
                 quote! {
                     #cfg
                     #[inline]
@@ -237,7 +237,9 @@ impl CppFn {
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.def.namespace(), self.method.name()) {
-            self.method.signature(self.def.namespace(), &[]).dependencies(dependencies);
+            self.method
+                .signature(self.def.namespace(), &[])
+                .dependencies(dependencies);
         }
     }
 }

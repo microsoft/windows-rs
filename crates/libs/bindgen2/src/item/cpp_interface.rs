@@ -188,7 +188,7 @@ impl CppInterface {
             }
 
             if !self.base_interfaces.is_empty() {
-                let bases = self.base_interfaces.iter().map(|ty|ty.write(writer));
+                let bases = self.base_interfaces.iter().map(|ty| ty.write(writer));
                 result.combine(quote! {
                     #cfg
                     windows_core::imp::interface_hierarchy!(#name, #(#bases),*);
@@ -234,7 +234,7 @@ impl CppInterface {
 
             // TODO: need to test code gen each time this split happens
             if writer.config.package {
-                fn collect(interface: &CppInterface, dependencies:&mut Dependencies) {
+                fn collect(interface: &CppInterface, dependencies: &mut Dependencies) {
                     for method in interface.methods.iter() {
                         if let CppMethodOrName::Method(method) = method {
                             dependencies.combine(&method.dependencies);
@@ -304,7 +304,10 @@ impl CppInterface {
                 })
                 .collect();
 
-            let impl_base = self.base_interfaces.last().map(|ty|ty.write_impl_name(writer));
+            let impl_base = self
+                .base_interfaces
+                .last()
+                .map(|ty| ty.write_impl_name(writer));
 
             let field_base = self.base_interfaces.last().map(|ty|{
                 match ty {
@@ -323,7 +326,7 @@ impl CppInterface {
             });
 
             result.combine(quote! {
-                #cfg 
+                #cfg
                 pub trait #impl_name: #impl_base {
                     #(#trait_methods)*
                 }
@@ -355,7 +358,7 @@ impl CppInterface {
     }
 
     fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
-        let name : TokenStream = format!("{}_Vtbl", self.def.name()).into();
+        let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
         let namespace = writer.write_namespace(self.def.namespace());
         quote! { #namespace #name }
     }

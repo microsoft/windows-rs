@@ -13,7 +13,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IPersist, windows_core::IUnknown);
 impl IPersist {
-    pub unsafe fn GetClassID(&self) -> windows_core::Result<windows_core::GUID> where {
+    pub unsafe fn GetClassID(&self) -> windows_core::Result<windows_core::GUID> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetClassID)(
             windows_core::Interface::as_raw(self),
@@ -71,7 +71,7 @@ impl core::ops::Deref for IPersistFile {
 }
 windows_core::imp::interface_hierarchy!(IPersistFile, windows_core::IUnknown, IPersist);
 impl IPersistFile {
-    pub unsafe fn IsDirty(&self) -> windows_core::HRESULT where {
+    pub unsafe fn IsDirty(&self) -> windows_core::HRESULT {
         (windows_core::Interface::vtable(self).IsDirty)(windows_core::Interface::as_raw(self))
     }
     pub unsafe fn SaveCompleted<P0>(&self, pszfilename: P0) -> windows_core::Result<()>
@@ -84,7 +84,7 @@ impl IPersistFile {
         )
         .ok()
     }
-    pub unsafe fn GetCurFile(&self) -> windows_core::Result<windows_core::PWSTR> where {
+    pub unsafe fn GetCurFile(&self) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurFile)(
             windows_core::Interface::as_raw(self),

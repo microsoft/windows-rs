@@ -218,11 +218,10 @@ impl CppStruct {
             return false;
         }
 
-        self
-                .def
-                .fields().all(|field|field.ty(Some(self)).is_copyable())
+        self.def
+            .fields()
+            .all(|field| field.ty(Some(self)).is_copyable())
     }
-
 
     pub fn has_explicit_layout(&self) -> bool {
         self.def.flags().contains(TypeAttributes::ExplicitLayout)

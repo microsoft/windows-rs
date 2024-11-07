@@ -13,7 +13,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IPersist, windows_core::IUnknown);
 impl IPersist {
-    pub unsafe fn GetClassID(&self) -> windows_core::Result<windows_core::GUID> where {
+    pub unsafe fn GetClassID(&self) -> windows_core::Result<windows_core::GUID> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetClassID)(
             windows_core::Interface::as_raw(self),

@@ -7,7 +7,7 @@
 )]
 
 #[inline]
-pub unsafe fn GetTickCount() -> u32 where {
+pub unsafe fn GetTickCount() -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
     GetTickCount()
 }

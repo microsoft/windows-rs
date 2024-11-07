@@ -31,6 +31,9 @@ fn main() {
 
     test("--out cpp_interface.rs --filter IPersist --flat --no-comment");
     test("--out cpp_interface2.rs --filter IPersistFile --flat --no-comment");
+
+    test("--out udt_return_interface.rs --filter ID2D1Bitmap D2D_SIZE_F --flat");
+
     // test("--out cpp_interface_sys.rs --filter IPersist --flat --no-comment --sys");
 
     // test("--out cpp_fn_result_void.rs --filter SetComputerNameA --flat --no-comment");

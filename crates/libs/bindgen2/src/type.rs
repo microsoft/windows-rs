@@ -365,7 +365,7 @@ impl Type {
         }
     }
 
-    pub fn write_impl_name(&self, writer:& Writer) -> TokenStream {
+    pub fn write_impl_name(&self, writer: &Writer) -> TokenStream {
         match self {
             Self::IUnknown => {
                 let name = writer.write_core();

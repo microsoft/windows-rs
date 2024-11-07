@@ -104,7 +104,11 @@ impl Writer {
 
             if let Some(attribute) = item.find_attribute("AlsoUsableForAttribute") {
                 if let Some((_, Value::String(type_name))) = attribute.args().first() {
-                    if let Some(item)  = item.reader().with_full_name(item.namespace(), &type_name).next() {
+                    if let Some(item) = item
+                        .reader()
+                        .with_full_name(item.namespace(), &type_name)
+                        .next()
+                    {
                         let ty = item.write_name(self);
 
                         result.combine(quote! {
