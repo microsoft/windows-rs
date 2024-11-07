@@ -1,9 +1,9 @@
 #[inline]
-pub unsafe fn FCIAddFile<P1, P2, P3>(hfci: *const core::ffi::c_void, pszsourcefile: P1, pszfilename: P2, fexecute: P3, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS, pfnfcigoi: PFNFCIGETOPENINFO, typecompress: u16) -> super::super::Foundation::BOOL
+pub unsafe fn FCIAddFile<P0, P1, P2>(hfci: *const core::ffi::c_void, pszsourcefile: P0, pszfilename: P1, fexecute: P2, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS, pfnfcigoi: PFNFCIGETOPENINFO, typecompress: u16) -> super::super::Foundation::BOOL
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("cabinet.dll" "cdecl" fn FCIAddFile(hfci : *const core::ffi::c_void, pszsourcefile : windows_core::PCSTR, pszfilename : windows_core::PCSTR, fexecute : super::super::Foundation:: BOOL, pfnfcignc : PFNFCIGETNEXTCABINET, pfnfcis : PFNFCISTATUS, pfnfcigoi : PFNFCIGETOPENINFO, typecompress : u16) -> super::super::Foundation:: BOOL);
     FCIAddFile(hfci, pszsourcefile.param().abi(), pszfilename.param().abi(), fexecute.param().abi(), pfnfcignc, pfnfcis, pfnfcigoi, typecompress)
@@ -19,9 +19,9 @@ pub unsafe fn FCIDestroy(hfci: *const core::ffi::c_void) -> super::super::Founda
     FCIDestroy(hfci)
 }
 #[inline]
-pub unsafe fn FCIFlushCabinet<P1>(hfci: *const core::ffi::c_void, fgetnextcab: P1, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> super::super::Foundation::BOOL
+pub unsafe fn FCIFlushCabinet<P0>(hfci: *const core::ffi::c_void, fgetnextcab: P0, pfnfcignc: PFNFCIGETNEXTCABINET, pfnfcis: PFNFCISTATUS) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("cabinet.dll" "cdecl" fn FCIFlushCabinet(hfci : *const core::ffi::c_void, fgetnextcab : super::super::Foundation:: BOOL, pfnfcignc : PFNFCIGETNEXTCABINET, pfnfcis : PFNFCISTATUS) -> super::super::Foundation:: BOOL);
     FCIFlushCabinet(hfci, fgetnextcab.param().abi(), pfnfcignc, pfnfcis)
@@ -32,10 +32,10 @@ pub unsafe fn FCIFlushFolder(hfci: *const core::ffi::c_void, pfnfcignc: PFNFCIGE
     FCIFlushFolder(hfci, pfnfcignc, pfnfcis)
 }
 #[inline]
-pub unsafe fn FDICopy<P1, P2>(hfdi: *const core::ffi::c_void, pszcabinet: P1, pszcabpath: P2, flags: i32, pfnfdin: PFNFDINOTIFY, pfnfdid: PFNFDIDECRYPT, pvuser: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL
+pub unsafe fn FDICopy<P0, P1>(hfdi: *const core::ffi::c_void, pszcabinet: P0, pszcabpath: P1, flags: i32, pfnfdin: PFNFDINOTIFY, pfnfdid: PFNFDIDECRYPT, pvuser: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cabinet.dll" "cdecl" fn FDICopy(hfdi : *const core::ffi::c_void, pszcabinet : windows_core::PCSTR, pszcabpath : windows_core::PCSTR, flags : i32, pfnfdin : PFNFDINOTIFY, pfnfdid : PFNFDIDECRYPT, pvuser : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     FDICopy(hfdi, pszcabinet.param().abi(), pszcabpath.param().abi(), flags, pfnfdin, pfnfdid, core::mem::transmute(pvuser.unwrap_or(core::ptr::null())))
@@ -56,9 +56,9 @@ pub unsafe fn FDIIsCabinet(hfdi: *const core::ffi::c_void, hf: isize, pfdici: Op
     FDIIsCabinet(hfdi, hf, core::mem::transmute(pfdici.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn FDITruncateCabinet<P1>(hfdi: *const core::ffi::c_void, pszcabinetname: P1, ifoldertodelete: u16) -> super::super::Foundation::BOOL
+pub unsafe fn FDITruncateCabinet<P0>(hfdi: *const core::ffi::c_void, pszcabinetname: P0, ifoldertodelete: u16) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cabinet.dll" "cdecl" fn FDITruncateCabinet(hfdi : *const core::ffi::c_void, pszcabinetname : windows_core::PCSTR, ifoldertodelete : u16) -> super::super::Foundation:: BOOL);
     FDITruncateCabinet(hfdi, pszcabinetname.param().abi(), ifoldertodelete)
@@ -131,37 +131,62 @@ pub const tcompTYPE_MSZIP: u32 = 1u32;
 pub const tcompTYPE_NONE: u32 = 0u32;
 pub const tcompTYPE_QUANTUM: u32 = 2u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FCIERROR(pub i32);
 impl windows_core::TypeKind for FCIERROR {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FCIERROR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FCIERROR").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FDICREATE_CPU_TYPE(pub i32);
 impl windows_core::TypeKind for FDICREATE_CPU_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FDICREATE_CPU_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FDICREATE_CPU_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FDIDECRYPTTYPE(pub i32);
 impl windows_core::TypeKind for FDIDECRYPTTYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FDIDECRYPTTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FDIDECRYPTTYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FDIERROR(pub i32);
 impl windows_core::TypeKind for FDIERROR {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FDIERROR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FDIERROR").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FDINOTIFICATIONTYPE(pub i32);
 impl windows_core::TypeKind for FDINOTIFICATIONTYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FDINOTIFICATIONTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FDINOTIFICATIONTYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CCAB {
     pub cb: u32,
     pub cbFolderThresh: u32,
@@ -176,31 +201,31 @@ pub struct CCAB {
     pub szCab: [i8; 256],
     pub szCabPath: [i8; 256],
 }
+impl windows_core::TypeKind for CCAB {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CCAB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CCAB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ERF {
     pub erfOper: i32,
     pub erfType: i32,
     pub fError: super::super::Foundation::BOOL,
+}
+impl windows_core::TypeKind for ERF {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ERF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ERF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FDICABINETINFO {
     pub cbCabinet: i32,
     pub cFolders: u16,
@@ -211,62 +236,62 @@ pub struct FDICABINETINFO {
     pub hasprev: super::super::Foundation::BOOL,
     pub hasnext: super::super::Foundation::BOOL,
 }
+impl windows_core::TypeKind for FDICABINETINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FDICABINETINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FDICABINETINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FDIDECRYPT {
     pub fdidt: FDIDECRYPTTYPE,
     pub pvUser: *mut core::ffi::c_void,
     pub Anonymous: FDIDECRYPT_0,
+}
+impl windows_core::TypeKind for FDIDECRYPT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FDIDECRYPT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FDIDECRYPT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FDIDECRYPT_0 {
     pub cabinet: FDIDECRYPT_0_0,
     pub folder: FDIDECRYPT_0_1,
     pub decrypt: FDIDECRYPT_0_2,
+}
+impl windows_core::TypeKind for FDIDECRYPT_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FDIDECRYPT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FDIDECRYPT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FDIDECRYPT_0_0 {
     pub pHeaderReserve: *mut core::ffi::c_void,
     pub cbHeaderReserve: u16,
     pub setID: u16,
     pub iCabinet: i32,
 }
+impl windows_core::TypeKind for FDIDECRYPT_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FDIDECRYPT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FDIDECRYPT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FDIDECRYPT_0_2 {
     pub pDataReserve: *mut core::ffi::c_void,
     pub cbDataReserve: u16,
@@ -275,31 +300,31 @@ pub struct FDIDECRYPT_0_2 {
     pub fSplit: super::super::Foundation::BOOL,
     pub cbPartial: u16,
 }
+impl windows_core::TypeKind for FDIDECRYPT_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FDIDECRYPT_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FDIDECRYPT_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FDIDECRYPT_0_1 {
     pub pFolderReserve: *mut core::ffi::c_void,
     pub cbFolderReserve: u16,
     pub iFolder: u16,
+}
+impl windows_core::TypeKind for FDIDECRYPT_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FDIDECRYPT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FDIDECRYPT_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FDINOTIFICATION {
     pub cb: i32,
     pub psz1: windows_core::PSTR,
@@ -315,47 +340,47 @@ pub struct FDINOTIFICATION {
     pub iFolder: u16,
     pub fdie: FDIERROR,
 }
+impl windows_core::TypeKind for FDINOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FDINOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FDINOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct FDISPILLFILE {
     pub ach: [i8; 2],
     pub cbFile: i32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FDISPILLFILE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for FDISPILLFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FDISPILLFILE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FDISPILLFILE {
     pub ach: [i8; 2],
     pub cbFile: i32,
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FDISPILLFILE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for FDISPILLFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FDISPILLFILE {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PFNALLOC = Option<unsafe extern "system" fn(cb: u32) -> *mut core::ffi::c_void>;
 pub type PFNCLOSE = Option<unsafe extern "system" fn(hf: isize) -> i32>;

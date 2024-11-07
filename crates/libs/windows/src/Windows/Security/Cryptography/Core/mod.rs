@@ -668,7 +668,6 @@ impl windows_core::RuntimeName for AsymmetricAlgorithmNames {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AsymmetricKeyAlgorithmProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AsymmetricKeyAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AsymmetricKeyAlgorithmProvider,);
 impl AsymmetricKeyAlgorithmProvider {
     pub fn AlgorithmName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -757,12 +756,14 @@ impl windows_core::RuntimeType for AsymmetricKeyAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAsymmetricKeyAlgorithmProvider>();
 }
 unsafe impl windows_core::Interface for AsymmetricKeyAlgorithmProvider {
-    type Vtable = <IAsymmetricKeyAlgorithmProvider as windows_core::Interface>::Vtable;
+    type Vtable = IAsymmetricKeyAlgorithmProvider_Vtbl;
     const IID: windows_core::GUID = <IAsymmetricKeyAlgorithmProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AsymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider";
 }
+unsafe impl Send for AsymmetricKeyAlgorithmProvider {}
+unsafe impl Sync for AsymmetricKeyAlgorithmProvider {}
 pub struct CryptographicEngine;
 impl CryptographicEngine {
     #[cfg(feature = "Storage_Streams")]
@@ -923,7 +924,6 @@ impl windows_core::RuntimeName for CryptographicEngine {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CryptographicHash(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CryptographicHash, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CryptographicHash,);
 impl CryptographicHash {
     #[cfg(feature = "Storage_Streams")]
     pub fn Append<P0>(&self, data: P0) -> windows_core::Result<()>
@@ -946,17 +946,18 @@ impl windows_core::RuntimeType for CryptographicHash {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHashComputation>();
 }
 unsafe impl windows_core::Interface for CryptographicHash {
-    type Vtable = <IHashComputation as windows_core::Interface>::Vtable;
+    type Vtable = IHashComputation_Vtbl;
     const IID: windows_core::GUID = <IHashComputation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CryptographicHash {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicHash";
 }
+unsafe impl Send for CryptographicHash {}
+unsafe impl Sync for CryptographicHash {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CryptographicKey(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CryptographicKey, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CryptographicKey,);
 impl CryptographicKey {
     pub fn KeySize(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -1002,12 +1003,14 @@ impl windows_core::RuntimeType for CryptographicKey {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICryptographicKey>();
 }
 unsafe impl windows_core::Interface for CryptographicKey {
-    type Vtable = <ICryptographicKey as windows_core::Interface>::Vtable;
+    type Vtable = ICryptographicKey_Vtbl;
     const IID: windows_core::GUID = <ICryptographicKey as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CryptographicKey {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicKey";
 }
+unsafe impl Send for CryptographicKey {}
+unsafe impl Sync for CryptographicKey {}
 pub struct EccCurveNames;
 impl EccCurveNames {
     pub fn BrainpoolP160r1() -> windows_core::Result<windows_core::HSTRING> {
@@ -1299,7 +1302,6 @@ impl windows_core::RuntimeName for EccCurveNames {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EncryptedAndAuthenticatedData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EncryptedAndAuthenticatedData, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(EncryptedAndAuthenticatedData,);
 impl EncryptedAndAuthenticatedData {
     #[cfg(feature = "Storage_Streams")]
     pub fn EncryptedData(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
@@ -1322,12 +1324,14 @@ impl windows_core::RuntimeType for EncryptedAndAuthenticatedData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEncryptedAndAuthenticatedData>();
 }
 unsafe impl windows_core::Interface for EncryptedAndAuthenticatedData {
-    type Vtable = <IEncryptedAndAuthenticatedData as windows_core::Interface>::Vtable;
+    type Vtable = IEncryptedAndAuthenticatedData_Vtbl;
     const IID: windows_core::GUID = <IEncryptedAndAuthenticatedData as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EncryptedAndAuthenticatedData {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData";
 }
+unsafe impl Send for EncryptedAndAuthenticatedData {}
+unsafe impl Sync for EncryptedAndAuthenticatedData {}
 pub struct HashAlgorithmNames;
 impl HashAlgorithmNames {
     pub fn Md5() -> windows_core::Result<windows_core::HSTRING> {
@@ -1372,7 +1376,6 @@ impl windows_core::RuntimeName for HashAlgorithmNames {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HashAlgorithmProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HashAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(HashAlgorithmProvider,);
 impl HashAlgorithmProvider {
     pub fn AlgorithmName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1421,12 +1424,14 @@ impl windows_core::RuntimeType for HashAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHashAlgorithmProvider>();
 }
 unsafe impl windows_core::Interface for HashAlgorithmProvider {
-    type Vtable = <IHashAlgorithmProvider as windows_core::Interface>::Vtable;
+    type Vtable = IHashAlgorithmProvider_Vtbl;
     const IID: windows_core::GUID = <IHashAlgorithmProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HashAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.HashAlgorithmProvider";
 }
+unsafe impl Send for HashAlgorithmProvider {}
+unsafe impl Sync for HashAlgorithmProvider {}
 pub struct KeyDerivationAlgorithmNames;
 impl KeyDerivationAlgorithmNames {
     pub fn Pbkdf2Md5() -> windows_core::Result<windows_core::HSTRING> {
@@ -1565,7 +1570,6 @@ impl windows_core::RuntimeName for KeyDerivationAlgorithmNames {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyDerivationAlgorithmProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyDerivationAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(KeyDerivationAlgorithmProvider,);
 impl KeyDerivationAlgorithmProvider {
     pub fn AlgorithmName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1600,17 +1604,18 @@ impl windows_core::RuntimeType for KeyDerivationAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyDerivationAlgorithmProvider>();
 }
 unsafe impl windows_core::Interface for KeyDerivationAlgorithmProvider {
-    type Vtable = <IKeyDerivationAlgorithmProvider as windows_core::Interface>::Vtable;
+    type Vtable = IKeyDerivationAlgorithmProvider_Vtbl;
     const IID: windows_core::GUID = <IKeyDerivationAlgorithmProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for KeyDerivationAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider";
 }
+unsafe impl Send for KeyDerivationAlgorithmProvider {}
+unsafe impl Sync for KeyDerivationAlgorithmProvider {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyDerivationParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyDerivationParameters, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(KeyDerivationParameters,);
 impl KeyDerivationParameters {
     #[cfg(feature = "Storage_Streams")]
     pub fn KdfGenericBinary(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
@@ -1700,12 +1705,14 @@ impl windows_core::RuntimeType for KeyDerivationParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyDerivationParameters>();
 }
 unsafe impl windows_core::Interface for KeyDerivationParameters {
-    type Vtable = <IKeyDerivationParameters as windows_core::Interface>::Vtable;
+    type Vtable = IKeyDerivationParameters_Vtbl;
     const IID: windows_core::GUID = <IKeyDerivationParameters as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for KeyDerivationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationParameters";
 }
+unsafe impl Send for KeyDerivationParameters {}
+unsafe impl Sync for KeyDerivationParameters {}
 pub struct MacAlgorithmNames;
 impl MacAlgorithmNames {
     pub fn HmacMd5() -> windows_core::Result<windows_core::HSTRING> {
@@ -1756,7 +1763,6 @@ impl windows_core::RuntimeName for MacAlgorithmNames {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MacAlgorithmProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MacAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MacAlgorithmProvider,);
 impl MacAlgorithmProvider {
     pub fn AlgorithmName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1809,12 +1815,14 @@ impl windows_core::RuntimeType for MacAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMacAlgorithmProvider>();
 }
 unsafe impl windows_core::Interface for MacAlgorithmProvider {
-    type Vtable = <IMacAlgorithmProvider as windows_core::Interface>::Vtable;
+    type Vtable = IMacAlgorithmProvider_Vtbl;
     const IID: windows_core::GUID = <IMacAlgorithmProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MacAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.MacAlgorithmProvider";
 }
+unsafe impl Send for MacAlgorithmProvider {}
+unsafe impl Sync for MacAlgorithmProvider {}
 pub struct PersistedKeyProvider;
 impl PersistedKeyProvider {
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -1973,7 +1981,6 @@ impl windows_core::RuntimeName for SymmetricAlgorithmNames {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SymmetricKeyAlgorithmProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SymmetricKeyAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SymmetricKeyAlgorithmProvider,);
 impl SymmetricKeyAlgorithmProvider {
     pub fn AlgorithmName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2015,14 +2022,16 @@ impl windows_core::RuntimeType for SymmetricKeyAlgorithmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISymmetricKeyAlgorithmProvider>();
 }
 unsafe impl windows_core::Interface for SymmetricKeyAlgorithmProvider {
-    type Vtable = <ISymmetricKeyAlgorithmProvider as windows_core::Interface>::Vtable;
+    type Vtable = ISymmetricKeyAlgorithmProvider_Vtbl;
     const IID: windows_core::GUID = <ISymmetricKeyAlgorithmProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider";
 }
+unsafe impl Send for SymmetricKeyAlgorithmProvider {}
+unsafe impl Sync for SymmetricKeyAlgorithmProvider {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct Capi1KdfTargetAlgorithm(pub i32);
 impl Capi1KdfTargetAlgorithm {
     pub const NotAes: Self = Self(0i32);
@@ -2031,11 +2040,16 @@ impl Capi1KdfTargetAlgorithm {
 impl windows_core::TypeKind for Capi1KdfTargetAlgorithm {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for Capi1KdfTargetAlgorithm {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("Capi1KdfTargetAlgorithm").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for Capi1KdfTargetAlgorithm {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CryptographicPadding(pub i32);
 impl CryptographicPadding {
     pub const None: Self = Self(0i32);
@@ -2046,11 +2060,16 @@ impl CryptographicPadding {
 impl windows_core::TypeKind for CryptographicPadding {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CryptographicPadding {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CryptographicPadding").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for CryptographicPadding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPadding;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CryptographicPrivateKeyBlobType(pub i32);
 impl CryptographicPrivateKeyBlobType {
     pub const Pkcs8RawPrivateKeyInfo: Self = Self(0i32);
@@ -2062,11 +2081,16 @@ impl CryptographicPrivateKeyBlobType {
 impl windows_core::TypeKind for CryptographicPrivateKeyBlobType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CryptographicPrivateKeyBlobType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CryptographicPrivateKeyBlobType").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for CryptographicPrivateKeyBlobType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPrivateKeyBlobType;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CryptographicPublicKeyBlobType(pub i32);
 impl CryptographicPublicKeyBlobType {
     pub const X509SubjectPublicKeyInfo: Self = Self(0i32);
@@ -2077,6 +2101,11 @@ impl CryptographicPublicKeyBlobType {
 }
 impl windows_core::TypeKind for CryptographicPublicKeyBlobType {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CryptographicPublicKeyBlobType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CryptographicPublicKeyBlobType").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for CryptographicPublicKeyBlobType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPublicKeyBlobType;i4)");

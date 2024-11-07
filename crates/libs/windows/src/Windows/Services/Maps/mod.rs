@@ -496,7 +496,6 @@ pub struct IPlaceInfoStatics2_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnhancedWaypoint(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnhancedWaypoint, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(EnhancedWaypoint,);
 impl EnhancedWaypoint {
     #[cfg(feature = "Devices_Geolocation")]
     pub fn Point(&self) -> windows_core::Result<super::super::Devices::Geolocation::Geopoint> {
@@ -532,17 +531,18 @@ impl windows_core::RuntimeType for EnhancedWaypoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnhancedWaypoint>();
 }
 unsafe impl windows_core::Interface for EnhancedWaypoint {
-    type Vtable = <IEnhancedWaypoint as windows_core::Interface>::Vtable;
+    type Vtable = IEnhancedWaypoint_Vtbl;
     const IID: windows_core::GUID = <IEnhancedWaypoint as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EnhancedWaypoint {
     const NAME: &'static str = "Windows.Services.Maps.EnhancedWaypoint";
 }
+unsafe impl Send for EnhancedWaypoint {}
+unsafe impl Sync for EnhancedWaypoint {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ManeuverWarning(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ManeuverWarning, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ManeuverWarning,);
 impl ManeuverWarning {
     pub fn Kind(&self) -> windows_core::Result<ManeuverWarningKind> {
         let this = self;
@@ -563,17 +563,18 @@ impl windows_core::RuntimeType for ManeuverWarning {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IManeuverWarning>();
 }
 unsafe impl windows_core::Interface for ManeuverWarning {
-    type Vtable = <IManeuverWarning as windows_core::Interface>::Vtable;
+    type Vtable = IManeuverWarning_Vtbl;
     const IID: windows_core::GUID = <IManeuverWarning as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ManeuverWarning {
     const NAME: &'static str = "Windows.Services.Maps.ManeuverWarning";
 }
+unsafe impl Send for ManeuverWarning {}
+unsafe impl Sync for ManeuverWarning {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapAddress(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapAddress, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MapAddress,);
 impl MapAddress {
     pub fn BuildingName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -692,17 +693,18 @@ impl windows_core::RuntimeType for MapAddress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapAddress>();
 }
 unsafe impl windows_core::Interface for MapAddress {
-    type Vtable = <IMapAddress as windows_core::Interface>::Vtable;
+    type Vtable = IMapAddress_Vtbl;
     const IID: windows_core::GUID = <IMapAddress as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapAddress {
     const NAME: &'static str = "Windows.Services.Maps.MapAddress";
 }
+unsafe impl Send for MapAddress {}
+unsafe impl Sync for MapAddress {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapLocation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MapLocation,);
 impl MapLocation {
     #[cfg(feature = "Devices_Geolocation")]
     pub fn Point(&self) -> windows_core::Result<super::super::Devices::Geolocation::Geopoint> {
@@ -738,12 +740,14 @@ impl windows_core::RuntimeType for MapLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapLocation>();
 }
 unsafe impl windows_core::Interface for MapLocation {
-    type Vtable = <IMapLocation as windows_core::Interface>::Vtable;
+    type Vtable = IMapLocation_Vtbl;
     const IID: windows_core::GUID = <IMapLocation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapLocation {
     const NAME: &'static str = "Windows.Services.Maps.MapLocation";
 }
+unsafe impl Send for MapLocation {}
+unsafe impl Sync for MapLocation {}
 pub struct MapLocationFinder;
 impl MapLocationFinder {
     #[cfg(feature = "Devices_Geolocation")]
@@ -757,9 +761,9 @@ impl MapLocationFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindLocationsAsync<P1>(searchtext: &windows_core::HSTRING, referencepoint: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>
+    pub fn FindLocationsAsync<P0>(searchtext: &windows_core::HSTRING, referencepoint: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>
     where
-        P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
+        P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -767,9 +771,9 @@ impl MapLocationFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindLocationsWithMaxCountAsync<P1>(searchtext: &windows_core::HSTRING, referencepoint: P1, maxcount: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>
+    pub fn FindLocationsWithMaxCountAsync<P0>(searchtext: &windows_core::HSTRING, referencepoint: P0, maxcount: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>
     where
-        P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
+        P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -802,7 +806,6 @@ impl windows_core::RuntimeName for MapLocationFinder {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapLocationFinderResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapLocationFinderResult, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MapLocationFinderResult,);
 impl MapLocationFinderResult {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Locations(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<MapLocation>> {
@@ -824,12 +827,14 @@ impl windows_core::RuntimeType for MapLocationFinderResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapLocationFinderResult>();
 }
 unsafe impl windows_core::Interface for MapLocationFinderResult {
-    type Vtable = <IMapLocationFinderResult as windows_core::Interface>::Vtable;
+    type Vtable = IMapLocationFinderResult_Vtbl;
     const IID: windows_core::GUID = <IMapLocationFinderResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapLocationFinderResult";
 }
+unsafe impl Send for MapLocationFinderResult {}
+unsafe impl Sync for MapLocationFinderResult {}
 pub struct MapManager;
 impl MapManager {
     pub fn ShowDownloadedMapsUI() -> windows_core::Result<()> {
@@ -850,7 +855,6 @@ impl windows_core::RuntimeName for MapManager {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRoute(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapRoute, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MapRoute,);
 impl MapRoute {
     #[cfg(feature = "Devices_Geolocation")]
     pub fn BoundingBox(&self) -> windows_core::Result<super::super::Devices::Geolocation::GeoboundingBox> {
@@ -937,17 +941,18 @@ impl windows_core::RuntimeType for MapRoute {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRoute>();
 }
 unsafe impl windows_core::Interface for MapRoute {
-    type Vtable = <IMapRoute as windows_core::Interface>::Vtable;
+    type Vtable = IMapRoute_Vtbl;
     const IID: windows_core::GUID = <IMapRoute as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapRoute {
     const NAME: &'static str = "Windows.Services.Maps.MapRoute";
 }
+unsafe impl Send for MapRoute {}
+unsafe impl Sync for MapRoute {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteDrivingOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapRouteDrivingOptions, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MapRouteDrivingOptions,);
 impl MapRouteDrivingOptions {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1022,12 +1027,14 @@ impl windows_core::RuntimeType for MapRouteDrivingOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteDrivingOptions>();
 }
 unsafe impl windows_core::Interface for MapRouteDrivingOptions {
-    type Vtable = <IMapRouteDrivingOptions as windows_core::Interface>::Vtable;
+    type Vtable = IMapRouteDrivingOptions_Vtbl;
     const IID: windows_core::GUID = <IMapRouteDrivingOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapRouteDrivingOptions {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteDrivingOptions";
 }
+unsafe impl Send for MapRouteDrivingOptions {}
+unsafe impl Sync for MapRouteDrivingOptions {}
 pub struct MapRouteFinder;
 impl MapRouteFinder {
     #[cfg(feature = "Devices_Geolocation")]
@@ -1188,7 +1195,6 @@ impl windows_core::RuntimeName for MapRouteFinder {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteFinderResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapRouteFinderResult, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MapRouteFinderResult,);
 impl MapRouteFinderResult {
     pub fn Route(&self) -> windows_core::Result<MapRoute> {
         let this = self;
@@ -1217,17 +1223,18 @@ impl windows_core::RuntimeType for MapRouteFinderResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteFinderResult>();
 }
 unsafe impl windows_core::Interface for MapRouteFinderResult {
-    type Vtable = <IMapRouteFinderResult as windows_core::Interface>::Vtable;
+    type Vtable = IMapRouteFinderResult_Vtbl;
     const IID: windows_core::GUID = <IMapRouteFinderResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapRouteFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteFinderResult";
 }
+unsafe impl Send for MapRouteFinderResult {}
+unsafe impl Sync for MapRouteFinderResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteLeg(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapRouteLeg, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MapRouteLeg,);
 impl MapRouteLeg {
     #[cfg(feature = "Devices_Geolocation")]
     pub fn BoundingBox(&self) -> windows_core::Result<super::super::Devices::Geolocation::GeoboundingBox> {
@@ -1286,17 +1293,18 @@ impl windows_core::RuntimeType for MapRouteLeg {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteLeg>();
 }
 unsafe impl windows_core::Interface for MapRouteLeg {
-    type Vtable = <IMapRouteLeg as windows_core::Interface>::Vtable;
+    type Vtable = IMapRouteLeg_Vtbl;
     const IID: windows_core::GUID = <IMapRouteLeg as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapRouteLeg {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteLeg";
 }
+unsafe impl Send for MapRouteLeg {}
+unsafe impl Sync for MapRouteLeg {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteManeuver(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapRouteManeuver, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MapRouteManeuver,);
 impl MapRouteManeuver {
     #[cfg(feature = "Devices_Geolocation")]
     pub fn StartingPoint(&self) -> windows_core::Result<super::super::Devices::Geolocation::Geopoint> {
@@ -1375,12 +1383,14 @@ impl windows_core::RuntimeType for MapRouteManeuver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteManeuver>();
 }
 unsafe impl windows_core::Interface for MapRouteManeuver {
-    type Vtable = <IMapRouteManeuver as windows_core::Interface>::Vtable;
+    type Vtable = IMapRouteManeuver_Vtbl;
     const IID: windows_core::GUID = <IMapRouteManeuver as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapRouteManeuver {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteManeuver";
 }
+unsafe impl Send for MapRouteManeuver {}
+unsafe impl Sync for MapRouteManeuver {}
 pub struct MapService;
 impl MapService {
     pub fn SetServiceToken(value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1437,7 +1447,6 @@ impl windows_core::RuntimeName for MapService {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaceInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlaceInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PlaceInfo,);
 impl PlaceInfo {
     pub fn Show(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<()> {
         let this = self;
@@ -1505,10 +1514,10 @@ impl PlaceInfo {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn CreateFromIdentifierWithOptions<P1, P2>(identifier: &windows_core::HSTRING, defaultpoint: P1, options: P2) -> windows_core::Result<PlaceInfo>
+    pub fn CreateFromIdentifierWithOptions<P0, P1>(identifier: &windows_core::HSTRING, defaultpoint: P0, options: P1) -> windows_core::Result<PlaceInfo>
     where
-        P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
-        P2: windows_core::Param<PlaceInfoCreateOptions>,
+        P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
+        P1: windows_core::Param<PlaceInfoCreateOptions>,
     {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1555,17 +1564,18 @@ impl windows_core::RuntimeType for PlaceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaceInfo>();
 }
 unsafe impl windows_core::Interface for PlaceInfo {
-    type Vtable = <IPlaceInfo as windows_core::Interface>::Vtable;
+    type Vtable = IPlaceInfo_Vtbl;
     const IID: windows_core::GUID = <IPlaceInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PlaceInfo {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfo";
 }
+unsafe impl Send for PlaceInfo {}
+unsafe impl Sync for PlaceInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaceInfoCreateOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlaceInfoCreateOptions, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PlaceInfoCreateOptions,);
 impl PlaceInfoCreateOptions {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1601,14 +1611,16 @@ impl windows_core::RuntimeType for PlaceInfoCreateOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaceInfoCreateOptions>();
 }
 unsafe impl windows_core::Interface for PlaceInfoCreateOptions {
-    type Vtable = <IPlaceInfoCreateOptions as windows_core::Interface>::Vtable;
+    type Vtable = IPlaceInfoCreateOptions_Vtbl;
     const IID: windows_core::GUID = <IPlaceInfoCreateOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PlaceInfoCreateOptions {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfoCreateOptions";
 }
+unsafe impl Send for PlaceInfoCreateOptions {}
+unsafe impl Sync for PlaceInfoCreateOptions {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ManeuverWarningKind(pub i32);
 impl ManeuverWarningKind {
     pub const None: Self = Self(0i32);
@@ -1651,11 +1663,16 @@ impl ManeuverWarningKind {
 impl windows_core::TypeKind for ManeuverWarningKind {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ManeuverWarningKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ManeuverWarningKind").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for ManeuverWarningKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ManeuverWarningSeverity(pub i32);
 impl ManeuverWarningSeverity {
     pub const None: Self = Self(0i32);
@@ -1667,11 +1684,16 @@ impl ManeuverWarningSeverity {
 impl windows_core::TypeKind for ManeuverWarningSeverity {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ManeuverWarningSeverity {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ManeuverWarningSeverity").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for ManeuverWarningSeverity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningSeverity;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MapLocationDesiredAccuracy(pub i32);
 impl MapLocationDesiredAccuracy {
     pub const High: Self = Self(0i32);
@@ -1680,11 +1702,16 @@ impl MapLocationDesiredAccuracy {
 impl windows_core::TypeKind for MapLocationDesiredAccuracy {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MapLocationDesiredAccuracy {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MapLocationDesiredAccuracy").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for MapLocationDesiredAccuracy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationDesiredAccuracy;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MapLocationFinderStatus(pub i32);
 impl MapLocationFinderStatus {
     pub const Success: Self = Self(0i32);
@@ -1698,11 +1725,16 @@ impl MapLocationFinderStatus {
 impl windows_core::TypeKind for MapLocationFinderStatus {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MapLocationFinderStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MapLocationFinderStatus").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for MapLocationFinderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationFinderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MapManeuverNotices(pub u32);
 impl MapManeuverNotices {
     pub const None: Self = Self(0u32);
@@ -1712,11 +1744,49 @@ impl MapManeuverNotices {
 impl windows_core::TypeKind for MapManeuverNotices {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MapManeuverNotices {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MapManeuverNotices").field(&self.0).finish()
+    }
+}
+impl MapManeuverNotices {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for MapManeuverNotices {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for MapManeuverNotices {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for MapManeuverNotices {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for MapManeuverNotices {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for MapManeuverNotices {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 impl windows_core::RuntimeType for MapManeuverNotices {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapManeuverNotices;u4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MapRouteFinderStatus(pub i32);
 impl MapRouteFinderStatus {
     pub const Success: Self = Self(0i32);
@@ -1733,11 +1803,16 @@ impl MapRouteFinderStatus {
 impl windows_core::TypeKind for MapRouteFinderStatus {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MapRouteFinderStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MapRouteFinderStatus").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for MapRouteFinderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteFinderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MapRouteManeuverKind(pub i32);
 impl MapRouteManeuverKind {
     pub const None: Self = Self(0i32);
@@ -1769,11 +1844,16 @@ impl MapRouteManeuverKind {
 impl windows_core::TypeKind for MapRouteManeuverKind {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MapRouteManeuverKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MapRouteManeuverKind").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for MapRouteManeuverKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteManeuverKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MapRouteOptimization(pub i32);
 impl MapRouteOptimization {
     pub const Time: Self = Self(0i32);
@@ -1784,11 +1864,16 @@ impl MapRouteOptimization {
 impl windows_core::TypeKind for MapRouteOptimization {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MapRouteOptimization {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MapRouteOptimization").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for MapRouteOptimization {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteOptimization;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MapRouteRestrictions(pub u32);
 impl MapRouteRestrictions {
     pub const None: Self = Self(0u32);
@@ -1802,11 +1887,49 @@ impl MapRouteRestrictions {
 impl windows_core::TypeKind for MapRouteRestrictions {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MapRouteRestrictions {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MapRouteRestrictions").field(&self.0).finish()
+    }
+}
+impl MapRouteRestrictions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for MapRouteRestrictions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for MapRouteRestrictions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for MapRouteRestrictions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for MapRouteRestrictions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for MapRouteRestrictions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 impl windows_core::RuntimeType for MapRouteRestrictions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteRestrictions;u4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MapServiceDataUsagePreference(pub i32);
 impl MapServiceDataUsagePreference {
     pub const Default: Self = Self(0i32);
@@ -1815,11 +1938,16 @@ impl MapServiceDataUsagePreference {
 impl windows_core::TypeKind for MapServiceDataUsagePreference {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MapServiceDataUsagePreference {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MapServiceDataUsagePreference").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for MapServiceDataUsagePreference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapServiceDataUsagePreference;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TrafficCongestion(pub i32);
 impl TrafficCongestion {
     pub const Unknown: Self = Self(0i32);
@@ -1831,11 +1959,16 @@ impl TrafficCongestion {
 impl windows_core::TypeKind for TrafficCongestion {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for TrafficCongestion {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TrafficCongestion").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for TrafficCongestion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.TrafficCongestion;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WaypointKind(pub i32);
 impl WaypointKind {
     pub const Stop: Self = Self(0i32);
@@ -1843,6 +1976,11 @@ impl WaypointKind {
 }
 impl windows_core::TypeKind for WaypointKind {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for WaypointKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WaypointKind").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for WaypointKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.WaypointKind;i4)");

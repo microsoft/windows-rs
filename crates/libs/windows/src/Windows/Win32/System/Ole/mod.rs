@@ -31,19 +31,19 @@ pub unsafe fn CreateOleAdviseHolder() -> windows_core::Result<IOleAdviseHolder> 
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateStdDispatch<P0, P2>(punkouter: P0, pvthis: *mut core::ffi::c_void, ptinfo: P2, ppunkstddisp: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+pub unsafe fn CreateStdDispatch<P0, P1>(punkouter: P0, pvthis: *mut core::ffi::c_void, ptinfo: P1, ppunkstddisp: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
-    P2: windows_core::Param<super::Com::ITypeInfo>,
+    P1: windows_core::Param<super::Com::ITypeInfo>,
 {
     windows_targets::link!("oleaut32.dll" "system" fn CreateStdDispatch(punkouter : * mut core::ffi::c_void, pvthis : *mut core::ffi::c_void, ptinfo : * mut core::ffi::c_void, ppunkstddisp : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     CreateStdDispatch(punkouter.param().abi(), pvthis, ptinfo.param().abi(), core::mem::transmute(ppunkstddisp)).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateTypeLib<P1>(syskind: super::Com::SYSKIND, szfile: P1) -> windows_core::Result<ICreateTypeLib>
+pub unsafe fn CreateTypeLib<P0>(syskind: super::Com::SYSKIND, szfile: P0) -> windows_core::Result<ICreateTypeLib>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("oleaut32.dll" "system" fn CreateTypeLib(syskind : super::Com:: SYSKIND, szfile : windows_core::PCWSTR, ppctlib : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
@@ -51,9 +51,9 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateTypeLib2<P1>(syskind: super::Com::SYSKIND, szfile: P1) -> windows_core::Result<ICreateTypeLib2>
+pub unsafe fn CreateTypeLib2<P0>(syskind: super::Com::SYSKIND, szfile: P0) -> windows_core::Result<ICreateTypeLib2>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("oleaut32.dll" "system" fn CreateTypeLib2(syskind : super::Com:: SYSKIND, szfile : windows_core::PCWSTR, ppctlib : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
@@ -62,34 +62,33 @@ where
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn DispCallFunc(pvinstance: Option<*const core::ffi::c_void>, ovft: usize, cc: super::Com::CALLCONV, vtreturn: super::Variant::VARENUM, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn DispCallFunc(pvinstance : *const core::ffi::c_void, ovft : usize, cc : super::Com:: CALLCONV, vtreturn : super::Variant:: VARENUM, cactuals : u32, prgvt : *const u16, prgpvarg : *const *const super::Variant:: VARIANT, pvargresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn DispCallFunc(pvinstance : *const core::ffi::c_void, ovft : usize, cc : super::Com:: CALLCONV, vtreturn : super::Variant:: VARENUM, cactuals : u32, prgvt : *const u16, prgpvarg : *const *const super::Variant:: VARIANT, pvargresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     DispCallFunc(core::mem::transmute(pvinstance.unwrap_or(core::ptr::null())), ovft, cc, vtreturn, cactuals, prgvt, prgpvarg, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DispGetIDsOfNames<P0>(ptinfo: P0, rgsznames: *const windows_core::PCWSTR, cnames: u32) -> windows_core::Result<i32>
+pub unsafe fn DispGetIDsOfNames<P0>(ptinfo: P0, rgsznames: *const windows_core::PCWSTR, cnames: u32, rgdispid: *mut i32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::Com::ITypeInfo>,
 {
     windows_targets::link!("oleaut32.dll" "system" fn DispGetIDsOfNames(ptinfo : * mut core::ffi::c_void, rgsznames : *const windows_core::PCWSTR, cnames : u32, rgdispid : *mut i32) -> windows_core::HRESULT);
-    let mut result__ = core::mem::zeroed();
-    DispGetIDsOfNames(ptinfo.param().abi(), rgsznames, cnames, &mut result__).map(|| result__)
+    DispGetIDsOfNames(ptinfo.param().abi(), rgsznames, cnames, rgdispid).ok()
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn DispGetParam(pdispparams: *const super::Com::DISPPARAMS, position: u32, vttarg: super::Variant::VARENUM, pvarresult: *mut super::Variant::VARIANT, puargerr: Option<*mut u32>) -> windows_core::Result<()> {
-    windows_targets::link!("oleaut32.dll" "system" fn DispGetParam(pdispparams : *const super::Com:: DISPPARAMS, position : u32, vttarg : super::Variant:: VARENUM, pvarresult : *mut super::Variant:: VARIANT, puargerr : *mut u32) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn DispGetParam(pdispparams : *const super::Com:: DISPPARAMS, position : u32, vttarg : super::Variant:: VARENUM, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >, puargerr : *mut u32) -> windows_core::HRESULT);
     DispGetParam(pdispparams, position, vttarg, core::mem::transmute(pvarresult), core::mem::transmute(puargerr.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn DispInvoke<P1>(_this: *mut core::ffi::c_void, ptinfo: P1, dispidmember: i32, wflags: u16, pparams: *mut super::Com::DISPPARAMS, pvarresult: *mut super::Variant::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> windows_core::Result<()>
+pub unsafe fn DispInvoke<P0>(_this: *mut core::ffi::c_void, ptinfo: P0, dispidmember: i32, wflags: u16, pparams: *mut super::Com::DISPPARAMS, pvarresult: *mut super::Variant::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::Com::ITypeInfo>,
+    P0: windows_core::Param<super::Com::ITypeInfo>,
 {
-    windows_targets::link!("oleaut32.dll" "system" fn DispInvoke(_this : *mut core::ffi::c_void, ptinfo : * mut core::ffi::c_void, dispidmember : i32, wflags : u16, pparams : *mut super::Com:: DISPPARAMS, pvarresult : *mut super::Variant:: VARIANT, pexcepinfo : *mut super::Com:: EXCEPINFO, puargerr : *mut u32) -> windows_core::HRESULT);
-    DispInvoke(_this, ptinfo.param().abi(), dispidmember, wflags, pparams, core::mem::transmute(pvarresult), core::mem::transmute(pexcepinfo), puargerr).ok()
+    windows_targets::link!("oleaut32.dll" "system" fn DispInvoke(_this : *mut core::ffi::c_void, ptinfo : * mut core::ffi::c_void, dispidmember : i32, wflags : u16, pparams : *mut super::Com:: DISPPARAMS, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >, pexcepinfo : *mut super::Com:: EXCEPINFO, puargerr : *mut u32) -> windows_core::HRESULT);
+    DispInvoke(_this, ptinfo.param().abi(), dispidmember, wflags, pparams, core::mem::transmute(pvarresult), pexcepinfo, puargerr).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -187,18 +186,18 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn LHashValOfNameSys<P2>(syskind: super::Com::SYSKIND, lcid: u32, szname: P2) -> u32
+pub unsafe fn LHashValOfNameSys<P0>(syskind: super::Com::SYSKIND, lcid: u32, szname: P0) -> u32
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("oleaut32.dll" "system" fn LHashValOfNameSys(syskind : super::Com:: SYSKIND, lcid : u32, szname : windows_core::PCWSTR) -> u32);
     LHashValOfNameSys(syskind, lcid, szname.param().abi())
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn LHashValOfNameSysA<P2>(syskind: super::Com::SYSKIND, lcid: u32, szname: P2) -> u32
+pub unsafe fn LHashValOfNameSysA<P0>(syskind: super::Com::SYSKIND, lcid: u32, szname: P0) -> u32
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("oleaut32.dll" "system" fn LHashValOfNameSysA(syskind : super::Com:: SYSKIND, lcid : u32, szname : windows_core::PCSTR) -> u32);
     LHashValOfNameSysA(syskind, lcid, szname.param().abi())
@@ -247,57 +246,57 @@ pub unsafe fn OleBuildVersion() -> u32 {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleConvertOLESTREAMToIStorage2<P1>(lpolestream: *const super::Com::StructuredStorage::OLESTREAM, pstg: P1, ptd: Option<*const super::Com::DVTARGETDEVICE>, opt: u32, pvcallbackcontext: Option<*const core::ffi::c_void>, pqueryconvertolelinkcallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> windows_core::Result<()>
+pub unsafe fn OleConvertOLESTREAMToIStorage2<P0>(lpolestream: *const super::Com::StructuredStorage::OLESTREAM, pstg: P0, ptd: Option<*const super::Com::DVTARGETDEVICE>, opt: u32, pvcallbackcontext: Option<*const core::ffi::c_void>, pqueryconvertolelinkcallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::Com::StructuredStorage::IStorage>,
+    P0: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorage2(lpolestream : *const super::Com::StructuredStorage:: OLESTREAM, pstg : * mut core::ffi::c_void, ptd : *const super::Com:: DVTARGETDEVICE, opt : u32, pvcallbackcontext : *const core::ffi::c_void, pqueryconvertolelinkcallback : OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> windows_core::HRESULT);
     OleConvertOLESTREAMToIStorage2(lpolestream, pstg.param().abi(), core::mem::transmute(ptd.unwrap_or(core::ptr::null())), opt, core::mem::transmute(pvcallbackcontext.unwrap_or(core::ptr::null())), pqueryconvertolelinkcallback).ok()
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn OleConvertOLESTREAMToIStorageEx2<P1>(polestm: *const super::Com::StructuredStorage::OLESTREAM, pstg: P1, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::Com::STGMEDIUM, opt: u32, pvcallbackcontext: Option<*const core::ffi::c_void>, pqueryconvertolelinkcallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> windows_core::Result<()>
+pub unsafe fn OleConvertOLESTREAMToIStorageEx2<P0>(polestm: *const super::Com::StructuredStorage::OLESTREAM, pstg: P0, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::Com::STGMEDIUM, opt: u32, pvcallbackcontext: Option<*const core::ffi::c_void>, pqueryconvertolelinkcallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::Com::StructuredStorage::IStorage>,
+    P0: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorageEx2(polestm : *const super::Com::StructuredStorage:: OLESTREAM, pstg : * mut core::ffi::c_void, pcfformat : *mut u16, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super::Com:: STGMEDIUM, opt : u32, pvcallbackcontext : *const core::ffi::c_void, pqueryconvertolelinkcallback : OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> windows_core::HRESULT);
-    OleConvertOLESTREAMToIStorageEx2(polestm, pstg.param().abi(), pcfformat, plwwidth, plheight, pdwsize, core::mem::transmute(pmedium), opt, core::mem::transmute(pvcallbackcontext.unwrap_or(core::ptr::null())), pqueryconvertolelinkcallback).ok()
+    OleConvertOLESTREAMToIStorageEx2(polestm, pstg.param().abi(), pcfformat, plwwidth, plheight, pdwsize, pmedium, opt, core::mem::transmute(pvcallbackcontext.unwrap_or(core::ptr::null())), pqueryconvertolelinkcallback).ok()
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleCreate<P4, P5>(rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, renderopt: OLERENDER, pformatetc: *const super::Com::FORMATETC, pclientsite: P4, pstg: P5, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleCreate<P0, P1>(rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, renderopt: OLERENDER, pformatetc: *const super::Com::FORMATETC, pclientsite: P0, pstg: P1, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<IOleClientSite>,
-    P5: windows_core::Param<super::Com::StructuredStorage::IStorage>,
+    P0: windows_core::Param<IOleClientSite>,
+    P1: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleCreate(rclsid : *const windows_core::GUID, riid : *const windows_core::GUID, renderopt : u32, pformatetc : *const super::Com:: FORMATETC, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleCreate(rclsid, riid, renderopt.0 as _, pformatetc, pclientsite.param().abi(), pstg.param().abi(), ppvobj).ok()
 }
 #[inline]
-pub unsafe fn OleCreateDefaultHandler<P1>(clsid: *const windows_core::GUID, punkouter: P1, riid: *const windows_core::GUID, lplpobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleCreateDefaultHandler<P0>(clsid: *const windows_core::GUID, punkouter: P0, riid: *const windows_core::GUID, lplpobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::IUnknown>,
+    P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleCreateDefaultHandler(clsid : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, riid : *const windows_core::GUID, lplpobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleCreateDefaultHandler(clsid, punkouter.param().abi(), riid, lplpobj).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn OleCreateEmbeddingHelper<P1, P3>(clsid: *const windows_core::GUID, punkouter: P1, flags: EMBDHLP_FLAGS, pcf: P3, riid: *const windows_core::GUID, lplpobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleCreateEmbeddingHelper<P0, P1>(clsid: *const windows_core::GUID, punkouter: P0, flags: EMBDHLP_FLAGS, pcf: P1, riid: *const windows_core::GUID, lplpobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::IUnknown>,
-    P3: windows_core::Param<super::Com::IClassFactory>,
+    P0: windows_core::Param<windows_core::IUnknown>,
+    P1: windows_core::Param<super::Com::IClassFactory>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleCreateEmbeddingHelper(clsid : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, flags : EMBDHLP_FLAGS, pcf : * mut core::ffi::c_void, riid : *const windows_core::GUID, lplpobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleCreateEmbeddingHelper(clsid, punkouter.param().abi(), flags, pcf.param().abi(), riid, lplpobj).ok()
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleCreateEx<P7, P9, P10>(rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: P7, rgdwconnection: *mut u32, pclientsite: P9, pstg: P10, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleCreateEx<P0, P1, P2>(rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: P0, rgdwconnection: *mut u32, pclientsite: P1, pstg: P2, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P7: windows_core::Param<super::Com::IAdviseSink>,
-    P9: windows_core::Param<IOleClientSite>,
-    P10: windows_core::Param<super::Com::StructuredStorage::IStorage>,
+    P0: windows_core::Param<super::Com::IAdviseSink>,
+    P1: windows_core::Param<IOleClientSite>,
+    P2: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleCreateEx(rclsid : *const windows_core::GUID, riid : *const windows_core::GUID, dwflags : OLECREATE, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::Com:: FORMATETC, lpadvisesink : * mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleCreateEx(rclsid, riid, dwflags, renderopt.0 as _, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection, pclientsite.param().abi(), pstg.param().abi(), ppvobj).ok()
@@ -310,115 +309,115 @@ pub unsafe fn OleCreateFontIndirect(lpfontdesc: *const FONTDESC, riid: *const wi
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleCreateFromData<P0, P4, P5>(psrcdataobj: P0, riid: *const windows_core::GUID, renderopt: OLERENDER, pformatetc: *const super::Com::FORMATETC, pclientsite: P4, pstg: P5, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleCreateFromData<P0, P1, P2>(psrcdataobj: P0, riid: *const windows_core::GUID, renderopt: OLERENDER, pformatetc: *const super::Com::FORMATETC, pclientsite: P1, pstg: P2, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::Com::IDataObject>,
-    P4: windows_core::Param<IOleClientSite>,
-    P5: windows_core::Param<super::Com::StructuredStorage::IStorage>,
+    P1: windows_core::Param<IOleClientSite>,
+    P2: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleCreateFromData(psrcdataobj : * mut core::ffi::c_void, riid : *const windows_core::GUID, renderopt : u32, pformatetc : *const super::Com:: FORMATETC, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleCreateFromData(psrcdataobj.param().abi(), riid, renderopt.0 as _, pformatetc, pclientsite.param().abi(), pstg.param().abi(), ppvobj).ok()
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleCreateFromDataEx<P0, P7, P9, P10>(psrcdataobj: P0, riid: *const windows_core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: P7, rgdwconnection: *mut u32, pclientsite: P9, pstg: P10, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleCreateFromDataEx<P0, P1, P2, P3>(psrcdataobj: P0, riid: *const windows_core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: P1, rgdwconnection: *mut u32, pclientsite: P2, pstg: P3, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::Com::IDataObject>,
-    P7: windows_core::Param<super::Com::IAdviseSink>,
-    P9: windows_core::Param<IOleClientSite>,
-    P10: windows_core::Param<super::Com::StructuredStorage::IStorage>,
+    P1: windows_core::Param<super::Com::IAdviseSink>,
+    P2: windows_core::Param<IOleClientSite>,
+    P3: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleCreateFromDataEx(psrcdataobj : * mut core::ffi::c_void, riid : *const windows_core::GUID, dwflags : OLECREATE, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::Com:: FORMATETC, lpadvisesink : * mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleCreateFromDataEx(psrcdataobj.param().abi(), riid, dwflags, renderopt.0 as _, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection, pclientsite.param().abi(), pstg.param().abi(), ppvobj).ok()
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleCreateFromFile<P1, P5, P6>(rclsid: *const windows_core::GUID, lpszfilename: P1, riid: *const windows_core::GUID, renderopt: OLERENDER, lpformatetc: *const super::Com::FORMATETC, pclientsite: P5, pstg: P6, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleCreateFromFile<P0, P1, P2>(rclsid: *const windows_core::GUID, lpszfilename: P0, riid: *const windows_core::GUID, renderopt: OLERENDER, lpformatetc: *const super::Com::FORMATETC, pclientsite: P1, pstg: P2, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<IOleClientSite>,
-    P6: windows_core::Param<super::Com::StructuredStorage::IStorage>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<IOleClientSite>,
+    P2: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleCreateFromFile(rclsid : *const windows_core::GUID, lpszfilename : windows_core::PCWSTR, riid : *const windows_core::GUID, renderopt : u32, lpformatetc : *const super::Com:: FORMATETC, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleCreateFromFile(rclsid, lpszfilename.param().abi(), riid, renderopt.0 as _, lpformatetc, pclientsite.param().abi(), pstg.param().abi(), ppvobj).ok()
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleCreateFromFileEx<P1, P8, P10, P11>(rclsid: *const windows_core::GUID, lpszfilename: P1, riid: *const windows_core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: P8, rgdwconnection: *mut u32, pclientsite: P10, pstg: P11, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleCreateFromFileEx<P0, P1, P2, P3>(rclsid: *const windows_core::GUID, lpszfilename: P0, riid: *const windows_core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: P1, rgdwconnection: *mut u32, pclientsite: P2, pstg: P3, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P8: windows_core::Param<super::Com::IAdviseSink>,
-    P10: windows_core::Param<IOleClientSite>,
-    P11: windows_core::Param<super::Com::StructuredStorage::IStorage>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::Com::IAdviseSink>,
+    P2: windows_core::Param<IOleClientSite>,
+    P3: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleCreateFromFileEx(rclsid : *const windows_core::GUID, lpszfilename : windows_core::PCWSTR, riid : *const windows_core::GUID, dwflags : OLECREATE, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::Com:: FORMATETC, lpadvisesink : * mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleCreateFromFileEx(rclsid, lpszfilename.param().abi(), riid, dwflags, renderopt.0 as _, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection, pclientsite.param().abi(), pstg.param().abi(), ppvobj).ok()
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleCreateLink<P0, P4, P5>(pmklinksrc: P0, riid: *const windows_core::GUID, renderopt: OLERENDER, lpformatetc: *const super::Com::FORMATETC, pclientsite: P4, pstg: P5, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleCreateLink<P0, P1, P2>(pmklinksrc: P0, riid: *const windows_core::GUID, renderopt: OLERENDER, lpformatetc: *const super::Com::FORMATETC, pclientsite: P1, pstg: P2, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::Com::IMoniker>,
-    P4: windows_core::Param<IOleClientSite>,
-    P5: windows_core::Param<super::Com::StructuredStorage::IStorage>,
+    P1: windows_core::Param<IOleClientSite>,
+    P2: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleCreateLink(pmklinksrc : * mut core::ffi::c_void, riid : *const windows_core::GUID, renderopt : u32, lpformatetc : *const super::Com:: FORMATETC, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleCreateLink(pmklinksrc.param().abi(), riid, renderopt.0 as _, lpformatetc, pclientsite.param().abi(), pstg.param().abi(), ppvobj).ok()
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleCreateLinkEx<P0, P7, P9, P10>(pmklinksrc: P0, riid: *const windows_core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: P7, rgdwconnection: *mut u32, pclientsite: P9, pstg: P10, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleCreateLinkEx<P0, P1, P2, P3>(pmklinksrc: P0, riid: *const windows_core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: P1, rgdwconnection: *mut u32, pclientsite: P2, pstg: P3, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::Com::IMoniker>,
-    P7: windows_core::Param<super::Com::IAdviseSink>,
-    P9: windows_core::Param<IOleClientSite>,
-    P10: windows_core::Param<super::Com::StructuredStorage::IStorage>,
+    P1: windows_core::Param<super::Com::IAdviseSink>,
+    P2: windows_core::Param<IOleClientSite>,
+    P3: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleCreateLinkEx(pmklinksrc : * mut core::ffi::c_void, riid : *const windows_core::GUID, dwflags : OLECREATE, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::Com:: FORMATETC, lpadvisesink : * mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleCreateLinkEx(pmklinksrc.param().abi(), riid, dwflags, renderopt.0 as _, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection, pclientsite.param().abi(), pstg.param().abi(), ppvobj).ok()
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleCreateLinkFromData<P0, P4, P5>(psrcdataobj: P0, riid: *const windows_core::GUID, renderopt: OLERENDER, pformatetc: *const super::Com::FORMATETC, pclientsite: P4, pstg: P5, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleCreateLinkFromData<P0, P1, P2>(psrcdataobj: P0, riid: *const windows_core::GUID, renderopt: OLERENDER, pformatetc: *const super::Com::FORMATETC, pclientsite: P1, pstg: P2, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::Com::IDataObject>,
-    P4: windows_core::Param<IOleClientSite>,
-    P5: windows_core::Param<super::Com::StructuredStorage::IStorage>,
+    P1: windows_core::Param<IOleClientSite>,
+    P2: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleCreateLinkFromData(psrcdataobj : * mut core::ffi::c_void, riid : *const windows_core::GUID, renderopt : u32, pformatetc : *const super::Com:: FORMATETC, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleCreateLinkFromData(psrcdataobj.param().abi(), riid, renderopt.0 as _, pformatetc, pclientsite.param().abi(), pstg.param().abi(), ppvobj).ok()
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleCreateLinkFromDataEx<P0, P7, P9, P10>(psrcdataobj: P0, riid: *const windows_core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: P7, rgdwconnection: *mut u32, pclientsite: P9, pstg: P10, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleCreateLinkFromDataEx<P0, P1, P2, P3>(psrcdataobj: P0, riid: *const windows_core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: P1, rgdwconnection: *mut u32, pclientsite: P2, pstg: P3, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::Com::IDataObject>,
-    P7: windows_core::Param<super::Com::IAdviseSink>,
-    P9: windows_core::Param<IOleClientSite>,
-    P10: windows_core::Param<super::Com::StructuredStorage::IStorage>,
+    P1: windows_core::Param<super::Com::IAdviseSink>,
+    P2: windows_core::Param<IOleClientSite>,
+    P3: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleCreateLinkFromDataEx(psrcdataobj : * mut core::ffi::c_void, riid : *const windows_core::GUID, dwflags : OLECREATE, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::Com:: FORMATETC, lpadvisesink : * mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleCreateLinkFromDataEx(psrcdataobj.param().abi(), riid, dwflags, renderopt.0 as _, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection, pclientsite.param().abi(), pstg.param().abi(), ppvobj).ok()
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleCreateLinkToFile<P0, P4, P5>(lpszfilename: P0, riid: *const windows_core::GUID, renderopt: OLERENDER, lpformatetc: *const super::Com::FORMATETC, pclientsite: P4, pstg: P5, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleCreateLinkToFile<P0, P1, P2>(lpszfilename: P0, riid: *const windows_core::GUID, renderopt: OLERENDER, lpformatetc: *const super::Com::FORMATETC, pclientsite: P1, pstg: P2, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<IOleClientSite>,
-    P5: windows_core::Param<super::Com::StructuredStorage::IStorage>,
+    P1: windows_core::Param<IOleClientSite>,
+    P2: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleCreateLinkToFile(lpszfilename : windows_core::PCWSTR, riid : *const windows_core::GUID, renderopt : u32, lpformatetc : *const super::Com:: FORMATETC, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleCreateLinkToFile(lpszfilename.param().abi(), riid, renderopt.0 as _, lpformatetc, pclientsite.param().abi(), pstg.param().abi(), ppvobj).ok()
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleCreateLinkToFileEx<P0, P7, P9, P10>(lpszfilename: P0, riid: *const windows_core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: P7, rgdwconnection: *mut u32, pclientsite: P9, pstg: P10, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleCreateLinkToFileEx<P0, P1, P2, P3>(lpszfilename: P0, riid: *const windows_core::GUID, dwflags: OLECREATE, renderopt: OLERENDER, cformats: u32, rgadvf: *const u32, rgformatetc: *const super::Com::FORMATETC, lpadvisesink: P1, rgdwconnection: *mut u32, pclientsite: P2, pstg: P3, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P7: windows_core::Param<super::Com::IAdviseSink>,
-    P9: windows_core::Param<IOleClientSite>,
-    P10: windows_core::Param<super::Com::StructuredStorage::IStorage>,
+    P1: windows_core::Param<super::Com::IAdviseSink>,
+    P2: windows_core::Param<IOleClientSite>,
+    P3: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleCreateLinkToFileEx(lpszfilename : windows_core::PCWSTR, riid : *const windows_core::GUID, dwflags : OLECREATE, renderopt : u32, cformats : u32, rgadvf : *const u32, rgformatetc : *const super::Com:: FORMATETC, lpadvisesink : * mut core::ffi::c_void, rgdwconnection : *mut u32, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleCreateLinkToFileEx(lpszfilename.param().abi(), riid, dwflags, renderopt.0 as _, cformats, rgadvf, rgformatetc, lpadvisesink.param().abi(), rgdwconnection, pclientsite.param().abi(), pstg.param().abi(), ppvobj).ok()
@@ -434,9 +433,9 @@ where
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn OleCreatePictureIndirect<P2, T>(lppictdesc: *const PICTDESC, fown: P2) -> windows_core::Result<T>
+pub unsafe fn OleCreatePictureIndirect<P0, T>(lppictdesc: *const PICTDESC, fown: P0) -> windows_core::Result<T>
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
     T: windows_core::Interface,
 {
     windows_targets::link!("oleaut32.dll" "system" fn OleCreatePictureIndirect(lppictdesc : *const PICTDESC, riid : *const windows_core::GUID, fown : super::super::Foundation:: BOOL, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
@@ -444,10 +443,10 @@ where
     OleCreatePictureIndirect(lppictdesc, &T::IID, fown.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
-pub unsafe fn OleCreatePropertyFrame<P0, P3>(hwndowner: P0, x: u32, y: u32, lpszcaption: P3, cobjects: u32, ppunk: *const Option<windows_core::IUnknown>, cpages: u32, ppageclsid: *const windows_core::GUID, lcid: u32, dwreserved: u32, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn OleCreatePropertyFrame<P0, P1>(hwndowner: P0, x: u32, y: u32, lpszcaption: P1, cobjects: u32, ppunk: *const Option<windows_core::IUnknown>, cpages: u32, ppageclsid: *const windows_core::GUID, lcid: u32, dwreserved: u32, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("oleaut32.dll" "system" fn OleCreatePropertyFrame(hwndowner : super::super::Foundation:: HWND, x : u32, y : u32, lpszcaption : windows_core::PCWSTR, cobjects : u32, ppunk : *const * mut core::ffi::c_void, cpages : u32, ppageclsid : *const windows_core::GUID, lcid : u32, dwreserved : u32, pvreserved : *const core::ffi::c_void) -> windows_core::HRESULT);
     OleCreatePropertyFrame(hwndowner.param().abi(), x, y, lpszcaption.param().abi(), cobjects, core::mem::transmute(ppunk), cpages, ppageclsid, lcid, dwreserved, core::mem::transmute(pvreserved.unwrap_or(core::ptr::null()))).ok()
@@ -459,11 +458,11 @@ pub unsafe fn OleCreatePropertyFrameIndirect(lpparams: *const OCPFIPARAMS) -> wi
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleCreateStaticFromData<P0, P4, P5>(psrcdataobj: P0, iid: *const windows_core::GUID, renderopt: OLERENDER, pformatetc: *const super::Com::FORMATETC, pclientsite: P4, pstg: P5, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleCreateStaticFromData<P0, P1, P2>(psrcdataobj: P0, iid: *const windows_core::GUID, renderopt: OLERENDER, pformatetc: *const super::Com::FORMATETC, pclientsite: P1, pstg: P2, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::Com::IDataObject>,
-    P4: windows_core::Param<IOleClientSite>,
-    P5: windows_core::Param<super::Com::StructuredStorage::IStorage>,
+    P1: windows_core::Param<IOleClientSite>,
+    P2: windows_core::Param<super::Com::StructuredStorage::IStorage>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleCreateStaticFromData(psrcdataobj : * mut core::ffi::c_void, iid : *const windows_core::GUID, renderopt : u32, pformatetc : *const super::Com:: FORMATETC, pclientsite : * mut core::ffi::c_void, pstg : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleCreateStaticFromData(psrcdataobj.param().abi(), iid, renderopt.0 as _, pformatetc, pclientsite.param().abi(), pstg.param().abi(), ppvobj).ok()
@@ -485,10 +484,10 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn OleDraw<P0, P2>(punknown: P0, dwaspect: u32, hdcdraw: P2, lprcbounds: *const super::super::Foundation::RECT) -> windows_core::Result<()>
+pub unsafe fn OleDraw<P0, P1>(punknown: P0, dwaspect: u32, hdcdraw: P1, lprcbounds: *const super::super::Foundation::RECT) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
-    P2: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleDraw(punknown : * mut core::ffi::c_void, dwaspect : u32, hdcdraw : super::super::Graphics::Gdi:: HDC, lprcbounds : *const super::super::Foundation:: RECT) -> windows_core::HRESULT);
     OleDraw(punknown.param().abi(), dwaspect, hdcdraw.param().abi(), lprcbounds).ok()
@@ -527,10 +526,10 @@ pub unsafe fn OleGetClipboardWithEnterpriseInfo(dataobject: *mut Option<super::C
     OleGetClipboardWithEnterpriseInfo(core::mem::transmute(dataobject), dataenterpriseid, sourcedescription, targetdescription, datadescription).ok()
 }
 #[inline]
-pub unsafe fn OleGetIconOfClass<P1, P2>(rclsid: *const windows_core::GUID, lpszlabel: P1, fusetypeaslabel: P2) -> super::super::Foundation::HGLOBAL
+pub unsafe fn OleGetIconOfClass<P0, P1>(rclsid: *const windows_core::GUID, lpszlabel: P0, fusetypeaslabel: P1) -> super::super::Foundation::HGLOBAL
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleGetIconOfClass(rclsid : *const windows_core::GUID, lpszlabel : windows_core::PCWSTR, fusetypeaslabel : super::super::Foundation:: BOOL) -> super::super::Foundation:: HGLOBAL);
     OleGetIconOfClass(rclsid, lpszlabel.param().abi(), fusetypeaslabel.param().abi())
@@ -578,10 +577,10 @@ where
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn OleLoad<P0, P2>(pstg: P0, riid: *const windows_core::GUID, pclientsite: P2, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleLoad<P0, P1>(pstg: P0, riid: *const windows_core::GUID, pclientsite: P1, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::Com::StructuredStorage::IStorage>,
-    P2: windows_core::Param<IOleClientSite>,
+    P1: windows_core::Param<IOleClientSite>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleLoad(pstg : * mut core::ffi::c_void, riid : *const windows_core::GUID, pclientsite : * mut core::ffi::c_void, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleLoad(pstg.param().abi(), riid, pclientsite.param().abi(), ppvobj).ok()
@@ -597,37 +596,43 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn OleLoadPicture<P0, P2>(lpstream: P0, lsize: i32, frunmode: P2, riid: *const windows_core::GUID, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleLoadPicture<P0, P1>(lpstream: P0, lsize: i32, frunmode: P1, riid: *const windows_core::GUID, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::Com::IStream>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("oleaut32.dll" "system" fn OleLoadPicture(lpstream : * mut core::ffi::c_void, lsize : i32, frunmode : super::super::Foundation:: BOOL, riid : *const windows_core::GUID, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleLoadPicture(lpstream.param().abi(), lsize, frunmode.param().abi(), riid, lplpvobj).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn OleLoadPictureEx<P0, P2>(lpstream: P0, lsize: i32, frunmode: P2, riid: *const windows_core::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: LOAD_PICTURE_FLAGS, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn OleLoadPictureEx<P0, P1>(lpstream: P0, lsize: i32, frunmode: P1, riid: *const windows_core::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: LOAD_PICTURE_FLAGS, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::Com::IStream>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("oleaut32.dll" "system" fn OleLoadPictureEx(lpstream : * mut core::ffi::c_void, lsize : i32, frunmode : super::super::Foundation:: BOOL, riid : *const windows_core::GUID, xsizedesired : u32, ysizedesired : u32, dwflags : LOAD_PICTURE_FLAGS, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     OleLoadPictureEx(lpstream.param().abi(), lsize, frunmode.param().abi(), riid, xsizedesired, ysizedesired, dwflags, lplpvobj).ok()
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn OleLoadPictureFile(varfilename: &super::Variant::VARIANT) -> windows_core::Result<super::Com::IDispatch> {
-    windows_targets::link!("oleaut32.dll" "system" fn OleLoadPictureFile(varfilename : super::Variant:: VARIANT, lplpdisppicture : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+pub unsafe fn OleLoadPictureFile<P0>(varfilename: P0) -> windows_core::Result<super::Com::IDispatch>
+where
+    P0: windows_core::Param<super::Variant::VARIANT>,
+{
+    windows_targets::link!("oleaut32.dll" "system" fn OleLoadPictureFile(varfilename : core::mem::MaybeUninit < super::Variant:: VARIANT >, lplpdisppicture : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    OleLoadPictureFile(core::mem::transmute_copy(varfilename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    OleLoadPictureFile(varfilename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn OleLoadPictureFileEx(varfilename: &super::Variant::VARIANT, xsizedesired: u32, ysizedesired: u32, dwflags: LOAD_PICTURE_FLAGS) -> windows_core::Result<super::Com::IDispatch> {
-    windows_targets::link!("oleaut32.dll" "system" fn OleLoadPictureFileEx(varfilename : super::Variant:: VARIANT, xsizedesired : u32, ysizedesired : u32, dwflags : LOAD_PICTURE_FLAGS, lplpdisppicture : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+pub unsafe fn OleLoadPictureFileEx<P0>(varfilename: P0, xsizedesired: u32, ysizedesired: u32, dwflags: LOAD_PICTURE_FLAGS) -> windows_core::Result<super::Com::IDispatch>
+where
+    P0: windows_core::Param<super::Variant::VARIANT>,
+{
+    windows_targets::link!("oleaut32.dll" "system" fn OleLoadPictureFileEx(varfilename : core::mem::MaybeUninit < super::Variant:: VARIANT >, xsizedesired : u32, ysizedesired : u32, dwflags : LOAD_PICTURE_FLAGS, lplpdisppicture : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    OleLoadPictureFileEx(core::mem::transmute_copy(varfilename), xsizedesired, ysizedesired, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    OleLoadPictureFileEx(varfilename.param().abi(), xsizedesired, ysizedesired, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn OleLoadPicturePath<P0, P1>(szurlorpath: P0, punkcaller: P1, dwreserved: u32, clrreserved: u32, riid: *const windows_core::GUID, ppvret: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -775,12 +780,12 @@ where
     OleSetContainedObject(punknown.param().abi(), fcontained.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn OleSetMenuDescriptor<P1, P2, P3, P4>(holemenu: isize, hwndframe: P1, hwndactiveobject: P2, lpframe: P3, lpactiveobj: P4) -> windows_core::Result<()>
+pub unsafe fn OleSetMenuDescriptor<P0, P1, P2, P3>(holemenu: isize, hwndframe: P0, hwndactiveobject: P1, lpframe: P2, lpactiveobj: P3) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<super::super::Foundation::HWND>,
-    P2: windows_core::Param<super::super::Foundation::HWND>,
-    P3: windows_core::Param<IOleInPlaceFrame>,
-    P4: windows_core::Param<IOleInPlaceActiveObject>,
+    P2: windows_core::Param<IOleInPlaceFrame>,
+    P3: windows_core::Param<IOleInPlaceActiveObject>,
 {
     windows_targets::link!("ole32.dll" "system" fn OleSetMenuDescriptor(holemenu : isize, hwndframe : super::super::Foundation:: HWND, hwndactiveobject : super::super::Foundation:: HWND, lpframe : * mut core::ffi::c_void, lpactiveobj : * mut core::ffi::c_void) -> windows_core::HRESULT);
     OleSetMenuDescriptor(holemenu, hwndframe.param().abi(), hwndactiveobject.param().abi(), lpframe.param().abi(), lpactiveobj.param().abi()).ok()
@@ -796,9 +801,9 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn OleTranslateColor<P1>(clr: u32, hpal: P1) -> windows_core::Result<super::super::Foundation::COLORREF>
+pub unsafe fn OleTranslateColor<P0>(clr: u32, hpal: P0) -> windows_core::Result<super::super::Foundation::COLORREF>
 where
-    P1: windows_core::Param<super::super::Graphics::Gdi::HPALETTE>,
+    P0: windows_core::Param<super::super::Graphics::Gdi::HPALETTE>,
 {
     windows_targets::link!("oleaut32.dll" "system" fn OleTranslateColor(clr : u32, hpal : super::super::Graphics::Gdi:: HPALETTE, lpcolorref : *mut super::super::Foundation:: COLORREF) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
@@ -806,24 +811,24 @@ where
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn OleUIAddVerbMenuA<P0, P1, P2, P6>(lpoleobj: P0, lpszshorttype: P1, hmenu: P2, upos: u32, uidverbmin: u32, uidverbmax: u32, baddconvert: P6, idconvert: u32, lphmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> super::super::Foundation::BOOL
+pub unsafe fn OleUIAddVerbMenuA<P0, P1, P2, P3>(lpoleobj: P0, lpszshorttype: P1, hmenu: P2, upos: u32, uidverbmin: u32, uidverbmax: u32, baddconvert: P3, idconvert: u32, lphmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<IOleObject>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<super::super::UI::WindowsAndMessaging::HMENU>,
-    P6: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("oledlg.dll" "system" fn OleUIAddVerbMenuA(lpoleobj : * mut core::ffi::c_void, lpszshorttype : windows_core::PCSTR, hmenu : super::super::UI::WindowsAndMessaging:: HMENU, upos : u32, uidverbmin : u32, uidverbmax : u32, baddconvert : super::super::Foundation:: BOOL, idconvert : u32, lphmenu : *mut super::super::UI::WindowsAndMessaging:: HMENU) -> super::super::Foundation:: BOOL);
     OleUIAddVerbMenuA(lpoleobj.param().abi(), lpszshorttype.param().abi(), hmenu.param().abi(), upos, uidverbmin, uidverbmax, baddconvert.param().abi(), idconvert, lphmenu)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn OleUIAddVerbMenuW<P0, P1, P2, P6>(lpoleobj: P0, lpszshorttype: P1, hmenu: P2, upos: u32, uidverbmin: u32, uidverbmax: u32, baddconvert: P6, idconvert: u32, lphmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> super::super::Foundation::BOOL
+pub unsafe fn OleUIAddVerbMenuW<P0, P1, P2, P3>(lpoleobj: P0, lpszshorttype: P1, hmenu: P2, upos: u32, uidverbmin: u32, uidverbmax: u32, baddconvert: P3, idconvert: u32, lphmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<IOleObject>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<super::super::UI::WindowsAndMessaging::HMENU>,
-    P6: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("oledlg.dll" "system" fn OleUIAddVerbMenuW(lpoleobj : * mut core::ffi::c_void, lpszshorttype : windows_core::PCWSTR, hmenu : super::super::UI::WindowsAndMessaging:: HMENU, upos : u32, uidverbmin : u32, uidverbmax : u32, baddconvert : super::super::Foundation:: BOOL, idconvert : u32, lphmenu : *mut super::super::UI::WindowsAndMessaging:: HMENU) -> super::super::Foundation:: BOOL);
     OleUIAddVerbMenuW(lpoleobj.param().abi(), lpszshorttype.param().abi(), hmenu.param().abi(), upos, uidverbmin, uidverbmax, baddconvert.param().abi(), idconvert, lphmenu)
@@ -841,9 +846,9 @@ pub unsafe fn OleUIBusyW(param0: *const OLEUIBUSYW) -> u32 {
     OleUIBusyW(param0)
 }
 #[inline]
-pub unsafe fn OleUICanConvertOrActivateAs<P1>(rclsid: *const windows_core::GUID, fislinkedobject: P1, wformat: u16) -> super::super::Foundation::BOOL
+pub unsafe fn OleUICanConvertOrActivateAs<P0>(rclsid: *const windows_core::GUID, fislinkedobject: P0, wformat: u16) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("oledlg.dll" "system" fn OleUICanConvertOrActivateAs(rclsid : *const windows_core::GUID, fislinkedobject : super::super::Foundation:: BOOL, wformat : u16) -> super::super::Foundation:: BOOL);
     OleUICanConvertOrActivateAs(rclsid, fislinkedobject.param().abi(), wformat)
@@ -862,13 +867,13 @@ pub unsafe fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32 {
 #[inline]
 pub unsafe fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32 {
     windows_targets::link!("oledlg.dll" "system" fn OleUIChangeSourceA(param0 : *const OLEUICHANGESOURCEA) -> u32);
-    OleUIChangeSourceA(core::mem::transmute(param0))
+    OleUIChangeSourceA(param0)
 }
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
 #[inline]
 pub unsafe fn OleUIChangeSourceW(param0: *const OLEUICHANGESOURCEW) -> u32 {
     windows_targets::link!("oledlg.dll" "system" fn OleUIChangeSourceW(param0 : *const OLEUICHANGESOURCEW) -> u32);
-    OleUIChangeSourceW(core::mem::transmute(param0))
+    OleUIChangeSourceW(param0)
 }
 #[inline]
 pub unsafe fn OleUIConvertA(param0: *const OLEUICONVERTA) -> u32 {
@@ -883,61 +888,61 @@ pub unsafe fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32 {
 #[inline]
 pub unsafe fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32 {
     windows_targets::link!("oledlg.dll" "system" fn OleUIEditLinksA(param0 : *const OLEUIEDITLINKSA) -> u32);
-    OleUIEditLinksA(core::mem::transmute(param0))
+    OleUIEditLinksA(param0)
 }
 #[inline]
 pub unsafe fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32 {
     windows_targets::link!("oledlg.dll" "system" fn OleUIEditLinksW(param0 : *const OLEUIEDITLINKSW) -> u32);
-    OleUIEditLinksW(core::mem::transmute(param0))
+    OleUIEditLinksW(param0)
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32 {
     windows_targets::link!("oledlg.dll" "system" fn OleUIInsertObjectA(param0 : *const OLEUIINSERTOBJECTA) -> u32);
-    OleUIInsertObjectA(core::mem::transmute(param0))
+    OleUIInsertObjectA(param0)
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32 {
     windows_targets::link!("oledlg.dll" "system" fn OleUIInsertObjectW(param0 : *const OLEUIINSERTOBJECTW) -> u32);
-    OleUIInsertObjectW(core::mem::transmute(param0))
+    OleUIInsertObjectW(param0)
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32 {
     windows_targets::link!("oledlg.dll" "system" fn OleUIObjectPropertiesA(param0 : *const OLEUIOBJECTPROPSA) -> u32);
-    OleUIObjectPropertiesA(core::mem::transmute(param0))
+    OleUIObjectPropertiesA(param0)
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32 {
     windows_targets::link!("oledlg.dll" "system" fn OleUIObjectPropertiesW(param0 : *const OLEUIOBJECTPROPSW) -> u32);
-    OleUIObjectPropertiesW(core::mem::transmute(param0))
+    OleUIObjectPropertiesW(param0)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32 {
     windows_targets::link!("oledlg.dll" "system" fn OleUIPasteSpecialA(param0 : *const OLEUIPASTESPECIALA) -> u32);
-    OleUIPasteSpecialA(core::mem::transmute(param0))
+    OleUIPasteSpecialA(param0)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleUIPasteSpecialW(param0: *const OLEUIPASTESPECIALW) -> u32 {
     windows_targets::link!("oledlg.dll" "system" fn OleUIPasteSpecialW(param0 : *const OLEUIPASTESPECIALW) -> u32);
-    OleUIPasteSpecialW(core::mem::transmute(param0))
+    OleUIPasteSpecialW(param0)
 }
 #[inline]
-pub unsafe fn OleUIPromptUserA<P1>(ntemplate: i32, hwndparent: P1) -> i32
+pub unsafe fn OleUIPromptUserA<P0>(ntemplate: i32, hwndparent: P0) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("oledlg.dll" "cdecl" fn OleUIPromptUserA(ntemplate : i32, hwndparent : super::super::Foundation:: HWND) -> i32);
     OleUIPromptUserA(ntemplate, hwndparent.param().abi())
 }
 #[inline]
-pub unsafe fn OleUIPromptUserW<P1>(ntemplate: i32, hwndparent: P1) -> i32
+pub unsafe fn OleUIPromptUserW<P0>(ntemplate: i32, hwndparent: P0) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("oledlg.dll" "cdecl" fn OleUIPromptUserW(ntemplate : i32, hwndparent : super::super::Foundation:: HWND) -> i32);
     OleUIPromptUserW(ntemplate, hwndparent.param().abi())
@@ -1016,7 +1021,7 @@ where
 #[inline]
 pub unsafe fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM) {
     windows_targets::link!("ole32.dll" "system" fn ReleaseStgMedium(param0 : *mut super::Com:: STGMEDIUM));
-    ReleaseStgMedium(core::mem::transmute(param0))
+    ReleaseStgMedium(param0)
 }
 #[inline]
 pub unsafe fn RevokeActiveObject(dwregister: u32, pvreserved: Option<*mut core::ffi::c_void>) -> windows_core::Result<()> {
@@ -1214,9 +1219,9 @@ pub unsafe fn SafeArraySetIID(psa: *const super::Com::SAFEARRAY, guid: *const wi
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn SafeArraySetRecordInfo<P1>(psa: *const super::Com::SAFEARRAY, prinfo: P1) -> windows_core::Result<()>
+pub unsafe fn SafeArraySetRecordInfo<P0>(psa: *const super::Com::SAFEARRAY, prinfo: P0) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<IRecordInfo>,
+    P0: windows_core::Param<IRecordInfo>,
 {
     windows_targets::link!("oleaut32.dll" "system" fn SafeArraySetRecordInfo(psa : *const super::Com:: SAFEARRAY, prinfo : * mut core::ffi::c_void) -> windows_core::HRESULT);
     SafeArraySetRecordInfo(psa, prinfo.param().abi()).ok()
@@ -1248,21 +1253,21 @@ pub unsafe fn UnRegisterTypeLibForUser(libid: *const windows_core::GUID, wmajorv
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarAbs(pvarin: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarAbs(pvarin : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarAbs(pvarin : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarAbs(core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarAdd(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarAdd(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarAdd(pvarleft : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarright : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarAdd(core::mem::transmute(pvarleft), core::mem::transmute(pvarright), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarAnd(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarAnd(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarAnd(pvarleft : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarright : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarAnd(core::mem::transmute(pvarleft), core::mem::transmute(pvarright), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -1484,14 +1489,14 @@ pub unsafe fn VarBstrFromUI8(ui64in: u64, lcid: u32, dwflags: u32) -> windows_co
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarCat(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarCat(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarCat(pvarleft : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarright : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarCat(core::mem::transmute(pvarleft), core::mem::transmute(pvarright), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarCmp(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT, lcid: u32, dwflags: u32) -> VARCMP {
-    windows_targets::link!("oleaut32.dll" "system" fn VarCmp(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, lcid : u32, dwflags : u32) -> VARCMP);
+    windows_targets::link!("oleaut32.dll" "system" fn VarCmp(pvarleft : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarright : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, lcid : u32, dwflags : u32) -> VARCMP);
     VarCmp(core::mem::transmute(pvarleft), core::mem::transmute(pvarright), lcid, dwflags)
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1971,68 +1976,68 @@ pub unsafe fn VarDecSub(pdecleft: *const super::super::Foundation::DECIMAL, pdec
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarDiv(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarDiv(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarDiv(pvarleft : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarright : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarDiv(core::mem::transmute(pvarleft), core::mem::transmute(pvarright), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarEqv(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarEqv(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarEqv(pvarleft : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarright : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarEqv(core::mem::transmute(pvarleft), core::mem::transmute(pvarright), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarFix(pvarin: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarFix(pvarin : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarFix(pvarin : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarFix(core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarFormat<P1>(pvarin: *const super::Variant::VARIANT, pstrformat: P1, ifirstday: VARFORMAT_FIRST_DAY, ifirstweek: VARFORMAT_FIRST_WEEK, dwflags: u32) -> windows_core::Result<windows_core::BSTR>
+pub unsafe fn VarFormat<P0>(pvarin: *const super::Variant::VARIANT, pstrformat: P0, ifirstday: VARFORMAT_FIRST_DAY, ifirstweek: VARFORMAT_FIRST_WEEK, dwflags: u32) -> windows_core::Result<windows_core::BSTR>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("oleaut32.dll" "system" fn VarFormat(pvarin : *const super::Variant:: VARIANT, pstrformat : windows_core::PCWSTR, ifirstday : VARFORMAT_FIRST_DAY, ifirstweek : VARFORMAT_FIRST_WEEK, dwflags : u32, pbstrout : *mut core::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarFormat(pvarin : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pstrformat : windows_core::PCWSTR, ifirstday : VARFORMAT_FIRST_DAY, ifirstweek : VARFORMAT_FIRST_WEEK, dwflags : u32, pbstrout : *mut core::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarFormat(core::mem::transmute(pvarin), pstrformat.param().abi(), ifirstday, ifirstweek, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarFormatCurrency(pvarin: *const super::Variant::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32) -> windows_core::Result<windows_core::BSTR> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarFormatCurrency(pvarin : *const super::Variant:: VARIANT, inumdig : i32, iinclead : i32, iuseparens : i32, igroup : i32, dwflags : u32, pbstrout : *mut core::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarFormatCurrency(pvarin : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, inumdig : i32, iinclead : i32, iuseparens : i32, igroup : i32, dwflags : u32, pbstrout : *mut core::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarFormatCurrency(core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarFormatDateTime(pvarin: *const super::Variant::VARIANT, inamedformat: VARFORMAT_NAMED_FORMAT, dwflags: u32) -> windows_core::Result<windows_core::BSTR> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarFormatDateTime(pvarin : *const super::Variant:: VARIANT, inamedformat : VARFORMAT_NAMED_FORMAT, dwflags : u32, pbstrout : *mut core::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarFormatDateTime(pvarin : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, inamedformat : VARFORMAT_NAMED_FORMAT, dwflags : u32, pbstrout : *mut core::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarFormatDateTime(core::mem::transmute(pvarin), inamedformat, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn VarFormatFromTokens<P1>(pvarin: *const super::Variant::VARIANT, pstrformat: P1, pbtokcur: *const u8, dwflags: u32, pbstrout: *mut windows_core::BSTR, lcid: u32) -> windows_core::Result<()>
+pub unsafe fn VarFormatFromTokens<P0>(pvarin: *const super::Variant::VARIANT, pstrformat: P0, pbtokcur: *const u8, dwflags: u32, pbstrout: *mut windows_core::BSTR, lcid: u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("oleaut32.dll" "system" fn VarFormatFromTokens(pvarin : *const super::Variant:: VARIANT, pstrformat : windows_core::PCWSTR, pbtokcur : *const u8, dwflags : u32, pbstrout : *mut core::mem::MaybeUninit < windows_core::BSTR >, lcid : u32) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarFormatFromTokens(pvarin : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pstrformat : windows_core::PCWSTR, pbtokcur : *const u8, dwflags : u32, pbstrout : *mut core::mem::MaybeUninit < windows_core::BSTR >, lcid : u32) -> windows_core::HRESULT);
     VarFormatFromTokens(core::mem::transmute(pvarin), pstrformat.param().abi(), pbtokcur, dwflags, core::mem::transmute(pbstrout), lcid).ok()
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarFormatNumber(pvarin: *const super::Variant::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32) -> windows_core::Result<windows_core::BSTR> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarFormatNumber(pvarin : *const super::Variant:: VARIANT, inumdig : i32, iinclead : VARFORMAT_LEADING_DIGIT, iuseparens : VARFORMAT_PARENTHESES, igroup : VARFORMAT_GROUP, dwflags : u32, pbstrout : *mut core::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarFormatNumber(pvarin : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, inumdig : i32, iinclead : VARFORMAT_LEADING_DIGIT, iuseparens : VARFORMAT_PARENTHESES, igroup : VARFORMAT_GROUP, dwflags : u32, pbstrout : *mut core::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarFormatNumber(core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarFormatPercent(pvarin: *const super::Variant::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32) -> windows_core::Result<windows_core::BSTR> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarFormatPercent(pvarin : *const super::Variant:: VARIANT, inumdig : i32, iinclead : VARFORMAT_LEADING_DIGIT, iuseparens : VARFORMAT_PARENTHESES, igroup : VARFORMAT_GROUP, dwflags : u32, pbstrout : *mut core::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarFormatPercent(pvarin : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, inumdig : i32, iinclead : VARFORMAT_LEADING_DIGIT, iuseparens : VARFORMAT_PARENTHESES, igroup : VARFORMAT_GROUP, dwflags : u32, pbstrout : *mut core::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarFormatPercent(core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -2421,28 +2426,28 @@ pub unsafe fn VarI8FromUI8(ui64in: u64) -> windows_core::Result<i64> {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarIdiv(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarIdiv(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarIdiv(pvarleft : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarright : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarIdiv(core::mem::transmute(pvarleft), core::mem::transmute(pvarright), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarImp(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarImp(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarImp(pvarleft : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarright : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarImp(core::mem::transmute(pvarleft), core::mem::transmute(pvarright), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarInt(pvarin: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarInt(pvarin : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarInt(pvarin : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarInt(core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarMod(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarMod(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarMod(pvarleft : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarright : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarMod(core::mem::transmute(pvarleft), core::mem::transmute(pvarright), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -2455,35 +2460,35 @@ pub unsafe fn VarMonthName(imonth: i32, fabbrev: i32, dwflags: u32) -> windows_c
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarMul(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarMul(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarMul(pvarleft : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarright : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarMul(core::mem::transmute(pvarleft), core::mem::transmute(pvarright), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarNeg(pvarin: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarNeg(pvarin : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarNeg(pvarin : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarNeg(core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarNot(pvarin: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarNot(pvarin : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarNot(pvarin : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarNot(core::mem::transmute(pvarin), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dwvtbits: u32) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarNumFromParseNum(pnumprs : *const NUMPARSE, rgbdig : *const u8, dwvtbits : u32, pvar : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarNumFromParseNum(pnumprs : *const NUMPARSE, rgbdig : *const u8, dwvtbits : u32, pvar : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarNumFromParseNum(pnumprs, rgbdig, dwvtbits, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarOr(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarOr(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarOr(pvarleft : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarright : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarOr(core::mem::transmute(pvarleft), core::mem::transmute(pvarright), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -2498,7 +2503,7 @@ where
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarPow(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarPow(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarPow(pvarleft : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarright : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarPow(core::mem::transmute(pvarleft), core::mem::transmute(pvarright), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -2721,14 +2726,14 @@ pub unsafe fn VarR8Round(dblin: f64, cdecimals: i32) -> windows_core::Result<f64
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarRound(pvarin: *const super::Variant::VARIANT, cdecimals: i32) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarRound(pvarin : *const super::Variant:: VARIANT, cdecimals : i32, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarRound(pvarin : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, cdecimals : i32, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarRound(core::mem::transmute(pvarin), cdecimals, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarSub(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarSub(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarSub(pvarleft : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarright : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarSub(core::mem::transmute(pvarleft), core::mem::transmute(pvarright), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -3151,7 +3156,7 @@ pub unsafe fn VarWeekdayName(iweekday: i32, fabbrev: i32, ifirstday: i32, dwflag
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VarXor(pvarleft: *const super::Variant::VARIANT, pvarright: *const super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
-    windows_targets::link!("oleaut32.dll" "system" fn VarXor(pvarleft : *const super::Variant:: VARIANT, pvarright : *const super::Variant:: VARIANT, pvarresult : *mut super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_targets::link!("oleaut32.dll" "system" fn VarXor(pvarleft : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarright : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, pvarresult : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     VarXor(core::mem::transmute(pvarleft), core::mem::transmute(pvarright), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
@@ -3189,12 +3194,14 @@ pub struct IAdviseSinkEx_Vtbl {
     pub OnViewStatusChange: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-pub trait IAdviseSinkEx_Impl: super::Com::IAdviseSink_Impl {
+pub trait IAdviseSinkEx_Impl: Sized + super::Com::IAdviseSink_Impl {
     fn OnViewStatusChange(&self, dwviewstatus: u32);
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl windows_core::RuntimeName for IAdviseSinkEx {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl IAdviseSinkEx_Vtbl {
-    pub const fn new<Identity: IAdviseSinkEx_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IAdviseSinkEx_Impl, const OFFSET: isize>() -> IAdviseSinkEx_Vtbl {
         unsafe extern "system" fn OnViewStatusChange<Identity: IAdviseSinkEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwviewstatus: u32) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAdviseSinkEx_Impl::OnViewStatusChange(this, core::mem::transmute_copy(&dwviewstatus))
@@ -3202,35 +3209,41 @@ impl IAdviseSinkEx_Vtbl {
         Self { base__: super::Com::IAdviseSink_Vtbl::new::<Identity, OFFSET>(), OnViewStatusChange: OnViewStatusChange::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAdviseSinkEx as windows_core::Interface>::IID
+        iid == &<IAdviseSinkEx as windows_core::Interface>::IID || iid == &<super::Com::IAdviseSink as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::RuntimeName for IAdviseSinkEx {}
 windows_core::imp::define_interface!(ICanHandleException, ICanHandleException_Vtbl, 0xc5598e60_b307_11d1_b27d_006008c3fbfb);
+impl core::ops::Deref for ICanHandleException {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICanHandleException, windows_core::IUnknown);
 impl ICanHandleException {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
     pub unsafe fn CanHandleException(&self, pexcepinfo: *const super::Com::EXCEPINFO, pvar: *const super::Variant::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CanHandleException)(windows_core::Interface::as_raw(self), core::mem::transmute(pexcepinfo), core::mem::transmute(pvar)).ok()
+        (windows_core::Interface::vtable(self).CanHandleException)(windows_core::Interface::as_raw(self), pexcepinfo, core::mem::transmute(pvar)).ok()
     }
 }
 #[repr(C)]
 pub struct ICanHandleException_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub CanHandleException: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::Com::EXCEPINFO, *const super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub CanHandleException: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::Com::EXCEPINFO, *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     CanHandleException: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub trait ICanHandleException_Impl: windows_core::IUnknownImpl {
+pub trait ICanHandleException_Impl: Sized + windows_core::IUnknownImpl {
     fn CanHandleException(&self, pexcepinfo: *const super::Com::EXCEPINFO, pvar: *const super::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ICanHandleException {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ICanHandleException_Vtbl {
-    pub const fn new<Identity: ICanHandleException_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CanHandleException<Identity: ICanHandleException_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pexcepinfo: *const super::Com::EXCEPINFO, pvar: *const super::Variant::VARIANT) -> windows_core::HRESULT {
+    pub const fn new<Identity: ICanHandleException_Impl, const OFFSET: isize>() -> ICanHandleException_Vtbl {
+        unsafe extern "system" fn CanHandleException<Identity: ICanHandleException_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pexcepinfo: *const super::Com::EXCEPINFO, pvar: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICanHandleException_Impl::CanHandleException(this, core::mem::transmute_copy(&pexcepinfo), core::mem::transmute_copy(&pvar)).into()
         }
@@ -3240,8 +3253,6 @@ impl ICanHandleException_Vtbl {
         iid == &<ICanHandleException as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ICanHandleException {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IClassFactory2, IClassFactory2_Vtbl, 0xb196b28f_bab4_101a_b69c_00aa00341d07);
 #[cfg(feature = "Win32_System_Com")]
@@ -3260,13 +3271,13 @@ impl IClassFactory2 {
     }
     pub unsafe fn RequestLicKey(&self, dwreserved: u32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RequestLicKey)(windows_core::Interface::as_raw(self), dwreserved, &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).RequestLicKey)(windows_core::Interface::as_raw(self), dwreserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn CreateInstanceLic<P0, P1, P3, T>(&self, punkouter: P0, punkreserved: P1, bstrkey: P3) -> windows_core::Result<T>
+    pub unsafe fn CreateInstanceLic<P0, P1, P2, T>(&self, punkouter: P0, punkreserved: P1, bstrkey: P2) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::IUnknown>,
-        P3: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
@@ -3282,14 +3293,16 @@ pub struct IClassFactory2_Vtbl {
     pub CreateInstanceLic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IClassFactory2_Impl: super::Com::IClassFactory_Impl {
+pub trait IClassFactory2_Impl: Sized + super::Com::IClassFactory_Impl {
     fn GetLicInfo(&self, plicinfo: *mut LICINFO) -> windows_core::Result<()>;
     fn RequestLicKey(&self, dwreserved: u32) -> windows_core::Result<windows_core::BSTR>;
     fn CreateInstanceLic(&self, punkouter: Option<&windows_core::IUnknown>, punkreserved: Option<windows_core::IUnknown>, riid: *const windows_core::GUID, bstrkey: &windows_core::BSTR, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IClassFactory2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl IClassFactory2_Vtbl {
-    pub const fn new<Identity: IClassFactory2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IClassFactory2_Impl, const OFFSET: isize>() -> IClassFactory2_Vtbl {
         unsafe extern "system" fn GetLicInfo<Identity: IClassFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plicinfo: *mut LICINFO) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IClassFactory2_Impl::GetLicInfo(this, core::mem::transmute_copy(&plicinfo)).into()
@@ -3316,12 +3329,16 @@ impl IClassFactory2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IClassFactory2 as windows_core::Interface>::IID
+        iid == &<IClassFactory2 as windows_core::Interface>::IID || iid == &<super::Com::IClassFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IClassFactory2 {}
 windows_core::imp::define_interface!(IContinue, IContinue_Vtbl, 0x0000012a_0000_0000_c000_000000000046);
+impl core::ops::Deref for IContinue {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IContinue, windows_core::IUnknown);
 impl IContinue {
     pub unsafe fn FContinue(&self) -> windows_core::Result<()> {
@@ -3333,11 +3350,12 @@ pub struct IContinue_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub FContinue: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IContinue_Impl: windows_core::IUnknownImpl {
+pub trait IContinue_Impl: Sized + windows_core::IUnknownImpl {
     fn FContinue(&self) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IContinue {}
 impl IContinue_Vtbl {
-    pub const fn new<Identity: IContinue_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IContinue_Impl, const OFFSET: isize>() -> IContinue_Vtbl {
         unsafe extern "system" fn FContinue<Identity: IContinue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IContinue_Impl::FContinue(this).into()
@@ -3348,16 +3366,21 @@ impl IContinue_Vtbl {
         iid == &<IContinue as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IContinue {}
 windows_core::imp::define_interface!(IContinueCallback, IContinueCallback_Vtbl, 0xb722bcca_4e68_101b_a2bc_00aa00404770);
+impl core::ops::Deref for IContinueCallback {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IContinueCallback, windows_core::IUnknown);
 impl IContinueCallback {
     pub unsafe fn FContinue(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FContinue)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn FContinuePrinting<P2>(&self, ncntprinted: i32, ncurpage: i32, pwszprintstatus: P2) -> windows_core::Result<()>
+    pub unsafe fn FContinuePrinting<P0>(&self, ncntprinted: i32, ncurpage: i32, pwszprintstatus: P0) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).FContinuePrinting)(windows_core::Interface::as_raw(self), ncntprinted, ncurpage, pwszprintstatus.param().abi()).ok()
     }
@@ -3368,12 +3391,13 @@ pub struct IContinueCallback_Vtbl {
     pub FContinue: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FContinuePrinting: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-pub trait IContinueCallback_Impl: windows_core::IUnknownImpl {
+pub trait IContinueCallback_Impl: Sized + windows_core::IUnknownImpl {
     fn FContinue(&self) -> windows_core::Result<()>;
     fn FContinuePrinting(&self, ncntprinted: i32, ncurpage: i32, pwszprintstatus: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IContinueCallback {}
 impl IContinueCallback_Vtbl {
-    pub const fn new<Identity: IContinueCallback_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IContinueCallback_Impl, const OFFSET: isize>() -> IContinueCallback_Vtbl {
         unsafe extern "system" fn FContinue<Identity: IContinueCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IContinueCallback_Impl::FContinue(this).into()
@@ -3392,8 +3416,13 @@ impl IContinueCallback_Vtbl {
         iid == &<IContinueCallback as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IContinueCallback {}
 windows_core::imp::define_interface!(ICreateErrorInfo, ICreateErrorInfo_Vtbl, 0x22f03340_547d_101b_8e65_08002b2bd119);
+impl core::ops::Deref for ICreateErrorInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICreateErrorInfo, windows_core::IUnknown);
 impl ICreateErrorInfo {
     pub unsafe fn SetGUID(&self, rguid: *const windows_core::GUID) -> windows_core::Result<()> {
@@ -3430,15 +3459,16 @@ pub struct ICreateErrorInfo_Vtbl {
     pub SetHelpFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub SetHelpContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait ICreateErrorInfo_Impl: windows_core::IUnknownImpl {
+pub trait ICreateErrorInfo_Impl: Sized + windows_core::IUnknownImpl {
     fn SetGUID(&self, rguid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn SetSource(&self, szsource: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetDescription(&self, szdescription: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetHelpFile(&self, szhelpfile: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetHelpContext(&self, dwhelpcontext: u32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for ICreateErrorInfo {}
 impl ICreateErrorInfo_Vtbl {
-    pub const fn new<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>() -> ICreateErrorInfo_Vtbl {
         unsafe extern "system" fn SetGUID<Identity: ICreateErrorInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rguid: *const windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICreateErrorInfo_Impl::SetGUID(this, core::mem::transmute_copy(&rguid)).into()
@@ -3472,8 +3502,13 @@ impl ICreateErrorInfo_Vtbl {
         iid == &<ICreateErrorInfo as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for ICreateErrorInfo {}
 windows_core::imp::define_interface!(ICreateTypeInfo, ICreateTypeInfo_Vtbl, 0x00020405_0000_0000_c000_000000000046);
+impl core::ops::Deref for ICreateTypeInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICreateTypeInfo, windows_core::IUnknown);
 impl ICreateTypeInfo {
     pub unsafe fn SetGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<()> {
@@ -3528,9 +3563,9 @@ impl ICreateTypeInfo {
     pub unsafe fn SetFuncAndParamNames(&self, index: u32, rgsznames: &[windows_core::PCWSTR]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetFuncAndParamNames)(windows_core::Interface::as_raw(self), index, core::mem::transmute(rgsznames.as_ptr()), rgsznames.len().try_into().unwrap()).ok()
     }
-    pub unsafe fn SetVarName<P1>(&self, index: u32, szname: P1) -> windows_core::Result<()>
+    pub unsafe fn SetVarName<P0>(&self, index: u32, szname: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).SetVarName)(windows_core::Interface::as_raw(self), index, szname.param().abi()).ok()
     }
@@ -3538,22 +3573,22 @@ impl ICreateTypeInfo {
     pub unsafe fn SetTypeDescAlias(&self, ptdescalias: *const super::Com::TYPEDESC) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetTypeDescAlias)(windows_core::Interface::as_raw(self), ptdescalias).ok()
     }
-    pub unsafe fn DefineFuncAsDllEntry<P1, P2>(&self, index: u32, szdllname: P1, szprocname: P2) -> windows_core::Result<()>
+    pub unsafe fn DefineFuncAsDllEntry<P0, P1>(&self, index: u32, szdllname: P0, szprocname: P1) -> windows_core::Result<()>
     where
+        P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).DefineFuncAsDllEntry)(windows_core::Interface::as_raw(self), index, szdllname.param().abi(), szprocname.param().abi()).ok()
     }
-    pub unsafe fn SetFuncDocString<P1>(&self, index: u32, szdocstring: P1) -> windows_core::Result<()>
+    pub unsafe fn SetFuncDocString<P0>(&self, index: u32, szdocstring: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).SetFuncDocString)(windows_core::Interface::as_raw(self), index, szdocstring.param().abi()).ok()
     }
-    pub unsafe fn SetVarDocString<P1>(&self, index: u32, szdocstring: P1) -> windows_core::Result<()>
+    pub unsafe fn SetVarDocString<P0>(&self, index: u32, szdocstring: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).SetVarDocString)(windows_core::Interface::as_raw(self), index, szdocstring.param().abi()).ok()
     }
@@ -3563,9 +3598,9 @@ impl ICreateTypeInfo {
     pub unsafe fn SetVarHelpContext(&self, index: u32, dwhelpcontext: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetVarHelpContext)(windows_core::Interface::as_raw(self), index, dwhelpcontext).ok()
     }
-    pub unsafe fn SetMops<P1>(&self, index: u32, bstrmops: P1) -> windows_core::Result<()>
+    pub unsafe fn SetMops<P0>(&self, index: u32, bstrmops: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).SetMops)(windows_core::Interface::as_raw(self), index, bstrmops.param().abi()).ok()
     }
@@ -3623,7 +3658,7 @@ pub struct ICreateTypeInfo_Vtbl {
     pub LayOut: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub trait ICreateTypeInfo_Impl: windows_core::IUnknownImpl {
+pub trait ICreateTypeInfo_Impl: Sized + windows_core::IUnknownImpl {
     fn SetGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn SetTypeFlags(&self, utypeflags: u32) -> windows_core::Result<()>;
     fn SetDocString(&self, pstrdoc: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -3649,8 +3684,10 @@ pub trait ICreateTypeInfo_Impl: windows_core::IUnknownImpl {
     fn LayOut(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ICreateTypeInfo {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ICreateTypeInfo_Vtbl {
-    pub const fn new<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>() -> ICreateTypeInfo_Vtbl {
         unsafe extern "system" fn SetGuid<Identity: ICreateTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICreateTypeInfo_Impl::SetGuid(this, core::mem::transmute_copy(&guid)).into()
@@ -3774,8 +3811,6 @@ impl ICreateTypeInfo_Vtbl {
         iid == &<ICreateTypeInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ICreateTypeInfo {}
 windows_core::imp::define_interface!(ICreateTypeInfo2, ICreateTypeInfo2_Vtbl, 0x0002040e_0000_0000_c000_000000000046);
 impl core::ops::Deref for ICreateTypeInfo2 {
     type Target = ICreateTypeInfo;
@@ -3852,23 +3887,23 @@ pub struct ICreateTypeInfo2_Vtbl {
     pub DeleteVarDescByMemId: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub DeleteImplType: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub SetCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub SetCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     SetCustData: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub SetFuncCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub SetFuncCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     SetFuncCustData: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub SetParamCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const windows_core::GUID, *const super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub SetParamCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const windows_core::GUID, *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     SetParamCustData: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub SetVarCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub SetVarCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     SetVarCustData: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub SetImplTypeCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub SetImplTypeCustData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     SetImplTypeCustData: usize,
     pub SetHelpStringContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -3878,7 +3913,7 @@ pub struct ICreateTypeInfo2_Vtbl {
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub trait ICreateTypeInfo2_Impl: ICreateTypeInfo_Impl {
+pub trait ICreateTypeInfo2_Impl: Sized + ICreateTypeInfo_Impl {
     fn DeleteFuncDesc(&self, index: u32) -> windows_core::Result<()>;
     fn DeleteFuncDescByMemId(&self, memid: i32, invkind: super::Com::INVOKEKIND) -> windows_core::Result<()>;
     fn DeleteVarDesc(&self, index: u32) -> windows_core::Result<()>;
@@ -3896,8 +3931,10 @@ pub trait ICreateTypeInfo2_Impl: ICreateTypeInfo_Impl {
     fn SetName(&self, szname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ICreateTypeInfo2 {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ICreateTypeInfo2_Vtbl {
-    pub const fn new<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>() -> ICreateTypeInfo2_Vtbl {
         unsafe extern "system" fn DeleteFuncDesc<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICreateTypeInfo2_Impl::DeleteFuncDesc(this, core::mem::transmute_copy(&index)).into()
@@ -3918,23 +3955,23 @@ impl ICreateTypeInfo2_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICreateTypeInfo2_Impl::DeleteImplType(this, core::mem::transmute_copy(&index)).into()
         }
-        unsafe extern "system" fn SetCustData<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCustData<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pvarval: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICreateTypeInfo2_Impl::SetCustData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
         }
-        unsafe extern "system" fn SetFuncCustData<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, guid: *const windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFuncCustData<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, guid: *const windows_core::GUID, pvarval: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICreateTypeInfo2_Impl::SetFuncCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
         }
-        unsafe extern "system" fn SetParamCustData<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexfunc: u32, indexparam: u32, guid: *const windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetParamCustData<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, indexfunc: u32, indexparam: u32, guid: *const windows_core::GUID, pvarval: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICreateTypeInfo2_Impl::SetParamCustData(this, core::mem::transmute_copy(&indexfunc), core::mem::transmute_copy(&indexparam), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
         }
-        unsafe extern "system" fn SetVarCustData<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, guid: *const windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetVarCustData<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, guid: *const windows_core::GUID, pvarval: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICreateTypeInfo2_Impl::SetVarCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
         }
-        unsafe extern "system" fn SetImplTypeCustData<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, guid: *const windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetImplTypeCustData<Identity: ICreateTypeInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, guid: *const windows_core::GUID, pvarval: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICreateTypeInfo2_Impl::SetImplTypeCustData(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
         }
@@ -3978,12 +4015,16 @@ impl ICreateTypeInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICreateTypeInfo2 as windows_core::Interface>::IID
+        iid == &<ICreateTypeInfo2 as windows_core::Interface>::IID || iid == &<ICreateTypeInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ICreateTypeInfo2 {}
 windows_core::imp::define_interface!(ICreateTypeLib, ICreateTypeLib_Vtbl, 0x00020406_0000_0000_c000_000000000046);
+impl core::ops::Deref for ICreateTypeLib {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICreateTypeLib, windows_core::IUnknown);
 impl ICreateTypeLib {
     #[cfg(feature = "Win32_System_Com")]
@@ -4049,7 +4090,7 @@ pub struct ICreateTypeLib_Vtbl {
     pub SaveAllChanges: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait ICreateTypeLib_Impl: windows_core::IUnknownImpl {
+pub trait ICreateTypeLib_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateTypeInfo(&self, szname: &windows_core::PCWSTR, tkind: super::Com::TYPEKIND) -> windows_core::Result<ICreateTypeInfo>;
     fn SetName(&self, szname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetVersion(&self, wmajorvernum: u16, wminorvernum: u16) -> windows_core::Result<()>;
@@ -4062,8 +4103,10 @@ pub trait ICreateTypeLib_Impl: windows_core::IUnknownImpl {
     fn SaveAllChanges(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for ICreateTypeLib {}
+#[cfg(feature = "Win32_System_Com")]
 impl ICreateTypeLib_Vtbl {
-    pub const fn new<Identity: ICreateTypeLib_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ICreateTypeLib_Impl, const OFFSET: isize>() -> ICreateTypeLib_Vtbl {
         unsafe extern "system" fn CreateTypeInfo<Identity: ICreateTypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: windows_core::PCWSTR, tkind: super::Com::TYPEKIND, ppctinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICreateTypeLib_Impl::CreateTypeInfo(this, core::mem::transmute(&szname), core::mem::transmute_copy(&tkind)) {
@@ -4128,8 +4171,6 @@ impl ICreateTypeLib_Vtbl {
         iid == &<ICreateTypeLib as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for ICreateTypeLib {}
 windows_core::imp::define_interface!(ICreateTypeLib2, ICreateTypeLib2_Vtbl, 0x0002040f_0000_0000_c000_000000000046);
 impl core::ops::Deref for ICreateTypeLib2 {
     type Target = ICreateTypeLib;
@@ -4164,27 +4205,29 @@ pub struct ICreateTypeLib2_Vtbl {
     pub base__: ICreateTypeLib_Vtbl,
     pub DeleteTypeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub SetCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub SetCustData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     SetCustData: usize,
     pub SetHelpStringContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetHelpStringDll: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub trait ICreateTypeLib2_Impl: ICreateTypeLib_Impl {
+pub trait ICreateTypeLib2_Impl: Sized + ICreateTypeLib_Impl {
     fn DeleteTypeInfo(&self, szname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetCustData(&self, guid: *const windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> windows_core::Result<()>;
     fn SetHelpStringContext(&self, dwhelpstringcontext: u32) -> windows_core::Result<()>;
     fn SetHelpStringDll(&self, szfilename: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ICreateTypeLib2 {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ICreateTypeLib2_Vtbl {
-    pub const fn new<Identity: ICreateTypeLib2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ICreateTypeLib2_Impl, const OFFSET: isize>() -> ICreateTypeLib2_Vtbl {
         unsafe extern "system" fn DeleteTypeInfo<Identity: ICreateTypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICreateTypeLib2_Impl::DeleteTypeInfo(this, core::mem::transmute(&szname)).into()
         }
-        unsafe extern "system" fn SetCustData<Identity: ICreateTypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pvarval: *const super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCustData<Identity: ICreateTypeLib2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID, pvarval: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICreateTypeLib2_Impl::SetCustData(this, core::mem::transmute_copy(&guid), core::mem::transmute_copy(&pvarval)).into()
         }
@@ -4205,12 +4248,16 @@ impl ICreateTypeLib2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICreateTypeLib2 as windows_core::Interface>::IID
+        iid == &<ICreateTypeLib2 as windows_core::Interface>::IID || iid == &<ICreateTypeLib as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ICreateTypeLib2 {}
 windows_core::imp::define_interface!(IDispError, IDispError_Vtbl, 0xa6ef9861_c720_11d0_9337_00a0c90dcaa9);
+impl core::ops::Deref for IDispError {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDispError, windows_core::IUnknown);
 impl IDispError {
     pub unsafe fn QueryErrorInfo(&self, guiderrortype: windows_core::GUID) -> windows_core::Result<IDispError> {
@@ -4227,14 +4274,14 @@ impl IDispError {
     }
     pub unsafe fn GetSource(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetSource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHelpInfo(&self, pbstrfilename: *mut windows_core::BSTR, pdwcontext: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetHelpInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrfilename), pdwcontext).ok()
     }
     pub unsafe fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -4247,7 +4294,7 @@ pub struct IDispError_Vtbl {
     pub GetHelpInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut u32) -> windows_core::HRESULT,
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-pub trait IDispError_Impl: windows_core::IUnknownImpl {
+pub trait IDispError_Impl: Sized + windows_core::IUnknownImpl {
     fn QueryErrorInfo(&self, guiderrortype: &windows_core::GUID) -> windows_core::Result<IDispError>;
     fn GetNext(&self) -> windows_core::Result<IDispError>;
     fn GetHresult(&self) -> windows_core::Result<windows_core::HRESULT>;
@@ -4255,8 +4302,9 @@ pub trait IDispError_Impl: windows_core::IUnknownImpl {
     fn GetHelpInfo(&self, pbstrfilename: *mut windows_core::BSTR, pdwcontext: *mut u32) -> windows_core::Result<()>;
     fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR>;
 }
+impl windows_core::RuntimeName for IDispError {}
 impl IDispError_Vtbl {
-    pub const fn new<Identity: IDispError_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IDispError_Impl, const OFFSET: isize>() -> IDispError_Vtbl {
         unsafe extern "system" fn QueryErrorInfo<Identity: IDispError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guiderrortype: windows_core::GUID, ppde: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispError_Impl::QueryErrorInfo(this, core::mem::transmute(&guiderrortype)) {
@@ -4325,7 +4373,6 @@ impl IDispError_Vtbl {
         iid == &<IDispError as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IDispError {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IDispatchEx, IDispatchEx_Vtbl, 0xa6ef9860_c720_11d0_9337_00a0c90dcaa9);
 #[cfg(feature = "Win32_System_Com")]
@@ -4347,9 +4394,9 @@ impl IDispatchEx {
         (windows_core::Interface::vtable(self).GetDispID)(windows_core::Interface::as_raw(self), bstrname.param().abi(), grfdex, &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub unsafe fn InvokeEx<P6>(&self, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: Option<*mut super::Variant::VARIANT>, pei: Option<*mut super::Com::EXCEPINFO>, pspcaller: P6) -> windows_core::Result<()>
+    pub unsafe fn InvokeEx<P0>(&self, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: Option<*mut super::Variant::VARIANT>, pei: Option<*mut super::Com::EXCEPINFO>, pspcaller: P0) -> windows_core::Result<()>
     where
-        P6: windows_core::Param<super::Com::IServiceProvider>,
+        P0: windows_core::Param<super::Com::IServiceProvider>,
     {
         (windows_core::Interface::vtable(self).InvokeEx)(windows_core::Interface::as_raw(self), id, lcid, wflags, pdp, core::mem::transmute(pvarres.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pei.unwrap_or(core::ptr::null_mut())), pspcaller.param().abi()).ok()
     }
@@ -4368,7 +4415,7 @@ impl IDispatchEx {
     }
     pub unsafe fn GetMemberName(&self, id: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMemberName)(windows_core::Interface::as_raw(self), id, &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetMemberName)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetNextDispID(&self, grfdex: u32, id: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -4385,7 +4432,7 @@ pub struct IDispatchEx_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetDispID: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, u32, *mut i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub InvokeEx: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, u16, *const super::Com::DISPPARAMS, *mut super::Variant::VARIANT, *mut super::Com::EXCEPINFO, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InvokeEx: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, u16, *const super::Com::DISPPARAMS, *mut core::mem::MaybeUninit<super::Variant::VARIANT>, *mut super::Com::EXCEPINFO, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     InvokeEx: usize,
     pub DeleteMemberByName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, u32) -> windows_core::HRESULT,
@@ -4396,7 +4443,7 @@ pub struct IDispatchEx_Vtbl {
     pub GetNameSpaceParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub trait IDispatchEx_Impl: super::Com::IDispatch_Impl {
+pub trait IDispatchEx_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetDispID(&self, bstrname: &windows_core::BSTR, grfdex: u32) -> windows_core::Result<i32>;
     fn InvokeEx(&self, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut super::Variant::VARIANT, pei: *mut super::Com::EXCEPINFO, pspcaller: Option<&super::Com::IServiceProvider>) -> windows_core::Result<()>;
     fn DeleteMemberByName(&self, bstrname: &windows_core::BSTR, grfdex: u32) -> windows_core::Result<()>;
@@ -4407,8 +4454,10 @@ pub trait IDispatchEx_Impl: super::Com::IDispatch_Impl {
     fn GetNameSpaceParent(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IDispatchEx {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl IDispatchEx_Vtbl {
-    pub const fn new<Identity: IDispatchEx_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IDispatchEx_Impl, const OFFSET: isize>() -> IDispatchEx_Vtbl {
         unsafe extern "system" fn GetDispID<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, grfdex: u32, pid: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDispatchEx_Impl::GetDispID(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&grfdex)) {
@@ -4419,7 +4468,7 @@ impl IDispatchEx_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvokeEx<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut super::Variant::VARIANT, pei: *mut super::Com::EXCEPINFO, pspcaller: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeEx<Identity: IDispatchEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut core::mem::MaybeUninit<super::Variant::VARIANT>, pei: *mut super::Com::EXCEPINFO, pspcaller: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDispatchEx_Impl::InvokeEx(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pdp), core::mem::transmute_copy(&pvarres), core::mem::transmute_copy(&pei), windows_core::from_raw_borrowed(&pspcaller)).into()
         }
@@ -4484,12 +4533,16 @@ impl IDispatchEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDispatchEx as windows_core::Interface>::IID
+        iid == &<IDispatchEx as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IDispatchEx {}
 windows_core::imp::define_interface!(IDropSource, IDropSource_Vtbl, 0x00000121_0000_0000_c000_000000000046);
+impl core::ops::Deref for IDropSource {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDropSource, windows_core::IUnknown);
 impl IDropSource {
     #[cfg(feature = "Win32_System_SystemServices")]
@@ -4513,13 +4566,15 @@ pub struct IDropSource_Vtbl {
     pub GiveFeedback: unsafe extern "system" fn(*mut core::ffi::c_void, DROPEFFECT) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_SystemServices")]
-pub trait IDropSource_Impl: windows_core::IUnknownImpl {
+pub trait IDropSource_Impl: Sized + windows_core::IUnknownImpl {
     fn QueryContinueDrag(&self, fescapepressed: super::super::Foundation::BOOL, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS) -> windows_core::HRESULT;
     fn GiveFeedback(&self, dweffect: DROPEFFECT) -> windows_core::HRESULT;
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+impl windows_core::RuntimeName for IDropSource {}
+#[cfg(feature = "Win32_System_SystemServices")]
 impl IDropSource_Vtbl {
-    pub const fn new<Identity: IDropSource_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IDropSource_Impl, const OFFSET: isize>() -> IDropSource_Vtbl {
         unsafe extern "system" fn QueryContinueDrag<Identity: IDropSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fescapepressed: super::super::Foundation::BOOL, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDropSource_Impl::QueryContinueDrag(this, core::mem::transmute_copy(&fescapepressed), core::mem::transmute_copy(&grfkeystate))
@@ -4538,9 +4593,13 @@ impl IDropSource_Vtbl {
         iid == &<IDropSource as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
-impl windows_core::RuntimeName for IDropSource {}
 windows_core::imp::define_interface!(IDropSourceNotify, IDropSourceNotify_Vtbl, 0x0000012b_0000_0000_c000_000000000046);
+impl core::ops::Deref for IDropSourceNotify {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDropSourceNotify, windows_core::IUnknown);
 impl IDropSourceNotify {
     pub unsafe fn DragEnterTarget<P0>(&self, hwndtarget: P0) -> windows_core::Result<()>
@@ -4559,12 +4618,13 @@ pub struct IDropSourceNotify_Vtbl {
     pub DragEnterTarget: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
     pub DragLeaveTarget: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IDropSourceNotify_Impl: windows_core::IUnknownImpl {
+pub trait IDropSourceNotify_Impl: Sized + windows_core::IUnknownImpl {
     fn DragEnterTarget(&self, hwndtarget: super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn DragLeaveTarget(&self) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IDropSourceNotify {}
 impl IDropSourceNotify_Vtbl {
-    pub const fn new<Identity: IDropSourceNotify_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IDropSourceNotify_Impl, const OFFSET: isize>() -> IDropSourceNotify_Vtbl {
         unsafe extern "system" fn DragEnterTarget<Identity: IDropSourceNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndtarget: super::super::Foundation::HWND) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDropSourceNotify_Impl::DragEnterTarget(this, core::mem::transmute_copy(&hwndtarget)).into()
@@ -4583,8 +4643,13 @@ impl IDropSourceNotify_Vtbl {
         iid == &<IDropSourceNotify as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IDropSourceNotify {}
 windows_core::imp::define_interface!(IDropTarget, IDropTarget_Vtbl, 0x00000122_0000_0000_c000_000000000046);
+impl core::ops::Deref for IDropTarget {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDropTarget, windows_core::IUnknown);
 impl IDropTarget {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
@@ -4627,15 +4692,17 @@ pub struct IDropTarget_Vtbl {
     Drop: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
-pub trait IDropTarget_Impl: windows_core::IUnknownImpl {
+pub trait IDropTarget_Impl: Sized + windows_core::IUnknownImpl {
     fn DragEnter(&self, pdataobj: Option<&super::Com::IDataObject>, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: &super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> windows_core::Result<()>;
     fn DragOver(&self, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: &super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> windows_core::Result<()>;
     fn DragLeave(&self) -> windows_core::Result<()>;
     fn Drop(&self, pdataobj: Option<&super::Com::IDataObject>, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: &super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
+impl windows_core::RuntimeName for IDropTarget {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
 impl IDropTarget_Vtbl {
-    pub const fn new<Identity: IDropTarget_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IDropTarget_Impl, const OFFSET: isize>() -> IDropTarget_Vtbl {
         unsafe extern "system" fn DragEnter<Identity: IDropTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobj: *mut core::ffi::c_void, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS, pt: super::super::Foundation::POINTL, pdweffect: *mut DROPEFFECT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDropTarget_Impl::DragEnter(this, windows_core::from_raw_borrowed(&pdataobj), core::mem::transmute_copy(&grfkeystate), core::mem::transmute(&pt), core::mem::transmute_copy(&pdweffect)).into()
@@ -4664,9 +4731,13 @@ impl IDropTarget_Vtbl {
         iid == &<IDropTarget as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices"))]
-impl windows_core::RuntimeName for IDropTarget {}
 windows_core::imp::define_interface!(IEnterpriseDropTarget, IEnterpriseDropTarget_Vtbl, 0x390e3878_fd55_4e18_819d_4682081c0cfd);
+impl core::ops::Deref for IEnterpriseDropTarget {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnterpriseDropTarget, windows_core::IUnknown);
 impl IEnterpriseDropTarget {
     pub unsafe fn SetDropSourceEnterpriseId<P0>(&self, identity: P0) -> windows_core::Result<()>
@@ -4686,12 +4757,13 @@ pub struct IEnterpriseDropTarget_Vtbl {
     pub SetDropSourceEnterpriseId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub IsEvaluatingEdpPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IEnterpriseDropTarget_Impl: windows_core::IUnknownImpl {
+pub trait IEnterpriseDropTarget_Impl: Sized + windows_core::IUnknownImpl {
     fn SetDropSourceEnterpriseId(&self, identity: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn IsEvaluatingEdpPolicy(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
+impl windows_core::RuntimeName for IEnterpriseDropTarget {}
 impl IEnterpriseDropTarget_Vtbl {
-    pub const fn new<Identity: IEnterpriseDropTarget_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEnterpriseDropTarget_Impl, const OFFSET: isize>() -> IEnterpriseDropTarget_Vtbl {
         unsafe extern "system" fn SetDropSourceEnterpriseId<Identity: IEnterpriseDropTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, identity: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnterpriseDropTarget_Impl::SetDropSourceEnterpriseId(this, core::mem::transmute(&identity)).into()
@@ -4716,8 +4788,13 @@ impl IEnterpriseDropTarget_Vtbl {
         iid == &<IEnterpriseDropTarget as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IEnterpriseDropTarget {}
 windows_core::imp::define_interface!(IEnumOLEVERB, IEnumOLEVERB_Vtbl, 0x00000104_0000_0000_c000_000000000046);
+impl core::ops::Deref for IEnumOLEVERB {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumOLEVERB, windows_core::IUnknown);
 impl IEnumOLEVERB {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -4747,15 +4824,17 @@ pub struct IEnumOLEVERB_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub trait IEnumOLEVERB_Impl: windows_core::IUnknownImpl {
+pub trait IEnumOLEVERB_Impl: Sized + windows_core::IUnknownImpl {
     fn Next(&self, celt: u32, rgelt: *mut OLEVERB, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumOLEVERB>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::RuntimeName for IEnumOLEVERB {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IEnumOLEVERB_Vtbl {
-    pub const fn new<Identity: IEnumOLEVERB_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEnumOLEVERB_Impl, const OFFSET: isize>() -> IEnumOLEVERB_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumOLEVERB_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut OLEVERB, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnumOLEVERB_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
@@ -4790,9 +4869,13 @@ impl IEnumOLEVERB_Vtbl {
         iid == &<IEnumOLEVERB as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::RuntimeName for IEnumOLEVERB {}
 windows_core::imp::define_interface!(IEnumOleDocumentViews, IEnumOleDocumentViews_Vtbl, 0xb722bcc8_4e68_101b_a2bc_00aa00404770);
+impl core::ops::Deref for IEnumOleDocumentViews {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumOleDocumentViews, windows_core::IUnknown);
 impl IEnumOleDocumentViews {
     pub unsafe fn Next(&self, cviews: u32, rgpview: *mut Option<IOleDocumentView>, pcfetched: *mut u32) -> windows_core::Result<()> {
@@ -4817,14 +4900,15 @@ pub struct IEnumOleDocumentViews_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IEnumOleDocumentViews_Impl: windows_core::IUnknownImpl {
+pub trait IEnumOleDocumentViews_Impl: Sized + windows_core::IUnknownImpl {
     fn Next(&self, cviews: u32, rgpview: *mut Option<IOleDocumentView>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, cviews: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumOleDocumentViews>;
 }
+impl windows_core::RuntimeName for IEnumOleDocumentViews {}
 impl IEnumOleDocumentViews_Vtbl {
-    pub const fn new<Identity: IEnumOleDocumentViews_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEnumOleDocumentViews_Impl, const OFFSET: isize>() -> IEnumOleDocumentViews_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumOleDocumentViews_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cviews: u32, rgpview: *mut *mut core::ffi::c_void, pcfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnumOleDocumentViews_Impl::Next(this, core::mem::transmute_copy(&cviews), core::mem::transmute_copy(&rgpview), core::mem::transmute_copy(&pcfetched)).into()
@@ -4859,8 +4943,13 @@ impl IEnumOleDocumentViews_Vtbl {
         iid == &<IEnumOleDocumentViews as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IEnumOleDocumentViews {}
 windows_core::imp::define_interface!(IEnumOleUndoUnits, IEnumOleUndoUnits_Vtbl, 0xb3e7c340_ef97_11ce_9bc9_00aa00608e01);
+impl core::ops::Deref for IEnumOleUndoUnits {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumOleUndoUnits, windows_core::IUnknown);
 impl IEnumOleUndoUnits {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IOleUndoUnit>], pceltfetched: *mut u32) -> windows_core::HRESULT {
@@ -4885,14 +4974,15 @@ pub struct IEnumOleUndoUnits_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IEnumOleUndoUnits_Impl: windows_core::IUnknownImpl {
+pub trait IEnumOleUndoUnits_Impl: Sized + windows_core::IUnknownImpl {
     fn Next(&self, celt: u32, rgelt: *mut Option<IOleUndoUnit>, pceltfetched: *mut u32) -> windows_core::HRESULT;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumOleUndoUnits>;
 }
+impl windows_core::RuntimeName for IEnumOleUndoUnits {}
 impl IEnumOleUndoUnits_Vtbl {
-    pub const fn new<Identity: IEnumOleUndoUnits_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEnumOleUndoUnits_Impl, const OFFSET: isize>() -> IEnumOleUndoUnits_Vtbl {
         unsafe extern "system" fn Next<Identity: IEnumOleUndoUnits_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnumOleUndoUnits_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched))
@@ -4927,8 +5017,13 @@ impl IEnumOleUndoUnits_Vtbl {
         iid == &<IEnumOleUndoUnits as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IEnumOleUndoUnits {}
 windows_core::imp::define_interface!(IEnumVARIANT, IEnumVARIANT_Vtbl, 0x00020404_0000_0000_c000_000000000046);
+impl core::ops::Deref for IEnumVARIANT {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumVARIANT, windows_core::IUnknown);
 impl IEnumVARIANT {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
@@ -4950,7 +5045,7 @@ impl IEnumVARIANT {
 pub struct IEnumVARIANT_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::Variant::VARIANT, *mut u32) -> windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::mem::MaybeUninit<super::Variant::VARIANT>, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     Next: usize,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -4958,16 +5053,18 @@ pub struct IEnumVARIANT_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub trait IEnumVARIANT_Impl: windows_core::IUnknownImpl {
+pub trait IEnumVARIANT_Impl: Sized + windows_core::IUnknownImpl {
     fn Next(&self, celt: u32, rgvar: *mut super::Variant::VARIANT, pceltfetched: *mut u32) -> windows_core::HRESULT;
     fn Skip(&self, celt: u32) -> windows_core::HRESULT;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IEnumVARIANT {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl IEnumVARIANT_Vtbl {
-    pub const fn new<Identity: IEnumVARIANT_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IEnumVARIANT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgvar: *mut super::Variant::VARIANT, pceltfetched: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: IEnumVARIANT_Impl, const OFFSET: isize>() -> IEnumVARIANT_Vtbl {
+        unsafe extern "system" fn Next<Identity: IEnumVARIANT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgvar: *mut core::mem::MaybeUninit<super::Variant::VARIANT>, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnumVARIANT_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgvar), core::mem::transmute_copy(&pceltfetched))
         }
@@ -5001,14 +5098,18 @@ impl IEnumVARIANT_Vtbl {
         iid == &<IEnumVARIANT as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IEnumVARIANT {}
 windows_core::imp::define_interface!(IFont, IFont_Vtbl, 0xbef6e002_a874_101a_8bba_00aa00300cab);
+impl core::ops::Deref for IFont {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFont, windows_core::IUnknown);
 impl IFont {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
     where
@@ -5173,7 +5274,7 @@ pub struct IFont_Vtbl {
     SetHdc: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-pub trait IFont_Impl: windows_core::IUnknownImpl {
+pub trait IFont_Impl: Sized + windows_core::IUnknownImpl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Size(&self) -> windows_core::Result<super::Com::CY>;
@@ -5200,8 +5301,10 @@ pub trait IFont_Impl: windows_core::IUnknownImpl {
     fn SetHdc(&self, hdc: super::super::Graphics::Gdi::HDC) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IFont {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IFont_Vtbl {
-    pub const fn new<Identity: IFont_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IFont_Impl, const OFFSET: isize>() -> IFont_Vtbl {
         unsafe extern "system" fn Name<Identity: IFont_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFont_Impl::Name(this) {
@@ -5390,8 +5493,6 @@ impl IFont_Vtbl {
         iid == &<IFont as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IFont {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFontDisp, IFontDisp_Vtbl, 0xbef6e003_a874_101a_8bba_00aa00300cab);
 #[cfg(feature = "Win32_System_Com")]
@@ -5404,23 +5505,25 @@ impl core::ops::Deref for IFontDisp {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFontDisp, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
+impl IFontDisp {}
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct IFontDisp_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub trait IFontDisp_Impl: super::Com::IDispatch_Impl {}
+pub trait IFontDisp_Impl: Sized + super::Com::IDispatch_Impl {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IFontDisp {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl IFontDisp_Vtbl {
-    pub const fn new<Identity: IFontDisp_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IFontDisp_Impl, const OFFSET: isize>() -> IFontDisp_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFontDisp as windows_core::Interface>::IID
+        iid == &<IFontDisp as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IFontDisp {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFontEventsDisp, IFontEventsDisp_Vtbl, 0x4ef6100a_af88_11d0_9846_00c04fc29993);
 #[cfg(feature = "Win32_System_Com")]
@@ -5433,24 +5536,32 @@ impl core::ops::Deref for IFontEventsDisp {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFontEventsDisp, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
+impl IFontEventsDisp {}
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct IFontEventsDisp_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub trait IFontEventsDisp_Impl: super::Com::IDispatch_Impl {}
+pub trait IFontEventsDisp_Impl: Sized + super::Com::IDispatch_Impl {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IFontEventsDisp {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl IFontEventsDisp_Vtbl {
-    pub const fn new<Identity: IFontEventsDisp_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IFontEventsDisp_Impl, const OFFSET: isize>() -> IFontEventsDisp_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFontEventsDisp as windows_core::Interface>::IID
+        iid == &<IFontEventsDisp as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IFontEventsDisp {}
 windows_core::imp::define_interface!(IGetOleObject, IGetOleObject_Vtbl, 0x8a701da0_4feb_101b_a82e_08002b2b2337);
+impl core::ops::Deref for IGetOleObject {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGetOleObject, windows_core::IUnknown);
 impl IGetOleObject {
     pub unsafe fn GetOleObject(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -5462,11 +5573,12 @@ pub struct IGetOleObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOleObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IGetOleObject_Impl: windows_core::IUnknownImpl {
+pub trait IGetOleObject_Impl: Sized + windows_core::IUnknownImpl {
     fn GetOleObject(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IGetOleObject {}
 impl IGetOleObject_Vtbl {
-    pub const fn new<Identity: IGetOleObject_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IGetOleObject_Impl, const OFFSET: isize>() -> IGetOleObject_Vtbl {
         unsafe extern "system" fn GetOleObject<Identity: IGetOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGetOleObject_Impl::GetOleObject(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
@@ -5477,8 +5589,13 @@ impl IGetOleObject_Vtbl {
         iid == &<IGetOleObject as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IGetOleObject {}
 windows_core::imp::define_interface!(IGetVBAObject, IGetVBAObject_Vtbl, 0x91733a60_3f4c_101b_a3f6_00aa0034e4e9);
+impl core::ops::Deref for IGetVBAObject {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGetVBAObject, windows_core::IUnknown);
 impl IGetVBAObject {
     pub unsafe fn GetObject(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void, dwreserved: u32) -> windows_core::Result<()> {
@@ -5490,11 +5607,12 @@ pub struct IGetVBAObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IGetVBAObject_Impl: windows_core::IUnknownImpl {
+pub trait IGetVBAObject_Impl: Sized + windows_core::IUnknownImpl {
     fn GetObject(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void, dwreserved: u32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IGetVBAObject {}
 impl IGetVBAObject_Vtbl {
-    pub const fn new<Identity: IGetVBAObject_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IGetVBAObject_Impl, const OFFSET: isize>() -> IGetVBAObject_Vtbl {
         unsafe extern "system" fn GetObject<Identity: IGetVBAObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void, dwreserved: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGetVBAObject_Impl::GetObject(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj), core::mem::transmute_copy(&dwreserved)).into()
@@ -5505,8 +5623,13 @@ impl IGetVBAObject_Vtbl {
         iid == &<IGetVBAObject as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IGetVBAObject {}
 windows_core::imp::define_interface!(IObjectIdentity, IObjectIdentity_Vtbl, 0xca04b7e6_0d21_11d1_8cc5_00c04fc2b085);
+impl core::ops::Deref for IObjectIdentity {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IObjectIdentity, windows_core::IUnknown);
 impl IObjectIdentity {
     pub unsafe fn IsEqualObject<P0>(&self, punk: P0) -> windows_core::Result<()>
@@ -5521,11 +5644,12 @@ pub struct IObjectIdentity_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsEqualObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IObjectIdentity_Impl: windows_core::IUnknownImpl {
+pub trait IObjectIdentity_Impl: Sized + windows_core::IUnknownImpl {
     fn IsEqualObject(&self, punk: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IObjectIdentity {}
 impl IObjectIdentity_Vtbl {
-    pub const fn new<Identity: IObjectIdentity_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IObjectIdentity_Impl, const OFFSET: isize>() -> IObjectIdentity_Vtbl {
         unsafe extern "system" fn IsEqualObject<Identity: IObjectIdentity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punk: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IObjectIdentity_Impl::IsEqualObject(this, windows_core::from_raw_borrowed(&punk)).into()
@@ -5536,8 +5660,13 @@ impl IObjectIdentity_Vtbl {
         iid == &<IObjectIdentity as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IObjectIdentity {}
 windows_core::imp::define_interface!(IObjectWithSite, IObjectWithSite_Vtbl, 0xfc4801a3_2ba9_11cf_a229_00aa003d7352);
+impl core::ops::Deref for IObjectWithSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IObjectWithSite, windows_core::IUnknown);
 impl IObjectWithSite {
     pub unsafe fn SetSite<P0>(&self, punksite: P0) -> windows_core::Result<()>
@@ -5560,12 +5689,13 @@ pub struct IObjectWithSite_Vtbl {
     pub SetSite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSite: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IObjectWithSite_Impl: windows_core::IUnknownImpl {
+pub trait IObjectWithSite_Impl: Sized + windows_core::IUnknownImpl {
     fn SetSite(&self, punksite: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetSite(&self, riid: *const windows_core::GUID, ppvsite: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IObjectWithSite {}
 impl IObjectWithSite_Vtbl {
-    pub const fn new<Identity: IObjectWithSite_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IObjectWithSite_Impl, const OFFSET: isize>() -> IObjectWithSite_Vtbl {
         unsafe extern "system" fn SetSite<Identity: IObjectWithSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punksite: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IObjectWithSite_Impl::SetSite(this, windows_core::from_raw_borrowed(&punksite)).into()
@@ -5580,8 +5710,13 @@ impl IObjectWithSite_Vtbl {
         iid == &<IObjectWithSite as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IObjectWithSite {}
 windows_core::imp::define_interface!(IOleAdviseHolder, IOleAdviseHolder_Vtbl, 0x00000111_0000_0000_c000_000000000046);
+impl core::ops::Deref for IOleAdviseHolder {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleAdviseHolder, windows_core::IUnknown);
 impl IOleAdviseHolder {
     #[cfg(feature = "Win32_System_Com")]
@@ -5634,7 +5769,7 @@ pub struct IOleAdviseHolder_Vtbl {
     pub SendOnClose: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IOleAdviseHolder_Impl: windows_core::IUnknownImpl {
+pub trait IOleAdviseHolder_Impl: Sized + windows_core::IUnknownImpl {
     fn Advise(&self, padvise: Option<&super::Com::IAdviseSink>) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwconnection: u32) -> windows_core::Result<()>;
     fn EnumAdvise(&self) -> windows_core::Result<super::Com::IEnumSTATDATA>;
@@ -5643,8 +5778,10 @@ pub trait IOleAdviseHolder_Impl: windows_core::IUnknownImpl {
     fn SendOnClose(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IOleAdviseHolder {}
+#[cfg(feature = "Win32_System_Com")]
 impl IOleAdviseHolder_Vtbl {
-    pub const fn new<Identity: IOleAdviseHolder_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleAdviseHolder_Impl, const OFFSET: isize>() -> IOleAdviseHolder_Vtbl {
         unsafe extern "system" fn Advise<Identity: IOleAdviseHolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padvise: *mut core::ffi::c_void, pdwconnection: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOleAdviseHolder_Impl::Advise(this, windows_core::from_raw_borrowed(&padvise)) {
@@ -5695,9 +5832,13 @@ impl IOleAdviseHolder_Vtbl {
         iid == &<IOleAdviseHolder as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IOleAdviseHolder {}
 windows_core::imp::define_interface!(IOleCache, IOleCache_Vtbl, 0x0000011e_0000_0000_c000_000000000046);
+impl core::ops::Deref for IOleCache {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleCache, windows_core::IUnknown);
 impl IOleCache {
     #[cfg(feature = "Win32_System_Com")]
@@ -5721,11 +5862,11 @@ impl IOleCache {
         (windows_core::Interface::vtable(self).InitCache)(windows_core::Interface::as_raw(self), pdataobject.param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetData<P2>(&self, pformatetc: *const super::Com::FORMATETC, pmedium: *const super::Com::STGMEDIUM, frelease: P2) -> windows_core::Result<()>
+    pub unsafe fn SetData<P0>(&self, pformatetc: *const super::Com::FORMATETC, pmedium: *const super::Com::STGMEDIUM, frelease: P0) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), pformatetc, core::mem::transmute(pmedium), frelease.param().abi()).ok()
+        (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), pformatetc, pmedium, frelease.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -5750,7 +5891,7 @@ pub struct IOleCache_Vtbl {
     SetData: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-pub trait IOleCache_Impl: windows_core::IUnknownImpl {
+pub trait IOleCache_Impl: Sized + windows_core::IUnknownImpl {
     fn Cache(&self, pformatetc: *const super::Com::FORMATETC, advf: u32) -> windows_core::Result<u32>;
     fn Uncache(&self, dwconnection: u32) -> windows_core::Result<()>;
     fn EnumCache(&self) -> windows_core::Result<super::Com::IEnumSTATDATA>;
@@ -5758,8 +5899,10 @@ pub trait IOleCache_Impl: windows_core::IUnknownImpl {
     fn SetData(&self, pformatetc: *const super::Com::FORMATETC, pmedium: *const super::Com::STGMEDIUM, frelease: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl windows_core::RuntimeName for IOleCache {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl IOleCache_Vtbl {
-    pub const fn new<Identity: IOleCache_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleCache_Impl, const OFFSET: isize>() -> IOleCache_Vtbl {
         unsafe extern "system" fn Cache<Identity: IOleCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformatetc: *const super::Com::FORMATETC, advf: u32, pdwconnection: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOleCache_Impl::Cache(this, core::mem::transmute_copy(&pformatetc), core::mem::transmute_copy(&advf)) {
@@ -5805,8 +5948,6 @@ impl IOleCache_Vtbl {
         iid == &<IOleCache as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::RuntimeName for IOleCache {}
 windows_core::imp::define_interface!(IOleCache2, IOleCache2_Vtbl, 0x00000128_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleCache2 {
     type Target = IOleCache;
@@ -5837,13 +5978,15 @@ pub struct IOleCache2_Vtbl {
     pub DiscardCache: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-pub trait IOleCache2_Impl: IOleCache_Impl {
+pub trait IOleCache2_Impl: Sized + IOleCache_Impl {
     fn UpdateCache(&self, pdataobject: Option<&super::Com::IDataObject>, grfupdf: UPDFCACHE_FLAGS, preserved: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn DiscardCache(&self, dwdiscardoptions: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl windows_core::RuntimeName for IOleCache2 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl IOleCache2_Vtbl {
-    pub const fn new<Identity: IOleCache2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleCache2_Impl, const OFFSET: isize>() -> IOleCache2_Vtbl {
         unsafe extern "system" fn UpdateCache<Identity: IOleCache2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void, grfupdf: UPDFCACHE_FLAGS, preserved: *const core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleCache2_Impl::UpdateCache(this, windows_core::from_raw_borrowed(&pdataobject), core::mem::transmute_copy(&grfupdf), core::mem::transmute_copy(&preserved)).into()
@@ -5855,12 +5998,16 @@ impl IOleCache2_Vtbl {
         Self { base__: IOleCache_Vtbl::new::<Identity, OFFSET>(), UpdateCache: UpdateCache::<Identity, OFFSET>, DiscardCache: DiscardCache::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleCache2 as windows_core::Interface>::IID
+        iid == &<IOleCache2 as windows_core::Interface>::IID || iid == &<IOleCache as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::RuntimeName for IOleCache2 {}
 windows_core::imp::define_interface!(IOleCacheControl, IOleCacheControl_Vtbl, 0x00000129_0000_0000_c000_000000000046);
+impl core::ops::Deref for IOleCacheControl {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleCacheControl, windows_core::IUnknown);
 impl IOleCacheControl {
     #[cfg(feature = "Win32_System_Com")]
@@ -5884,13 +6031,15 @@ pub struct IOleCacheControl_Vtbl {
     pub OnStop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IOleCacheControl_Impl: windows_core::IUnknownImpl {
+pub trait IOleCacheControl_Impl: Sized + windows_core::IUnknownImpl {
     fn OnRun(&self, pdataobject: Option<&super::Com::IDataObject>) -> windows_core::Result<()>;
     fn OnStop(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IOleCacheControl {}
+#[cfg(feature = "Win32_System_Com")]
 impl IOleCacheControl_Vtbl {
-    pub const fn new<Identity: IOleCacheControl_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleCacheControl_Impl, const OFFSET: isize>() -> IOleCacheControl_Vtbl {
         unsafe extern "system" fn OnRun<Identity: IOleCacheControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleCacheControl_Impl::OnRun(this, windows_core::from_raw_borrowed(&pdataobject)).into()
@@ -5905,9 +6054,13 @@ impl IOleCacheControl_Vtbl {
         iid == &<IOleCacheControl as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IOleCacheControl {}
 windows_core::imp::define_interface!(IOleClientSite, IOleClientSite_Vtbl, 0x00000118_0000_0000_c000_000000000046);
+impl core::ops::Deref for IOleClientSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleClientSite, windows_core::IUnknown);
 impl IOleClientSite {
     pub unsafe fn SaveObject(&self) -> windows_core::Result<()> {
@@ -5949,7 +6102,7 @@ pub struct IOleClientSite_Vtbl {
     pub RequestNewObjectLayout: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IOleClientSite_Impl: windows_core::IUnknownImpl {
+pub trait IOleClientSite_Impl: Sized + windows_core::IUnknownImpl {
     fn SaveObject(&self) -> windows_core::Result<()>;
     fn GetMoniker(&self, dwassign: &OLEGETMONIKER, dwwhichmoniker: &OLEWHICHMK) -> windows_core::Result<super::Com::IMoniker>;
     fn GetContainer(&self) -> windows_core::Result<IOleContainer>;
@@ -5958,8 +6111,10 @@ pub trait IOleClientSite_Impl: windows_core::IUnknownImpl {
     fn RequestNewObjectLayout(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IOleClientSite {}
+#[cfg(feature = "Win32_System_Com")]
 impl IOleClientSite_Vtbl {
-    pub const fn new<Identity: IOleClientSite_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleClientSite_Impl, const OFFSET: isize>() -> IOleClientSite_Vtbl {
         unsafe extern "system" fn SaveObject<Identity: IOleClientSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleClientSite_Impl::SaveObject(this).into()
@@ -6010,9 +6165,13 @@ impl IOleClientSite_Vtbl {
         iid == &<IOleClientSite as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IOleClientSite {}
 windows_core::imp::define_interface!(IOleCommandTarget, IOleCommandTarget_Vtbl, 0xb722bccb_4e68_101b_a2bc_00aa00404770);
+impl core::ops::Deref for IOleCommandTarget {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleCommandTarget, windows_core::IUnknown);
 impl IOleCommandTarget {
     pub unsafe fn QueryStatus(&self, pguidcmdgroup: *const windows_core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> windows_core::Result<()> {
@@ -6028,23 +6187,25 @@ pub struct IOleCommandTarget_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub QueryStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut OLECMD, *mut OLECMDTEXT) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub Exec: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32, *const super::Variant::VARIANT, *mut super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub Exec: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32, *const core::mem::MaybeUninit<super::Variant::VARIANT>, *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     Exec: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub trait IOleCommandTarget_Impl: windows_core::IUnknownImpl {
+pub trait IOleCommandTarget_Impl: Sized + windows_core::IUnknownImpl {
     fn QueryStatus(&self, pguidcmdgroup: *const windows_core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> windows_core::Result<()>;
     fn Exec(&self, pguidcmdgroup: *const windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Variant::VARIANT, pvaout: *mut super::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IOleCommandTarget {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl IOleCommandTarget_Vtbl {
-    pub const fn new<Identity: IOleCommandTarget_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleCommandTarget_Impl, const OFFSET: isize>() -> IOleCommandTarget_Vtbl {
         unsafe extern "system" fn QueryStatus<Identity: IOleCommandTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidcmdgroup: *const windows_core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleCommandTarget_Impl::QueryStatus(this, core::mem::transmute_copy(&pguidcmdgroup), core::mem::transmute_copy(&ccmds), core::mem::transmute_copy(&prgcmds), core::mem::transmute_copy(&pcmdtext)).into()
         }
-        unsafe extern "system" fn Exec<Identity: IOleCommandTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidcmdgroup: *const windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Variant::VARIANT, pvaout: *mut super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Exec<Identity: IOleCommandTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidcmdgroup: *const windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const core::mem::MaybeUninit<super::Variant::VARIANT>, pvaout: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleCommandTarget_Impl::Exec(this, core::mem::transmute_copy(&pguidcmdgroup), core::mem::transmute_copy(&ncmdid), core::mem::transmute_copy(&ncmdexecopt), core::mem::transmute_copy(&pvain), core::mem::transmute_copy(&pvaout)).into()
         }
@@ -6054,8 +6215,6 @@ impl IOleCommandTarget_Vtbl {
         iid == &<IOleCommandTarget as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IOleCommandTarget {}
 windows_core::imp::define_interface!(IOleContainer, IOleContainer_Vtbl, 0x0000011b_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleContainer {
     type Target = IParseDisplayName;
@@ -6087,13 +6246,15 @@ pub struct IOleContainer_Vtbl {
     pub LockContainer: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IOleContainer_Impl: IParseDisplayName_Impl {
+pub trait IOleContainer_Impl: Sized + IParseDisplayName_Impl {
     fn EnumObjects(&self, grfflags: &OLECONTF) -> windows_core::Result<super::Com::IEnumUnknown>;
     fn LockContainer(&self, flock: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IOleContainer {}
+#[cfg(feature = "Win32_System_Com")]
 impl IOleContainer_Vtbl {
-    pub const fn new<Identity: IOleContainer_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleContainer_Impl, const OFFSET: isize>() -> IOleContainer_Vtbl {
         unsafe extern "system" fn EnumObjects<Identity: IOleContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: u32, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOleContainer_Impl::EnumObjects(this, core::mem::transmute(&grfflags)) {
@@ -6115,12 +6276,16 @@ impl IOleContainer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleContainer as windows_core::Interface>::IID
+        iid == &<IOleContainer as windows_core::Interface>::IID || iid == &<IParseDisplayName as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IOleContainer {}
 windows_core::imp::define_interface!(IOleControl, IOleControl_Vtbl, 0xb196b288_bab4_101a_b69c_00aa00341d07);
+impl core::ops::Deref for IOleControl {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleControl, windows_core::IUnknown);
 impl IOleControl {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -6156,15 +6321,17 @@ pub struct IOleControl_Vtbl {
     pub FreezeEvents: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub trait IOleControl_Impl: windows_core::IUnknownImpl {
+pub trait IOleControl_Impl: Sized + windows_core::IUnknownImpl {
     fn GetControlInfo(&self, pci: *mut CONTROLINFO) -> windows_core::Result<()>;
     fn OnMnemonic(&self, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> windows_core::Result<()>;
     fn OnAmbientPropertyChange(&self, dispid: i32) -> windows_core::Result<()>;
     fn FreezeEvents(&self, bfreeze: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::RuntimeName for IOleControl {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IOleControl_Vtbl {
-    pub const fn new<Identity: IOleControl_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleControl_Impl, const OFFSET: isize>() -> IOleControl_Vtbl {
         unsafe extern "system" fn GetControlInfo<Identity: IOleControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pci: *mut CONTROLINFO) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleControl_Impl::GetControlInfo(this, core::mem::transmute_copy(&pci)).into()
@@ -6193,9 +6360,13 @@ impl IOleControl_Vtbl {
         iid == &<IOleControl as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::RuntimeName for IOleControl {}
 windows_core::imp::define_interface!(IOleControlSite, IOleControlSite_Vtbl, 0xb196b289_bab4_101a_b69c_00aa00341d07);
+impl core::ops::Deref for IOleControlSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleControlSite, windows_core::IUnknown);
 impl IOleControlSite {
     pub unsafe fn OnControlInfoChanged(&self) -> windows_core::Result<()> {
@@ -6247,7 +6418,7 @@ pub struct IOleControlSite_Vtbl {
     pub ShowPropertyFrame: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait IOleControlSite_Impl: windows_core::IUnknownImpl {
+pub trait IOleControlSite_Impl: Sized + windows_core::IUnknownImpl {
     fn OnControlInfoChanged(&self) -> windows_core::Result<()>;
     fn LockInPlaceActive(&self, flock: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetExtendedControl(&self) -> windows_core::Result<super::Com::IDispatch>;
@@ -6257,8 +6428,10 @@ pub trait IOleControlSite_Impl: windows_core::IUnknownImpl {
     fn ShowPropertyFrame(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::RuntimeName for IOleControlSite {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IOleControlSite_Vtbl {
-    pub const fn new<Identity: IOleControlSite_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleControlSite_Impl, const OFFSET: isize>() -> IOleControlSite_Vtbl {
         unsafe extern "system" fn OnControlInfoChanged<Identity: IOleControlSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleControlSite_Impl::OnControlInfoChanged(this).into()
@@ -6308,9 +6481,13 @@ impl IOleControlSite_Vtbl {
         iid == &<IOleControlSite as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::RuntimeName for IOleControlSite {}
 windows_core::imp::define_interface!(IOleDocument, IOleDocument_Vtbl, 0xb722bcc5_4e68_101b_a2bc_00aa00404770);
+impl core::ops::Deref for IOleDocument {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleDocument, windows_core::IUnknown);
 impl IOleDocument {
     #[cfg(feature = "Win32_System_Com")]
@@ -6341,14 +6518,16 @@ pub struct IOleDocument_Vtbl {
     pub EnumViews: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IOleDocument_Impl: windows_core::IUnknownImpl {
+pub trait IOleDocument_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateView(&self, pipsite: Option<&IOleInPlaceSite>, pstm: Option<&super::Com::IStream>, dwreserved: u32) -> windows_core::Result<IOleDocumentView>;
     fn GetDocMiscStatus(&self) -> windows_core::Result<u32>;
     fn EnumViews(&self, ppenum: *mut Option<IEnumOleDocumentViews>, ppview: *mut Option<IOleDocumentView>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IOleDocument {}
+#[cfg(feature = "Win32_System_Com")]
 impl IOleDocument_Vtbl {
-    pub const fn new<Identity: IOleDocument_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleDocument_Impl, const OFFSET: isize>() -> IOleDocument_Vtbl {
         unsafe extern "system" fn CreateView<Identity: IOleDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipsite: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void, dwreserved: u32, ppview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOleDocument_Impl::CreateView(this, windows_core::from_raw_borrowed(&pipsite), windows_core::from_raw_borrowed(&pstm), core::mem::transmute_copy(&dwreserved)) {
@@ -6384,9 +6563,13 @@ impl IOleDocument_Vtbl {
         iid == &<IOleDocument as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IOleDocument {}
 windows_core::imp::define_interface!(IOleDocumentSite, IOleDocumentSite_Vtbl, 0xb722bcc7_4e68_101b_a2bc_00aa00404770);
+impl core::ops::Deref for IOleDocumentSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleDocumentSite, windows_core::IUnknown);
 impl IOleDocumentSite {
     pub unsafe fn ActivateMe<P0>(&self, pviewtoactivate: P0) -> windows_core::Result<()>
@@ -6401,11 +6584,12 @@ pub struct IOleDocumentSite_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ActivateMe: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IOleDocumentSite_Impl: windows_core::IUnknownImpl {
+pub trait IOleDocumentSite_Impl: Sized + windows_core::IUnknownImpl {
     fn ActivateMe(&self, pviewtoactivate: Option<&IOleDocumentView>) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IOleDocumentSite {}
 impl IOleDocumentSite_Vtbl {
-    pub const fn new<Identity: IOleDocumentSite_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleDocumentSite_Impl, const OFFSET: isize>() -> IOleDocumentSite_Vtbl {
         unsafe extern "system" fn ActivateMe<Identity: IOleDocumentSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pviewtoactivate: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleDocumentSite_Impl::ActivateMe(this, windows_core::from_raw_borrowed(&pviewtoactivate)).into()
@@ -6416,8 +6600,13 @@ impl IOleDocumentSite_Vtbl {
         iid == &<IOleDocumentSite as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IOleDocumentSite {}
 windows_core::imp::define_interface!(IOleDocumentView, IOleDocumentView_Vtbl, 0xb722bcc6_4e68_101b_a2bc_00aa00404770);
+impl core::ops::Deref for IOleDocumentView {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleDocumentView, windows_core::IUnknown);
 impl IOleDocumentView {
     pub unsafe fn SetInPlaceSite<P0>(&self, pipsite: P0) -> windows_core::Result<()>
@@ -6508,7 +6697,7 @@ pub struct IOleDocumentView_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IOleDocumentView_Impl: windows_core::IUnknownImpl {
+pub trait IOleDocumentView_Impl: Sized + windows_core::IUnknownImpl {
     fn SetInPlaceSite(&self, pipsite: Option<&IOleInPlaceSite>) -> windows_core::Result<()>;
     fn GetInPlaceSite(&self) -> windows_core::Result<IOleInPlaceSite>;
     fn GetDocument(&self) -> windows_core::Result<windows_core::IUnknown>;
@@ -6524,8 +6713,10 @@ pub trait IOleDocumentView_Impl: windows_core::IUnknownImpl {
     fn Clone(&self, pipsitenew: Option<&IOleInPlaceSite>) -> windows_core::Result<IOleDocumentView>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IOleDocumentView {}
+#[cfg(feature = "Win32_System_Com")]
 impl IOleDocumentView_Vtbl {
-    pub const fn new<Identity: IOleDocumentView_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleDocumentView_Impl, const OFFSET: isize>() -> IOleDocumentView_Vtbl {
         unsafe extern "system" fn SetInPlaceSite<Identity: IOleDocumentView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pipsite: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleDocumentView_Impl::SetInPlaceSite(this, windows_core::from_raw_borrowed(&pipsite)).into()
@@ -6623,8 +6814,6 @@ impl IOleDocumentView_Vtbl {
         iid == &<IOleDocumentView as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IOleDocumentView {}
 windows_core::imp::define_interface!(IOleInPlaceActiveObject, IOleInPlaceActiveObject_Vtbl, 0x00000117_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleInPlaceActiveObject {
     type Target = IOleWindow;
@@ -6650,10 +6839,10 @@ impl IOleInPlaceActiveObject {
     {
         (windows_core::Interface::vtable(self).OnDocWindowActivate)(windows_core::Interface::as_raw(self), factivate.param().abi()).ok()
     }
-    pub unsafe fn ResizeBorder<P1, P2>(&self, prcborder: *const super::super::Foundation::RECT, puiwindow: P1, fframewindow: P2) -> windows_core::Result<()>
+    pub unsafe fn ResizeBorder<P0, P1>(&self, prcborder: *const super::super::Foundation::RECT, puiwindow: P0, fframewindow: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<IOleInPlaceUIWindow>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<IOleInPlaceUIWindow>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).ResizeBorder)(windows_core::Interface::as_raw(self), prcborder, puiwindow.param().abi(), fframewindow.param().abi()).ok()
     }
@@ -6677,7 +6866,7 @@ pub struct IOleInPlaceActiveObject_Vtbl {
     pub EnableModeless: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub trait IOleInPlaceActiveObject_Impl: IOleWindow_Impl {
+pub trait IOleInPlaceActiveObject_Impl: Sized + IOleWindow_Impl {
     fn TranslateAccelerator(&self, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> windows_core::Result<()>;
     fn OnFrameWindowActivate(&self, factivate: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn OnDocWindowActivate(&self, factivate: super::super::Foundation::BOOL) -> windows_core::Result<()>;
@@ -6685,8 +6874,10 @@ pub trait IOleInPlaceActiveObject_Impl: IOleWindow_Impl {
     fn EnableModeless(&self, fenable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::RuntimeName for IOleInPlaceActiveObject {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IOleInPlaceActiveObject_Vtbl {
-    pub const fn new<Identity: IOleInPlaceActiveObject_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleInPlaceActiveObject_Impl, const OFFSET: isize>() -> IOleInPlaceActiveObject_Vtbl {
         unsafe extern "system" fn TranslateAccelerator<Identity: IOleInPlaceActiveObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleInPlaceActiveObject_Impl::TranslateAccelerator(this, core::mem::transmute_copy(&lpmsg)).into()
@@ -6717,11 +6908,9 @@ impl IOleInPlaceActiveObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceActiveObject as windows_core::Interface>::IID
+        iid == &<IOleInPlaceActiveObject as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::RuntimeName for IOleInPlaceActiveObject {}
 windows_core::imp::define_interface!(IOleInPlaceFrame, IOleInPlaceFrame_Vtbl, 0x00000116_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleInPlaceFrame {
     type Target = IOleInPlaceUIWindow;
@@ -6739,10 +6928,10 @@ impl IOleInPlaceFrame {
         (windows_core::Interface::vtable(self).InsertMenus)(windows_core::Interface::as_raw(self), hmenushared.param().abi(), lpmenuwidths).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn SetMenu<P0, P2>(&self, hmenushared: P0, holemenu: isize, hwndactiveobject: P2) -> windows_core::Result<()>
+    pub unsafe fn SetMenu<P0, P1>(&self, hmenushared: P0, holemenu: isize, hwndactiveobject: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::UI::WindowsAndMessaging::HMENU>,
-        P2: windows_core::Param<super::super::Foundation::HWND>,
+        P1: windows_core::Param<super::super::Foundation::HWND>,
     {
         (windows_core::Interface::vtable(self).SetMenu)(windows_core::Interface::as_raw(self), hmenushared.param().abi(), holemenu, hwndactiveobject.param().abi()).ok()
     }
@@ -6793,7 +6982,7 @@ pub struct IOleInPlaceFrame_Vtbl {
     TranslateAccelerator: usize,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub trait IOleInPlaceFrame_Impl: IOleInPlaceUIWindow_Impl {
+pub trait IOleInPlaceFrame_Impl: Sized + IOleInPlaceUIWindow_Impl {
     fn InsertMenus(&self, hmenushared: super::super::UI::WindowsAndMessaging::HMENU, lpmenuwidths: *mut OLEMENUGROUPWIDTHS) -> windows_core::Result<()>;
     fn SetMenu(&self, hmenushared: super::super::UI::WindowsAndMessaging::HMENU, holemenu: isize, hwndactiveobject: super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn RemoveMenus(&self, hmenushared: super::super::UI::WindowsAndMessaging::HMENU) -> windows_core::Result<()>;
@@ -6802,8 +6991,10 @@ pub trait IOleInPlaceFrame_Impl: IOleInPlaceUIWindow_Impl {
     fn TranslateAccelerator(&self, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, wid: u16) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::RuntimeName for IOleInPlaceFrame {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IOleInPlaceFrame_Vtbl {
-    pub const fn new<Identity: IOleInPlaceFrame_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleInPlaceFrame_Impl, const OFFSET: isize>() -> IOleInPlaceFrame_Vtbl {
         unsafe extern "system" fn InsertMenus<Identity: IOleInPlaceFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hmenushared: super::super::UI::WindowsAndMessaging::HMENU, lpmenuwidths: *mut OLEMENUGROUPWIDTHS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleInPlaceFrame_Impl::InsertMenus(this, core::mem::transmute_copy(&hmenushared), core::mem::transmute_copy(&lpmenuwidths)).into()
@@ -6839,11 +7030,9 @@ impl IOleInPlaceFrame_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceFrame as windows_core::Interface>::IID
+        iid == &<IOleInPlaceFrame as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID || iid == &<IOleInPlaceUIWindow as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::RuntimeName for IOleInPlaceFrame {}
 windows_core::imp::define_interface!(IOleInPlaceObject, IOleInPlaceObject_Vtbl, 0x00000113_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleInPlaceObject {
     type Target = IOleWindow;
@@ -6874,14 +7063,15 @@ pub struct IOleInPlaceObject_Vtbl {
     pub SetObjectRects: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
     pub ReactivateAndUndo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IOleInPlaceObject_Impl: IOleWindow_Impl {
+pub trait IOleInPlaceObject_Impl: Sized + IOleWindow_Impl {
     fn InPlaceDeactivate(&self) -> windows_core::Result<()>;
     fn UIDeactivate(&self) -> windows_core::Result<()>;
     fn SetObjectRects(&self, lprcposrect: *const super::super::Foundation::RECT, lprccliprect: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn ReactivateAndUndo(&self) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IOleInPlaceObject {}
 impl IOleInPlaceObject_Vtbl {
-    pub const fn new<Identity: IOleInPlaceObject_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleInPlaceObject_Impl, const OFFSET: isize>() -> IOleInPlaceObject_Vtbl {
         unsafe extern "system" fn InPlaceDeactivate<Identity: IOleInPlaceObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleInPlaceObject_Impl::InPlaceDeactivate(this).into()
@@ -6907,10 +7097,9 @@ impl IOleInPlaceObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceObject as windows_core::Interface>::IID
+        iid == &<IOleInPlaceObject as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IOleInPlaceObject {}
 windows_core::imp::define_interface!(IOleInPlaceObjectWindowless, IOleInPlaceObjectWindowless_Vtbl, 0x1c2056cc_5ef4_101b_8bc8_00aa003e3b29);
 impl core::ops::Deref for IOleInPlaceObjectWindowless {
     type Target = IOleInPlaceObject;
@@ -6920,10 +7109,10 @@ impl core::ops::Deref for IOleInPlaceObjectWindowless {
 }
 windows_core::imp::interface_hierarchy!(IOleInPlaceObjectWindowless, windows_core::IUnknown, IOleWindow, IOleInPlaceObject);
 impl IOleInPlaceObjectWindowless {
-    pub unsafe fn OnWindowMessage<P1, P2>(&self, msg: u32, wparam: P1, lparam: P2) -> windows_core::Result<super::super::Foundation::LRESULT>
+    pub unsafe fn OnWindowMessage<P0, P1>(&self, msg: u32, wparam: P0, lparam: P1) -> windows_core::Result<super::super::Foundation::LRESULT>
     where
-        P1: windows_core::Param<super::super::Foundation::WPARAM>,
-        P2: windows_core::Param<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::WPARAM>,
+        P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OnWindowMessage)(windows_core::Interface::as_raw(self), msg, wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
@@ -6939,12 +7128,13 @@ pub struct IOleInPlaceObjectWindowless_Vtbl {
     pub OnWindowMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM, *mut super::super::Foundation::LRESULT) -> windows_core::HRESULT,
     pub GetDropTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IOleInPlaceObjectWindowless_Impl: IOleInPlaceObject_Impl {
+pub trait IOleInPlaceObjectWindowless_Impl: Sized + IOleInPlaceObject_Impl {
     fn OnWindowMessage(&self, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::LRESULT>;
     fn GetDropTarget(&self) -> windows_core::Result<IDropTarget>;
 }
+impl windows_core::RuntimeName for IOleInPlaceObjectWindowless {}
 impl IOleInPlaceObjectWindowless_Vtbl {
-    pub const fn new<Identity: IOleInPlaceObjectWindowless_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleInPlaceObjectWindowless_Impl, const OFFSET: isize>() -> IOleInPlaceObjectWindowless_Vtbl {
         unsafe extern "system" fn OnWindowMessage<Identity: IOleInPlaceObjectWindowless_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOleInPlaceObjectWindowless_Impl::OnWindowMessage(this, core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
@@ -6972,10 +7162,9 @@ impl IOleInPlaceObjectWindowless_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceObjectWindowless as windows_core::Interface>::IID
+        iid == &<IOleInPlaceObjectWindowless as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID || iid == &<IOleInPlaceObject as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IOleInPlaceObjectWindowless {}
 windows_core::imp::define_interface!(IOleInPlaceSite, IOleInPlaceSite_Vtbl, 0x00000119_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleInPlaceSite {
     type Target = IOleWindow;
@@ -7038,7 +7227,7 @@ pub struct IOleInPlaceSite_Vtbl {
     pub OnPosRectChange: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub trait IOleInPlaceSite_Impl: IOleWindow_Impl {
+pub trait IOleInPlaceSite_Impl: Sized + IOleWindow_Impl {
     fn CanInPlaceActivate(&self) -> windows_core::Result<()>;
     fn OnInPlaceActivate(&self) -> windows_core::Result<()>;
     fn OnUIActivate(&self) -> windows_core::Result<()>;
@@ -7051,8 +7240,10 @@ pub trait IOleInPlaceSite_Impl: IOleWindow_Impl {
     fn OnPosRectChange(&self, lprcposrect: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::RuntimeName for IOleInPlaceSite {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IOleInPlaceSite_Vtbl {
-    pub const fn new<Identity: IOleInPlaceSite_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleInPlaceSite_Impl, const OFFSET: isize>() -> IOleInPlaceSite_Vtbl {
         unsafe extern "system" fn CanInPlaceActivate<Identity: IOleInPlaceSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleInPlaceSite_Impl::CanInPlaceActivate(this).into()
@@ -7108,11 +7299,9 @@ impl IOleInPlaceSite_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceSite as windows_core::Interface>::IID
+        iid == &<IOleInPlaceSite as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::RuntimeName for IOleInPlaceSite {}
 windows_core::imp::define_interface!(IOleInPlaceSiteEx, IOleInPlaceSiteEx_Vtbl, 0x9c2cad80_3424_11cf_b670_00aa004cd6d8);
 impl core::ops::Deref for IOleInPlaceSiteEx {
     type Target = IOleInPlaceSite;
@@ -7143,14 +7332,16 @@ pub struct IOleInPlaceSiteEx_Vtbl {
     pub RequestUIActivate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub trait IOleInPlaceSiteEx_Impl: IOleInPlaceSite_Impl {
+pub trait IOleInPlaceSiteEx_Impl: Sized + IOleInPlaceSite_Impl {
     fn OnInPlaceActivateEx(&self, pfnoredraw: *mut super::super::Foundation::BOOL, dwflags: u32) -> windows_core::Result<()>;
     fn OnInPlaceDeactivateEx(&self, fnoredraw: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn RequestUIActivate(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::RuntimeName for IOleInPlaceSiteEx {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IOleInPlaceSiteEx_Vtbl {
-    pub const fn new<Identity: IOleInPlaceSiteEx_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleInPlaceSiteEx_Impl, const OFFSET: isize>() -> IOleInPlaceSiteEx_Vtbl {
         unsafe extern "system" fn OnInPlaceActivateEx<Identity: IOleInPlaceSiteEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfnoredraw: *mut super::super::Foundation::BOOL, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleInPlaceSiteEx_Impl::OnInPlaceActivateEx(this, core::mem::transmute_copy(&pfnoredraw), core::mem::transmute_copy(&dwflags)).into()
@@ -7171,11 +7362,9 @@ impl IOleInPlaceSiteEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceSiteEx as windows_core::Interface>::IID
+        iid == &<IOleInPlaceSiteEx as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID || iid == &<IOleInPlaceSite as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::RuntimeName for IOleInPlaceSiteEx {}
 windows_core::imp::define_interface!(IOleInPlaceSiteWindowless, IOleInPlaceSiteWindowless_Vtbl, 0x922eada0_3424_11cf_b670_00aa004cd6d8);
 impl core::ops::Deref for IOleInPlaceSiteWindowless {
     type Target = IOleInPlaceSiteEx;
@@ -7218,9 +7407,9 @@ impl IOleInPlaceSiteWindowless {
     {
         (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), hdc.param().abi()).ok()
     }
-    pub unsafe fn InvalidateRect<P1>(&self, prect: *const super::super::Foundation::RECT, ferase: P1) -> windows_core::Result<()>
+    pub unsafe fn InvalidateRect<P0>(&self, prect: *const super::super::Foundation::RECT, ferase: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).InvalidateRect)(windows_core::Interface::as_raw(self), prect, ferase.param().abi()).ok()
     }
@@ -7238,10 +7427,10 @@ impl IOleInPlaceSiteWindowless {
     pub unsafe fn AdjustRect(&self, prc: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AdjustRect)(windows_core::Interface::as_raw(self), prc).ok()
     }
-    pub unsafe fn OnDefWindowMessage<P1, P2>(&self, msg: u32, wparam: P1, lparam: P2) -> windows_core::Result<super::super::Foundation::LRESULT>
+    pub unsafe fn OnDefWindowMessage<P0, P1>(&self, msg: u32, wparam: P0, lparam: P1) -> windows_core::Result<super::super::Foundation::LRESULT>
     where
-        P1: windows_core::Param<super::super::Foundation::WPARAM>,
-        P2: windows_core::Param<super::super::Foundation::LPARAM>,
+        P0: windows_core::Param<super::super::Foundation::WPARAM>,
+        P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OnDefWindowMessage)(windows_core::Interface::as_raw(self), msg, wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
@@ -7273,7 +7462,7 @@ pub struct IOleInPlaceSiteWindowless_Vtbl {
     pub OnDefWindowMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM, *mut super::super::Foundation::LRESULT) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait IOleInPlaceSiteWindowless_Impl: IOleInPlaceSiteEx_Impl {
+pub trait IOleInPlaceSiteWindowless_Impl: Sized + IOleInPlaceSiteEx_Impl {
     fn CanWindowlessActivate(&self) -> windows_core::Result<()>;
     fn GetCapture(&self) -> windows_core::Result<()>;
     fn SetCapture(&self, fcapture: super::super::Foundation::BOOL) -> windows_core::Result<()>;
@@ -7288,8 +7477,10 @@ pub trait IOleInPlaceSiteWindowless_Impl: IOleInPlaceSiteEx_Impl {
     fn OnDefWindowMessage(&self, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<super::super::Foundation::LRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::RuntimeName for IOleInPlaceSiteWindowless {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IOleInPlaceSiteWindowless_Vtbl {
-    pub const fn new<Identity: IOleInPlaceSiteWindowless_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleInPlaceSiteWindowless_Impl, const OFFSET: isize>() -> IOleInPlaceSiteWindowless_Vtbl {
         unsafe extern "system" fn CanWindowlessActivate<Identity: IOleInPlaceSiteWindowless_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleInPlaceSiteWindowless_Impl::CanWindowlessActivate(this).into()
@@ -7367,11 +7558,9 @@ impl IOleInPlaceSiteWindowless_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceSiteWindowless as windows_core::Interface>::IID
+        iid == &<IOleInPlaceSiteWindowless as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID || iid == &<IOleInPlaceSite as windows_core::Interface>::IID || iid == &<IOleInPlaceSiteEx as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::RuntimeName for IOleInPlaceSiteWindowless {}
 windows_core::imp::define_interface!(IOleInPlaceUIWindow, IOleInPlaceUIWindow_Vtbl, 0x00000115_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleInPlaceUIWindow {
     type Target = IOleWindow;
@@ -7407,14 +7596,15 @@ pub struct IOleInPlaceUIWindow_Vtbl {
     pub SetBorderSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT) -> windows_core::HRESULT,
     pub SetActiveObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-pub trait IOleInPlaceUIWindow_Impl: IOleWindow_Impl {
+pub trait IOleInPlaceUIWindow_Impl: Sized + IOleWindow_Impl {
     fn GetBorder(&self) -> windows_core::Result<super::super::Foundation::RECT>;
     fn RequestBorderSpace(&self, pborderwidths: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn SetBorderSpace(&self, pborderwidths: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn SetActiveObject(&self, pactiveobject: Option<&IOleInPlaceActiveObject>, pszobjname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IOleInPlaceUIWindow {}
 impl IOleInPlaceUIWindow_Vtbl {
-    pub const fn new<Identity: IOleInPlaceUIWindow_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleInPlaceUIWindow_Impl, const OFFSET: isize>() -> IOleInPlaceUIWindow_Vtbl {
         unsafe extern "system" fn GetBorder<Identity: IOleInPlaceUIWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lprectborder: *mut super::super::Foundation::RECT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOleInPlaceUIWindow_Impl::GetBorder(this) {
@@ -7446,10 +7636,9 @@ impl IOleInPlaceUIWindow_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleInPlaceUIWindow as windows_core::Interface>::IID
+        iid == &<IOleInPlaceUIWindow as windows_core::Interface>::IID || iid == &<IOleWindow as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IOleInPlaceUIWindow {}
 windows_core::imp::define_interface!(IOleItemContainer, IOleItemContainer_Vtbl, 0x0000011c_0000_0000_c000_000000000046);
 impl core::ops::Deref for IOleItemContainer {
     type Target = IOleContainer;
@@ -7460,10 +7649,10 @@ impl core::ops::Deref for IOleItemContainer {
 windows_core::imp::interface_hierarchy!(IOleItemContainer, windows_core::IUnknown, IParseDisplayName, IOleContainer);
 impl IOleItemContainer {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetObject<P0, P2, T>(&self, pszitem: P0, dwspeedneeded: u32, pbc: P2) -> windows_core::Result<T>
+    pub unsafe fn GetObject<P0, P1, T>(&self, pszitem: P0, dwspeedneeded: u32, pbc: P1) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<super::Com::IBindCtx>,
+        P1: windows_core::Param<super::Com::IBindCtx>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
@@ -7500,14 +7689,16 @@ pub struct IOleItemContainer_Vtbl {
     pub IsRunning: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IOleItemContainer_Impl: IOleContainer_Impl {
+pub trait IOleItemContainer_Impl: Sized + IOleContainer_Impl {
     fn GetObject(&self, pszitem: &windows_core::PCWSTR, dwspeedneeded: u32, pbc: Option<&super::Com::IBindCtx>, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetObjectStorage(&self, pszitem: &windows_core::PCWSTR, pbc: Option<&super::Com::IBindCtx>, riid: *const windows_core::GUID, ppvstorage: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn IsRunning(&self, pszitem: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IOleItemContainer {}
+#[cfg(feature = "Win32_System_Com")]
 impl IOleItemContainer_Vtbl {
-    pub const fn new<Identity: IOleItemContainer_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleItemContainer_Impl, const OFFSET: isize>() -> IOleItemContainer_Vtbl {
         unsafe extern "system" fn GetObject<Identity: IOleItemContainer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszitem: windows_core::PCWSTR, dwspeedneeded: u32, pbc: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleItemContainer_Impl::GetObject(this, core::mem::transmute(&pszitem), core::mem::transmute_copy(&dwspeedneeded), windows_core::from_raw_borrowed(&pbc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobject)).into()
@@ -7528,12 +7719,16 @@ impl IOleItemContainer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleItemContainer as windows_core::Interface>::IID
+        iid == &<IOleItemContainer as windows_core::Interface>::IID || iid == &<IParseDisplayName as windows_core::Interface>::IID || iid == &<IOleContainer as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IOleItemContainer {}
 windows_core::imp::define_interface!(IOleLink, IOleLink_Vtbl, 0x0000011d_0000_0000_c000_000000000046);
+impl core::ops::Deref for IOleLink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleLink, windows_core::IUnknown);
 impl IOleLink {
     pub unsafe fn SetUpdateOptions(&self, dwupdateopt: u32) -> windows_core::Result<()> {
@@ -7566,9 +7761,9 @@ impl IOleLink {
         (windows_core::Interface::vtable(self).GetSourceDisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BindToSource<P1>(&self, bindflags: u32, pbc: P1) -> windows_core::Result<()>
+    pub unsafe fn BindToSource<P0>(&self, bindflags: u32, pbc: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::Com::IBindCtx>,
+        P0: windows_core::Param<super::Com::IBindCtx>,
     {
         (windows_core::Interface::vtable(self).BindToSource)(windows_core::Interface::as_raw(self), bindflags, pbc.param().abi()).ok()
     }
@@ -7618,7 +7813,7 @@ pub struct IOleLink_Vtbl {
     Update: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IOleLink_Impl: windows_core::IUnknownImpl {
+pub trait IOleLink_Impl: Sized + windows_core::IUnknownImpl {
     fn SetUpdateOptions(&self, dwupdateopt: u32) -> windows_core::Result<()>;
     fn GetUpdateOptions(&self) -> windows_core::Result<u32>;
     fn SetSourceMoniker(&self, pmk: Option<&super::Com::IMoniker>, rclsid: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -7632,8 +7827,10 @@ pub trait IOleLink_Impl: windows_core::IUnknownImpl {
     fn Update(&self, pbc: Option<&super::Com::IBindCtx>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IOleLink {}
+#[cfg(feature = "Win32_System_Com")]
 impl IOleLink_Vtbl {
-    pub const fn new<Identity: IOleLink_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleLink_Impl, const OFFSET: isize>() -> IOleLink_Vtbl {
         unsafe extern "system" fn SetUpdateOptions<Identity: IOleLink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwupdateopt: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleLink_Impl::SetUpdateOptions(this, core::mem::transmute_copy(&dwupdateopt)).into()
@@ -7721,9 +7918,13 @@ impl IOleLink_Vtbl {
         iid == &<IOleLink as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IOleLink {}
 windows_core::imp::define_interface!(IOleObject, IOleObject_Vtbl, 0x00000112_0000_0000_c000_000000000046);
+impl core::ops::Deref for IOleObject {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleObject, windows_core::IUnknown);
 impl IOleObject {
     pub unsafe fn SetClientSite<P0>(&self, pclientsite: P0) -> windows_core::Result<()>
@@ -7747,9 +7948,9 @@ impl IOleObject {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), dwsaveoption.0 as _).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetMoniker<P1>(&self, dwwhichmoniker: OLEWHICHMK, pmk: P1) -> windows_core::Result<()>
+    pub unsafe fn SetMoniker<P0>(&self, dwwhichmoniker: OLEWHICHMK, pmk: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::Com::IMoniker>,
+        P0: windows_core::Param<super::Com::IMoniker>,
     {
         (windows_core::Interface::vtable(self).SetMoniker)(windows_core::Interface::as_raw(self), dwwhichmoniker.0 as _, pmk.param().abi()).ok()
     }
@@ -7772,10 +7973,10 @@ impl IOleObject {
         (windows_core::Interface::vtable(self).GetClipboardData)(windows_core::Interface::as_raw(self), dwreserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn DoVerb<P2, P4>(&self, iverb: i32, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, pactivesite: P2, lindex: i32, hwndparent: P4, lprcposrect: *const super::super::Foundation::RECT) -> windows_core::Result<()>
+    pub unsafe fn DoVerb<P0, P1>(&self, iverb: i32, lpmsg: *const super::super::UI::WindowsAndMessaging::MSG, pactivesite: P0, lindex: i32, hwndparent: P1, lprcposrect: *const super::super::Foundation::RECT) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<IOleClientSite>,
-        P4: windows_core::Param<super::super::Foundation::HWND>,
+        P0: windows_core::Param<IOleClientSite>,
+        P1: windows_core::Param<super::super::Foundation::HWND>,
     {
         (windows_core::Interface::vtable(self).DoVerb)(windows_core::Interface::as_raw(self), iverb, lpmsg, pactivesite.param().abi(), lindex, hwndparent.param().abi(), lprcposrect).ok()
     }
@@ -7891,7 +8092,7 @@ pub struct IOleObject_Vtbl {
     SetColorScheme: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait IOleObject_Impl: windows_core::IUnknownImpl {
+pub trait IOleObject_Impl: Sized + windows_core::IUnknownImpl {
     fn SetClientSite(&self, pclientsite: Option<&IOleClientSite>) -> windows_core::Result<()>;
     fn GetClientSite(&self) -> windows_core::Result<IOleClientSite>;
     fn SetHostNames(&self, szcontainerapp: &windows_core::PCWSTR, szcontainerobj: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -7915,8 +8116,10 @@ pub trait IOleObject_Impl: windows_core::IUnknownImpl {
     fn SetColorScheme(&self, plogpal: *const super::super::Graphics::Gdi::LOGPALETTE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::RuntimeName for IOleObject {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IOleObject_Vtbl {
-    pub const fn new<Identity: IOleObject_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleObject_Impl, const OFFSET: isize>() -> IOleObject_Vtbl {
         unsafe extern "system" fn SetClientSite<Identity: IOleObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclientsite: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleObject_Impl::SetClientSite(this, windows_core::from_raw_borrowed(&pclientsite)).into()
@@ -8090,8 +8293,6 @@ impl IOleObject_Vtbl {
         iid == &<IOleObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::RuntimeName for IOleObject {}
 windows_core::imp::define_interface!(IOleParentUndoUnit, IOleParentUndoUnit_Vtbl, 0xa1faf330_ef97_11ce_9bc9_00aa00608e01);
 impl core::ops::Deref for IOleParentUndoUnit {
     type Target = IOleUndoUnit;
@@ -8140,15 +8341,16 @@ pub struct IOleParentUndoUnit_Vtbl {
     pub FindUnit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetParentState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-pub trait IOleParentUndoUnit_Impl: IOleUndoUnit_Impl {
+pub trait IOleParentUndoUnit_Impl: Sized + IOleUndoUnit_Impl {
     fn Open(&self, ppuu: Option<&IOleParentUndoUnit>) -> windows_core::Result<()>;
     fn Close(&self, ppuu: Option<&IOleParentUndoUnit>, fcommit: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn Add(&self, puu: Option<&IOleUndoUnit>) -> windows_core::Result<()>;
     fn FindUnit(&self, puu: Option<&IOleUndoUnit>) -> windows_core::Result<()>;
     fn GetParentState(&self) -> windows_core::Result<u32>;
 }
+impl windows_core::RuntimeName for IOleParentUndoUnit {}
 impl IOleParentUndoUnit_Vtbl {
-    pub const fn new<Identity: IOleParentUndoUnit_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleParentUndoUnit_Impl, const OFFSET: isize>() -> IOleParentUndoUnit_Vtbl {
         unsafe extern "system" fn Open<Identity: IOleParentUndoUnit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppuu: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleParentUndoUnit_Impl::Open(this, windows_core::from_raw_borrowed(&ppuu)).into()
@@ -8185,11 +8387,16 @@ impl IOleParentUndoUnit_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleParentUndoUnit as windows_core::Interface>::IID
+        iid == &<IOleParentUndoUnit as windows_core::Interface>::IID || iid == &<IOleUndoUnit as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IOleParentUndoUnit {}
 windows_core::imp::define_interface!(IOleUILinkContainerA, IOleUILinkContainerA_Vtbl, 0);
+impl core::ops::Deref for IOleUILinkContainerA {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleUILinkContainerA, windows_core::IUnknown);
 impl IOleUILinkContainerA {
     pub unsafe fn GetNextLink(&self, dwlink: u32) -> u32 {
@@ -8202,10 +8409,10 @@ impl IOleUILinkContainerA {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLinkUpdateOptions)(windows_core::Interface::as_raw(self), dwlink, &mut result__).map(|| result__)
     }
-    pub unsafe fn SetLinkSource<P1, P4>(&self, dwlink: u32, lpszdisplayname: P1, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: P4) -> windows_core::Result<()>
+    pub unsafe fn SetLinkSource<P0, P1>(&self, dwlink: u32, lpszdisplayname: P0, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<windows_core::PCSTR>,
-        P4: windows_core::Param<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).SetLinkSource)(windows_core::Interface::as_raw(self), dwlink, lpszdisplayname.param().abi(), lenfilename, pcheaten, fvalidatesource.param().abi()).ok()
     }
@@ -8215,10 +8422,10 @@ impl IOleUILinkContainerA {
     pub unsafe fn OpenLinkSource(&self, dwlink: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OpenLinkSource)(windows_core::Interface::as_raw(self), dwlink).ok()
     }
-    pub unsafe fn UpdateLink<P1, P2>(&self, dwlink: u32, ferrormessage: P1, freserved: P2) -> windows_core::Result<()>
+    pub unsafe fn UpdateLink<P0, P1>(&self, dwlink: u32, ferrormessage: P0, freserved: P1) -> windows_core::Result<()>
     where
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).UpdateLink)(windows_core::Interface::as_raw(self), dwlink, ferrormessage.param().abi(), freserved.param().abi()).ok()
     }
@@ -8238,7 +8445,7 @@ pub struct IOleUILinkContainerA_Vtbl {
     pub UpdateLink: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub CancelLink: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IOleUILinkContainerA_Impl: windows_core::IUnknownImpl {
+pub trait IOleUILinkContainerA_Impl: Sized + windows_core::IUnknownImpl {
     fn GetNextLink(&self, dwlink: u32) -> u32;
     fn SetLinkUpdateOptions(&self, dwlink: u32, dwupdateopt: u32) -> windows_core::Result<()>;
     fn GetLinkUpdateOptions(&self, dwlink: u32) -> windows_core::Result<u32>;
@@ -8248,8 +8455,9 @@ pub trait IOleUILinkContainerA_Impl: windows_core::IUnknownImpl {
     fn UpdateLink(&self, dwlink: u32, ferrormessage: super::super::Foundation::BOOL, freserved: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn CancelLink(&self, dwlink: u32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IOleUILinkContainerA {}
 impl IOleUILinkContainerA_Vtbl {
-    pub const fn new<Identity: IOleUILinkContainerA_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleUILinkContainerA_Impl, const OFFSET: isize>() -> IOleUILinkContainerA_Vtbl {
         unsafe extern "system" fn GetNextLink<Identity: IOleUILinkContainerA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlink: u32) -> u32 {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleUILinkContainerA_Impl::GetNextLink(this, core::mem::transmute_copy(&dwlink))
@@ -8304,8 +8512,13 @@ impl IOleUILinkContainerA_Vtbl {
         iid == &<IOleUILinkContainerA as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IOleUILinkContainerA {}
 windows_core::imp::define_interface!(IOleUILinkContainerW, IOleUILinkContainerW_Vtbl, 0);
+impl core::ops::Deref for IOleUILinkContainerW {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleUILinkContainerW, windows_core::IUnknown);
 impl IOleUILinkContainerW {
     pub unsafe fn GetNextLink(&self, dwlink: u32) -> u32 {
@@ -8318,10 +8531,10 @@ impl IOleUILinkContainerW {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetLinkUpdateOptions)(windows_core::Interface::as_raw(self), dwlink, &mut result__).map(|| result__)
     }
-    pub unsafe fn SetLinkSource<P1, P4>(&self, dwlink: u32, lpszdisplayname: P1, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: P4) -> windows_core::Result<()>
+    pub unsafe fn SetLinkSource<P0, P1>(&self, dwlink: u32, lpszdisplayname: P0, lenfilename: u32, pcheaten: *mut u32, fvalidatesource: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-        P4: windows_core::Param<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).SetLinkSource)(windows_core::Interface::as_raw(self), dwlink, lpszdisplayname.param().abi(), lenfilename, pcheaten, fvalidatesource.param().abi()).ok()
     }
@@ -8331,10 +8544,10 @@ impl IOleUILinkContainerW {
     pub unsafe fn OpenLinkSource(&self, dwlink: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OpenLinkSource)(windows_core::Interface::as_raw(self), dwlink).ok()
     }
-    pub unsafe fn UpdateLink<P1, P2>(&self, dwlink: u32, ferrormessage: P1, freserved: P2) -> windows_core::Result<()>
+    pub unsafe fn UpdateLink<P0, P1>(&self, dwlink: u32, ferrormessage: P0, freserved: P1) -> windows_core::Result<()>
     where
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).UpdateLink)(windows_core::Interface::as_raw(self), dwlink, ferrormessage.param().abi(), freserved.param().abi()).ok()
     }
@@ -8354,7 +8567,7 @@ pub struct IOleUILinkContainerW_Vtbl {
     pub UpdateLink: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub CancelLink: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IOleUILinkContainerW_Impl: windows_core::IUnknownImpl {
+pub trait IOleUILinkContainerW_Impl: Sized + windows_core::IUnknownImpl {
     fn GetNextLink(&self, dwlink: u32) -> u32;
     fn SetLinkUpdateOptions(&self, dwlink: u32, dwupdateopt: u32) -> windows_core::Result<()>;
     fn GetLinkUpdateOptions(&self, dwlink: u32) -> windows_core::Result<u32>;
@@ -8364,8 +8577,9 @@ pub trait IOleUILinkContainerW_Impl: windows_core::IUnknownImpl {
     fn UpdateLink(&self, dwlink: u32, ferrormessage: super::super::Foundation::BOOL, freserved: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn CancelLink(&self, dwlink: u32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IOleUILinkContainerW {}
 impl IOleUILinkContainerW_Vtbl {
-    pub const fn new<Identity: IOleUILinkContainerW_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleUILinkContainerW_Impl, const OFFSET: isize>() -> IOleUILinkContainerW_Vtbl {
         unsafe extern "system" fn GetNextLink<Identity: IOleUILinkContainerW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlink: u32) -> u32 {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleUILinkContainerW_Impl::GetNextLink(this, core::mem::transmute_copy(&dwlink))
@@ -8420,7 +8634,6 @@ impl IOleUILinkContainerW_Vtbl {
         iid == &<IOleUILinkContainerW as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IOleUILinkContainerW {}
 windows_core::imp::define_interface!(IOleUILinkInfoA, IOleUILinkInfoA_Vtbl, 0);
 impl core::ops::Deref for IOleUILinkInfoA {
     type Target = IOleUILinkContainerA;
@@ -8440,11 +8653,12 @@ pub struct IOleUILinkInfoA_Vtbl {
     pub base__: IOleUILinkContainerA_Vtbl,
     pub GetLastUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT,
 }
-pub trait IOleUILinkInfoA_Impl: IOleUILinkContainerA_Impl {
+pub trait IOleUILinkInfoA_Impl: Sized + IOleUILinkContainerA_Impl {
     fn GetLastUpdate(&self, dwlink: u32) -> windows_core::Result<super::super::Foundation::FILETIME>;
 }
+impl windows_core::RuntimeName for IOleUILinkInfoA {}
 impl IOleUILinkInfoA_Vtbl {
-    pub const fn new<Identity: IOleUILinkInfoA_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleUILinkInfoA_Impl, const OFFSET: isize>() -> IOleUILinkInfoA_Vtbl {
         unsafe extern "system" fn GetLastUpdate<Identity: IOleUILinkInfoA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlink: u32, lplastupdate: *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOleUILinkInfoA_Impl::GetLastUpdate(this, core::mem::transmute_copy(&dwlink)) {
@@ -8458,10 +8672,9 @@ impl IOleUILinkInfoA_Vtbl {
         Self { base__: IOleUILinkContainerA_Vtbl::new::<Identity, OFFSET>(), GetLastUpdate: GetLastUpdate::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleUILinkInfoA as windows_core::Interface>::IID
+        iid == &<IOleUILinkInfoA as windows_core::Interface>::IID || iid == &<IOleUILinkContainerA as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IOleUILinkInfoA {}
 windows_core::imp::define_interface!(IOleUILinkInfoW, IOleUILinkInfoW_Vtbl, 0);
 impl core::ops::Deref for IOleUILinkInfoW {
     type Target = IOleUILinkContainerW;
@@ -8481,11 +8694,12 @@ pub struct IOleUILinkInfoW_Vtbl {
     pub base__: IOleUILinkContainerW_Vtbl,
     pub GetLastUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT,
 }
-pub trait IOleUILinkInfoW_Impl: IOleUILinkContainerW_Impl {
+pub trait IOleUILinkInfoW_Impl: Sized + IOleUILinkContainerW_Impl {
     fn GetLastUpdate(&self, dwlink: u32) -> windows_core::Result<super::super::Foundation::FILETIME>;
 }
+impl windows_core::RuntimeName for IOleUILinkInfoW {}
 impl IOleUILinkInfoW_Vtbl {
-    pub const fn new<Identity: IOleUILinkInfoW_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleUILinkInfoW_Impl, const OFFSET: isize>() -> IOleUILinkInfoW_Vtbl {
         unsafe extern "system" fn GetLastUpdate<Identity: IOleUILinkInfoW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlink: u32, lplastupdate: *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOleUILinkInfoW_Impl::GetLastUpdate(this, core::mem::transmute_copy(&dwlink)) {
@@ -8499,11 +8713,16 @@ impl IOleUILinkInfoW_Vtbl {
         Self { base__: IOleUILinkContainerW_Vtbl::new::<Identity, OFFSET>(), GetLastUpdate: GetLastUpdate::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOleUILinkInfoW as windows_core::Interface>::IID
+        iid == &<IOleUILinkInfoW as windows_core::Interface>::IID || iid == &<IOleUILinkContainerW as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IOleUILinkInfoW {}
 windows_core::imp::define_interface!(IOleUIObjInfoA, IOleUIObjInfoA_Vtbl, 0);
+impl core::ops::Deref for IOleUIObjInfoA {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleUIObjInfoA, windows_core::IUnknown);
 impl IOleUIObjInfoA {
     pub unsafe fn GetObjectInfo(&self, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: Option<*mut windows_core::PSTR>, lplpsztype: Option<*mut windows_core::PSTR>, lplpszshorttype: Option<*mut windows_core::PSTR>, lplpszlocation: Option<*mut windows_core::PSTR>) -> windows_core::Result<()> {
@@ -8518,10 +8737,10 @@ impl IOleUIObjInfoA {
     pub unsafe fn GetViewInfo(&self, dwobject: u32, phmetapict: Option<*const super::super::Foundation::HGLOBAL>, pdvaspect: Option<*const u32>, pncurrentscale: Option<*const i32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetViewInfo)(windows_core::Interface::as_raw(self), dwobject, core::mem::transmute(phmetapict.unwrap_or(core::ptr::null())), core::mem::transmute(pdvaspect.unwrap_or(core::ptr::null())), core::mem::transmute(pncurrentscale.unwrap_or(core::ptr::null()))).ok()
     }
-    pub unsafe fn SetViewInfo<P1, P4>(&self, dwobject: u32, hmetapict: P1, dvaspect: u32, ncurrentscale: i32, brelativetoorig: P4) -> windows_core::Result<()>
+    pub unsafe fn SetViewInfo<P0, P1>(&self, dwobject: u32, hmetapict: P0, dvaspect: u32, ncurrentscale: i32, brelativetoorig: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::Foundation::HGLOBAL>,
-        P4: windows_core::Param<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::HGLOBAL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).SetViewInfo)(windows_core::Interface::as_raw(self), dwobject, hmetapict.param().abi(), dvaspect, ncurrentscale, brelativetoorig.param().abi()).ok()
     }
@@ -8535,15 +8754,16 @@ pub struct IOleUIObjInfoA_Vtbl {
     pub GetViewInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::Foundation::HGLOBAL, *const u32, *const i32) -> windows_core::HRESULT,
     pub SetViewInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::HGLOBAL, u32, i32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IOleUIObjInfoA_Impl: windows_core::IUnknownImpl {
+pub trait IOleUIObjInfoA_Impl: Sized + windows_core::IUnknownImpl {
     fn GetObjectInfo(&self, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut windows_core::PSTR, lplpsztype: *mut windows_core::PSTR, lplpszshorttype: *mut windows_core::PSTR, lplpszlocation: *mut windows_core::PSTR) -> windows_core::Result<()>;
     fn GetConvertInfo(&self, dwobject: u32, lpclassid: *mut windows_core::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut windows_core::GUID, lplpclsidexclude: *mut *mut windows_core::GUID, lpcclsidexclude: *mut u32) -> windows_core::Result<()>;
     fn ConvertObject(&self, dwobject: u32, clsidnew: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetViewInfo(&self, dwobject: u32, phmetapict: *const super::super::Foundation::HGLOBAL, pdvaspect: *const u32, pncurrentscale: *const i32) -> windows_core::Result<()>;
     fn SetViewInfo(&self, dwobject: u32, hmetapict: super::super::Foundation::HGLOBAL, dvaspect: u32, ncurrentscale: i32, brelativetoorig: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IOleUIObjInfoA {}
 impl IOleUIObjInfoA_Vtbl {
-    pub const fn new<Identity: IOleUIObjInfoA_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleUIObjInfoA_Impl, const OFFSET: isize>() -> IOleUIObjInfoA_Vtbl {
         unsafe extern "system" fn GetObjectInfo<Identity: IOleUIObjInfoA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut windows_core::PSTR, lplpsztype: *mut windows_core::PSTR, lplpszshorttype: *mut windows_core::PSTR, lplpszlocation: *mut windows_core::PSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleUIObjInfoA_Impl::GetObjectInfo(this, core::mem::transmute_copy(&dwobject), core::mem::transmute_copy(&lpdwobjsize), core::mem::transmute_copy(&lplpszlabel), core::mem::transmute_copy(&lplpsztype), core::mem::transmute_copy(&lplpszshorttype), core::mem::transmute_copy(&lplpszlocation)).into()
@@ -8577,8 +8797,13 @@ impl IOleUIObjInfoA_Vtbl {
         iid == &<IOleUIObjInfoA as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IOleUIObjInfoA {}
 windows_core::imp::define_interface!(IOleUIObjInfoW, IOleUIObjInfoW_Vtbl, 0);
+impl core::ops::Deref for IOleUIObjInfoW {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleUIObjInfoW, windows_core::IUnknown);
 impl IOleUIObjInfoW {
     pub unsafe fn GetObjectInfo(&self, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: Option<*mut windows_core::PWSTR>, lplpsztype: Option<*mut windows_core::PWSTR>, lplpszshorttype: Option<*mut windows_core::PWSTR>, lplpszlocation: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
@@ -8593,10 +8818,10 @@ impl IOleUIObjInfoW {
     pub unsafe fn GetViewInfo(&self, dwobject: u32, phmetapict: Option<*const super::super::Foundation::HGLOBAL>, pdvaspect: Option<*const u32>, pncurrentscale: Option<*const i32>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetViewInfo)(windows_core::Interface::as_raw(self), dwobject, core::mem::transmute(phmetapict.unwrap_or(core::ptr::null())), core::mem::transmute(pdvaspect.unwrap_or(core::ptr::null())), core::mem::transmute(pncurrentscale.unwrap_or(core::ptr::null()))).ok()
     }
-    pub unsafe fn SetViewInfo<P1, P4>(&self, dwobject: u32, hmetapict: P1, dvaspect: u32, ncurrentscale: i32, brelativetoorig: P4) -> windows_core::Result<()>
+    pub unsafe fn SetViewInfo<P0, P1>(&self, dwobject: u32, hmetapict: P0, dvaspect: u32, ncurrentscale: i32, brelativetoorig: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::Foundation::HGLOBAL>,
-        P4: windows_core::Param<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::HGLOBAL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).SetViewInfo)(windows_core::Interface::as_raw(self), dwobject, hmetapict.param().abi(), dvaspect, ncurrentscale, brelativetoorig.param().abi()).ok()
     }
@@ -8610,15 +8835,16 @@ pub struct IOleUIObjInfoW_Vtbl {
     pub GetViewInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::Foundation::HGLOBAL, *const u32, *const i32) -> windows_core::HRESULT,
     pub SetViewInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::HGLOBAL, u32, i32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IOleUIObjInfoW_Impl: windows_core::IUnknownImpl {
+pub trait IOleUIObjInfoW_Impl: Sized + windows_core::IUnknownImpl {
     fn GetObjectInfo(&self, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut windows_core::PWSTR, lplpsztype: *mut windows_core::PWSTR, lplpszshorttype: *mut windows_core::PWSTR, lplpszlocation: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetConvertInfo(&self, dwobject: u32, lpclassid: *mut windows_core::GUID, lpwformat: *mut u16, lpconvertdefaultclassid: *mut windows_core::GUID, lplpclsidexclude: *mut *mut windows_core::GUID, lpcclsidexclude: *mut u32) -> windows_core::Result<()>;
     fn ConvertObject(&self, dwobject: u32, clsidnew: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetViewInfo(&self, dwobject: u32, phmetapict: *const super::super::Foundation::HGLOBAL, pdvaspect: *const u32, pncurrentscale: *const i32) -> windows_core::Result<()>;
     fn SetViewInfo(&self, dwobject: u32, hmetapict: super::super::Foundation::HGLOBAL, dvaspect: u32, ncurrentscale: i32, brelativetoorig: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IOleUIObjInfoW {}
 impl IOleUIObjInfoW_Vtbl {
-    pub const fn new<Identity: IOleUIObjInfoW_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleUIObjInfoW_Impl, const OFFSET: isize>() -> IOleUIObjInfoW_Vtbl {
         unsafe extern "system" fn GetObjectInfo<Identity: IOleUIObjInfoW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwobject: u32, lpdwobjsize: *mut u32, lplpszlabel: *mut windows_core::PWSTR, lplpsztype: *mut windows_core::PWSTR, lplpszshorttype: *mut windows_core::PWSTR, lplpszlocation: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleUIObjInfoW_Impl::GetObjectInfo(this, core::mem::transmute_copy(&dwobject), core::mem::transmute_copy(&lpdwobjsize), core::mem::transmute_copy(&lplpszlabel), core::mem::transmute_copy(&lplpsztype), core::mem::transmute_copy(&lplpszshorttype), core::mem::transmute_copy(&lplpszlocation)).into()
@@ -8652,8 +8878,13 @@ impl IOleUIObjInfoW_Vtbl {
         iid == &<IOleUIObjInfoW as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IOleUIObjInfoW {}
 windows_core::imp::define_interface!(IOleUndoManager, IOleUndoManager_Vtbl, 0xd001f200_ef97_11ce_9bc9_00aa00608e01);
+impl core::ops::Deref for IOleUndoManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleUndoManager, windows_core::IUnknown);
 impl IOleUndoManager {
     pub unsafe fn Open<P0>(&self, ppuu: P0) -> windows_core::Result<()>
@@ -8707,11 +8938,11 @@ impl IOleUndoManager {
     }
     pub unsafe fn GetLastUndoDescription(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetLastUndoDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetLastUndoDescription)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLastRedoDescription(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetLastRedoDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetLastRedoDescription)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Enable<P0>(&self, fenable: P0) -> windows_core::Result<()>
     where
@@ -8736,7 +8967,7 @@ pub struct IOleUndoManager_Vtbl {
     pub GetLastRedoDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Enable: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IOleUndoManager_Impl: windows_core::IUnknownImpl {
+pub trait IOleUndoManager_Impl: Sized + windows_core::IUnknownImpl {
     fn Open(&self, ppuu: Option<&IOleParentUndoUnit>) -> windows_core::Result<()>;
     fn Close(&self, ppuu: Option<&IOleParentUndoUnit>, fcommit: super::super::Foundation::BOOL) -> windows_core::HRESULT;
     fn Add(&self, puu: Option<&IOleUndoUnit>) -> windows_core::Result<()>;
@@ -8750,8 +8981,9 @@ pub trait IOleUndoManager_Impl: windows_core::IUnknownImpl {
     fn GetLastRedoDescription(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Enable(&self, fenable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IOleUndoManager {}
 impl IOleUndoManager_Vtbl {
-    pub const fn new<Identity: IOleUndoManager_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleUndoManager_Impl, const OFFSET: isize>() -> IOleUndoManager_Vtbl {
         unsafe extern "system" fn Open<Identity: IOleUndoManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppuu: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleUndoManager_Impl::Open(this, windows_core::from_raw_borrowed(&ppuu)).into()
@@ -8850,8 +9082,13 @@ impl IOleUndoManager_Vtbl {
         iid == &<IOleUndoManager as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IOleUndoManager {}
 windows_core::imp::define_interface!(IOleUndoUnit, IOleUndoUnit_Vtbl, 0x894ad3b0_ef97_11ce_9bc9_00aa00608e01);
+impl core::ops::Deref for IOleUndoUnit {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleUndoUnit, windows_core::IUnknown);
 impl IOleUndoUnit {
     pub unsafe fn Do<P0>(&self, pundomanager: P0) -> windows_core::Result<()>
@@ -8862,7 +9099,7 @@ impl IOleUndoUnit {
     }
     pub unsafe fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetUnitType(&self, pclsid: *mut windows_core::GUID, plid: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetUnitType)(windows_core::Interface::as_raw(self), pclsid, plid).ok()
@@ -8879,14 +9116,15 @@ pub struct IOleUndoUnit_Vtbl {
     pub GetUnitType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut i32) -> windows_core::HRESULT,
     pub OnNextAdd: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IOleUndoUnit_Impl: windows_core::IUnknownImpl {
+pub trait IOleUndoUnit_Impl: Sized + windows_core::IUnknownImpl {
     fn Do(&self, pundomanager: Option<&IOleUndoManager>) -> windows_core::Result<()>;
     fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetUnitType(&self, pclsid: *mut windows_core::GUID, plid: *mut i32) -> windows_core::Result<()>;
     fn OnNextAdd(&self) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IOleUndoUnit {}
 impl IOleUndoUnit_Vtbl {
-    pub const fn new<Identity: IOleUndoUnit_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleUndoUnit_Impl, const OFFSET: isize>() -> IOleUndoUnit_Vtbl {
         unsafe extern "system" fn Do<Identity: IOleUndoUnit_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pundomanager: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IOleUndoUnit_Impl::Do(this, windows_core::from_raw_borrowed(&pundomanager)).into()
@@ -8921,8 +9159,13 @@ impl IOleUndoUnit_Vtbl {
         iid == &<IOleUndoUnit as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IOleUndoUnit {}
 windows_core::imp::define_interface!(IOleWindow, IOleWindow_Vtbl, 0x00000114_0000_0000_c000_000000000046);
+impl core::ops::Deref for IOleWindow {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IOleWindow, windows_core::IUnknown);
 impl IOleWindow {
     pub unsafe fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
@@ -8942,12 +9185,13 @@ pub struct IOleWindow_Vtbl {
     pub GetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HWND) -> windows_core::HRESULT,
     pub ContextSensitiveHelp: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IOleWindow_Impl: windows_core::IUnknownImpl {
+pub trait IOleWindow_Impl: Sized + windows_core::IUnknownImpl {
     fn GetWindow(&self) -> windows_core::Result<super::super::Foundation::HWND>;
     fn ContextSensitiveHelp(&self, fentermode: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IOleWindow {}
 impl IOleWindow_Vtbl {
-    pub const fn new<Identity: IOleWindow_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOleWindow_Impl, const OFFSET: isize>() -> IOleWindow_Vtbl {
         unsafe extern "system" fn GetWindow<Identity: IOleWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOleWindow_Impl::GetWindow(this) {
@@ -8972,8 +9216,13 @@ impl IOleWindow_Vtbl {
         iid == &<IOleWindow as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IOleWindow {}
 windows_core::imp::define_interface!(IParseDisplayName, IParseDisplayName_Vtbl, 0x0000011a_0000_0000_c000_000000000046);
+impl core::ops::Deref for IParseDisplayName {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IParseDisplayName, windows_core::IUnknown);
 impl IParseDisplayName {
     #[cfg(feature = "Win32_System_Com")]
@@ -8994,12 +9243,14 @@ pub struct IParseDisplayName_Vtbl {
     ParseDisplayName: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IParseDisplayName_Impl: windows_core::IUnknownImpl {
+pub trait IParseDisplayName_Impl: Sized + windows_core::IUnknownImpl {
     fn ParseDisplayName(&self, pbc: Option<&super::Com::IBindCtx>, pszdisplayname: &windows_core::PCWSTR, pcheaten: *mut u32, ppmkout: *mut Option<super::Com::IMoniker>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IParseDisplayName {}
+#[cfg(feature = "Win32_System_Com")]
 impl IParseDisplayName_Vtbl {
-    pub const fn new<Identity: IParseDisplayName_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IParseDisplayName_Impl, const OFFSET: isize>() -> IParseDisplayName_Vtbl {
         unsafe extern "system" fn ParseDisplayName<Identity: IParseDisplayName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbc: *mut core::ffi::c_void, pszdisplayname: windows_core::PCWSTR, pcheaten: *mut u32, ppmkout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IParseDisplayName_Impl::ParseDisplayName(this, windows_core::from_raw_borrowed(&pbc), core::mem::transmute(&pszdisplayname), core::mem::transmute_copy(&pcheaten), core::mem::transmute_copy(&ppmkout)).into()
@@ -9010,14 +9261,18 @@ impl IParseDisplayName_Vtbl {
         iid == &<IParseDisplayName as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IParseDisplayName {}
 windows_core::imp::define_interface!(IPerPropertyBrowsing, IPerPropertyBrowsing_Vtbl, 0x376bd3aa_3845_101b_84ed_08002b2ec713);
+impl core::ops::Deref for IPerPropertyBrowsing {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPerPropertyBrowsing, windows_core::IUnknown);
 impl IPerPropertyBrowsing {
     pub unsafe fn GetDisplayString(&self, dispid: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDisplayString)(windows_core::Interface::as_raw(self), dispid, &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetDisplayString)(windows_core::Interface::as_raw(self), dispid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn MapPropertyToPage(&self, dispid: i32) -> windows_core::Result<windows_core::GUID> {
         let mut result__ = core::mem::zeroed();
@@ -9029,7 +9284,7 @@ impl IPerPropertyBrowsing {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPredefinedValue(&self, dispid: i32, dwcookie: u32) -> windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPredefinedValue)(windows_core::Interface::as_raw(self), dispid, dwcookie, &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetPredefinedValue)(windows_core::Interface::as_raw(self), dispid, dwcookie, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -9039,20 +9294,22 @@ pub struct IPerPropertyBrowsing_Vtbl {
     pub MapPropertyToPage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetPredefinedStrings: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut CALPOLESTR, *mut CADWORD) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub GetPredefinedValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *mut super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetPredefinedValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32, *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     GetPredefinedValue: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub trait IPerPropertyBrowsing_Impl: windows_core::IUnknownImpl {
+pub trait IPerPropertyBrowsing_Impl: Sized + windows_core::IUnknownImpl {
     fn GetDisplayString(&self, dispid: i32) -> windows_core::Result<windows_core::BSTR>;
     fn MapPropertyToPage(&self, dispid: i32) -> windows_core::Result<windows_core::GUID>;
     fn GetPredefinedStrings(&self, dispid: i32, pcastringsout: *mut CALPOLESTR, pcacookiesout: *mut CADWORD) -> windows_core::Result<()>;
     fn GetPredefinedValue(&self, dispid: i32, dwcookie: u32) -> windows_core::Result<super::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IPerPropertyBrowsing {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl IPerPropertyBrowsing_Vtbl {
-    pub const fn new<Identity: IPerPropertyBrowsing_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPerPropertyBrowsing_Impl, const OFFSET: isize>() -> IPerPropertyBrowsing_Vtbl {
         unsafe extern "system" fn GetDisplayString<Identity: IPerPropertyBrowsing_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: i32, pbstr: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPerPropertyBrowsing_Impl::GetDisplayString(this, core::mem::transmute_copy(&dispid)) {
@@ -9077,7 +9334,7 @@ impl IPerPropertyBrowsing_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPerPropertyBrowsing_Impl::GetPredefinedStrings(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&pcastringsout), core::mem::transmute_copy(&pcacookiesout)).into()
         }
-        unsafe extern "system" fn GetPredefinedValue<Identity: IPerPropertyBrowsing_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: i32, dwcookie: u32, pvarout: *mut super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPredefinedValue<Identity: IPerPropertyBrowsing_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: i32, dwcookie: u32, pvarout: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPerPropertyBrowsing_Impl::GetPredefinedValue(this, core::mem::transmute_copy(&dispid), core::mem::transmute_copy(&dwcookie)) {
                 Ok(ok__) => {
@@ -9099,8 +9356,6 @@ impl IPerPropertyBrowsing_Vtbl {
         iid == &<IPerPropertyBrowsing as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IPerPropertyBrowsing {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IPersistPropertyBag, IPersistPropertyBag_Vtbl, 0x37d84f60_42cb_11ce_8135_00aa004bb851);
 #[cfg(feature = "Win32_System_Com")]
@@ -9150,14 +9405,16 @@ pub struct IPersistPropertyBag_Vtbl {
     Save: usize,
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-pub trait IPersistPropertyBag_Impl: super::Com::IPersist_Impl {
+pub trait IPersistPropertyBag_Impl: Sized + super::Com::IPersist_Impl {
     fn InitNew(&self) -> windows_core::Result<()>;
     fn Load(&self, ppropbag: Option<&super::Com::StructuredStorage::IPropertyBag>, perrorlog: Option<&super::Com::IErrorLog>) -> windows_core::Result<()>;
     fn Save(&self, ppropbag: Option<&super::Com::StructuredStorage::IPropertyBag>, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl windows_core::RuntimeName for IPersistPropertyBag {}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IPersistPropertyBag_Vtbl {
-    pub const fn new<Identity: IPersistPropertyBag_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPersistPropertyBag_Impl, const OFFSET: isize>() -> IPersistPropertyBag_Vtbl {
         unsafe extern "system" fn InitNew<Identity: IPersistPropertyBag_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPersistPropertyBag_Impl::InitNew(this).into()
@@ -9178,11 +9435,9 @@ impl IPersistPropertyBag_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistPropertyBag as windows_core::Interface>::IID
+        iid == &<IPersistPropertyBag as windows_core::Interface>::IID || iid == &<super::Com::IPersist as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl windows_core::RuntimeName for IPersistPropertyBag {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IPersistPropertyBag2, IPersistPropertyBag2_Vtbl, 0x22f55881_280b_11d0_a8a9_00a0c90c2004);
 #[cfg(feature = "Win32_System_Com")]
@@ -9236,15 +9491,17 @@ pub struct IPersistPropertyBag2_Vtbl {
     pub IsDirty: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-pub trait IPersistPropertyBag2_Impl: super::Com::IPersist_Impl {
+pub trait IPersistPropertyBag2_Impl: Sized + super::Com::IPersist_Impl {
     fn InitNew(&self) -> windows_core::Result<()>;
     fn Load(&self, ppropbag: Option<&super::Com::StructuredStorage::IPropertyBag2>, perrlog: Option<&super::Com::IErrorLog>) -> windows_core::Result<()>;
     fn Save(&self, ppropbag: Option<&super::Com::StructuredStorage::IPropertyBag2>, fcleardirty: super::super::Foundation::BOOL, fsaveallproperties: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn IsDirty(&self) -> windows_core::HRESULT;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl windows_core::RuntimeName for IPersistPropertyBag2 {}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IPersistPropertyBag2_Vtbl {
-    pub const fn new<Identity: IPersistPropertyBag2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPersistPropertyBag2_Impl, const OFFSET: isize>() -> IPersistPropertyBag2_Vtbl {
         unsafe extern "system" fn InitNew<Identity: IPersistPropertyBag2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPersistPropertyBag2_Impl::InitNew(this).into()
@@ -9270,12 +9527,16 @@ impl IPersistPropertyBag2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistPropertyBag2 as windows_core::Interface>::IID
+        iid == &<IPersistPropertyBag2 as windows_core::Interface>::IID || iid == &<super::Com::IPersist as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl windows_core::RuntimeName for IPersistPropertyBag2 {}
 windows_core::imp::define_interface!(IPicture, IPicture_Vtbl, 0x7bf80980_bf32_101a_8bbb_00aa00300cab);
+impl core::ops::Deref for IPicture {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPicture, windows_core::IUnknown);
 impl IPicture {
     pub unsafe fn Handle(&self) -> windows_core::Result<OLE_HANDLE> {
@@ -9381,7 +9642,7 @@ pub struct IPicture_Vtbl {
     pub Attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-pub trait IPicture_Impl: windows_core::IUnknownImpl {
+pub trait IPicture_Impl: Sized + windows_core::IUnknownImpl {
     fn Handle(&self) -> windows_core::Result<OLE_HANDLE>;
     fn hPal(&self) -> windows_core::Result<OLE_HANDLE>;
     fn Type(&self) -> windows_core::Result<PICTYPE>;
@@ -9398,8 +9659,10 @@ pub trait IPicture_Impl: windows_core::IUnknownImpl {
     fn Attributes(&self) -> windows_core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IPicture {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IPicture_Vtbl {
-    pub const fn new<Identity: IPicture_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPicture_Impl, const OFFSET: isize>() -> IPicture_Vtbl {
         unsafe extern "system" fn Handle<Identity: IPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phandle: *mut OLE_HANDLE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPicture_Impl::Handle(this) {
@@ -9532,9 +9795,13 @@ impl IPicture_Vtbl {
         iid == &<IPicture as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IPicture {}
 windows_core::imp::define_interface!(IPicture2, IPicture2_Vtbl, 0xf5185dd8_2012_4b0b_aad9_f052c6bd482b);
+impl core::ops::Deref for IPicture2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPicture2, windows_core::IUnknown);
 impl IPicture2 {
     pub unsafe fn Handle(&self) -> windows_core::Result<usize> {
@@ -9637,7 +9904,7 @@ pub struct IPicture2_Vtbl {
     pub Attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-pub trait IPicture2_Impl: windows_core::IUnknownImpl {
+pub trait IPicture2_Impl: Sized + windows_core::IUnknownImpl {
     fn Handle(&self) -> windows_core::Result<usize>;
     fn hPal(&self) -> windows_core::Result<usize>;
     fn Type(&self) -> windows_core::Result<i16>;
@@ -9654,8 +9921,10 @@ pub trait IPicture2_Impl: windows_core::IUnknownImpl {
     fn Attributes(&self) -> windows_core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IPicture2 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IPicture2_Vtbl {
-    pub const fn new<Identity: IPicture2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPicture2_Impl, const OFFSET: isize>() -> IPicture2_Vtbl {
         unsafe extern "system" fn Handle<Identity: IPicture2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phandle: *mut usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPicture2_Impl::Handle(this) {
@@ -9788,8 +10057,6 @@ impl IPicture2_Vtbl {
         iid == &<IPicture2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IPicture2 {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IPictureDisp, IPictureDisp_Vtbl, 0x7bf80981_bf32_101a_8bbb_00aa00300cab);
 #[cfg(feature = "Win32_System_Com")]
@@ -9802,24 +10069,32 @@ impl core::ops::Deref for IPictureDisp {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IPictureDisp, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
+impl IPictureDisp {}
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct IPictureDisp_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub trait IPictureDisp_Impl: super::Com::IDispatch_Impl {}
+pub trait IPictureDisp_Impl: Sized + super::Com::IDispatch_Impl {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IPictureDisp {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl IPictureDisp_Vtbl {
-    pub const fn new<Identity: IPictureDisp_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPictureDisp_Impl, const OFFSET: isize>() -> IPictureDisp_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPictureDisp as windows_core::Interface>::IID
+        iid == &<IPictureDisp as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IPictureDisp {}
 windows_core::imp::define_interface!(IPointerInactive, IPointerInactive_Vtbl, 0x55980ba0_35aa_11cf_b671_00aa004cd6d8);
+impl core::ops::Deref for IPointerInactive {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPointerInactive, windows_core::IUnknown);
 impl IPointerInactive {
     pub unsafe fn GetActivationPolicy(&self) -> windows_core::Result<POINTERINACTIVE> {
@@ -9829,9 +10104,9 @@ impl IPointerInactive {
     pub unsafe fn OnInactiveMouseMove(&self, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, grfkeystate: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnInactiveMouseMove)(windows_core::Interface::as_raw(self), prectbounds, x, y, grfkeystate).ok()
     }
-    pub unsafe fn OnInactiveSetCursor<P4>(&self, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, dwmousemsg: u32, fsetalways: P4) -> windows_core::Result<()>
+    pub unsafe fn OnInactiveSetCursor<P0>(&self, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, dwmousemsg: u32, fsetalways: P0) -> windows_core::Result<()>
     where
-        P4: windows_core::Param<super::super::Foundation::BOOL>,
+        P0: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).OnInactiveSetCursor)(windows_core::Interface::as_raw(self), prectbounds, x, y, dwmousemsg, fsetalways.param().abi()).ok()
     }
@@ -9843,13 +10118,14 @@ pub struct IPointerInactive_Vtbl {
     pub OnInactiveMouseMove: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT, i32, i32, u32) -> windows_core::HRESULT,
     pub OnInactiveSetCursor: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::RECT, i32, i32, u32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IPointerInactive_Impl: windows_core::IUnknownImpl {
+pub trait IPointerInactive_Impl: Sized + windows_core::IUnknownImpl {
     fn GetActivationPolicy(&self) -> windows_core::Result<POINTERINACTIVE>;
     fn OnInactiveMouseMove(&self, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, grfkeystate: u32) -> windows_core::Result<()>;
     fn OnInactiveSetCursor(&self, prectbounds: *const super::super::Foundation::RECT, x: i32, y: i32, dwmousemsg: u32, fsetalways: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IPointerInactive {}
 impl IPointerInactive_Vtbl {
-    pub const fn new<Identity: IPointerInactive_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPointerInactive_Impl, const OFFSET: isize>() -> IPointerInactive_Vtbl {
         unsafe extern "system" fn GetActivationPolicy<Identity: IPointerInactive_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwpolicy: *mut POINTERINACTIVE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPointerInactive_Impl::GetActivationPolicy(this) {
@@ -9879,8 +10155,13 @@ impl IPointerInactive_Vtbl {
         iid == &<IPointerInactive as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IPointerInactive {}
 windows_core::imp::define_interface!(IPrint, IPrint_Vtbl, 0xb722bcc9_4e68_101b_a2bc_00aa00404770);
+impl core::ops::Deref for IPrint {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPrint, windows_core::IUnknown);
 impl IPrint {
     pub unsafe fn SetInitialPageNum(&self, nfirstpage: i32) -> windows_core::Result<()> {
@@ -9890,11 +10171,11 @@ impl IPrint {
         (windows_core::Interface::vtable(self).GetPageInfo)(windows_core::Interface::as_raw(self), pnfirstpage, pcpages).ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn Print<P4>(&self, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::Com::STGMEDIUM, pcallback: P4, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> windows_core::Result<()>
+    pub unsafe fn Print<P0>(&self, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::Com::STGMEDIUM, pcallback: P0, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> windows_core::Result<()>
     where
-        P4: windows_core::Param<IContinueCallback>,
+        P0: windows_core::Param<IContinueCallback>,
     {
-        (windows_core::Interface::vtable(self).Print)(windows_core::Interface::as_raw(self), grfflags, pptd, pppageset, core::mem::transmute(pstgmoptions), pcallback.param().abi(), nfirstpage, pcpagesprinted, pnlastpage).ok()
+        (windows_core::Interface::vtable(self).Print)(windows_core::Interface::as_raw(self), grfflags, pptd, pppageset, pstgmoptions, pcallback.param().abi(), nfirstpage, pcpagesprinted, pnlastpage).ok()
     }
 }
 #[repr(C)]
@@ -9908,14 +10189,16 @@ pub struct IPrint_Vtbl {
     Print: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-pub trait IPrint_Impl: windows_core::IUnknownImpl {
+pub trait IPrint_Impl: Sized + windows_core::IUnknownImpl {
     fn SetInitialPageNum(&self, nfirstpage: i32) -> windows_core::Result<()>;
     fn GetPageInfo(&self, pnfirstpage: *mut i32, pcpages: *mut i32) -> windows_core::Result<()>;
     fn Print(&self, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::Com::STGMEDIUM, pcallback: Option<&IContinueCallback>, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl windows_core::RuntimeName for IPrint {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPrint_Vtbl {
-    pub const fn new<Identity: IPrint_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPrint_Impl, const OFFSET: isize>() -> IPrint_Vtbl {
         unsafe extern "system" fn SetInitialPageNum<Identity: IPrint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nfirstpage: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPrint_Impl::SetInitialPageNum(this, core::mem::transmute_copy(&nfirstpage)).into()
@@ -9939,9 +10222,13 @@ impl IPrint_Vtbl {
         iid == &<IPrint as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl windows_core::RuntimeName for IPrint {}
 windows_core::imp::define_interface!(IPropertyNotifySink, IPropertyNotifySink_Vtbl, 0x9bfbbc02_eff1_101a_84ed_00aa00341d07);
+impl core::ops::Deref for IPropertyNotifySink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPropertyNotifySink, windows_core::IUnknown);
 impl IPropertyNotifySink {
     pub unsafe fn OnChanged(&self, dispid: i32) -> windows_core::Result<()> {
@@ -9957,12 +10244,13 @@ pub struct IPropertyNotifySink_Vtbl {
     pub OnChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub OnRequestEdit: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-pub trait IPropertyNotifySink_Impl: windows_core::IUnknownImpl {
+pub trait IPropertyNotifySink_Impl: Sized + windows_core::IUnknownImpl {
     fn OnChanged(&self, dispid: i32) -> windows_core::Result<()>;
     fn OnRequestEdit(&self, dispid: i32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IPropertyNotifySink {}
 impl IPropertyNotifySink_Vtbl {
-    pub const fn new<Identity: IPropertyNotifySink_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPropertyNotifySink_Impl, const OFFSET: isize>() -> IPropertyNotifySink_Vtbl {
         unsafe extern "system" fn OnChanged<Identity: IPropertyNotifySink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyNotifySink_Impl::OnChanged(this, core::mem::transmute_copy(&dispid)).into()
@@ -9981,8 +10269,13 @@ impl IPropertyNotifySink_Vtbl {
         iid == &<IPropertyNotifySink as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IPropertyNotifySink {}
 windows_core::imp::define_interface!(IPropertyPage, IPropertyPage_Vtbl, 0xb196b28d_bab4_101a_b69c_00aa00341d07);
+impl core::ops::Deref for IPropertyPage {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPropertyPage, windows_core::IUnknown);
 impl IPropertyPage {
     pub unsafe fn SetPageSite<P0>(&self, ppagesite: P0) -> windows_core::Result<()>
@@ -9991,10 +10284,10 @@ impl IPropertyPage {
     {
         (windows_core::Interface::vtable(self).SetPageSite)(windows_core::Interface::as_raw(self), ppagesite.param().abi()).ok()
     }
-    pub unsafe fn Activate<P0, P2>(&self, hwndparent: P0, prect: *const super::super::Foundation::RECT, bmodal: P2) -> windows_core::Result<()>
+    pub unsafe fn Activate<P0, P1>(&self, hwndparent: P0, prect: *const super::super::Foundation::RECT, bmodal: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
-        P2: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), prect, bmodal.param().abi()).ok()
     }
@@ -10049,7 +10342,7 @@ pub struct IPropertyPage_Vtbl {
     TranslateAccelerator: usize,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub trait IPropertyPage_Impl: windows_core::IUnknownImpl {
+pub trait IPropertyPage_Impl: Sized + windows_core::IUnknownImpl {
     fn SetPageSite(&self, ppagesite: Option<&IPropertyPageSite>) -> windows_core::Result<()>;
     fn Activate(&self, hwndparent: super::super::Foundation::HWND, prect: *const super::super::Foundation::RECT, bmodal: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn Deactivate(&self) -> windows_core::Result<()>;
@@ -10063,8 +10356,10 @@ pub trait IPropertyPage_Impl: windows_core::IUnknownImpl {
     fn TranslateAccelerator(&self, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::RuntimeName for IPropertyPage {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IPropertyPage_Vtbl {
-    pub const fn new<Identity: IPropertyPage_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPropertyPage_Impl, const OFFSET: isize>() -> IPropertyPage_Vtbl {
         unsafe extern "system" fn SetPageSite<Identity: IPropertyPage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppagesite: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyPage_Impl::SetPageSite(this, windows_core::from_raw_borrowed(&ppagesite)).into()
@@ -10128,8 +10423,6 @@ impl IPropertyPage_Vtbl {
         iid == &<IPropertyPage as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::RuntimeName for IPropertyPage {}
 windows_core::imp::define_interface!(IPropertyPage2, IPropertyPage2_Vtbl, 0x01e44665_24ac_101b_84ed_08002b2ec713);
 impl core::ops::Deref for IPropertyPage2 {
     type Target = IPropertyPage;
@@ -10149,12 +10442,14 @@ pub struct IPropertyPage2_Vtbl {
     pub EditProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub trait IPropertyPage2_Impl: IPropertyPage_Impl {
+pub trait IPropertyPage2_Impl: Sized + IPropertyPage_Impl {
     fn EditProperty(&self, dispid: i32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::RuntimeName for IPropertyPage2 {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IPropertyPage2_Vtbl {
-    pub const fn new<Identity: IPropertyPage2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPropertyPage2_Impl, const OFFSET: isize>() -> IPropertyPage2_Vtbl {
         unsafe extern "system" fn EditProperty<Identity: IPropertyPage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyPage2_Impl::EditProperty(this, core::mem::transmute_copy(&dispid)).into()
@@ -10162,12 +10457,16 @@ impl IPropertyPage2_Vtbl {
         Self { base__: IPropertyPage_Vtbl::new::<Identity, OFFSET>(), EditProperty: EditProperty::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyPage2 as windows_core::Interface>::IID
+        iid == &<IPropertyPage2 as windows_core::Interface>::IID || iid == &<IPropertyPage as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::RuntimeName for IPropertyPage2 {}
 windows_core::imp::define_interface!(IPropertyPageSite, IPropertyPageSite_Vtbl, 0xb196b28c_bab4_101a_b69c_00aa00341d07);
+impl core::ops::Deref for IPropertyPageSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPropertyPageSite, windows_core::IUnknown);
 impl IPropertyPageSite {
     pub unsafe fn OnStatusChange(&self, dwflags: PROPPAGESTATUS) -> windows_core::Result<()> {
@@ -10198,15 +10497,17 @@ pub struct IPropertyPageSite_Vtbl {
     TranslateAccelerator: usize,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub trait IPropertyPageSite_Impl: windows_core::IUnknownImpl {
+pub trait IPropertyPageSite_Impl: Sized + windows_core::IUnknownImpl {
     fn OnStatusChange(&self, dwflags: &PROPPAGESTATUS) -> windows_core::Result<()>;
     fn GetLocaleID(&self) -> windows_core::Result<u32>;
     fn GetPageContainer(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn TranslateAccelerator(&self, pmsg: *const super::super::UI::WindowsAndMessaging::MSG) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::RuntimeName for IPropertyPageSite {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IPropertyPageSite_Vtbl {
-    pub const fn new<Identity: IPropertyPageSite_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPropertyPageSite_Impl, const OFFSET: isize>() -> IPropertyPageSite_Vtbl {
         unsafe extern "system" fn OnStatusChange<Identity: IPropertyPageSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyPageSite_Impl::OnStatusChange(this, core::mem::transmute(&dwflags)).into()
@@ -10247,9 +10548,13 @@ impl IPropertyPageSite_Vtbl {
         iid == &<IPropertyPageSite as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::RuntimeName for IPropertyPageSite {}
 windows_core::imp::define_interface!(IProtectFocus, IProtectFocus_Vtbl, 0xd81f90a3_8156_44f7_ad28_5abb87003274);
+impl core::ops::Deref for IProtectFocus {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IProtectFocus, windows_core::IUnknown);
 impl IProtectFocus {
     pub unsafe fn AllowFocusChange(&self) -> windows_core::Result<super::super::Foundation::BOOL> {
@@ -10262,11 +10567,12 @@ pub struct IProtectFocus_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AllowFocusChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IProtectFocus_Impl: windows_core::IUnknownImpl {
+pub trait IProtectFocus_Impl: Sized + windows_core::IUnknownImpl {
     fn AllowFocusChange(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
+impl windows_core::RuntimeName for IProtectFocus {}
 impl IProtectFocus_Vtbl {
-    pub const fn new<Identity: IProtectFocus_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IProtectFocus_Impl, const OFFSET: isize>() -> IProtectFocus_Vtbl {
         unsafe extern "system" fn AllowFocusChange<Identity: IProtectFocus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfallow: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IProtectFocus_Impl::AllowFocusChange(this) {
@@ -10283,8 +10589,13 @@ impl IProtectFocus_Vtbl {
         iid == &<IProtectFocus as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IProtectFocus {}
 windows_core::imp::define_interface!(IProtectedModeMenuServices, IProtectedModeMenuServices_Vtbl, 0x73c105ee_9dff_4a07_b83c_7eff290c266e);
+impl core::ops::Deref for IProtectedModeMenuServices {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IProtectedModeMenuServices, windows_core::IUnknown);
 impl IProtectedModeMenuServices {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -10327,14 +10638,16 @@ pub struct IProtectedModeMenuServices_Vtbl {
     LoadMenuID: usize,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub trait IProtectedModeMenuServices_Impl: windows_core::IUnknownImpl {
+pub trait IProtectedModeMenuServices_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateMenu(&self) -> windows_core::Result<super::super::UI::WindowsAndMessaging::HMENU>;
     fn LoadMenu(&self, pszmodulename: &windows_core::PCWSTR, pszmenuname: &windows_core::PCWSTR) -> windows_core::Result<super::super::UI::WindowsAndMessaging::HMENU>;
     fn LoadMenuID(&self, pszmodulename: &windows_core::PCWSTR, wresourceid: u16) -> windows_core::Result<super::super::UI::WindowsAndMessaging::HMENU>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::RuntimeName for IProtectedModeMenuServices {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IProtectedModeMenuServices_Vtbl {
-    pub const fn new<Identity: IProtectedModeMenuServices_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IProtectedModeMenuServices_Impl, const OFFSET: isize>() -> IProtectedModeMenuServices_Vtbl {
         unsafe extern "system" fn CreateMenu<Identity: IProtectedModeMenuServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phmenu: *mut super::super::UI::WindowsAndMessaging::HMENU) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IProtectedModeMenuServices_Impl::CreateMenu(this) {
@@ -10376,9 +10689,13 @@ impl IProtectedModeMenuServices_Vtbl {
         iid == &<IProtectedModeMenuServices as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::RuntimeName for IProtectedModeMenuServices {}
 windows_core::imp::define_interface!(IProvideClassInfo, IProvideClassInfo_Vtbl, 0xb196b283_bab4_101a_b69c_00aa00341d07);
+impl core::ops::Deref for IProvideClassInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IProvideClassInfo, windows_core::IUnknown);
 impl IProvideClassInfo {
     #[cfg(feature = "Win32_System_Com")]
@@ -10396,12 +10713,14 @@ pub struct IProvideClassInfo_Vtbl {
     GetClassInfo: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IProvideClassInfo_Impl: windows_core::IUnknownImpl {
+pub trait IProvideClassInfo_Impl: Sized + windows_core::IUnknownImpl {
     fn GetClassInfo(&self) -> windows_core::Result<super::Com::ITypeInfo>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IProvideClassInfo {}
+#[cfg(feature = "Win32_System_Com")]
 impl IProvideClassInfo_Vtbl {
-    pub const fn new<Identity: IProvideClassInfo_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IProvideClassInfo_Impl, const OFFSET: isize>() -> IProvideClassInfo_Vtbl {
         unsafe extern "system" fn GetClassInfo<Identity: IProvideClassInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppti: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IProvideClassInfo_Impl::GetClassInfo(this) {
@@ -10418,8 +10737,6 @@ impl IProvideClassInfo_Vtbl {
         iid == &<IProvideClassInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IProvideClassInfo {}
 windows_core::imp::define_interface!(IProvideClassInfo2, IProvideClassInfo2_Vtbl, 0xa6bc3ac0_dbaa_11ce_9de3_00aa004bb851);
 impl core::ops::Deref for IProvideClassInfo2 {
     type Target = IProvideClassInfo;
@@ -10440,12 +10757,14 @@ pub struct IProvideClassInfo2_Vtbl {
     pub GetGUID: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IProvideClassInfo2_Impl: IProvideClassInfo_Impl {
+pub trait IProvideClassInfo2_Impl: Sized + IProvideClassInfo_Impl {
     fn GetGUID(&self, dwguidkind: u32) -> windows_core::Result<windows_core::GUID>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IProvideClassInfo2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl IProvideClassInfo2_Vtbl {
-    pub const fn new<Identity: IProvideClassInfo2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IProvideClassInfo2_Impl, const OFFSET: isize>() -> IProvideClassInfo2_Vtbl {
         unsafe extern "system" fn GetGUID<Identity: IProvideClassInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwguidkind: u32, pguid: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IProvideClassInfo2_Impl::GetGUID(this, core::mem::transmute_copy(&dwguidkind)) {
@@ -10459,11 +10778,9 @@ impl IProvideClassInfo2_Vtbl {
         Self { base__: IProvideClassInfo_Vtbl::new::<Identity, OFFSET>(), GetGUID: GetGUID::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IProvideClassInfo2 as windows_core::Interface>::IID
+        iid == &<IProvideClassInfo2 as windows_core::Interface>::IID || iid == &<IProvideClassInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IProvideClassInfo2 {}
 windows_core::imp::define_interface!(IProvideMultipleClassInfo, IProvideMultipleClassInfo_Vtbl, 0xa7aba9c1_8983_11cf_8f20_00805f2cd064);
 impl core::ops::Deref for IProvideMultipleClassInfo {
     type Target = IProvideClassInfo2;
@@ -10492,13 +10809,15 @@ pub struct IProvideMultipleClassInfo_Vtbl {
     GetInfoOfIndex: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IProvideMultipleClassInfo_Impl: IProvideClassInfo2_Impl {
+pub trait IProvideMultipleClassInfo_Impl: Sized + IProvideClassInfo2_Impl {
     fn GetMultiTypeInfoCount(&self) -> windows_core::Result<u32>;
     fn GetInfoOfIndex(&self, iti: u32, dwflags: MULTICLASSINFO_FLAGS, ppticoclass: *mut Option<super::Com::ITypeInfo>, pdwtiflags: *mut u32, pcdispidreserved: *mut u32, piidprimary: *mut windows_core::GUID, piidsource: *mut windows_core::GUID) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IProvideMultipleClassInfo {}
+#[cfg(feature = "Win32_System_Com")]
 impl IProvideMultipleClassInfo_Vtbl {
-    pub const fn new<Identity: IProvideMultipleClassInfo_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IProvideMultipleClassInfo_Impl, const OFFSET: isize>() -> IProvideMultipleClassInfo_Vtbl {
         unsafe extern "system" fn GetMultiTypeInfoCount<Identity: IProvideMultipleClassInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcti: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IProvideMultipleClassInfo_Impl::GetMultiTypeInfoCount(this) {
@@ -10520,12 +10839,16 @@ impl IProvideMultipleClassInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IProvideMultipleClassInfo as windows_core::Interface>::IID
+        iid == &<IProvideMultipleClassInfo as windows_core::Interface>::IID || iid == &<IProvideClassInfo as windows_core::Interface>::IID || iid == &<IProvideClassInfo2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IProvideMultipleClassInfo {}
 windows_core::imp::define_interface!(IProvideRuntimeContext, IProvideRuntimeContext_Vtbl, 0x10e2414a_ec59_49d2_bc51_5add2c36febc);
+impl core::ops::Deref for IProvideRuntimeContext {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IProvideRuntimeContext, windows_core::IUnknown);
 impl IProvideRuntimeContext {
     pub unsafe fn GetCurrentSourceContext(&self, pdwcontext: *mut usize, pfexecutingglobalcode: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
@@ -10537,11 +10860,12 @@ pub struct IProvideRuntimeContext_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCurrentSourceContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
-pub trait IProvideRuntimeContext_Impl: windows_core::IUnknownImpl {
+pub trait IProvideRuntimeContext_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCurrentSourceContext(&self, pdwcontext: *mut usize, pfexecutingglobalcode: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IProvideRuntimeContext {}
 impl IProvideRuntimeContext_Vtbl {
-    pub const fn new<Identity: IProvideRuntimeContext_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IProvideRuntimeContext_Impl, const OFFSET: isize>() -> IProvideRuntimeContext_Vtbl {
         unsafe extern "system" fn GetCurrentSourceContext<Identity: IProvideRuntimeContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcontext: *mut usize, pfexecutingglobalcode: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IProvideRuntimeContext_Impl::GetCurrentSourceContext(this, core::mem::transmute_copy(&pdwcontext), core::mem::transmute_copy(&pfexecutingglobalcode)).into()
@@ -10552,13 +10876,18 @@ impl IProvideRuntimeContext_Vtbl {
         iid == &<IProvideRuntimeContext as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IProvideRuntimeContext {}
 windows_core::imp::define_interface!(IQuickActivate, IQuickActivate_Vtbl, 0xcf51ed10_62fe_11cf_bf86_00a0c9034836);
+impl core::ops::Deref for IQuickActivate {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IQuickActivate, windows_core::IUnknown);
 impl IQuickActivate {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn QuickActivate(&self, pqacontainer: *const QACONTAINER, pqacontrol: *mut QACONTROL) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).QuickActivate)(windows_core::Interface::as_raw(self), core::mem::transmute(pqacontainer), pqacontrol).ok()
+        (windows_core::Interface::vtable(self).QuickActivate)(windows_core::Interface::as_raw(self), pqacontainer, pqacontrol).ok()
     }
     pub unsafe fn SetContentExtent(&self, psizel: *const super::super::Foundation::SIZE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetContentExtent)(windows_core::Interface::as_raw(self), psizel).ok()
@@ -10579,14 +10908,16 @@ pub struct IQuickActivate_Vtbl {
     pub GetContentExtent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::SIZE) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-pub trait IQuickActivate_Impl: windows_core::IUnknownImpl {
+pub trait IQuickActivate_Impl: Sized + windows_core::IUnknownImpl {
     fn QuickActivate(&self, pqacontainer: *const QACONTAINER, pqacontrol: *mut QACONTROL) -> windows_core::Result<()>;
     fn SetContentExtent(&self, psizel: *const super::super::Foundation::SIZE) -> windows_core::Result<()>;
     fn GetContentExtent(&self) -> windows_core::Result<super::super::Foundation::SIZE>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IQuickActivate {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IQuickActivate_Vtbl {
-    pub const fn new<Identity: IQuickActivate_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IQuickActivate_Impl, const OFFSET: isize>() -> IQuickActivate_Vtbl {
         unsafe extern "system" fn QuickActivate<Identity: IQuickActivate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqacontainer: *const QACONTAINER, pqacontrol: *mut QACONTROL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IQuickActivate_Impl::QuickActivate(this, core::mem::transmute_copy(&pqacontainer), core::mem::transmute_copy(&pqacontrol)).into()
@@ -10616,9 +10947,13 @@ impl IQuickActivate_Vtbl {
         iid == &<IQuickActivate as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IQuickActivate {}
 windows_core::imp::define_interface!(IRecordInfo, IRecordInfo_Vtbl, 0x0000002f_0000_0000_c000_000000000046);
+impl core::ops::Deref for IRecordInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IRecordInfo, windows_core::IUnknown);
 impl IRecordInfo {
     pub unsafe fn RecordInit(&self, pvnew: *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -10636,7 +10971,7 @@ impl IRecordInfo {
     }
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSize(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -10648,31 +10983,31 @@ impl IRecordInfo {
         (windows_core::Interface::vtable(self).GetTypeInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetField<P1>(&self, pvdata: *const core::ffi::c_void, szfieldname: P1) -> windows_core::Result<super::Variant::VARIANT>
+    pub unsafe fn GetField<P0>(&self, pvdata: *const core::ffi::c_void, szfieldname: P0) -> windows_core::Result<super::Variant::VARIANT>
     where
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetField)(windows_core::Interface::as_raw(self), pvdata, szfieldname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetField)(windows_core::Interface::as_raw(self), pvdata, szfieldname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetFieldNoCopy<P1>(&self, pvdata: *const core::ffi::c_void, szfieldname: P1, pvarfield: *mut super::Variant::VARIANT, ppvdatacarray: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+    pub unsafe fn GetFieldNoCopy<P0>(&self, pvdata: *const core::ffi::c_void, szfieldname: P0, pvarfield: *mut super::Variant::VARIANT, ppvdatacarray: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).GetFieldNoCopy)(windows_core::Interface::as_raw(self), pvdata, szfieldname.param().abi(), core::mem::transmute(pvarfield), ppvdatacarray).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub unsafe fn PutField<P2>(&self, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: P2, pvarfield: *const super::Variant::VARIANT) -> windows_core::Result<()>
+    pub unsafe fn PutField<P0>(&self, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: P0, pvarfield: *const super::Variant::VARIANT) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).PutField)(windows_core::Interface::as_raw(self), wflags, pvdata, szfieldname.param().abi(), core::mem::transmute(pvarfield)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub unsafe fn PutFieldNoCopy<P2>(&self, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: P2, pvarfield: *const super::Variant::VARIANT) -> windows_core::Result<()>
+    pub unsafe fn PutFieldNoCopy<P0>(&self, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: P0, pvarfield: *const super::Variant::VARIANT) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).PutFieldNoCopy)(windows_core::Interface::as_raw(self), wflags, pvdata, szfieldname.param().abi(), core::mem::transmute(pvarfield)).ok()
     }
@@ -10709,19 +11044,19 @@ pub struct IRecordInfo_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetTypeInfo: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub GetField: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, windows_core::PCWSTR, *mut super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetField: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, windows_core::PCWSTR, *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     GetField: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub GetFieldNoCopy: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, windows_core::PCWSTR, *mut super::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetFieldNoCopy: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, windows_core::PCWSTR, *mut core::mem::MaybeUninit<super::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     GetFieldNoCopy: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub PutField: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::PCWSTR, *const super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub PutField: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::PCWSTR, *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     PutField: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub PutFieldNoCopy: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::PCWSTR, *const super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub PutFieldNoCopy: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, windows_core::PCWSTR, *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     PutFieldNoCopy: usize,
     pub GetFieldNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
@@ -10731,7 +11066,7 @@ pub struct IRecordInfo_Vtbl {
     pub RecordDestroy: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub trait IRecordInfo_Impl: windows_core::IUnknownImpl {
+pub trait IRecordInfo_Impl: Sized + windows_core::IUnknownImpl {
     fn RecordInit(&self, pvnew: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn RecordClear(&self, pvexisting: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn RecordCopy(&self, pvexisting: *const core::ffi::c_void, pvnew: *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -10750,8 +11085,10 @@ pub trait IRecordInfo_Impl: windows_core::IUnknownImpl {
     fn RecordDestroy(&self, pvrecord: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IRecordInfo {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl IRecordInfo_Vtbl {
-    pub const fn new<Identity: IRecordInfo_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IRecordInfo_Impl, const OFFSET: isize>() -> IRecordInfo_Vtbl {
         unsafe extern "system" fn RecordInit<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvnew: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRecordInfo_Impl::RecordInit(this, core::mem::transmute_copy(&pvnew)).into()
@@ -10804,7 +11141,7 @@ impl IRecordInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetField<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdata: *const core::ffi::c_void, szfieldname: windows_core::PCWSTR, pvarfield: *mut super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetField<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdata: *const core::ffi::c_void, szfieldname: windows_core::PCWSTR, pvarfield: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IRecordInfo_Impl::GetField(this, core::mem::transmute_copy(&pvdata), core::mem::transmute(&szfieldname)) {
                 Ok(ok__) => {
@@ -10814,15 +11151,15 @@ impl IRecordInfo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFieldNoCopy<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdata: *const core::ffi::c_void, szfieldname: windows_core::PCWSTR, pvarfield: *mut super::Variant::VARIANT, ppvdatacarray: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFieldNoCopy<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdata: *const core::ffi::c_void, szfieldname: windows_core::PCWSTR, pvarfield: *mut core::mem::MaybeUninit<super::Variant::VARIANT>, ppvdatacarray: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRecordInfo_Impl::GetFieldNoCopy(this, core::mem::transmute_copy(&pvdata), core::mem::transmute(&szfieldname), core::mem::transmute_copy(&pvarfield), core::mem::transmute_copy(&ppvdatacarray)).into()
         }
-        unsafe extern "system" fn PutField<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: windows_core::PCWSTR, pvarfield: *const super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn PutField<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: windows_core::PCWSTR, pvarfield: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRecordInfo_Impl::PutField(this, core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pvdata), core::mem::transmute(&szfieldname), core::mem::transmute_copy(&pvarfield)).into()
         }
-        unsafe extern "system" fn PutFieldNoCopy<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: windows_core::PCWSTR, pvarfield: *const super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn PutFieldNoCopy<Identity: IRecordInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wflags: u32, pvdata: *mut core::ffi::c_void, szfieldname: windows_core::PCWSTR, pvarfield: *const core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRecordInfo_Impl::PutFieldNoCopy(this, core::mem::transmute_copy(&wflags), core::mem::transmute_copy(&pvdata), core::mem::transmute(&szfieldname), core::mem::transmute_copy(&pvarfield)).into()
         }
@@ -10870,24 +11207,28 @@ impl IRecordInfo_Vtbl {
         iid == &<IRecordInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IRecordInfo {}
 windows_core::imp::define_interface!(ISimpleFrameSite, ISimpleFrameSite_Vtbl, 0x742b0e01_14e6_101b_914e_00aa00300cab);
+impl core::ops::Deref for ISimpleFrameSite {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISimpleFrameSite, windows_core::IUnknown);
 impl ISimpleFrameSite {
-    pub unsafe fn PreMessageFilter<P0, P2, P3>(&self, hwnd: P0, msg: u32, wp: P2, lp: P3, plresult: *mut super::super::Foundation::LRESULT, pdwcookie: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn PreMessageFilter<P0, P1, P2>(&self, hwnd: P0, msg: u32, wp: P1, lp: P2, plresult: *mut super::super::Foundation::LRESULT, pdwcookie: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
-        P2: windows_core::Param<super::super::Foundation::WPARAM>,
-        P3: windows_core::Param<super::super::Foundation::LPARAM>,
+        P1: windows_core::Param<super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         (windows_core::Interface::vtable(self).PreMessageFilter)(windows_core::Interface::as_raw(self), hwnd.param().abi(), msg, wp.param().abi(), lp.param().abi(), plresult, pdwcookie).ok()
     }
-    pub unsafe fn PostMessageFilter<P0, P2, P3>(&self, hwnd: P0, msg: u32, wp: P2, lp: P3, plresult: *mut super::super::Foundation::LRESULT, dwcookie: u32) -> windows_core::Result<()>
+    pub unsafe fn PostMessageFilter<P0, P1, P2>(&self, hwnd: P0, msg: u32, wp: P1, lp: P2, plresult: *mut super::super::Foundation::LRESULT, dwcookie: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
-        P2: windows_core::Param<super::super::Foundation::WPARAM>,
-        P3: windows_core::Param<super::super::Foundation::LPARAM>,
+        P1: windows_core::Param<super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::Foundation::LPARAM>,
     {
         (windows_core::Interface::vtable(self).PostMessageFilter)(windows_core::Interface::as_raw(self), hwnd.param().abi(), msg, wp.param().abi(), lp.param().abi(), plresult, dwcookie).ok()
     }
@@ -10898,12 +11239,13 @@ pub struct ISimpleFrameSite_Vtbl {
     pub PreMessageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM, *mut super::super::Foundation::LRESULT, *mut u32) -> windows_core::HRESULT,
     pub PostMessageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM, *mut super::super::Foundation::LRESULT, u32) -> windows_core::HRESULT,
 }
-pub trait ISimpleFrameSite_Impl: windows_core::IUnknownImpl {
+pub trait ISimpleFrameSite_Impl: Sized + windows_core::IUnknownImpl {
     fn PreMessageFilter(&self, hwnd: super::super::Foundation::HWND, msg: u32, wp: super::super::Foundation::WPARAM, lp: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT, pdwcookie: *mut u32) -> windows_core::Result<()>;
     fn PostMessageFilter(&self, hwnd: super::super::Foundation::HWND, msg: u32, wp: super::super::Foundation::WPARAM, lp: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT, dwcookie: u32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for ISimpleFrameSite {}
 impl ISimpleFrameSite_Vtbl {
-    pub const fn new<Identity: ISimpleFrameSite_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ISimpleFrameSite_Impl, const OFFSET: isize>() -> ISimpleFrameSite_Vtbl {
         unsafe extern "system" fn PreMessageFilter<Identity: ISimpleFrameSite_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, msg: u32, wp: super::super::Foundation::WPARAM, lp: super::super::Foundation::LPARAM, plresult: *mut super::super::Foundation::LRESULT, pdwcookie: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISimpleFrameSite_Impl::PreMessageFilter(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wp), core::mem::transmute_copy(&lp), core::mem::transmute_copy(&plresult), core::mem::transmute_copy(&pdwcookie)).into()
@@ -10922,8 +11264,13 @@ impl ISimpleFrameSite_Vtbl {
         iid == &<ISimpleFrameSite as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for ISimpleFrameSite {}
 windows_core::imp::define_interface!(ISpecifyPropertyPages, ISpecifyPropertyPages_Vtbl, 0xb196b28b_bab4_101a_b69c_00aa00341d07);
+impl core::ops::Deref for ISpecifyPropertyPages {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISpecifyPropertyPages, windows_core::IUnknown);
 impl ISpecifyPropertyPages {
     pub unsafe fn GetPages(&self) -> windows_core::Result<CAUUID> {
@@ -10936,11 +11283,12 @@ pub struct ISpecifyPropertyPages_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CAUUID) -> windows_core::HRESULT,
 }
-pub trait ISpecifyPropertyPages_Impl: windows_core::IUnknownImpl {
+pub trait ISpecifyPropertyPages_Impl: Sized + windows_core::IUnknownImpl {
     fn GetPages(&self) -> windows_core::Result<CAUUID>;
 }
+impl windows_core::RuntimeName for ISpecifyPropertyPages {}
 impl ISpecifyPropertyPages_Vtbl {
-    pub const fn new<Identity: ISpecifyPropertyPages_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ISpecifyPropertyPages_Impl, const OFFSET: isize>() -> ISpecifyPropertyPages_Vtbl {
         unsafe extern "system" fn GetPages<Identity: ISpecifyPropertyPages_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppages: *mut CAUUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISpecifyPropertyPages_Impl::GetPages(this) {
@@ -10957,24 +11305,29 @@ impl ISpecifyPropertyPages_Vtbl {
         iid == &<ISpecifyPropertyPages as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for ISpecifyPropertyPages {}
 windows_core::imp::define_interface!(ITypeChangeEvents, ITypeChangeEvents_Vtbl, 0x00020410_0000_0000_c000_000000000046);
+impl core::ops::Deref for ITypeChangeEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITypeChangeEvents, windows_core::IUnknown);
 impl ITypeChangeEvents {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RequestTypeChange<P1, P2>(&self, changekind: CHANGEKIND, ptinfobefore: P1, pstrname: P2) -> windows_core::Result<i32>
+    pub unsafe fn RequestTypeChange<P0, P1>(&self, changekind: CHANGEKIND, ptinfobefore: P0, pstrname: P1) -> windows_core::Result<i32>
     where
-        P1: windows_core::Param<super::Com::ITypeInfo>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P0: windows_core::Param<super::Com::ITypeInfo>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RequestTypeChange)(windows_core::Interface::as_raw(self), changekind, ptinfobefore.param().abi(), pstrname.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AfterTypeChange<P1, P2>(&self, changekind: CHANGEKIND, ptinfoafter: P1, pstrname: P2) -> windows_core::Result<()>
+    pub unsafe fn AfterTypeChange<P0, P1>(&self, changekind: CHANGEKIND, ptinfoafter: P0, pstrname: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::Com::ITypeInfo>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P0: windows_core::Param<super::Com::ITypeInfo>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).AfterTypeChange)(windows_core::Interface::as_raw(self), changekind, ptinfoafter.param().abi(), pstrname.param().abi()).ok()
     }
@@ -10992,13 +11345,15 @@ pub struct ITypeChangeEvents_Vtbl {
     AfterTypeChange: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait ITypeChangeEvents_Impl: windows_core::IUnknownImpl {
+pub trait ITypeChangeEvents_Impl: Sized + windows_core::IUnknownImpl {
     fn RequestTypeChange(&self, changekind: CHANGEKIND, ptinfobefore: Option<&super::Com::ITypeInfo>, pstrname: &windows_core::PCWSTR) -> windows_core::Result<i32>;
     fn AfterTypeChange(&self, changekind: CHANGEKIND, ptinfoafter: Option<&super::Com::ITypeInfo>, pstrname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for ITypeChangeEvents {}
+#[cfg(feature = "Win32_System_Com")]
 impl ITypeChangeEvents_Vtbl {
-    pub const fn new<Identity: ITypeChangeEvents_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ITypeChangeEvents_Impl, const OFFSET: isize>() -> ITypeChangeEvents_Vtbl {
         unsafe extern "system" fn RequestTypeChange<Identity: ITypeChangeEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changekind: CHANGEKIND, ptinfobefore: *mut core::ffi::c_void, pstrname: windows_core::PCWSTR, pfcancel: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITypeChangeEvents_Impl::RequestTypeChange(this, core::mem::transmute_copy(&changekind), windows_core::from_raw_borrowed(&ptinfobefore), core::mem::transmute(&pstrname)) {
@@ -11023,9 +11378,13 @@ impl ITypeChangeEvents_Vtbl {
         iid == &<ITypeChangeEvents as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for ITypeChangeEvents {}
 windows_core::imp::define_interface!(ITypeFactory, ITypeFactory_Vtbl, 0x0000002e_0000_0000_c000_000000000046);
+impl core::ops::Deref for ITypeFactory {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITypeFactory, windows_core::IUnknown);
 impl ITypeFactory {
     #[cfg(feature = "Win32_System_Com")]
@@ -11046,12 +11405,14 @@ pub struct ITypeFactory_Vtbl {
     CreateFromTypeInfo: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait ITypeFactory_Impl: windows_core::IUnknownImpl {
+pub trait ITypeFactory_Impl: Sized + windows_core::IUnknownImpl {
     fn CreateFromTypeInfo(&self, ptypeinfo: Option<&super::Com::ITypeInfo>, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for ITypeFactory {}
+#[cfg(feature = "Win32_System_Com")]
 impl ITypeFactory_Vtbl {
-    pub const fn new<Identity: ITypeFactory_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ITypeFactory_Impl, const OFFSET: isize>() -> ITypeFactory_Vtbl {
         unsafe extern "system" fn CreateFromTypeInfo<Identity: ITypeFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptypeinfo: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITypeFactory_Impl::CreateFromTypeInfo(this, windows_core::from_raw_borrowed(&ptypeinfo), core::mem::transmute_copy(&riid)) {
@@ -11068,9 +11429,13 @@ impl ITypeFactory_Vtbl {
         iid == &<ITypeFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for ITypeFactory {}
 windows_core::imp::define_interface!(ITypeMarshal, ITypeMarshal_Vtbl, 0x0000002d_0000_0000_c000_000000000046);
+impl core::ops::Deref for ITypeMarshal {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ITypeMarshal, windows_core::IUnknown);
 impl ITypeMarshal {
     pub unsafe fn Size(&self, pvtype: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void) -> windows_core::Result<u32> {
@@ -11095,14 +11460,15 @@ pub struct ITypeMarshal_Vtbl {
     pub Unmarshal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *const u8, *mut u32) -> windows_core::HRESULT,
     pub Free: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ITypeMarshal_Impl: windows_core::IUnknownImpl {
+pub trait ITypeMarshal_Impl: Sized + windows_core::IUnknownImpl {
     fn Size(&self, pvtype: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void) -> windows_core::Result<u32>;
     fn Marshal(&self, pvtype: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, cbbufferlength: u32, pbuffer: *mut u8, pcbwritten: *mut u32) -> windows_core::Result<()>;
     fn Unmarshal(&self, pvtype: *mut core::ffi::c_void, dwflags: u32, cbbufferlength: u32, pbuffer: *const u8, pcbread: *mut u32) -> windows_core::Result<()>;
     fn Free(&self, pvtype: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for ITypeMarshal {}
 impl ITypeMarshal_Vtbl {
-    pub const fn new<Identity: ITypeMarshal_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ITypeMarshal_Impl, const OFFSET: isize>() -> ITypeMarshal_Vtbl {
         unsafe extern "system" fn Size<Identity: ITypeMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvtype: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, psize: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ITypeMarshal_Impl::Size(this, core::mem::transmute_copy(&pvtype), core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext)) {
@@ -11137,14 +11503,19 @@ impl ITypeMarshal_Vtbl {
         iid == &<ITypeMarshal as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for ITypeMarshal {}
 windows_core::imp::define_interface!(IVBFormat, IVBFormat_Vtbl, 0x9849fd60_3768_101b_8d72_ae6164ffe3cf);
+impl core::ops::Deref for IVBFormat {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IVBFormat, windows_core::IUnknown);
 impl IVBFormat {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub unsafe fn Format<P1>(&self, vdata: *mut super::Variant::VARIANT, bstrformat: P1, lpbuffer: *mut core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> windows_core::Result<()>
+    pub unsafe fn Format<P0>(&self, vdata: *mut super::Variant::VARIANT, bstrformat: P0, lpbuffer: *mut core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), core::mem::transmute(vdata), bstrformat.param().abi(), lpbuffer, cb, lcid, sfirstdayofweek, sfirstweekofyear, rcb).ok()
     }
@@ -11153,18 +11524,20 @@ impl IVBFormat {
 pub struct IVBFormat_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Variant::VARIANT, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, u16, i32, i16, u16, *mut u16) -> windows_core::HRESULT,
+    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::Variant::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, u16, i32, i16, u16, *mut u16) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     Format: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub trait IVBFormat_Impl: windows_core::IUnknownImpl {
+pub trait IVBFormat_Impl: Sized + windows_core::IUnknownImpl {
     fn Format(&self, vdata: *mut super::Variant::VARIANT, bstrformat: &windows_core::BSTR, lpbuffer: *mut core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IVBFormat {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl IVBFormat_Vtbl {
-    pub const fn new<Identity: IVBFormat_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Format<Identity: IVBFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vdata: *mut super::Variant::VARIANT, bstrformat: core::mem::MaybeUninit<windows_core::BSTR>, lpbuffer: *mut core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> windows_core::HRESULT {
+    pub const fn new<Identity: IVBFormat_Impl, const OFFSET: isize>() -> IVBFormat_Vtbl {
+        unsafe extern "system" fn Format<Identity: IVBFormat_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vdata: *mut core::mem::MaybeUninit<super::Variant::VARIANT>, bstrformat: core::mem::MaybeUninit<windows_core::BSTR>, lpbuffer: *mut core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVBFormat_Impl::Format(this, core::mem::transmute_copy(&vdata), core::mem::transmute(&bstrformat), core::mem::transmute_copy(&lpbuffer), core::mem::transmute_copy(&cb), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&sfirstdayofweek), core::mem::transmute_copy(&sfirstweekofyear), core::mem::transmute_copy(&rcb)).into()
         }
@@ -11174,9 +11547,13 @@ impl IVBFormat_Vtbl {
         iid == &<IVBFormat as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IVBFormat {}
 windows_core::imp::define_interface!(IVBGetControl, IVBGetControl_Vtbl, 0x40a050a0_3c31_101b_a82e_08002b2b2337);
+impl core::ops::Deref for IVBGetControl {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IVBGetControl, windows_core::IUnknown);
 impl IVBGetControl {
     #[cfg(feature = "Win32_System_Com")]
@@ -11194,12 +11571,14 @@ pub struct IVBGetControl_Vtbl {
     EnumControls: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IVBGetControl_Impl: windows_core::IUnknownImpl {
+pub trait IVBGetControl_Impl: Sized + windows_core::IUnknownImpl {
     fn EnumControls(&self, dwolecontf: &OLECONTF, dwwhich: ENUM_CONTROLS_WHICH_FLAGS) -> windows_core::Result<super::Com::IEnumUnknown>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IVBGetControl {}
+#[cfg(feature = "Win32_System_Com")]
 impl IVBGetControl_Vtbl {
-    pub const fn new<Identity: IVBGetControl_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IVBGetControl_Impl, const OFFSET: isize>() -> IVBGetControl_Vtbl {
         unsafe extern "system" fn EnumControls<Identity: IVBGetControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwolecontf: u32, dwwhich: ENUM_CONTROLS_WHICH_FLAGS, ppenumunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVBGetControl_Impl::EnumControls(this, core::mem::transmute(&dwolecontf), core::mem::transmute_copy(&dwwhich)) {
@@ -11216,9 +11595,13 @@ impl IVBGetControl_Vtbl {
         iid == &<IVBGetControl as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IVBGetControl {}
 windows_core::imp::define_interface!(IVariantChangeType, IVariantChangeType_Vtbl, 0xa6ef9862_c720_11d0_9337_00a0c90dcaa9);
+impl core::ops::Deref for IVariantChangeType {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IVariantChangeType, windows_core::IUnknown);
 impl IVariantChangeType {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
@@ -11230,18 +11613,20 @@ impl IVariantChangeType {
 pub struct IVariantChangeType_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-    pub ChangeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Variant::VARIANT, *const super::Variant::VARIANT, u32, super::Variant::VARENUM) -> windows_core::HRESULT,
+    pub ChangeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::Variant::VARIANT>, *const core::mem::MaybeUninit<super::Variant::VARIANT>, u32, super::Variant::VARENUM) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Variant")))]
     ChangeType: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-pub trait IVariantChangeType_Impl: windows_core::IUnknownImpl {
+pub trait IVariantChangeType_Impl: Sized + windows_core::IUnknownImpl {
     fn ChangeType(&self, pvardst: *mut super::Variant::VARIANT, pvarsrc: *const super::Variant::VARIANT, lcid: u32, vtnew: super::Variant::VARENUM) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IVariantChangeType {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl IVariantChangeType_Vtbl {
-    pub const fn new<Identity: IVariantChangeType_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ChangeType<Identity: IVariantChangeType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardst: *mut super::Variant::VARIANT, pvarsrc: *const super::Variant::VARIANT, lcid: u32, vtnew: super::Variant::VARENUM) -> windows_core::HRESULT {
+    pub const fn new<Identity: IVariantChangeType_Impl, const OFFSET: isize>() -> IVariantChangeType_Vtbl {
+        unsafe extern "system" fn ChangeType<Identity: IVariantChangeType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardst: *mut core::mem::MaybeUninit<super::Variant::VARIANT>, pvarsrc: *const core::mem::MaybeUninit<super::Variant::VARIANT>, lcid: u32, vtnew: super::Variant::VARENUM) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVariantChangeType_Impl::ChangeType(this, core::mem::transmute_copy(&pvardst), core::mem::transmute_copy(&pvarsrc), core::mem::transmute_copy(&lcid), core::mem::transmute_copy(&vtnew)).into()
         }
@@ -11251,23 +11636,27 @@ impl IVariantChangeType_Vtbl {
         iid == &<IVariantChangeType as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IVariantChangeType {}
 windows_core::imp::define_interface!(IViewObject, IViewObject_Vtbl, 0x0000010d_0000_0000_c000_000000000046);
+impl core::ops::Deref for IViewObject {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IViewObject, windows_core::IUnknown);
 impl IViewObject {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn Draw<P4, P5>(&self, dwdrawaspect: super::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: Option<*const super::Com::DVTARGETDEVICE>, hdctargetdev: P4, hdcdraw: P5, lprcbounds: Option<*const super::super::Foundation::RECTL>, lprcwbounds: Option<*const super::super::Foundation::RECTL>, pfncontinue: isize, dwcontinue: usize) -> windows_core::Result<()>
+    pub unsafe fn Draw<P0, P1>(&self, dwdrawaspect: super::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: Option<*const super::Com::DVTARGETDEVICE>, hdctargetdev: P0, hdcdraw: P1, lprcbounds: Option<*const super::super::Foundation::RECTL>, lprcwbounds: Option<*const super::super::Foundation::RECTL>, pfncontinue: isize, dwcontinue: usize) -> windows_core::Result<()>
     where
-        P4: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-        P5: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+        P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+        P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
     {
         (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), dwdrawaspect, lindex, pvaspect, core::mem::transmute(ptd.unwrap_or(core::ptr::null())), hdctargetdev.param().abi(), hdcdraw.param().abi(), core::mem::transmute(lprcbounds.unwrap_or(core::ptr::null())), core::mem::transmute(lprcwbounds.unwrap_or(core::ptr::null())), pfncontinue, dwcontinue).ok()
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn GetColorSet<P4>(&self, dwdrawaspect: super::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: Option<*const super::Com::DVTARGETDEVICE>, hictargetdev: P4, ppcolorset: *mut *mut super::super::Graphics::Gdi::LOGPALETTE) -> windows_core::Result<()>
+    pub unsafe fn GetColorSet<P0>(&self, dwdrawaspect: super::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: Option<*const super::Com::DVTARGETDEVICE>, hictargetdev: P0, ppcolorset: *mut *mut super::super::Graphics::Gdi::LOGPALETTE) -> windows_core::Result<()>
     where
-        P4: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+        P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
     {
         (windows_core::Interface::vtable(self).GetColorSet)(windows_core::Interface::as_raw(self), dwdrawaspect, lindex, pvaspect, core::mem::transmute(ptd.unwrap_or(core::ptr::null())), hictargetdev.param().abi(), ppcolorset).ok()
     }
@@ -11279,9 +11668,9 @@ impl IViewObject {
         (windows_core::Interface::vtable(self).Unfreeze)(windows_core::Interface::as_raw(self), dwfreeze).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetAdvise<P2>(&self, aspects: super::Com::DVASPECT, advf: u32, padvsink: P2) -> windows_core::Result<()>
+    pub unsafe fn SetAdvise<P0>(&self, aspects: super::Com::DVASPECT, advf: u32, padvsink: P0) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<super::Com::IAdviseSink>,
+        P0: windows_core::Param<super::Com::IAdviseSink>,
     {
         (windows_core::Interface::vtable(self).SetAdvise)(windows_core::Interface::as_raw(self), aspects, advf, padvsink.param().abi()).ok()
     }
@@ -11316,7 +11705,7 @@ pub struct IViewObject_Vtbl {
     GetAdvise: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-pub trait IViewObject_Impl: windows_core::IUnknownImpl {
+pub trait IViewObject_Impl: Sized + windows_core::IUnknownImpl {
     fn Draw(&self, dwdrawaspect: super::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hdctargetdev: super::super::Graphics::Gdi::HDC, hdcdraw: super::super::Graphics::Gdi::HDC, lprcbounds: *const super::super::Foundation::RECTL, lprcwbounds: *const super::super::Foundation::RECTL, pfncontinue: isize, dwcontinue: usize) -> windows_core::Result<()>;
     fn GetColorSet(&self, dwdrawaspect: super::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: super::super::Graphics::Gdi::HDC, ppcolorset: *mut *mut super::super::Graphics::Gdi::LOGPALETTE) -> windows_core::Result<()>;
     fn Freeze(&self, dwdrawaspect: super::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, pdwfreeze: *mut u32) -> windows_core::Result<()>;
@@ -11325,8 +11714,10 @@ pub trait IViewObject_Impl: windows_core::IUnknownImpl {
     fn GetAdvise(&self, paspects: *mut u32, padvf: *mut u32, ppadvsink: *mut Option<super::Com::IAdviseSink>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IViewObject {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IViewObject_Vtbl {
-    pub const fn new<Identity: IViewObject_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IViewObject_Impl, const OFFSET: isize>() -> IViewObject_Vtbl {
         unsafe extern "system" fn Draw<Identity: IViewObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdrawaspect: super::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *const super::Com::DVTARGETDEVICE, hdctargetdev: super::super::Graphics::Gdi::HDC, hdcdraw: super::super::Graphics::Gdi::HDC, lprcbounds: *const super::super::Foundation::RECTL, lprcwbounds: *const super::super::Foundation::RECTL, pfncontinue: isize, dwcontinue: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IViewObject_Impl::Draw(this, core::mem::transmute_copy(&dwdrawaspect), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&pvaspect), core::mem::transmute_copy(&ptd), core::mem::transmute_copy(&hdctargetdev), core::mem::transmute_copy(&hdcdraw), core::mem::transmute_copy(&lprcbounds), core::mem::transmute_copy(&lprcwbounds), core::mem::transmute_copy(&pfncontinue), core::mem::transmute_copy(&dwcontinue)).into()
@@ -11365,8 +11756,6 @@ impl IViewObject_Vtbl {
         iid == &<IViewObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IViewObject {}
 windows_core::imp::define_interface!(IViewObject2, IViewObject2_Vtbl, 0x00000127_0000_0000_c000_000000000046);
 impl core::ops::Deref for IViewObject2 {
     type Target = IViewObject;
@@ -11391,12 +11780,14 @@ pub struct IViewObject2_Vtbl {
     GetExtent: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-pub trait IViewObject2_Impl: IViewObject_Impl {
+pub trait IViewObject2_Impl: Sized + IViewObject_Impl {
     fn GetExtent(&self, dwdrawaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE) -> windows_core::Result<super::super::Foundation::SIZE>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IViewObject2 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IViewObject2_Vtbl {
-    pub const fn new<Identity: IViewObject2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IViewObject2_Impl, const OFFSET: isize>() -> IViewObject2_Vtbl {
         unsafe extern "system" fn GetExtent<Identity: IViewObject2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdrawaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, lpsizel: *mut super::super::Foundation::SIZE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IViewObject2_Impl::GetExtent(this, core::mem::transmute_copy(&dwdrawaspect), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&ptd)) {
@@ -11410,11 +11801,9 @@ impl IViewObject2_Vtbl {
         Self { base__: IViewObject_Vtbl::new::<Identity, OFFSET>(), GetExtent: GetExtent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IViewObject2 as windows_core::Interface>::IID
+        iid == &<IViewObject2 as windows_core::Interface>::IID || iid == &<IViewObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IViewObject2 {}
 windows_core::imp::define_interface!(IViewObjectEx, IViewObjectEx_Vtbl, 0x3af24292_0c96_11ce_a0cf_00aa00600ab8);
 impl core::ops::Deref for IViewObjectEx {
     type Target = IViewObject2;
@@ -11441,9 +11830,9 @@ impl IViewObjectEx {
         (windows_core::Interface::vtable(self).QueryHitRect)(windows_core::Interface::as_raw(self), dwaspect, prectbounds, prectloc, lclosehint, &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub unsafe fn GetNaturalExtent<P3>(&self, dwaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: P3, pextentinfo: *const DVEXTENTINFO) -> windows_core::Result<super::super::Foundation::SIZE>
+    pub unsafe fn GetNaturalExtent<P0>(&self, dwaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: P0, pextentinfo: *const DVEXTENTINFO) -> windows_core::Result<super::super::Foundation::SIZE>
     where
-        P3: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+        P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetNaturalExtent)(windows_core::Interface::as_raw(self), dwaspect, lindex, ptd, hictargetdev.param().abi(), pextentinfo, &mut result__).map(|| result__)
@@ -11462,7 +11851,7 @@ pub struct IViewObjectEx_Vtbl {
     GetNaturalExtent: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-pub trait IViewObjectEx_Impl: IViewObject2_Impl {
+pub trait IViewObjectEx_Impl: Sized + IViewObject2_Impl {
     fn GetRect(&self, dwaspect: u32) -> windows_core::Result<super::super::Foundation::RECTL>;
     fn GetViewStatus(&self) -> windows_core::Result<u32>;
     fn QueryHitPoint(&self, dwaspect: u32, prectbounds: *const super::super::Foundation::RECT, ptlloc: &super::super::Foundation::POINT, lclosehint: i32) -> windows_core::Result<u32>;
@@ -11470,8 +11859,10 @@ pub trait IViewObjectEx_Impl: IViewObject2_Impl {
     fn GetNaturalExtent(&self, dwaspect: super::Com::DVASPECT, lindex: i32, ptd: *const super::Com::DVTARGETDEVICE, hictargetdev: super::super::Graphics::Gdi::HDC, pextentinfo: *const DVEXTENTINFO) -> windows_core::Result<super::super::Foundation::SIZE>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IViewObjectEx {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IViewObjectEx_Vtbl {
-    pub const fn new<Identity: IViewObjectEx_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IViewObjectEx_Impl, const OFFSET: isize>() -> IViewObjectEx_Vtbl {
         unsafe extern "system" fn GetRect<Identity: IViewObjectEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: u32, prect: *mut super::super::Foundation::RECTL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IViewObjectEx_Impl::GetRect(this, core::mem::transmute_copy(&dwaspect)) {
@@ -11532,12 +11923,16 @@ impl IViewObjectEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IViewObjectEx as windows_core::Interface>::IID
+        iid == &<IViewObjectEx as windows_core::Interface>::IID || iid == &<IViewObject as windows_core::Interface>::IID || iid == &<IViewObject2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-impl windows_core::RuntimeName for IViewObjectEx {}
 windows_core::imp::define_interface!(IZoomEvents, IZoomEvents_Vtbl, 0x41b68150_904c_4e17_a0ba_a438182e359d);
+impl core::ops::Deref for IZoomEvents {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IZoomEvents, windows_core::IUnknown);
 impl IZoomEvents {
     pub unsafe fn OnZoomPercentChanged(&self, ulzoompercent: u32) -> windows_core::Result<()> {
@@ -11549,11 +11944,12 @@ pub struct IZoomEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnZoomPercentChanged: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IZoomEvents_Impl: windows_core::IUnknownImpl {
+pub trait IZoomEvents_Impl: Sized + windows_core::IUnknownImpl {
     fn OnZoomPercentChanged(&self, ulzoompercent: u32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IZoomEvents {}
 impl IZoomEvents_Vtbl {
-    pub const fn new<Identity: IZoomEvents_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IZoomEvents_Impl, const OFFSET: isize>() -> IZoomEvents_Vtbl {
         unsafe extern "system" fn OnZoomPercentChanged<Identity: IZoomEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulzoompercent: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IZoomEvents_Impl::OnZoomPercentChanged(this, core::mem::transmute_copy(&ulzoompercent)).into()
@@ -11564,7 +11960,6 @@ impl IZoomEvents_Vtbl {
         iid == &<IZoomEvents as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IZoomEvents {}
 pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = ACTIVATEFLAGS(1i32);
 pub const ACTIVEOBJECT_STRONG: ACTIVEOBJECT_FLAGS = ACTIVEOBJECT_FLAGS(0u32);
 pub const ACTIVEOBJECT_WEAK: ACTIVEOBJECT_FLAGS = ACTIVEOBJECT_FLAGS(1u32);
@@ -12608,16 +13003,26 @@ pub const triChecked: OLE_TRISTATE = OLE_TRISTATE(1i32);
 pub const triGray: OLE_TRISTATE = OLE_TRISTATE(2i32);
 pub const triUnchecked: OLE_TRISTATE = OLE_TRISTATE(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ACTIVATEFLAGS(pub i32);
 impl windows_core::TypeKind for ACTIVATEFLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ACTIVATEFLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ACTIVATEFLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ACTIVEOBJECT_FLAGS(pub u32);
 impl windows_core::TypeKind for ACTIVEOBJECT_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for ACTIVEOBJECT_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ACTIVEOBJECT_FLAGS").field(&self.0).finish()
+    }
 }
 impl ACTIVEOBJECT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -12653,16 +13058,26 @@ impl core::ops::Not for ACTIVEOBJECT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BINDSPEED(pub i32);
 impl windows_core::TypeKind for BINDSPEED {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BINDSPEED {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BINDSPEED").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BUSY_DIALOG_FLAGS(pub u32);
 impl windows_core::TypeKind for BUSY_DIALOG_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for BUSY_DIALOG_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BUSY_DIALOG_FLAGS").field(&self.0).finish()
+    }
 }
 impl BUSY_DIALOG_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -12698,16 +13113,26 @@ impl core::ops::Not for BUSY_DIALOG_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CHANGEKIND(pub i32);
 impl windows_core::TypeKind for CHANGEKIND {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CHANGEKIND {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CHANGEKIND").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CHANGE_ICON_FLAGS(pub u32);
 impl windows_core::TypeKind for CHANGE_ICON_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CHANGE_ICON_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CHANGE_ICON_FLAGS").field(&self.0).finish()
+    }
 }
 impl CHANGE_ICON_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -12743,10 +13168,15 @@ impl core::ops::Not for CHANGE_ICON_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CHANGE_SOURCE_FLAGS(pub u32);
 impl windows_core::TypeKind for CHANGE_SOURCE_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CHANGE_SOURCE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CHANGE_SOURCE_FLAGS").field(&self.0).finish()
+    }
 }
 impl CHANGE_SOURCE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -12782,34 +13212,59 @@ impl core::ops::Not for CHANGE_SOURCE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CLIPBOARD_FORMAT(pub u16);
 impl windows_core::TypeKind for CLIPBOARD_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CLIPBOARD_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CLIPBOARD_FORMAT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CTRLINFO(pub i32);
 impl windows_core::TypeKind for CTRLINFO {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CTRLINFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CTRLINFO").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DISCARDCACHE(pub i32);
 impl windows_core::TypeKind for DISCARDCACHE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DISCARDCACHE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DISCARDCACHE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DOCMISC(pub i32);
 impl windows_core::TypeKind for DOCMISC {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DOCMISC {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DOCMISC").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DROPEFFECT(pub u32);
 impl windows_core::TypeKind for DROPEFFECT {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DROPEFFECT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DROPEFFECT").field(&self.0).finish()
+    }
 }
 impl DROPEFFECT {
     pub const fn contains(&self, other: Self) -> bool {
@@ -12845,22 +13300,37 @@ impl core::ops::Not for DROPEFFECT {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DVASPECTINFOFLAG(pub i32);
 impl windows_core::TypeKind for DVASPECTINFOFLAG {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DVASPECTINFOFLAG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DVASPECTINFOFLAG").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DVEXTENTMODE(pub i32);
 impl windows_core::TypeKind for DVEXTENTMODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DVEXTENTMODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DVEXTENTMODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EDIT_LINKS_FLAGS(pub u32);
 impl windows_core::TypeKind for EDIT_LINKS_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for EDIT_LINKS_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EDIT_LINKS_FLAGS").field(&self.0).finish()
+    }
 }
 impl EDIT_LINKS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -12896,10 +13366,15 @@ impl core::ops::Not for EDIT_LINKS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EMBDHLP_FLAGS(pub u32);
 impl windows_core::TypeKind for EMBDHLP_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for EMBDHLP_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EMBDHLP_FLAGS").field(&self.0).finish()
+    }
 }
 impl EMBDHLP_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -12935,16 +13410,26 @@ impl core::ops::Not for EMBDHLP_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ENUM_CONTROLS_WHICH_FLAGS(pub u32);
 impl windows_core::TypeKind for ENUM_CONTROLS_WHICH_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ENUM_CONTROLS_WHICH_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ENUM_CONTROLS_WHICH_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FDEX_PROP_FLAGS(pub u32);
 impl windows_core::TypeKind for FDEX_PROP_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for FDEX_PROP_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FDEX_PROP_FLAGS").field(&self.0).finish()
+    }
 }
 impl FDEX_PROP_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -12980,28 +13465,48 @@ impl core::ops::Not for FDEX_PROP_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GUIDKIND(pub i32);
 impl windows_core::TypeKind for GUIDKIND {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for GUIDKIND {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GUIDKIND").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HITRESULT(pub i32);
 impl windows_core::TypeKind for HITRESULT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HITRESULT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HITRESULT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IGNOREMIME(pub i32);
 impl windows_core::TypeKind for IGNOREMIME {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IGNOREMIME {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IGNOREMIME").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct INSERT_OBJECT_FLAGS(pub u32);
 impl windows_core::TypeKind for INSERT_OBJECT_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for INSERT_OBJECT_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("INSERT_OBJECT_FLAGS").field(&self.0).finish()
+    }
 }
 impl INSERT_OBJECT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -13037,10 +13542,15 @@ impl core::ops::Not for INSERT_OBJECT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KEYMODIFIERS(pub u32);
 impl windows_core::TypeKind for KEYMODIFIERS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for KEYMODIFIERS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KEYMODIFIERS").field(&self.0).finish()
+    }
 }
 impl KEYMODIFIERS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -13076,16 +13586,26 @@ impl core::ops::Not for KEYMODIFIERS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct LIBFLAGS(pub i32);
 impl windows_core::TypeKind for LIBFLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for LIBFLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("LIBFLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct LOAD_PICTURE_FLAGS(pub u32);
 impl windows_core::TypeKind for LOAD_PICTURE_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for LOAD_PICTURE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("LOAD_PICTURE_FLAGS").field(&self.0).finish()
+    }
 }
 impl LOAD_PICTURE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -13121,22 +13641,37 @@ impl core::ops::Not for LOAD_PICTURE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MEDIAPLAYBACK_STATE(pub i32);
 impl windows_core::TypeKind for MEDIAPLAYBACK_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MEDIAPLAYBACK_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MEDIAPLAYBACK_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MULTICLASSINFO_FLAGS(pub u32);
 impl windows_core::TypeKind for MULTICLASSINFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MULTICLASSINFO_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MULTICLASSINFO_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NUMPARSE_FLAGS(pub u32);
 impl windows_core::TypeKind for NUMPARSE_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for NUMPARSE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NUMPARSE_FLAGS").field(&self.0).finish()
+    }
 }
 impl NUMPARSE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -13172,10 +13707,15 @@ impl core::ops::Not for NUMPARSE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OBJECT_PROPERTIES_FLAGS(pub u32);
 impl windows_core::TypeKind for OBJECT_PROPERTIES_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for OBJECT_PROPERTIES_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OBJECT_PROPERTIES_FLAGS").field(&self.0).finish()
+    }
 }
 impl OBJECT_PROPERTIES_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -13211,160 +13751,290 @@ impl core::ops::Not for OBJECT_PROPERTIES_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLECLOSE(pub i32);
 impl windows_core::TypeKind for OLECLOSE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLECLOSE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLECLOSE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLECMDEXECOPT(pub i32);
 impl windows_core::TypeKind for OLECMDEXECOPT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLECMDEXECOPT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLECMDEXECOPT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLECMDF(pub i32);
 impl windows_core::TypeKind for OLECMDF {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLECMDF {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLECMDF").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLECMDID(pub i32);
 impl windows_core::TypeKind for OLECMDID {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLECMDID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLECMDID").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLECMDID_BROWSERSTATEFLAG(pub i32);
 impl windows_core::TypeKind for OLECMDID_BROWSERSTATEFLAG {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLECMDID_BROWSERSTATEFLAG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLECMDID_BROWSERSTATEFLAG").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLECMDID_OPTICAL_ZOOMFLAG(pub i32);
 impl windows_core::TypeKind for OLECMDID_OPTICAL_ZOOMFLAG {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLECMDID_OPTICAL_ZOOMFLAG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLECMDID_OPTICAL_ZOOMFLAG").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLECMDID_PAGEACTIONFLAG(pub i32);
 impl windows_core::TypeKind for OLECMDID_PAGEACTIONFLAG {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLECMDID_PAGEACTIONFLAG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLECMDID_PAGEACTIONFLAG").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLECMDID_REFRESHFLAG(pub i32);
 impl windows_core::TypeKind for OLECMDID_REFRESHFLAG {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLECMDID_REFRESHFLAG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLECMDID_REFRESHFLAG").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLECMDID_VIEWPORT_MODE_FLAG(pub i32);
 impl windows_core::TypeKind for OLECMDID_VIEWPORT_MODE_FLAG {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLECMDID_VIEWPORT_MODE_FLAG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLECMDID_VIEWPORT_MODE_FLAG").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLECMDID_WINDOWSTATE_FLAG(pub i32);
 impl windows_core::TypeKind for OLECMDID_WINDOWSTATE_FLAG {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLECMDID_WINDOWSTATE_FLAG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLECMDID_WINDOWSTATE_FLAG").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLECMDTEXTF(pub i32);
 impl windows_core::TypeKind for OLECMDTEXTF {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLECMDTEXTF {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLECMDTEXTF").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLECONTF(pub i32);
 impl windows_core::TypeKind for OLECONTF {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLECONTF {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLECONTF").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLECREATE(pub u32);
 impl windows_core::TypeKind for OLECREATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLECREATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLECREATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLEDCFLAGS(pub i32);
 impl windows_core::TypeKind for OLEDCFLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLEDCFLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLEDCFLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLEGETMONIKER(pub i32);
 impl windows_core::TypeKind for OLEGETMONIKER {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLEGETMONIKER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLEGETMONIKER").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLEIVERB(pub i32);
 impl windows_core::TypeKind for OLEIVERB {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLEIVERB {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLEIVERB").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLELINKBIND(pub i32);
 impl windows_core::TypeKind for OLELINKBIND {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLELINKBIND {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLELINKBIND").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLEMISC(pub i32);
 impl windows_core::TypeKind for OLEMISC {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLEMISC {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLEMISC").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLERENDER(pub i32);
 impl windows_core::TypeKind for OLERENDER {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLERENDER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLERENDER").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLEUIPASTEFLAG(pub i32);
 impl windows_core::TypeKind for OLEUIPASTEFLAG {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLEUIPASTEFLAG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLEUIPASTEFLAG").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLEUPDATE(pub i32);
 impl windows_core::TypeKind for OLEUPDATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLEUPDATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLEUPDATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLEVERBATTRIB(pub i32);
 impl windows_core::TypeKind for OLEVERBATTRIB {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLEVERBATTRIB {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLEVERBATTRIB").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLEWHICHMK(pub i32);
 impl windows_core::TypeKind for OLEWHICHMK {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLEWHICHMK {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLEWHICHMK").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OLE_TRISTATE(pub i32);
 impl windows_core::TypeKind for OLE_TRISTATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OLE_TRISTATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OLE_TRISTATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PAGEACTION_UI(pub i32);
 impl windows_core::TypeKind for PAGEACTION_UI {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PAGEACTION_UI {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PAGEACTION_UI").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PARAMFLAGS(pub u16);
 impl windows_core::TypeKind for PARAMFLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PARAMFLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PARAMFLAGS").field(&self.0).finish()
+    }
 }
 impl PARAMFLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -13400,10 +14070,15 @@ impl core::ops::Not for PARAMFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PASTE_SPECIAL_FLAGS(pub u32);
 impl windows_core::TypeKind for PASTE_SPECIAL_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PASTE_SPECIAL_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PASTE_SPECIAL_FLAGS").field(&self.0).finish()
+    }
 }
 impl PASTE_SPECIAL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -13439,28 +14114,48 @@ impl core::ops::Not for PASTE_SPECIAL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PICTUREATTRIBUTES(pub i32);
 impl windows_core::TypeKind for PICTUREATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PICTUREATTRIBUTES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PICTUREATTRIBUTES").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PICTYPE(pub i16);
 impl windows_core::TypeKind for PICTYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PICTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PICTYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POINTERINACTIVE(pub i32);
 impl windows_core::TypeKind for POINTERINACTIVE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POINTERINACTIVE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POINTERINACTIVE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRINTFLAG(pub i32);
 impl windows_core::TypeKind for PRINTFLAG {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PRINTFLAG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PRINTFLAG").field(&self.0).finish()
+    }
 }
 impl PRINTFLAG {
     pub const fn contains(&self, other: Self) -> bool {
@@ -13496,58 +14191,103 @@ impl core::ops::Not for PRINTFLAG {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PROPBAG2_TYPE(pub i32);
 impl windows_core::TypeKind for PROPBAG2_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PROPBAG2_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PROPBAG2_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PROPPAGESTATUS(pub i32);
 impl windows_core::TypeKind for PROPPAGESTATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PROPPAGESTATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PROPPAGESTATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct QACONTAINERFLAGS(pub i32);
 impl windows_core::TypeKind for QACONTAINERFLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for QACONTAINERFLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("QACONTAINERFLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct READYSTATE(pub i32);
 impl windows_core::TypeKind for READYSTATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for READYSTATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("READYSTATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct REGKIND(pub i32);
 impl windows_core::TypeKind for REGKIND {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for REGKIND {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("REGKIND").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SF_TYPE(pub i32);
 impl windows_core::TypeKind for SF_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SF_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SF_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TYPEFLAGS(pub i32);
 impl windows_core::TypeKind for TYPEFLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for TYPEFLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TYPEFLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UASFLAGS(pub i32);
 impl windows_core::TypeKind for UASFLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UASFLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UASFLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UI_CONVERT_FLAGS(pub u32);
 impl windows_core::TypeKind for UI_CONVERT_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for UI_CONVERT_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UI_CONVERT_FLAGS").field(&self.0).finish()
+    }
 }
 impl UI_CONVERT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -13583,10 +14323,15 @@ impl core::ops::Not for UI_CONVERT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UPDFCACHE_FLAGS(pub u32);
 impl windows_core::TypeKind for UPDFCACHE_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for UPDFCACHE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UPDFCACHE_FLAGS").field(&self.0).finish()
+    }
 }
 impl UPDFCACHE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -13622,64 +14367,114 @@ impl core::ops::Not for UPDFCACHE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct USERCLASSTYPE(pub i32);
 impl windows_core::TypeKind for USERCLASSTYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for USERCLASSTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("USERCLASSTYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct VARCMP(pub u32);
 impl windows_core::TypeKind for VARCMP {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for VARCMP {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("VARCMP").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct VARFORMAT_FIRST_DAY(pub i32);
 impl windows_core::TypeKind for VARFORMAT_FIRST_DAY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for VARFORMAT_FIRST_DAY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("VARFORMAT_FIRST_DAY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct VARFORMAT_FIRST_WEEK(pub i32);
 impl windows_core::TypeKind for VARFORMAT_FIRST_WEEK {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for VARFORMAT_FIRST_WEEK {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("VARFORMAT_FIRST_WEEK").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct VARFORMAT_GROUP(pub i32);
 impl windows_core::TypeKind for VARFORMAT_GROUP {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for VARFORMAT_GROUP {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("VARFORMAT_GROUP").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct VARFORMAT_LEADING_DIGIT(pub i32);
 impl windows_core::TypeKind for VARFORMAT_LEADING_DIGIT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for VARFORMAT_LEADING_DIGIT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("VARFORMAT_LEADING_DIGIT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct VARFORMAT_NAMED_FORMAT(pub i32);
 impl windows_core::TypeKind for VARFORMAT_NAMED_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for VARFORMAT_NAMED_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("VARFORMAT_NAMED_FORMAT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct VARFORMAT_PARENTHESES(pub i32);
 impl windows_core::TypeKind for VARFORMAT_PARENTHESES {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for VARFORMAT_PARENTHESES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("VARFORMAT_PARENTHESES").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct VIEWSTATUS(pub i32);
 impl windows_core::TypeKind for VIEWSTATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for VIEWSTATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("VIEWSTATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct VIEW_OBJECT_PROPERTIES_FLAGS(pub u32);
 impl windows_core::TypeKind for VIEW_OBJECT_PROPERTIES_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for VIEW_OBJECT_PROPERTIES_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("VIEW_OBJECT_PROPERTIES_FLAGS").field(&self.0).finish()
+    }
 }
 impl VIEW_OBJECT_PROPERTIES_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -13715,24 +14510,38 @@ impl core::ops::Not for VIEW_OBJECT_PROPERTIES_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WPCSETTING(pub i32);
 impl windows_core::TypeKind for WPCSETTING {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WPCSETTING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WPCSETTING").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct XFORMCOORDS(pub i32);
 impl windows_core::TypeKind for XFORMCOORDS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for XFORMCOORDS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("XFORMCOORDS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ARRAYDESC {
     pub tdescElem: super::Com::TYPEDESC,
     pub cDims: u16,
     pub rgbounds: [super::Com::SAFEARRAYBOUND; 1],
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for ARRAYDESC {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl Default for ARRAYDESC {
@@ -13740,70 +14549,71 @@ impl Default for ARRAYDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for ARRAYDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CADWORD {
     pub cElems: u32,
     pub pElems: *mut u32,
+}
+impl windows_core::TypeKind for CADWORD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CADWORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CADWORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CALPOLESTR {
     pub cElems: u32,
     pub pElems: *mut windows_core::PWSTR,
+}
+impl windows_core::TypeKind for CALPOLESTR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CALPOLESTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CALPOLESTR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAUUID {
     pub cElems: u32,
     pub pElems: *mut windows_core::GUID,
+}
+impl windows_core::TypeKind for CAUUID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CAUUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAUUID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct CLEANLOCALSTORAGE {
     pub pInterface: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub pStorage: *mut core::ffi::c_void,
     pub flags: u32,
+}
+impl Clone for CLEANLOCALSTORAGE {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl windows_core::TypeKind for CLEANLOCALSTORAGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLEANLOCALSTORAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLEANLOCALSTORAGE {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTROLINFO {
     pub cb: u32,
     pub hAccel: super::super::UI::WindowsAndMessaging::HACCEL,
@@ -13811,47 +14621,47 @@ pub struct CONTROLINFO {
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for CONTROLINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for CONTROLINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for CONTROLINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVASPECTINFO {
     pub cb: u32,
     pub dwFlags: u32,
+}
+impl windows_core::TypeKind for DVASPECTINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DVASPECTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVASPECTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVEXTENTINFO {
     pub cb: u32,
     pub dwExtentMode: u32,
     pub sizelProposed: super::super::Foundation::SIZE,
+}
+impl windows_core::TypeKind for DVEXTENTINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DVEXTENTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DVEXTENTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FONTDESC {
     pub cbSizeofstruct: u32,
     pub lpstrName: windows_core::PWSTR,
@@ -13863,21 +14673,25 @@ pub struct FONTDESC {
     pub fStrikethrough: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for FONTDESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl Default for FONTDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for FONTDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERFACEDATA {
     pub pmethdata: *mut METHODDATA,
     pub cMembers: u32,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for INTERFACEDATA {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl Default for INTERFACEDATA {
@@ -13885,28 +14699,24 @@ impl Default for INTERFACEDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for INTERFACEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LICINFO {
     pub cbLicInfo: i32,
     pub fRuntimeKeyAvail: super::super::Foundation::BOOL,
     pub fLicVerified: super::super::Foundation::BOOL,
+}
+impl windows_core::TypeKind for LICINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for LICINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LICINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct METHODDATA {
     pub szName: windows_core::PWSTR,
     pub ppdata: *mut PARAMDATA,
@@ -13918,17 +14728,17 @@ pub struct METHODDATA {
     pub vtReturn: super::Variant::VARENUM,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for METHODDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl Default for METHODDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for METHODDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NUMPARSE {
     pub cDig: i32,
     pub dwInFlags: NUMPARSE_FLAGS,
@@ -13937,16 +14747,16 @@ pub struct NUMPARSE {
     pub nBaseShift: i32,
     pub nPwr10: i32,
 }
+impl windows_core::TypeKind for NUMPARSE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NUMPARSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NUMPARSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OBJECTDESCRIPTOR {
     pub cbSize: u32,
     pub clsid: windows_core::GUID,
@@ -13957,16 +14767,16 @@ pub struct OBJECTDESCRIPTOR {
     pub dwFullUserTypeName: u32,
     pub dwSrcOfCopy: u32,
 }
+impl windows_core::TypeKind for OBJECTDESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OBJECTDESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OBJECTDESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCPFIPARAMS {
     pub cbStructSize: u32,
     pub hWndOwner: super::super::Foundation::HWND,
@@ -13980,47 +14790,47 @@ pub struct OCPFIPARAMS {
     pub lcid: u32,
     pub dispidInitialProperty: i32,
 }
+impl windows_core::TypeKind for OCPFIPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OCPFIPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OCPFIPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLECMD {
     pub cmdID: u32,
     pub cmdf: u32,
+}
+impl windows_core::TypeKind for OLECMD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OLECMD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLECMD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLECMDTEXT {
     pub cmdtextf: u32,
     pub cwActual: u32,
     pub cwBuf: u32,
     pub rgwz: [u16; 1],
 }
+impl windows_core::TypeKind for OLECMDTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OLECMDTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLECMDTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEINPLACEFRAMEINFO {
     pub cb: u32,
     pub fMDIApp: super::super::Foundation::BOOL,
@@ -14029,31 +14839,31 @@ pub struct OLEINPLACEFRAMEINFO {
     pub cAccelEntries: u32,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for OLEINPLACEFRAMEINFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for OLEINPLACEFRAMEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for OLEINPLACEFRAMEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEMENUGROUPWIDTHS {
     pub width: [i32; 6],
+}
+impl windows_core::TypeKind for OLEMENUGROUPWIDTHS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OLEMENUGROUPWIDTHS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLEMENUGROUPWIDTHS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Media")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEUIBUSYA {
     pub cbStruct: u32,
     pub dwFlags: BUSY_DIALOG_FLAGS,
@@ -14068,18 +14878,18 @@ pub struct OLEUIBUSYA {
     pub lphWndDialog: *mut super::super::Foundation::HWND,
 }
 #[cfg(feature = "Win32_Media")]
+impl windows_core::TypeKind for OLEUIBUSYA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media")]
 impl Default for OLEUIBUSYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media")]
-impl windows_core::TypeKind for OLEUIBUSYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Media")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEUIBUSYW {
     pub cbStruct: u32,
     pub dwFlags: BUSY_DIALOG_FLAGS,
@@ -14094,17 +14904,17 @@ pub struct OLEUIBUSYW {
     pub lphWndDialog: *mut super::super::Foundation::HWND,
 }
 #[cfg(feature = "Win32_Media")]
+impl windows_core::TypeKind for OLEUIBUSYW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media")]
 impl Default for OLEUIBUSYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media")]
-impl windows_core::TypeKind for OLEUIBUSYW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEUICHANGEICONA {
     pub cbStruct: u32,
     pub dwFlags: CHANGE_ICON_FLAGS,
@@ -14120,16 +14930,16 @@ pub struct OLEUICHANGEICONA {
     pub szIconExe: [i8; 260],
     pub cchIconExe: i32,
 }
+impl windows_core::TypeKind for OLEUICHANGEICONA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OLEUICHANGEICONA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLEUICHANGEICONA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEUICHANGEICONW {
     pub cbStruct: u32,
     pub dwFlags: CHANGE_ICON_FLAGS,
@@ -14145,17 +14955,17 @@ pub struct OLEUICHANGEICONW {
     pub szIconExe: [u16; 260],
     pub cchIconExe: i32,
 }
+impl windows_core::TypeKind for OLEUICHANGEICONW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OLEUICHANGEICONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLEUICHANGEICONW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct OLEUICHANGESOURCEA {
     pub cbStruct: u32,
     pub dwFlags: CHANGE_SOURCE_FLAGS,
@@ -14176,18 +14986,24 @@ pub struct OLEUICHANGESOURCEA {
     pub lpszTo: windows_core::PSTR,
 }
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
+impl Clone for OLEUICHANGESOURCEA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_UI_Controls_Dialogs")]
+impl windows_core::TypeKind for OLEUICHANGESOURCEA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_UI_Controls_Dialogs")]
 impl Default for OLEUICHANGESOURCEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_Controls_Dialogs")]
-impl windows_core::TypeKind for OLEUICHANGESOURCEA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct OLEUICHANGESOURCEW {
     pub cbStruct: u32,
     pub dwFlags: CHANGE_SOURCE_FLAGS,
@@ -14208,17 +15024,23 @@ pub struct OLEUICHANGESOURCEW {
     pub lpszTo: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
+impl Clone for OLEUICHANGESOURCEW {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_UI_Controls_Dialogs")]
+impl windows_core::TypeKind for OLEUICHANGESOURCEW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_UI_Controls_Dialogs")]
 impl Default for OLEUICHANGESOURCEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_Controls_Dialogs")]
-impl windows_core::TypeKind for OLEUICHANGESOURCEW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEUICONVERTA {
     pub cbStruct: u32,
     pub dwFlags: UI_CONVERT_FLAGS,
@@ -14243,16 +15065,16 @@ pub struct OLEUICONVERTA {
     pub cClsidExclude: u32,
     pub lpClsidExclude: *mut windows_core::GUID,
 }
+impl windows_core::TypeKind for OLEUICONVERTA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OLEUICONVERTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLEUICONVERTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEUICONVERTW {
     pub cbStruct: u32,
     pub dwFlags: UI_CONVERT_FLAGS,
@@ -14277,16 +15099,16 @@ pub struct OLEUICONVERTW {
     pub cClsidExclude: u32,
     pub lpClsidExclude: *mut windows_core::GUID,
 }
+impl windows_core::TypeKind for OLEUICONVERTW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OLEUICONVERTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLEUICONVERTW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct OLEUIEDITLINKSA {
     pub cbStruct: u32,
     pub dwFlags: EDIT_LINKS_FLAGS,
@@ -14299,16 +15121,21 @@ pub struct OLEUIEDITLINKSA {
     pub hResource: super::super::Foundation::HRSRC,
     pub lpOleUILinkContainer: core::mem::ManuallyDrop<Option<IOleUILinkContainerA>>,
 }
+impl Clone for OLEUIEDITLINKSA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl windows_core::TypeKind for OLEUIEDITLINKSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OLEUIEDITLINKSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLEUIEDITLINKSA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct OLEUIEDITLINKSW {
     pub cbStruct: u32,
     pub dwFlags: EDIT_LINKS_FLAGS,
@@ -14321,17 +15148,22 @@ pub struct OLEUIEDITLINKSW {
     pub hResource: super::super::Foundation::HRSRC,
     pub lpOleUILinkContainer: core::mem::ManuallyDrop<Option<IOleUILinkContainerW>>,
 }
+impl Clone for OLEUIEDITLINKSW {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl windows_core::TypeKind for OLEUIEDITLINKSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OLEUIEDITLINKSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OLEUIEDITLINKSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEUIGNRLPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -14342,18 +15174,18 @@ pub struct OLEUIGNRLPROPSA {
     pub lpOP: *mut OLEUIOBJECTPROPSA,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for OLEUIGNRLPROPSA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for OLEUIGNRLPROPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUIGNRLPROPSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEUIGNRLPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -14364,18 +15196,18 @@ pub struct OLEUIGNRLPROPSW {
     pub lpOP: *mut OLEUIOBJECTPROPSW,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for OLEUIGNRLPROPSW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for OLEUIGNRLPROPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUIGNRLPROPSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct OLEUIINSERTOBJECTA {
     pub cbStruct: u32,
     pub dwFlags: INSERT_OBJECT_FLAGS,
@@ -14401,18 +15233,24 @@ pub struct OLEUIINSERTOBJECTA {
     pub hMetaPict: super::super::Foundation::HGLOBAL,
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Clone for OLEUIINSERTOBJECTA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl windows_core::TypeKind for OLEUIINSERTOBJECTA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl Default for OLEUIINSERTOBJECTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl windows_core::TypeKind for OLEUIINSERTOBJECTA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct OLEUIINSERTOBJECTW {
     pub cbStruct: u32,
     pub dwFlags: INSERT_OBJECT_FLAGS,
@@ -14438,18 +15276,24 @@ pub struct OLEUIINSERTOBJECTW {
     pub hMetaPict: super::super::Foundation::HGLOBAL,
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Clone for OLEUIINSERTOBJECTW {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl windows_core::TypeKind for OLEUIINSERTOBJECTW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl Default for OLEUIINSERTOBJECTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl windows_core::TypeKind for OLEUIINSERTOBJECTW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEUILINKPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -14460,18 +15304,18 @@ pub struct OLEUILINKPROPSA {
     pub lpOP: *mut OLEUIOBJECTPROPSA,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for OLEUILINKPROPSA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for OLEUILINKPROPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUILINKPROPSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEUILINKPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -14482,18 +15326,18 @@ pub struct OLEUILINKPROPSW {
     pub lpOP: *mut OLEUIOBJECTPROPSW,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for OLEUILINKPROPSW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for OLEUILINKPROPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUILINKPROPSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct OLEUIOBJECTPROPSA {
     pub cbStruct: u32,
     pub dwFlags: OBJECT_PROPERTIES_FLAGS,
@@ -14507,18 +15351,24 @@ pub struct OLEUIOBJECTPROPSA {
     pub lpLP: *mut OLEUILINKPROPSA,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Clone for OLEUIOBJECTPROPSA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for OLEUIOBJECTPROPSA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for OLEUIOBJECTPROPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUIOBJECTPROPSA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct OLEUIOBJECTPROPSW {
     pub cbStruct: u32,
     pub dwFlags: OBJECT_PROPERTIES_FLAGS,
@@ -14532,18 +15382,24 @@ pub struct OLEUIOBJECTPROPSW {
     pub lpLP: *mut OLEUILINKPROPSW,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Clone for OLEUIOBJECTPROPSW {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for OLEUIOBJECTPROPSW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for OLEUIOBJECTPROPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUIOBJECTPROPSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEUIPASTEENTRYA {
     pub fmtetc: super::Com::FORMATETC,
     pub lpstrFormatName: windows_core::PCSTR,
@@ -14552,18 +15408,18 @@ pub struct OLEUIPASTEENTRYA {
     pub dwScratchSpace: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for OLEUIPASTEENTRYA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl Default for OLEUIPASTEENTRYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for OLEUIPASTEENTRYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEUIPASTEENTRYW {
     pub fmtetc: super::Com::FORMATETC,
     pub lpstrFormatName: windows_core::PCWSTR,
@@ -14572,18 +15428,18 @@ pub struct OLEUIPASTEENTRYW {
     pub dwScratchSpace: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for OLEUIPASTEENTRYW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl Default for OLEUIPASTEENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for OLEUIPASTEENTRYW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct OLEUIPASTESPECIALA {
     pub cbStruct: u32,
     pub dwFlags: PASTE_SPECIAL_FLAGS,
@@ -14607,18 +15463,24 @@ pub struct OLEUIPASTESPECIALA {
     pub sizel: super::super::Foundation::SIZE,
 }
 #[cfg(feature = "Win32_System_Com")]
+impl Clone for OLEUIPASTESPECIALA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for OLEUIPASTESPECIALA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl Default for OLEUIPASTESPECIALA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for OLEUIPASTESPECIALA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct OLEUIPASTESPECIALW {
     pub cbStruct: u32,
     pub dwFlags: PASTE_SPECIAL_FLAGS,
@@ -14642,18 +15504,24 @@ pub struct OLEUIPASTESPECIALW {
     pub sizel: super::super::Foundation::SIZE,
 }
 #[cfg(feature = "Win32_System_Com")]
+impl Clone for OLEUIPASTESPECIALW {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for OLEUIPASTESPECIALW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl Default for OLEUIPASTESPECIALW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for OLEUIPASTESPECIALW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEUIVIEWPROPSA {
     pub cbStruct: u32,
     pub dwFlags: VIEW_OBJECT_PROPERTIES_FLAGS,
@@ -14666,18 +15534,18 @@ pub struct OLEUIVIEWPROPSA {
     pub nScaleMax: i32,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for OLEUIVIEWPROPSA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for OLEUIVIEWPROPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUIVIEWPROPSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEUIVIEWPROPSW {
     pub cbStruct: u32,
     pub dwFlags: VIEW_OBJECT_PROPERTIES_FLAGS,
@@ -14690,18 +15558,18 @@ pub struct OLEUIVIEWPROPSW {
     pub nScaleMax: i32,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for OLEUIVIEWPROPSW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for OLEUIVIEWPROPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for OLEUIVIEWPROPSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEVERB {
     pub lVerb: OLEIVERB,
     pub lpszVerbName: windows_core::PWSTR,
@@ -14709,42 +15577,47 @@ pub struct OLEVERB {
     pub grfAttribs: u32,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for OLEVERB {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for OLEVERB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for OLEVERB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct OLE_HANDLE(pub u32);
-impl windows_core::TypeKind for OLE_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl OLE_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
     }
 }
+impl Default for OLE_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for OLE_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PAGERANGE {
     pub nFromPage: i32,
     pub nToPage: i32,
+}
+impl windows_core::TypeKind for PAGERANGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PAGERANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PAGERANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PAGESET {
     pub cbStruct: u32,
     pub fOddPages: super::super::Foundation::BOOL,
@@ -14752,20 +15625,24 @@ pub struct PAGESET {
     pub cPageRange: u32,
     pub rgPages: [PAGERANGE; 1],
 }
+impl windows_core::TypeKind for PAGESET {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PAGESET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PAGESET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PARAMDATA {
     pub szName: windows_core::PWSTR,
     pub vt: super::Variant::VARENUM,
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl windows_core::TypeKind for PARAMDATA {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for PARAMDATA {
@@ -14773,16 +15650,16 @@ impl Default for PARAMDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for PARAMDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PARAMDESC {
     pub pparamdescex: *mut PARAMDESCEX,
     pub wParamFlags: PARAMFLAGS,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for PARAMDESC {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl Default for PARAMDESC {
@@ -14790,16 +15667,21 @@ impl Default for PARAMDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for PARAMDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive()]
 pub struct PARAMDESCEX {
     pub cBytes: u32,
-    pub varDefaultValue: super::Variant::VARIANT,
+    pub varDefaultValue: core::mem::ManuallyDrop<super::Variant::VARIANT>,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl Clone for PARAMDESCEX {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for PARAMDESCEX {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl Default for PARAMDESCEX {
@@ -14807,17 +15689,17 @@ impl Default for PARAMDESCEX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for PARAMDESCEX {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PICTDESC {
     pub cbSizeofstruct: u32,
     pub picType: u32,
     pub Anonymous: PICTDESC_0,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PICTDESC {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PICTDESC {
@@ -14825,13 +15707,9 @@ impl Default for PICTDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PICTDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PICTDESC_0 {
     pub bmp: PICTDESC_0_0,
     pub wmf: PICTDESC_0_1,
@@ -14839,21 +15717,25 @@ pub union PICTDESC_0 {
     pub emf: PICTDESC_0_3,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PICTDESC_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PICTDESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PICTDESC_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PICTDESC_0_0 {
     pub hbitmap: super::super::Graphics::Gdi::HBITMAP,
     pub hpal: super::super::Graphics::Gdi::HPALETTE,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PICTDESC_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PICTDESC_0_0 {
@@ -14861,15 +15743,15 @@ impl Default for PICTDESC_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PICTDESC_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PICTDESC_0_3 {
     pub hemf: super::super::Graphics::Gdi::HENHMETAFILE,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PICTDESC_0_3 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PICTDESC_0_3 {
@@ -14877,15 +15759,15 @@ impl Default for PICTDESC_0_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PICTDESC_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PICTDESC_0_2 {
     pub hicon: super::super::UI::WindowsAndMessaging::HICON,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PICTDESC_0_2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PICTDESC_0_2 {
@@ -14893,17 +15775,17 @@ impl Default for PICTDESC_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PICTDESC_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PICTDESC_0_1 {
     pub hmeta: super::super::Graphics::Gdi::HMETAFILE,
     pub xExt: i32,
     pub yExt: i32,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PICTDESC_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PICTDESC_0_1 {
@@ -14911,26 +15793,22 @@ impl Default for PICTDESC_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PICTDESC_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POINTF {
     pub x: f32,
     pub y: f32,
+}
+impl windows_core::TypeKind for POINTF {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POINTF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POINTF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROPPAGEINFO {
     pub cb: u32,
     pub pszTitle: windows_core::PWSTR,
@@ -14939,17 +15817,17 @@ pub struct PROPPAGEINFO {
     pub pszHelpFile: windows_core::PWSTR,
     pub dwHelpContext: u32,
 }
+impl windows_core::TypeKind for PROPPAGEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PROPPAGEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROPPAGEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct QACONTAINER {
     pub cbSize: u32,
     pub pClientSite: core::mem::ManuallyDrop<Option<IOleClientSite>>,
@@ -14969,17 +15847,23 @@ pub struct QACONTAINER {
     pub pServiceProvider: core::mem::ManuallyDrop<Option<super::Com::IServiceProvider>>,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl Clone for QACONTAINER {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl windows_core::TypeKind for QACONTAINER {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl Default for QACONTAINER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-impl windows_core::TypeKind for QACONTAINER {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QACONTROL {
     pub cbSize: u32,
     pub dwMiscStatus: u32,
@@ -14988,20 +15872,24 @@ pub struct QACONTROL {
     pub dwPropNotifyCookie: u32,
     pub dwPointerActivationPolicy: u32,
 }
+impl windows_core::TypeKind for QACONTROL {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for QACONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QACONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SAFEARRAYUNION {
     pub sfType: u32,
     pub u: SAFEARRAYUNION_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for SAFEARRAYUNION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for SAFEARRAYUNION {
@@ -15009,13 +15897,9 @@ impl Default for SAFEARRAYUNION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SAFEARRAYUNION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SAFEARRAYUNION_0 {
     pub BstrStr: SAFEARR_BSTR,
     pub UnknownStr: SAFEARR_UNKNOWN,
@@ -15029,35 +15913,39 @@ pub union SAFEARRAYUNION_0 {
     pub HyperStr: super::Com::HYPER_SIZEDARR,
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for SAFEARRAYUNION_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl Default for SAFEARRAYUNION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SAFEARRAYUNION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFEARR_BRECORD {
     pub Size: u32,
     pub aRecord: *mut *mut _wireBRECORD,
+}
+impl windows_core::TypeKind for SAFEARR_BRECORD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SAFEARR_BRECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SAFEARR_BRECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFEARR_BSTR {
     pub Size: u32,
     pub aBstr: *mut *mut super::Com::FLAGGED_WORD_BLOB,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for SAFEARR_BSTR {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for SAFEARR_BSTR {
@@ -15065,16 +15953,16 @@ impl Default for SAFEARR_BSTR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SAFEARR_BSTR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFEARR_DISPATCH {
     pub Size: u32,
     pub apDispatch: *mut Option<super::Com::IDispatch>,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for SAFEARR_DISPATCH {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for SAFEARR_DISPATCH {
@@ -15082,45 +15970,45 @@ impl Default for SAFEARR_DISPATCH {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SAFEARR_DISPATCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFEARR_HAVEIID {
     pub Size: u32,
     pub apUnknown: *mut Option<windows_core::IUnknown>,
     pub iid: windows_core::GUID,
+}
+impl windows_core::TypeKind for SAFEARR_HAVEIID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SAFEARR_HAVEIID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SAFEARR_HAVEIID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFEARR_UNKNOWN {
     pub Size: u32,
     pub apUnknown: *mut Option<windows_core::IUnknown>,
+}
+impl windows_core::TypeKind for SAFEARR_UNKNOWN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SAFEARR_UNKNOWN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SAFEARR_UNKNOWN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFEARR_VARIANT {
     pub Size: u32,
     pub aVariant: *mut *mut _wireVARIANT,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for SAFEARR_VARIANT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for SAFEARR_VARIANT {
@@ -15128,43 +16016,44 @@ impl Default for SAFEARR_VARIANT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SAFEARR_VARIANT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UDATE {
     pub st: super::super::Foundation::SYSTEMTIME,
     pub wDayOfYear: u16,
+}
+impl windows_core::TypeKind for UDATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for UDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UDATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct _wireBRECORD {
     pub fFlags: u32,
     pub clSize: u32,
     pub pRecInfo: core::mem::ManuallyDrop<Option<IRecordInfo>>,
     pub pRecord: *mut u8,
 }
+impl Clone for _wireBRECORD {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl windows_core::TypeKind for _wireBRECORD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for _wireBRECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for _wireBRECORD {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct _wireSAFEARRAY {
     pub cDims: u16,
     pub fFeatures: u16,
@@ -15174,18 +16063,17 @@ pub struct _wireSAFEARRAY {
     pub rgsabound: [super::Com::SAFEARRAYBOUND; 1],
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for _wireSAFEARRAY {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl Default for _wireSAFEARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for _wireSAFEARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive()]
 pub struct _wireVARIANT {
     pub clSize: u32,
     pub rpcReserved: u32,
@@ -15196,18 +16084,23 @@ pub struct _wireVARIANT {
     pub Anonymous: _wireVARIANT_0,
 }
 #[cfg(feature = "Win32_System_Com")]
+impl Clone for _wireVARIANT {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for _wireVARIANT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
 impl Default for _wireVARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for _wireVARIANT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive()]
 pub union _wireVARIANT_0 {
     pub llVal: i64,
     pub lVal: i32,
@@ -15255,14 +16148,20 @@ pub union _wireVARIANT_0 {
     pub puintVal: *mut u32,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for _wireVARIANT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
+impl Clone for _wireVARIANT_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for _wireVARIANT_0 {
-    type TypeKind = windows_core::CloneType;
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for _wireVARIANT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type LPFNOLEUIHOOK = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> u32>;
 pub type OLESTREAMQUERYCONVERTOLELINKCALLBACK = Option<unsafe extern "system" fn(pclsid: *const windows_core::GUID, szclass: windows_core::PCWSTR, sztopicname: windows_core::PCWSTR, szitemname: windows_core::PCWSTR, szuncname: windows_core::PCWSTR, linkupdatingoption: u32, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT>;

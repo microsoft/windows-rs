@@ -43,7 +43,6 @@ pub struct IAutomationTextRange_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AutomationConnection, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AutomationConnection,);
 impl AutomationConnection {
     pub fn IsRemoteSystem(&self) -> bool {
         let this = self;
@@ -73,17 +72,18 @@ impl windows_core::RuntimeType for AutomationConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutomationConnection>();
 }
 unsafe impl windows_core::Interface for AutomationConnection {
-    type Vtable = <IAutomationConnection as windows_core::Interface>::Vtable;
+    type Vtable = IAutomationConnection_Vtbl;
     const IID: windows_core::GUID = <IAutomationConnection as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AutomationConnection {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationConnection";
 }
+unsafe impl Send for AutomationConnection {}
+unsafe impl Sync for AutomationConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationConnectionBoundObject(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AutomationConnectionBoundObject, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AutomationConnectionBoundObject,);
 impl AutomationConnectionBoundObject {
     pub fn Connection(&self) -> windows_core::Result<AutomationConnection> {
         let this = self;
@@ -97,17 +97,18 @@ impl windows_core::RuntimeType for AutomationConnectionBoundObject {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutomationConnectionBoundObject>();
 }
 unsafe impl windows_core::Interface for AutomationConnectionBoundObject {
-    type Vtable = <IAutomationConnectionBoundObject as windows_core::Interface>::Vtable;
+    type Vtable = IAutomationConnectionBoundObject_Vtbl;
     const IID: windows_core::GUID = <IAutomationConnectionBoundObject as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AutomationConnectionBoundObject {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationConnectionBoundObject";
 }
+unsafe impl Send for AutomationConnectionBoundObject {}
+unsafe impl Sync for AutomationConnectionBoundObject {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationElement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AutomationElement, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AutomationElement,);
 impl AutomationElement {
     pub fn IsRemoteSystem(&self) -> bool {
         let this = self;
@@ -137,25 +138,28 @@ impl windows_core::RuntimeType for AutomationElement {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutomationElement>();
 }
 unsafe impl windows_core::Interface for AutomationElement {
-    type Vtable = <IAutomationElement as windows_core::Interface>::Vtable;
+    type Vtable = IAutomationElement_Vtbl;
     const IID: windows_core::GUID = <IAutomationElement as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AutomationElement {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationElement";
 }
+unsafe impl Send for AutomationElement {}
+unsafe impl Sync for AutomationElement {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationTextRange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AutomationTextRange, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AutomationTextRange,);
 impl AutomationTextRange {}
 impl windows_core::RuntimeType for AutomationTextRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutomationTextRange>();
 }
 unsafe impl windows_core::Interface for AutomationTextRange {
-    type Vtable = <IAutomationTextRange as windows_core::Interface>::Vtable;
+    type Vtable = IAutomationTextRange_Vtbl;
     const IID: windows_core::GUID = <IAutomationTextRange as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AutomationTextRange {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationTextRange";
 }
+unsafe impl Send for AutomationTextRange {}
+unsafe impl Sync for AutomationTextRange {}

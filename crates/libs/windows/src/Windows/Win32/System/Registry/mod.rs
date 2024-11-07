@@ -85,46 +85,46 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RegCreateKeyExA<P0, P1, P3>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P3, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: Option<*mut REG_CREATE_KEY_DISPOSITION>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegCreateKeyExA<P0, P1, P2>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: Option<*mut REG_CREATE_KEY_DISPOSITION>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<HKEY>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegCreateKeyExA(hkey : HKEY, lpsubkey : windows_core::PCSTR, reserved : u32, lpclass : windows_core::PCSTR, dwoptions : REG_OPEN_CREATE_OPTIONS, samdesired : REG_SAM_FLAGS, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut HKEY, lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation:: WIN32_ERROR);
     RegCreateKeyExA(hkey.param().abi(), lpsubkey.param().abi(), reserved, lpclass.param().abi(), dwoptions, samdesired, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), phkresult, core::mem::transmute(lpdwdisposition.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RegCreateKeyExW<P0, P1, P3>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P3, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: Option<*mut REG_CREATE_KEY_DISPOSITION>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegCreateKeyExW<P0, P1, P2>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: Option<*mut REG_CREATE_KEY_DISPOSITION>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<HKEY>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegCreateKeyExW(hkey : HKEY, lpsubkey : windows_core::PCWSTR, reserved : u32, lpclass : windows_core::PCWSTR, dwoptions : REG_OPEN_CREATE_OPTIONS, samdesired : REG_SAM_FLAGS, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut HKEY, lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation:: WIN32_ERROR);
     RegCreateKeyExW(hkey.param().abi(), lpsubkey.param().abi(), reserved, lpclass.param().abi(), dwoptions, samdesired, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), phkresult, core::mem::transmute(lpdwdisposition.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RegCreateKeyTransactedA<P0, P1, P3, P9>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P3, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: Option<*mut REG_CREATE_KEY_DISPOSITION>, htransaction: P9, pextendedparemeter: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegCreateKeyTransactedA<P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: Option<*mut REG_CREATE_KEY_DISPOSITION>, htransaction: P3, pextendedparemeter: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<HKEY>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-    P9: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegCreateKeyTransactedA(hkey : HKEY, lpsubkey : windows_core::PCSTR, reserved : u32, lpclass : windows_core::PCSTR, dwoptions : REG_OPEN_CREATE_OPTIONS, samdesired : REG_SAM_FLAGS, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut HKEY, lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION, htransaction : super::super::Foundation:: HANDLE, pextendedparemeter : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     RegCreateKeyTransactedA(hkey.param().abi(), lpsubkey.param().abi(), reserved, lpclass.param().abi(), dwoptions, samdesired, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), phkresult, core::mem::transmute(lpdwdisposition.unwrap_or(core::ptr::null_mut())), htransaction.param().abi(), core::mem::transmute(pextendedparemeter.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RegCreateKeyTransactedW<P0, P1, P3, P9>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P3, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: Option<*mut REG_CREATE_KEY_DISPOSITION>, htransaction: P9, pextendedparemeter: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegCreateKeyTransactedW<P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: Option<*mut REG_CREATE_KEY_DISPOSITION>, htransaction: P3, pextendedparemeter: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<HKEY>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P9: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegCreateKeyTransactedW(hkey : HKEY, lpsubkey : windows_core::PCWSTR, reserved : u32, lpclass : windows_core::PCWSTR, dwoptions : REG_OPEN_CREATE_OPTIONS, samdesired : REG_SAM_FLAGS, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut HKEY, lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION, htransaction : super::super::Foundation:: HANDLE, pextendedparemeter : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     RegCreateKeyTransactedW(hkey.param().abi(), lpsubkey.param().abi(), reserved, lpclass.param().abi(), dwoptions, samdesired, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), phkresult, core::mem::transmute(lpdwdisposition.unwrap_or(core::ptr::null_mut())), htransaction.param().abi(), core::mem::transmute(pextendedparemeter.unwrap_or(core::ptr::null())))
@@ -166,21 +166,21 @@ where
     RegDeleteKeyExW(hkey.param().abi(), lpsubkey.param().abi(), samdesired, reserved)
 }
 #[inline]
-pub unsafe fn RegDeleteKeyTransactedA<P0, P1, P4>(hkey: P0, lpsubkey: P1, samdesired: u32, reserved: u32, htransaction: P4, pextendedparameter: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegDeleteKeyTransactedA<P0, P1, P2>(hkey: P0, lpsubkey: P1, samdesired: u32, reserved: u32, htransaction: P2, pextendedparameter: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<HKEY>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegDeleteKeyTransactedA(hkey : HKEY, lpsubkey : windows_core::PCSTR, samdesired : u32, reserved : u32, htransaction : super::super::Foundation:: HANDLE, pextendedparameter : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     RegDeleteKeyTransactedA(hkey.param().abi(), lpsubkey.param().abi(), samdesired, reserved, htransaction.param().abi(), core::mem::transmute(pextendedparameter.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn RegDeleteKeyTransactedW<P0, P1, P4>(hkey: P0, lpsubkey: P1, samdesired: u32, reserved: u32, htransaction: P4, pextendedparameter: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegDeleteKeyTransactedW<P0, P1, P2>(hkey: P0, lpsubkey: P1, samdesired: u32, reserved: u32, htransaction: P2, pextendedparameter: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<HKEY>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegDeleteKeyTransactedW(hkey : HKEY, lpsubkey : windows_core::PCWSTR, samdesired : u32, reserved : u32, htransaction : super::super::Foundation:: HANDLE, pextendedparameter : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     RegDeleteKeyTransactedW(hkey.param().abi(), lpsubkey.param().abi(), samdesired, reserved, htransaction.param().abi(), core::mem::transmute(pextendedparameter.unwrap_or(core::ptr::null())))
@@ -398,32 +398,32 @@ where
     RegLoadKeyW(hkey.param().abi(), lpsubkey.param().abi(), lpfile.param().abi())
 }
 #[inline]
-pub unsafe fn RegLoadMUIStringA<P0, P1, P6>(hkey: P0, pszvalue: P1, pszoutbuf: Option<&mut [u8]>, pcbdata: Option<*mut u32>, flags: u32, pszdirectory: P6) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegLoadMUIStringA<P0, P1, P2>(hkey: P0, pszvalue: P1, pszoutbuf: Option<&mut [u8]>, pcbdata: Option<*mut u32>, flags: u32, pszdirectory: P2) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<HKEY>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P6: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegLoadMUIStringA(hkey : HKEY, pszvalue : windows_core::PCSTR, pszoutbuf : windows_core::PSTR, cboutbuf : u32, pcbdata : *mut u32, flags : u32, pszdirectory : windows_core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
     RegLoadMUIStringA(hkey.param().abi(), pszvalue.param().abi(), core::mem::transmute(pszoutbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszoutbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())), flags, pszdirectory.param().abi())
 }
 #[inline]
-pub unsafe fn RegLoadMUIStringW<P0, P1, P6>(hkey: P0, pszvalue: P1, pszoutbuf: windows_core::PWSTR, cboutbuf: u32, pcbdata: Option<*mut u32>, flags: u32, pszdirectory: P6) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegLoadMUIStringW<P0, P1, P2>(hkey: P0, pszvalue: P1, pszoutbuf: windows_core::PWSTR, cboutbuf: u32, pcbdata: Option<*mut u32>, flags: u32, pszdirectory: P2) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<HKEY>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P6: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegLoadMUIStringW(hkey : HKEY, pszvalue : windows_core::PCWSTR, pszoutbuf : windows_core::PWSTR, cboutbuf : u32, pcbdata : *mut u32, flags : u32, pszdirectory : windows_core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
     RegLoadMUIStringW(hkey.param().abi(), pszvalue.param().abi(), core::mem::transmute(pszoutbuf), cboutbuf, core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())), flags, pszdirectory.param().abi())
 }
 #[inline]
-pub unsafe fn RegNotifyChangeKeyValue<P0, P1, P3, P4>(hkey: P0, bwatchsubtree: P1, dwnotifyfilter: REG_NOTIFY_FILTER, hevent: P3, fasynchronous: P4) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegNotifyChangeKeyValue<P0, P1, P2, P3>(hkey: P0, bwatchsubtree: P1, dwnotifyfilter: REG_NOTIFY_FILTER, hevent: P2, fasynchronous: P3) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<HKEY>,
     P1: windows_core::Param<super::super::Foundation::BOOL>,
-    P3: windows_core::Param<super::super::Foundation::HANDLE>,
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegNotifyChangeKeyValue(hkey : HKEY, bwatchsubtree : super::super::Foundation:: BOOL, dwnotifyfilter : REG_NOTIFY_FILTER, hevent : super::super::Foundation:: HANDLE, fasynchronous : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
     RegNotifyChangeKeyValue(hkey.param().abi(), bwatchsubtree.param().abi(), dwnotifyfilter, hevent.param().abi(), fasynchronous.param().abi())
@@ -461,21 +461,21 @@ where
     RegOpenKeyExW(hkey.param().abi(), lpsubkey.param().abi(), uloptions, samdesired, phkresult)
 }
 #[inline]
-pub unsafe fn RegOpenKeyTransactedA<P0, P1, P5>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: P5, pextendedparemeter: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegOpenKeyTransactedA<P0, P1, P2>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: P2, pextendedparemeter: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<HKEY>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P5: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegOpenKeyTransactedA(hkey : HKEY, lpsubkey : windows_core::PCSTR, uloptions : u32, samdesired : REG_SAM_FLAGS, phkresult : *mut HKEY, htransaction : super::super::Foundation:: HANDLE, pextendedparemeter : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     RegOpenKeyTransactedA(hkey.param().abi(), lpsubkey.param().abi(), uloptions, samdesired, phkresult, htransaction.param().abi(), core::mem::transmute(pextendedparemeter.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn RegOpenKeyTransactedW<P0, P1, P5>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: P5, pextendedparemeter: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegOpenKeyTransactedW<P0, P1, P2>(hkey: P0, lpsubkey: P1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: P2, pextendedparemeter: Option<*const core::ffi::c_void>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<HKEY>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegOpenKeyTransactedW(hkey : HKEY, lpsubkey : windows_core::PCWSTR, uloptions : u32, samdesired : REG_SAM_FLAGS, phkresult : *mut HKEY, htransaction : super::super::Foundation:: HANDLE, pextendedparemeter : *const core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     RegOpenKeyTransactedW(hkey.param().abi(), lpsubkey.param().abi(), uloptions, samdesired, phkresult, htransaction.param().abi(), core::mem::transmute(pextendedparemeter.unwrap_or(core::ptr::null())))
@@ -700,10 +700,10 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RegSetKeySecurity<P0, P2>(hkey: P0, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P2) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegSetKeySecurity<P0, P1>(hkey: P0, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P1) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<HKEY>,
-    P2: windows_core::Param<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegSetKeySecurity(hkey : HKEY, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: WIN32_ERROR);
     RegSetKeySecurity(hkey.param().abi(), securityinformation, psecuritydescriptor.param().abi())
@@ -756,11 +756,11 @@ where
     RegSetValueExW(hkey.param().abi(), lpvaluename.param().abi(), reserved, dwtype, core::mem::transmute(lpdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
-pub unsafe fn RegSetValueW<P0, P1, P3>(hkey: P0, lpsubkey: P1, dwtype: REG_VALUE_TYPE, lpdata: P3, cbdata: u32) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegSetValueW<P0, P1, P2>(hkey: P0, lpsubkey: P1, dwtype: REG_VALUE_TYPE, lpdata: P2, cbdata: u32) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<HKEY>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn RegSetValueW(hkey : HKEY, lpsubkey : windows_core::PCWSTR, dwtype : REG_VALUE_TYPE, lpdata : windows_core::PCWSTR, cbdata : u32) -> super::super::Foundation:: WIN32_ERROR);
     RegSetValueW(hkey.param().abi(), lpsubkey.param().abi(), dwtype, lpdata.param().abi(), cbdata)
@@ -1733,16 +1733,26 @@ pub const VPDF_FORCEAPM10MODE: u32 = 2u32;
 pub const VPDF_SHOWMULTIBATT: u32 = 32u32;
 pub const VPDF_SKIPINTELSLCHECK: u32 = 4u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct REG_CREATE_KEY_DISPOSITION(pub u32);
 impl windows_core::TypeKind for REG_CREATE_KEY_DISPOSITION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for REG_CREATE_KEY_DISPOSITION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("REG_CREATE_KEY_DISPOSITION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct REG_NOTIFY_FILTER(pub u32);
 impl windows_core::TypeKind for REG_NOTIFY_FILTER {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for REG_NOTIFY_FILTER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("REG_NOTIFY_FILTER").field(&self.0).finish()
+    }
 }
 impl REG_NOTIFY_FILTER {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1778,10 +1788,15 @@ impl core::ops::Not for REG_NOTIFY_FILTER {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct REG_OPEN_CREATE_OPTIONS(pub u32);
 impl windows_core::TypeKind for REG_OPEN_CREATE_OPTIONS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for REG_OPEN_CREATE_OPTIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("REG_OPEN_CREATE_OPTIONS").field(&self.0).finish()
+    }
 }
 impl REG_OPEN_CREATE_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1817,16 +1832,26 @@ impl core::ops::Not for REG_OPEN_CREATE_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct REG_RESTORE_KEY_FLAGS(pub i32);
 impl windows_core::TypeKind for REG_RESTORE_KEY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for REG_RESTORE_KEY_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("REG_RESTORE_KEY_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct REG_ROUTINE_FLAGS(pub u32);
 impl windows_core::TypeKind for REG_ROUTINE_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for REG_ROUTINE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("REG_ROUTINE_FLAGS").field(&self.0).finish()
+    }
 }
 impl REG_ROUTINE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1862,10 +1887,15 @@ impl core::ops::Not for REG_ROUTINE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct REG_SAM_FLAGS(pub u32);
 impl windows_core::TypeKind for REG_SAM_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for REG_SAM_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("REG_SAM_FLAGS").field(&self.0).finish()
+    }
 }
 impl REG_SAM_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1901,19 +1931,29 @@ impl core::ops::Not for REG_SAM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct REG_SAVE_FORMAT(pub u32);
 impl windows_core::TypeKind for REG_SAVE_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for REG_SAVE_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("REG_SAVE_FORMAT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct REG_VALUE_TYPE(pub u32);
 impl windows_core::TypeKind for REG_VALUE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for REG_VALUE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("REG_VALUE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSKTLSYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -1925,20 +1965,17 @@ pub struct DSKTLSYSTEMTIME {
     pub wMilliseconds: u16,
     pub wResult: u16,
 }
+impl windows_core::TypeKind for DSKTLSYSTEMTIME {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DSKTLSYSTEMTIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSKTLSYSTEMTIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HKEY(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HKEY {
-    type TypeKind = windows_core::CopyType;
-}
 impl HKEY {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1948,8 +1985,7 @@ impl windows_core::Free for HKEY {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("advapi32.dll" "system" fn RegCloseKey(hkey : *mut core::ffi::c_void) -> u32);
-            RegCloseKey(self.0);
+            _ = RegCloseKey(*self);
         }
     }
 }
@@ -1958,40 +1994,43 @@ impl Default for HKEY {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HKEY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PVALUEA {
     pub pv_valuename: windows_core::PSTR,
     pub pv_valuelen: i32,
     pub pv_value_context: *mut core::ffi::c_void,
     pub pv_type: u32,
 }
+impl windows_core::TypeKind for PVALUEA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PVALUEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PVALUEA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PVALUEW {
     pub pv_valuename: windows_core::PWSTR,
     pub pv_valuelen: i32,
     pub pv_value_context: *mut core::ffi::c_void,
     pub pv_type: u32,
 }
+impl windows_core::TypeKind for PVALUEW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PVALUEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PVALUEW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_PROVIDER {
     pub pi_R0_1val: PQUERYHANDLER,
     pub pi_R0_allvals: PQUERYHANDLER,
@@ -2000,59 +2039,59 @@ pub struct REG_PROVIDER {
     pub pi_flags: u32,
     pub pi_key_context: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for REG_PROVIDER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_PROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_PROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VALENTA {
     pub ve_valuename: windows_core::PSTR,
     pub ve_valuelen: u32,
     pub ve_valueptr: usize,
     pub ve_type: REG_VALUE_TYPE,
 }
+impl windows_core::TypeKind for VALENTA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for VALENTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VALENTA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VALENTW {
     pub ve_valuename: windows_core::PWSTR,
     pub ve_valuelen: u32,
     pub ve_valueptr: usize,
     pub ve_type: REG_VALUE_TYPE,
 }
+impl windows_core::TypeKind for VALENTW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for VALENTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VALENTW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct val_context {
     pub valuelen: i32,
     pub value_context: *mut core::ffi::c_void,
     pub val_buff_ptr: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for val_context {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for val_context {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for val_context {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PQUERYHANDLER = Option<unsafe extern "system" fn(keycontext: *mut core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;

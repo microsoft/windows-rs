@@ -56,13 +56,10 @@ pub struct IGameChatOverlayStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::define_interface!(IGameUIProviderActivatedEventArgs, IGameUIProviderActivatedEventArgs_Vtbl, 0xa7b3203e_caf7_4ded_bbd2_47de43bb6dd5);
-#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for IGameUIProviderActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
 pub struct IGameUIProviderActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -125,7 +122,6 @@ impl windows_core::RuntimeName for GameBar {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameChatMessageReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameChatMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameChatMessageReceivedEventArgs,);
 impl GameChatMessageReceivedEventArgs {
     pub fn AppId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -167,17 +163,18 @@ impl windows_core::RuntimeType for GameChatMessageReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameChatMessageReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for GameChatMessageReceivedEventArgs {
-    type Vtable = <IGameChatMessageReceivedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IGameChatMessageReceivedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IGameChatMessageReceivedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameChatMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatMessageReceivedEventArgs";
 }
+unsafe impl Send for GameChatMessageReceivedEventArgs {}
+unsafe impl Sync for GameChatMessageReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameChatOverlay(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameChatOverlay, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameChatOverlay,);
 impl GameChatOverlay {
     pub fn DesiredPosition(&self) -> windows_core::Result<GameChatOverlayPosition> {
         let this = self;
@@ -209,17 +206,18 @@ impl windows_core::RuntimeType for GameChatOverlay {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameChatOverlay>();
 }
 unsafe impl windows_core::Interface for GameChatOverlay {
-    type Vtable = <IGameChatOverlay as windows_core::Interface>::Vtable;
+    type Vtable = IGameChatOverlay_Vtbl;
     const IID: windows_core::GUID = <IGameChatOverlay as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameChatOverlay {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlay";
 }
+unsafe impl Send for GameChatOverlay {}
+unsafe impl Sync for GameChatOverlay {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameChatOverlayMessageSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameChatOverlayMessageSource, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameChatOverlayMessageSource,);
 impl GameChatOverlayMessageSource {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -251,21 +249,20 @@ impl windows_core::RuntimeType for GameChatOverlayMessageSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameChatOverlayMessageSource>();
 }
 unsafe impl windows_core::Interface for GameChatOverlayMessageSource {
-    type Vtable = <IGameChatOverlayMessageSource as windows_core::Interface>::Vtable;
+    type Vtable = IGameChatOverlayMessageSource_Vtbl;
     const IID: windows_core::GUID = <IGameChatOverlayMessageSource as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameChatOverlayMessageSource {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlayMessageSource";
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Send for GameChatOverlayMessageSource {}
+unsafe impl Sync for GameChatOverlayMessageSource {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameUIProviderActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(GameUIProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::required_hierarchy!(GameUIProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs);
-#[cfg(feature = "ApplicationModel_Activation")]
 impl GameUIProviderActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
@@ -308,21 +305,20 @@ impl GameUIProviderActivatedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this), results.param().abi()).ok() }
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for GameUIProviderActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameUIProviderActivatedEventArgs>();
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for GameUIProviderActivatedEventArgs {
-    type Vtable = <IGameUIProviderActivatedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IGameUIProviderActivatedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IGameUIProviderActivatedEventArgs as windows_core::Interface>::IID;
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeName for GameUIProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameUIProviderActivatedEventArgs";
 }
+unsafe impl Send for GameUIProviderActivatedEventArgs {}
+unsafe impl Sync for GameUIProviderActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GameChatMessageOrigin(pub i32);
 impl GameChatMessageOrigin {
     pub const Voice: Self = Self(0i32);
@@ -331,11 +327,16 @@ impl GameChatMessageOrigin {
 impl windows_core::TypeKind for GameChatMessageOrigin {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for GameChatMessageOrigin {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GameChatMessageOrigin").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for GameChatMessageOrigin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatMessageOrigin;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GameChatOverlayPosition(pub i32);
 impl GameChatOverlayPosition {
     pub const BottomCenter: Self = Self(0i32);
@@ -349,6 +350,11 @@ impl GameChatOverlayPosition {
 }
 impl windows_core::TypeKind for GameChatOverlayPosition {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for GameChatOverlayPosition {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GameChatOverlayPosition").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for GameChatOverlayPosition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatOverlayPosition;i4)");

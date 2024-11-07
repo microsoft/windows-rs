@@ -86,6 +86,12 @@ pub unsafe fn IsProcessInWDAGContainer(reserved: *const core::ffi::c_void) -> wi
     IsProcessInWDAGContainer(reserved, &mut result__).map(|| result__)
 }
 windows_core::imp::define_interface!(IIsolatedAppLauncher, IIsolatedAppLauncher_Vtbl, 0xf686878f_7b42_4cc4_96fb_f4f3b6e3d24d);
+impl core::ops::Deref for IIsolatedAppLauncher {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IIsolatedAppLauncher, windows_core::IUnknown);
 impl IIsolatedAppLauncher {
     pub unsafe fn Launch<P0, P1>(&self, appusermodelid: P0, arguments: P1, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> windows_core::Result<()>
@@ -101,11 +107,12 @@ pub struct IIsolatedAppLauncher_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Launch: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const IsolatedAppLauncherTelemetryParameters) -> windows_core::HRESULT,
 }
-pub trait IIsolatedAppLauncher_Impl: windows_core::IUnknownImpl {
+pub trait IIsolatedAppLauncher_Impl: Sized + windows_core::IUnknownImpl {
     fn Launch(&self, appusermodelid: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IIsolatedAppLauncher {}
 impl IIsolatedAppLauncher_Vtbl {
-    pub const fn new<Identity: IIsolatedAppLauncher_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IIsolatedAppLauncher_Impl, const OFFSET: isize>() -> IIsolatedAppLauncher_Vtbl {
         unsafe extern "system" fn Launch<Identity: IIsolatedAppLauncher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appusermodelid: windows_core::PCWSTR, arguments: windows_core::PCWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IIsolatedAppLauncher_Impl::Launch(this, core::mem::transmute(&appusermodelid), core::mem::transmute(&arguments), core::mem::transmute_copy(&telemetryparameters)).into()
@@ -116,8 +123,13 @@ impl IIsolatedAppLauncher_Vtbl {
         iid == &<IIsolatedAppLauncher as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IIsolatedAppLauncher {}
 windows_core::imp::define_interface!(IIsolatedProcessLauncher, IIsolatedProcessLauncher_Vtbl, 0x1aa24232_9a91_4201_88cb_122f9d6522e0);
+impl core::ops::Deref for IIsolatedProcessLauncher {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IIsolatedProcessLauncher, windows_core::IUnknown);
 impl IIsolatedProcessLauncher {
     pub unsafe fn LaunchProcess<P0, P1, P2>(&self, process: P0, arguments: P1, workingdirectory: P2) -> windows_core::Result<()>
@@ -157,15 +169,16 @@ pub struct IIsolatedProcessLauncher_Vtbl {
     pub AllowSetForegroundAccess: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub IsContainerRunning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IIsolatedProcessLauncher_Impl: windows_core::IUnknownImpl {
+pub trait IIsolatedProcessLauncher_Impl: Sized + windows_core::IUnknownImpl {
     fn LaunchProcess(&self, process: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, workingdirectory: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn ShareDirectory(&self, hostpath: &windows_core::PCWSTR, containerpath: &windows_core::PCWSTR, readonly: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn GetContainerGuid(&self) -> windows_core::Result<windows_core::GUID>;
     fn AllowSetForegroundAccess(&self, pid: u32) -> windows_core::Result<()>;
     fn IsContainerRunning(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
 }
+impl windows_core::RuntimeName for IIsolatedProcessLauncher {}
 impl IIsolatedProcessLauncher_Vtbl {
-    pub const fn new<Identity: IIsolatedProcessLauncher_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IIsolatedProcessLauncher_Impl, const OFFSET: isize>() -> IIsolatedProcessLauncher_Vtbl {
         unsafe extern "system" fn LaunchProcess<Identity: IIsolatedProcessLauncher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, process: windows_core::PCWSTR, arguments: windows_core::PCWSTR, workingdirectory: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IIsolatedProcessLauncher_Impl::LaunchProcess(this, core::mem::transmute(&process), core::mem::transmute(&arguments), core::mem::transmute(&workingdirectory)).into()
@@ -211,7 +224,6 @@ impl IIsolatedProcessLauncher_Vtbl {
         iid == &<IIsolatedProcessLauncher as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IIsolatedProcessLauncher {}
 windows_core::imp::define_interface!(IIsolatedProcessLauncher2, IIsolatedProcessLauncher2_Vtbl, 0x780e4416_5e72_4123_808e_66dc6479feef);
 impl core::ops::Deref for IIsolatedProcessLauncher2 {
     type Target = IIsolatedProcessLauncher;
@@ -235,11 +247,12 @@ pub struct IIsolatedProcessLauncher2_Vtbl {
     pub base__: IIsolatedProcessLauncher_Vtbl,
     pub LaunchProcess2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,
 }
-pub trait IIsolatedProcessLauncher2_Impl: IIsolatedProcessLauncher_Impl {
+pub trait IIsolatedProcessLauncher2_Impl: Sized + IIsolatedProcessLauncher_Impl {
     fn LaunchProcess2(&self, process: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, workingdirectory: &windows_core::PCWSTR, correlationguid: *const windows_core::GUID) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IIsolatedProcessLauncher2 {}
 impl IIsolatedProcessLauncher2_Vtbl {
-    pub const fn new<Identity: IIsolatedProcessLauncher2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IIsolatedProcessLauncher2_Impl, const OFFSET: isize>() -> IIsolatedProcessLauncher2_Vtbl {
         unsafe extern "system" fn LaunchProcess2<Identity: IIsolatedProcessLauncher2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, process: windows_core::PCWSTR, arguments: windows_core::PCWSTR, workingdirectory: windows_core::PCWSTR, correlationguid: *const windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IIsolatedProcessLauncher2_Impl::LaunchProcess2(this, core::mem::transmute(&process), core::mem::transmute(&arguments), core::mem::transmute(&workingdirectory), core::mem::transmute_copy(&correlationguid)).into()
@@ -247,23 +260,22 @@ impl IIsolatedProcessLauncher2_Vtbl {
         Self { base__: IIsolatedProcessLauncher_Vtbl::new::<Identity, OFFSET>(), LaunchProcess2: LaunchProcess2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IIsolatedProcessLauncher2 as windows_core::Interface>::IID
+        iid == &<IIsolatedProcessLauncher2 as windows_core::Interface>::IID || iid == &<IIsolatedProcessLauncher as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IIsolatedProcessLauncher2 {}
 pub const WDAG_CLIPBOARD_TAG: windows_core::PCWSTR = windows_core::w!("CrossIsolatedEnvironmentContent");
 pub const IsolatedAppLauncher: windows_core::GUID = windows_core::GUID::from_u128(0xbc812430_e75e_4fd1_9641_1f9f1e2d9a1f);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IsolatedAppLauncherTelemetryParameters {
     pub EnableForLaunch: super::super::Foundation::BOOL,
     pub CorrelationGUID: windows_core::GUID,
+}
+impl windows_core::TypeKind for IsolatedAppLauncherTelemetryParameters {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IsolatedAppLauncherTelemetryParameters {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for IsolatedAppLauncherTelemetryParameters {
-    type TypeKind = windows_core::CopyType;
 }

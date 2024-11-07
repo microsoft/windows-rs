@@ -77,7 +77,6 @@ pub struct IOcrWord_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OcrEngine(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OcrEngine, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(OcrEngine,);
 impl OcrEngine {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn RecognizeAsync<P0>(&self, bitmap: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<OcrResult>>
@@ -146,17 +145,18 @@ impl windows_core::RuntimeType for OcrEngine {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrEngine>();
 }
 unsafe impl windows_core::Interface for OcrEngine {
-    type Vtable = <IOcrEngine as windows_core::Interface>::Vtable;
+    type Vtable = IOcrEngine_Vtbl;
     const IID: windows_core::GUID = <IOcrEngine as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for OcrEngine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrEngine";
 }
+unsafe impl Send for OcrEngine {}
+unsafe impl Sync for OcrEngine {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OcrLine(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OcrLine, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(OcrLine,);
 impl OcrLine {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Words(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<OcrWord>> {
@@ -178,17 +178,18 @@ impl windows_core::RuntimeType for OcrLine {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrLine>();
 }
 unsafe impl windows_core::Interface for OcrLine {
-    type Vtable = <IOcrLine as windows_core::Interface>::Vtable;
+    type Vtable = IOcrLine_Vtbl;
     const IID: windows_core::GUID = <IOcrLine as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for OcrLine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrLine";
 }
+unsafe impl Send for OcrLine {}
+unsafe impl Sync for OcrLine {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OcrResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OcrResult, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(OcrResult,);
 impl OcrResult {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lines(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<OcrLine>> {
@@ -217,17 +218,18 @@ impl windows_core::RuntimeType for OcrResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrResult>();
 }
 unsafe impl windows_core::Interface for OcrResult {
-    type Vtable = <IOcrResult as windows_core::Interface>::Vtable;
+    type Vtable = IOcrResult_Vtbl;
     const IID: windows_core::GUID = <IOcrResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for OcrResult {
     const NAME: &'static str = "Windows.Media.Ocr.OcrResult";
 }
+unsafe impl Send for OcrResult {}
+unsafe impl Sync for OcrResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OcrWord(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OcrWord, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(OcrWord,);
 impl OcrWord {
     pub fn BoundingRect(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -248,9 +250,11 @@ impl windows_core::RuntimeType for OcrWord {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrWord>();
 }
 unsafe impl windows_core::Interface for OcrWord {
-    type Vtable = <IOcrWord as windows_core::Interface>::Vtable;
+    type Vtable = IOcrWord_Vtbl;
     const IID: windows_core::GUID = <IOcrWord as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for OcrWord {
     const NAME: &'static str = "Windows.Media.Ocr.OcrWord";
 }
+unsafe impl Send for OcrWord {}
+unsafe impl Sync for OcrWord {}

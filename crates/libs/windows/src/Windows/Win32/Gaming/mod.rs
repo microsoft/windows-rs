@@ -193,6 +193,12 @@ pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
     TryCancelPendingGameUI()
 }
 windows_core::imp::define_interface!(IGameExplorer, IGameExplorer_Vtbl, 0xe7b2fb72_d728_49b3_a5f2_18ebf5f1349e);
+impl core::ops::Deref for IGameExplorer {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGameExplorer, windows_core::IUnknown);
 impl IGameExplorer {
     pub unsafe fn AddGame<P0, P1>(&self, bstrgdfbinarypath: P0, bstrgameinstalldirectory: P1, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut windows_core::GUID) -> windows_core::Result<()>
@@ -224,14 +230,15 @@ pub struct IGameExplorer_Vtbl {
     pub UpdateGame: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
     pub VerifyAccess: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IGameExplorer_Impl: windows_core::IUnknownImpl {
+pub trait IGameExplorer_Impl: Sized + windows_core::IUnknownImpl {
     fn AddGame(&self, bstrgdfbinarypath: &windows_core::BSTR, bstrgameinstalldirectory: &windows_core::BSTR, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn RemoveGame(&self, guidinstanceid: &windows_core::GUID) -> windows_core::Result<()>;
     fn UpdateGame(&self, guidinstanceid: &windows_core::GUID) -> windows_core::Result<()>;
     fn VerifyAccess(&self, bstrgdfbinarypath: &windows_core::BSTR) -> windows_core::Result<super::Foundation::BOOL>;
 }
+impl windows_core::RuntimeName for IGameExplorer {}
 impl IGameExplorer_Vtbl {
-    pub const fn new<Identity: IGameExplorer_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IGameExplorer_Impl, const OFFSET: isize>() -> IGameExplorer_Vtbl {
         unsafe extern "system" fn AddGame<Identity: IGameExplorer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgdfbinarypath: core::mem::MaybeUninit<windows_core::BSTR>, bstrgameinstalldirectory: core::mem::MaybeUninit<windows_core::BSTR>, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGameExplorer_Impl::AddGame(this, core::mem::transmute(&bstrgdfbinarypath), core::mem::transmute(&bstrgameinstalldirectory), core::mem::transmute_copy(&installscope), core::mem::transmute_copy(&pguidinstanceid)).into()
@@ -266,8 +273,13 @@ impl IGameExplorer_Vtbl {
         iid == &<IGameExplorer as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IGameExplorer {}
 windows_core::imp::define_interface!(IGameExplorer2, IGameExplorer2_Vtbl, 0x86874aa7_a1ed_450d_a7eb_b89e20b2fff3);
+impl core::ops::Deref for IGameExplorer2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGameExplorer2, windows_core::IUnknown);
 impl IGameExplorer2 {
     pub unsafe fn InstallGame<P0, P1>(&self, binarygdfpath: P0, installdirectory: P1, installscope: GAME_INSTALL_SCOPE) -> windows_core::Result<()>
@@ -298,13 +310,14 @@ pub struct IGameExplorer2_Vtbl {
     pub UninstallGame: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub CheckAccess: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IGameExplorer2_Impl: windows_core::IUnknownImpl {
+pub trait IGameExplorer2_Impl: Sized + windows_core::IUnknownImpl {
     fn InstallGame(&self, binarygdfpath: &windows_core::PCWSTR, installdirectory: &windows_core::PCWSTR, installscope: GAME_INSTALL_SCOPE) -> windows_core::Result<()>;
     fn UninstallGame(&self, binarygdfpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn CheckAccess(&self, binarygdfpath: &windows_core::PCWSTR) -> windows_core::Result<super::Foundation::BOOL>;
 }
+impl windows_core::RuntimeName for IGameExplorer2 {}
 impl IGameExplorer2_Vtbl {
-    pub const fn new<Identity: IGameExplorer2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IGameExplorer2_Impl, const OFFSET: isize>() -> IGameExplorer2_Vtbl {
         unsafe extern "system" fn InstallGame<Identity: IGameExplorer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, binarygdfpath: windows_core::PCWSTR, installdirectory: windows_core::PCWSTR, installscope: GAME_INSTALL_SCOPE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGameExplorer2_Impl::InstallGame(this, core::mem::transmute(&binarygdfpath), core::mem::transmute(&installdirectory), core::mem::transmute_copy(&installscope)).into()
@@ -334,8 +347,13 @@ impl IGameExplorer2_Vtbl {
         iid == &<IGameExplorer2 as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IGameExplorer2 {}
 windows_core::imp::define_interface!(IGameStatistics, IGameStatistics_Vtbl, 0x3887c9ca_04a0_42ae_bc4c_5fa6c7721145);
+impl core::ops::Deref for IGameStatistics {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGameStatistics, windows_core::IUnknown);
 impl IGameStatistics {
     pub unsafe fn GetMaxCategoryLength(&self) -> windows_core::Result<u32> {
@@ -358,9 +376,9 @@ impl IGameStatistics {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetMaxStatsPerCategory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn SetCategoryTitle<P1>(&self, categoryindex: u16, title: P1) -> windows_core::Result<()>
+    pub unsafe fn SetCategoryTitle<P0>(&self, categoryindex: u16, title: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).SetCategoryTitle)(windows_core::Interface::as_raw(self), categoryindex, title.param().abi()).ok()
     }
@@ -371,10 +389,10 @@ impl IGameStatistics {
     pub unsafe fn GetStatistic(&self, categoryindex: u16, statindex: u16, pname: Option<*mut windows_core::PWSTR>, pvalue: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetStatistic)(windows_core::Interface::as_raw(self), categoryindex, statindex, core::mem::transmute(pname.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvalue.unwrap_or(core::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetStatistic<P2, P3>(&self, categoryindex: u16, statindex: u16, name: P2, value: P3) -> windows_core::Result<()>
+    pub unsafe fn SetStatistic<P0, P1>(&self, categoryindex: u16, statindex: u16, name: P0, value: P1) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).SetStatistic)(windows_core::Interface::as_raw(self), categoryindex, statindex, name.param().abi(), value.param().abi()).ok()
     }
@@ -408,7 +426,7 @@ pub struct IGameStatistics_Vtbl {
     pub SetLastPlayedCategory: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetLastPlayedCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-pub trait IGameStatistics_Impl: windows_core::IUnknownImpl {
+pub trait IGameStatistics_Impl: Sized + windows_core::IUnknownImpl {
     fn GetMaxCategoryLength(&self) -> windows_core::Result<u32>;
     fn GetMaxNameLength(&self) -> windows_core::Result<u32>;
     fn GetMaxValueLength(&self) -> windows_core::Result<u32>;
@@ -422,8 +440,9 @@ pub trait IGameStatistics_Impl: windows_core::IUnknownImpl {
     fn SetLastPlayedCategory(&self, categoryindex: u32) -> windows_core::Result<()>;
     fn GetLastPlayedCategory(&self) -> windows_core::Result<u32>;
 }
+impl windows_core::RuntimeName for IGameStatistics {}
 impl IGameStatistics_Vtbl {
-    pub const fn new<Identity: IGameStatistics_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IGameStatistics_Impl, const OFFSET: isize>() -> IGameStatistics_Vtbl {
         unsafe extern "system" fn GetMaxCategoryLength<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cch: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IGameStatistics_Impl::GetMaxCategoryLength(this) {
@@ -534,8 +553,13 @@ impl IGameStatistics_Vtbl {
         iid == &<IGameStatistics as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IGameStatistics {}
 windows_core::imp::define_interface!(IGameStatisticsMgr, IGameStatisticsMgr_Vtbl, 0xaff3ea11_e70e_407d_95dd_35e612c41ce2);
+impl core::ops::Deref for IGameStatisticsMgr {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGameStatisticsMgr, windows_core::IUnknown);
 impl IGameStatisticsMgr {
     pub unsafe fn GetGameStatistics<P0>(&self, gdfbinarypath: P0, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut Option<IGameStatistics>) -> windows_core::Result<()>
@@ -557,12 +581,13 @@ pub struct IGameStatisticsMgr_Vtbl {
     pub GetGameStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, GAMESTATS_OPEN_TYPE, *mut GAMESTATS_OPEN_RESULT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveGameStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-pub trait IGameStatisticsMgr_Impl: windows_core::IUnknownImpl {
+pub trait IGameStatisticsMgr_Impl: Sized + windows_core::IUnknownImpl {
     fn GetGameStatistics(&self, gdfbinarypath: &windows_core::PCWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut Option<IGameStatistics>) -> windows_core::Result<()>;
     fn RemoveGameStatistics(&self, gdfbinarypath: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IGameStatisticsMgr {}
 impl IGameStatisticsMgr_Vtbl {
-    pub const fn new<Identity: IGameStatisticsMgr_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IGameStatisticsMgr_Impl, const OFFSET: isize>() -> IGameStatisticsMgr_Vtbl {
         unsafe extern "system" fn GetGameStatistics<Identity: IGameStatisticsMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gdfbinarypath: windows_core::PCWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGameStatisticsMgr_Impl::GetGameStatistics(this, core::mem::transmute(&gdfbinarypath), core::mem::transmute_copy(&opentype), core::mem::transmute_copy(&popenresult), core::mem::transmute_copy(&ppistats)).into()
@@ -581,8 +606,13 @@ impl IGameStatisticsMgr_Vtbl {
         iid == &<IGameStatisticsMgr as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IGameStatisticsMgr {}
 windows_core::imp::define_interface!(IXblIdpAuthManager, IXblIdpAuthManager_Vtbl, 0xeb5ddb08_8bbf_449b_ac21_b02ddeb3b136);
+impl core::ops::Deref for IXblIdpAuthManager {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXblIdpAuthManager, windows_core::IUnknown);
 impl IXblIdpAuthManager {
     pub unsafe fn SetGamerAccount<P0, P1>(&self, msaaccountid: P0, xuid: P1) -> windows_core::Result<()>
@@ -610,7 +640,7 @@ impl IXblIdpAuthManager {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSandbox)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetTokenAndSignatureWithTokenResult<P0, P1, P2, P3, P4, P5, P6, P9>(&self, msaaccountid: P0, appsid: P1, msatarget: P2, msapolicy: P3, httpmethod: P4, uri: P5, headers: P6, body: &[u8], forcerefresh: P9) -> windows_core::Result<IXblIdpAuthTokenResult>
+    pub unsafe fn GetTokenAndSignatureWithTokenResult<P0, P1, P2, P3, P4, P5, P6, P7>(&self, msaaccountid: P0, appsid: P1, msatarget: P2, msapolicy: P3, httpmethod: P4, uri: P5, headers: P6, body: &[u8], forcerefresh: P7) -> windows_core::Result<IXblIdpAuthTokenResult>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -619,7 +649,7 @@ impl IXblIdpAuthManager {
         P4: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
         P6: windows_core::Param<windows_core::PCWSTR>,
-        P9: windows_core::Param<super::Foundation::BOOL>,
+        P7: windows_core::Param<super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetTokenAndSignatureWithTokenResult)(windows_core::Interface::as_raw(self), msaaccountid.param().abi(), appsid.param().abi(), msatarget.param().abi(), msapolicy.param().abi(), httpmethod.param().abi(), uri.param().abi(), headers.param().abi(), core::mem::transmute(body.as_ptr()), body.len().try_into().unwrap(), forcerefresh.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -635,7 +665,7 @@ pub struct IXblIdpAuthManager_Vtbl {
     pub GetSandbox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetTokenAndSignatureWithTokenResult: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const u8, u32, super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXblIdpAuthManager_Impl: windows_core::IUnknownImpl {
+pub trait IXblIdpAuthManager_Impl: Sized + windows_core::IUnknownImpl {
     fn SetGamerAccount(&self, msaaccountid: &windows_core::PCWSTR, xuid: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetGamerAccount(&self, msaaccountid: *mut windows_core::PWSTR, xuid: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn SetAppViewInitialized(&self, appsid: &windows_core::PCWSTR, msaaccountid: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -643,8 +673,9 @@ pub trait IXblIdpAuthManager_Impl: windows_core::IUnknownImpl {
     fn GetSandbox(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetTokenAndSignatureWithTokenResult(&self, msaaccountid: &windows_core::PCWSTR, appsid: &windows_core::PCWSTR, msatarget: &windows_core::PCWSTR, msapolicy: &windows_core::PCWSTR, httpmethod: &windows_core::PCWSTR, uri: &windows_core::PCWSTR, headers: &windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL) -> windows_core::Result<IXblIdpAuthTokenResult>;
 }
+impl windows_core::RuntimeName for IXblIdpAuthManager {}
 impl IXblIdpAuthManager_Vtbl {
-    pub const fn new<Identity: IXblIdpAuthManager_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IXblIdpAuthManager_Impl, const OFFSET: isize>() -> IXblIdpAuthManager_Vtbl {
         unsafe extern "system" fn SetGamerAccount<Identity: IXblIdpAuthManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, msaaccountid: windows_core::PCWSTR, xuid: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXblIdpAuthManager_Impl::SetGamerAccount(this, core::mem::transmute(&msaaccountid), core::mem::transmute(&xuid)).into()
@@ -701,11 +732,16 @@ impl IXblIdpAuthManager_Vtbl {
         iid == &<IXblIdpAuthManager as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IXblIdpAuthManager {}
 windows_core::imp::define_interface!(IXblIdpAuthManager2, IXblIdpAuthManager2_Vtbl, 0xbf8c0950_8389_43dd_9a76_a19728ec5dc5);
+impl core::ops::Deref for IXblIdpAuthManager2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXblIdpAuthManager2, windows_core::IUnknown);
 impl IXblIdpAuthManager2 {
-    pub unsafe fn GetUserlessTokenAndSignatureWithTokenResult<P0, P1, P2, P3, P4, P5, P8>(&self, appsid: P0, msatarget: P1, msapolicy: P2, httpmethod: P3, uri: P4, headers: P5, body: &[u8], forcerefresh: P8) -> windows_core::Result<IXblIdpAuthTokenResult>
+    pub unsafe fn GetUserlessTokenAndSignatureWithTokenResult<P0, P1, P2, P3, P4, P5, P6>(&self, appsid: P0, msatarget: P1, msapolicy: P2, httpmethod: P3, uri: P4, headers: P5, body: &[u8], forcerefresh: P6) -> windows_core::Result<IXblIdpAuthTokenResult>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -713,7 +749,7 @@ impl IXblIdpAuthManager2 {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
-        P8: windows_core::Param<super::Foundation::BOOL>,
+        P6: windows_core::Param<super::Foundation::BOOL>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUserlessTokenAndSignatureWithTokenResult)(windows_core::Interface::as_raw(self), appsid.param().abi(), msatarget.param().abi(), msapolicy.param().abi(), httpmethod.param().abi(), uri.param().abi(), headers.param().abi(), core::mem::transmute(body.as_ptr()), body.len().try_into().unwrap(), forcerefresh.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -724,11 +760,12 @@ pub struct IXblIdpAuthManager2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetUserlessTokenAndSignatureWithTokenResult: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *const u8, u32, super::Foundation::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IXblIdpAuthManager2_Impl: windows_core::IUnknownImpl {
+pub trait IXblIdpAuthManager2_Impl: Sized + windows_core::IUnknownImpl {
     fn GetUserlessTokenAndSignatureWithTokenResult(&self, appsid: &windows_core::PCWSTR, msatarget: &windows_core::PCWSTR, msapolicy: &windows_core::PCWSTR, httpmethod: &windows_core::PCWSTR, uri: &windows_core::PCWSTR, headers: &windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL) -> windows_core::Result<IXblIdpAuthTokenResult>;
 }
+impl windows_core::RuntimeName for IXblIdpAuthManager2 {}
 impl IXblIdpAuthManager2_Vtbl {
-    pub const fn new<Identity: IXblIdpAuthManager2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IXblIdpAuthManager2_Impl, const OFFSET: isize>() -> IXblIdpAuthManager2_Vtbl {
         unsafe extern "system" fn GetUserlessTokenAndSignatureWithTokenResult<Identity: IXblIdpAuthManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appsid: windows_core::PCWSTR, msatarget: windows_core::PCWSTR, msapolicy: windows_core::PCWSTR, httpmethod: windows_core::PCWSTR, uri: windows_core::PCWSTR, headers: windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXblIdpAuthManager2_Impl::GetUserlessTokenAndSignatureWithTokenResult(this, core::mem::transmute(&appsid), core::mem::transmute(&msatarget), core::mem::transmute(&msapolicy), core::mem::transmute(&httpmethod), core::mem::transmute(&uri), core::mem::transmute(&headers), core::mem::transmute_copy(&body), core::mem::transmute_copy(&bodysize), core::mem::transmute_copy(&forcerefresh)) {
@@ -748,8 +785,13 @@ impl IXblIdpAuthManager2_Vtbl {
         iid == &<IXblIdpAuthManager2 as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IXblIdpAuthManager2 {}
 windows_core::imp::define_interface!(IXblIdpAuthTokenResult, IXblIdpAuthTokenResult_Vtbl, 0x46ce0225_f267_4d68_b299_b2762552dec1);
+impl core::ops::Deref for IXblIdpAuthTokenResult {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXblIdpAuthTokenResult, windows_core::IUnknown);
 impl IXblIdpAuthTokenResult {
     pub unsafe fn GetStatus(&self) -> windows_core::Result<XBL_IDP_AUTH_TOKEN_STATUS> {
@@ -857,7 +899,7 @@ pub struct IXblIdpAuthTokenResult_Vtbl {
     pub GetRestrictions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetTitleRestrictions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-pub trait IXblIdpAuthTokenResult_Impl: windows_core::IUnknownImpl {
+pub trait IXblIdpAuthTokenResult_Impl: Sized + windows_core::IUnknownImpl {
     fn GetStatus(&self) -> windows_core::Result<XBL_IDP_AUTH_TOKEN_STATUS>;
     fn GetErrorCode(&self) -> windows_core::Result<windows_core::HRESULT>;
     fn GetToken(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -879,8 +921,9 @@ pub trait IXblIdpAuthTokenResult_Impl: windows_core::IUnknownImpl {
     fn GetRestrictions(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetTitleRestrictions(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
+impl windows_core::RuntimeName for IXblIdpAuthTokenResult {}
 impl IXblIdpAuthTokenResult_Vtbl {
-    pub const fn new<Identity: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>() -> IXblIdpAuthTokenResult_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: IXblIdpAuthTokenResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: *mut XBL_IDP_AUTH_TOKEN_STATUS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXblIdpAuthTokenResult_Impl::GetStatus(this) {
@@ -1109,8 +1152,13 @@ impl IXblIdpAuthTokenResult_Vtbl {
         iid == &<IXblIdpAuthTokenResult as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IXblIdpAuthTokenResult {}
 windows_core::imp::define_interface!(IXblIdpAuthTokenResult2, IXblIdpAuthTokenResult2_Vtbl, 0x75d760b0_60b9_412d_994f_26b2cd5f7812);
+impl core::ops::Deref for IXblIdpAuthTokenResult2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IXblIdpAuthTokenResult2, windows_core::IUnknown);
 impl IXblIdpAuthTokenResult2 {
     pub unsafe fn GetModernGamertag(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -1133,13 +1181,14 @@ pub struct IXblIdpAuthTokenResult2_Vtbl {
     pub GetModernGamertagSuffix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetUniqueModernGamertag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-pub trait IXblIdpAuthTokenResult2_Impl: windows_core::IUnknownImpl {
+pub trait IXblIdpAuthTokenResult2_Impl: Sized + windows_core::IUnknownImpl {
     fn GetModernGamertag(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetModernGamertagSuffix(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetUniqueModernGamertag(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
+impl windows_core::RuntimeName for IXblIdpAuthTokenResult2 {}
 impl IXblIdpAuthTokenResult2_Vtbl {
-    pub const fn new<Identity: IXblIdpAuthTokenResult2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IXblIdpAuthTokenResult2_Impl, const OFFSET: isize>() -> IXblIdpAuthTokenResult2_Vtbl {
         unsafe extern "system" fn GetModernGamertag<Identity: IXblIdpAuthTokenResult2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXblIdpAuthTokenResult2_Impl::GetModernGamertag(this) {
@@ -1181,7 +1230,6 @@ impl IXblIdpAuthTokenResult2_Vtbl {
         iid == &<IXblIdpAuthTokenResult2 as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IXblIdpAuthTokenResult2 {}
 pub const GAMESTATS_OPEN_CREATED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(0i32);
 pub const GAMESTATS_OPEN_OPENED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(1i32);
 pub const GAMESTATS_OPEN_OPENONLY: GAMESTATS_OPEN_TYPE = GAMESTATS_OPEN_TYPE(1i32);
@@ -1233,60 +1281,95 @@ pub const XPRIVILEGE_USER_CREATED_CONTENT: KnownGamingPrivileges = KnownGamingPr
 pub const XPRIVILEGE_VIDEO_COMMUNICATIONS: KnownGamingPrivileges = KnownGamingPrivileges(235i32);
 pub const XPRIVILEGE_VIEW_FRIENDS_LIST: KnownGamingPrivileges = KnownGamingPrivileges(197i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GAMESTATS_OPEN_RESULT(pub i32);
 impl windows_core::TypeKind for GAMESTATS_OPEN_RESULT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for GAMESTATS_OPEN_RESULT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GAMESTATS_OPEN_RESULT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GAMESTATS_OPEN_TYPE(pub i32);
 impl windows_core::TypeKind for GAMESTATS_OPEN_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for GAMESTATS_OPEN_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GAMESTATS_OPEN_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GAME_INSTALL_SCOPE(pub i32);
 impl windows_core::TypeKind for GAME_INSTALL_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for GAME_INSTALL_SCOPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GAME_INSTALL_SCOPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GAMING_DEVICE_DEVICE_ID(pub i32);
 impl windows_core::TypeKind for GAMING_DEVICE_DEVICE_ID {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for GAMING_DEVICE_DEVICE_ID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GAMING_DEVICE_DEVICE_ID").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GAMING_DEVICE_VENDOR_ID(pub i32);
 impl windows_core::TypeKind for GAMING_DEVICE_VENDOR_ID {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for GAMING_DEVICE_VENDOR_ID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GAMING_DEVICE_VENDOR_ID").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KnownGamingPrivileges(pub i32);
 impl windows_core::TypeKind for KnownGamingPrivileges {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KnownGamingPrivileges {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KnownGamingPrivileges").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct XBL_IDP_AUTH_TOKEN_STATUS(pub i32);
 impl windows_core::TypeKind for XBL_IDP_AUTH_TOKEN_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for XBL_IDP_AUTH_TOKEN_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("XBL_IDP_AUTH_TOKEN_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GAMING_DEVICE_MODEL_INFORMATION {
     pub vendorId: GAMING_DEVICE_VENDOR_ID,
     pub deviceId: GAMING_DEVICE_DEVICE_ID,
+}
+impl windows_core::TypeKind for GAMING_DEVICE_MODEL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for GAMING_DEVICE_MODEL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for GAMING_DEVICE_MODEL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub const GameExplorer: windows_core::GUID = windows_core::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
 pub const GameStatistics: windows_core::GUID = windows_core::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);

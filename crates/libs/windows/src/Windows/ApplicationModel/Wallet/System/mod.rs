@@ -70,8 +70,6 @@ pub struct WalletItemSystemStore(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(WalletItemSystemStore, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(WalletItemSystemStore,);
-#[cfg(feature = "deprecated")]
 impl WalletItemSystemStore {
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetItemsAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::WalletItem>>> {
@@ -148,13 +146,17 @@ impl windows_core::RuntimeType for WalletItemSystemStore {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for WalletItemSystemStore {
-    type Vtable = <IWalletItemSystemStore as windows_core::Interface>::Vtable;
+    type Vtable = IWalletItemSystemStore_Vtbl;
     const IID: windows_core::GUID = <IWalletItemSystemStore as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for WalletItemSystemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.System.WalletItemSystemStore";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for WalletItemSystemStore {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletItemSystemStore {}
 #[cfg(feature = "deprecated")]
 pub struct WalletManagerSystem;
 #[cfg(feature = "deprecated")]
@@ -166,6 +168,7 @@ impl WalletManagerSystem {
             (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
+    #[cfg(feature = "deprecated")]
     fn IWalletManagerSystemStatics<R, F: FnOnce(&IWalletManagerSystemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WalletManagerSystem, IWalletManagerSystemStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -175,17 +178,27 @@ impl WalletManagerSystem {
 impl windows_core::RuntimeName for WalletManagerSystem {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.System.WalletManagerSystem";
 }
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WalletItemAppAssociation(pub i32);
+#[cfg(feature = "deprecated")]
 impl WalletItemAppAssociation {
     pub const None: Self = Self(0i32);
     pub const AppInstalled: Self = Self(1i32);
     pub const AppNotInstalled: Self = Self(2i32);
 }
+#[cfg(feature = "deprecated")]
 impl windows_core::TypeKind for WalletItemAppAssociation {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for WalletItemAppAssociation {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WalletItemAppAssociation").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for WalletItemAppAssociation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation;i4)");
 }

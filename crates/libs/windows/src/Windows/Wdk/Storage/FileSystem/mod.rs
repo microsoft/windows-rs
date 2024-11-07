@@ -7,19 +7,19 @@ pub unsafe fn ApplyControlToken(phcontext: *const SecHandle, pinput: *const SecB
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn CcAsyncCopyRead<P3, P6>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, wait: P3, buffer: *mut core::ffi::c_void, iostatus: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, ioissuerthread: P6, asyncreadcontext: *const CC_ASYNC_READ_CONTEXT) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn CcAsyncCopyRead<P0, P1>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, wait: P0, buffer: *mut core::ffi::c_void, iostatus: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, ioissuerthread: P1, asyncreadcontext: *const CC_ASYNC_READ_CONTEXT) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P6: windows_core::Param<super::super::Foundation::PETHREAD>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::Foundation::PETHREAD>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcAsyncCopyRead(fileobject : *const super::super::Foundation:: FILE_OBJECT, fileoffset : *const i64, length : u32, wait : super::super::super::Win32::Foundation:: BOOLEAN, buffer : *mut core::ffi::c_void, iostatus : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, ioissuerthread : super::super::Foundation:: PETHREAD, asyncreadcontext : *const CC_ASYNC_READ_CONTEXT) -> super::super::super::Win32::Foundation:: BOOLEAN);
     CcAsyncCopyRead(fileobject, fileoffset, length, wait.param().abi(), buffer, iostatus, ioissuerthread.param().abi(), asyncreadcontext)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn CcCanIWrite<P2>(fileobject: Option<*const super::super::Foundation::FILE_OBJECT>, bytestowrite: u32, wait: P2, retrying: u8) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn CcCanIWrite<P0>(fileobject: Option<*const super::super::Foundation::FILE_OBJECT>, bytestowrite: u32, wait: P0, retrying: u8) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcCanIWrite(fileobject : *const super::super::Foundation:: FILE_OBJECT, bytestowrite : u32, wait : super::super::super::Win32::Foundation:: BOOLEAN, retrying : u8) -> super::super::super::Win32::Foundation:: BOOLEAN);
     CcCanIWrite(core::mem::transmute(fileobject.unwrap_or(core::ptr::null())), bytestowrite, wait.param().abi(), retrying)
@@ -32,38 +32,38 @@ pub unsafe fn CcCoherencyFlushAndPurgeCache(sectionobjectpointer: *const super::
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn CcCopyRead<P3>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, wait: P3, buffer: *mut core::ffi::c_void, iostatus: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn CcCopyRead<P0>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, wait: P0, buffer: *mut core::ffi::c_void, iostatus: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcCopyRead(fileobject : *const super::super::Foundation:: FILE_OBJECT, fileoffset : *const i64, length : u32, wait : super::super::super::Win32::Foundation:: BOOLEAN, buffer : *mut core::ffi::c_void, iostatus : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK) -> super::super::super::Win32::Foundation:: BOOLEAN);
     CcCopyRead(fileobject, fileoffset, length, wait.param().abi(), buffer, iostatus)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn CcCopyReadEx<P3, P6>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, wait: P3, buffer: *mut core::ffi::c_void, iostatus: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, ioissuerthread: P6) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn CcCopyReadEx<P0, P1>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, wait: P0, buffer: *mut core::ffi::c_void, iostatus: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, ioissuerthread: P1) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P6: windows_core::Param<super::super::Foundation::PETHREAD>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::Foundation::PETHREAD>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcCopyReadEx(fileobject : *const super::super::Foundation:: FILE_OBJECT, fileoffset : *const i64, length : u32, wait : super::super::super::Win32::Foundation:: BOOLEAN, buffer : *mut core::ffi::c_void, iostatus : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, ioissuerthread : super::super::Foundation:: PETHREAD) -> super::super::super::Win32::Foundation:: BOOLEAN);
     CcCopyReadEx(fileobject, fileoffset, length, wait.param().abi(), buffer, iostatus, ioissuerthread.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn CcCopyWrite<P3>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, wait: P3, buffer: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn CcCopyWrite<P0>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, wait: P0, buffer: *const core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcCopyWrite(fileobject : *const super::super::Foundation:: FILE_OBJECT, fileoffset : *const i64, length : u32, wait : super::super::super::Win32::Foundation:: BOOLEAN, buffer : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: BOOLEAN);
     CcCopyWrite(fileobject, fileoffset, length, wait.param().abi(), buffer)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn CcCopyWriteEx<P3, P5>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, wait: P3, buffer: *const core::ffi::c_void, ioissuerthread: P5) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn CcCopyWriteEx<P0, P1>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, wait: P0, buffer: *const core::ffi::c_void, ioissuerthread: P1) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P5: windows_core::Param<super::super::Foundation::PETHREAD>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::Foundation::PETHREAD>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcCopyWriteEx(fileobject : *const super::super::Foundation:: FILE_OBJECT, fileoffset : *const i64, length : u32, wait : super::super::super::Win32::Foundation:: BOOLEAN, buffer : *const core::ffi::c_void, ioissuerthread : super::super::Foundation:: PETHREAD) -> super::super::super::Win32::Foundation:: BOOLEAN);
     CcCopyWriteEx(fileobject, fileoffset, length, wait.param().abi(), buffer, ioissuerthread.param().abi())
@@ -76,9 +76,9 @@ pub unsafe fn CcCopyWriteWontFlush(fileobject: *const super::super::Foundation::
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn CcDeferWrite<P5>(fileobject: *const super::super::Foundation::FILE_OBJECT, postroutine: PCC_POST_DEFERRED_WRITE, context1: *const core::ffi::c_void, context2: *const core::ffi::c_void, bytestowrite: u32, retrying: P5)
+pub unsafe fn CcDeferWrite<P0>(fileobject: *const super::super::Foundation::FILE_OBJECT, postroutine: PCC_POST_DEFERRED_WRITE, context1: *const core::ffi::c_void, context2: *const core::ffi::c_void, bytestowrite: u32, retrying: P0)
 where
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcDeferWrite(fileobject : *const super::super::Foundation:: FILE_OBJECT, postroutine : PCC_POST_DEFERRED_WRITE, context1 : *const core::ffi::c_void, context2 : *const core::ffi::c_void, bytestowrite : u32, retrying : super::super::super::Win32::Foundation:: BOOLEAN));
     CcDeferWrite(fileobject, postroutine, context1, context2, bytestowrite, retrying.param().abi())
@@ -132,27 +132,27 @@ pub unsafe fn CcGetFileObjectFromSectionPtrsRef(sectionobjectpointer: *const sup
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn CcGetFlushedValidData<P1>(sectionobjectpointer: *const super::super::Foundation::SECTION_OBJECT_POINTERS, bcblistheld: P1) -> i64
+pub unsafe fn CcGetFlushedValidData<P0>(sectionobjectpointer: *const super::super::Foundation::SECTION_OBJECT_POINTERS, bcblistheld: P0) -> i64
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcGetFlushedValidData(sectionobjectpointer : *const super::super::Foundation:: SECTION_OBJECT_POINTERS, bcblistheld : super::super::super::Win32::Foundation:: BOOLEAN) -> i64);
     CcGetFlushedValidData(sectionobjectpointer, bcblistheld.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn CcInitializeCacheMap<P2>(fileobject: *const super::super::Foundation::FILE_OBJECT, filesizes: *const CC_FILE_SIZES, pinaccess: P2, callbacks: *const CACHE_MANAGER_CALLBACKS, lazywritecontext: *const core::ffi::c_void)
+pub unsafe fn CcInitializeCacheMap<P0>(fileobject: *const super::super::Foundation::FILE_OBJECT, filesizes: *const CC_FILE_SIZES, pinaccess: P0, callbacks: *const CACHE_MANAGER_CALLBACKS, lazywritecontext: *const core::ffi::c_void)
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcInitializeCacheMap(fileobject : *const super::super::Foundation:: FILE_OBJECT, filesizes : *const CC_FILE_SIZES, pinaccess : super::super::super::Win32::Foundation:: BOOLEAN, callbacks : *const CACHE_MANAGER_CALLBACKS, lazywritecontext : *const core::ffi::c_void));
     CcInitializeCacheMap(fileobject, filesizes, pinaccess.param().abi(), callbacks, lazywritecontext)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn CcInitializeCacheMapEx<P2>(fileobject: *const super::super::Foundation::FILE_OBJECT, filesizes: *const CC_FILE_SIZES, pinaccess: P2, callbacks: *const CACHE_MANAGER_CALLBACKS, lazywritecontext: *const core::ffi::c_void, flags: u32)
+pub unsafe fn CcInitializeCacheMapEx<P0>(fileobject: *const super::super::Foundation::FILE_OBJECT, filesizes: *const CC_FILE_SIZES, pinaccess: P0, callbacks: *const CACHE_MANAGER_CALLBACKS, lazywritecontext: *const core::ffi::c_void, flags: u32)
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcInitializeCacheMapEx(fileobject : *const super::super::Foundation:: FILE_OBJECT, filesizes : *const CC_FILE_SIZES, pinaccess : super::super::super::Win32::Foundation:: BOOLEAN, callbacks : *const CACHE_MANAGER_CALLBACKS, lazywritecontext : *const core::ffi::c_void, flags : u32));
     CcInitializeCacheMapEx(fileobject, filesizes, pinaccess.param().abi(), callbacks, lazywritecontext, flags)
@@ -227,9 +227,9 @@ pub unsafe fn CcPrepareMdlWrite(fileobject: *const super::super::Foundation::FIL
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn CcPreparePinWrite<P3>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, zero: P3, flags: u32, bcb: *mut *mut core::ffi::c_void, buffer: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn CcPreparePinWrite<P0>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, zero: P0, flags: u32, bcb: *mut *mut core::ffi::c_void, buffer: *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcPreparePinWrite(fileobject : *const super::super::Foundation:: FILE_OBJECT, fileoffset : *const i64, length : u32, zero : super::super::super::Win32::Foundation:: BOOLEAN, flags : u32, bcb : *mut *mut core::ffi::c_void, buffer : *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation:: BOOLEAN);
     CcPreparePinWrite(fileobject, fileoffset, length, zero.param().abi(), flags, bcb, buffer)
@@ -258,19 +258,19 @@ pub unsafe fn CcScheduleReadAhead(fileobject: *const super::super::Foundation::F
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn CcScheduleReadAheadEx<P3>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, ioissuerthread: P3)
+pub unsafe fn CcScheduleReadAheadEx<P0>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, ioissuerthread: P0)
 where
-    P3: windows_core::Param<super::super::Foundation::PETHREAD>,
+    P0: windows_core::Param<super::super::Foundation::PETHREAD>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcScheduleReadAheadEx(fileobject : *const super::super::Foundation:: FILE_OBJECT, fileoffset : *const i64, length : u32, ioissuerthread : super::super::Foundation:: PETHREAD));
     CcScheduleReadAheadEx(fileobject, fileoffset, length, ioissuerthread.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn CcSetAdditionalCacheAttributes<P1, P2>(fileobject: *const super::super::Foundation::FILE_OBJECT, disablereadahead: P1, disablewritebehind: P2)
+pub unsafe fn CcSetAdditionalCacheAttributes<P0, P1>(fileobject: *const super::super::Foundation::FILE_OBJECT, disablereadahead: P0, disablewritebehind: P1)
 where
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
     P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcSetAdditionalCacheAttributes(fileobject : *const super::super::Foundation:: FILE_OBJECT, disablereadahead : super::super::super::Win32::Foundation:: BOOLEAN, disablewritebehind : super::super::super::Win32::Foundation:: BOOLEAN));
     CcSetAdditionalCacheAttributes(fileobject, disablereadahead.param().abi(), disablewritebehind.param().abi())
@@ -317,9 +317,9 @@ pub unsafe fn CcSetLogHandleForFile(fileobject: *const super::super::Foundation:
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn CcSetParallelFlushFile<P1>(fileobject: *const super::super::Foundation::FILE_OBJECT, enableparallelflush: P1)
+pub unsafe fn CcSetParallelFlushFile<P0>(fileobject: *const super::super::Foundation::FILE_OBJECT, enableparallelflush: P0)
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcSetParallelFlushFile(fileobject : *const super::super::Foundation:: FILE_OBJECT, enableparallelflush : super::super::super::Win32::Foundation:: BOOLEAN));
     CcSetParallelFlushFile(fileobject, enableparallelflush.param().abi())
@@ -348,9 +348,9 @@ pub unsafe fn CcUnpinDataForThread(bcb: *const core::ffi::c_void, resourcethread
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn CcUnpinRepinnedBcb<P1>(bcb: *const core::ffi::c_void, writethrough: P1) -> super::super::super::Win32::System::IO::IO_STATUS_BLOCK
+pub unsafe fn CcUnpinRepinnedBcb<P0>(bcb: *const core::ffi::c_void, writethrough: P0) -> super::super::super::Win32::System::IO::IO_STATUS_BLOCK
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcUnpinRepinnedBcb(bcb : *const core::ffi::c_void, writethrough : super::super::super::Win32::Foundation:: BOOLEAN, iostatus : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK));
     let mut result__ = core::mem::zeroed();
@@ -364,9 +364,9 @@ pub unsafe fn CcWaitForCurrentLazyWriterActivity() -> super::super::super::Win32
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn CcZeroData<P3>(fileobject: *const super::super::Foundation::FILE_OBJECT, startoffset: *const i64, endoffset: *const i64, wait: P3) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn CcZeroData<P0>(fileobject: *const super::super::Foundation::FILE_OBJECT, startoffset: *const i64, endoffset: *const i64, wait: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn CcZeroData(fileobject : *const super::super::Foundation:: FILE_OBJECT, startoffset : *const i64, endoffset : *const i64, wait : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     CcZeroData(fileobject, startoffset, endoffset, wait.param().abi())
@@ -427,9 +427,9 @@ pub unsafe fn FsRtlAddMcbEntry(mcb: *mut MCB, vbn: u32, lbn: u32, sectorcount: u
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn FsRtlAddToTunnelCache<P4>(cache: *mut TUNNEL, directorykey: u64, shortname: *const super::super::super::Win32::Foundation::UNICODE_STRING, longname: *const super::super::super::Win32::Foundation::UNICODE_STRING, keybyshortname: P4, datalength: u32, data: *const core::ffi::c_void)
+pub unsafe fn FsRtlAddToTunnelCache<P0>(cache: *mut TUNNEL, directorykey: u64, shortname: *const super::super::super::Win32::Foundation::UNICODE_STRING, longname: *const super::super::super::Win32::Foundation::UNICODE_STRING, keybyshortname: P0, datalength: u32, data: *const core::ffi::c_void)
 where
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlAddToTunnelCache(cache : *mut TUNNEL, directorykey : u64, shortname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, longname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, keybyshortname : super::super::super::Win32::Foundation:: BOOLEAN, datalength : u32, data : *const core::ffi::c_void));
     FsRtlAddToTunnelCache(cache, directorykey, shortname, longname, keybyshortname.param().abi(), datalength, data)
@@ -475,9 +475,9 @@ pub unsafe fn FsRtlAllocateResource() -> *mut super::super::Foundation::ERESOURC
     FsRtlAllocateResource()
 }
 #[inline]
-pub unsafe fn FsRtlAreNamesEqual<P2>(constantnamea: *const super::super::super::Win32::Foundation::UNICODE_STRING, constantnameb: *const super::super::super::Win32::Foundation::UNICODE_STRING, ignorecase: P2, upcasetable: Option<*const u16>) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn FsRtlAreNamesEqual<P0>(constantnamea: *const super::super::super::Win32::Foundation::UNICODE_STRING, constantnameb: *const super::super::super::Win32::Foundation::UNICODE_STRING, ignorecase: P0, upcasetable: Option<*const u16>) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlAreNamesEqual(constantnamea : *const super::super::super::Win32::Foundation:: UNICODE_STRING, constantnameb : *const super::super::super::Win32::Foundation:: UNICODE_STRING, ignorecase : super::super::super::Win32::Foundation:: BOOLEAN, upcasetable : *const u16) -> super::super::super::Win32::Foundation:: BOOLEAN);
     FsRtlAreNamesEqual(constantnamea, constantnameb, ignorecase.param().abi(), core::mem::transmute(upcasetable.unwrap_or(core::ptr::null())))
@@ -567,18 +567,18 @@ pub unsafe fn FsRtlCheckUpperOplock(oplock: *const *const core::ffi::c_void, new
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FsRtlCopyRead<P3>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, wait: P3, lockkey: u32, buffer: *mut core::ffi::c_void, iostatus: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, deviceobject: *const super::super::Foundation::DEVICE_OBJECT) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn FsRtlCopyRead<P0>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, wait: P0, lockkey: u32, buffer: *mut core::ffi::c_void, iostatus: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, deviceobject: *const super::super::Foundation::DEVICE_OBJECT) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlCopyRead(fileobject : *const super::super::Foundation:: FILE_OBJECT, fileoffset : *const i64, length : u32, wait : super::super::super::Win32::Foundation:: BOOLEAN, lockkey : u32, buffer : *mut core::ffi::c_void, iostatus : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT) -> super::super::super::Win32::Foundation:: BOOLEAN);
     FsRtlCopyRead(fileobject, fileoffset, length, wait.param().abi(), lockkey, buffer, iostatus, deviceobject)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FsRtlCopyWrite<P3>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, wait: P3, lockkey: u32, buffer: *const core::ffi::c_void, iostatus: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, deviceobject: *const super::super::Foundation::DEVICE_OBJECT) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn FsRtlCopyWrite<P0>(fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, wait: P0, lockkey: u32, buffer: *const core::ffi::c_void, iostatus: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, deviceobject: *const super::super::Foundation::DEVICE_OBJECT) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlCopyWrite(fileobject : *const super::super::Foundation:: FILE_OBJECT, fileoffset : *const i64, length : u32, wait : super::super::super::Win32::Foundation:: BOOLEAN, lockkey : u32, buffer : *const core::ffi::c_void, iostatus : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT) -> super::super::super::Win32::Foundation:: BOOLEAN);
     FsRtlCopyWrite(fileobject, fileoffset, length, wait.param().abi(), lockkey, buffer, iostatus, deviceobject)
@@ -631,9 +631,9 @@ where
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FsRtlDismountComplete<P1>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dismountstatus: P1)
+pub unsafe fn FsRtlDismountComplete<P0>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, dismountstatus: P0)
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlDismountComplete(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, dismountstatus : super::super::super::Win32::Foundation:: NTSTATUS));
     FsRtlDismountComplete(deviceobject, dismountstatus.param().abi())
@@ -674,28 +674,28 @@ pub unsafe fn FsRtlFastCheckLockForWrite(filelock: *const FILE_LOCK, startingbyt
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FsRtlFastUnlockAll<P2>(filelock: *const FILE_LOCK, fileobject: *const super::super::Foundation::FILE_OBJECT, processid: P2, context: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FsRtlFastUnlockAll<P0>(filelock: *const FILE_LOCK, fileobject: *const super::super::Foundation::FILE_OBJECT, processid: P0, context: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::Foundation::PEPROCESS>,
+    P0: windows_core::Param<super::super::Foundation::PEPROCESS>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlFastUnlockAll(filelock : *const FILE_LOCK, fileobject : *const super::super::Foundation:: FILE_OBJECT, processid : super::super::Foundation:: PEPROCESS, context : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
     FsRtlFastUnlockAll(filelock, fileobject, processid.param().abi(), core::mem::transmute(context.unwrap_or(core::ptr::null())))
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FsRtlFastUnlockAllByKey<P2>(filelock: *const FILE_LOCK, fileobject: *const super::super::Foundation::FILE_OBJECT, processid: P2, key: u32, context: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FsRtlFastUnlockAllByKey<P0>(filelock: *const FILE_LOCK, fileobject: *const super::super::Foundation::FILE_OBJECT, processid: P0, key: u32, context: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::Foundation::PEPROCESS>,
+    P0: windows_core::Param<super::super::Foundation::PEPROCESS>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlFastUnlockAllByKey(filelock : *const FILE_LOCK, fileobject : *const super::super::Foundation:: FILE_OBJECT, processid : super::super::Foundation:: PEPROCESS, key : u32, context : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
     FsRtlFastUnlockAllByKey(filelock, fileobject, processid.param().abi(), key, core::mem::transmute(context.unwrap_or(core::ptr::null())))
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FsRtlFastUnlockSingle<P4, P7>(filelock: *const FILE_LOCK, fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: *const i64, processid: P4, key: u32, context: Option<*const core::ffi::c_void>, alreadysynchronized: P7) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FsRtlFastUnlockSingle<P0, P1>(filelock: *const FILE_LOCK, fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: *const i64, processid: P0, key: u32, context: Option<*const core::ffi::c_void>, alreadysynchronized: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::Foundation::PEPROCESS>,
-    P7: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::Foundation::PEPROCESS>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlFastUnlockSingle(filelock : *const FILE_LOCK, fileobject : *const super::super::Foundation:: FILE_OBJECT, fileoffset : *const i64, length : *const i64, processid : super::super::Foundation:: PEPROCESS, key : u32, context : *const core::ffi::c_void, alreadysynchronized : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     FsRtlFastUnlockSingle(filelock, fileobject, fileoffset, length, processid.param().abi(), key, core::mem::transmute(context.unwrap_or(core::ptr::null())), alreadysynchronized.param().abi())
@@ -771,9 +771,9 @@ pub unsafe fn FsRtlGetNextExtraCreateParameter(ecplist: *const super::super::Fou
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FsRtlGetNextFileLock<P1>(filelock: *const FILE_LOCK, restart: P1) -> *mut FILE_LOCK_INFO
+pub unsafe fn FsRtlGetNextFileLock<P0>(filelock: *const FILE_LOCK, restart: P0) -> *mut FILE_LOCK_INFO
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlGetNextFileLock(filelock : *const FILE_LOCK, restart : super::super::super::Win32::Foundation:: BOOLEAN) -> *mut FILE_LOCK_INFO);
     FsRtlGetNextFileLock(filelock, restart.param().abi())
@@ -953,22 +953,22 @@ pub unsafe fn FsRtlIsExtentDangling(startpage: u32, numberofpages: u32, flags: u
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn FsRtlIsFatDbcsLegal<P1, P2, P3>(dbcsname: super::super::super::Win32::System::Kernel::STRING, wildcardspermissible: P1, pathnamepermissible: P2, leadingbackslashpermissible: P3) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn FsRtlIsFatDbcsLegal<P0, P1, P2>(dbcsname: super::super::super::Win32::System::Kernel::STRING, wildcardspermissible: P0, pathnamepermissible: P1, leadingbackslashpermissible: P2) -> super::super::super::Win32::Foundation::BOOLEAN
 where
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
     P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
     P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlIsFatDbcsLegal(dbcsname : super::super::super::Win32::System::Kernel:: STRING, wildcardspermissible : super::super::super::Win32::Foundation:: BOOLEAN, pathnamepermissible : super::super::super::Win32::Foundation:: BOOLEAN, leadingbackslashpermissible : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     FsRtlIsFatDbcsLegal(core::mem::transmute(dbcsname), wildcardspermissible.param().abi(), pathnamepermissible.param().abi(), leadingbackslashpermissible.param().abi())
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn FsRtlIsHpfsDbcsLegal<P1, P2, P3>(dbcsname: super::super::super::Win32::System::Kernel::STRING, wildcardspermissible: P1, pathnamepermissible: P2, leadingbackslashpermissible: P3) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn FsRtlIsHpfsDbcsLegal<P0, P1, P2>(dbcsname: super::super::super::Win32::System::Kernel::STRING, wildcardspermissible: P0, pathnamepermissible: P1, leadingbackslashpermissible: P2) -> super::super::super::Win32::Foundation::BOOLEAN
 where
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
     P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
     P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlIsHpfsDbcsLegal(dbcsname : super::super::super::Win32::System::Kernel:: STRING, wildcardspermissible : super::super::super::Win32::Foundation:: BOOLEAN, pathnamepermissible : super::super::super::Win32::Foundation:: BOOLEAN, leadingbackslashpermissible : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     FsRtlIsHpfsDbcsLegal(core::mem::transmute(dbcsname), wildcardspermissible.param().abi(), pathnamepermissible.param().abi(), leadingbackslashpermissible.param().abi())
@@ -979,19 +979,19 @@ pub unsafe fn FsRtlIsMobileOS() -> super::super::super::Win32::Foundation::BOOLE
     FsRtlIsMobileOS()
 }
 #[inline]
-pub unsafe fn FsRtlIsNameInExpression<P2, P3>(expression: *const super::super::super::Win32::Foundation::UNICODE_STRING, name: *const super::super::super::Win32::Foundation::UNICODE_STRING, ignorecase: P2, upcasetable: P3) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn FsRtlIsNameInExpression<P0, P1>(expression: *const super::super::super::Win32::Foundation::UNICODE_STRING, name: *const super::super::super::Win32::Foundation::UNICODE_STRING, ignorecase: P0, upcasetable: P1) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlIsNameInExpression(expression : *const super::super::super::Win32::Foundation:: UNICODE_STRING, name : *const super::super::super::Win32::Foundation:: UNICODE_STRING, ignorecase : super::super::super::Win32::Foundation:: BOOLEAN, upcasetable : windows_core::PCWSTR) -> super::super::super::Win32::Foundation:: BOOLEAN);
     FsRtlIsNameInExpression(expression, name, ignorecase.param().abi(), upcasetable.param().abi())
 }
 #[inline]
-pub unsafe fn FsRtlIsNameInUnUpcasedExpression<P2, P3>(expression: *const super::super::super::Win32::Foundation::UNICODE_STRING, name: *const super::super::super::Win32::Foundation::UNICODE_STRING, ignorecase: P2, upcasetable: P3) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn FsRtlIsNameInUnUpcasedExpression<P0, P1>(expression: *const super::super::super::Win32::Foundation::UNICODE_STRING, name: *const super::super::super::Win32::Foundation::UNICODE_STRING, ignorecase: P0, upcasetable: P1) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlIsNameInUnUpcasedExpression(expression : *const super::super::super::Win32::Foundation:: UNICODE_STRING, name : *const super::super::super::Win32::Foundation:: UNICODE_STRING, ignorecase : super::super::super::Win32::Foundation:: BOOLEAN, upcasetable : windows_core::PCWSTR) -> super::super::super::Win32::Foundation:: BOOLEAN);
     FsRtlIsNameInUnUpcasedExpression(expression, name, ignorecase.param().abi(), upcasetable.param().abi())
@@ -1035,9 +1035,9 @@ pub unsafe fn FsRtlKernelFsControlFile(fileobject: *const super::super::Foundati
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FsRtlLogCcFlushError<P3>(filename: *const super::super::super::Win32::Foundation::UNICODE_STRING, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, sectionobjectpointer: *const super::super::Foundation::SECTION_OBJECT_POINTERS, flusherror: P3, flags: u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FsRtlLogCcFlushError<P0>(filename: *const super::super::super::Win32::Foundation::UNICODE_STRING, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, sectionobjectpointer: *const super::super::Foundation::SECTION_OBJECT_POINTERS, flusherror: P0, flags: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlLogCcFlushError(filename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, sectionobjectpointer : *const super::super::Foundation:: SECTION_OBJECT_POINTERS, flusherror : super::super::super::Win32::Foundation:: NTSTATUS, flags : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     FsRtlLogCcFlushError(filename, deviceobject, sectionobjectpointer, flusherror.param().abi(), flags)
@@ -1169,11 +1169,11 @@ where
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FsRtlNotifyFilterChangeDirectory<P0, P4, P5>(notifysync: P0, notifylist: *const super::super::super::Win32::System::Kernel::LIST_ENTRY, fscontext: *const core::ffi::c_void, fulldirectoryname: *const super::super::super::Win32::System::Kernel::STRING, watchtree: P4, ignorebuffer: P5, completionfilter: u32, notifyirp: Option<*const super::super::Foundation::IRP>, traversecallback: PCHECK_FOR_TRAVERSE_ACCESS, subjectcontext: Option<*const super::super::Foundation::SECURITY_SUBJECT_CONTEXT>, filtercallback: PFILTER_REPORT_CHANGE)
+pub unsafe fn FsRtlNotifyFilterChangeDirectory<P0, P1, P2>(notifysync: P0, notifylist: *const super::super::super::Win32::System::Kernel::LIST_ENTRY, fscontext: *const core::ffi::c_void, fulldirectoryname: *const super::super::super::Win32::System::Kernel::STRING, watchtree: P1, ignorebuffer: P2, completionfilter: u32, notifyirp: Option<*const super::super::Foundation::IRP>, traversecallback: PCHECK_FOR_TRAVERSE_ACCESS, subjectcontext: Option<*const super::super::Foundation::SECURITY_SUBJECT_CONTEXT>, filtercallback: PFILTER_REPORT_CHANGE)
 where
     P0: windows_core::Param<super::super::Foundation::PNOTIFY_SYNC>,
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlNotifyFilterChangeDirectory(notifysync : super::super::Foundation:: PNOTIFY_SYNC, notifylist : *const super::super::super::Win32::System::Kernel:: LIST_ENTRY, fscontext : *const core::ffi::c_void, fulldirectoryname : *const super::super::super::Win32::System::Kernel:: STRING, watchtree : super::super::super::Win32::Foundation:: BOOLEAN, ignorebuffer : super::super::super::Win32::Foundation:: BOOLEAN, completionfilter : u32, notifyirp : *const super::super::Foundation:: IRP, traversecallback : PCHECK_FOR_TRAVERSE_ACCESS, subjectcontext : *const super::super::Foundation:: SECURITY_SUBJECT_CONTEXT, filtercallback : PFILTER_REPORT_CHANGE));
     FsRtlNotifyFilterChangeDirectory(notifysync.param().abi(), notifylist, fscontext, fulldirectoryname, watchtree.param().abi(), ignorebuffer.param().abi(), completionfilter, core::mem::transmute(notifyirp.unwrap_or(core::ptr::null())), traversecallback, core::mem::transmute(subjectcontext.unwrap_or(core::ptr::null())), filtercallback)
@@ -1189,11 +1189,11 @@ where
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FsRtlNotifyFullChangeDirectory<P0, P4, P5>(notifysync: P0, notifylist: *const super::super::super::Win32::System::Kernel::LIST_ENTRY, fscontext: *const core::ffi::c_void, fulldirectoryname: *mut super::super::super::Win32::System::Kernel::STRING, watchtree: P4, ignorebuffer: P5, completionfilter: u32, notifyirp: Option<*const super::super::Foundation::IRP>, traversecallback: PCHECK_FOR_TRAVERSE_ACCESS, subjectcontext: Option<*const super::super::Foundation::SECURITY_SUBJECT_CONTEXT>)
+pub unsafe fn FsRtlNotifyFullChangeDirectory<P0, P1, P2>(notifysync: P0, notifylist: *const super::super::super::Win32::System::Kernel::LIST_ENTRY, fscontext: *const core::ffi::c_void, fulldirectoryname: *mut super::super::super::Win32::System::Kernel::STRING, watchtree: P1, ignorebuffer: P2, completionfilter: u32, notifyirp: Option<*const super::super::Foundation::IRP>, traversecallback: PCHECK_FOR_TRAVERSE_ACCESS, subjectcontext: Option<*const super::super::Foundation::SECURITY_SUBJECT_CONTEXT>)
 where
     P0: windows_core::Param<super::super::Foundation::PNOTIFY_SYNC>,
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlNotifyFullChangeDirectory(notifysync : super::super::Foundation:: PNOTIFY_SYNC, notifylist : *const super::super::super::Win32::System::Kernel:: LIST_ENTRY, fscontext : *const core::ffi::c_void, fulldirectoryname : *mut super::super::super::Win32::System::Kernel:: STRING, watchtree : super::super::super::Win32::Foundation:: BOOLEAN, ignorebuffer : super::super::super::Win32::Foundation:: BOOLEAN, completionfilter : u32, notifyirp : *const super::super::Foundation:: IRP, traversecallback : PCHECK_FOR_TRAVERSE_ACCESS, subjectcontext : *const super::super::Foundation:: SECURITY_SUBJECT_CONTEXT));
     FsRtlNotifyFullChangeDirectory(notifysync.param().abi(), notifylist, fscontext, fulldirectoryname, watchtree.param().abi(), ignorebuffer.param().abi(), completionfilter, core::mem::transmute(notifyirp.unwrap_or(core::ptr::null())), traversecallback, core::mem::transmute(subjectcontext.unwrap_or(core::ptr::null())))
@@ -1340,12 +1340,12 @@ pub unsafe fn FsRtlPrepareToReuseEcp(ecpcontext: *const core::ffi::c_void) {
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FsRtlPrivateLock<P4, P6, P7, P11>(filelock: *const FILE_LOCK, fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: *const i64, processid: P4, key: u32, failimmediately: P6, exclusivelock: P7, iosb: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, irp: Option<*const super::super::Foundation::IRP>, context: Option<*const core::ffi::c_void>, alreadysynchronized: P11) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn FsRtlPrivateLock<P0, P1, P2, P3>(filelock: *const FILE_LOCK, fileobject: *const super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: *const i64, processid: P0, key: u32, failimmediately: P1, exclusivelock: P2, iosb: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, irp: Option<*const super::super::Foundation::IRP>, context: Option<*const core::ffi::c_void>, alreadysynchronized: P3) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P4: windows_core::Param<super::super::Foundation::PEPROCESS>,
-    P6: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P7: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P11: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::Foundation::PEPROCESS>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlPrivateLock(filelock : *const FILE_LOCK, fileobject : *const super::super::Foundation:: FILE_OBJECT, fileoffset : *const i64, length : *const i64, processid : super::super::Foundation:: PEPROCESS, key : u32, failimmediately : super::super::super::Win32::Foundation:: BOOLEAN, exclusivelock : super::super::super::Win32::Foundation:: BOOLEAN, iosb : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, irp : *const super::super::Foundation:: IRP, context : *const core::ffi::c_void, alreadysynchronized : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     FsRtlPrivateLock(filelock, fileobject, fileoffset, length, processid.param().abi(), key, failimmediately.param().abi(), exclusivelock.param().abi(), iosb, core::mem::transmute(irp.unwrap_or(core::ptr::null())), core::mem::transmute(context.unwrap_or(core::ptr::null())), alreadysynchronized.param().abi())
@@ -1370,10 +1370,10 @@ pub unsafe fn FsRtlQueryInformationFile(fileobject: *const super::super::Foundat
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FsRtlQueryKernelEaFile<P3, P7>(fileobject: *const super::super::Foundation::FILE_OBJECT, returnedeadata: *mut core::ffi::c_void, length: u32, returnsingleentry: P3, ealist: Option<*const core::ffi::c_void>, ealistlength: u32, eaindex: Option<*const u32>, restartscan: P7, lengthreturned: Option<*mut u32>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FsRtlQueryKernelEaFile<P0, P1>(fileobject: *const super::super::Foundation::FILE_OBJECT, returnedeadata: *mut core::ffi::c_void, length: u32, returnsingleentry: P0, ealist: Option<*const core::ffi::c_void>, ealistlength: u32, eaindex: Option<*const u32>, restartscan: P1, lengthreturned: Option<*mut u32>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P7: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlQueryKernelEaFile(fileobject : *const super::super::Foundation:: FILE_OBJECT, returnedeadata : *mut core::ffi::c_void, length : u32, returnsingleentry : super::super::super::Win32::Foundation:: BOOLEAN, ealist : *const core::ffi::c_void, ealistlength : u32, eaindex : *const u32, restartscan : super::super::super::Win32::Foundation:: BOOLEAN, lengthreturned : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     FsRtlQueryKernelEaFile(fileobject, returnedeadata, length, returnsingleentry.param().abi(), core::mem::transmute(ealist.unwrap_or(core::ptr::null())), ealistlength, core::mem::transmute(eaindex.unwrap_or(core::ptr::null())), restartscan.param().abi(), core::mem::transmute(lengthreturned.unwrap_or(core::ptr::null_mut())))
@@ -1390,9 +1390,9 @@ pub unsafe fn FsRtlRegisterFileSystemFilterCallbacks(filterdriverobject: *const 
     FsRtlRegisterFileSystemFilterCallbacks(filterdriverobject, callbacks)
 }
 #[inline]
-pub unsafe fn FsRtlRegisterUncProvider<P2>(muphandle: *mut super::super::super::Win32::Foundation::HANDLE, redirectordevicename: *const super::super::super::Win32::Foundation::UNICODE_STRING, mailslotssupported: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn FsRtlRegisterUncProvider<P0>(muphandle: *mut super::super::super::Win32::Foundation::HANDLE, redirectordevicename: *const super::super::super::Win32::Foundation::UNICODE_STRING, mailslotssupported: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlRegisterUncProvider(muphandle : *mut super::super::super::Win32::Foundation:: HANDLE, redirectordevicename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, mailslotssupported : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     FsRtlRegisterUncProvider(muphandle, redirectordevicename, mailslotssupported.param().abi())
@@ -1470,9 +1470,9 @@ pub unsafe fn FsRtlResetBaseMcb() -> BASE_MCB {
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn FsRtlResetLargeMcb<P1>(mcb: *mut LARGE_MCB, selfsynchronized: P1)
+pub unsafe fn FsRtlResetLargeMcb<P0>(mcb: *mut LARGE_MCB, selfsynchronized: P0)
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn FsRtlResetLargeMcb(mcb : *mut LARGE_MCB, selfsynchronized : super::super::super::Win32::Foundation:: BOOLEAN));
     FsRtlResetLargeMcb(mcb, selfsynchronized.param().abi())
@@ -1599,9 +1599,9 @@ pub unsafe fn IoAcquireVpbSpinLock() -> u8 {
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn IoApplyPriorityInfoThread<P2>(inputpriorityinfo: *const IO_PRIORITY_INFO, outputpriorityinfo: Option<*mut IO_PRIORITY_INFO>, thread: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoApplyPriorityInfoThread<P0>(inputpriorityinfo: *const IO_PRIORITY_INFO, outputpriorityinfo: Option<*mut IO_PRIORITY_INFO>, thread: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::Foundation::PETHREAD>,
+    P0: windows_core::Param<super::super::Foundation::PETHREAD>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoApplyPriorityInfoThread(inputpriorityinfo : *const IO_PRIORITY_INFO, outputpriorityinfo : *mut IO_PRIORITY_INFO, thread : super::super::Foundation:: PETHREAD) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoApplyPriorityInfoThread(inputpriorityinfo, core::mem::transmute(outputpriorityinfo.unwrap_or(core::ptr::null_mut())), thread.param().abi())
@@ -1622,17 +1622,17 @@ pub unsafe fn IoCheckFunctionAccess(grantedaccess: u32, majorfunction: u8, minor
     IoCheckFunctionAccess(grantedaccess, majorfunction, minorfunction, iocontrolcode, core::mem::transmute(arg1.unwrap_or(core::ptr::null())), core::mem::transmute(arg2.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn IoCheckQuerySetFileInformation<P2>(fileinformationclass: FILE_INFORMATION_CLASS, length: u32, setoperation: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoCheckQuerySetFileInformation<P0>(fileinformationclass: FILE_INFORMATION_CLASS, length: u32, setoperation: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoCheckQuerySetFileInformation(fileinformationclass : FILE_INFORMATION_CLASS, length : u32, setoperation : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoCheckQuerySetFileInformation(fileinformationclass, length, setoperation.param().abi())
 }
 #[inline]
-pub unsafe fn IoCheckQuerySetVolumeInformation<P2>(fsinformationclass: FS_INFORMATION_CLASS, length: u32, setoperation: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoCheckQuerySetVolumeInformation<P0>(fsinformationclass: FS_INFORMATION_CLASS, length: u32, setoperation: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoCheckQuerySetVolumeInformation(fsinformationclass : FS_INFORMATION_CLASS, length : u32, setoperation : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoCheckQuerySetVolumeInformation(fsinformationclass, length, setoperation.param().abi())
@@ -1837,9 +1837,9 @@ pub unsafe fn IoRegisterFsRegistrationChange(driverobject: *const super::super::
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoRegisterFsRegistrationChangeMountAware<P2>(driverobject: *const super::super::Foundation::DRIVER_OBJECT, drivernotificationroutine: super::super::Foundation::DRIVER_FS_NOTIFICATION, synchronizewithmounts: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoRegisterFsRegistrationChangeMountAware<P0>(driverobject: *const super::super::Foundation::DRIVER_OBJECT, drivernotificationroutine: super::super::Foundation::DRIVER_FS_NOTIFICATION, synchronizewithmounts: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoRegisterFsRegistrationChangeMountAware(driverobject : *const super::super::Foundation:: DRIVER_OBJECT, drivernotificationroutine : super::super::Foundation:: DRIVER_FS_NOTIFICATION, synchronizewithmounts : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoRegisterFsRegistrationChangeMountAware(driverobject, drivernotificationroutine, synchronizewithmounts.param().abi())
@@ -1851,9 +1851,9 @@ pub unsafe fn IoReleaseVpbSpinLock(irql: u8) {
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoReplaceFileObjectName<P1>(fileobject: *const super::super::Foundation::FILE_OBJECT, newfilename: P1, filenamelength: u16) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoReplaceFileObjectName<P0>(fileobject: *const super::super::Foundation::FILE_OBJECT, newfilename: P0, filenamelength: u16) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoReplaceFileObjectName(fileobject : *const super::super::Foundation:: FILE_OBJECT, newfilename : windows_core::PCWSTR, filenamelength : u16) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoReplaceFileObjectName(fileobject, newfilename.param().abi(), filenamelength)
@@ -1866,9 +1866,9 @@ pub unsafe fn IoRequestDeviceRemovalForReset(physicaldeviceobject: *const super:
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoRetrievePriorityInfo<P2>(irp: Option<*const super::super::Foundation::IRP>, fileobject: Option<*const super::super::Foundation::FILE_OBJECT>, thread: P2, priorityinfo: *mut IO_PRIORITY_INFO) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoRetrievePriorityInfo<P0>(irp: Option<*const super::super::Foundation::IRP>, fileobject: Option<*const super::super::Foundation::FILE_OBJECT>, thread: P0, priorityinfo: *mut IO_PRIORITY_INFO) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::Foundation::PETHREAD>,
+    P0: windows_core::Param<super::super::Foundation::PETHREAD>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoRetrievePriorityInfo(irp : *const super::super::Foundation:: IRP, fileobject : *const super::super::Foundation:: FILE_OBJECT, thread : super::super::Foundation:: PETHREAD, priorityinfo : *mut IO_PRIORITY_INFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoRetrievePriorityInfo(core::mem::transmute(irp.unwrap_or(core::ptr::null())), core::mem::transmute(fileobject.unwrap_or(core::ptr::null())), thread.param().abi(), priorityinfo)
@@ -1923,9 +1923,9 @@ pub unsafe fn IoUnregisterFsRegistrationChange(driverobject: *const super::super
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoVerifyVolume<P1>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, allowrawmount: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoVerifyVolume<P0>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, allowrawmount: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoVerifyVolume(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, allowrawmount : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoVerifyVolume(deviceobject, allowrawmount.param().abi())
@@ -1957,9 +1957,9 @@ pub unsafe fn KeDetachProcess() {
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn KeInitializeMutant<P1>(mutant: *mut super::super::Foundation::KMUTANT, initialowner: P1)
+pub unsafe fn KeInitializeMutant<P0>(mutant: *mut super::super::Foundation::KMUTANT, initialowner: P0)
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeMutant(mutant : *mut super::super::Foundation:: KMUTANT, initialowner : super::super::super::Win32::Foundation:: BOOLEAN));
     KeInitializeMutant(mutant, initialowner.param().abi())
@@ -1996,10 +1996,10 @@ pub unsafe fn KeReadStateQueue(queue: *const super::super::Foundation::KQUEUE) -
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn KeReleaseMutant<P2, P3>(mutant: *mut super::super::Foundation::KMUTANT, increment: i32, abandoned: P2, wait: P3) -> i32
+pub unsafe fn KeReleaseMutant<P0, P1>(mutant: *mut super::super::Foundation::KMUTANT, increment: i32, abandoned: P0, wait: P1) -> i32
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseMutant(mutant : *mut super::super::Foundation:: KMUTANT, increment : i32, abandoned : super::super::super::Win32::Foundation:: BOOLEAN, wait : super::super::super::Win32::Foundation:: BOOLEAN) -> i32);
     KeReleaseMutant(mutant, increment, abandoned.param().abi(), wait.param().abi())
@@ -2018,9 +2018,9 @@ pub unsafe fn KeRemoveQueue(queue: *mut super::super::Foundation::KQUEUE, waitmo
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn KeRemoveQueueEx<P2>(queue: *mut super::super::Foundation::KQUEUE, waitmode: i8, alertable: P2, timeout: Option<*const i64>, entryarray: &mut [*mut super::super::super::Win32::System::Kernel::LIST_ENTRY]) -> u32
+pub unsafe fn KeRemoveQueueEx<P0>(queue: *mut super::super::Foundation::KQUEUE, waitmode: i8, alertable: P0, timeout: Option<*const i64>, entryarray: &mut [*mut super::super::super::Win32::System::Kernel::LIST_ENTRY]) -> u32
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn KeRemoveQueueEx(queue : *mut super::super::Foundation:: KQUEUE, waitmode : i8, alertable : super::super::super::Win32::Foundation:: BOOLEAN, timeout : *const i64, entryarray : *mut *mut super::super::super::Win32::System::Kernel:: LIST_ENTRY, count : u32) -> u32);
     KeRemoveQueueEx(queue, waitmode, alertable.param().abi(), core::mem::transmute(timeout.unwrap_or(core::ptr::null())), core::mem::transmute(entryarray.as_ptr()), entryarray.len().try_into().unwrap())
@@ -2099,9 +2099,9 @@ pub unsafe fn MmFlushImageSection(sectionobjectpointer: *const super::super::Fou
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn MmForceSectionClosed<P1>(sectionobjectpointer: *const super::super::Foundation::SECTION_OBJECT_POINTERS, delayclose: P1) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn MmForceSectionClosed<P0>(sectionobjectpointer: *const super::super::Foundation::SECTION_OBJECT_POINTERS, delayclose: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn MmForceSectionClosed(sectionobjectpointer : *const super::super::Foundation:: SECTION_OBJECT_POINTERS, delayclose : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     MmForceSectionClosed(sectionobjectpointer, delayclose.param().abi())
@@ -2147,95 +2147,95 @@ pub unsafe fn MmSetAddressRangeModified(address: *const core::ffi::c_void, lengt
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NtAccessCheckAndAuditAlarm<P4, P7>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING, securitydescriptor: P4, desiredaccess: u32, genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING, objectcreation: P7, grantedaccess: *mut u32, accessstatus: *mut i32, generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtAccessCheckAndAuditAlarm<P0, P1>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING, securitydescriptor: P0, desiredaccess: u32, genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING, objectcreation: P1, grantedaccess: *mut u32, accessstatus: *mut i32, generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P7: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtAccessCheckAndAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, desiredaccess : u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtAccessCheckAndAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), objecttypename, objectname, securitydescriptor.param().abi(), desiredaccess, genericmapping, objectcreation.param().abi(), grantedaccess, accessstatus, generateonclose)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NtAccessCheckByTypeAndAuditAlarm<P4, P5, P12>(
+pub unsafe fn NtAccessCheckByTypeAndAuditAlarm<P0, P1, P2>(
     subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     handleid: Option<*const core::ffi::c_void>,
     objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
-    securitydescriptor: P4,
-    principalselfsid: P5,
+    securitydescriptor: P0,
+    principalselfsid: P1,
     desiredaccess: u32,
     audittype: super::super::super::Win32::Security::AUDIT_EVENT_TYPE,
     flags: u32,
     objecttypelist: Option<&[super::super::super::Win32::Security::OBJECT_TYPE_LIST]>,
     genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING,
-    objectcreation: P12,
+    objectcreation: P2,
     grantedaccess: *mut u32,
     accessstatus: *mut i32,
     generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN,
 ) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P5: windows_core::Param<super::super::super::Win32::Security::PSID>,
-    P12: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::super::Win32::Security::PSID>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtAccessCheckByTypeAndAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, principalselfsid : super::super::super::Win32::Security:: PSID, desiredaccess : u32, audittype : super::super::super::Win32::Security:: AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::super::Win32::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtAccessCheckByTypeAndAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), objecttypename, objectname, securitydescriptor.param().abi(), principalselfsid.param().abi(), desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation.param().abi(), grantedaccess, accessstatus, generateonclose)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NtAccessCheckByTypeResultListAndAuditAlarm<P4, P5, P12>(
+pub unsafe fn NtAccessCheckByTypeResultListAndAuditAlarm<P0, P1, P2>(
     subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     handleid: Option<*const core::ffi::c_void>,
     objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
-    securitydescriptor: P4,
-    principalselfsid: P5,
+    securitydescriptor: P0,
+    principalselfsid: P1,
     desiredaccess: u32,
     audittype: super::super::super::Win32::Security::AUDIT_EVENT_TYPE,
     flags: u32,
     objecttypelist: Option<*const super::super::super::Win32::Security::OBJECT_TYPE_LIST>,
     objecttypelistlength: u32,
     genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING,
-    objectcreation: P12,
+    objectcreation: P2,
     grantedaccess: *mut u32,
     accessstatus: *mut i32,
     generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN,
 ) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P5: windows_core::Param<super::super::super::Win32::Security::PSID>,
-    P12: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::super::Win32::Security::PSID>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, principalselfsid : super::super::super::Win32::Security:: PSID, desiredaccess : u32, audittype : super::super::super::Win32::Security:: AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::super::Win32::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), objecttypename, objectname, securitydescriptor.param().abi(), principalselfsid.param().abi(), desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.unwrap_or(core::ptr::null())), objecttypelistlength, genericmapping, objectcreation.param().abi(), grantedaccess, accessstatus, generateonclose)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle<P2, P5, P6, P13>(
+pub unsafe fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle<P0, P1, P2, P3>(
     subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     handleid: Option<*const core::ffi::c_void>,
-    clienttoken: P2,
+    clienttoken: P0,
     objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
-    securitydescriptor: P5,
-    principalselfsid: P6,
+    securitydescriptor: P1,
+    principalselfsid: P2,
     desiredaccess: u32,
     audittype: super::super::super::Win32::Security::AUDIT_EVENT_TYPE,
     flags: u32,
     objecttypelist: Option<*const super::super::super::Win32::Security::OBJECT_TYPE_LIST>,
     objecttypelistlength: u32,
     genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING,
-    objectcreation: P13,
+    objectcreation: P3,
     grantedaccess: *mut u32,
     accessstatus: *mut i32,
     generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN,
 ) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P5: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P6: windows_core::Param<super::super::super::Win32::Security::PSID>,
-    P13: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P2: windows_core::Param<super::super::super::Win32::Security::PSID>,
+    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, clienttoken : super::super::super::Win32::Foundation:: HANDLE, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, principalselfsid : super::super::super::Win32::Security:: PSID, desiredaccess : u32, audittype : super::super::super::Win32::Security:: AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::super::Win32::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), clienttoken.param().abi(), objecttypename, objectname, securitydescriptor.param().abi(), principalselfsid.param().abi(), desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.unwrap_or(core::ptr::null())), objecttypelistlength, genericmapping, objectcreation.param().abi(), grantedaccess, accessstatus, generateonclose)
@@ -2287,9 +2287,9 @@ where
     NtCancelIoFileEx(filehandle.param().abi(), core::mem::transmute(iorequesttocancel.unwrap_or(core::ptr::null())), iostatusblock)
 }
 #[inline]
-pub unsafe fn NtCloseObjectAuditAlarm<P2>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, generateonclose: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtCloseObjectAuditAlarm<P0>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, generateonclose: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtCloseObjectAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, generateonclose : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtCloseObjectAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), generateonclose.param().abi())
@@ -2302,9 +2302,9 @@ pub unsafe fn NtCreateDirectoryObject(directoryhandle: *mut super::super::super:
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn NtCreateEvent<P4>(eventhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, eventtype: super::super::super::Win32::System::Kernel::EVENT_TYPE, initialstate: P4) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtCreateEvent<P0>(eventhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, eventtype: super::super::super::Win32::System::Kernel::EVENT_TYPE, initialstate: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtCreateEvent(eventhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, eventtype : super::super::super::Win32::System::Kernel:: EVENT_TYPE, initialstate : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtCreateEvent(eventhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), eventtype, initialstate.param().abi())
@@ -2317,18 +2317,18 @@ pub unsafe fn NtCreateFile(filehandle: *mut super::super::super::Win32::Foundati
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn NtCreateSection<P6>(sectionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, maximumsize: Option<*const i64>, sectionpageprotection: u32, allocationattributes: u32, filehandle: P6) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtCreateSection<P0>(sectionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, maximumsize: Option<*const i64>, sectionpageprotection: u32, allocationattributes: u32, filehandle: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P6: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtCreateSection(sectionhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, maximumsize : *const i64, sectionpageprotection : u32, allocationattributes : u32, filehandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtCreateSection(sectionhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), core::mem::transmute(maximumsize.unwrap_or(core::ptr::null())), sectionpageprotection, allocationattributes, filehandle.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Memory"))]
 #[inline]
-pub unsafe fn NtCreateSectionEx<P6>(sectionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, maximumsize: Option<*const i64>, sectionpageprotection: u32, allocationattributes: u32, filehandle: P6, extendedparameters: Option<&mut [super::super::super::Win32::System::Memory::MEM_EXTENDED_PARAMETER]>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtCreateSectionEx<P0>(sectionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, maximumsize: Option<*const i64>, sectionpageprotection: u32, allocationattributes: u32, filehandle: P0, extendedparameters: Option<&mut [super::super::super::Win32::System::Memory::MEM_EXTENDED_PARAMETER]>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P6: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtCreateSectionEx(sectionhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, maximumsize : *const i64, sectionpageprotection : u32, allocationattributes : u32, filehandle : super::super::super::Win32::Foundation:: HANDLE, extendedparameters : *mut super::super::super::Win32::System::Memory:: MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtCreateSectionEx(sectionhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), core::mem::transmute(maximumsize.unwrap_or(core::ptr::null())), sectionpageprotection, allocationattributes, filehandle.param().abi(), core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
@@ -2340,9 +2340,9 @@ pub unsafe fn NtDeleteFile(objectattributes: *const super::super::Foundation::OB
     NtDeleteFile(objectattributes)
 }
 #[inline]
-pub unsafe fn NtDeleteObjectAuditAlarm<P2>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, generateonclose: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtDeleteObjectAuditAlarm<P0>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, generateonclose: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtDeleteObjectAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, generateonclose : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtDeleteObjectAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), generateonclose.param().abi())
@@ -2359,10 +2359,10 @@ where
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NtDuplicateToken<P0, P3>(existingtokenhandle: P0, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, effectiveonly: P3, tokentype: super::super::super::Win32::Security::TOKEN_TYPE, newtokenhandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtDuplicateToken<P0, P1>(existingtokenhandle: P0, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, effectiveonly: P1, tokentype: super::super::super::Win32::Security::TOKEN_TYPE, newtokenhandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtDuplicateToken(existingtokenhandle : super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, effectiveonly : super::super::super::Win32::Foundation:: BOOLEAN, tokentype : super::super::super::Win32::Security:: TOKEN_TYPE, newtokenhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtDuplicateToken(existingtokenhandle.param().abi(), desiredaccess, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), effectiveonly.param().abi(), tokentype, newtokenhandle)
@@ -2431,24 +2431,24 @@ where
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn NtLockFile<P0, P1, P8, P9>(filehandle: P0, event: P1, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, byteoffset: *const i64, length: *const i64, key: u32, failimmediately: P8, exclusivelock: P9) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtLockFile<P0, P1, P2, P3>(filehandle: P0, event: P1, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, byteoffset: *const i64, length: *const i64, key: u32, failimmediately: P2, exclusivelock: P3) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P8: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P9: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtLockFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, byteoffset : *const i64, length : *const i64, key : u32, failimmediately : super::super::super::Win32::Foundation:: BOOLEAN, exclusivelock : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtLockFile(filehandle.param().abi(), event.param().abi(), apcroutine, core::mem::transmute(apccontext.unwrap_or(core::ptr::null())), iostatusblock, byteoffset, length, key, failimmediately.param().abi(), exclusivelock.param().abi())
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn NtNotifyChangeKey<P0, P1, P6, P9>(keyhandle: P0, event: P1, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, completionfilter: u32, watchtree: P6, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, asynchronous: P9) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtNotifyChangeKey<P0, P1, P2, P3>(keyhandle: P0, event: P1, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, completionfilter: u32, watchtree: P2, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, asynchronous: P3) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P6: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P9: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtNotifyChangeKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, completionfilter : u32, watchtree : super::super::super::Win32::Foundation:: BOOLEAN, buffer : *mut core::ffi::c_void, buffersize : u32, asynchronous : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtNotifyChangeKey(keyhandle.param().abi(), event.param().abi(), apcroutine, core::mem::transmute(apccontext.unwrap_or(core::ptr::null())), iostatusblock, completionfilter, watchtree.param().abi(), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), buffersize, asynchronous.param().abi())
@@ -2467,12 +2467,12 @@ pub unsafe fn NtOpenFile(filehandle: *mut super::super::super::Win32::Foundation
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NtOpenObjectAuditAlarm<P4, P5, P9, P10>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING, securitydescriptor: P4, clienttoken: P5, desiredaccess: u32, grantedaccess: u32, privileges: Option<*const super::super::super::Win32::Security::PRIVILEGE_SET>, objectcreation: P9, accessgranted: P10, generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtOpenObjectAuditAlarm<P0, P1, P2, P3>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING, securitydescriptor: P0, clienttoken: P1, desiredaccess: u32, grantedaccess: u32, privileges: Option<*const super::super::super::Win32::Security::PRIVILEGE_SET>, objectcreation: P2, accessgranted: P3, generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P5: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P9: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P10: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtOpenObjectAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, clienttoken : super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, grantedaccess : u32, privileges : *const super::super::super::Win32::Security:: PRIVILEGE_SET, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtOpenObjectAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), objecttypename, objectname, securitydescriptor.param().abi(), clienttoken.param().abi(), desiredaccess, grantedaccess, core::mem::transmute(privileges.unwrap_or(core::ptr::null())), objectcreation.param().abi(), accessgranted.param().abi(), generateonclose)
@@ -2500,19 +2500,19 @@ pub unsafe fn NtOpenSymbolicLinkObject(linkhandle: *mut super::super::super::Win
     NtOpenSymbolicLinkObject(linkhandle, desiredaccess, objectattributes)
 }
 #[inline]
-pub unsafe fn NtOpenThreadToken<P0, P2>(threadhandle: P0, desiredaccess: u32, openasself: P2, tokenhandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtOpenThreadToken<P0, P1>(threadhandle: P0, desiredaccess: u32, openasself: P1, tokenhandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtOpenThreadToken(threadhandle : super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, openasself : super::super::super::Win32::Foundation:: BOOLEAN, tokenhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtOpenThreadToken(threadhandle.param().abi(), desiredaccess, openasself.param().abi(), tokenhandle)
 }
 #[inline]
-pub unsafe fn NtOpenThreadTokenEx<P0, P2>(threadhandle: P0, desiredaccess: u32, openasself: P2, handleattributes: u32, tokenhandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtOpenThreadTokenEx<P0, P1>(threadhandle: P0, desiredaccess: u32, openasself: P1, handleattributes: u32, tokenhandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtOpenThreadTokenEx(threadhandle : super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, openasself : super::super::super::Win32::Foundation:: BOOLEAN, handleattributes : u32, tokenhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtOpenThreadTokenEx(threadhandle.param().abi(), desiredaccess, openasself.param().abi(), handleattributes, tokenhandle)
@@ -2528,32 +2528,32 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NtPrivilegeObjectAuditAlarm<P2, P5>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, clienttoken: P2, desiredaccess: u32, privileges: *const super::super::super::Win32::Security::PRIVILEGE_SET, accessgranted: P5) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtPrivilegeObjectAuditAlarm<P0, P1>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, clienttoken: P0, desiredaccess: u32, privileges: *const super::super::super::Win32::Security::PRIVILEGE_SET, accessgranted: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtPrivilegeObjectAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, clienttoken : super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, privileges : *const super::super::super::Win32::Security:: PRIVILEGE_SET, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtPrivilegeObjectAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), clienttoken.param().abi(), desiredaccess, privileges, accessgranted.param().abi())
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NtPrivilegedServiceAuditAlarm<P2, P4>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, servicename: *const super::super::super::Win32::Foundation::UNICODE_STRING, clienttoken: P2, privileges: *const super::super::super::Win32::Security::PRIVILEGE_SET, accessgranted: P4) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtPrivilegedServiceAuditAlarm<P0, P1>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, servicename: *const super::super::super::Win32::Foundation::UNICODE_STRING, clienttoken: P0, privileges: *const super::super::super::Win32::Security::PRIVILEGE_SET, accessgranted: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtPrivilegedServiceAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, servicename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, clienttoken : super::super::super::Win32::Foundation:: HANDLE, privileges : *const super::super::super::Win32::Security:: PRIVILEGE_SET, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtPrivilegedServiceAuditAlarm(subsystemname, servicename, clienttoken.param().abi(), privileges, accessgranted.param().abi())
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn NtQueryDirectoryFile<P0, P1, P8, P10>(filehandle: P0, event: P1, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: FILE_INFORMATION_CLASS, returnsingleentry: P8, filename: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, restartscan: P10) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtQueryDirectoryFile<P0, P1, P2, P3>(filehandle: P0, event: P1, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: FILE_INFORMATION_CLASS, returnsingleentry: P2, filename: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, restartscan: P3) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P8: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P10: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtQueryDirectoryFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : FILE_INFORMATION_CLASS, returnsingleentry : super::super::super::Win32::Foundation:: BOOLEAN, filename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, restartscan : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtQueryDirectoryFile(filehandle.param().abi(), event.param().abi(), apcroutine, core::mem::transmute(apccontext.unwrap_or(core::ptr::null())), iostatusblock, fileinformation, length, fileinformationclass, returnsingleentry.param().abi(), core::mem::transmute(filename.unwrap_or(core::ptr::null())), restartscan.param().abi())
@@ -2569,22 +2569,22 @@ where
     NtQueryDirectoryFileEx(filehandle.param().abi(), event.param().abi(), apcroutine, core::mem::transmute(apccontext.unwrap_or(core::ptr::null())), iostatusblock, fileinformation, length, fileinformationclass, queryflags, core::mem::transmute(filename.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn NtQueryDirectoryObject<P0, P3, P4>(directoryhandle: P0, buffer: Option<*mut core::ffi::c_void>, length: u32, returnsingleentry: P3, restartscan: P4, context: *mut u32, returnlength: Option<*mut u32>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtQueryDirectoryObject<P0, P1, P2>(directoryhandle: P0, buffer: Option<*mut core::ffi::c_void>, length: u32, returnsingleentry: P1, restartscan: P2, context: *mut u32, returnlength: Option<*mut u32>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtQueryDirectoryObject(directoryhandle : super::super::super::Win32::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : super::super::super::Win32::Foundation:: BOOLEAN, restartscan : super::super::super::Win32::Foundation:: BOOLEAN, context : *mut u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtQueryDirectoryObject(directoryhandle.param().abi(), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), length, returnsingleentry.param().abi(), restartscan.param().abi(), context, core::mem::transmute(returnlength.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn NtQueryEaFile<P0, P4, P8>(filehandle: P0, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: P4, ealist: Option<*const core::ffi::c_void>, ealistlength: u32, eaindex: Option<*const u32>, restartscan: P8) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtQueryEaFile<P0, P1, P2>(filehandle: P0, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: P1, ealist: Option<*const core::ffi::c_void>, ealistlength: u32, eaindex: Option<*const u32>, restartscan: P2) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P8: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtQueryEaFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : super::super::super::Win32::Foundation:: BOOLEAN, ealist : *const core::ffi::c_void, ealistlength : u32, eaindex : *const u32, restartscan : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtQueryEaFile(filehandle.param().abi(), iostatusblock, buffer, length, returnsingleentry.param().abi(), core::mem::transmute(ealist.unwrap_or(core::ptr::null())), ealistlength, core::mem::transmute(eaindex.unwrap_or(core::ptr::null())), restartscan.param().abi())
@@ -2621,12 +2621,12 @@ where
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn NtQueryQuotaInformationFile<P0, P4, P7, P8>(filehandle: P0, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: P4, sidlist: Option<*const core::ffi::c_void>, sidlistlength: u32, startsid: P7, restartscan: P8) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtQueryQuotaInformationFile<P0, P1, P2, P3>(filehandle: P0, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: P1, sidlist: Option<*const core::ffi::c_void>, sidlistlength: u32, startsid: P2, restartscan: P3) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P7: windows_core::Param<super::super::super::Win32::Security::PSID>,
-    P8: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Security::PSID>,
+    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtQueryQuotaInformationFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : super::super::super::Win32::Foundation:: BOOLEAN, sidlist : *const core::ffi::c_void, sidlistlength : u32, startsid : super::super::super::Win32::Security:: PSID, restartscan : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtQueryQuotaInformationFile(filehandle.param().abi(), iostatusblock, buffer, length, returnsingleentry.param().abi(), core::mem::transmute(sidlist.unwrap_or(core::ptr::null())), sidlistlength, startsid.param().abi(), restartscan.param().abi())
@@ -2729,10 +2729,10 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn NtSetSecurityObject<P0, P2>(handle: P0, securityinformation: u32, securitydescriptor: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtSetSecurityObject<P0, P1>(handle: P0, securityinformation: u32, securitydescriptor: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P2: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtSetSecurityObject(handle : super::super::super::Win32::Foundation:: HANDLE, securityinformation : u32, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtSetSecurityObject(handle.param().abi(), securityinformation, securitydescriptor.param().abi())
@@ -2786,18 +2786,18 @@ pub unsafe fn ObMakeTemporaryObject(object: *const core::ffi::c_void) {
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ObOpenObjectByPointer<P4>(object: *const core::ffi::c_void, handleattributes: u32, passedaccessstate: Option<*const super::super::Foundation::ACCESS_STATE>, desiredaccess: u32, objecttype: P4, accessmode: i8, handle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ObOpenObjectByPointer<P0>(object: *const core::ffi::c_void, handleattributes: u32, passedaccessstate: Option<*const super::super::Foundation::ACCESS_STATE>, desiredaccess: u32, objecttype: P0, accessmode: i8, handle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::Foundation::POBJECT_TYPE>,
+    P0: windows_core::Param<super::super::Foundation::POBJECT_TYPE>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn ObOpenObjectByPointer(object : *const core::ffi::c_void, handleattributes : u32, passedaccessstate : *const super::super::Foundation:: ACCESS_STATE, desiredaccess : u32, objecttype : super::super::Foundation:: POBJECT_TYPE, accessmode : i8, handle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ObOpenObjectByPointer(object, handleattributes, core::mem::transmute(passedaccessstate.unwrap_or(core::ptr::null())), desiredaccess, objecttype.param().abi(), accessmode, handle)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ObOpenObjectByPointerWithTag<P4>(object: *const core::ffi::c_void, handleattributes: u32, passedaccessstate: Option<*const super::super::Foundation::ACCESS_STATE>, desiredaccess: u32, objecttype: P4, accessmode: i8, tag: u32, handle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ObOpenObjectByPointerWithTag<P0>(object: *const core::ffi::c_void, handleattributes: u32, passedaccessstate: Option<*const super::super::Foundation::ACCESS_STATE>, desiredaccess: u32, objecttype: P0, accessmode: i8, tag: u32, handle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::Foundation::POBJECT_TYPE>,
+    P0: windows_core::Param<super::super::Foundation::POBJECT_TYPE>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn ObOpenObjectByPointerWithTag(object : *const core::ffi::c_void, handleattributes : u32, passedaccessstate : *const super::super::Foundation:: ACCESS_STATE, desiredaccess : u32, objecttype : super::super::Foundation:: POBJECT_TYPE, accessmode : i8, tag : u32, handle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ObOpenObjectByPointerWithTag(object, handleattributes, core::mem::transmute(passedaccessstate.unwrap_or(core::ptr::null())), desiredaccess, objecttype.param().abi(), accessmode, tag, handle)
@@ -2911,11 +2911,11 @@ where
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn PsImpersonateClient<P0, P2, P3>(thread: P0, token: Option<*const core::ffi::c_void>, copyonopen: P2, effectiveonly: P3, impersonationlevel: super::super::super::Win32::Security::SECURITY_IMPERSONATION_LEVEL) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn PsImpersonateClient<P0, P1, P2>(thread: P0, token: Option<*const core::ffi::c_void>, copyonopen: P1, effectiveonly: P2, impersonationlevel: super::super::super::Win32::Security::SECURITY_IMPERSONATION_LEVEL) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::Foundation::PETHREAD>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
     P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn PsImpersonateClient(thread : super::super::Foundation:: PETHREAD, token : *const core::ffi::c_void, copyonopen : super::super::super::Win32::Foundation:: BOOLEAN, effectiveonly : super::super::super::Win32::Foundation:: BOOLEAN, impersonationlevel : super::super::super::Win32::Security:: SECURITY_IMPERSONATION_LEVEL) -> super::super::super::Win32::Foundation:: NTSTATUS);
     PsImpersonateClient(thread.param().abi(), core::mem::transmute(token.unwrap_or(core::ptr::null())), copyonopen.param().abi(), effectiveonly.param().abi(), impersonationlevel)
@@ -3027,18 +3027,18 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlAddAccessAllowedAce<P3>(acl: *mut super::super::super::Win32::Security::ACL, acerevision: u32, accessmask: u32, sid: P3) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlAddAccessAllowedAce<P0>(acl: *mut super::super::super::Win32::Security::ACL, acerevision: u32, accessmask: u32, sid: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P3: windows_core::Param<super::super::super::Win32::Security::PSID>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSID>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlAddAccessAllowedAce(acl : *mut super::super::super::Win32::Security:: ACL, acerevision : u32, accessmask : u32, sid : super::super::super::Win32::Security:: PSID) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlAddAccessAllowedAce(acl, acerevision, accessmask, sid.param().abi())
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlAddAccessAllowedAceEx<P4>(acl: *mut super::super::super::Win32::Security::ACL, acerevision: u32, aceflags: u32, accessmask: u32, sid: P4) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlAddAccessAllowedAceEx<P0>(acl: *mut super::super::super::Win32::Security::ACL, acerevision: u32, aceflags: u32, accessmask: u32, sid: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Security::PSID>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSID>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlAddAccessAllowedAceEx(acl : *mut super::super::super::Win32::Security:: ACL, acerevision : u32, aceflags : u32, accessmask : u32, sid : super::super::super::Win32::Security:: PSID) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlAddAccessAllowedAceEx(acl, acerevision, aceflags, accessmask, sid.param().abi())
@@ -3099,9 +3099,9 @@ pub unsafe fn RtlCopyLuid(destinationluid: *mut super::super::super::Win32::Foun
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlCopySid<P2>(destinationsidlength: u32, destinationsid: super::super::super::Win32::Security::PSID, sourcesid: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlCopySid<P0>(destinationsidlength: u32, destinationsid: super::super::super::Win32::Security::PSID, sourcesid: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Security::PSID>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSID>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlCopySid(destinationsidlength : u32, destinationsid : super::super::super::Win32::Security:: PSID, sourcesid : super::super::super::Win32::Security:: PSID) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlCopySid(destinationsidlength, destinationsid, sourcesid.param().abi())
@@ -3129,9 +3129,9 @@ pub unsafe fn RtlCreateSystemVolumeInformationFolder(volumerootpath: *const supe
     RtlCreateSystemVolumeInformationFolder(volumerootpath)
 }
 #[inline]
-pub unsafe fn RtlCreateUnicodeString<P1>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: P1) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn RtlCreateUnicodeString<P0>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlCreateUnicodeString(destinationstring : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, sourcestring : windows_core::PCWSTR) -> super::super::super::Win32::Foundation:: BOOLEAN);
     RtlCreateUnicodeString(destinationstring, sourcestring.param().abi())
@@ -3194,9 +3194,9 @@ pub unsafe fn RtlDestroyHeap(heaphandle: *const core::ffi::c_void) -> *mut core:
     RtlDestroyHeap(heaphandle)
 }
 #[inline]
-pub unsafe fn RtlDowncaseUnicodeString<P2>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: *const super::super::super::Win32::Foundation::UNICODE_STRING, allocatedestinationstring: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlDowncaseUnicodeString<P0>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: *const super::super::super::Win32::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlDowncaseUnicodeString(destinationstring : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, sourcestring : *const super::super::super::Win32::Foundation:: UNICODE_STRING, allocatedestinationstring : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlDowncaseUnicodeString(destinationstring, sourcestring, allocatedestinationstring.param().abi())
@@ -3247,9 +3247,9 @@ where
     RtlFreeSid(sid.param().abi())
 }
 #[inline]
-pub unsafe fn RtlGenerate8dot3Name<P1>(name: *const super::super::super::Win32::Foundation::UNICODE_STRING, allowextendedcharacters: P1, context: *mut GENERATE_NAME_CONTEXT, name8dot3: *mut super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlGenerate8dot3Name<P0>(name: *const super::super::super::Win32::Foundation::UNICODE_STRING, allowextendedcharacters: P0, context: *mut GENERATE_NAME_CONTEXT, name8dot3: *mut super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlGenerate8dot3Name(name : *const super::super::super::Win32::Foundation:: UNICODE_STRING, allowextendedcharacters : super::super::super::Win32::Foundation:: BOOLEAN, context : *mut GENERATE_NAME_CONTEXT, name8dot3 : *mut super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlGenerate8dot3Name(name, allowextendedcharacters.param().abi(), context, name8dot3)
@@ -3311,25 +3311,25 @@ where
     RtlIdentifierAuthoritySid(sid.param().abi())
 }
 #[inline]
-pub unsafe fn RtlIdnToAscii<P1>(flags: u32, sourcestring: P1, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlIdnToAscii<P0>(flags: u32, sourcestring: P0, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlIdnToAscii(flags : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlIdnToAscii(flags, sourcestring.param().abi(), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength)
 }
 #[inline]
-pub unsafe fn RtlIdnToNameprepUnicode<P1>(flags: u32, sourcestring: P1, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlIdnToNameprepUnicode<P0>(flags: u32, sourcestring: P0, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlIdnToNameprepUnicode(flags : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlIdnToNameprepUnicode(flags, sourcestring.param().abi(), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength)
 }
 #[inline]
-pub unsafe fn RtlIdnToUnicode<P1>(flags: u32, sourcestring: P1, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlIdnToUnicode<P0>(flags: u32, sourcestring: P0, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlIdnToUnicode(flags : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlIdnToUnicode(flags, sourcestring.param().abi(), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength)
@@ -3340,9 +3340,9 @@ pub unsafe fn RtlInitCodePageTable(tablebase: Option<&[u16; 2]>, codepagetable: 
     RtlInitCodePageTable(core::mem::transmute(tablebase.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), codepagetable)
 }
 #[inline]
-pub unsafe fn RtlInitUnicodeStringEx<P1>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlInitUnicodeStringEx<P0>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlInitUnicodeStringEx(destinationstring : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, sourcestring : windows_core::PCWSTR) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlInitUnicodeStringEx(destinationstring, sourcestring.param().abi())
@@ -3384,9 +3384,9 @@ pub unsafe fn RtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: u32) -> supe
     RtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag)
 }
 #[inline]
-pub unsafe fn RtlIsNormalizedString<P1>(normform: u32, sourcestring: P1, sourcestringlength: i32, normalized: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlIsNormalizedString<P0>(normform: u32, sourcestring: P0, sourcestringlength: i32, normalized: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlIsNormalizedString(normform : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, normalized : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlIsNormalizedString(normform, sourcestring.param().abi(), sourcestringlength, normalized)
@@ -3446,17 +3446,17 @@ pub unsafe fn RtlMultiByteToUnicodeSize(bytesinunicodestring: *mut u32, multibyt
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn RtlNextUnicodePrefix<P1>(prefixtable: *const UNICODE_PREFIX_TABLE, restart: P1) -> *mut UNICODE_PREFIX_TABLE_ENTRY
+pub unsafe fn RtlNextUnicodePrefix<P0>(prefixtable: *const UNICODE_PREFIX_TABLE, restart: P0) -> *mut UNICODE_PREFIX_TABLE_ENTRY
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn RtlNextUnicodePrefix(prefixtable : *const UNICODE_PREFIX_TABLE, restart : super::super::super::Win32::Foundation:: BOOLEAN) -> *mut UNICODE_PREFIX_TABLE_ENTRY);
     RtlNextUnicodePrefix(prefixtable, restart.param().abi())
 }
 #[inline]
-pub unsafe fn RtlNormalizeString<P1>(normform: u32, sourcestring: P1, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlNormalizeString<P0>(normform: u32, sourcestring: P0, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlNormalizeString(normform : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlNormalizeString(normform, sourcestring.param().abi(), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength)
@@ -3471,18 +3471,18 @@ where
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlOemStringToCountedUnicodeString<P2>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: *const super::super::super::Win32::System::Kernel::STRING, allocatedestinationstring: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlOemStringToCountedUnicodeString<P0>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: *const super::super::super::Win32::System::Kernel::STRING, allocatedestinationstring: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn RtlOemStringToCountedUnicodeString(destinationstring : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, sourcestring : *const super::super::super::Win32::System::Kernel:: STRING, allocatedestinationstring : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlOemStringToCountedUnicodeString(destinationstring, sourcestring, allocatedestinationstring.param().abi())
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlOemStringToUnicodeString<P2>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: *const super::super::super::Win32::System::Kernel::STRING, allocatedestinationstring: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlOemStringToUnicodeString<P0>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: *const super::super::super::Win32::System::Kernel::STRING, allocatedestinationstring: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlOemStringToUnicodeString(destinationstring : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, sourcestring : *const super::super::super::Win32::System::Kernel:: STRING, allocatedestinationstring : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlOemStringToUnicodeString(destinationstring, sourcestring, allocatedestinationstring.param().abi())
@@ -3494,9 +3494,9 @@ pub unsafe fn RtlOemToUnicodeN(unicodestring: windows_core::PWSTR, maxbytesinuni
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlPrefixString<P2>(string1: *const super::super::super::Win32::System::Kernel::STRING, string2: *const super::super::super::Win32::System::Kernel::STRING, caseinsensitive: P2) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn RtlPrefixString<P0>(string1: *const super::super::super::Win32::System::Kernel::STRING, string2: *const super::super::super::Win32::System::Kernel::STRING, caseinsensitive: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlPrefixString(string1 : *const super::super::super::Win32::System::Kernel:: STRING, string2 : *const super::super::super::Win32::System::Kernel:: STRING, caseinsensitive : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     RtlPrefixString(string1, string2, caseinsensitive.param().abi())
@@ -3539,10 +3539,10 @@ pub unsafe fn RtlRemoveUnicodePrefix(prefixtable: *const UNICODE_PREFIX_TABLE, p
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlReplaceSidInSd<P1, P2>(securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, oldsid: P1, newsid: P2, numchanges: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlReplaceSidInSd<P0, P1>(securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, oldsid: P0, newsid: P1, numchanges: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
+    P0: windows_core::Param<super::super::super::Win32::Security::PSID>,
     P1: windows_core::Param<super::super::super::Win32::Security::PSID>,
-    P2: windows_core::Param<super::super::super::Win32::Security::PSID>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlReplaceSidInSd(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, oldsid : super::super::super::Win32::Security:: PSID, newsid : super::super::super::Win32::Security:: PSID, numchanges : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlReplaceSidInSd(securitydescriptor, oldsid.param().abi(), newsid.param().abi(), numchanges)
@@ -3577,20 +3577,20 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlSetGroupSecurityDescriptor<P1, P2>(securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, group: P1, groupdefaulted: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlSetGroupSecurityDescriptor<P0, P1>(securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, group: P0, groupdefaulted: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Security::PSID>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSID>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlSetGroupSecurityDescriptor(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, group : super::super::super::Win32::Security:: PSID, groupdefaulted : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlSetGroupSecurityDescriptor(securitydescriptor, group.param().abi(), groupdefaulted.param().abi())
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlSetOwnerSecurityDescriptor<P1, P2>(securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, owner: P1, ownerdefaulted: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlSetOwnerSecurityDescriptor<P0, P1>(securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, owner: P0, ownerdefaulted: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Security::PSID>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSID>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlSetOwnerSecurityDescriptor(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, owner : super::super::super::Win32::Security:: PSID, ownerdefaulted : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlSetOwnerSecurityDescriptor(securitydescriptor, owner.param().abi(), ownerdefaulted.param().abi())
@@ -3630,17 +3630,17 @@ pub unsafe fn RtlTimeToSecondsSince1980(time: *const i64, elapsedseconds: *mut u
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlUnicodeStringToCountedOemString<P2>(destinationstring: *mut super::super::super::Win32::System::Kernel::STRING, sourcestring: *const super::super::super::Win32::Foundation::UNICODE_STRING, allocatedestinationstring: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlUnicodeStringToCountedOemString<P0>(destinationstring: *mut super::super::super::Win32::System::Kernel::STRING, sourcestring: *const super::super::super::Win32::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlUnicodeStringToCountedOemString(destinationstring : *mut super::super::super::Win32::System::Kernel:: STRING, sourcestring : *const super::super::super::Win32::Foundation:: UNICODE_STRING, allocatedestinationstring : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlUnicodeStringToCountedOemString(destinationstring, sourcestring, allocatedestinationstring.param().abi())
 }
 #[inline]
-pub unsafe fn RtlUnicodeToCustomCPN<P4>(customcp: *const CPTABLEINFO, customcpstring: &mut [u8], bytesincustomcpstring: Option<*mut u32>, unicodestring: P4, bytesinunicodestring: u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlUnicodeToCustomCPN<P0>(customcp: *const CPTABLEINFO, customcpstring: &mut [u8], bytesincustomcpstring: Option<*mut u32>, unicodestring: P0, bytesinunicodestring: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlUnicodeToCustomCPN(customcp : *const CPTABLEINFO, customcpstring : windows_core::PSTR, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : windows_core::PCWSTR, bytesinunicodestring : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlUnicodeToCustomCPN(customcp, core::mem::transmute(customcpstring.as_ptr()), customcpstring.len().try_into().unwrap(), core::mem::transmute(bytesincustomcpstring.unwrap_or(core::ptr::null_mut())), unicodestring.param().abi(), bytesinunicodestring)
@@ -3657,26 +3657,26 @@ pub unsafe fn RtlUnicodeToOemN(oemstring: &mut [u8], bytesinoemstring: Option<*m
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlUpcaseUnicodeStringToCountedOemString<P2>(destinationstring: *mut super::super::super::Win32::System::Kernel::STRING, sourcestring: *const super::super::super::Win32::Foundation::UNICODE_STRING, allocatedestinationstring: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlUpcaseUnicodeStringToCountedOemString<P0>(destinationstring: *mut super::super::super::Win32::System::Kernel::STRING, sourcestring: *const super::super::super::Win32::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeStringToCountedOemString(destinationstring : *mut super::super::super::Win32::System::Kernel:: STRING, sourcestring : *const super::super::super::Win32::Foundation:: UNICODE_STRING, allocatedestinationstring : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlUpcaseUnicodeStringToCountedOemString(destinationstring, sourcestring, allocatedestinationstring.param().abi())
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlUpcaseUnicodeStringToOemString<P2>(destinationstring: *mut super::super::super::Win32::System::Kernel::STRING, sourcestring: *const super::super::super::Win32::Foundation::UNICODE_STRING, allocatedestinationstring: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlUpcaseUnicodeStringToOemString<P0>(destinationstring: *mut super::super::super::Win32::System::Kernel::STRING, sourcestring: *const super::super::super::Win32::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeStringToOemString(destinationstring : *mut super::super::super::Win32::System::Kernel:: STRING, sourcestring : *const super::super::super::Win32::Foundation:: UNICODE_STRING, allocatedestinationstring : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlUpcaseUnicodeStringToOemString(destinationstring, sourcestring, allocatedestinationstring.param().abi())
 }
 #[inline]
-pub unsafe fn RtlUpcaseUnicodeToCustomCPN<P4>(customcp: *const CPTABLEINFO, customcpstring: &mut [u8], bytesincustomcpstring: Option<*mut u32>, unicodestring: P4, bytesinunicodestring: u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlUpcaseUnicodeToCustomCPN<P0>(customcp: *const CPTABLEINFO, customcpstring: &mut [u8], bytesincustomcpstring: Option<*mut u32>, unicodestring: P0, bytesinunicodestring: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToCustomCPN(customcp : *const CPTABLEINFO, customcpstring : windows_core::PSTR, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : windows_core::PCWSTR, bytesinunicodestring : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlUpcaseUnicodeToCustomCPN(customcp, core::mem::transmute(customcpstring.as_ptr()), customcpstring.len().try_into().unwrap(), core::mem::transmute(bytesincustomcpstring.unwrap_or(core::ptr::null_mut())), unicodestring.param().abi(), bytesinunicodestring)
@@ -3736,28 +3736,28 @@ where
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeAdjustAccessStateForAccessConstraints<P1>(objecttype: *const core::ffi::c_void, securitydescriptor: P1, accessstate: *mut super::super::Foundation::ACCESS_STATE)
+pub unsafe fn SeAdjustAccessStateForAccessConstraints<P0>(objecttype: *const core::ffi::c_void, securitydescriptor: P0, accessstate: *mut super::super::Foundation::ACCESS_STATE)
 where
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeAdjustAccessStateForAccessConstraints(objecttype : *const core::ffi::c_void, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, accessstate : *mut super::super::Foundation:: ACCESS_STATE));
     SeAdjustAccessStateForAccessConstraints(objecttype, securitydescriptor.param().abi(), accessstate)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeAdjustAccessStateForTrustLabel<P1>(objecttype: *const core::ffi::c_void, securitydescriptor: P1, accessstate: *mut super::super::Foundation::ACCESS_STATE)
+pub unsafe fn SeAdjustAccessStateForTrustLabel<P0>(objecttype: *const core::ffi::c_void, securitydescriptor: P0, accessstate: *mut super::super::Foundation::ACCESS_STATE)
 where
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeAdjustAccessStateForTrustLabel(objecttype : *const core::ffi::c_void, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, accessstate : *mut super::super::Foundation:: ACCESS_STATE));
     SeAdjustAccessStateForTrustLabel(objecttype, securitydescriptor.param().abi(), accessstate)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeAdjustObjectSecurity<P1, P2>(objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING, originaldescriptor: P1, proposeddescriptor: P2, subjectsecuritycontext: *const super::super::Foundation::SECURITY_SUBJECT_CONTEXT, adjusteddescriptor: *mut super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, applyadjusteddescriptor: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn SeAdjustObjectSecurity<P0, P1>(objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING, originaldescriptor: P0, proposeddescriptor: P1, subjectsecuritycontext: *const super::super::Foundation::SECURITY_SUBJECT_CONTEXT, adjusteddescriptor: *mut super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, applyadjusteddescriptor: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
 where
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
     P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P2: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeAdjustObjectSecurity(objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, originaldescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, proposeddescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, subjectsecuritycontext : *const super::super::Foundation:: SECURITY_SUBJECT_CONTEXT, adjusteddescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, applyadjusteddescriptor : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     SeAdjustObjectSecurity(objectname, originaldescriptor.param().abi(), proposeddescriptor.param().abi(), subjectsecuritycontext, adjusteddescriptor, applyadjusteddescriptor)
@@ -3777,17 +3777,17 @@ where
     SeAuditFipsCryptoSelftests(bsuccess.param().abi(), selftestcode)
 }
 #[inline]
-pub unsafe fn SeAuditHardLinkCreation<P2>(filename: *const super::super::super::Win32::Foundation::UNICODE_STRING, linkname: *const super::super::super::Win32::Foundation::UNICODE_STRING, bsuccess: P2)
+pub unsafe fn SeAuditHardLinkCreation<P0>(filename: *const super::super::super::Win32::Foundation::UNICODE_STRING, linkname: *const super::super::super::Win32::Foundation::UNICODE_STRING, bsuccess: P0)
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeAuditHardLinkCreation(filename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, linkname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, bsuccess : super::super::super::Win32::Foundation:: BOOLEAN));
     SeAuditHardLinkCreation(filename, linkname, bsuccess.param().abi())
 }
 #[inline]
-pub unsafe fn SeAuditHardLinkCreationWithTransaction<P2>(filename: *const super::super::super::Win32::Foundation::UNICODE_STRING, linkname: *const super::super::super::Win32::Foundation::UNICODE_STRING, bsuccess: P2, transactionid: Option<*const windows_core::GUID>)
+pub unsafe fn SeAuditHardLinkCreationWithTransaction<P0>(filename: *const super::super::super::Win32::Foundation::UNICODE_STRING, linkname: *const super::super::super::Win32::Foundation::UNICODE_STRING, bsuccess: P0, transactionid: Option<*const windows_core::GUID>)
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeAuditHardLinkCreationWithTransaction(filename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, linkname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, bsuccess : super::super::super::Win32::Foundation:: BOOLEAN, transactionid : *const windows_core::GUID));
     SeAuditHardLinkCreationWithTransaction(filename, linkname, bsuccess.param().abi(), core::mem::transmute(transactionid.unwrap_or(core::ptr::null())))
@@ -3901,19 +3901,19 @@ where
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeCreateClientSecurity<P0, P2>(clientthread: P0, clientsecurityqos: *const super::super::super::Win32::Security::SECURITY_QUALITY_OF_SERVICE, remotesession: P2, clientcontext: *mut SECURITY_CLIENT_CONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn SeCreateClientSecurity<P0, P1>(clientthread: P0, clientsecurityqos: *const super::super::super::Win32::Security::SECURITY_QUALITY_OF_SERVICE, remotesession: P1, clientcontext: *mut SECURITY_CLIENT_CONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::Foundation::PETHREAD>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeCreateClientSecurity(clientthread : super::super::Foundation:: PETHREAD, clientsecurityqos : *const super::super::super::Win32::Security:: SECURITY_QUALITY_OF_SERVICE, remotesession : super::super::super::Win32::Foundation:: BOOLEAN, clientcontext : *mut SECURITY_CLIENT_CONTEXT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     SeCreateClientSecurity(clientthread.param().abi(), clientsecurityqos, remotesession.param().abi(), clientcontext)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeCreateClientSecurityFromSubjectContext<P2>(subjectcontext: *const super::super::Foundation::SECURITY_SUBJECT_CONTEXT, clientsecurityqos: *const super::super::super::Win32::Security::SECURITY_QUALITY_OF_SERVICE, serverisremote: P2, clientcontext: *mut SECURITY_CLIENT_CONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn SeCreateClientSecurityFromSubjectContext<P0>(subjectcontext: *const super::super::Foundation::SECURITY_SUBJECT_CONTEXT, clientsecurityqos: *const super::super::super::Win32::Security::SECURITY_QUALITY_OF_SERVICE, serverisremote: P0, clientcontext: *mut SECURITY_CLIENT_CONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeCreateClientSecurityFromSubjectContext(subjectcontext : *const super::super::Foundation:: SECURITY_SUBJECT_CONTEXT, clientsecurityqos : *const super::super::super::Win32::Security:: SECURITY_QUALITY_OF_SERVICE, serverisremote : super::super::super::Win32::Foundation:: BOOLEAN, clientcontext : *mut SECURITY_CLIENT_CONTEXT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     SeCreateClientSecurityFromSubjectContext(subjectcontext, clientsecurityqos, serverisremote.param().abi(), clientcontext)
@@ -3925,26 +3925,26 @@ pub unsafe fn SeDeleteClientSecurity(clientcontext: *mut SECURITY_CLIENT_CONTEXT
     SeDeleteClientSecurity(clientcontext)
 }
 #[inline]
-pub unsafe fn SeDeleteObjectAuditAlarm<P1>(object: *const core::ffi::c_void, handle: P1)
+pub unsafe fn SeDeleteObjectAuditAlarm<P0>(object: *const core::ffi::c_void, handle: P0)
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeDeleteObjectAuditAlarm(object : *const core::ffi::c_void, handle : super::super::super::Win32::Foundation:: HANDLE));
     SeDeleteObjectAuditAlarm(object, handle.param().abi())
 }
 #[inline]
-pub unsafe fn SeDeleteObjectAuditAlarmWithTransaction<P1>(object: *const core::ffi::c_void, handle: P1, transactionid: Option<*const windows_core::GUID>)
+pub unsafe fn SeDeleteObjectAuditAlarmWithTransaction<P0>(object: *const core::ffi::c_void, handle: P0, transactionid: Option<*const windows_core::GUID>)
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeDeleteObjectAuditAlarmWithTransaction(object : *const core::ffi::c_void, handle : super::super::super::Win32::Foundation:: HANDLE, transactionid : *const windows_core::GUID));
     SeDeleteObjectAuditAlarmWithTransaction(object, handle.param().abi(), core::mem::transmute(transactionid.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn SeExamineSacl<P4>(sacl: *const super::super::super::Win32::Security::ACL, resourcesacl: *const super::super::super::Win32::Security::ACL, token: *const core::ffi::c_void, desiredaccess: u32, accessgranted: P4, generateaudit: *mut super::super::super::Win32::Foundation::BOOLEAN, generatealarm: *mut super::super::super::Win32::Foundation::BOOLEAN)
+pub unsafe fn SeExamineSacl<P0>(sacl: *const super::super::super::Win32::Security::ACL, resourcesacl: *const super::super::super::Win32::Security::ACL, token: *const core::ffi::c_void, desiredaccess: u32, accessgranted: P0, generateaudit: *mut super::super::super::Win32::Foundation::BOOLEAN, generatealarm: *mut super::super::super::Win32::Foundation::BOOLEAN)
 where
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeExamineSacl(sacl : *const super::super::super::Win32::Security:: ACL, resourcesacl : *const super::super::super::Win32::Security:: ACL, token : *const core::ffi::c_void, desiredaccess : u32, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN, generateaudit : *mut super::super::super::Win32::Foundation:: BOOLEAN, generatealarm : *mut super::super::super::Win32::Foundation:: BOOLEAN));
     SeExamineSacl(sacl, resourcesacl, token, desiredaccess, accessgranted.param().abi(), generateaudit, generatealarm)
@@ -3963,18 +3963,18 @@ pub unsafe fn SeFreePrivileges(privileges: *const super::super::super::Win32::Se
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeImpersonateClient<P1>(clientcontext: *const SECURITY_CLIENT_CONTEXT, serverthread: P1)
+pub unsafe fn SeImpersonateClient<P0>(clientcontext: *const SECURITY_CLIENT_CONTEXT, serverthread: P0)
 where
-    P1: windows_core::Param<super::super::Foundation::PETHREAD>,
+    P0: windows_core::Param<super::super::Foundation::PETHREAD>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeImpersonateClient(clientcontext : *const SECURITY_CLIENT_CONTEXT, serverthread : super::super::Foundation:: PETHREAD));
     SeImpersonateClient(clientcontext, serverthread.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeImpersonateClientEx<P1>(clientcontext: *const SECURITY_CLIENT_CONTEXT, serverthread: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn SeImpersonateClientEx<P0>(clientcontext: *const SECURITY_CLIENT_CONTEXT, serverthread: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::Foundation::PETHREAD>,
+    P0: windows_core::Param<super::super::Foundation::PETHREAD>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeImpersonateClientEx(clientcontext : *const SECURITY_CLIENT_CONTEXT, serverthread : super::super::Foundation:: PETHREAD) -> super::super::super::Win32::Foundation:: NTSTATUS);
     SeImpersonateClientEx(clientcontext, serverthread.param().abi())
@@ -3995,20 +3995,20 @@ pub unsafe fn SeMarkLogonSessionForTerminationNotification(logonid: *const super
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn SeMarkLogonSessionForTerminationNotificationEx<P1>(logonid: *const super::super::super::Win32::Foundation::LUID, pserversilo: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn SeMarkLogonSessionForTerminationNotificationEx<P0>(logonid: *const super::super::super::Win32::Foundation::LUID, pserversilo: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::Foundation::PESILO>,
+    P0: windows_core::Param<super::super::Foundation::PESILO>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeMarkLogonSessionForTerminationNotificationEx(logonid : *const super::super::super::Win32::Foundation:: LUID, pserversilo : super::super::Foundation:: PESILO) -> super::super::super::Win32::Foundation:: NTSTATUS);
     SeMarkLogonSessionForTerminationNotificationEx(logonid, pserversilo.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeOpenObjectAuditAlarm<P3, P5, P6>(objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, object: Option<*const core::ffi::c_void>, absoluteobjectname: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, securitydescriptor: P3, accessstate: *const super::super::Foundation::ACCESS_STATE, objectcreated: P5, accessgranted: P6, accessmode: i8) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn SeOpenObjectAuditAlarm<P0, P1, P2>(objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, object: Option<*const core::ffi::c_void>, absoluteobjectname: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, securitydescriptor: P0, accessstate: *const super::super::Foundation::ACCESS_STATE, objectcreated: P1, accessgranted: P2, accessmode: i8) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P3: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P6: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeOpenObjectAuditAlarm(objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, object : *const core::ffi::c_void, absoluteobjectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, accessstate : *const super::super::Foundation:: ACCESS_STATE, objectcreated : super::super::super::Win32::Foundation:: BOOLEAN, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN, accessmode : i8, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN));
     let mut result__ = core::mem::zeroed();
@@ -4017,11 +4017,11 @@ where
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeOpenObjectAuditAlarmWithTransaction<P3, P5, P6>(objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, object: Option<*const core::ffi::c_void>, absoluteobjectname: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, securitydescriptor: P3, accessstate: *const super::super::Foundation::ACCESS_STATE, objectcreated: P5, accessgranted: P6, accessmode: i8, transactionid: Option<*const windows_core::GUID>) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn SeOpenObjectAuditAlarmWithTransaction<P0, P1, P2>(objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, object: Option<*const core::ffi::c_void>, absoluteobjectname: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, securitydescriptor: P0, accessstate: *const super::super::Foundation::ACCESS_STATE, objectcreated: P1, accessgranted: P2, accessmode: i8, transactionid: Option<*const windows_core::GUID>) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P3: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P6: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeOpenObjectAuditAlarmWithTransaction(objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, object : *const core::ffi::c_void, absoluteobjectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, accessstate : *const super::super::Foundation:: ACCESS_STATE, objectcreated : super::super::super::Win32::Foundation:: BOOLEAN, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN, accessmode : i8, transactionid : *const windows_core::GUID, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN));
     let mut result__ = core::mem::zeroed();
@@ -4030,11 +4030,11 @@ where
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeOpenObjectForDeleteAuditAlarm<P3, P5, P6>(objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, object: Option<*const core::ffi::c_void>, absoluteobjectname: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, securitydescriptor: P3, accessstate: *const super::super::Foundation::ACCESS_STATE, objectcreated: P5, accessgranted: P6, accessmode: i8) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn SeOpenObjectForDeleteAuditAlarm<P0, P1, P2>(objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, object: Option<*const core::ffi::c_void>, absoluteobjectname: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, securitydescriptor: P0, accessstate: *const super::super::Foundation::ACCESS_STATE, objectcreated: P1, accessgranted: P2, accessmode: i8) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P3: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P6: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeOpenObjectForDeleteAuditAlarm(objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, object : *const core::ffi::c_void, absoluteobjectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, accessstate : *const super::super::Foundation:: ACCESS_STATE, objectcreated : super::super::super::Win32::Foundation:: BOOLEAN, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN, accessmode : i8, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN));
     let mut result__ = core::mem::zeroed();
@@ -4043,11 +4043,11 @@ where
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeOpenObjectForDeleteAuditAlarmWithTransaction<P3, P5, P6>(objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, object: Option<*const core::ffi::c_void>, absoluteobjectname: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, securitydescriptor: P3, accessstate: *const super::super::Foundation::ACCESS_STATE, objectcreated: P5, accessgranted: P6, accessmode: i8, transactionid: Option<*const windows_core::GUID>) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn SeOpenObjectForDeleteAuditAlarmWithTransaction<P0, P1, P2>(objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, object: Option<*const core::ffi::c_void>, absoluteobjectname: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, securitydescriptor: P0, accessstate: *const super::super::Foundation::ACCESS_STATE, objectcreated: P1, accessgranted: P2, accessmode: i8, transactionid: Option<*const windows_core::GUID>) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P3: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P6: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeOpenObjectForDeleteAuditAlarmWithTransaction(objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, object : *const core::ffi::c_void, absoluteobjectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, accessstate : *const super::super::Foundation:: ACCESS_STATE, objectcreated : super::super::super::Win32::Foundation:: BOOLEAN, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN, accessmode : i8, transactionid : *const windows_core::GUID, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN));
     let mut result__ = core::mem::zeroed();
@@ -4105,9 +4105,9 @@ pub unsafe fn SeRegisterLogonSessionTerminatedRoutineEx(callbackroutine: PSE_LOG
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 #[inline]
-pub unsafe fn SeReportSecurityEventWithSubCategory<P2>(flags: u32, sourcename: *const super::super::super::Win32::Foundation::UNICODE_STRING, usersid: P2, auditparameters: *const super::super::super::Win32::Security::Authentication::Identity::SE_ADT_PARAMETER_ARRAY, auditsubcategoryid: u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn SeReportSecurityEventWithSubCategory<P0>(flags: u32, sourcename: *const super::super::super::Win32::Foundation::UNICODE_STRING, usersid: P0, auditparameters: *const super::super::super::Win32::Security::Authentication::Identity::SE_ADT_PARAMETER_ARRAY, auditsubcategoryid: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Security::PSID>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSID>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeReportSecurityEventWithSubCategory(flags : u32, sourcename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, usersid : super::super::super::Win32::Security:: PSID, auditparameters : *const super::super::super::Win32::Security::Authentication::Identity:: SE_ADT_PARAMETER_ARRAY, auditsubcategoryid : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     SeReportSecurityEventWithSubCategory(flags, sourcename, usersid.param().abi(), auditparameters, auditsubcategoryid)
@@ -4120,27 +4120,27 @@ pub unsafe fn SeSetAccessStateGenericMapping(accessstate: *mut super::super::Fou
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeSetSecurityDescriptorInfo<P2>(object: Option<*const core::ffi::c_void>, securityinformation: *const u32, modificationdescriptor: P2, objectssecuritydescriptor: *mut super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, pooltype: super::super::Foundation::POOL_TYPE, genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn SeSetSecurityDescriptorInfo<P0>(object: Option<*const core::ffi::c_void>, securityinformation: *const u32, modificationdescriptor: P0, objectssecuritydescriptor: *mut super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, pooltype: super::super::Foundation::POOL_TYPE, genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeSetSecurityDescriptorInfo(object : *const core::ffi::c_void, securityinformation : *const u32, modificationdescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, objectssecuritydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, pooltype : super::super::Foundation:: POOL_TYPE, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING) -> super::super::super::Win32::Foundation:: NTSTATUS);
     SeSetSecurityDescriptorInfo(core::mem::transmute(object.unwrap_or(core::ptr::null())), securityinformation, modificationdescriptor.param().abi(), objectssecuritydescriptor, pooltype, genericmapping)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeSetSecurityDescriptorInfoEx<P2>(object: Option<*const core::ffi::c_void>, securityinformation: *const u32, modificationdescriptor: P2, objectssecuritydescriptor: *mut super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, autoinheritflags: u32, pooltype: super::super::Foundation::POOL_TYPE, genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn SeSetSecurityDescriptorInfoEx<P0>(object: Option<*const core::ffi::c_void>, securityinformation: *const u32, modificationdescriptor: P0, objectssecuritydescriptor: *mut super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, autoinheritflags: u32, pooltype: super::super::Foundation::POOL_TYPE, genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeSetSecurityDescriptorInfoEx(object : *const core::ffi::c_void, securityinformation : *const u32, modificationdescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, objectssecuritydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, autoinheritflags : u32, pooltype : super::super::Foundation:: POOL_TYPE, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING) -> super::super::super::Win32::Foundation:: NTSTATUS);
     SeSetSecurityDescriptorInfoEx(core::mem::transmute(object.unwrap_or(core::ptr::null())), securityinformation, modificationdescriptor.param().abi(), objectssecuritydescriptor, autoinheritflags, pooltype, genericmapping)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeShouldCheckForAccessRightsFromParent<P1>(objecttype: *const core::ffi::c_void, childdescriptor: P1, accessstate: *const super::super::Foundation::ACCESS_STATE) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn SeShouldCheckForAccessRightsFromParent<P0>(objecttype: *const core::ffi::c_void, childdescriptor: P0, accessstate: *const super::super::Foundation::ACCESS_STATE) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeShouldCheckForAccessRightsFromParent(objecttype : *const core::ffi::c_void, childdescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, accessstate : *const super::super::Foundation:: ACCESS_STATE) -> super::super::super::Win32::Foundation:: BOOLEAN);
     SeShouldCheckForAccessRightsFromParent(objecttype, childdescriptor.param().abi(), accessstate)
@@ -4204,26 +4204,26 @@ pub unsafe fn SecLookupWellKnownSid(sidtype: super::super::super::Win32::Securit
     SecLookupWellKnownSid(sidtype, sid, sidbuffersize, core::mem::transmute(sidsize.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn SecMakeSPN<P7>(serviceclass: *mut super::super::super::Win32::Foundation::UNICODE_STRING, servicename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, instancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, instanceport: u16, referrer: *mut super::super::super::Win32::Foundation::UNICODE_STRING, spn: *mut super::super::super::Win32::Foundation::UNICODE_STRING, length: *mut u32, allocate: P7) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn SecMakeSPN<P0>(serviceclass: *mut super::super::super::Win32::Foundation::UNICODE_STRING, servicename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, instancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, instanceport: u16, referrer: *mut super::super::super::Win32::Foundation::UNICODE_STRING, spn: *mut super::super::super::Win32::Foundation::UNICODE_STRING, length: *mut u32, allocate: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P7: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ksecdd.sys" "system" fn SecMakeSPN(serviceclass : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, servicename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, instancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, instanceport : u16, referrer : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, spn : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, length : *mut u32, allocate : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     SecMakeSPN(serviceclass, servicename, instancename, instanceport, referrer, spn, length, allocate.param().abi())
 }
 #[inline]
-pub unsafe fn SecMakeSPNEx<P8>(serviceclass: *mut super::super::super::Win32::Foundation::UNICODE_STRING, servicename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, instancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, instanceport: u16, referrer: *mut super::super::super::Win32::Foundation::UNICODE_STRING, targetinfo: *mut super::super::super::Win32::Foundation::UNICODE_STRING, spn: *mut super::super::super::Win32::Foundation::UNICODE_STRING, length: *mut u32, allocate: P8) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn SecMakeSPNEx<P0>(serviceclass: *mut super::super::super::Win32::Foundation::UNICODE_STRING, servicename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, instancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, instanceport: u16, referrer: *mut super::super::super::Win32::Foundation::UNICODE_STRING, targetinfo: *mut super::super::super::Win32::Foundation::UNICODE_STRING, spn: *mut super::super::super::Win32::Foundation::UNICODE_STRING, length: *mut u32, allocate: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P8: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ksecdd.sys" "system" fn SecMakeSPNEx(serviceclass : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, servicename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, instancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, instanceport : u16, referrer : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, targetinfo : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, spn : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, length : *mut u32, allocate : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     SecMakeSPNEx(serviceclass, servicename, instancename, instanceport, referrer, targetinfo, spn, length, allocate.param().abi())
 }
 #[inline]
-pub unsafe fn SecMakeSPNEx2<P8, P9>(serviceclass: *mut super::super::super::Win32::Foundation::UNICODE_STRING, servicename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, instancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, instanceport: u16, referrer: *mut super::super::super::Win32::Foundation::UNICODE_STRING, intargetinfo: *mut super::super::super::Win32::Foundation::UNICODE_STRING, spn: *mut super::super::super::Win32::Foundation::UNICODE_STRING, totalsize: *mut u32, allocate: P8, istargetinfomarshaled: P9) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn SecMakeSPNEx2<P0, P1>(serviceclass: *mut super::super::super::Win32::Foundation::UNICODE_STRING, servicename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, instancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, instanceport: u16, referrer: *mut super::super::super::Win32::Foundation::UNICODE_STRING, intargetinfo: *mut super::super::super::Win32::Foundation::UNICODE_STRING, spn: *mut super::super::super::Win32::Foundation::UNICODE_STRING, totalsize: *mut u32, allocate: P0, istargetinfomarshaled: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P8: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P9: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ksecdd.sys" "system" fn SecMakeSPNEx2(serviceclass : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, servicename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, instancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, instanceport : u16, referrer : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, intargetinfo : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, spn : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, totalsize : *mut u32, allocate : super::super::super::Win32::Foundation:: BOOLEAN, istargetinfomarshaled : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     SecMakeSPNEx2(serviceclass, servicename, instancename, instanceport, referrer, intargetinfo, spn, totalsize, allocate.param().abi(), istargetinfomarshaled.param().abi())
@@ -4241,10 +4241,10 @@ pub unsafe fn SspiAcceptSecurityContextAsync(asynccontext: *mut super::super::Fo
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
-pub unsafe fn SspiAcquireCredentialsHandleAsyncA<P1, P2>(asynccontext: *mut super::super::Foundation::SspiAsyncContext, pszprincipal: P1, pszpackage: P2, fcredentialuse: u32, pvlogonid: Option<*const core::ffi::c_void>, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: super::super::super::Win32::Security::Authentication::Identity::SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, phcredential: *const SecHandle, ptsexpiry: Option<*const i64>) -> windows_core::Result<()>
+pub unsafe fn SspiAcquireCredentialsHandleAsyncA<P0, P1>(asynccontext: *mut super::super::Foundation::SspiAsyncContext, pszprincipal: P0, pszpackage: P1, fcredentialuse: u32, pvlogonid: Option<*const core::ffi::c_void>, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: super::super::super::Win32::Security::Authentication::Identity::SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, phcredential: *const SecHandle, ptsexpiry: Option<*const i64>) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("ksecdd.sys" "system" fn SspiAcquireCredentialsHandleAsyncA(asynccontext : *mut super::super::Foundation:: SspiAsyncContext, pszprincipal : windows_core::PCSTR, pszpackage : windows_core::PCSTR, fcredentialuse : u32, pvlogonid : *const core::ffi::c_void, pauthdata : *const core::ffi::c_void, pgetkeyfn : super::super::super::Win32::Security::Authentication::Identity:: SEC_GET_KEY_FN, pvgetkeyargument : *const core::ffi::c_void, phcredential : *const SecHandle, ptsexpiry : *const i64) -> windows_core::HRESULT);
     SspiAcquireCredentialsHandleAsyncA(asynccontext, pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, core::mem::transmute(pvlogonid.unwrap_or(core::ptr::null())), core::mem::transmute(pauthdata.unwrap_or(core::ptr::null())), pgetkeyfn, core::mem::transmute(pvgetkeyargument.unwrap_or(core::ptr::null())), phcredential, core::mem::transmute(ptsexpiry.unwrap_or(core::ptr::null()))).ok()
@@ -4287,9 +4287,9 @@ pub unsafe fn SspiGetAsyncCallStatus(handle: *const super::super::Foundation::Ss
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn SspiInitializeSecurityContextAsyncA<P3>(asynccontext: *mut super::super::Foundation::SspiAsyncContext, phcredential: Option<*const SecHandle>, phcontext: Option<*const SecHandle>, psztargetname: P3, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: Option<*const SecBufferDesc>, reserved2: u32, phnewcontext: Option<*const SecHandle>, poutput: Option<*const SecBufferDesc>, pfcontextattr: *const u32, ptsexpiry: Option<*const i64>) -> windows_core::Result<()>
+pub unsafe fn SspiInitializeSecurityContextAsyncA<P0>(asynccontext: *mut super::super::Foundation::SspiAsyncContext, phcredential: Option<*const SecHandle>, phcontext: Option<*const SecHandle>, psztargetname: P0, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: Option<*const SecBufferDesc>, reserved2: u32, phnewcontext: Option<*const SecHandle>, poutput: Option<*const SecBufferDesc>, pfcontextattr: *const u32, ptsexpiry: Option<*const i64>) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("ksecdd.sys" "system" fn SspiInitializeSecurityContextAsyncA(asynccontext : *mut super::super::Foundation:: SspiAsyncContext, phcredential : *const SecHandle, phcontext : *const SecHandle, psztargetname : windows_core::PCSTR, fcontextreq : u32, reserved1 : u32, targetdatarep : u32, pinput : *const SecBufferDesc, reserved2 : u32, phnewcontext : *const SecHandle, poutput : *const SecBufferDesc, pfcontextattr : *const u32, ptsexpiry : *const i64) -> windows_core::HRESULT);
     SspiInitializeSecurityContextAsyncA(asynccontext, core::mem::transmute(phcredential.unwrap_or(core::ptr::null())), core::mem::transmute(phcontext.unwrap_or(core::ptr::null())), psztargetname.param().abi(), fcontextreq, reserved1, targetdatarep, core::mem::transmute(pinput.unwrap_or(core::ptr::null())), reserved2, core::mem::transmute(phnewcontext.unwrap_or(core::ptr::null())), core::mem::transmute(poutput.unwrap_or(core::ptr::null())), pfcontextattr, core::mem::transmute(ptsexpiry.unwrap_or(core::ptr::null()))).ok()
@@ -4335,95 +4335,95 @@ pub unsafe fn VerifySignature(phcontext: *const SecHandle, pmessage: *const SecB
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn ZwAccessCheckAndAuditAlarm<P4, P7>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING, securitydescriptor: P4, desiredaccess: u32, genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING, objectcreation: P7, grantedaccess: *mut u32, accessstatus: *mut i32, generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwAccessCheckAndAuditAlarm<P0, P1>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING, securitydescriptor: P0, desiredaccess: u32, genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING, objectcreation: P1, grantedaccess: *mut u32, accessstatus: *mut i32, generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P7: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwAccessCheckAndAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, desiredaccess : u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwAccessCheckAndAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), objecttypename, objectname, securitydescriptor.param().abi(), desiredaccess, genericmapping, objectcreation.param().abi(), grantedaccess, accessstatus, generateonclose)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn ZwAccessCheckByTypeAndAuditAlarm<P4, P5, P12>(
+pub unsafe fn ZwAccessCheckByTypeAndAuditAlarm<P0, P1, P2>(
     subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     handleid: Option<*const core::ffi::c_void>,
     objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
-    securitydescriptor: P4,
-    principalselfsid: P5,
+    securitydescriptor: P0,
+    principalselfsid: P1,
     desiredaccess: u32,
     audittype: super::super::super::Win32::Security::AUDIT_EVENT_TYPE,
     flags: u32,
     objecttypelist: Option<&[super::super::super::Win32::Security::OBJECT_TYPE_LIST]>,
     genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING,
-    objectcreation: P12,
+    objectcreation: P2,
     grantedaccess: *mut u32,
     accessstatus: *mut i32,
     generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN,
 ) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P5: windows_core::Param<super::super::super::Win32::Security::PSID>,
-    P12: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::super::Win32::Security::PSID>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwAccessCheckByTypeAndAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, principalselfsid : super::super::super::Win32::Security:: PSID, desiredaccess : u32, audittype : super::super::super::Win32::Security:: AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::super::Win32::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwAccessCheckByTypeAndAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), objecttypename, objectname, securitydescriptor.param().abi(), principalselfsid.param().abi(), desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation.param().abi(), grantedaccess, accessstatus, generateonclose)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn ZwAccessCheckByTypeResultListAndAuditAlarm<P4, P5, P12>(
+pub unsafe fn ZwAccessCheckByTypeResultListAndAuditAlarm<P0, P1, P2>(
     subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     handleid: Option<*const core::ffi::c_void>,
     objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
-    securitydescriptor: P4,
-    principalselfsid: P5,
+    securitydescriptor: P0,
+    principalselfsid: P1,
     desiredaccess: u32,
     audittype: super::super::super::Win32::Security::AUDIT_EVENT_TYPE,
     flags: u32,
     objecttypelist: Option<*const super::super::super::Win32::Security::OBJECT_TYPE_LIST>,
     objecttypelistlength: u32,
     genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING,
-    objectcreation: P12,
+    objectcreation: P2,
     grantedaccess: *mut u32,
     accessstatus: *mut i32,
     generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN,
 ) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P5: windows_core::Param<super::super::super::Win32::Security::PSID>,
-    P12: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::super::Win32::Security::PSID>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwAccessCheckByTypeResultListAndAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, principalselfsid : super::super::super::Win32::Security:: PSID, desiredaccess : u32, audittype : super::super::super::Win32::Security:: AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::super::Win32::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwAccessCheckByTypeResultListAndAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), objecttypename, objectname, securitydescriptor.param().abi(), principalselfsid.param().abi(), desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.unwrap_or(core::ptr::null())), objecttypelistlength, genericmapping, objectcreation.param().abi(), grantedaccess, accessstatus, generateonclose)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn ZwAccessCheckByTypeResultListAndAuditAlarmByHandle<P2, P5, P6, P13>(
+pub unsafe fn ZwAccessCheckByTypeResultListAndAuditAlarmByHandle<P0, P1, P2, P3>(
     subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     handleid: Option<*const core::ffi::c_void>,
-    clienttoken: P2,
+    clienttoken: P0,
     objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING,
     objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING,
-    securitydescriptor: P5,
-    principalselfsid: P6,
+    securitydescriptor: P1,
+    principalselfsid: P2,
     desiredaccess: u32,
     audittype: super::super::super::Win32::Security::AUDIT_EVENT_TYPE,
     flags: u32,
     objecttypelist: Option<*const super::super::super::Win32::Security::OBJECT_TYPE_LIST>,
     objecttypelistlength: u32,
     genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING,
-    objectcreation: P13,
+    objectcreation: P3,
     grantedaccess: *mut u32,
     accessstatus: *mut i32,
     generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN,
 ) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P5: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P6: windows_core::Param<super::super::super::Win32::Security::PSID>,
-    P13: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P2: windows_core::Param<super::super::super::Win32::Security::PSID>,
+    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, clienttoken : super::super::super::Win32::Foundation:: HANDLE, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, principalselfsid : super::super::super::Win32::Security:: PSID, desiredaccess : u32, audittype : super::super::super::Win32::Security:: AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::super::Win32::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, grantedaccess : *mut u32, accessstatus : *mut i32, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), clienttoken.param().abi(), objecttypename, objectname, securitydescriptor.param().abi(), principalselfsid.param().abi(), desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.unwrap_or(core::ptr::null())), objecttypelistlength, genericmapping, objectcreation.param().abi(), grantedaccess, accessstatus, generateonclose)
@@ -4475,9 +4475,9 @@ where
     ZwCancelIoFileEx(filehandle.param().abi(), core::mem::transmute(iorequesttocancel.unwrap_or(core::ptr::null())), iostatusblock)
 }
 #[inline]
-pub unsafe fn ZwCloseObjectAuditAlarm<P2>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, generateonclose: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwCloseObjectAuditAlarm<P0>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, generateonclose: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwCloseObjectAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, generateonclose : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwCloseObjectAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), generateonclose.param().abi())
@@ -4490,18 +4490,18 @@ pub unsafe fn ZwCreateDirectoryObject(directoryhandle: *mut super::super::super:
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn ZwCreateEvent<P4>(eventhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, eventtype: super::super::super::Win32::System::Kernel::EVENT_TYPE, initialstate: P4) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwCreateEvent<P0>(eventhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, eventtype: super::super::super::Win32::System::Kernel::EVENT_TYPE, initialstate: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwCreateEvent(eventhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, eventtype : super::super::super::Win32::System::Kernel:: EVENT_TYPE, initialstate : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwCreateEvent(eventhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), eventtype, initialstate.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Memory"))]
 #[inline]
-pub unsafe fn ZwCreateSectionEx<P6>(sectionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, maximumsize: Option<*const i64>, sectionpageprotection: u32, allocationattributes: u32, filehandle: P6, extendedparameters: Option<&mut [super::super::super::Win32::System::Memory::MEM_EXTENDED_PARAMETER]>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwCreateSectionEx<P0>(sectionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, maximumsize: Option<*const i64>, sectionpageprotection: u32, allocationattributes: u32, filehandle: P0, extendedparameters: Option<&mut [super::super::super::Win32::System::Memory::MEM_EXTENDED_PARAMETER]>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P6: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwCreateSectionEx(sectionhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, maximumsize : *const i64, sectionpageprotection : u32, allocationattributes : u32, filehandle : super::super::super::Win32::Foundation:: HANDLE, extendedparameters : *mut super::super::super::Win32::System::Memory:: MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwCreateSectionEx(sectionhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), core::mem::transmute(maximumsize.unwrap_or(core::ptr::null())), sectionpageprotection, allocationattributes, filehandle.param().abi(), core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
@@ -4513,9 +4513,9 @@ pub unsafe fn ZwDeleteFile(objectattributes: *const super::super::Foundation::OB
     ZwDeleteFile(objectattributes)
 }
 #[inline]
-pub unsafe fn ZwDeleteObjectAuditAlarm<P2>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, generateonclose: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwDeleteObjectAuditAlarm<P0>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, generateonclose: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwDeleteObjectAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, generateonclose : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwDeleteObjectAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), generateonclose.param().abi())
@@ -4532,10 +4532,10 @@ where
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ZwDuplicateToken<P0, P3>(existingtokenhandle: P0, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, effectiveonly: P3, tokentype: super::super::super::Win32::Security::TOKEN_TYPE, newtokenhandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwDuplicateToken<P0, P1>(existingtokenhandle: P0, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, effectiveonly: P1, tokentype: super::super::super::Win32::Security::TOKEN_TYPE, newtokenhandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwDuplicateToken(existingtokenhandle : super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, effectiveonly : super::super::super::Win32::Foundation:: BOOLEAN, tokentype : super::super::super::Win32::Security:: TOKEN_TYPE, newtokenhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwDuplicateToken(existingtokenhandle.param().abi(), desiredaccess, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), effectiveonly.param().abi(), tokentype, newtokenhandle)
@@ -4604,24 +4604,24 @@ where
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ZwLockFile<P0, P1, P8, P9>(filehandle: P0, event: P1, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, byteoffset: *const i64, length: *const i64, key: u32, failimmediately: P8, exclusivelock: P9) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwLockFile<P0, P1, P2, P3>(filehandle: P0, event: P1, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, byteoffset: *const i64, length: *const i64, key: u32, failimmediately: P2, exclusivelock: P3) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P8: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P9: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwLockFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, byteoffset : *const i64, length : *const i64, key : u32, failimmediately : super::super::super::Win32::Foundation:: BOOLEAN, exclusivelock : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwLockFile(filehandle.param().abi(), event.param().abi(), apcroutine, core::mem::transmute(apccontext.unwrap_or(core::ptr::null())), iostatusblock, byteoffset, length, key, failimmediately.param().abi(), exclusivelock.param().abi())
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ZwNotifyChangeKey<P0, P1, P6, P9>(keyhandle: P0, event: P1, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, completionfilter: u32, watchtree: P6, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, asynchronous: P9) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwNotifyChangeKey<P0, P1, P2, P3>(keyhandle: P0, event: P1, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, completionfilter: u32, watchtree: P2, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, asynchronous: P3) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P6: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P9: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwNotifyChangeKey(keyhandle : super::super::super::Win32::Foundation:: HANDLE, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, completionfilter : u32, watchtree : super::super::super::Win32::Foundation:: BOOLEAN, buffer : *mut core::ffi::c_void, buffersize : u32, asynchronous : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwNotifyChangeKey(keyhandle.param().abi(), event.param().abi(), apcroutine, core::mem::transmute(apccontext.unwrap_or(core::ptr::null())), iostatusblock, completionfilter, watchtree.param().abi(), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), buffersize, asynchronous.param().abi())
@@ -4634,12 +4634,12 @@ pub unsafe fn ZwOpenDirectoryObject(directoryhandle: *mut super::super::super::W
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn ZwOpenObjectAuditAlarm<P4, P5, P9, P10>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING, securitydescriptor: P4, clienttoken: P5, desiredaccess: u32, grantedaccess: u32, privileges: Option<*const super::super::super::Win32::Security::PRIVILEGE_SET>, objectcreation: P9, accessgranted: P10, generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwOpenObjectAuditAlarm<P0, P1, P2, P3>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, objecttypename: *const super::super::super::Win32::Foundation::UNICODE_STRING, objectname: *const super::super::super::Win32::Foundation::UNICODE_STRING, securitydescriptor: P0, clienttoken: P1, desiredaccess: u32, grantedaccess: u32, privileges: Option<*const super::super::super::Win32::Security::PRIVILEGE_SET>, objectcreation: P2, accessgranted: P3, generateonclose: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P5: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P9: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P10: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwOpenObjectAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, objectname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, clienttoken : super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, grantedaccess : u32, privileges : *const super::super::super::Win32::Security:: PRIVILEGE_SET, objectcreation : super::super::super::Win32::Foundation:: BOOLEAN, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN, generateonclose : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwOpenObjectAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), objecttypename, objectname, securitydescriptor.param().abi(), clienttoken.param().abi(), desiredaccess, grantedaccess, core::mem::transmute(privileges.unwrap_or(core::ptr::null())), objectcreation.param().abi(), accessgranted.param().abi(), generateonclose)
@@ -4661,19 +4661,19 @@ where
     ZwOpenProcessTokenEx(processhandle.param().abi(), desiredaccess, handleattributes, tokenhandle)
 }
 #[inline]
-pub unsafe fn ZwOpenThreadToken<P0, P2>(threadhandle: P0, desiredaccess: u32, openasself: P2, tokenhandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwOpenThreadToken<P0, P1>(threadhandle: P0, desiredaccess: u32, openasself: P1, tokenhandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwOpenThreadToken(threadhandle : super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, openasself : super::super::super::Win32::Foundation:: BOOLEAN, tokenhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwOpenThreadToken(threadhandle.param().abi(), desiredaccess, openasself.param().abi(), tokenhandle)
 }
 #[inline]
-pub unsafe fn ZwOpenThreadTokenEx<P0, P2>(threadhandle: P0, desiredaccess: u32, openasself: P2, handleattributes: u32, tokenhandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwOpenThreadTokenEx<P0, P1>(threadhandle: P0, desiredaccess: u32, openasself: P1, handleattributes: u32, tokenhandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwOpenThreadTokenEx(threadhandle : super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, openasself : super::super::super::Win32::Foundation:: BOOLEAN, handleattributes : u32, tokenhandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwOpenThreadTokenEx(threadhandle.param().abi(), desiredaccess, openasself.param().abi(), handleattributes, tokenhandle)
@@ -4689,32 +4689,32 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn ZwPrivilegeObjectAuditAlarm<P2, P5>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, clienttoken: P2, desiredaccess: u32, privileges: *const super::super::super::Win32::Security::PRIVILEGE_SET, accessgranted: P5) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwPrivilegeObjectAuditAlarm<P0, P1>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, clienttoken: P0, desiredaccess: u32, privileges: *const super::super::super::Win32::Security::PRIVILEGE_SET, accessgranted: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwPrivilegeObjectAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, handleid : *const core::ffi::c_void, clienttoken : super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, privileges : *const super::super::super::Win32::Security:: PRIVILEGE_SET, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwPrivilegeObjectAuditAlarm(subsystemname, core::mem::transmute(handleid.unwrap_or(core::ptr::null())), clienttoken.param().abi(), desiredaccess, privileges, accessgranted.param().abi())
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn ZwPrivilegedServiceAuditAlarm<P2, P4>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, servicename: *const super::super::super::Win32::Foundation::UNICODE_STRING, clienttoken: P2, privileges: *const super::super::super::Win32::Security::PRIVILEGE_SET, accessgranted: P4) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwPrivilegedServiceAuditAlarm<P0, P1>(subsystemname: *const super::super::super::Win32::Foundation::UNICODE_STRING, servicename: *const super::super::super::Win32::Foundation::UNICODE_STRING, clienttoken: P0, privileges: *const super::super::super::Win32::Security::PRIVILEGE_SET, accessgranted: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwPrivilegedServiceAuditAlarm(subsystemname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, servicename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, clienttoken : super::super::super::Win32::Foundation:: HANDLE, privileges : *const super::super::super::Win32::Security:: PRIVILEGE_SET, accessgranted : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwPrivilegedServiceAuditAlarm(subsystemname, servicename, clienttoken.param().abi(), privileges, accessgranted.param().abi())
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ZwQueryDirectoryFile<P0, P1, P8, P10>(filehandle: P0, event: P1, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: FILE_INFORMATION_CLASS, returnsingleentry: P8, filename: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, restartscan: P10) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwQueryDirectoryFile<P0, P1, P2, P3>(filehandle: P0, event: P1, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: FILE_INFORMATION_CLASS, returnsingleentry: P2, filename: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, restartscan: P3) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P8: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P10: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwQueryDirectoryFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, event : super::super::super::Win32::Foundation:: HANDLE, apcroutine : super::super::super::Win32::System::IO:: PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : FILE_INFORMATION_CLASS, returnsingleentry : super::super::super::Win32::Foundation:: BOOLEAN, filename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, restartscan : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwQueryDirectoryFile(filehandle.param().abi(), event.param().abi(), apcroutine, core::mem::transmute(apccontext.unwrap_or(core::ptr::null())), iostatusblock, fileinformation, length, fileinformationclass, returnsingleentry.param().abi(), core::mem::transmute(filename.unwrap_or(core::ptr::null())), restartscan.param().abi())
@@ -4730,22 +4730,22 @@ where
     ZwQueryDirectoryFileEx(filehandle.param().abi(), event.param().abi(), apcroutine, core::mem::transmute(apccontext.unwrap_or(core::ptr::null())), iostatusblock, fileinformation, length, fileinformationclass, queryflags, core::mem::transmute(filename.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn ZwQueryDirectoryObject<P0, P3, P4>(directoryhandle: P0, buffer: Option<*mut core::ffi::c_void>, length: u32, returnsingleentry: P3, restartscan: P4, context: *mut u32, returnlength: Option<*mut u32>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwQueryDirectoryObject<P0, P1, P2>(directoryhandle: P0, buffer: Option<*mut core::ffi::c_void>, length: u32, returnsingleentry: P1, restartscan: P2, context: *mut u32, returnlength: Option<*mut u32>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwQueryDirectoryObject(directoryhandle : super::super::super::Win32::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : super::super::super::Win32::Foundation:: BOOLEAN, restartscan : super::super::super::Win32::Foundation:: BOOLEAN, context : *mut u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwQueryDirectoryObject(directoryhandle.param().abi(), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), length, returnsingleentry.param().abi(), restartscan.param().abi(), context, core::mem::transmute(returnlength.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ZwQueryEaFile<P0, P4, P8>(filehandle: P0, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: P4, ealist: Option<*const core::ffi::c_void>, ealistlength: u32, eaindex: Option<*const u32>, restartscan: P8) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwQueryEaFile<P0, P1, P2>(filehandle: P0, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: P1, ealist: Option<*const core::ffi::c_void>, ealistlength: u32, eaindex: Option<*const u32>, restartscan: P2) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P8: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwQueryEaFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : super::super::super::Win32::Foundation:: BOOLEAN, ealist : *const core::ffi::c_void, ealistlength : u32, eaindex : *const u32, restartscan : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwQueryEaFile(filehandle.param().abi(), iostatusblock, buffer, length, returnsingleentry.param().abi(), core::mem::transmute(ealist.unwrap_or(core::ptr::null())), ealistlength, core::mem::transmute(eaindex.unwrap_or(core::ptr::null())), restartscan.param().abi())
@@ -4776,12 +4776,12 @@ where
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ZwQueryQuotaInformationFile<P0, P4, P7, P8>(filehandle: P0, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: P4, sidlist: Option<*const core::ffi::c_void>, sidlistlength: u32, startsid: P7, restartscan: P8) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwQueryQuotaInformationFile<P0, P1, P2, P3>(filehandle: P0, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: P1, sidlist: Option<*const core::ffi::c_void>, sidlistlength: u32, startsid: P2, restartscan: P3) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P7: windows_core::Param<super::super::super::Win32::Security::PSID>,
-    P8: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Security::PSID>,
+    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwQueryQuotaInformationFile(filehandle : super::super::super::Win32::Foundation:: HANDLE, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : super::super::super::Win32::Foundation:: BOOLEAN, sidlist : *const core::ffi::c_void, sidlistlength : u32, startsid : super::super::super::Win32::Security:: PSID, restartscan : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwQueryQuotaInformationFile(filehandle.param().abi(), iostatusblock, buffer, length, returnsingleentry.param().abi(), core::mem::transmute(sidlist.unwrap_or(core::ptr::null())), sidlistlength, startsid.param().abi(), restartscan.param().abi())
@@ -4857,10 +4857,10 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn ZwSetSecurityObject<P0, P2>(handle: P0, securityinformation: u32, securitydescriptor: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwSetSecurityObject<P0, P1>(handle: P0, securityinformation: u32, securitydescriptor: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P2: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwSetSecurityObject(handle : super::super::super::Win32::Foundation:: HANDLE, securityinformation : u32, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwSetSecurityObject(handle.param().abi(), securityinformation, securitydescriptor.param().abi())
@@ -5779,118 +5779,213 @@ pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REGISTERED_LAYER: u32 = 4
 pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REMOTE_LAYER: u32 = 8u32;
 pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_SCRATCH: u32 = 2u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CSV_DOWN_LEVEL_FILE_TYPE(pub i32);
 impl windows_core::TypeKind for CSV_DOWN_LEVEL_FILE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CSV_DOWN_LEVEL_FILE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CSV_DOWN_LEVEL_FILE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FAST_IO_POSSIBLE(pub i32);
 impl windows_core::TypeKind for FAST_IO_POSSIBLE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FAST_IO_POSSIBLE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FAST_IO_POSSIBLE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FILE_DISPOSITION_INFORMATION_EX_FLAGS(pub u32);
 impl windows_core::TypeKind for FILE_DISPOSITION_INFORMATION_EX_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FILE_DISPOSITION_INFORMATION_EX_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FILE_DISPOSITION_INFORMATION_EX_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FILE_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for FILE_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FILE_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FILE_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FILE_KNOWN_FOLDER_TYPE(pub i32);
 impl windows_core::TypeKind for FILE_KNOWN_FOLDER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FILE_KNOWN_FOLDER_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FILE_KNOWN_FOLDER_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FSRTL_CHANGE_BACKING_TYPE(pub i32);
 impl windows_core::TypeKind for FSRTL_CHANGE_BACKING_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FSRTL_CHANGE_BACKING_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FSRTL_CHANGE_BACKING_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FSRTL_COMPARISON_RESULT(pub i32);
 impl windows_core::TypeKind for FSRTL_COMPARISON_RESULT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FSRTL_COMPARISON_RESULT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FSRTL_COMPARISON_RESULT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FS_FILTER_SECTION_SYNC_TYPE(pub i32);
 impl windows_core::TypeKind for FS_FILTER_SECTION_SYNC_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FS_FILTER_SECTION_SYNC_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FS_FILTER_SECTION_SYNC_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FS_FILTER_STREAM_FO_NOTIFICATION_TYPE(pub i32);
 impl windows_core::TypeKind for FS_FILTER_STREAM_FO_NOTIFICATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FS_FILTER_STREAM_FO_NOTIFICATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FS_FILTER_STREAM_FO_NOTIFICATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FS_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for FS_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FS_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FS_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HEAP_MEMORY_INFO_CLASS(pub i32);
 impl windows_core::TypeKind for HEAP_MEMORY_INFO_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HEAP_MEMORY_INFO_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HEAP_MEMORY_INFO_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct LINK_TRACKING_INFORMATION_TYPE(pub i32);
 impl windows_core::TypeKind for LINK_TRACKING_INFORMATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for LINK_TRACKING_INFORMATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("LINK_TRACKING_INFORMATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MEMORY_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for MEMORY_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MEMORY_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MEMORY_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MMFLUSH_TYPE(pub i32);
 impl windows_core::TypeKind for MMFLUSH_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MMFLUSH_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MMFLUSH_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MSV1_0_AVID(pub i32);
 impl windows_core::TypeKind for MSV1_0_AVID {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MSV1_0_AVID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MSV1_0_AVID").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NETWORK_OPEN_INTEGRITY_QUALIFIER(pub i32);
 impl windows_core::TypeKind for NETWORK_OPEN_INTEGRITY_QUALIFIER {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NETWORK_OPEN_INTEGRITY_QUALIFIER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NETWORK_OPEN_INTEGRITY_QUALIFIER").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NETWORK_OPEN_LOCATION_QUALIFIER(pub i32);
 impl windows_core::TypeKind for NETWORK_OPEN_LOCATION_QUALIFIER {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NETWORK_OPEN_LOCATION_QUALIFIER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NETWORK_OPEN_LOCATION_QUALIFIER").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NTCREATEFILE_CREATE_DISPOSITION(pub u32);
 impl windows_core::TypeKind for NTCREATEFILE_CREATE_DISPOSITION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NTCREATEFILE_CREATE_DISPOSITION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NTCREATEFILE_CREATE_DISPOSITION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NTCREATEFILE_CREATE_OPTIONS(pub u32);
 impl windows_core::TypeKind for NTCREATEFILE_CREATE_OPTIONS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for NTCREATEFILE_CREATE_OPTIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NTCREATEFILE_CREATE_OPTIONS").field(&self.0).finish()
+    }
 }
 impl NTCREATEFILE_CREATE_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5926,100 +6021,165 @@ impl core::ops::Not for NTCREATEFILE_CREATE_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OPLOCK_NOTIFY_REASON(pub i32);
 impl windows_core::TypeKind for OPLOCK_NOTIFY_REASON {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OPLOCK_NOTIFY_REASON {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OPLOCK_NOTIFY_REASON").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct REFS_COMPRESSION_FORMATS(pub i32);
 impl windows_core::TypeKind for REFS_COMPRESSION_FORMATS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for REFS_COMPRESSION_FORMATS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("REFS_COMPRESSION_FORMATS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct REFS_DEALLOCATE_RANGES_ALLOCATOR(pub i32);
 impl windows_core::TypeKind for REFS_DEALLOCATE_RANGES_ALLOCATOR {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for REFS_DEALLOCATE_RANGES_ALLOCATOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("REFS_DEALLOCATE_RANGES_ALLOCATOR").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS(pub i32);
 impl windows_core::TypeKind for REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct REFS_STREAM_SNAPSHOT_OPERATION(pub i32);
 impl windows_core::TypeKind for REFS_STREAM_SNAPSHOT_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for REFS_STREAM_SNAPSHOT_OPERATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("REFS_STREAM_SNAPSHOT_OPERATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RTL_MEMORY_TYPE(pub i32);
 impl windows_core::TypeKind for RTL_MEMORY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RTL_MEMORY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RTL_MEMORY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SE_AUDIT_OPERATION(pub i32);
 impl windows_core::TypeKind for SE_AUDIT_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SE_AUDIT_OPERATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SE_AUDIT_OPERATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SRV_INSTANCE_TYPE(pub i32);
 impl windows_core::TypeKind for SRV_INSTANCE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SRV_INSTANCE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SRV_INSTANCE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SharedVirtualDiskHandleState(pub i32);
 impl windows_core::TypeKind for SharedVirtualDiskHandleState {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SharedVirtualDiskHandleState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SharedVirtualDiskHandleState").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SharedVirtualDiskSupportType(pub i32);
 impl windows_core::TypeKind for SharedVirtualDiskSupportType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SharedVirtualDiskSupportType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SharedVirtualDiskSupportType").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct VIRTUAL_MEMORY_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for VIRTUAL_MEMORY_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for VIRTUAL_MEMORY_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("VIRTUAL_MEMORY_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct _LCN_WEAK_REFERENCE_STATE(pub i32);
 impl windows_core::TypeKind for _LCN_WEAK_REFERENCE_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for _LCN_WEAK_REFERENCE_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("_LCN_WEAK_REFERENCE_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct _REFS_STREAM_EXTENT_PROPERTIES(pub i32);
 impl windows_core::TypeKind for _REFS_STREAM_EXTENT_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for _REFS_STREAM_EXTENT_PROPERTIES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("_REFS_STREAM_EXTENT_PROPERTIES").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACE_HEADER {
     pub AceType: u8,
     pub AceFlags: u8,
     pub AceSize: u16,
+}
+impl windows_core::TypeKind for ACE_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ACE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ATOMIC_CREATE_ECP_CONTEXT {
     pub Size: u16,
     pub InFlags: u16,
@@ -6041,16 +6201,16 @@ pub struct ATOMIC_CREATE_ECP_CONTEXT {
     pub InCaseSensitiveFlags: u32,
     pub OutCaseSensitiveFlags: u32,
 }
+impl windows_core::TypeKind for ATOMIC_CREATE_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ATOMIC_CREATE_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ATOMIC_CREATE_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BASE_MCB {
     pub MaximumPairCount: u32,
     pub PairCount: u32,
@@ -6058,94 +6218,98 @@ pub struct BASE_MCB {
     pub Flags: u16,
     pub Mapping: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for BASE_MCB {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BASE_MCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BASE_MCB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BOOT_AREA_INFO {
     pub BootSectorCount: u32,
     pub BootSectors: [BOOT_AREA_INFO_0; 2],
+}
+impl windows_core::TypeKind for BOOT_AREA_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BOOT_AREA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BOOT_AREA_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BOOT_AREA_INFO_0 {
     pub Offset: i64,
+}
+impl windows_core::TypeKind for BOOT_AREA_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BOOT_AREA_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BOOT_AREA_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CACHE_MANAGER_CALLBACKS {
     pub AcquireForLazyWrite: PACQUIRE_FOR_LAZY_WRITE,
     pub ReleaseFromLazyWrite: PRELEASE_FROM_LAZY_WRITE,
     pub AcquireForReadAhead: PACQUIRE_FOR_READ_AHEAD,
     pub ReleaseFromReadAhead: PRELEASE_FROM_READ_AHEAD,
 }
+impl windows_core::TypeKind for CACHE_MANAGER_CALLBACKS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CACHE_MANAGER_CALLBACKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CACHE_MANAGER_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CACHE_MANAGER_CALLBACKS_EX {
     pub Version: u16,
     pub Size: u16,
     pub Functions: CACHE_MANAGER_CALLBACK_FUNCTIONS,
+}
+impl windows_core::TypeKind for CACHE_MANAGER_CALLBACKS_EX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CACHE_MANAGER_CALLBACKS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CACHE_MANAGER_CALLBACKS_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CACHE_MANAGER_CALLBACK_FUNCTIONS {
     pub AcquireForLazyWriteEx: PACQUIRE_FOR_LAZY_WRITE_EX,
     pub ReleaseFromLazyWrite: PRELEASE_FROM_LAZY_WRITE,
     pub AcquireForReadAhead: PACQUIRE_FOR_READ_AHEAD,
     pub ReleaseFromReadAhead: PRELEASE_FROM_READ_AHEAD,
 }
+impl windows_core::TypeKind for CACHE_MANAGER_CALLBACK_FUNCTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CACHE_MANAGER_CALLBACK_FUNCTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CACHE_MANAGER_CALLBACK_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CACHE_UNINITIALIZE_EVENT {
     pub Next: *mut CACHE_UNINITIALIZE_EVENT,
     pub Event: super::super::Foundation::KEVENT,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for CACHE_UNINITIALIZE_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for CACHE_UNINITIALIZE_EVENT {
@@ -6153,13 +6317,9 @@ impl Default for CACHE_UNINITIALIZE_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for CACHE_UNINITIALIZE_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CC_ASYNC_READ_CONTEXT {
     pub CompletionRoutine: PASYNC_READ_COMPLETION_CALLBACK,
     pub Context: *mut core::ffi::c_void,
@@ -6168,46 +6328,46 @@ pub struct CC_ASYNC_READ_CONTEXT {
     pub NestingLevel: u32,
 }
 #[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for CC_ASYNC_READ_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for CC_ASYNC_READ_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for CC_ASYNC_READ_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CC_ERROR_CALLBACK_CONTEXT {
     pub NodeByteSize: i16,
     pub ErrorCode: super::super::super::Win32::Foundation::NTSTATUS,
+}
+impl windows_core::TypeKind for CC_ERROR_CALLBACK_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CC_ERROR_CALLBACK_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CC_ERROR_CALLBACK_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CC_FILE_SIZES {
     pub AllocationSize: i64,
     pub FileSize: i64,
     pub ValidDataLength: i64,
+}
+impl windows_core::TypeKind for CC_FILE_SIZES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CC_FILE_SIZES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CC_FILE_SIZES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPRESSED_DATA_INFO {
     pub CompressionFormatAndEngine: u16,
     pub CompressionUnitShift: u8,
@@ -6217,60 +6377,64 @@ pub struct COMPRESSED_DATA_INFO {
     pub NumberOfChunks: u16,
     pub CompressedChunkSizes: [u32; 1],
 }
+impl windows_core::TypeKind for COMPRESSED_DATA_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for COMPRESSED_DATA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMPRESSED_DATA_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTAINER_ROOT_INFO_INPUT {
     pub Flags: u32,
+}
+impl windows_core::TypeKind for CONTAINER_ROOT_INFO_INPUT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CONTAINER_ROOT_INFO_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONTAINER_ROOT_INFO_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTAINER_ROOT_INFO_OUTPUT {
     pub ContainerRootIdLength: u16,
     pub ContainerRootId: [u8; 1],
+}
+impl windows_core::TypeKind for CONTAINER_ROOT_INFO_OUTPUT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CONTAINER_ROOT_INFO_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONTAINER_ROOT_INFO_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTAINER_VOLUME_STATE {
     pub Flags: u32,
+}
+impl windows_core::TypeKind for CONTAINER_VOLUME_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CONTAINER_VOLUME_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONTAINER_VOLUME_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COPY_INFORMATION {
     pub SourceFileObject: *mut super::super::Foundation::FILE_OBJECT,
     pub SourceFileOffset: i64,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for COPY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for COPY_INFORMATION {
@@ -6278,12 +6442,8 @@ impl Default for COPY_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for COPY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CPTABLEINFO {
     pub CodePage: u16,
     pub MaximumCharacterSize: u16,
@@ -6298,17 +6458,17 @@ pub struct CPTABLEINFO {
     pub DBCSRanges: *mut u16,
     pub DBCSOffsets: *mut u16,
 }
+impl windows_core::TypeKind for CPTABLEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CPTABLEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CPTABLEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATE_REDIRECTION_ECP_CONTEXT {
     pub Size: u16,
     pub Flags: u16,
@@ -6316,31 +6476,31 @@ pub struct CREATE_REDIRECTION_ECP_CONTEXT {
     pub VolumeGuid: windows_core::GUID,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for CREATE_REDIRECTION_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for CREATE_REDIRECTION_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CREATE_REDIRECTION_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATE_USN_JOURNAL_DATA {
     pub MaximumSize: u64,
     pub AllocationDelta: u64,
+}
+impl windows_core::TypeKind for CREATE_USN_JOURNAL_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CREATE_USN_JOURNAL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CREATE_USN_JOURNAL_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT {
     pub Version: u32,
     pub IsResume: super::super::super::Win32::Foundation::BOOLEAN,
@@ -6348,34 +6508,38 @@ pub struct CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT {
     pub SourceNodeId: u32,
     pub DestinationNodeId: u32,
 }
+impl windows_core::TypeKind for CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CSV_QUERY_FILE_REVISION_ECP_CONTEXT {
     pub FileId: i64,
     pub FileRevision: [i64; 3],
+}
+impl windows_core::TypeKind for CSV_QUERY_FILE_REVISION_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CSV_QUERY_FILE_REVISION_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CSV_QUERY_FILE_REVISION_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128 {
     pub FileId: super::super::super::Win32::Storage::FileSystem::FILE_ID_128,
     pub FileRevision: [i64; 3],
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128 {
@@ -6383,78 +6547,78 @@ impl Default for CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT {
     pub Size: usize,
     pub PauseTimeoutInSeconds: u32,
     pub Flags: u32,
+}
+impl windows_core::TypeKind for CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DUAL_OPLOCK_KEY_ECP_CONTEXT {
     pub ParentOplockKey: windows_core::GUID,
     pub TargetOplockKey: windows_core::GUID,
     pub ParentOplockKeySet: super::super::super::Win32::Foundation::BOOLEAN,
     pub TargetOplockKeySet: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for DUAL_OPLOCK_KEY_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DUAL_OPLOCK_KEY_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DUAL_OPLOCK_KEY_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DUPLICATE_CLUSTER_DATA {
     pub SourceLcn: i64,
     pub TargetFileOffset: i64,
     pub DuplicationLimit: u32,
     pub Reserved: u32,
 }
+impl windows_core::TypeKind for DUPLICATE_CLUSTER_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DUPLICATE_CLUSTER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DUPLICATE_CLUSTER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ECP_OPEN_PARAMETERS {
     pub Size: u16,
     pub Reserved: u16,
     pub Flags: u32,
+}
+impl windows_core::TypeKind for ECP_OPEN_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ECP_OPEN_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ECP_OPEN_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EOF_WAIT_BLOCK {
     pub EofWaitLinks: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub Event: super::super::Foundation::KEVENT,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for EOF_WAIT_BLOCK {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for EOF_WAIT_BLOCK {
@@ -6462,66 +6626,62 @@ impl Default for EOF_WAIT_BLOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for EOF_WAIT_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTENT_READ_CACHE_INFO_BUFFER {
     pub AllocatedCache: i64,
     pub PopulatedCache: i64,
     pub InErrorCache: i64,
+}
+impl windows_core::TypeKind for EXTENT_READ_CACHE_INFO_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EXTENT_READ_CACHE_INFO_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXTENT_READ_CACHE_INFO_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ACCESS_INFORMATION {
     pub AccessFlags: u32,
+}
+impl windows_core::TypeKind for FILE_ACCESS_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_ACCESS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_ACCESS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ALIGNMENT_INFORMATION {
     pub AlignmentRequirement: u32,
+}
+impl windows_core::TypeKind for FILE_ALIGNMENT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_ALIGNMENT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_ALIGNMENT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ALLOCATION_INFORMATION {
     pub AllocationSize: i64,
+}
+impl windows_core::TypeKind for FILE_ALLOCATION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_ALLOCATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_ALLOCATION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ALL_INFORMATION {
     pub BasicInformation: FILE_BASIC_INFORMATION,
     pub StandardInformation: FILE_STANDARD_INFORMATION,
@@ -6533,16 +6693,16 @@ pub struct FILE_ALL_INFORMATION {
     pub AlignmentInformation: FILE_ALIGNMENT_INFORMATION,
     pub NameInformation: FILE_NAME_INFORMATION,
 }
+impl windows_core::TypeKind for FILE_ALL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_ALL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_ALL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_BASIC_INFORMATION {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -6550,16 +6710,16 @@ pub struct FILE_BASIC_INFORMATION {
     pub ChangeTime: i64,
     pub FileAttributes: u32,
 }
+impl windows_core::TypeKind for FILE_BASIC_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_BOTH_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -6576,43 +6736,43 @@ pub struct FILE_BOTH_DIR_INFORMATION {
     pub ShortName: [u16; 12],
     pub FileName: [u16; 1],
 }
+impl windows_core::TypeKind for FILE_BOTH_DIR_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_BOTH_DIR_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_BOTH_DIR_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_CASE_SENSITIVE_INFORMATION {
     pub Flags: u32,
+}
+impl windows_core::TypeKind for FILE_CASE_SENSITIVE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_CASE_SENSITIVE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_CASE_SENSITIVE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_COMPLETION_INFORMATION {
     pub Port: super::super::super::Win32::Foundation::HANDLE,
     pub Key: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for FILE_COMPLETION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_COMPLETION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_COMPLETION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_COMPRESSION_INFORMATION {
     pub CompressedFileSize: i64,
     pub CompressionFormat: u16,
@@ -6621,16 +6781,16 @@ pub struct FILE_COMPRESSION_INFORMATION {
     pub ClusterShift: u8,
     pub Reserved: [u8; 3],
 }
+impl windows_core::TypeKind for FILE_COMPRESSION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_COMPRESSION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_COMPRESSION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_DIRECTORY_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -6644,87 +6804,87 @@ pub struct FILE_DIRECTORY_INFORMATION {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
+impl windows_core::TypeKind for FILE_DIRECTORY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_DIRECTORY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_DIRECTORY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_DISPOSITION_INFORMATION {
     pub DeleteFile: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for FILE_DISPOSITION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_DISPOSITION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_DISPOSITION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_DISPOSITION_INFORMATION_EX {
     pub Flags: FILE_DISPOSITION_INFORMATION_EX_FLAGS,
+}
+impl windows_core::TypeKind for FILE_DISPOSITION_INFORMATION_EX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_DISPOSITION_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_DISPOSITION_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_EA_INFORMATION {
     pub EaSize: u32,
+}
+impl windows_core::TypeKind for FILE_EA_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_EA_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_EA_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_END_OF_FILE_INFORMATION_EX {
     pub EndOfFile: i64,
     pub PagingFileSizeInMM: i64,
     pub PagingFileMaxSize: i64,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for FILE_END_OF_FILE_INFORMATION_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_END_OF_FILE_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_END_OF_FILE_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_ATTRIBUTE_INFORMATION {
     pub FileSystemAttributes: u32,
     pub MaximumComponentNameLength: i32,
     pub FileSystemNameLength: u32,
     pub FileSystemName: [u16; 1],
 }
+impl windows_core::TypeKind for FILE_FS_ATTRIBUTE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_FS_ATTRIBUTE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FS_ATTRIBUTE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_CONTROL_INFORMATION {
     pub FreeSpaceStartFiltering: i64,
     pub FreeSpaceThreshold: i64,
@@ -6733,44 +6893,44 @@ pub struct FILE_FS_CONTROL_INFORMATION {
     pub DefaultQuotaLimit: i64,
     pub FileSystemControlFlags: u32,
 }
+impl windows_core::TypeKind for FILE_FS_CONTROL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_FS_CONTROL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FS_CONTROL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_DATA_COPY_INFORMATION {
     pub NumberOfCopies: u32,
+}
+impl windows_core::TypeKind for FILE_FS_DATA_COPY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_FS_DATA_COPY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FS_DATA_COPY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_DRIVER_PATH_INFORMATION {
     pub DriverInPath: super::super::super::Win32::Foundation::BOOLEAN,
     pub DriverNameLength: u32,
     pub DriverName: [u16; 1],
+}
+impl windows_core::TypeKind for FILE_FS_DRIVER_PATH_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_FS_DRIVER_PATH_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FS_DRIVER_PATH_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_SECTOR_SIZE_INFORMATION {
     pub LogicalBytesPerSector: u32,
     pub PhysicalBytesPerSectorForAtomicity: u32,
@@ -6780,29 +6940,29 @@ pub struct FILE_FS_SECTOR_SIZE_INFORMATION {
     pub ByteOffsetForSectorAlignment: u32,
     pub ByteOffsetForPartitionAlignment: u32,
 }
+impl windows_core::TypeKind for FILE_FS_SECTOR_SIZE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_FS_SECTOR_SIZE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FS_SECTOR_SIZE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_VOLUME_FLAGS_INFORMATION {
     pub Flags: u32,
+}
+impl windows_core::TypeKind for FILE_FS_VOLUME_FLAGS_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_FS_VOLUME_FLAGS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FS_VOLUME_FLAGS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FULL_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -6817,16 +6977,16 @@ pub struct FILE_FULL_DIR_INFORMATION {
     pub EaSize: u32,
     pub FileName: [u16; 1],
 }
+impl windows_core::TypeKind for FILE_FULL_DIR_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_FULL_DIR_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FULL_DIR_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FULL_EA_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u8,
@@ -6834,36 +6994,40 @@ pub struct FILE_FULL_EA_INFORMATION {
     pub EaValueLength: u16,
     pub EaName: [i8; 1],
 }
+impl windows_core::TypeKind for FILE_FULL_EA_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_FULL_EA_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FULL_EA_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_GET_EA_INFORMATION {
     pub NextEntryOffset: u32,
     pub EaNameLength: u8,
     pub EaName: [i8; 1],
+}
+impl windows_core::TypeKind for FILE_GET_EA_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_GET_EA_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_GET_EA_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_GET_QUOTA_INFORMATION {
     pub NextEntryOffset: u32,
     pub SidLength: u32,
     pub Sid: super::super::super::Win32::Security::SID,
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for FILE_GET_QUOTA_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl Default for FILE_GET_QUOTA_INFORMATION {
@@ -6871,12 +7035,8 @@ impl Default for FILE_GET_QUOTA_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FILE_GET_QUOTA_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_BOTH_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -6894,17 +7054,17 @@ pub struct FILE_ID_BOTH_DIR_INFORMATION {
     pub FileId: i64,
     pub FileName: [u16; 1],
 }
+impl windows_core::TypeKind for FILE_ID_BOTH_DIR_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_ID_BOTH_DIR_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_ID_BOTH_DIR_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_EXTD_BOTH_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -6924,18 +7084,18 @@ pub struct FILE_ID_EXTD_BOTH_DIR_INFORMATION {
     pub FileName: [u16; 1],
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for FILE_ID_EXTD_BOTH_DIR_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for FILE_ID_EXTD_BOTH_DIR_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for FILE_ID_EXTD_BOTH_DIR_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_EXTD_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -6953,17 +7113,17 @@ pub struct FILE_ID_EXTD_DIR_INFORMATION {
     pub FileName: [u16; 1],
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for FILE_ID_EXTD_DIR_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for FILE_ID_EXTD_DIR_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for FILE_ID_EXTD_DIR_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_FULL_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -6979,16 +7139,16 @@ pub struct FILE_ID_FULL_DIR_INFORMATION {
     pub FileId: i64,
     pub FileName: [u16; 1],
 }
+impl windows_core::TypeKind for FILE_ID_FULL_DIR_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_ID_FULL_DIR_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_ID_FULL_DIR_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_GLOBAL_TX_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -7005,20 +7165,24 @@ pub struct FILE_ID_GLOBAL_TX_DIR_INFORMATION {
     pub TxInfoFlags: u32,
     pub FileName: [u16; 1],
 }
+impl windows_core::TypeKind for FILE_ID_GLOBAL_TX_DIR_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_ID_GLOBAL_TX_DIR_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_ID_GLOBAL_TX_DIR_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_INFORMATION {
     pub VolumeSerialNumber: u64,
     pub FileId: super::super::super::Win32::Storage::FileSystem::FILE_ID_128,
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for FILE_ID_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for FILE_ID_INFORMATION {
@@ -7026,59 +7190,59 @@ impl Default for FILE_ID_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for FILE_ID_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_INFORMATION_DEFINITION {
     pub Class: FILE_INFORMATION_CLASS,
     pub NextEntryOffset: u32,
     pub FileNameLengthOffset: u32,
     pub FileNameOffset: u32,
 }
+impl windows_core::TypeKind for FILE_INFORMATION_DEFINITION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_INFORMATION_DEFINITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_INFORMATION_DEFINITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_INTERNAL_INFORMATION {
     pub IndexNumber: i64,
+}
+impl windows_core::TypeKind for FILE_INTERNAL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_INTERNAL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_INTERNAL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_KNOWN_FOLDER_INFORMATION {
     pub Type: FILE_KNOWN_FOLDER_TYPE,
+}
+impl windows_core::TypeKind for FILE_KNOWN_FOLDER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_KNOWN_FOLDER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_KNOWN_FOLDER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_LINKS_FULL_ID_INFORMATION {
     pub BytesNeeded: u32,
     pub EntriesReturned: u32,
     pub Entry: FILE_LINK_ENTRY_FULL_ID_INFORMATION,
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for FILE_LINKS_FULL_ID_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for FILE_LINKS_FULL_ID_INFORMATION {
@@ -7086,28 +7250,24 @@ impl Default for FILE_LINKS_FULL_ID_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for FILE_LINKS_FULL_ID_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_LINKS_INFORMATION {
     pub BytesNeeded: u32,
     pub EntriesReturned: u32,
     pub Entry: FILE_LINK_ENTRY_INFORMATION,
+}
+impl windows_core::TypeKind for FILE_LINKS_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_LINKS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_LINKS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_LINK_ENTRY_FULL_ID_INFORMATION {
     pub NextEntryOffset: u32,
     pub ParentFileId: super::super::super::Win32::Storage::FileSystem::FILE_ID_128,
@@ -7115,64 +7275,64 @@ pub struct FILE_LINK_ENTRY_FULL_ID_INFORMATION {
     pub FileName: [u16; 1],
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for FILE_LINK_ENTRY_FULL_ID_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for FILE_LINK_ENTRY_FULL_ID_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for FILE_LINK_ENTRY_FULL_ID_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_LINK_ENTRY_INFORMATION {
     pub NextEntryOffset: u32,
     pub ParentFileId: i64,
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
+impl windows_core::TypeKind for FILE_LINK_ENTRY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_LINK_ENTRY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_LINK_ENTRY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILE_LINK_INFORMATION {
     pub Anonymous: FILE_LINK_INFORMATION_0,
     pub RootDirectory: super::super::super::Win32::Foundation::HANDLE,
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
+impl windows_core::TypeKind for FILE_LINK_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_LINK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_LINK_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FILE_LINK_INFORMATION_0 {
     pub ReplaceIfExists: super::super::super::Win32::Foundation::BOOLEAN,
     pub Flags: u32,
+}
+impl windows_core::TypeKind for FILE_LINK_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_LINK_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_LINK_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_LOCK {
     pub CompleteLockIrpRoutine: PCOMPLETE_LOCK_IRP_ROUTINE,
     pub UnlockRoutine: PUNLOCK_ROUTINE,
@@ -7184,18 +7344,18 @@ pub struct FILE_LOCK {
     pub LockRequestsInProgress: i32,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for FILE_LOCK {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FILE_LOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FILE_LOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_LOCK_INFO {
     pub StartingByte: i64,
     pub Length: i64,
@@ -7206,17 +7366,17 @@ pub struct FILE_LOCK_INFO {
     pub EndingByte: i64,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for FILE_LOCK_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FILE_LOCK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FILE_LOCK_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_MAILSLOT_QUERY_INFORMATION {
     pub MaximumMessageSize: u32,
     pub MailslotQuota: u32,
@@ -7224,88 +7384,88 @@ pub struct FILE_MAILSLOT_QUERY_INFORMATION {
     pub MessagesAvailable: u32,
     pub ReadTimeout: i64,
 }
+impl windows_core::TypeKind for FILE_MAILSLOT_QUERY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_MAILSLOT_QUERY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_MAILSLOT_QUERY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_MAILSLOT_SET_INFORMATION {
     pub ReadTimeout: *mut i64,
+}
+impl windows_core::TypeKind for FILE_MAILSLOT_SET_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_MAILSLOT_SET_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_MAILSLOT_SET_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_MODE_INFORMATION {
     pub Mode: u32,
+}
+impl windows_core::TypeKind for FILE_MODE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_MODE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_MODE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_MOVE_CLUSTER_INFORMATION {
     pub ClusterCount: u32,
     pub RootDirectory: super::super::super::Win32::Foundation::HANDLE,
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
+impl windows_core::TypeKind for FILE_MOVE_CLUSTER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_MOVE_CLUSTER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_MOVE_CLUSTER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_NAMES_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
+impl windows_core::TypeKind for FILE_NAMES_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_NAMES_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_NAMES_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_NAME_INFORMATION {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
+}
+impl windows_core::TypeKind for FILE_NAME_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_NAME_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_NAME_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_NETWORK_OPEN_INFORMATION {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -7315,132 +7475,132 @@ pub struct FILE_NETWORK_OPEN_INFORMATION {
     pub EndOfFile: i64,
     pub FileAttributes: u32,
 }
+impl windows_core::TypeKind for FILE_NETWORK_OPEN_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_NETWORK_OPEN_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_NETWORK_OPEN_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_NETWORK_PHYSICAL_NAME_INFORMATION {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
+}
+impl windows_core::TypeKind for FILE_NETWORK_PHYSICAL_NAME_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_NETWORK_PHYSICAL_NAME_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_NETWORK_PHYSICAL_NAME_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILE_OBJECTID_INFORMATION {
     pub FileReference: i64,
     pub ObjectId: [u8; 16],
     pub Anonymous: FILE_OBJECTID_INFORMATION_0,
+}
+impl windows_core::TypeKind for FILE_OBJECTID_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_OBJECTID_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_OBJECTID_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FILE_OBJECTID_INFORMATION_0 {
     pub Anonymous: FILE_OBJECTID_INFORMATION_0_0,
     pub ExtendedInfo: [u8; 48],
+}
+impl windows_core::TypeKind for FILE_OBJECTID_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_OBJECTID_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_OBJECTID_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_OBJECTID_INFORMATION_0_0 {
     pub BirthVolumeId: [u8; 16],
     pub BirthObjectId: [u8; 16],
     pub DomainId: [u8; 16],
+}
+impl windows_core::TypeKind for FILE_OBJECTID_INFORMATION_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_OBJECTID_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_OBJECTID_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_ASSIGN_EVENT_BUFFER {
     pub EventHandle: super::super::super::Win32::Foundation::HANDLE,
     pub KeyValue: u32,
+}
+impl windows_core::TypeKind for FILE_PIPE_ASSIGN_EVENT_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_PIPE_ASSIGN_EVENT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_PIPE_ASSIGN_EVENT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER {
     pub ClientSession: *mut core::ffi::c_void,
     pub ClientProcess: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for FILE_PIPE_CLIENT_PROCESS_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_PIPE_CLIENT_PROCESS_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER_EX {
     pub ClientSession: *mut core::ffi::c_void,
     pub ClientProcess: *mut core::ffi::c_void,
     pub ClientComputerNameLength: u16,
     pub ClientComputerBuffer: [u16; 16],
 }
+impl windows_core::TypeKind for FILE_PIPE_CLIENT_PROCESS_BUFFER_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_PIPE_CLIENT_PROCESS_BUFFER_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER_V2 {
     pub ClientSession: u64,
     pub ClientProcess: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for FILE_PIPE_CLIENT_PROCESS_BUFFER_V2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_PIPE_CLIENT_PROCESS_BUFFER_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_CREATE_SYMLINK_INPUT {
     pub NameOffset: u16,
     pub NameLength: u16,
@@ -7448,30 +7608,30 @@ pub struct FILE_PIPE_CREATE_SYMLINK_INPUT {
     pub SubstituteNameLength: u16,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for FILE_PIPE_CREATE_SYMLINK_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_PIPE_CREATE_SYMLINK_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_PIPE_CREATE_SYMLINK_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_DELETE_SYMLINK_INPUT {
     pub NameOffset: u16,
     pub NameLength: u16,
+}
+impl windows_core::TypeKind for FILE_PIPE_DELETE_SYMLINK_INPUT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_PIPE_DELETE_SYMLINK_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_PIPE_DELETE_SYMLINK_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_EVENT_BUFFER {
     pub NamedPipeState: u32,
     pub EntryType: u32,
@@ -7479,30 +7639,30 @@ pub struct FILE_PIPE_EVENT_BUFFER {
     pub KeyValue: u32,
     pub NumberRequests: u32,
 }
+impl windows_core::TypeKind for FILE_PIPE_EVENT_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_PIPE_EVENT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_PIPE_EVENT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_INFORMATION {
     pub ReadMode: u32,
     pub CompletionMode: u32,
+}
+impl windows_core::TypeKind for FILE_PIPE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_PIPE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_PIPE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_LOCAL_INFORMATION {
     pub NamedPipeType: u32,
     pub NamedPipeConfiguration: u32,
@@ -7515,16 +7675,16 @@ pub struct FILE_PIPE_LOCAL_INFORMATION {
     pub NamedPipeState: u32,
     pub NamedPipeEnd: u32,
 }
+impl windows_core::TypeKind for FILE_PIPE_LOCAL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_PIPE_LOCAL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_PIPE_LOCAL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_PEEK_BUFFER {
     pub NamedPipeState: u32,
     pub ReadDataAvailable: u32,
@@ -7532,73 +7692,73 @@ pub struct FILE_PIPE_PEEK_BUFFER {
     pub MessageLength: u32,
     pub Data: [i8; 1],
 }
+impl windows_core::TypeKind for FILE_PIPE_PEEK_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_PIPE_PEEK_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_PIPE_PEEK_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_REMOTE_INFORMATION {
     pub CollectDataTime: i64,
     pub MaximumCollectionCount: u32,
+}
+impl windows_core::TypeKind for FILE_PIPE_REMOTE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_PIPE_REMOTE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_PIPE_REMOTE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_SILO_ARRIVAL_INPUT {
     pub JobHandle: super::super::super::Win32::Foundation::HANDLE,
+}
+impl windows_core::TypeKind for FILE_PIPE_SILO_ARRIVAL_INPUT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_PIPE_SILO_ARRIVAL_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_PIPE_SILO_ARRIVAL_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_WAIT_FOR_BUFFER {
     pub Timeout: i64,
     pub NameLength: u32,
     pub TimeoutSpecified: super::super::super::Win32::Foundation::BOOLEAN,
     pub Name: [u16; 1],
 }
+impl windows_core::TypeKind for FILE_PIPE_WAIT_FOR_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_PIPE_WAIT_FOR_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_PIPE_WAIT_FOR_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_POSITION_INFORMATION {
     pub CurrentByteOffset: i64,
+}
+impl windows_core::TypeKind for FILE_POSITION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_POSITION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_POSITION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_QUOTA_INFORMATION {
     pub NextEntryOffset: u32,
     pub SidLength: u32,
@@ -7609,17 +7769,17 @@ pub struct FILE_QUOTA_INFORMATION {
     pub Sid: super::super::super::Win32::Security::SID,
 }
 #[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for FILE_QUOTA_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security")]
 impl Default for FILE_QUOTA_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for FILE_QUOTA_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION {
     pub StructureVersion: u16,
     pub StructureSize: u16,
@@ -7632,70 +7792,70 @@ pub struct FILE_REMOTE_PROTOCOL_INFORMATION {
     pub GenericReserved: FILE_REMOTE_PROTOCOL_INFORMATION_0,
     pub ProtocolSpecific: FILE_REMOTE_PROTOCOL_INFORMATION_1,
 }
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_REMOTE_PROTOCOL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION_0 {
     pub Reserved: [u32; 8],
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_REMOTE_PROTOCOL_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FILE_REMOTE_PROTOCOL_INFORMATION_1 {
     pub Smb2: FILE_REMOTE_PROTOCOL_INFORMATION_1_0,
     pub Reserved: [u32; 16],
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFORMATION_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_REMOTE_PROTOCOL_INFORMATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFORMATION_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION_1_0 {
     pub Server: FILE_REMOTE_PROTOCOL_INFORMATION_1_0_0,
     pub Share: FILE_REMOTE_PROTOCOL_INFORMATION_1_0_1,
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFORMATION_1_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_REMOTE_PROTOCOL_INFORMATION_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFORMATION_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION_1_0_0 {
     pub Capabilities: u32,
+}
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFORMATION_1_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_REMOTE_PROTOCOL_INFORMATION_1_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFORMATION_1_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION_1_0_1 {
     pub Capabilities: u32,
     pub ShareFlags: u32,
@@ -7703,60 +7863,60 @@ pub struct FILE_REMOTE_PROTOCOL_INFORMATION_1_0_1 {
     pub Reserved0: [u8; 3],
     pub Reserved1: u32,
 }
+impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFORMATION_1_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_REMOTE_PROTOCOL_INFORMATION_1_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFORMATION_1_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILE_RENAME_INFORMATION {
     pub Anonymous: FILE_RENAME_INFORMATION_0,
     pub RootDirectory: super::super::super::Win32::Foundation::HANDLE,
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
+impl windows_core::TypeKind for FILE_RENAME_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_RENAME_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_RENAME_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FILE_RENAME_INFORMATION_0 {
     pub ReplaceIfExists: super::super::super::Win32::Foundation::BOOLEAN,
     pub Flags: u32,
+}
+impl windows_core::TypeKind for FILE_RENAME_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_RENAME_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_RENAME_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_REPARSE_POINT_INFORMATION {
     pub FileReference: i64,
     pub Tag: u32,
+}
+impl windows_core::TypeKind for FILE_REPARSE_POINT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_REPARSE_POINT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_REPARSE_POINT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_STANDARD_INFORMATION {
     pub AllocationSize: i64,
     pub EndOfFile: i64,
@@ -7764,32 +7924,32 @@ pub struct FILE_STANDARD_INFORMATION {
     pub DeletePending: super::super::super::Win32::Foundation::BOOLEAN,
     pub Directory: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for FILE_STANDARD_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_STANDARD_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_STANDARD_LINK_INFORMATION {
     pub NumberOfAccessibleLinks: u32,
     pub TotalNumberOfLinks: u32,
     pub DeletePending: super::super::super::Win32::Foundation::BOOLEAN,
     pub Directory: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for FILE_STANDARD_LINK_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_STANDARD_LINK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_STANDARD_LINK_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_STAT_INFORMATION {
     pub FileId: i64,
     pub CreationTime: i64,
@@ -7803,16 +7963,16 @@ pub struct FILE_STAT_INFORMATION {
     pub NumberOfLinks: u32,
     pub EffectiveAccess: u32,
 }
+impl windows_core::TypeKind for FILE_STAT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_STAT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_STAT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_STAT_LX_INFORMATION {
     pub FileId: i64,
     pub CreationTime: i64,
@@ -7832,19 +7992,23 @@ pub struct FILE_STAT_LX_INFORMATION {
     pub LxDeviceIdMajor: u32,
     pub LxDeviceIdMinor: u32,
 }
+impl windows_core::TypeKind for FILE_STAT_LX_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_STAT_LX_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_STAT_LX_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ioctl")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_STORAGE_RESERVE_ID_INFORMATION {
     pub StorageReserveId: super::super::super::Win32::System::Ioctl::STORAGE_RESERVE_ID,
+}
+#[cfg(feature = "Win32_System_Ioctl")]
+impl windows_core::TypeKind for FILE_STORAGE_RESERVE_ID_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Ioctl")]
 impl Default for FILE_STORAGE_RESERVE_ID_INFORMATION {
@@ -7852,12 +8016,8 @@ impl Default for FILE_STORAGE_RESERVE_ID_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Ioctl")]
-impl windows_core::TypeKind for FILE_STORAGE_RESERVE_ID_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_STREAM_INFORMATION {
     pub NextEntryOffset: u32,
     pub StreamNameLength: u32,
@@ -7865,61 +8025,61 @@ pub struct FILE_STREAM_INFORMATION {
     pub StreamAllocationSize: i64,
     pub StreamName: [u16; 1],
 }
+impl windows_core::TypeKind for FILE_STREAM_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_STREAM_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_STREAM_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_TIMESTAMPS {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
     pub LastWriteTime: i64,
     pub ChangeTime: i64,
 }
+impl windows_core::TypeKind for FILE_TIMESTAMPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_TIMESTAMPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_TIMESTAMPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_TRACKING_INFORMATION {
     pub DestinationFile: super::super::super::Win32::Foundation::HANDLE,
     pub ObjectInformationLength: u32,
     pub ObjectInformation: [i8; 1],
+}
+impl windows_core::TypeKind for FILE_TRACKING_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_TRACKING_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_TRACKING_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_VOLUME_NAME_INFORMATION {
     pub DeviceNameLength: u32,
     pub DeviceName: [u16; 1],
+}
+impl windows_core::TypeKind for FILE_VOLUME_NAME_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_VOLUME_NAME_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_VOLUME_NAME_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER {
     pub FileOffset: i64,
     pub ByteCount: i64,
@@ -7927,85 +8087,85 @@ pub struct FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER {
     pub RecallMetadataBufferSize: u32,
     pub RecallMetadataBuffer: [u8; 1],
 }
+impl windows_core::TypeKind for FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE {
     pub FileOffset: i64,
     pub ByteCount: i64,
+}
+impl windows_core::TypeKind for FSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_QUERY_GHOSTED_FILE_EXTENTS_OUTPUT {
     pub ExtentCount: u32,
     pub TotalExtentCount: u32,
     pub Extents: [u8; 1],
+}
+impl windows_core::TypeKind for FSCTL_QUERY_GHOSTED_FILE_EXTENTS_OUTPUT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FSCTL_QUERY_GHOSTED_FILE_EXTENTS_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSCTL_QUERY_GHOSTED_FILE_EXTENTS_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_QUERY_VOLUME_NUMA_INFO_OUTPUT {
     pub NumaNode: u32,
+}
+impl windows_core::TypeKind for FSCTL_QUERY_VOLUME_NUMA_INFO_OUTPUT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FSCTL_QUERY_VOLUME_NUMA_INFO_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSCTL_QUERY_VOLUME_NUMA_INFO_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_UNMAP_SPACE_INPUT_BUFFER {
     pub BytesToUnmap: i64,
+}
+impl windows_core::TypeKind for FSCTL_UNMAP_SPACE_INPUT_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FSCTL_UNMAP_SPACE_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSCTL_UNMAP_SPACE_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_UNMAP_SPACE_OUTPUT {
     pub BytesUnmapped: i64,
+}
+impl windows_core::TypeKind for FSCTL_UNMAP_SPACE_OUTPUT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FSCTL_UNMAP_SPACE_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSCTL_UNMAP_SPACE_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FSRTL_ADVANCED_FCB_HEADER {
     pub Base: FSRTL_COMMON_FCB_HEADER,
     pub FastMutex: *mut super::super::Foundation::FAST_MUTEX,
@@ -8017,21 +8177,25 @@ pub struct FSRTL_ADVANCED_FCB_HEADER {
     pub BypassIoOpenCount: u32,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for FSRTL_ADVANCED_FCB_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for FSRTL_ADVANCED_FCB_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for FSRTL_ADVANCED_FCB_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FSRTL_ADVANCED_FCB_HEADER_0 {
     pub Oplock: *mut core::ffi::c_void,
     pub ReservedForRemote: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for FSRTL_ADVANCED_FCB_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for FSRTL_ADVANCED_FCB_HEADER_0 {
@@ -8039,13 +8203,9 @@ impl Default for FSRTL_ADVANCED_FCB_HEADER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for FSRTL_ADVANCED_FCB_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_AUXILIARY_BUFFER {
     pub Buffer: *mut core::ffi::c_void,
     pub Length: u32,
@@ -8053,18 +8213,18 @@ pub struct FSRTL_AUXILIARY_BUFFER {
     pub Mdl: *mut super::super::Foundation::MDL,
 }
 #[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for FSRTL_AUXILIARY_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for FSRTL_AUXILIARY_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for FSRTL_AUXILIARY_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_COMMON_FCB_HEADER {
     pub NodeTypeCode: i16,
     pub NodeByteSize: i16,
@@ -8079,49 +8239,53 @@ pub struct FSRTL_COMMON_FCB_HEADER {
     pub ValidDataLength: i64,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for FSRTL_COMMON_FCB_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for FSRTL_COMMON_FCB_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for FSRTL_COMMON_FCB_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_MUP_PROVIDER_INFO_LEVEL_1 {
     pub ProviderId: u32,
+}
+impl windows_core::TypeKind for FSRTL_MUP_PROVIDER_INFO_LEVEL_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FSRTL_MUP_PROVIDER_INFO_LEVEL_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSRTL_MUP_PROVIDER_INFO_LEVEL_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_MUP_PROVIDER_INFO_LEVEL_2 {
     pub ProviderId: u32,
     pub ProviderName: super::super::super::Win32::Foundation::UNICODE_STRING,
+}
+impl windows_core::TypeKind for FSRTL_MUP_PROVIDER_INFO_LEVEL_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FSRTL_MUP_PROVIDER_INFO_LEVEL_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSRTL_MUP_PROVIDER_INFO_LEVEL_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_PER_FILEOBJECT_CONTEXT {
     pub Links: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
     pub InstanceId: *mut core::ffi::c_void,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for FSRTL_PER_FILEOBJECT_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for FSRTL_PER_FILEOBJECT_CONTEXT {
@@ -8129,13 +8293,9 @@ impl Default for FSRTL_PER_FILEOBJECT_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for FSRTL_PER_FILEOBJECT_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_PER_FILE_CONTEXT {
     pub Links: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
@@ -8143,18 +8303,18 @@ pub struct FSRTL_PER_FILE_CONTEXT {
     pub FreeCallback: super::super::Foundation::PFREE_FUNCTION,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for FSRTL_PER_FILE_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for FSRTL_PER_FILE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for FSRTL_PER_FILE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_PER_STREAM_CONTEXT {
     pub Links: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
@@ -8162,103 +8322,103 @@ pub struct FSRTL_PER_STREAM_CONTEXT {
     pub FreeCallback: super::super::Foundation::PFREE_FUNCTION,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for FSRTL_PER_STREAM_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for FSRTL_PER_STREAM_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for FSRTL_PER_STREAM_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FSRTL_UNC_PROVIDER_REGISTRATION {
     pub Size: u16,
     pub Version: u16,
     pub Anonymous1: FSRTL_UNC_PROVIDER_REGISTRATION_0,
     pub Anonymous2: FSRTL_UNC_PROVIDER_REGISTRATION_1,
 }
+impl windows_core::TypeKind for FSRTL_UNC_PROVIDER_REGISTRATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FSRTL_UNC_PROVIDER_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSRTL_UNC_PROVIDER_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FSRTL_UNC_PROVIDER_REGISTRATION_0 {
     pub ProviderFlags: u32,
     pub Anonymous: FSRTL_UNC_PROVIDER_REGISTRATION_0_0,
+}
+impl windows_core::TypeKind for FSRTL_UNC_PROVIDER_REGISTRATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FSRTL_UNC_PROVIDER_REGISTRATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSRTL_UNC_PROVIDER_REGISTRATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_UNC_PROVIDER_REGISTRATION_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for FSRTL_UNC_PROVIDER_REGISTRATION_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FSRTL_UNC_PROVIDER_REGISTRATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSRTL_UNC_PROVIDER_REGISTRATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FSRTL_UNC_PROVIDER_REGISTRATION_1 {
     pub HardeningCapabilities: u32,
     pub Anonymous: FSRTL_UNC_PROVIDER_REGISTRATION_1_0,
+}
+impl windows_core::TypeKind for FSRTL_UNC_PROVIDER_REGISTRATION_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FSRTL_UNC_PROVIDER_REGISTRATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSRTL_UNC_PROVIDER_REGISTRATION_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_UNC_PROVIDER_REGISTRATION_1_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for FSRTL_UNC_PROVIDER_REGISTRATION_1_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FSRTL_UNC_PROVIDER_REGISTRATION_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FSRTL_UNC_PROVIDER_REGISTRATION_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_BPIO_INFO {
     pub ActiveBypassIoCount: u32,
     pub StorageDriverNameLen: u16,
     pub StorageDriverName: [u16; 32],
+}
+impl windows_core::TypeKind for FS_BPIO_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FS_BPIO_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FS_BPIO_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ioctl")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_BPIO_INPUT {
     pub Operation: super::super::super::Win32::System::Ioctl::FS_BPIO_OPERATIONS,
     pub InFlags: super::super::super::Win32::System::Ioctl::FS_BPIO_INFLAGS,
@@ -8266,18 +8426,18 @@ pub struct FS_BPIO_INPUT {
     pub Reserved2: u64,
 }
 #[cfg(feature = "Win32_System_Ioctl")]
+impl windows_core::TypeKind for FS_BPIO_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Ioctl")]
 impl Default for FS_BPIO_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Ioctl")]
-impl windows_core::TypeKind for FS_BPIO_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_FILTER_CALLBACKS {
     pub SizeOfFsFilterCallbacks: u32,
     pub Reserved: u32,
@@ -8297,18 +8457,18 @@ pub struct FS_FILTER_CALLBACKS {
     pub PostQueryOpen: PFS_FILTER_COMPLETION_CALLBACK,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for FS_FILTER_CALLBACKS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FS_FILTER_CALLBACKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FS_FILTER_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FS_FILTER_CALLBACK_DATA {
     pub SizeOfFsFilterCallbackData: u32,
     pub Operation: u8,
@@ -8318,18 +8478,18 @@ pub struct FS_FILTER_CALLBACK_DATA {
     pub Parameters: FS_FILTER_PARAMETERS,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for FS_FILTER_CALLBACK_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FS_FILTER_CALLBACK_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FS_FILTER_CALLBACK_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FS_FILTER_PARAMETERS {
     pub AcquireForModifiedPageWriter: FS_FILTER_PARAMETERS_0,
     pub ReleaseForModifiedPageWriter: FS_FILTER_PARAMETERS_1,
@@ -8338,21 +8498,25 @@ pub union FS_FILTER_PARAMETERS {
     pub Others: FS_FILTER_PARAMETERS_4,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for FS_FILTER_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FS_FILTER_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FS_FILTER_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_0 {
     pub EndingOffset: *mut i64,
     pub ResourceToRelease: *mut *mut super::super::Foundation::ERESOURCE,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for FS_FILTER_PARAMETERS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FS_FILTER_PARAMETERS_0 {
@@ -8360,13 +8524,9 @@ impl Default for FS_FILTER_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FS_FILTER_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_2 {
     pub SyncType: FS_FILTER_SECTION_SYNC_TYPE,
     pub PageProtection: u32,
@@ -8375,18 +8535,18 @@ pub struct FS_FILTER_PARAMETERS_2 {
     pub AllocationAttributes: u32,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for FS_FILTER_PARAMETERS_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FS_FILTER_PARAMETERS_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FS_FILTER_PARAMETERS_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_4 {
     pub Argument1: *mut core::ffi::c_void,
     pub Argument2: *mut core::ffi::c_void,
@@ -8395,18 +8555,18 @@ pub struct FS_FILTER_PARAMETERS_4 {
     pub Argument5: *mut core::ffi::c_void,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for FS_FILTER_PARAMETERS_4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FS_FILTER_PARAMETERS_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FS_FILTER_PARAMETERS_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_3 {
     pub Irp: *mut super::super::Foundation::IRP,
     pub FileInformation: *mut core::ffi::c_void,
@@ -8415,20 +8575,24 @@ pub struct FS_FILTER_PARAMETERS_3 {
     pub CompletionStatus: super::super::super::Win32::Foundation::NTSTATUS,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for FS_FILTER_PARAMETERS_3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FS_FILTER_PARAMETERS_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FS_FILTER_PARAMETERS_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_1 {
     pub ResourceToRelease: *mut super::super::Foundation::ERESOURCE,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for FS_FILTER_PARAMETERS_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FS_FILTER_PARAMETERS_1 {
@@ -8436,28 +8600,24 @@ impl Default for FS_FILTER_PARAMETERS_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FS_FILTER_PARAMETERS_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_FILTER_SECTION_SYNC_OUTPUT {
     pub StructureSize: u32,
     pub SizeReturned: u32,
     pub Flags: u32,
     pub DesiredReadAlignment: u32,
 }
+impl windows_core::TypeKind for FS_FILTER_SECTION_SYNC_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FS_FILTER_SECTION_SYNC_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FS_FILTER_SECTION_SYNC_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GENERATE_NAME_CONTEXT {
     pub Checksum: u16,
     pub ChecksumInserted: super::super::super::Win32::Foundation::BOOLEAN,
@@ -8467,16 +8627,16 @@ pub struct GENERATE_NAME_CONTEXT {
     pub ExtensionBuffer: [u16; 4],
     pub LastIndexValue: u32,
 }
+impl windows_core::TypeKind for GENERATE_NAME_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for GENERATE_NAME_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GENERATE_NAME_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GHOSTED_FILE_EXTENT {
     pub FileOffset: i64,
     pub ByteCount: i64,
@@ -8485,21 +8645,25 @@ pub struct GHOSTED_FILE_EXTENT {
     pub RecallMetadataBufferSize: u32,
     pub RecallMetadataBuffer: [u8; 1],
 }
+impl windows_core::TypeKind for GHOSTED_FILE_EXTENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for GHOSTED_FILE_EXTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GHOSTED_FILE_EXTENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_CREATE_STREAM_FILE_OPTIONS {
     pub Size: u16,
     pub Flags: u16,
     pub TargetDeviceObject: *mut super::super::Foundation::DEVICE_OBJECT,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for IO_CREATE_STREAM_FILE_OPTIONS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for IO_CREATE_STREAM_FILE_OPTIONS {
@@ -8507,16 +8671,16 @@ impl Default for IO_CREATE_STREAM_FILE_OPTIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for IO_CREATE_STREAM_FILE_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_DEVICE_HINT_ECP_CONTEXT {
     pub TargetDevice: *mut super::super::Foundation::DEVICE_OBJECT,
     pub RemainingName: super::super::super::Win32::Foundation::UNICODE_STRING,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for IO_DEVICE_HINT_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for IO_DEVICE_HINT_ECP_CONTEXT {
@@ -8524,13 +8688,9 @@ impl Default for IO_DEVICE_HINT_ECP_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for IO_DEVICE_HINT_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_PRIORITY_INFO {
     pub Size: u32,
     pub ThreadPriority: u32,
@@ -8538,45 +8698,45 @@ pub struct IO_PRIORITY_INFO {
     pub IoPriority: super::super::Foundation::IO_PRIORITY_HINT,
 }
 #[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IO_PRIORITY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for IO_PRIORITY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IO_PRIORITY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0 {
     pub Out: IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0,
+}
+impl windows_core::TypeKind for IO_STOP_ON_SYMLINK_FILTER_ECP_v0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IO_STOP_ON_SYMLINK_FILTER_ECP_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_STOP_ON_SYMLINK_FILTER_ECP_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0 {
     pub ReparseCount: u32,
     pub RemainingPathLength: u32,
+}
+impl windows_core::TypeKind for IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KAPC_STATE {
     pub ApcListHead: [super::super::super::Win32::System::Kernel::LIST_ENTRY; 2],
     pub Process: *mut isize,
@@ -8585,21 +8745,25 @@ pub struct KAPC_STATE {
     pub Anonymous2: KAPC_STATE_1,
 }
 #[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for KAPC_STATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for KAPC_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KAPC_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union KAPC_STATE_0 {
     pub InProgressFlags: u8,
     pub Anonymous: KAPC_STATE_0_0,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for KAPC_STATE_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for KAPC_STATE_0 {
@@ -8607,15 +8771,15 @@ impl Default for KAPC_STATE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KAPC_STATE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KAPC_STATE_0_0 {
     pub _bitfield: u8,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for KAPC_STATE_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for KAPC_STATE_0_0 {
@@ -8623,16 +8787,16 @@ impl Default for KAPC_STATE_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KAPC_STATE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union KAPC_STATE_1 {
     pub UserApcPendingAll: super::super::super::Win32::Foundation::BOOLEAN,
     pub Anonymous: KAPC_STATE_1_0,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for KAPC_STATE_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for KAPC_STATE_1 {
@@ -8640,15 +8804,15 @@ impl Default for KAPC_STATE_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KAPC_STATE_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KAPC_STATE_1_0 {
     pub _bitfield: u8,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for KAPC_STATE_1_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for KAPC_STATE_1_0 {
@@ -8656,16 +8820,16 @@ impl Default for KAPC_STATE_1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KAPC_STATE_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LARGE_MCB {
     pub GuardedMutex: *mut super::super::Foundation::FAST_MUTEX,
     pub BaseMcb: BASE_MCB,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for LARGE_MCB {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for LARGE_MCB {
@@ -8673,61 +8837,61 @@ impl Default for LARGE_MCB {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for LARGE_MCB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_BUFFER {
     pub Lcn: i64,
     pub LengthInClusters: i64,
     pub ReferenceCount: u32,
     pub State: u16,
 }
+impl windows_core::TypeKind for LCN_WEAK_REFERENCE_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for LCN_WEAK_REFERENCE_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LCN_WEAK_REFERENCE_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER {
     pub Offset: i64,
     pub Length: i64,
     pub Flags: u32,
     pub Reserved: u32,
 }
+impl windows_core::TypeKind for LCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for LCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LINK_TRACKING_INFORMATION {
     pub Type: LINK_TRACKING_INFORMATION_TYPE,
     pub VolumeId: [u8; 16],
+}
+impl windows_core::TypeKind for LINK_TRACKING_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for LINK_TRACKING_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINK_TRACKING_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MCB {
     pub DummyFieldThatSizesThisStructureCorrectly: LARGE_MCB,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for MCB {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for MCB {
@@ -8735,26 +8899,22 @@ impl Default for MCB {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for MCB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEMORY_RANGE_ENTRY {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub NumberOfBytes: usize,
+}
+impl windows_core::TypeKind for MEMORY_RANGE_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MEMORY_RANGE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEMORY_RANGE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFT_ENUM_DATA {
     pub StartFileReferenceNumber: u64,
     pub LowUsn: i64,
@@ -8762,46 +8922,50 @@ pub struct MFT_ENUM_DATA {
     pub MinMajorVersion: u16,
     pub MaxMajorVersion: u16,
 }
+impl windows_core::TypeKind for MFT_ENUM_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MFT_ENUM_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MFT_ENUM_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MM_PREFETCH_FLAGS {
     pub Flags: MM_PREFETCH_FLAGS_0,
     pub AllFlags: u32,
+}
+impl windows_core::TypeKind for MM_PREFETCH_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MM_PREFETCH_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MM_PREFETCH_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MM_PREFETCH_FLAGS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for MM_PREFETCH_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MM_PREFETCH_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MM_PREFETCH_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_ENUMUSERS_REQUEST {
     pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+}
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
+impl windows_core::TypeKind for MSV1_0_ENUMUSERS_REQUEST {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 impl Default for MSV1_0_ENUMUSERS_REQUEST {
@@ -8809,13 +8973,9 @@ impl Default for MSV1_0_ENUMUSERS_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-impl windows_core::TypeKind for MSV1_0_ENUMUSERS_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_ENUMUSERS_RESPONSE {
     pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub NumberOfLoggedOnUsers: u32,
@@ -8823,18 +8983,18 @@ pub struct MSV1_0_ENUMUSERS_RESPONSE {
     pub EnumHandles: *mut u32,
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
+impl windows_core::TypeKind for MSV1_0_ENUMUSERS_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
 impl Default for MSV1_0_ENUMUSERS_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-impl windows_core::TypeKind for MSV1_0_ENUMUSERS_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_GETCHALLENRESP_REQUEST {
     pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub ParameterControl: u32,
@@ -8846,18 +9006,18 @@ pub struct MSV1_0_GETCHALLENRESP_REQUEST {
     pub ServerName: super::super::super::Win32::Foundation::UNICODE_STRING,
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
+impl windows_core::TypeKind for MSV1_0_GETCHALLENRESP_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
 impl Default for MSV1_0_GETCHALLENRESP_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-impl windows_core::TypeKind for MSV1_0_GETCHALLENRESP_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_GETCHALLENRESP_REQUEST_V1 {
     pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub ParameterControl: u32,
@@ -8866,18 +9026,18 @@ pub struct MSV1_0_GETCHALLENRESP_REQUEST_V1 {
     pub ChallengeToClient: [u8; 8],
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
+impl windows_core::TypeKind for MSV1_0_GETCHALLENRESP_REQUEST_V1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
 impl Default for MSV1_0_GETCHALLENRESP_REQUEST_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-impl windows_core::TypeKind for MSV1_0_GETCHALLENRESP_REQUEST_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_GETCHALLENRESP_RESPONSE {
     pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub CaseSensitiveChallengeResponse: super::super::super::Win32::System::Kernel::STRING,
@@ -8888,21 +9048,25 @@ pub struct MSV1_0_GETCHALLENRESP_RESPONSE {
     pub LanmanSessionKey: [u8; 8],
 }
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for MSV1_0_GETCHALLENRESP_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_System_Kernel"))]
 impl Default for MSV1_0_GETCHALLENRESP_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for MSV1_0_GETCHALLENRESP_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_GETUSERINFO_REQUEST {
     pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::super::super::Win32::Foundation::LUID,
+}
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
+impl windows_core::TypeKind for MSV1_0_GETUSERINFO_REQUEST {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 impl Default for MSV1_0_GETUSERINFO_REQUEST {
@@ -8910,13 +9074,9 @@ impl Default for MSV1_0_GETUSERINFO_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-impl windows_core::TypeKind for MSV1_0_GETUSERINFO_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_GETUSERINFO_RESPONSE {
     pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub UserSid: super::super::super::Win32::Security::PSID,
@@ -8926,20 +9086,24 @@ pub struct MSV1_0_GETUSERINFO_RESPONSE {
     pub LogonType: super::super::super::Win32::Security::Authentication::Identity::SECURITY_LOGON_TYPE,
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
+impl windows_core::TypeKind for MSV1_0_GETUSERINFO_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
 impl Default for MSV1_0_GETUSERINFO_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-impl windows_core::TypeKind for MSV1_0_GETUSERINFO_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_LM20_CHALLENGE_REQUEST {
     pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+}
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
+impl windows_core::TypeKind for MSV1_0_LM20_CHALLENGE_REQUEST {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 impl Default for MSV1_0_LM20_CHALLENGE_REQUEST {
@@ -8947,16 +9111,16 @@ impl Default for MSV1_0_LM20_CHALLENGE_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-impl windows_core::TypeKind for MSV1_0_LM20_CHALLENGE_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_LM20_CHALLENGE_RESPONSE {
     pub MessageType: super::super::super::Win32::Security::Authentication::Identity::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub ChallengeToClient: [u8; 8],
+}
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
+impl windows_core::TypeKind for MSV1_0_LM20_CHALLENGE_RESPONSE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 impl Default for MSV1_0_LM20_CHALLENGE_RESPONSE {
@@ -8964,163 +9128,163 @@ impl Default for MSV1_0_LM20_CHALLENGE_RESPONSE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-impl windows_core::TypeKind for MSV1_0_LM20_CHALLENGE_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_APP_INSTANCE_ECP_CONTEXT {
     pub Size: u16,
     pub Reserved: u16,
     pub AppInstanceID: windows_core::GUID,
+}
+impl windows_core::TypeKind for NETWORK_APP_INSTANCE_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NETWORK_APP_INSTANCE_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETWORK_APP_INSTANCE_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT {
     pub Size: u16,
     pub Reserved: u16,
     pub VersionHigh: u64,
     pub VersionLow: u64,
 }
+impl windows_core::TypeKind for NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT {
     pub Size: u16,
     pub Reserved: u16,
     pub Anonymous: NETWORK_OPEN_ECP_CONTEXT_0,
+}
+impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NETWORK_OPEN_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_0 {
     pub r#in: NETWORK_OPEN_ECP_CONTEXT_0_0,
     pub out: NETWORK_OPEN_ECP_CONTEXT_0_1,
+}
+impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NETWORK_OPEN_ECP_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_0_0 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
     pub Flags: u32,
+}
+impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NETWORK_OPEN_ECP_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_0_1 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
     pub Flags: u32,
+}
+impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NETWORK_OPEN_ECP_CONTEXT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0 {
     pub Size: u16,
     pub Reserved: u16,
     pub Anonymous: NETWORK_OPEN_ECP_CONTEXT_V0_0,
+}
+impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT_V0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NETWORK_OPEN_ECP_CONTEXT_V0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT_V0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0 {
     pub r#in: NETWORK_OPEN_ECP_CONTEXT_V0_0_0,
     pub out: NETWORK_OPEN_ECP_CONTEXT_V0_0_1,
+}
+impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT_V0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NETWORK_OPEN_ECP_CONTEXT_V0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT_V0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0_0 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
+}
+impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT_V0_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NETWORK_OPEN_ECP_CONTEXT_V0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT_V0_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0_1 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
+}
+impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT_V0_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NETWORK_OPEN_ECP_CONTEXT_V0_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETWORK_OPEN_ECP_CONTEXT_V0_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NFS_OPEN_ECP_CONTEXT {
     pub ExportAlias: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub ClientSocketAddress: *mut super::super::super::Win32::Networking::WinSock::SOCKADDR_STORAGE,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for NFS_OPEN_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for NFS_OPEN_ECP_CONTEXT {
@@ -9128,31 +9292,31 @@ impl Default for NFS_OPEN_ECP_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for NFS_OPEN_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NLSTABLEINFO {
     pub OemTableInfo: CPTABLEINFO,
     pub AnsiTableInfo: CPTABLEINFO,
     pub UpperCaseTable: *mut u16,
     pub LowerCaseTable: *mut u16,
 }
+impl windows_core::TypeKind for NLSTABLEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NLSTABLEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NLSTABLEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPEN_REPARSE_LIST {
     pub OpenReparseList: super::super::super::Win32::System::Kernel::LIST_ENTRY,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for OPEN_REPARSE_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for OPEN_REPARSE_LIST {
@@ -9160,13 +9324,9 @@ impl Default for OPEN_REPARSE_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for OPEN_REPARSE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPEN_REPARSE_LIST_ENTRY {
     pub OpenReparseListEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub ReparseTag: u32,
@@ -9176,17 +9336,17 @@ pub struct OPEN_REPARSE_LIST_ENTRY {
     pub RemainingLength: u16,
 }
 #[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for OPEN_REPARSE_LIST_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for OPEN_REPARSE_LIST_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for OPEN_REPARSE_LIST_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPLOCK_KEY_CONTEXT {
     pub Version: u16,
     pub Flags: u16,
@@ -9194,31 +9354,31 @@ pub struct OPLOCK_KEY_CONTEXT {
     pub TargetOplockKey: windows_core::GUID,
     pub Reserved: u32,
 }
+impl windows_core::TypeKind for OPLOCK_KEY_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OPLOCK_KEY_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OPLOCK_KEY_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPLOCK_KEY_ECP_CONTEXT {
     pub OplockKey: windows_core::GUID,
     pub Reserved: u32,
+}
+impl windows_core::TypeKind for OPLOCK_KEY_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OPLOCK_KEY_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OPLOCK_KEY_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPLOCK_NOTIFY_PARAMS {
     pub NotifyReason: OPLOCK_NOTIFY_REASON,
     pub NotifyContext: *mut core::ffi::c_void,
@@ -9226,79 +9386,83 @@ pub struct OPLOCK_NOTIFY_PARAMS {
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for OPLOCK_NOTIFY_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for OPLOCK_NOTIFY_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for OPLOCK_NOTIFY_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_EXTENTS_DESCRIPTOR {
     pub NumberOfRuns: u32,
     pub NumberOfValidRuns: u32,
     pub Run: [PHYSICAL_MEMORY_RUN; 1],
+}
+impl windows_core::TypeKind for PHYSICAL_EXTENTS_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_EXTENTS_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_EXTENTS_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_MEMORY_DESCRIPTOR {
     pub NumberOfRuns: u32,
     pub NumberOfPages: u32,
     pub Run: [PHYSICAL_MEMORY_RUN; 1],
+}
+impl windows_core::TypeKind for PHYSICAL_MEMORY_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_MEMORY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_MEMORY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_MEMORY_RUN {
     pub BasePage: u32,
     pub PageCount: u32,
+}
+impl windows_core::TypeKind for PHYSICAL_MEMORY_RUN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_MEMORY_RUN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_MEMORY_RUN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PREFETCH_OPEN_ECP_CONTEXT {
     pub Context: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for PREFETCH_OPEN_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PREFETCH_OPEN_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PREFETCH_OPEN_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PREFIX_TABLE {
     pub NodeTypeCode: i16,
     pub NameLength: i16,
     pub NextPrefixTree: *mut PREFIX_TABLE_ENTRY,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for PREFIX_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for PREFIX_TABLE {
@@ -9306,13 +9470,9 @@ impl Default for PREFIX_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for PREFIX_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: i16,
     pub NameLength: i16,
@@ -9321,38 +9481,42 @@ pub struct PREFIX_TABLE_ENTRY {
     pub Prefix: *mut super::super::super::Win32::System::Kernel::STRING,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for PREFIX_TABLE_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for PREFIX_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for PREFIX_TABLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PUBLIC_BCB {
     pub NodeTypeCode: i16,
     pub NodeByteSize: i16,
     pub MappedLength: u32,
     pub MappedFileOffset: i64,
 }
+impl windows_core::TypeKind for PUBLIC_BCB {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PUBLIC_BCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PUBLIC_BCB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ioctl")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_BAD_RANGES_INPUT {
     pub Flags: u32,
     pub NumRanges: u32,
     pub Ranges: [super::super::super::Win32::System::Ioctl::QUERY_BAD_RANGES_INPUT_RANGE; 1],
+}
+#[cfg(feature = "Win32_System_Ioctl")]
+impl windows_core::TypeKind for QUERY_BAD_RANGES_INPUT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Ioctl")]
 impl Default for QUERY_BAD_RANGES_INPUT {
@@ -9360,42 +9524,38 @@ impl Default for QUERY_BAD_RANGES_INPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Ioctl")]
-impl windows_core::TypeKind for QUERY_BAD_RANGES_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_DIRECT_ACCESS_EXTENTS {
     pub FileOffset: i64,
     pub Length: i64,
     pub Flags: u32,
     pub Reserved: u32,
 }
+impl windows_core::TypeKind for QUERY_DIRECT_ACCESS_EXTENTS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for QUERY_DIRECT_ACCESS_EXTENTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_DIRECT_ACCESS_EXTENTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_EA_INFORMATION {
     pub EaBufferSize: u32,
     pub EaBuffer: *mut FILE_FULL_EA_INFORMATION,
+}
+impl windows_core::TypeKind for QUERY_ON_CREATE_EA_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for QUERY_ON_CREATE_EA_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_ON_CREATE_EA_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_ECP_CONTEXT {
     pub RequestedClasses: u32,
     pub ClassesProcessed: u32,
@@ -9405,16 +9565,16 @@ pub struct QUERY_ON_CREATE_ECP_CONTEXT {
     pub LxInformation: QUERY_ON_CREATE_FILE_LX_INFORMATION,
     pub EaInformation: QUERY_ON_CREATE_EA_INFORMATION,
 }
+impl windows_core::TypeKind for QUERY_ON_CREATE_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for QUERY_ON_CREATE_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_ON_CREATE_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_FILE_LX_INFORMATION {
     pub EffectiveAccess: u32,
     pub LxFlags: u32,
@@ -9424,16 +9584,16 @@ pub struct QUERY_ON_CREATE_FILE_LX_INFORMATION {
     pub LxDeviceIdMajor: u32,
     pub LxDeviceIdMinor: u32,
 }
+impl windows_core::TypeKind for QUERY_ON_CREATE_FILE_LX_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for QUERY_ON_CREATE_FILE_LX_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_ON_CREATE_FILE_LX_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_FILE_STAT_INFORMATION {
     pub FileId: i64,
     pub CreationTime: i64,
@@ -9446,21 +9606,25 @@ pub struct QUERY_ON_CREATE_FILE_STAT_INFORMATION {
     pub ReparseTag: u32,
     pub NumberOfLinks: u32,
 }
+impl windows_core::TypeKind for QUERY_ON_CREATE_FILE_STAT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for QUERY_ON_CREATE_FILE_STAT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_ON_CREATE_FILE_STAT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_PATH_REQUEST {
     pub PathNameLength: u32,
     pub SecurityContext: *mut super::super::Foundation::IO_SECURITY_CONTEXT,
     pub FilePathName: [u16; 1],
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
+impl windows_core::TypeKind for QUERY_PATH_REQUEST {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
 impl Default for QUERY_PATH_REQUEST {
@@ -9468,13 +9632,9 @@ impl Default for QUERY_PATH_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
-impl windows_core::TypeKind for QUERY_PATH_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_PATH_REQUEST_EX {
     pub pSecurityContext: *mut super::super::Foundation::IO_SECURITY_CONTEXT,
     pub EaLength: u32,
@@ -9486,47 +9646,47 @@ pub struct QUERY_PATH_REQUEST_EX {
     pub Reserved: usize,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
+impl windows_core::TypeKind for QUERY_PATH_REQUEST_EX {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
 impl Default for QUERY_PATH_REQUEST_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security"))]
-impl windows_core::TypeKind for QUERY_PATH_REQUEST_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_PATH_RESPONSE {
     pub LengthAccepted: u32,
+}
+impl windows_core::TypeKind for QUERY_PATH_RESPONSE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for QUERY_PATH_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_PATH_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct READ_AHEAD_PARAMETERS {
     pub NodeByteSize: i16,
     pub Granularity: u32,
     pub PipelinedRequestSize: u32,
     pub ReadAheadGrowthPercentage: u32,
 }
+impl windows_core::TypeKind for READ_AHEAD_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for READ_AHEAD_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for READ_AHEAD_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct READ_LIST {
     pub FileObject: *mut super::super::Foundation::FILE_OBJECT,
     pub NumberOfEntries: u32,
@@ -9534,17 +9694,17 @@ pub struct READ_LIST {
     pub List: [super::super::super::Win32::Storage::FileSystem::FILE_SEGMENT_ELEMENT; 1],
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for READ_LIST {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for READ_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for READ_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct READ_USN_JOURNAL_DATA {
     pub StartUsn: i64,
     pub ReasonMask: u32,
@@ -9555,30 +9715,30 @@ pub struct READ_USN_JOURNAL_DATA {
     pub MinMajorVersion: u16,
     pub MaxMajorVersion: u16,
 }
+impl windows_core::TypeKind for READ_USN_JOURNAL_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for READ_USN_JOURNAL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for READ_USN_JOURNAL_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_DEALLOCATE_RANGES_INPUT_BUFFER {
     pub RangeCount: u32,
     pub Ranges: [REFS_DEALLOCATE_RANGES_RANGE; 1],
+}
+impl windows_core::TypeKind for REFS_DEALLOCATE_RANGES_INPUT_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REFS_DEALLOCATE_RANGES_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_DEALLOCATE_RANGES_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX {
     pub RangeCount: u32,
     pub Allocator: REFS_DEALLOCATE_RANGES_ALLOCATOR,
@@ -9587,30 +9747,30 @@ pub struct REFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX {
     pub OffsetToLeakCounts: u32,
     pub Reserved: [u64; 2],
 }
+impl windows_core::TypeKind for REFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_DEALLOCATE_RANGES_RANGE {
     pub StartOfRange: u64,
     pub CountOfRange: u64,
+}
+impl windows_core::TypeKind for REFS_DEALLOCATE_RANGES_RANGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REFS_DEALLOCATE_RANGES_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_DEALLOCATE_RANGES_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER {
     pub DefaultCompressionFormat: REFS_COMPRESSION_FORMATS,
     pub DefaultCompressionLevel: i16,
@@ -9623,44 +9783,44 @@ pub struct REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER {
     pub TotalCompressedClusters: u64,
     pub Reserved: [u64; 6],
 }
+impl windows_core::TypeKind for REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_DEDUP_INFO_OUTPUT_BUFFER {
     pub Enabled: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for REFS_QUERY_VOLUME_DEDUP_INFO_OUTPUT_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REFS_QUERY_VOLUME_DEDUP_INFO_OUTPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_QUERY_VOLUME_DEDUP_INFO_OUTPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_REMOVE_HARDLINK_BACKPOINTER {
     pub ParentDirectory: u64,
     pub Reserved: u64,
     pub FileName: [u16; 1],
+}
+impl windows_core::TypeKind for REFS_REMOVE_HARDLINK_BACKPOINTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REFS_REMOVE_HARDLINK_BACKPOINTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_REMOVE_HARDLINK_BACKPOINTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER {
     pub CompressionFormat: REFS_COMPRESSION_FORMATS,
     pub CompressionLevel: i16,
@@ -9668,61 +9828,61 @@ pub struct REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER {
     pub Flags: REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS,
     pub Reserved: [u64; 8],
 }
+impl windows_core::TypeKind for REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_SET_VOLUME_DEDUP_INFO_INPUT_BUFFER {
     pub Enable: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for REFS_SET_VOLUME_DEDUP_INFO_INPUT_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REFS_SET_VOLUME_DEDUP_INFO_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_SET_VOLUME_DEDUP_INFO_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_STREAM_EXTENT {
     pub Vcn: i64,
     pub Lcn: i64,
     pub Length: i64,
     pub Properties: u16,
 }
+impl windows_core::TypeKind for REFS_STREAM_EXTENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REFS_STREAM_EXTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_STREAM_EXTENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER {
     pub EntryCount: u32,
     pub BufferSizeRequiredForQuery: u32,
     pub Reserved: [u32; 2],
     pub Entries: [REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY; 1],
 }
+impl windows_core::TypeKind for REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY {
     pub NextEntryOffset: u32,
     pub SnapshotNameLength: u16,
@@ -9732,16 +9892,16 @@ pub struct REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY {
     pub Reserved: [u64; 2],
     pub SnapshotName: [u16; 1],
 }
+impl windows_core::TypeKind for REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_MANAGEMENT_INPUT_BUFFER {
     pub Operation: REFS_STREAM_SNAPSHOT_OPERATION,
     pub SnapshotNameLength: u16,
@@ -9749,59 +9909,59 @@ pub struct REFS_STREAM_SNAPSHOT_MANAGEMENT_INPUT_BUFFER {
     pub Reserved: [u64; 2],
     pub NameAndInputBuffer: [u16; 1],
 }
+impl windows_core::TypeKind for REFS_STREAM_SNAPSHOT_MANAGEMENT_INPUT_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REFS_STREAM_SNAPSHOT_MANAGEMENT_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_STREAM_SNAPSHOT_MANAGEMENT_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_QUERY_DELTAS_INPUT_BUFFER {
     pub StartingVcn: i64,
     pub Flags: u32,
     pub Reserved: u32,
+}
+impl windows_core::TypeKind for REFS_STREAM_SNAPSHOT_QUERY_DELTAS_INPUT_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REFS_STREAM_SNAPSHOT_QUERY_DELTAS_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_STREAM_SNAPSHOT_QUERY_DELTAS_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_QUERY_DELTAS_OUTPUT_BUFFER {
     pub ExtentCount: u32,
     pub Reserved: [u32; 2],
     pub Extents: [REFS_STREAM_EXTENT; 1],
+}
+impl windows_core::TypeKind for REFS_STREAM_SNAPSHOT_QUERY_DELTAS_OUTPUT_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REFS_STREAM_SNAPSHOT_QUERY_DELTAS_OUTPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_STREAM_SNAPSHOT_QUERY_DELTAS_OUTPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_VOLUME_COUNTER_INFO_INPUT_BUFFER {
     pub ResetCounters: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for REFS_VOLUME_COUNTER_INFO_INPUT_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REFS_VOLUME_COUNTER_INFO_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_VOLUME_COUNTER_INFO_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_VOLUME_DATA_BUFFER {
     pub ByteCount: u32,
     pub MajorVersion: u32,
@@ -9820,75 +9980,75 @@ pub struct REFS_VOLUME_DATA_BUFFER {
     pub DestagesFastTierToSlowTierRate: u32,
     pub Reserved: [i64; 9],
 }
+impl windows_core::TypeKind for REFS_VOLUME_DATA_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REFS_VOLUME_DATA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFS_VOLUME_DATA_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REMOTE_LINK_TRACKING_INFORMATION {
     pub TargetFileObject: *mut core::ffi::c_void,
     pub TargetLinkTrackingInformationLength: u32,
     pub TargetLinkTrackingInformationBuffer: [u8; 1],
+}
+impl windows_core::TypeKind for REMOTE_LINK_TRACKING_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REMOTE_LINK_TRACKING_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REMOTE_LINK_TRACKING_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct REPARSE_DATA_BUFFER {
     pub ReparseTag: u32,
     pub ReparseDataLength: u16,
     pub Reserved: u16,
     pub Anonymous: REPARSE_DATA_BUFFER_0,
 }
+impl windows_core::TypeKind for REPARSE_DATA_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REPARSE_DATA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REPARSE_DATA_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union REPARSE_DATA_BUFFER_0 {
     pub SymbolicLinkReparseBuffer: REPARSE_DATA_BUFFER_0_0,
     pub MountPointReparseBuffer: REPARSE_DATA_BUFFER_0_1,
     pub GenericReparseBuffer: REPARSE_DATA_BUFFER_0_2,
+}
+impl windows_core::TypeKind for REPARSE_DATA_BUFFER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REPARSE_DATA_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REPARSE_DATA_BUFFER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REPARSE_DATA_BUFFER_0_2 {
     pub DataBuffer: [u8; 1],
+}
+impl windows_core::TypeKind for REPARSE_DATA_BUFFER_0_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REPARSE_DATA_BUFFER_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REPARSE_DATA_BUFFER_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REPARSE_DATA_BUFFER_0_1 {
     pub SubstituteNameOffset: u16,
     pub SubstituteNameLength: u16,
@@ -9896,16 +10056,16 @@ pub struct REPARSE_DATA_BUFFER_0_1 {
     pub PrintNameLength: u16,
     pub PathBuffer: [u16; 1],
 }
+impl windows_core::TypeKind for REPARSE_DATA_BUFFER_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REPARSE_DATA_BUFFER_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REPARSE_DATA_BUFFER_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REPARSE_DATA_BUFFER_0_0 {
     pub SubstituteNameOffset: u16,
     pub SubstituteNameLength: u16,
@@ -9914,17 +10074,17 @@ pub struct REPARSE_DATA_BUFFER_0_0 {
     pub Flags: u32,
     pub PathBuffer: [u16; 1],
 }
+impl windows_core::TypeKind for REPARSE_DATA_BUFFER_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REPARSE_DATA_BUFFER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REPARSE_DATA_BUFFER_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct REPARSE_DATA_BUFFER_EX {
     pub Flags: u32,
     pub ExistingReparseTag: u32,
@@ -9933,21 +10093,25 @@ pub struct REPARSE_DATA_BUFFER_EX {
     pub Anonymous: REPARSE_DATA_BUFFER_EX_0,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for REPARSE_DATA_BUFFER_EX {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for REPARSE_DATA_BUFFER_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for REPARSE_DATA_BUFFER_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union REPARSE_DATA_BUFFER_EX_0 {
     pub ReparseDataBuffer: REPARSE_DATA_BUFFER,
     pub ReparseGuidDataBuffer: super::super::super::Win32::Storage::FileSystem::REPARSE_GUID_DATA_BUFFER,
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for REPARSE_DATA_BUFFER_EX_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for REPARSE_DATA_BUFFER_EX_0 {
@@ -9955,100 +10119,96 @@ impl Default for REPARSE_DATA_BUFFER_EX_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for REPARSE_DATA_BUFFER_EX_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct REPARSE_INDEX_KEY {
     pub FileReparseTag: u32,
     pub FileId: i64,
+}
+impl windows_core::TypeKind for REPARSE_INDEX_KEY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REPARSE_INDEX_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REPARSE_INDEX_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
     pub ExtentCount: u32,
     pub StartingVcn: i64,
     pub Extents: [RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0; 1],
+}
+impl windows_core::TypeKind for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
     pub NextVcn: i64,
     pub Lcn: i64,
     pub ReferenceCount: u32,
+}
+impl windows_core::TypeKind for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RKF_BYPASS_ECP_CONTEXT {
     pub Reserved: i32,
     pub Version: i32,
+}
+impl windows_core::TypeKind for RKF_BYPASS_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for RKF_BYPASS_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RKF_BYPASS_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_HEAP_MEMORY_LIMIT_DATA {
     pub CommitLimitBytes: usize,
     pub CommitLimitFailureCode: usize,
     pub MaxAllocationSizeBytes: usize,
     pub AllocationLimitFailureCode: usize,
 }
+impl windows_core::TypeKind for RTL_HEAP_MEMORY_LIMIT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RTL_HEAP_MEMORY_LIMIT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_HEAP_MEMORY_LIMIT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_HEAP_MEMORY_LIMIT_INFO {
     pub Version: u32,
     pub Data: RTL_HEAP_MEMORY_LIMIT_DATA,
+}
+impl windows_core::TypeKind for RTL_HEAP_MEMORY_LIMIT_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for RTL_HEAP_MEMORY_LIMIT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_HEAP_MEMORY_LIMIT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_HEAP_PARAMETERS {
     pub Length: u32,
     pub SegmentReserve: usize,
@@ -10062,16 +10222,16 @@ pub struct RTL_HEAP_PARAMETERS {
     pub CommitRoutine: PRTL_HEAP_COMMIT_ROUTINE,
     pub Reserved: [usize; 2],
 }
+impl windows_core::TypeKind for RTL_HEAP_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RTL_HEAP_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_HEAP_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_NLS_STATE {
     pub DefaultAcpTableInfo: CPTABLEINFO,
     pub DefaultOemTableInfo: CPTABLEINFO,
@@ -10083,16 +10243,16 @@ pub struct RTL_NLS_STATE {
     pub UnicodeUpcaseTable844: *mut u16,
     pub UnicodeLowercaseTable844: *mut u16,
 }
+impl windows_core::TypeKind for RTL_NLS_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RTL_NLS_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_NLS_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RTL_SEGMENT_HEAP_MEMORY_SOURCE {
     pub Flags: u32,
     pub MemoryTypeMask: u32,
@@ -10100,30 +10260,30 @@ pub struct RTL_SEGMENT_HEAP_MEMORY_SOURCE {
     pub Anonymous: RTL_SEGMENT_HEAP_MEMORY_SOURCE_0,
     pub Reserved: [usize; 2],
 }
+impl windows_core::TypeKind for RTL_SEGMENT_HEAP_MEMORY_SOURCE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RTL_SEGMENT_HEAP_MEMORY_SOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_SEGMENT_HEAP_MEMORY_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RTL_SEGMENT_HEAP_MEMORY_SOURCE_0 {
     pub PartitionHandle: super::super::super::Win32::Foundation::HANDLE,
     pub Callbacks: *mut RTL_SEGMENT_HEAP_VA_CALLBACKS,
+}
+impl windows_core::TypeKind for RTL_SEGMENT_HEAP_MEMORY_SOURCE_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for RTL_SEGMENT_HEAP_MEMORY_SOURCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_SEGMENT_HEAP_MEMORY_SOURCE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RTL_SEGMENT_HEAP_PARAMETERS {
     pub Version: u16,
     pub Size: u16,
@@ -10131,33 +10291,33 @@ pub struct RTL_SEGMENT_HEAP_PARAMETERS {
     pub MemorySource: RTL_SEGMENT_HEAP_MEMORY_SOURCE,
     pub Reserved: [usize; 4],
 }
+impl windows_core::TypeKind for RTL_SEGMENT_HEAP_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RTL_SEGMENT_HEAP_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_SEGMENT_HEAP_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_SEGMENT_HEAP_VA_CALLBACKS {
     pub CallbackContext: super::super::super::Win32::Foundation::HANDLE,
     pub AllocateVirtualMemory: PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK,
     pub FreeVirtualMemory: PFREE_VIRTUAL_MEMORY_EX_CALLBACK,
     pub QueryVirtualMemory: PQUERY_VIRTUAL_MEMORY_CALLBACK,
 }
+impl windows_core::TypeKind for RTL_SEGMENT_HEAP_VA_CALLBACKS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RTL_SEGMENT_HEAP_VA_CALLBACKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_SEGMENT_HEAP_VA_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURITY_CLIENT_CONTEXT {
     pub SecurityQos: super::super::super::Win32::Security::SECURITY_QUALITY_OF_SERVICE,
     pub ClientToken: *mut core::ffi::c_void,
@@ -10167,21 +10327,25 @@ pub struct SECURITY_CLIENT_CONTEXT {
     pub ClientTokenControl: super::super::super::Win32::Security::TOKEN_CONTROL,
 }
 #[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for SECURITY_CLIENT_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security")]
 impl Default for SECURITY_CLIENT_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for SECURITY_CLIENT_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_APPLICATION_PROTOCOLS {
     pub ProtocolListsSize: u32,
     pub ProtocolLists: [super::super::super::Win32::Security::Authentication::Identity::SEC_APPLICATION_PROTOCOL_LIST; 1],
+}
+#[cfg(feature = "Win32_Security_Authentication_Identity")]
+impl windows_core::TypeKind for SEC_APPLICATION_PROTOCOLS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 impl Default for SEC_APPLICATION_PROTOCOLS {
@@ -10189,96 +10353,92 @@ impl Default for SEC_APPLICATION_PROTOCOLS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
-impl windows_core::TypeKind for SEC_APPLICATION_PROTOCOLS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_DTLS_MTU {
     pub PathMTU: u16,
+}
+impl windows_core::TypeKind for SEC_DTLS_MTU {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SEC_DTLS_MTU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SEC_DTLS_MTU {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_FLAGS {
     pub Flags: u64,
+}
+impl windows_core::TypeKind for SEC_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SEC_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SEC_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_NEGOTIATION_INFO {
     pub Size: u32,
     pub NameLength: u32,
     pub Name: *mut u16,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for SEC_NEGOTIATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SEC_NEGOTIATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SEC_NEGOTIATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_PRESHAREDKEY {
     pub KeySize: u16,
     pub Key: [u8; 1],
+}
+impl windows_core::TypeKind for SEC_PRESHAREDKEY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SEC_PRESHAREDKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SEC_PRESHAREDKEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_SRTP_MASTER_KEY_IDENTIFIER {
     pub MasterKeyIdentifierSize: u8,
     pub MasterKeyIdentifier: [u8; 1],
+}
+impl windows_core::TypeKind for SEC_SRTP_MASTER_KEY_IDENTIFIER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SEC_SRTP_MASTER_KEY_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SEC_SRTP_MASTER_KEY_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SET_CACHED_RUNS_STATE_INPUT_BUFFER {
     pub Enable: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for SET_CACHED_RUNS_STATE_INPUT_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SET_CACHED_RUNS_STATE_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SET_CACHED_RUNS_STATE_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SE_AUDIT_INFO {
     pub Size: u32,
     pub AuditType: super::super::super::Win32::Security::AUDIT_EVENT_TYPE,
@@ -10294,18 +10454,18 @@ pub struct SE_AUDIT_INFO {
     pub GenerateOnClose: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for SE_AUDIT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security")]
 impl Default for SE_AUDIT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for SE_AUDIT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SE_EXPORTS {
     pub SeCreateTokenPrivilege: super::super::super::Win32::Foundation::LUID,
     pub SeAssignPrimaryTokenPrivilege: super::super::super::Win32::Foundation::LUID,
@@ -10382,18 +10542,18 @@ pub struct SE_EXPORTS {
     pub SeAppSiloProfilesRootMinimalCapabilitySid: super::super::super::Win32::Security::PSID,
 }
 #[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for SE_EXPORTS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security")]
 impl Default for SE_EXPORTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for SE_EXPORTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SRV_OPEN_ECP_CONTEXT {
     pub ShareName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub SocketAddress: *mut super::super::super::Win32::Networking::WinSock::SOCKADDR_STORAGE,
@@ -10404,77 +10564,77 @@ pub struct SRV_OPEN_ECP_CONTEXT {
     pub InstanceType: SRV_INSTANCE_TYPE,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for SRV_OPEN_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for SRV_OPEN_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for SRV_OPEN_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
     pub SidStart: u32,
+}
+impl windows_core::TypeKind for SYSTEM_PROCESS_TRUST_LABEL_ACE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SYSTEM_PROCESS_TRUST_LABEL_ACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_PROCESS_TRUST_LABEL_ACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecBuffer {
     pub cbBuffer: u32,
     pub BufferType: u32,
     pub pvBuffer: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for SecBuffer {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecBuffer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecBuffer {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecBufferDesc {
     pub ulVersion: u32,
     pub cBuffers: u32,
     pub pBuffers: *mut SecBuffer,
+}
+impl windows_core::TypeKind for SecBufferDesc {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecBufferDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecBufferDesc {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecHandle {
     pub dwLower: usize,
     pub dwUpper: usize,
+}
+impl windows_core::TypeKind for SecHandle {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecHandle {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SecHandle {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TUNNEL {
     pub Mutex: super::super::Foundation::FAST_MUTEX,
     pub Cache: *mut super::super::Foundation::RTL_SPLAY_LINKS,
@@ -10482,18 +10642,18 @@ pub struct TUNNEL {
     pub NumEntries: u16,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for TUNNEL {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for TUNNEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for TUNNEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNICODE_PREFIX_TABLE {
     pub NodeTypeCode: i16,
     pub NameLength: i16,
@@ -10501,18 +10661,18 @@ pub struct UNICODE_PREFIX_TABLE {
     pub LastNextEntry: *mut UNICODE_PREFIX_TABLE_ENTRY,
 }
 #[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for UNICODE_PREFIX_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for UNICODE_PREFIX_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for UNICODE_PREFIX_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNICODE_PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: i16,
     pub NameLength: i16,
@@ -10522,17 +10682,17 @@ pub struct UNICODE_PREFIX_TABLE_ENTRY {
     pub Prefix: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
 }
 #[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for UNICODE_PREFIX_TABLE_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for UNICODE_PREFIX_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for UNICODE_PREFIX_TABLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USN_JOURNAL_DATA {
     pub UsnJournalID: u64,
     pub FirstUsn: i64,
@@ -10544,16 +10704,16 @@ pub struct USN_JOURNAL_DATA {
     pub MinSupportedMajorVersion: u16,
     pub MaxSupportedMajorVersion: u16,
 }
+impl windows_core::TypeKind for USN_JOURNAL_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for USN_JOURNAL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for USN_JOURNAL_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USN_RECORD {
     pub RecordLength: u32,
     pub MajorVersion: u16,
@@ -10570,30 +10730,30 @@ pub struct USN_RECORD {
     pub FileNameOffset: u16,
     pub FileName: [u16; 1],
 }
+impl windows_core::TypeKind for USN_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for USN_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for USN_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VCN_RANGE_INPUT_BUFFER {
     pub StartingVcn: i64,
     pub ClusterCount: i64,
+}
+impl windows_core::TypeKind for VCN_RANGE_INPUT_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VCN_RANGE_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VCN_RANGE_INPUT_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_REFS_INFO_BUFFER {
     pub CacheSizeInBytes: i64,
     pub AllocatedCacheInBytes: i64,
@@ -10675,13 +10835,13 @@ pub struct VOLUME_REFS_INFO_BUFFER {
     pub NumberOfDirtyTableListEntries: i32,
     pub NumberOfDeleteQueueEntries: i32,
 }
+impl windows_core::TypeKind for VOLUME_REFS_INFO_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for VOLUME_REFS_INFO_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VOLUME_REFS_INFO_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Memory")]
 pub type ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::super::super::Win32::Foundation::HANDLE, processhandle: super::super::super::Win32::Foundation::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, allocationtype: u32, pageprotection: u32, extendedparameters: *mut super::super::super::Win32::System::Memory::MEM_EXTENDED_PARAMETER, extendedparametercount: u32) -> super::super::super::Win32::Foundation::NTSTATUS>;

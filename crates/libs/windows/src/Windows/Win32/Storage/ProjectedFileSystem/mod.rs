@@ -58,10 +58,10 @@ where
     PrjFileNameMatch(filenametocheck.param().abi(), pattern.param().abi())
 }
 #[inline]
-pub unsafe fn PrjFillDirEntryBuffer<P0, P2>(filename: P0, filebasicinfo: Option<*const PRJ_FILE_BASIC_INFO>, direntrybufferhandle: P2) -> windows_core::Result<()>
+pub unsafe fn PrjFillDirEntryBuffer<P0, P1>(filename: P0, filebasicinfo: Option<*const PRJ_FILE_BASIC_INFO>, direntrybufferhandle: P1) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<PRJ_DIR_ENTRY_BUFFER_HANDLE>,
+    P1: windows_core::Param<PRJ_DIR_ENTRY_BUFFER_HANDLE>,
 {
     windows_targets::link!("projectedfslib.dll" "system" fn PrjFillDirEntryBuffer(filename : windows_core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE) -> windows_core::HRESULT);
     PrjFillDirEntryBuffer(filename.param().abi(), core::mem::transmute(filebasicinfo.unwrap_or(core::ptr::null())), direntrybufferhandle.param().abi()).ok()
@@ -212,28 +212,48 @@ pub const PRJ_UPDATE_NONE: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(0i32);
 pub const PRJ_UPDATE_RESERVED1: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(8i32);
 pub const PRJ_UPDATE_RESERVED2: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(16i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_CALLBACK_DATA_FLAGS(pub i32);
 impl windows_core::TypeKind for PRJ_CALLBACK_DATA_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PRJ_CALLBACK_DATA_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PRJ_CALLBACK_DATA_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_COMPLETE_COMMAND_TYPE(pub i32);
 impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PRJ_COMPLETE_COMMAND_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PRJ_COMPLETE_COMMAND_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_EXT_INFO_TYPE(pub i32);
 impl windows_core::TypeKind for PRJ_EXT_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PRJ_EXT_INFO_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PRJ_EXT_INFO_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_FILE_STATE(pub i32);
 impl windows_core::TypeKind for PRJ_FILE_STATE {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PRJ_FILE_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PRJ_FILE_STATE").field(&self.0).finish()
+    }
 }
 impl PRJ_FILE_STATE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -269,16 +289,26 @@ impl core::ops::Not for PRJ_FILE_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_NOTIFICATION(pub i32);
 impl windows_core::TypeKind for PRJ_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PRJ_NOTIFICATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PRJ_NOTIFICATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_NOTIFY_TYPES(pub u32);
 impl windows_core::TypeKind for PRJ_NOTIFY_TYPES {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PRJ_NOTIFY_TYPES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PRJ_NOTIFY_TYPES").field(&self.0).finish()
+    }
 }
 impl PRJ_NOTIFY_TYPES {
     pub const fn contains(&self, other: Self) -> bool {
@@ -314,16 +344,26 @@ impl core::ops::Not for PRJ_NOTIFY_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_PLACEHOLDER_ID(pub i32);
 impl windows_core::TypeKind for PRJ_PLACEHOLDER_ID {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PRJ_PLACEHOLDER_ID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PRJ_PLACEHOLDER_ID").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_STARTVIRTUALIZING_FLAGS(pub i32);
 impl windows_core::TypeKind for PRJ_STARTVIRTUALIZING_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PRJ_STARTVIRTUALIZING_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PRJ_STARTVIRTUALIZING_FLAGS").field(&self.0).finish()
+    }
 }
 impl PRJ_STARTVIRTUALIZING_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -359,10 +399,15 @@ impl core::ops::Not for PRJ_STARTVIRTUALIZING_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_UPDATE_FAILURE_CAUSES(pub i32);
 impl windows_core::TypeKind for PRJ_UPDATE_FAILURE_CAUSES {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PRJ_UPDATE_FAILURE_CAUSES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PRJ_UPDATE_FAILURE_CAUSES").field(&self.0).finish()
+    }
 }
 impl PRJ_UPDATE_FAILURE_CAUSES {
     pub const fn contains(&self, other: Self) -> bool {
@@ -398,10 +443,15 @@ impl core::ops::Not for PRJ_UPDATE_FAILURE_CAUSES {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PRJ_UPDATE_TYPES(pub i32);
 impl windows_core::TypeKind for PRJ_UPDATE_TYPES {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PRJ_UPDATE_TYPES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PRJ_UPDATE_TYPES").field(&self.0).finish()
+    }
 }
 impl PRJ_UPDATE_TYPES {
     pub const fn contains(&self, other: Self) -> bool {
@@ -437,7 +487,7 @@ impl core::ops::Not for PRJ_UPDATE_TYPES {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_CALLBACKS {
     pub StartDirectoryEnumerationCallback: PRJ_START_DIRECTORY_ENUMERATION_CB,
     pub EndDirectoryEnumerationCallback: PRJ_END_DIRECTORY_ENUMERATION_CB,
@@ -448,16 +498,16 @@ pub struct PRJ_CALLBACKS {
     pub NotificationCallback: PRJ_NOTIFICATION_CB,
     pub CancelCommandCallback: PRJ_CANCEL_COMMAND_CB,
 }
+impl windows_core::TypeKind for PRJ_CALLBACKS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PRJ_CALLBACKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_CALLBACK_DATA {
     pub Size: u32,
     pub Flags: PRJ_CALLBACK_DATA_FLAGS,
@@ -471,74 +521,71 @@ pub struct PRJ_CALLBACK_DATA {
     pub TriggeringProcessImageFileName: windows_core::PCWSTR,
     pub InstanceContext: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for PRJ_CALLBACK_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PRJ_CALLBACK_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_CALLBACK_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     pub CommandType: PRJ_COMPLETE_COMMAND_TYPE,
     pub Anonymous: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0,
+}
+impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     pub Notification: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0,
     pub Enumeration: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1,
+}
+impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     pub DirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE,
+}
+impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
+}
+impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRJ_DIR_ENTRY_BUFFER_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for PRJ_DIR_ENTRY_BUFFER_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl PRJ_DIR_ENTRY_BUFFER_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -549,49 +596,52 @@ impl Default for PRJ_DIR_ENTRY_BUFFER_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PRJ_DIR_ENTRY_BUFFER_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PRJ_EXTENDED_INFO {
     pub InfoType: PRJ_EXT_INFO_TYPE,
     pub NextInfoOffset: u32,
     pub Anonymous: PRJ_EXTENDED_INFO_0,
+}
+impl windows_core::TypeKind for PRJ_EXTENDED_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_EXTENDED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_EXTENDED_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PRJ_EXTENDED_INFO_0 {
     pub Symlink: PRJ_EXTENDED_INFO_0_0,
+}
+impl windows_core::TypeKind for PRJ_EXTENDED_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_EXTENDED_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_EXTENDED_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_EXTENDED_INFO_0_0 {
     pub TargetName: windows_core::PCWSTR,
+}
+impl windows_core::TypeKind for PRJ_EXTENDED_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_EXTENDED_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_EXTENDED_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_FILE_BASIC_INFO {
     pub IsDirectory: super::super::Foundation::BOOLEAN,
     pub FileSize: i64,
@@ -601,20 +651,17 @@ pub struct PRJ_FILE_BASIC_INFO {
     pub ChangeTime: i64,
     pub FileAttributes: u32,
 }
+impl windows_core::TypeKind for PRJ_FILE_BASIC_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PRJ_FILE_BASIC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_FILE_BASIC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 impl PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -625,76 +672,79 @@ impl Default for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_NOTIFICATION_MAPPING {
     pub NotificationBitMask: PRJ_NOTIFY_TYPES,
     pub NotificationRoot: windows_core::PCWSTR,
+}
+impl windows_core::TypeKind for PRJ_NOTIFICATION_MAPPING {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_NOTIFICATION_MAPPING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_NOTIFICATION_MAPPING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PRJ_NOTIFICATION_PARAMETERS {
     pub PostCreate: PRJ_NOTIFICATION_PARAMETERS_0,
     pub FileRenamed: PRJ_NOTIFICATION_PARAMETERS_1,
     pub FileDeletedOnHandleClose: PRJ_NOTIFICATION_PARAMETERS_2,
+}
+impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_NOTIFICATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
     pub IsFileModified: super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_NOTIFICATION_PARAMETERS_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_NOTIFICATION_PARAMETERS_1 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
+}
+impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_NOTIFICATION_PARAMETERS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
+}
+impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_NOTIFICATION_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_PLACEHOLDER_INFO {
     pub FileBasicInfo: PRJ_FILE_BASIC_INFO,
     pub EaInformation: PRJ_PLACEHOLDER_INFO_0,
@@ -703,72 +753,72 @@ pub struct PRJ_PLACEHOLDER_INFO {
     pub VersionInfo: PRJ_PLACEHOLDER_VERSION_INFO,
     pub VariableData: [u8; 1],
 }
+impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PRJ_PLACEHOLDER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_PLACEHOLDER_INFO_0 {
     pub EaBufferSize: u32,
     pub OffsetToFirstEa: u32,
+}
+impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_PLACEHOLDER_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_PLACEHOLDER_INFO_1 {
     pub SecurityBufferSize: u32,
     pub OffsetToSecurityDescriptor: u32,
+}
+impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_PLACEHOLDER_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_PLACEHOLDER_INFO_2 {
     pub StreamsInfoBufferSize: u32,
     pub OffsetToFirstStreamInfo: u32,
+}
+impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_PLACEHOLDER_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_PLACEHOLDER_INFO_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_PLACEHOLDER_VERSION_INFO {
     pub ProviderID: [u8; 128],
     pub ContentID: [u8; 128],
+}
+impl windows_core::TypeKind for PRJ_PLACEHOLDER_VERSION_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_PLACEHOLDER_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_PLACEHOLDER_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_STARTVIRTUALIZING_OPTIONS {
     pub Flags: PRJ_STARTVIRTUALIZING_FLAGS,
     pub PoolThreadCount: u32,
@@ -776,27 +826,27 @@ pub struct PRJ_STARTVIRTUALIZING_OPTIONS {
     pub NotificationMappings: *mut PRJ_NOTIFICATION_MAPPING,
     pub NotificationMappingsCount: u32,
 }
+impl windows_core::TypeKind for PRJ_STARTVIRTUALIZING_OPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PRJ_STARTVIRTUALIZING_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRJ_STARTVIRTUALIZING_OPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRJ_VIRTUALIZATION_INSTANCE_INFO {
     pub InstanceID: windows_core::GUID,
     pub WriteAlignment: u32,
+}
+impl windows_core::TypeKind for PRJ_VIRTUALIZATION_INSTANCE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PRJ_VIRTUALIZATION_INSTANCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PRJ_VIRTUALIZATION_INSTANCE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PRJ_CANCEL_COMMAND_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA)>;
 pub type PRJ_END_DIRECTORY_ENUMERATION_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const windows_core::GUID) -> windows_core::HRESULT>;

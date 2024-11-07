@@ -1,6 +1,9 @@
 windows_core::imp::define_interface!(IAdcControllerProvider, IAdcControllerProvider_Vtbl, 0xbe545828_816d_4de5_a048_aba06958aaa8);
-impl windows_core::RuntimeType for IAdcControllerProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IAdcControllerProvider {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IAdcControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdcControllerProvider {
@@ -66,6 +69,9 @@ impl IAdcControllerProvider {
         }
     }
 }
+impl windows_core::RuntimeType for IAdcControllerProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAdcControllerProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -80,9 +86,6 @@ pub struct IAdcControllerProvider_Vtbl {
     pub ReleaseChannel: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub ReadValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IAdcControllerProvider {
-    const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcControllerProvider";
-}
 pub trait IAdcControllerProvider_Impl: Sized + windows_core::IUnknownImpl {
     fn ChannelCount(&self) -> windows_core::Result<i32>;
     fn ResolutionInBits(&self) -> windows_core::Result<i32>;
@@ -90,13 +93,16 @@ pub trait IAdcControllerProvider_Impl: Sized + windows_core::IUnknownImpl {
     fn MaxValue(&self) -> windows_core::Result<i32>;
     fn ChannelMode(&self) -> windows_core::Result<ProviderAdcChannelMode>;
     fn SetChannelMode(&self, value: ProviderAdcChannelMode) -> windows_core::Result<()>;
-    fn IsChannelModeSupported(&self, channelMode: ProviderAdcChannelMode) -> windows_core::Result<bool>;
+    fn IsChannelModeSupported(&self, channelmode: ProviderAdcChannelMode) -> windows_core::Result<bool>;
     fn AcquireChannel(&self, channel: i32) -> windows_core::Result<()>;
     fn ReleaseChannel(&self, channel: i32) -> windows_core::Result<()>;
-    fn ReadValue(&self, channelNumber: i32) -> windows_core::Result<i32>;
+    fn ReadValue(&self, channelnumber: i32) -> windows_core::Result<i32>;
+}
+impl windows_core::RuntimeName for IAdcControllerProvider {
+    const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcControllerProvider";
 }
 impl IAdcControllerProvider_Vtbl {
-    pub const fn new<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>() -> IAdcControllerProvider_Vtbl {
         unsafe extern "system" fn ChannelCount<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAdcControllerProvider_Impl::ChannelCount(this) {
@@ -198,8 +204,11 @@ impl IAdcControllerProvider_Vtbl {
     }
 }
 windows_core::imp::define_interface!(IAdcProvider, IAdcProvider_Vtbl, 0x28953668_9359_4c57_bc88_e275e81638c9);
-impl windows_core::RuntimeType for IAdcProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IAdcProvider {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IAdcProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdcProvider {
@@ -212,6 +221,9 @@ impl IAdcProvider {
         }
     }
 }
+impl windows_core::RuntimeType for IAdcProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IAdcProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -221,16 +233,16 @@ pub struct IAdcProvider_Vtbl {
     GetControllers: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeName for IAdcProvider {
-    const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcProvider";
-}
-#[cfg(feature = "Foundation_Collections")]
 pub trait IAdcProvider_Impl: Sized + windows_core::IUnknownImpl {
     fn GetControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>>;
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeName for IAdcProvider {
+    const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcProvider";
+}
+#[cfg(feature = "Foundation_Collections")]
 impl IAdcProvider_Vtbl {
-    pub const fn new<Identity: IAdcProvider_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IAdcProvider_Impl, const OFFSET: isize>() -> IAdcProvider_Vtbl {
         unsafe extern "system" fn GetControllers<Identity: IAdcProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAdcProvider_Impl::GetControllers(this) {
@@ -249,7 +261,7 @@ impl IAdcProvider_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ProviderAdcChannelMode(pub i32);
 impl ProviderAdcChannelMode {
     pub const SingleEnded: Self = Self(0i32);
@@ -257,6 +269,11 @@ impl ProviderAdcChannelMode {
 }
 impl windows_core::TypeKind for ProviderAdcChannelMode {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for ProviderAdcChannelMode {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ProviderAdcChannelMode").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for ProviderAdcChannelMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.Provider.ProviderAdcChannelMode;i4)");

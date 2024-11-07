@@ -169,7 +169,6 @@ pub struct IGameSaveProviderStatics_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveBlobGetResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveBlobGetResult, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameSaveBlobGetResult,);
 impl GameSaveBlobGetResult {
     pub fn Status(&self) -> windows_core::Result<GameSaveErrorStatus> {
         let this = self;
@@ -191,17 +190,18 @@ impl windows_core::RuntimeType for GameSaveBlobGetResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveBlobGetResult>();
 }
 unsafe impl windows_core::Interface for GameSaveBlobGetResult {
-    type Vtable = <IGameSaveBlobGetResult as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveBlobGetResult_Vtbl;
     const IID: windows_core::GUID = <IGameSaveBlobGetResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveBlobGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobGetResult";
 }
+unsafe impl Send for GameSaveBlobGetResult {}
+unsafe impl Sync for GameSaveBlobGetResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveBlobInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveBlobInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameSaveBlobInfo,);
 impl GameSaveBlobInfo {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -222,17 +222,18 @@ impl windows_core::RuntimeType for GameSaveBlobInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveBlobInfo>();
 }
 unsafe impl windows_core::Interface for GameSaveBlobInfo {
-    type Vtable = <IGameSaveBlobInfo as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveBlobInfo_Vtbl;
     const IID: windows_core::GUID = <IGameSaveBlobInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveBlobInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfo";
 }
+unsafe impl Send for GameSaveBlobInfo {}
+unsafe impl Sync for GameSaveBlobInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveBlobInfoGetResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveBlobInfoGetResult, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameSaveBlobInfoGetResult,);
 impl GameSaveBlobInfoGetResult {
     pub fn Status(&self) -> windows_core::Result<GameSaveErrorStatus> {
         let this = self;
@@ -254,17 +255,18 @@ impl windows_core::RuntimeType for GameSaveBlobInfoGetResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveBlobInfoGetResult>();
 }
 unsafe impl windows_core::Interface for GameSaveBlobInfoGetResult {
-    type Vtable = <IGameSaveBlobInfoGetResult as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveBlobInfoGetResult_Vtbl;
     const IID: windows_core::GUID = <IGameSaveBlobInfoGetResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveBlobInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoGetResult";
 }
+unsafe impl Send for GameSaveBlobInfoGetResult {}
+unsafe impl Sync for GameSaveBlobInfoGetResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveBlobInfoQuery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveBlobInfoQuery, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameSaveBlobInfoQuery,);
 impl GameSaveBlobInfoQuery {
     pub fn GetBlobInfoAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>> {
         let this = self;
@@ -292,17 +294,18 @@ impl windows_core::RuntimeType for GameSaveBlobInfoQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveBlobInfoQuery>();
 }
 unsafe impl windows_core::Interface for GameSaveBlobInfoQuery {
-    type Vtable = <IGameSaveBlobInfoQuery as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveBlobInfoQuery_Vtbl;
     const IID: windows_core::GUID = <IGameSaveBlobInfoQuery as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveBlobInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoQuery";
 }
+unsafe impl Send for GameSaveBlobInfoQuery {}
+unsafe impl Sync for GameSaveBlobInfoQuery {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveContainer, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameSaveContainer,);
 impl GameSaveContainer {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -376,17 +379,18 @@ impl windows_core::RuntimeType for GameSaveContainer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveContainer>();
 }
 unsafe impl windows_core::Interface for GameSaveContainer {
-    type Vtable = <IGameSaveContainer as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveContainer_Vtbl;
     const IID: windows_core::GUID = <IGameSaveContainer as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveContainer {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainer";
 }
+unsafe impl Send for GameSaveContainer {}
+unsafe impl Sync for GameSaveContainer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainerInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveContainerInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameSaveContainerInfo,);
 impl GameSaveContainerInfo {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -428,17 +432,18 @@ impl windows_core::RuntimeType for GameSaveContainerInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveContainerInfo>();
 }
 unsafe impl windows_core::Interface for GameSaveContainerInfo {
-    type Vtable = <IGameSaveContainerInfo as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveContainerInfo_Vtbl;
     const IID: windows_core::GUID = <IGameSaveContainerInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveContainerInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfo";
 }
+unsafe impl Send for GameSaveContainerInfo {}
+unsafe impl Sync for GameSaveContainerInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainerInfoGetResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveContainerInfoGetResult, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameSaveContainerInfoGetResult,);
 impl GameSaveContainerInfoGetResult {
     pub fn Status(&self) -> windows_core::Result<GameSaveErrorStatus> {
         let this = self;
@@ -460,17 +465,18 @@ impl windows_core::RuntimeType for GameSaveContainerInfoGetResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveContainerInfoGetResult>();
 }
 unsafe impl windows_core::Interface for GameSaveContainerInfoGetResult {
-    type Vtable = <IGameSaveContainerInfoGetResult as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveContainerInfoGetResult_Vtbl;
     const IID: windows_core::GUID = <IGameSaveContainerInfoGetResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveContainerInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoGetResult";
 }
+unsafe impl Send for GameSaveContainerInfoGetResult {}
+unsafe impl Sync for GameSaveContainerInfoGetResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainerInfoQuery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveContainerInfoQuery, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameSaveContainerInfoQuery,);
 impl GameSaveContainerInfoQuery {
     pub fn GetContainerInfoAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>> {
         let this = self;
@@ -498,17 +504,18 @@ impl windows_core::RuntimeType for GameSaveContainerInfoQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveContainerInfoQuery>();
 }
 unsafe impl windows_core::Interface for GameSaveContainerInfoQuery {
-    type Vtable = <IGameSaveContainerInfoQuery as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveContainerInfoQuery_Vtbl;
     const IID: windows_core::GUID = <IGameSaveContainerInfoQuery as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveContainerInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoQuery";
 }
+unsafe impl Send for GameSaveContainerInfoQuery {}
+unsafe impl Sync for GameSaveContainerInfoQuery {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveOperationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveOperationResult, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameSaveOperationResult,);
 impl GameSaveOperationResult {
     pub fn Status(&self) -> windows_core::Result<GameSaveErrorStatus> {
         let this = self;
@@ -522,17 +529,18 @@ impl windows_core::RuntimeType for GameSaveOperationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveOperationResult>();
 }
 unsafe impl windows_core::Interface for GameSaveOperationResult {
-    type Vtable = <IGameSaveOperationResult as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveOperationResult_Vtbl;
     const IID: windows_core::GUID = <IGameSaveOperationResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveOperationResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveOperationResult";
 }
+unsafe impl Send for GameSaveOperationResult {}
+unsafe impl Sync for GameSaveOperationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveProvider, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameSaveProvider,);
 impl GameSaveProvider {
     #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::super::System::User> {
@@ -614,17 +622,18 @@ impl windows_core::RuntimeType for GameSaveProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveProvider>();
 }
 unsafe impl windows_core::Interface for GameSaveProvider {
-    type Vtable = <IGameSaveProvider as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveProvider_Vtbl;
     const IID: windows_core::GUID = <IGameSaveProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveProvider {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProvider";
 }
+unsafe impl Send for GameSaveProvider {}
+unsafe impl Sync for GameSaveProvider {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveProviderGetResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveProviderGetResult, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameSaveProviderGetResult,);
 impl GameSaveProviderGetResult {
     pub fn Status(&self) -> windows_core::Result<GameSaveErrorStatus> {
         let this = self;
@@ -645,14 +654,16 @@ impl windows_core::RuntimeType for GameSaveProviderGetResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveProviderGetResult>();
 }
 unsafe impl windows_core::Interface for GameSaveProviderGetResult {
-    type Vtable = <IGameSaveProviderGetResult as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveProviderGetResult_Vtbl;
     const IID: windows_core::GUID = <IGameSaveProviderGetResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveProviderGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProviderGetResult";
 }
+unsafe impl Send for GameSaveProviderGetResult {}
+unsafe impl Sync for GameSaveProviderGetResult {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GameSaveErrorStatus(pub i32);
 impl GameSaveErrorStatus {
     pub const Ok: Self = Self(0i32);
@@ -673,6 +684,11 @@ impl GameSaveErrorStatus {
 }
 impl windows_core::TypeKind for GameSaveErrorStatus {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for GameSaveErrorStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GameSaveErrorStatus").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for GameSaveErrorStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.XboxLive.Storage.GameSaveErrorStatus;i4)");

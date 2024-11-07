@@ -144,10 +144,15 @@ pub const SaferPolicyEvaluateUserScope: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_I
 pub const SaferPolicyLevelList: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(1i32);
 pub const SaferPolicyScopeFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(5i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(pub u32);
 impl windows_core::TypeKind for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS").field(&self.0).finish()
+    }
 }
 impl SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -183,26 +188,41 @@ impl core::ops::Not for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SAFER_IDENTIFICATION_TYPES(pub i32);
 impl windows_core::TypeKind for SAFER_IDENTIFICATION_TYPES {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SAFER_IDENTIFICATION_TYPES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SAFER_IDENTIFICATION_TYPES").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SAFER_OBJECT_INFO_CLASS(pub i32);
 impl windows_core::TypeKind for SAFER_OBJECT_INFO_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SAFER_OBJECT_INFO_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SAFER_OBJECT_INFO_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SAFER_POLICY_INFO_CLASS(pub i32);
 impl windows_core::TypeKind for SAFER_POLICY_INFO_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SAFER_POLICY_INFO_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SAFER_POLICY_INFO_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_CODE_PROPERTIES_V1 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
@@ -218,18 +238,18 @@ pub struct SAFER_CODE_PROPERTIES_V1 {
     pub dwWVTUIChoice: u32,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for SAFER_CODE_PROPERTIES_V1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SAFER_CODE_PROPERTIES_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SAFER_CODE_PROPERTIES_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_CODE_PROPERTIES_V2 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
@@ -250,18 +270,18 @@ pub struct SAFER_CODE_PROPERTIES_V2 {
     pub PackageIsFramework: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for SAFER_CODE_PROPERTIES_V2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SAFER_CODE_PROPERTIES_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SAFER_CODE_PROPERTIES_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_HASH_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [u16; 256],
@@ -273,18 +293,18 @@ pub struct SAFER_HASH_IDENTIFICATION {
     pub dwSaferFlags: u32,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for SAFER_HASH_IDENTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SAFER_HASH_IDENTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SAFER_HASH_IDENTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_HASH_IDENTIFICATION2 {
     pub hashIdentification: SAFER_HASH_IDENTIFICATION,
     pub HashSize: u32,
@@ -292,59 +312,59 @@ pub struct SAFER_HASH_IDENTIFICATION2 {
     pub HashAlgorithm: super::Cryptography::ALG_ID,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for SAFER_HASH_IDENTIFICATION2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for SAFER_HASH_IDENTIFICATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for SAFER_HASH_IDENTIFICATION2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_IDENTIFICATION_HEADER {
     pub dwIdentificationType: SAFER_IDENTIFICATION_TYPES,
     pub cbStructSize: u32,
     pub IdentificationGuid: windows_core::GUID,
     pub lastModified: super::super::Foundation::FILETIME,
 }
+impl windows_core::TypeKind for SAFER_IDENTIFICATION_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SAFER_IDENTIFICATION_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SAFER_IDENTIFICATION_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_PATHNAME_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [u16; 256],
     pub ImageName: windows_core::PWSTR,
     pub dwSaferFlags: u32,
 }
+impl windows_core::TypeKind for SAFER_PATHNAME_IDENTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SAFER_PATHNAME_IDENTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SAFER_PATHNAME_IDENTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_URLZONE_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub UrlZoneId: u32,
     pub dwSaferFlags: u32,
 }
+impl windows_core::TypeKind for SAFER_URLZONE_IDENTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SAFER_URLZONE_IDENTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SAFER_URLZONE_IDENTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }

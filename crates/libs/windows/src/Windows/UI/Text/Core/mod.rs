@@ -262,7 +262,6 @@ pub struct ICoreTextTextUpdatingEventArgs_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextCompositionCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextCompositionCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreTextCompositionCompletedEventArgs,);
 impl CoreTextCompositionCompletedEventArgs {
     pub fn IsCanceled(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -291,17 +290,18 @@ impl windows_core::RuntimeType for CoreTextCompositionCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreTextCompositionCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreTextCompositionCompletedEventArgs {
-    type Vtable = <ICoreTextCompositionCompletedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ICoreTextCompositionCompletedEventArgs_Vtbl;
     const IID: windows_core::GUID = <ICoreTextCompositionCompletedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreTextCompositionCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs";
 }
+unsafe impl Send for CoreTextCompositionCompletedEventArgs {}
+unsafe impl Sync for CoreTextCompositionCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextCompositionSegment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextCompositionSegment, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreTextCompositionSegment,);
 impl CoreTextCompositionSegment {
     pub fn PreconversionString(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -322,17 +322,18 @@ impl windows_core::RuntimeType for CoreTextCompositionSegment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreTextCompositionSegment>();
 }
 unsafe impl windows_core::Interface for CoreTextCompositionSegment {
-    type Vtable = <ICoreTextCompositionSegment as windows_core::Interface>::Vtable;
+    type Vtable = ICoreTextCompositionSegment_Vtbl;
     const IID: windows_core::GUID = <ICoreTextCompositionSegment as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreTextCompositionSegment {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionSegment";
 }
+unsafe impl Send for CoreTextCompositionSegment {}
+unsafe impl Sync for CoreTextCompositionSegment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextCompositionStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextCompositionStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreTextCompositionStartedEventArgs,);
 impl CoreTextCompositionStartedEventArgs {
     pub fn IsCanceled(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -353,17 +354,18 @@ impl windows_core::RuntimeType for CoreTextCompositionStartedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreTextCompositionStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreTextCompositionStartedEventArgs {
-    type Vtable = <ICoreTextCompositionStartedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ICoreTextCompositionStartedEventArgs_Vtbl;
     const IID: windows_core::GUID = <ICoreTextCompositionStartedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreTextCompositionStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionStartedEventArgs";
 }
+unsafe impl Send for CoreTextCompositionStartedEventArgs {}
+unsafe impl Sync for CoreTextCompositionStartedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextEditContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextEditContext, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreTextEditContext,);
 impl CoreTextEditContext {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -574,17 +576,18 @@ impl windows_core::RuntimeType for CoreTextEditContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreTextEditContext>();
 }
 unsafe impl windows_core::Interface for CoreTextEditContext {
-    type Vtable = <ICoreTextEditContext as windows_core::Interface>::Vtable;
+    type Vtable = ICoreTextEditContext_Vtbl;
     const IID: windows_core::GUID = <ICoreTextEditContext as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreTextEditContext {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextEditContext";
 }
+unsafe impl Send for CoreTextEditContext {}
+unsafe impl Sync for CoreTextEditContext {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextFormatUpdatingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextFormatUpdatingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreTextFormatUpdatingEventArgs,);
 impl CoreTextFormatUpdatingEventArgs {
     pub fn Range(&self) -> windows_core::Result<CoreTextRange> {
         let this = self;
@@ -661,17 +664,18 @@ impl windows_core::RuntimeType for CoreTextFormatUpdatingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreTextFormatUpdatingEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreTextFormatUpdatingEventArgs {
-    type Vtable = <ICoreTextFormatUpdatingEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ICoreTextFormatUpdatingEventArgs_Vtbl;
     const IID: windows_core::GUID = <ICoreTextFormatUpdatingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreTextFormatUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextFormatUpdatingEventArgs";
 }
+unsafe impl Send for CoreTextFormatUpdatingEventArgs {}
+unsafe impl Sync for CoreTextFormatUpdatingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextLayoutBounds(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextLayoutBounds, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreTextLayoutBounds,);
 impl CoreTextLayoutBounds {
     pub fn TextBounds(&self) -> windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -700,17 +704,18 @@ impl windows_core::RuntimeType for CoreTextLayoutBounds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreTextLayoutBounds>();
 }
 unsafe impl windows_core::Interface for CoreTextLayoutBounds {
-    type Vtable = <ICoreTextLayoutBounds as windows_core::Interface>::Vtable;
+    type Vtable = ICoreTextLayoutBounds_Vtbl;
     const IID: windows_core::GUID = <ICoreTextLayoutBounds as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreTextLayoutBounds {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutBounds";
 }
+unsafe impl Send for CoreTextLayoutBounds {}
+unsafe impl Sync for CoreTextLayoutBounds {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextLayoutRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextLayoutRequest, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreTextLayoutRequest,);
 impl CoreTextLayoutRequest {
     pub fn Range(&self) -> windows_core::Result<CoreTextRange> {
         let this = self;
@@ -752,17 +757,18 @@ impl windows_core::RuntimeType for CoreTextLayoutRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreTextLayoutRequest>();
 }
 unsafe impl windows_core::Interface for CoreTextLayoutRequest {
-    type Vtable = <ICoreTextLayoutRequest as windows_core::Interface>::Vtable;
+    type Vtable = ICoreTextLayoutRequest_Vtbl;
     const IID: windows_core::GUID = <ICoreTextLayoutRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreTextLayoutRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutRequest";
 }
+unsafe impl Send for CoreTextLayoutRequest {}
+unsafe impl Sync for CoreTextLayoutRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextLayoutRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextLayoutRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreTextLayoutRequestedEventArgs,);
 impl CoreTextLayoutRequestedEventArgs {
     pub fn Request(&self) -> windows_core::Result<CoreTextLayoutRequest> {
         let this = self;
@@ -776,17 +782,18 @@ impl windows_core::RuntimeType for CoreTextLayoutRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreTextLayoutRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreTextLayoutRequestedEventArgs {
-    type Vtable = <ICoreTextLayoutRequestedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ICoreTextLayoutRequestedEventArgs_Vtbl;
     const IID: windows_core::GUID = <ICoreTextLayoutRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreTextLayoutRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutRequestedEventArgs";
 }
+unsafe impl Send for CoreTextLayoutRequestedEventArgs {}
+unsafe impl Sync for CoreTextLayoutRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextSelectionRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextSelectionRequest, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreTextSelectionRequest,);
 impl CoreTextSelectionRequest {
     pub fn Selection(&self) -> windows_core::Result<CoreTextRange> {
         let this = self;
@@ -818,17 +825,18 @@ impl windows_core::RuntimeType for CoreTextSelectionRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreTextSelectionRequest>();
 }
 unsafe impl windows_core::Interface for CoreTextSelectionRequest {
-    type Vtable = <ICoreTextSelectionRequest as windows_core::Interface>::Vtable;
+    type Vtable = ICoreTextSelectionRequest_Vtbl;
     const IID: windows_core::GUID = <ICoreTextSelectionRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreTextSelectionRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionRequest";
 }
+unsafe impl Send for CoreTextSelectionRequest {}
+unsafe impl Sync for CoreTextSelectionRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextSelectionRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextSelectionRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreTextSelectionRequestedEventArgs,);
 impl CoreTextSelectionRequestedEventArgs {
     pub fn Request(&self) -> windows_core::Result<CoreTextSelectionRequest> {
         let this = self;
@@ -842,17 +850,18 @@ impl windows_core::RuntimeType for CoreTextSelectionRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreTextSelectionRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreTextSelectionRequestedEventArgs {
-    type Vtable = <ICoreTextSelectionRequestedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ICoreTextSelectionRequestedEventArgs_Vtbl;
     const IID: windows_core::GUID = <ICoreTextSelectionRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreTextSelectionRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionRequestedEventArgs";
 }
+unsafe impl Send for CoreTextSelectionRequestedEventArgs {}
+unsafe impl Sync for CoreTextSelectionRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextSelectionUpdatingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextSelectionUpdatingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreTextSelectionUpdatingEventArgs,);
 impl CoreTextSelectionUpdatingEventArgs {
     pub fn Selection(&self) -> windows_core::Result<CoreTextRange> {
         let this = self;
@@ -891,12 +900,14 @@ impl windows_core::RuntimeType for CoreTextSelectionUpdatingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreTextSelectionUpdatingEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreTextSelectionUpdatingEventArgs {
-    type Vtable = <ICoreTextSelectionUpdatingEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ICoreTextSelectionUpdatingEventArgs_Vtbl;
     const IID: windows_core::GUID = <ICoreTextSelectionUpdatingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreTextSelectionUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionUpdatingEventArgs";
 }
+unsafe impl Send for CoreTextSelectionUpdatingEventArgs {}
+unsafe impl Sync for CoreTextSelectionUpdatingEventArgs {}
 pub struct CoreTextServicesConstants;
 impl CoreTextServicesConstants {
     pub fn HiddenCharacter() -> windows_core::Result<u16> {
@@ -917,7 +928,6 @@ impl windows_core::RuntimeName for CoreTextServicesConstants {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextServicesManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextServicesManager, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreTextServicesManager,);
 impl CoreTextServicesManager {
     #[cfg(feature = "Globalization")]
     pub fn InputLanguage(&self) -> windows_core::Result<super::super::super::Globalization::Language> {
@@ -963,17 +973,18 @@ impl windows_core::RuntimeType for CoreTextServicesManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreTextServicesManager>();
 }
 unsafe impl windows_core::Interface for CoreTextServicesManager {
-    type Vtable = <ICoreTextServicesManager as windows_core::Interface>::Vtable;
+    type Vtable = ICoreTextServicesManager_Vtbl;
     const IID: windows_core::GUID = <ICoreTextServicesManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreTextServicesManager {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextServicesManager";
 }
+unsafe impl Send for CoreTextServicesManager {}
+unsafe impl Sync for CoreTextServicesManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextTextRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextTextRequest, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreTextTextRequest,);
 impl CoreTextTextRequest {
     pub fn Range(&self) -> windows_core::Result<CoreTextRange> {
         let this = self;
@@ -1012,17 +1023,18 @@ impl windows_core::RuntimeType for CoreTextTextRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreTextTextRequest>();
 }
 unsafe impl windows_core::Interface for CoreTextTextRequest {
-    type Vtable = <ICoreTextTextRequest as windows_core::Interface>::Vtable;
+    type Vtable = ICoreTextTextRequest_Vtbl;
     const IID: windows_core::GUID = <ICoreTextTextRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreTextTextRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextRequest";
 }
+unsafe impl Send for CoreTextTextRequest {}
+unsafe impl Sync for CoreTextTextRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextTextRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextTextRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreTextTextRequestedEventArgs,);
 impl CoreTextTextRequestedEventArgs {
     pub fn Request(&self) -> windows_core::Result<CoreTextTextRequest> {
         let this = self;
@@ -1036,17 +1048,18 @@ impl windows_core::RuntimeType for CoreTextTextRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreTextTextRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreTextTextRequestedEventArgs {
-    type Vtable = <ICoreTextTextRequestedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ICoreTextTextRequestedEventArgs_Vtbl;
     const IID: windows_core::GUID = <ICoreTextTextRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreTextTextRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextRequestedEventArgs";
 }
+unsafe impl Send for CoreTextTextRequestedEventArgs {}
+unsafe impl Sync for CoreTextTextRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextTextUpdatingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreTextTextUpdatingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreTextTextUpdatingEventArgs,);
 impl CoreTextTextUpdatingEventArgs {
     pub fn Range(&self) -> windows_core::Result<CoreTextRange> {
         let this = self;
@@ -1107,14 +1120,16 @@ impl windows_core::RuntimeType for CoreTextTextUpdatingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreTextTextUpdatingEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreTextTextUpdatingEventArgs {
-    type Vtable = <ICoreTextTextUpdatingEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ICoreTextTextUpdatingEventArgs_Vtbl;
     const IID: windows_core::GUID = <ICoreTextTextUpdatingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreTextTextUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs";
 }
+unsafe impl Send for CoreTextTextUpdatingEventArgs {}
+unsafe impl Sync for CoreTextTextUpdatingEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CoreTextFormatUpdatingReason(pub i32);
 impl CoreTextFormatUpdatingReason {
     pub const None: Self = Self(0i32);
@@ -1126,11 +1141,16 @@ impl CoreTextFormatUpdatingReason {
 impl windows_core::TypeKind for CoreTextFormatUpdatingReason {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CoreTextFormatUpdatingReason {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CoreTextFormatUpdatingReason").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for CoreTextFormatUpdatingReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingReason;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CoreTextFormatUpdatingResult(pub i32);
 impl CoreTextFormatUpdatingResult {
     pub const Succeeded: Self = Self(0i32);
@@ -1139,11 +1159,16 @@ impl CoreTextFormatUpdatingResult {
 impl windows_core::TypeKind for CoreTextFormatUpdatingResult {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CoreTextFormatUpdatingResult {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CoreTextFormatUpdatingResult").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for CoreTextFormatUpdatingResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CoreTextInputPaneDisplayPolicy(pub i32);
 impl CoreTextInputPaneDisplayPolicy {
     pub const Automatic: Self = Self(0i32);
@@ -1152,11 +1177,16 @@ impl CoreTextInputPaneDisplayPolicy {
 impl windows_core::TypeKind for CoreTextInputPaneDisplayPolicy {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CoreTextInputPaneDisplayPolicy {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CoreTextInputPaneDisplayPolicy").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for CoreTextInputPaneDisplayPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputPaneDisplayPolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CoreTextInputScope(pub i32);
 impl CoreTextInputScope {
     pub const Default: Self = Self(0i32);
@@ -1230,11 +1260,16 @@ impl CoreTextInputScope {
 impl windows_core::TypeKind for CoreTextInputScope {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CoreTextInputScope {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CoreTextInputScope").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for CoreTextInputScope {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputScope;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CoreTextSelectionUpdatingResult(pub i32);
 impl CoreTextSelectionUpdatingResult {
     pub const Succeeded: Self = Self(0i32);
@@ -1243,11 +1278,16 @@ impl CoreTextSelectionUpdatingResult {
 impl windows_core::TypeKind for CoreTextSelectionUpdatingResult {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CoreTextSelectionUpdatingResult {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CoreTextSelectionUpdatingResult").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for CoreTextSelectionUpdatingResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextSelectionUpdatingResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CoreTextTextUpdatingResult(pub i32);
 impl CoreTextTextUpdatingResult {
     pub const Succeeded: Self = Self(0i32);
@@ -1256,11 +1296,16 @@ impl CoreTextTextUpdatingResult {
 impl windows_core::TypeKind for CoreTextTextUpdatingResult {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CoreTextTextUpdatingResult {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CoreTextTextUpdatingResult").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for CoreTextTextUpdatingResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextTextUpdatingResult;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CoreTextRange {
     pub StartCaretPosition: i32,
     pub EndCaretPosition: i32,
@@ -1270,4 +1315,9 @@ impl windows_core::TypeKind for CoreTextRange {
 }
 impl windows_core::RuntimeType for CoreTextRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Text.Core.CoreTextRange;i4;i4)");
+}
+impl Default for CoreTextRange {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

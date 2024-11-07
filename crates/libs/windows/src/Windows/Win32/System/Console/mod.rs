@@ -49,10 +49,10 @@ pub unsafe fn CreateConsoleScreenBuffer(dwdesiredaccess: u32, dwsharemode: u32, 
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreatePseudoConsole<P1, P2>(size: COORD, hinput: P1, houtput: P2, dwflags: u32) -> windows_core::Result<HPCON>
+pub unsafe fn CreatePseudoConsole<P0, P1>(size: COORD, hinput: P0, houtput: P1, dwflags: u32) -> windows_core::Result<HPCON>
 where
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreatePseudoConsole(size : COORD, hinput : super::super::Foundation:: HANDLE, houtput : super::super::Foundation:: HANDLE, dwflags : u32, phpc : *mut HPCON) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
@@ -117,10 +117,10 @@ pub unsafe fn GenerateConsoleCtrlEvent(dwctrlevent: u32, dwprocessgroupid: u32) 
     GenerateConsoleCtrlEvent(dwctrlevent, dwprocessgroupid).ok()
 }
 #[inline]
-pub unsafe fn GetConsoleAliasA<P0, P3>(source: P0, targetbuffer: &mut [u8], exename: P3) -> u32
+pub unsafe fn GetConsoleAliasA<P0, P1>(source: P0, targetbuffer: &mut [u8], exename: P1) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasA(source : windows_core::PCSTR, targetbuffer : windows_core::PSTR, targetbufferlength : u32, exename : windows_core::PCSTR) -> u32);
     GetConsoleAliasA(source.param().abi(), core::mem::transmute(targetbuffer.as_ptr()), targetbuffer.len().try_into().unwrap(), exename.param().abi())
@@ -146,18 +146,18 @@ pub unsafe fn GetConsoleAliasExesW(exenamebuffer: &mut [u16]) -> u32 {
     GetConsoleAliasExesW(core::mem::transmute(exenamebuffer.as_ptr()), exenamebuffer.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn GetConsoleAliasW<P0, P3>(source: P0, targetbuffer: &mut [u16], exename: P3) -> u32
+pub unsafe fn GetConsoleAliasW<P0, P1>(source: P0, targetbuffer: &mut [u16], exename: P1) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasW(source : windows_core::PCWSTR, targetbuffer : windows_core::PWSTR, targetbufferlength : u32, exename : windows_core::PCWSTR) -> u32);
     GetConsoleAliasW(source.param().abi(), core::mem::transmute(targetbuffer.as_ptr()), targetbuffer.len().try_into().unwrap(), exename.param().abi())
 }
 #[inline]
-pub unsafe fn GetConsoleAliasesA<P2>(aliasbuffer: &mut [u8], exename: P2) -> u32
+pub unsafe fn GetConsoleAliasesA<P0>(aliasbuffer: &mut [u8], exename: P0) -> u32
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasesA(aliasbuffer : windows_core::PSTR, aliasbufferlength : u32, exename : windows_core::PCSTR) -> u32);
     GetConsoleAliasesA(core::mem::transmute(aliasbuffer.as_ptr()), aliasbuffer.len().try_into().unwrap(), exename.param().abi())
@@ -179,9 +179,9 @@ where
     GetConsoleAliasesLengthW(exename.param().abi())
 }
 #[inline]
-pub unsafe fn GetConsoleAliasesW<P2>(aliasbuffer: &mut [u16], exename: P2) -> u32
+pub unsafe fn GetConsoleAliasesW<P0>(aliasbuffer: &mut [u16], exename: P0) -> u32
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetConsoleAliasesW(aliasbuffer : windows_core::PWSTR, aliasbufferlength : u32, exename : windows_core::PCWSTR) -> u32);
     GetConsoleAliasesW(core::mem::transmute(aliasbuffer.as_ptr()), aliasbuffer.len().try_into().unwrap(), exename.param().abi())
@@ -192,9 +192,9 @@ pub unsafe fn GetConsoleCP() -> u32 {
     GetConsoleCP()
 }
 #[inline]
-pub unsafe fn GetConsoleCommandHistoryA<P2>(commands: &mut [u8], exename: P2) -> u32
+pub unsafe fn GetConsoleCommandHistoryA<P0>(commands: &mut [u8], exename: P0) -> u32
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryA(commands : windows_core::PSTR, commandbufferlength : u32, exename : windows_core::PCSTR) -> u32);
     GetConsoleCommandHistoryA(core::mem::transmute(commands.as_ptr()), commands.len().try_into().unwrap(), exename.param().abi())
@@ -216,9 +216,9 @@ where
     GetConsoleCommandHistoryLengthW(exename.param().abi())
 }
 #[inline]
-pub unsafe fn GetConsoleCommandHistoryW<P2>(commands: windows_core::PWSTR, commandbufferlength: u32, exename: P2) -> u32
+pub unsafe fn GetConsoleCommandHistoryW<P0>(commands: windows_core::PWSTR, commandbufferlength: u32, exename: P0) -> u32
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryW(commands : windows_core::PWSTR, commandbufferlength : u32, exename : windows_core::PCWSTR) -> u32);
     GetConsoleCommandHistoryW(core::mem::transmute(commands), commandbufferlength, exename.param().abi())
@@ -484,9 +484,9 @@ pub unsafe fn SetConsoleCP(wcodepageid: u32) -> windows_core::Result<()> {
     SetConsoleCP(wcodepageid).ok()
 }
 #[inline]
-pub unsafe fn SetConsoleCtrlHandler<P1>(handlerroutine: PHANDLER_ROUTINE, add: P1) -> windows_core::Result<()>
+pub unsafe fn SetConsoleCtrlHandler<P0>(handlerroutine: PHANDLER_ROUTINE, add: P0) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetConsoleCtrlHandler(handlerroutine : PHANDLER_ROUTINE, add : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     SetConsoleCtrlHandler(handlerroutine, add.param().abi()).ok()
@@ -529,17 +529,17 @@ where
     SetConsoleMode(hconsolehandle.param().abi(), dwmode).ok()
 }
 #[inline]
-pub unsafe fn SetConsoleNumberOfCommandsA<P1>(number: u32, exename: P1) -> super::super::Foundation::BOOL
+pub unsafe fn SetConsoleNumberOfCommandsA<P0>(number: u32, exename: P0) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetConsoleNumberOfCommandsA(number : u32, exename : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetConsoleNumberOfCommandsA(number, exename.param().abi())
 }
 #[inline]
-pub unsafe fn SetConsoleNumberOfCommandsW<P1>(number: u32, exename: P1) -> super::super::Foundation::BOOL
+pub unsafe fn SetConsoleNumberOfCommandsW<P0>(number: u32, exename: P0) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetConsoleNumberOfCommandsW(number : u32, exename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetConsoleNumberOfCommandsW(number, exename.param().abi())
@@ -608,17 +608,17 @@ where
     SetCurrentConsoleFontEx(hconsoleoutput.param().abi(), bmaximumwindow.param().abi(), lpconsolecurrentfontex).ok()
 }
 #[inline]
-pub unsafe fn SetStdHandle<P1>(nstdhandle: STD_HANDLE, hhandle: P1) -> windows_core::Result<()>
+pub unsafe fn SetStdHandle<P0>(nstdhandle: STD_HANDLE, hhandle: P0) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetStdHandle(nstdhandle : STD_HANDLE, hhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     SetStdHandle(nstdhandle, hhandle.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetStdHandleEx<P1>(nstdhandle: STD_HANDLE, hhandle: P1, phprevvalue: Option<*mut super::super::Foundation::HANDLE>) -> super::super::Foundation::BOOL
+pub unsafe fn SetStdHandleEx<P0>(nstdhandle: STD_HANDLE, hhandle: P0, phprevvalue: Option<*mut super::super::Foundation::HANDLE>) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetStdHandleEx(nstdhandle : STD_HANDLE, hhandle : super::super::Foundation:: HANDLE, phprevvalue : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     SetStdHandleEx(nstdhandle, hhandle.param().abi(), core::mem::transmute(phprevvalue.unwrap_or(core::ptr::null_mut())))
@@ -787,16 +787,26 @@ pub const STD_INPUT_HANDLE: STD_HANDLE = STD_HANDLE(4294967286u32);
 pub const STD_OUTPUT_HANDLE: STD_HANDLE = STD_HANDLE(4294967285u32);
 pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CONSOLECONTROL(pub i32);
 impl windows_core::TypeKind for CONSOLECONTROL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CONSOLECONTROL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CONSOLECONTROL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CONSOLE_CHARACTER_ATTRIBUTES(pub u16);
 impl windows_core::TypeKind for CONSOLE_CHARACTER_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CONSOLE_CHARACTER_ATTRIBUTES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CONSOLE_CHARACTER_ATTRIBUTES").field(&self.0).finish()
+    }
 }
 impl CONSOLE_CHARACTER_ATTRIBUTES {
     pub const fn contains(&self, other: Self) -> bool {
@@ -832,10 +842,15 @@ impl core::ops::Not for CONSOLE_CHARACTER_ATTRIBUTES {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CONSOLE_MODE(pub u32);
 impl windows_core::TypeKind for CONSOLE_MODE {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CONSOLE_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CONSOLE_MODE").field(&self.0).finish()
+    }
 }
 impl CONSOLE_MODE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -871,128 +886,133 @@ impl core::ops::Not for CONSOLE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct STD_HANDLE(pub u32);
 impl windows_core::TypeKind for STD_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for STD_HANDLE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("STD_HANDLE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CHAR_INFO {
     pub Char: CHAR_INFO_0,
     pub Attributes: u16,
+}
+impl windows_core::TypeKind for CHAR_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CHAR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHAR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CHAR_INFO_0 {
     pub UnicodeChar: u16,
     pub AsciiChar: i8,
+}
+impl windows_core::TypeKind for CHAR_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CHAR_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHAR_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLEENDTASK {
     pub ProcessId: super::super::Foundation::HANDLE,
     pub hwnd: super::super::Foundation::HWND,
     pub ConsoleEventCode: u32,
     pub ConsoleFlags: u32,
 }
+impl windows_core::TypeKind for CONSOLEENDTASK {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CONSOLEENDTASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLEENDTASK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLESETFOREGROUND {
     pub hProcess: super::super::Foundation::HANDLE,
     pub bForeground: super::super::Foundation::BOOL,
+}
+impl windows_core::TypeKind for CONSOLESETFOREGROUND {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CONSOLESETFOREGROUND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLESETFOREGROUND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLEWINDOWOWNER {
     pub hwnd: super::super::Foundation::HWND,
     pub ProcessId: u32,
     pub ThreadId: u32,
+}
+impl windows_core::TypeKind for CONSOLEWINDOWOWNER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CONSOLEWINDOWOWNER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLEWINDOWOWNER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_CARET_INFO {
     pub hwnd: super::super::Foundation::HWND,
     pub rc: super::super::Foundation::RECT,
+}
+impl windows_core::TypeKind for CONSOLE_CARET_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CONSOLE_CARET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLE_CARET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_CURSOR_INFO {
     pub dwSize: u32,
     pub bVisible: super::super::Foundation::BOOL,
+}
+impl windows_core::TypeKind for CONSOLE_CURSOR_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CONSOLE_CURSOR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLE_CURSOR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_FONT_INFO {
     pub nFont: u32,
     pub dwFontSize: COORD,
+}
+impl windows_core::TypeKind for CONSOLE_FONT_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CONSOLE_FONT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLE_FONT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_FONT_INFOEX {
     pub cbSize: u32,
     pub nFont: u32,
@@ -1001,62 +1021,62 @@ pub struct CONSOLE_FONT_INFOEX {
     pub FontWeight: u32,
     pub FaceName: [u16; 32],
 }
+impl windows_core::TypeKind for CONSOLE_FONT_INFOEX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CONSOLE_FONT_INFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLE_FONT_INFOEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_HISTORY_INFO {
     pub cbSize: u32,
     pub HistoryBufferSize: u32,
     pub NumberOfHistoryBuffers: u32,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for CONSOLE_HISTORY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CONSOLE_HISTORY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLE_HISTORY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_PROCESS_INFO {
     pub dwProcessID: u32,
     pub dwFlags: u32,
+}
+impl windows_core::TypeKind for CONSOLE_PROCESS_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CONSOLE_PROCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLE_PROCESS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_READCONSOLE_CONTROL {
     pub nLength: u32,
     pub nInitialChars: u32,
     pub dwCtrlWakeupMask: u32,
     pub dwControlKeyState: u32,
 }
+impl windows_core::TypeKind for CONSOLE_READCONSOLE_CONTROL {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CONSOLE_READCONSOLE_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLE_READCONSOLE_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_SCREEN_BUFFER_INFO {
     pub dwSize: COORD,
     pub dwCursorPosition: COORD,
@@ -1064,16 +1084,16 @@ pub struct CONSOLE_SCREEN_BUFFER_INFO {
     pub srWindow: SMALL_RECT,
     pub dwMaximumWindowSize: COORD,
 }
+impl windows_core::TypeKind for CONSOLE_SCREEN_BUFFER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CONSOLE_SCREEN_BUFFER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLE_SCREEN_BUFFER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_SCREEN_BUFFER_INFOEX {
     pub cbSize: u32,
     pub dwSize: COORD,
@@ -1085,62 +1105,59 @@ pub struct CONSOLE_SCREEN_BUFFER_INFOEX {
     pub bFullscreenSupported: super::super::Foundation::BOOL,
     pub ColorTable: [super::super::Foundation::COLORREF; 16],
 }
+impl windows_core::TypeKind for CONSOLE_SCREEN_BUFFER_INFOEX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CONSOLE_SCREEN_BUFFER_INFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLE_SCREEN_BUFFER_INFOEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_SELECTION_INFO {
     pub dwFlags: u32,
     pub dwSelectionAnchor: COORD,
     pub srSelection: SMALL_RECT,
+}
+impl windows_core::TypeKind for CONSOLE_SELECTION_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CONSOLE_SELECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONSOLE_SELECTION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COORD {
     pub X: i16,
     pub Y: i16,
+}
+impl windows_core::TypeKind for COORD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for COORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FOCUS_EVENT_RECORD {
     pub bSetFocus: super::super::Foundation::BOOL,
+}
+impl windows_core::TypeKind for FOCUS_EVENT_RECORD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FOCUS_EVENT_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FOCUS_EVENT_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPCON(pub isize);
-impl windows_core::TypeKind for HPCON {
-    type TypeKind = windows_core::CopyType;
-}
 impl HPCON {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -1150,27 +1167,34 @@ impl windows_core::Free for HPCON {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("kernel32.dll" "system" fn ClosePseudoConsole(hpc : isize));
-            ClosePseudoConsole(self.0);
+            ClosePseudoConsole(*self);
         }
     }
 }
+impl Default for HPCON {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HPCON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INPUT_RECORD {
     pub EventType: u16,
     pub Event: INPUT_RECORD_0,
+}
+impl windows_core::TypeKind for INPUT_RECORD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for INPUT_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INPUT_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INPUT_RECORD_0 {
     pub KeyEvent: KEY_EVENT_RECORD,
     pub MouseEvent: MOUSE_EVENT_RECORD,
@@ -1178,16 +1202,16 @@ pub union INPUT_RECORD_0 {
     pub MenuEvent: MENU_EVENT_RECORD,
     pub FocusEvent: FOCUS_EVENT_RECORD,
 }
+impl windows_core::TypeKind for INPUT_RECORD_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for INPUT_RECORD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INPUT_RECORD_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KEY_EVENT_RECORD {
     pub bKeyDown: super::super::Foundation::BOOL,
     pub wRepeatCount: u16,
@@ -1196,84 +1220,84 @@ pub struct KEY_EVENT_RECORD {
     pub uChar: KEY_EVENT_RECORD_0,
     pub dwControlKeyState: u32,
 }
+impl windows_core::TypeKind for KEY_EVENT_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KEY_EVENT_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_EVENT_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union KEY_EVENT_RECORD_0 {
     pub UnicodeChar: u16,
     pub AsciiChar: i8,
+}
+impl windows_core::TypeKind for KEY_EVENT_RECORD_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KEY_EVENT_RECORD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_EVENT_RECORD_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MENU_EVENT_RECORD {
     pub dwCommandId: u32,
+}
+impl windows_core::TypeKind for MENU_EVENT_RECORD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MENU_EVENT_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MENU_EVENT_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MOUSE_EVENT_RECORD {
     pub dwMousePosition: COORD,
     pub dwButtonState: u32,
     pub dwControlKeyState: u32,
     pub dwEventFlags: u32,
 }
+impl windows_core::TypeKind for MOUSE_EVENT_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MOUSE_EVENT_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MOUSE_EVENT_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SMALL_RECT {
     pub Left: i16,
     pub Top: i16,
     pub Right: i16,
     pub Bottom: i16,
 }
+impl windows_core::TypeKind for SMALL_RECT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SMALL_RECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SMALL_RECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINDOW_BUFFER_SIZE_RECORD {
     pub dwSize: COORD,
+}
+impl windows_core::TypeKind for WINDOW_BUFFER_SIZE_RECORD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINDOW_BUFFER_SIZE_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINDOW_BUFFER_SIZE_RECORD {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PHANDLER_ROUTINE = Option<unsafe extern "system" fn(ctrltype: u32) -> super::super::Foundation::BOOL>;

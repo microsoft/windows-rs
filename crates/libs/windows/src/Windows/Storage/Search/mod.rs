@@ -76,8 +76,11 @@ pub struct IContentIndexerStatics_Vtbl {
     pub GetIndexer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIndexableContent, IIndexableContent_Vtbl, 0xccf1a05f_d4b5_483a_b06e_e0db1ec420e4);
-impl windows_core::RuntimeType for IIndexableContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IIndexableContent {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IIndexableContent, windows_core::IUnknown, windows_core::IInspectable);
 impl IIndexableContent {
@@ -128,6 +131,9 @@ impl IIndexableContent {
         unsafe { (windows_core::Interface::vtable(this).SetStreamContentType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for IIndexableContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IIndexableContent_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -149,10 +155,6 @@ pub struct IIndexableContent_Vtbl {
     pub SetStreamContentType: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-impl windows_core::RuntimeName for IIndexableContent {
-    const NAME: &'static str = "Windows.Storage.Search.IIndexableContent";
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 pub trait IIndexableContent_Impl: Sized + windows_core::IUnknownImpl {
     fn Id(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
@@ -163,8 +165,12 @@ pub trait IIndexableContent_Impl: Sized + windows_core::IUnknownImpl {
     fn SetStreamContentType(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+impl windows_core::RuntimeName for IIndexableContent {
+    const NAME: &'static str = "Windows.Storage.Search.IIndexableContent";
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl IIndexableContent_Vtbl {
-    pub const fn new<Identity: IIndexableContent_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IIndexableContent_Impl, const OFFSET: isize>() -> IIndexableContent_Vtbl {
         unsafe extern "system" fn Id<Identity: IIndexableContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IIndexableContent_Impl::Id(this) {
@@ -306,13 +312,13 @@ impl windows_core::RuntimeType for IStorageFileQueryResult {
 #[repr(C)]
 pub struct IStorageFileQueryResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetFilesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetFilesAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetFilesAsyncDefaultStartAndCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetFilesAsyncDefaultStartAndCount: usize,
 }
 windows_core::imp::define_interface!(IStorageFileQueryResult2, IStorageFileQueryResult2_Vtbl, 0x4e5db9dd_7141_46c4_8be3_e9dc9e27275c);
@@ -322,14 +328,17 @@ impl windows_core::RuntimeType for IStorageFileQueryResult2 {
 #[repr(C)]
 pub struct IStorageFileQueryResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(all(feature = "Data_Text", feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(all(feature = "Data_Text", feature = "Foundation_Collections"))]
     pub GetMatchingPropertiesWithRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Data_Text", feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(all(feature = "Data_Text", feature = "Foundation_Collections")))]
     GetMatchingPropertiesWithRanges: usize,
 }
 windows_core::imp::define_interface!(IStorageFolderQueryOperations, IStorageFolderQueryOperations_Vtbl, 0xcb43ccc9_446b_4a4f_be97_757771be5203);
-impl windows_core::RuntimeType for IStorageFolderQueryOperations {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IStorageFolderQueryOperations {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IStorageFolderQueryOperations, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageFolderQueryOperations {
@@ -405,7 +414,7 @@ impl IStorageFolderQueryOperations {
             (windows_core::Interface::vtable(this).CreateItemQueryWithOptions)(windows_core::Interface::as_raw(this), queryoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetFilesAsync(&self, query: CommonFileQuery, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
@@ -413,7 +422,7 @@ impl IStorageFolderQueryOperations {
             (windows_core::Interface::vtable(this).GetFilesAsync)(windows_core::Interface::as_raw(this), query, startindex, maxitemstoretrieve, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: CommonFileQuery) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
@@ -470,6 +479,9 @@ impl IStorageFolderQueryOperations {
         }
     }
 }
+impl windows_core::RuntimeType for IStorageFolderQueryOperations {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageFolderQueryOperations_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -482,13 +494,13 @@ pub struct IStorageFolderQueryOperations_Vtbl {
     pub CreateFolderQueryWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateItemQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateItemQueryWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetFilesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFileQuery, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetFilesAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetFilesAsyncOverloadDefaultStartAndCount: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFileQuery, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetFilesAsyncOverloadDefaultStartAndCount: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub GetFoldersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFolderQuery, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -506,33 +518,33 @@ pub struct IStorageFolderQueryOperations_Vtbl {
     pub IsCommonFolderQuerySupported: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFolderQuery, *mut bool) -> windows_core::HRESULT,
     pub IsCommonFileQuerySupported: unsafe extern "system" fn(*mut core::ffi::c_void, CommonFileQuery, *mut bool) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-impl windows_core::RuntimeName for IStorageFolderQueryOperations {
-    const NAME: &'static str = "Windows.Storage.Search.IStorageFolderQueryOperations";
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+#[cfg(feature = "Foundation_Collections")]
 pub trait IStorageFolderQueryOperations_Impl: Sized + windows_core::IUnknownImpl {
     fn GetIndexedStateAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IndexedState>>;
     fn CreateFileQueryOverloadDefault(&self) -> windows_core::Result<StorageFileQueryResult>;
     fn CreateFileQuery(&self, query: CommonFileQuery) -> windows_core::Result<StorageFileQueryResult>;
-    fn CreateFileQueryWithOptions(&self, queryOptions: Option<&QueryOptions>) -> windows_core::Result<StorageFileQueryResult>;
+    fn CreateFileQueryWithOptions(&self, queryoptions: Option<&QueryOptions>) -> windows_core::Result<StorageFileQueryResult>;
     fn CreateFolderQueryOverloadDefault(&self) -> windows_core::Result<StorageFolderQueryResult>;
     fn CreateFolderQuery(&self, query: CommonFolderQuery) -> windows_core::Result<StorageFolderQueryResult>;
-    fn CreateFolderQueryWithOptions(&self, queryOptions: Option<&QueryOptions>) -> windows_core::Result<StorageFolderQueryResult>;
+    fn CreateFolderQueryWithOptions(&self, queryoptions: Option<&QueryOptions>) -> windows_core::Result<StorageFolderQueryResult>;
     fn CreateItemQuery(&self) -> windows_core::Result<StorageItemQueryResult>;
-    fn CreateItemQueryWithOptions(&self, queryOptions: Option<&QueryOptions>) -> windows_core::Result<StorageItemQueryResult>;
-    fn GetFilesAsync(&self, query: CommonFileQuery, startIndex: u32, maxItemsToRetrieve: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
+    fn CreateItemQueryWithOptions(&self, queryoptions: Option<&QueryOptions>) -> windows_core::Result<StorageItemQueryResult>;
+    fn GetFilesAsync(&self, query: CommonFileQuery, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
     fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: CommonFileQuery) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
-    fn GetFoldersAsync(&self, query: CommonFolderQuery, startIndex: u32, maxItemsToRetrieve: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
+    fn GetFoldersAsync(&self, query: CommonFolderQuery, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
     fn GetFoldersAsyncOverloadDefaultStartAndCount(&self, query: CommonFolderQuery) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
-    fn GetItemsAsync(&self, startIndex: u32, maxItemsToRetrieve: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>;
-    fn AreQueryOptionsSupported(&self, queryOptions: Option<&QueryOptions>) -> windows_core::Result<bool>;
+    fn GetItemsAsync(&self, startindex: u32, maxitemstoretrieve: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>;
+    fn AreQueryOptionsSupported(&self, queryoptions: Option<&QueryOptions>) -> windows_core::Result<bool>;
     fn IsCommonFolderQuerySupported(&self, query: CommonFolderQuery) -> windows_core::Result<bool>;
     fn IsCommonFileQuerySupported(&self, query: CommonFileQuery) -> windows_core::Result<bool>;
 }
-#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeName for IStorageFolderQueryOperations {
+    const NAME: &'static str = "Windows.Storage.Search.IStorageFolderQueryOperations";
+}
+#[cfg(feature = "Foundation_Collections")]
 impl IStorageFolderQueryOperations_Vtbl {
-    pub const fn new<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>() -> IStorageFolderQueryOperations_Vtbl {
         unsafe extern "system" fn GetIndexedStateAsync<Identity: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageFolderQueryOperations_Impl::GetIndexedStateAsync(this) {
@@ -795,8 +807,11 @@ pub struct IStorageLibraryContentChangedTriggerDetails_Vtbl {
     pub CreateModifiedSinceQuery: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageQueryResultBase, IStorageQueryResultBase_Vtbl, 0xc297d70d_7353_47ab_ba58_8c61425dc54b);
-impl windows_core::RuntimeType for IStorageQueryResultBase {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IStorageQueryResultBase {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IStorageQueryResultBase, windows_core::IUnknown, windows_core::IInspectable);
 impl IStorageQueryResultBase {
@@ -867,6 +882,9 @@ impl IStorageQueryResultBase {
         unsafe { (windows_core::Interface::vtable(this).ApplyNewQueryOptions)(windows_core::Interface::as_raw(this), newqueryoptions.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for IStorageQueryResultBase {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IStorageQueryResultBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -880,22 +898,22 @@ pub struct IStorageQueryResultBase_Vtbl {
     pub GetCurrentQueryOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ApplyNewQueryOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IStorageQueryResultBase {
-    const NAME: &'static str = "Windows.Storage.Search.IStorageQueryResultBase";
-}
 pub trait IStorageQueryResultBase_Impl: Sized + windows_core::IUnknownImpl {
     fn GetItemCountAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn Folder(&self) -> windows_core::Result<super::StorageFolder>;
     fn ContentsChanged(&self, handler: Option<&super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveContentsChanged(&self, eventCookie: &super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
-    fn OptionsChanged(&self, changedHandler: Option<&super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveOptionsChanged(&self, eventCookie: &super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
+    fn RemoveContentsChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
+    fn OptionsChanged(&self, changedhandler: Option<&super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, windows_core::IInspectable>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveOptionsChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
     fn FindStartIndexAsync(&self, value: Option<&windows_core::IInspectable>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn GetCurrentQueryOptions(&self) -> windows_core::Result<QueryOptions>;
-    fn ApplyNewQueryOptions(&self, newQueryOptions: Option<&QueryOptions>) -> windows_core::Result<()>;
+    fn ApplyNewQueryOptions(&self, newqueryoptions: Option<&QueryOptions>) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IStorageQueryResultBase {
+    const NAME: &'static str = "Windows.Storage.Search.IStorageQueryResultBase";
 }
 impl IStorageQueryResultBase_Vtbl {
-    pub const fn new<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>() -> IStorageQueryResultBase_Vtbl {
         unsafe extern "system" fn GetItemCountAsync<Identity: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStorageQueryResultBase_Impl::GetItemCountAsync(this) {
@@ -1005,7 +1023,6 @@ pub struct IValueAndLanguage_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContentIndexer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContentIndexer, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ContentIndexer,);
 impl ContentIndexer {
     pub fn AddAsync<P0>(&self, indexablecontent: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1053,9 +1070,9 @@ impl ContentIndexer {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<P1>(&self, contentid: &windows_core::HSTRING, propertiestoretrieve: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>
+    pub fn RetrievePropertiesAsync<P0>(&self, contentid: &windows_core::HSTRING, propertiestoretrieve: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
@@ -1071,10 +1088,10 @@ impl ContentIndexer {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateQueryWithSortOrderAndLanguage<P1, P2>(&self, searchfilter: &windows_core::HSTRING, propertiestoretrieve: P1, sortorder: P2, searchfilterlanguage: &windows_core::HSTRING) -> windows_core::Result<ContentIndexerQuery>
+    pub fn CreateQueryWithSortOrderAndLanguage<P0, P1>(&self, searchfilter: &windows_core::HSTRING, propertiestoretrieve: P0, sortorder: P1, searchfilterlanguage: &windows_core::HSTRING) -> windows_core::Result<ContentIndexerQuery>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-        P2: windows_core::Param<super::super::Foundation::Collections::IIterable<SortEntry>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<SortEntry>>,
     {
         let this = &windows_core::Interface::cast::<IContentIndexerQueryOperations>(self)?;
         unsafe {
@@ -1083,10 +1100,10 @@ impl ContentIndexer {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateQueryWithSortOrder<P1, P2>(&self, searchfilter: &windows_core::HSTRING, propertiestoretrieve: P1, sortorder: P2) -> windows_core::Result<ContentIndexerQuery>
+    pub fn CreateQueryWithSortOrder<P0, P1>(&self, searchfilter: &windows_core::HSTRING, propertiestoretrieve: P0, sortorder: P1) -> windows_core::Result<ContentIndexerQuery>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-        P2: windows_core::Param<super::super::Foundation::Collections::IIterable<SortEntry>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<SortEntry>>,
     {
         let this = &windows_core::Interface::cast::<IContentIndexerQueryOperations>(self)?;
         unsafe {
@@ -1095,9 +1112,9 @@ impl ContentIndexer {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateQuery<P1>(&self, searchfilter: &windows_core::HSTRING, propertiestoretrieve: P1) -> windows_core::Result<ContentIndexerQuery>
+    pub fn CreateQuery<P0>(&self, searchfilter: &windows_core::HSTRING, propertiestoretrieve: P0) -> windows_core::Result<ContentIndexerQuery>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IContentIndexerQueryOperations>(self)?;
         unsafe {
@@ -1126,17 +1143,18 @@ impl windows_core::RuntimeType for ContentIndexer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentIndexer>();
 }
 unsafe impl windows_core::Interface for ContentIndexer {
-    type Vtable = <IContentIndexer as windows_core::Interface>::Vtable;
+    type Vtable = IContentIndexer_Vtbl;
     const IID: windows_core::GUID = <IContentIndexer as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContentIndexer {
     const NAME: &'static str = "Windows.Storage.Search.ContentIndexer";
 }
+unsafe impl Send for ContentIndexer {}
+unsafe impl Sync for ContentIndexer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContentIndexerQuery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContentIndexerQuery, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ContentIndexerQuery,);
 impl ContentIndexerQuery {
     pub fn GetCountAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
@@ -1189,17 +1207,18 @@ impl windows_core::RuntimeType for ContentIndexerQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentIndexerQuery>();
 }
 unsafe impl windows_core::Interface for ContentIndexerQuery {
-    type Vtable = <IContentIndexerQuery as windows_core::Interface>::Vtable;
+    type Vtable = IContentIndexerQuery_Vtbl;
     const IID: windows_core::GUID = <IContentIndexerQuery as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ContentIndexerQuery {
     const NAME: &'static str = "Windows.Storage.Search.ContentIndexerQuery";
 }
+unsafe impl Send for ContentIndexerQuery {}
+unsafe impl Sync for ContentIndexerQuery {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IndexableContent(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(IndexableContent, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(IndexableContent, IIndexableContent);
+windows_core::imp::interface_hierarchy!(IndexableContent, windows_core::IUnknown, windows_core::IInspectable, IIndexableContent);
 impl IndexableContent {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1259,17 +1278,18 @@ impl windows_core::RuntimeType for IndexableContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIndexableContent>();
 }
 unsafe impl windows_core::Interface for IndexableContent {
-    type Vtable = <IIndexableContent as windows_core::Interface>::Vtable;
+    type Vtable = IIndexableContent_Vtbl;
     const IID: windows_core::GUID = <IIndexableContent as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IndexableContent {
     const NAME: &'static str = "Windows.Storage.Search.IndexableContent";
 }
+unsafe impl Send for IndexableContent {}
+unsafe impl Sync for IndexableContent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct QueryOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(QueryOptions, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(QueryOptions,);
 impl QueryOptions {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1380,17 +1400,17 @@ impl QueryOptions {
         unsafe { (windows_core::Interface::vtable(this).SetThumbnailPrefetch)(windows_core::Interface::as_raw(this), mode, requestedsize, options).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_FileProperties"))]
-    pub fn SetPropertyPrefetch<P1>(&self, options: super::FileProperties::PropertyPrefetchOptions, propertiestoretrieve: P1) -> windows_core::Result<()>
+    pub fn SetPropertyPrefetch<P0>(&self, options: super::FileProperties::PropertyPrefetchOptions, propertiestoretrieve: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPropertyPrefetch)(windows_core::Interface::as_raw(this), options, propertiestoretrieve.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateCommonFileQuery<P1>(query: CommonFileQuery, filetypefilter: P1) -> windows_core::Result<QueryOptions>
+    pub fn CreateCommonFileQuery<P0>(query: CommonFileQuery, filetypefilter: P0) -> windows_core::Result<QueryOptions>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IQueryOptionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1420,20 +1440,22 @@ impl windows_core::RuntimeType for QueryOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IQueryOptions>();
 }
 unsafe impl windows_core::Interface for QueryOptions {
-    type Vtable = <IQueryOptions as windows_core::Interface>::Vtable;
+    type Vtable = IQueryOptions_Vtbl;
     const IID: windows_core::GUID = <IQueryOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for QueryOptions {
     const NAME: &'static str = "Windows.Storage.Search.QueryOptions";
 }
+unsafe impl Send for QueryOptions {}
+unsafe impl Sync for QueryOptions {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SortEntryVector(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(SortEntryVector, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(SortEntryVector, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVector::<SortEntry>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(SortEntryVector, super::super::Foundation::Collections::IIterable<SortEntry>, super::super::Foundation::Collections::IVector<SortEntry>);
+windows_core::imp::required_hierarchy!(SortEntryVector, super::super::Foundation::Collections::IIterable::<SortEntry>);
 #[cfg(feature = "Foundation_Collections")]
 impl SortEntryVector {
     #[cfg(feature = "Foundation_Collections")]
@@ -1444,6 +1466,7 @@ impl SortEntryVector {
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> windows_core::Result<SortEntry> {
         let this = self;
         unsafe {
@@ -1451,6 +1474,7 @@ impl SortEntryVector {
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
@@ -1466,37 +1490,57 @@ impl SortEntryVector {
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IndexOf(&self, value: &SortEntry, index: &mut u32) -> windows_core::Result<bool> {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<SortEntry>,
+    {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), index, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
-    pub fn SetAt(&self, index: u32, value: &SortEntry) -> windows_core::Result<()> {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetAt<P0>(&self, index: u32, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<SortEntry>,
+    {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(value)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
-    pub fn InsertAt(&self, index: u32, value: &SortEntry) -> windows_core::Result<()> {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn InsertAt<P0>(&self, index: u32, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<SortEntry>,
+    {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, core::mem::transmute_copy(value)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
-    pub fn Append(&self, value: &SortEntry) -> windows_core::Result<()> {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<SortEntry>,
+    {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [SortEntry]) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
@@ -1504,6 +1548,7 @@ impl SortEntryVector {
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[SortEntry]) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
@@ -1515,12 +1560,28 @@ impl windows_core::RuntimeType for SortEntryVector {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for SortEntryVector {
-    type Vtable = <super::super::Foundation::Collections::IVector<SortEntry> as windows_core::Interface>::Vtable;
+    type Vtable = super::super::Foundation::Collections::IVector_Vtbl<SortEntry>;
     const IID: windows_core::GUID = <super::super::Foundation::Collections::IVector<SortEntry> as windows_core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for SortEntryVector {
     const NAME: &'static str = "Windows.Storage.Search.SortEntryVector";
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for SortEntryVector {
+    type Item = SortEntry;
+    type IntoIter = super::super::Foundation::Collections::VectorIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &SortEntryVector {
+    type Item = SortEntry;
+    type IntoIter = super::super::Foundation::Collections::VectorIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        super::super::Foundation::Collections::VectorIterator::new(windows_core::Interface::cast(self).ok())
+    }
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1528,7 +1589,7 @@ pub struct StorageFileQueryResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageFileQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageFileQueryResult, IStorageQueryResultBase);
 impl StorageFileQueryResult {
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetFilesAsync(&self, startindex: u32, maxnumberofitems: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
@@ -1536,7 +1597,7 @@ impl StorageFileQueryResult {
             (windows_core::Interface::vtable(this).GetFilesAsync)(windows_core::Interface::as_raw(this), startindex, maxnumberofitems, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetFilesAsyncDefaultStartAndCount(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>> {
         let this = self;
         unsafe {
@@ -1544,7 +1605,7 @@ impl StorageFileQueryResult {
             (windows_core::Interface::vtable(this).GetFilesAsyncDefaultStartAndCount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Data_Text", feature = "Foundation_Collections", feature = "Storage_Streams"))]
+    #[cfg(all(feature = "Data_Text", feature = "Foundation_Collections"))]
     pub fn GetMatchingPropertiesWithRanges<P0>(&self, file: P0) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>>>
     where
         P0: windows_core::Param<super::StorageFile>,
@@ -1626,7 +1687,7 @@ impl windows_core::RuntimeType for StorageFileQueryResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageFileQueryResult>();
 }
 unsafe impl windows_core::Interface for StorageFileQueryResult {
-    type Vtable = <IStorageFileQueryResult as windows_core::Interface>::Vtable;
+    type Vtable = IStorageFileQueryResult_Vtbl;
     const IID: windows_core::GUID = <IStorageFileQueryResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for StorageFileQueryResult {
@@ -1725,7 +1786,7 @@ impl windows_core::RuntimeType for StorageFolderQueryResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageFolderQueryResult>();
 }
 unsafe impl windows_core::Interface for StorageFolderQueryResult {
-    type Vtable = <IStorageFolderQueryResult as windows_core::Interface>::Vtable;
+    type Vtable = IStorageFolderQueryResult_Vtbl;
     const IID: windows_core::GUID = <IStorageFolderQueryResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for StorageFolderQueryResult {
@@ -1824,7 +1885,7 @@ impl windows_core::RuntimeType for StorageItemQueryResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageItemQueryResult>();
 }
 unsafe impl windows_core::Interface for StorageItemQueryResult {
-    type Vtable = <IStorageItemQueryResult as windows_core::Interface>::Vtable;
+    type Vtable = IStorageItemQueryResult_Vtbl;
     const IID: windows_core::GUID = <IStorageItemQueryResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for StorageItemQueryResult {
@@ -1834,7 +1895,6 @@ impl windows_core::RuntimeName for StorageItemQueryResult {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageLibraryChangeTrackerTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageLibraryChangeTrackerTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(StorageLibraryChangeTrackerTriggerDetails,);
 impl StorageLibraryChangeTrackerTriggerDetails {
     pub fn Folder(&self) -> windows_core::Result<super::StorageFolder> {
         let this = self;
@@ -1855,7 +1915,7 @@ impl windows_core::RuntimeType for StorageLibraryChangeTrackerTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryChangeTrackerTriggerDetails>();
 }
 unsafe impl windows_core::Interface for StorageLibraryChangeTrackerTriggerDetails {
-    type Vtable = <IStorageLibraryChangeTrackerTriggerDetails as windows_core::Interface>::Vtable;
+    type Vtable = IStorageLibraryChangeTrackerTriggerDetails_Vtbl;
     const IID: windows_core::GUID = <IStorageLibraryChangeTrackerTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for StorageLibraryChangeTrackerTriggerDetails {
@@ -1865,7 +1925,6 @@ impl windows_core::RuntimeName for StorageLibraryChangeTrackerTriggerDetails {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageLibraryContentChangedTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageLibraryContentChangedTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(StorageLibraryContentChangedTriggerDetails,);
 impl StorageLibraryContentChangedTriggerDetails {
     pub fn Folder(&self) -> windows_core::Result<super::StorageFolder> {
         let this = self;
@@ -1886,7 +1945,7 @@ impl windows_core::RuntimeType for StorageLibraryContentChangedTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryContentChangedTriggerDetails>();
 }
 unsafe impl windows_core::Interface for StorageLibraryContentChangedTriggerDetails {
-    type Vtable = <IStorageLibraryContentChangedTriggerDetails as windows_core::Interface>::Vtable;
+    type Vtable = IStorageLibraryContentChangedTriggerDetails_Vtbl;
     const IID: windows_core::GUID = <IStorageLibraryContentChangedTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for StorageLibraryContentChangedTriggerDetails {
@@ -1896,7 +1955,6 @@ impl windows_core::RuntimeName for StorageLibraryContentChangedTriggerDetails {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ValueAndLanguage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ValueAndLanguage, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ValueAndLanguage,);
 impl ValueAndLanguage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1935,14 +1993,16 @@ impl windows_core::RuntimeType for ValueAndLanguage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IValueAndLanguage>();
 }
 unsafe impl windows_core::Interface for ValueAndLanguage {
-    type Vtable = <IValueAndLanguage as windows_core::Interface>::Vtable;
+    type Vtable = IValueAndLanguage_Vtbl;
     const IID: windows_core::GUID = <IValueAndLanguage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ValueAndLanguage {
     const NAME: &'static str = "Windows.Storage.Search.ValueAndLanguage";
 }
+unsafe impl Send for ValueAndLanguage {}
+unsafe impl Sync for ValueAndLanguage {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CommonFileQuery(pub i32);
 impl CommonFileQuery {
     pub const DefaultQuery: Self = Self(0i32);
@@ -1955,11 +2015,16 @@ impl CommonFileQuery {
 impl windows_core::TypeKind for CommonFileQuery {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CommonFileQuery {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CommonFileQuery").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for CommonFileQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFileQuery;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CommonFolderQuery(pub i32);
 impl CommonFolderQuery {
     pub const DefaultQuery: Self = Self(0i32);
@@ -1979,11 +2044,16 @@ impl CommonFolderQuery {
 impl windows_core::TypeKind for CommonFolderQuery {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CommonFolderQuery {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CommonFolderQuery").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for CommonFolderQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFolderQuery;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DateStackOption(pub i32);
 impl DateStackOption {
     pub const None: Self = Self(0i32);
@@ -1993,11 +2063,16 @@ impl DateStackOption {
 impl windows_core::TypeKind for DateStackOption {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DateStackOption {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DateStackOption").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DateStackOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.DateStackOption;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FolderDepth(pub i32);
 impl FolderDepth {
     pub const Shallow: Self = Self(0i32);
@@ -2006,11 +2081,16 @@ impl FolderDepth {
 impl windows_core::TypeKind for FolderDepth {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FolderDepth {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FolderDepth").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for FolderDepth {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.FolderDepth;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IndexedState(pub i32);
 impl IndexedState {
     pub const Unknown: Self = Self(0i32);
@@ -2021,11 +2101,16 @@ impl IndexedState {
 impl windows_core::TypeKind for IndexedState {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IndexedState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IndexedState").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for IndexedState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexedState;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IndexerOption(pub i32);
 impl IndexerOption {
     pub const UseIndexerWhenAvailable: Self = Self(0i32);
@@ -2036,11 +2121,16 @@ impl IndexerOption {
 impl windows_core::TypeKind for IndexerOption {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IndexerOption {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IndexerOption").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for IndexerOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexerOption;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SortEntry {
     pub PropertyName: windows_core::HSTRING,
     pub AscendingOrder: bool,
@@ -2050,4 +2140,9 @@ impl windows_core::TypeKind for SortEntry {
 }
 impl windows_core::RuntimeType for SortEntry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Storage.Search.SortEntry;string;b1)");
+}
+impl Default for SortEntry {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

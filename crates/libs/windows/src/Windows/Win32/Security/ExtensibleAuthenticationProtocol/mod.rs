@@ -1,7 +1,7 @@
 #[inline]
-pub unsafe fn EapHostPeerBeginSession<P3>(dwflags: u32, eaptype: EAP_METHOD_TYPE, pattributearray: *const EAP_ATTRIBUTES, htokenimpersonateuser: P3, dwsizeofconnectiondata: u32, pconnectiondata: *const u8, dwsizeofuserdata: u32, puserdata: *const u8, dwmaxsendpacketsize: u32, pconnectionid: *const windows_core::GUID, func: NotificationHandler, pcontextdata: *mut core::ffi::c_void, psessionid: *mut u32, ppeaperror: *mut *mut EAP_ERROR) -> u32
+pub unsafe fn EapHostPeerBeginSession<P0>(dwflags: u32, eaptype: EAP_METHOD_TYPE, pattributearray: *const EAP_ATTRIBUTES, htokenimpersonateuser: P0, dwsizeofconnectiondata: u32, pconnectiondata: *const u8, dwsizeofuserdata: u32, puserdata: *const u8, dwmaxsendpacketsize: u32, pconnectionid: *const windows_core::GUID, func: NotificationHandler, pcontextdata: *mut core::ffi::c_void, psessionid: *mut u32, ppeaperror: *mut *mut EAP_ERROR) -> u32
 where
-    P3: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerBeginSession(dwflags : u32, eaptype : EAP_METHOD_TYPE, pattributearray : *const EAP_ATTRIBUTES, htokenimpersonateuser : super::super::Foundation:: HANDLE, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, dwmaxsendpacketsize : u32, pconnectionid : *const windows_core::GUID, func : NotificationHandler, pcontextdata : *mut core::ffi::c_void, psessionid : *mut u32, ppeaperror : *mut *mut EAP_ERROR) -> u32);
     EapHostPeerBeginSession(dwflags, core::mem::transmute(eaptype), pattributearray, htokenimpersonateuser.param().abi(), dwsizeofconnectiondata, pconnectiondata, dwsizeofuserdata, puserdata, dwmaxsendpacketsize, pconnectionid, func, pcontextdata, psessionid, ppeaperror)
@@ -19,18 +19,18 @@ pub unsafe fn EapHostPeerConfigBlob2Xml(dwflags: u32, eapmethodtype: EAP_METHOD_
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn EapHostPeerConfigXml2Blob<P1>(dwflags: u32, pconfigdoc: P1, pdwsizeofconfigout: *mut u32, ppconfigout: *mut *mut u8, peapmethodtype: *mut EAP_METHOD_TYPE, ppeaperror: *mut *mut EAP_ERROR) -> u32
+pub unsafe fn EapHostPeerConfigXml2Blob<P0>(dwflags: u32, pconfigdoc: P0, pdwsizeofconfigout: *mut u32, ppconfigout: *mut *mut u8, peapmethodtype: *mut EAP_METHOD_TYPE, ppeaperror: *mut *mut EAP_ERROR) -> u32
 where
-    P1: windows_core::Param<super::super::Data::Xml::MsXml::IXMLDOMNode>,
+    P0: windows_core::Param<super::super::Data::Xml::MsXml::IXMLDOMNode>,
 {
     windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerConfigXml2Blob(dwflags : u32, pconfigdoc : * mut core::ffi::c_void, pdwsizeofconfigout : *mut u32, ppconfigout : *mut *mut u8, peapmethodtype : *mut EAP_METHOD_TYPE, ppeaperror : *mut *mut EAP_ERROR) -> u32);
     EapHostPeerConfigXml2Blob(dwflags, pconfigdoc.param().abi(), pdwsizeofconfigout, ppconfigout, peapmethodtype, ppeaperror)
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn EapHostPeerCredentialsXml2Blob<P1>(dwflags: u32, pcredentialsdoc: P1, pconfigin: &[u8], pdwsizeofcredentialsout: *mut u32, ppcredentialsout: *mut *mut u8, peapmethodtype: *mut EAP_METHOD_TYPE, ppeaperror: *mut *mut EAP_ERROR) -> u32
+pub unsafe fn EapHostPeerCredentialsXml2Blob<P0>(dwflags: u32, pcredentialsdoc: P0, pconfigin: &[u8], pdwsizeofcredentialsout: *mut u32, ppcredentialsout: *mut *mut u8, peapmethodtype: *mut EAP_METHOD_TYPE, ppeaperror: *mut *mut EAP_ERROR) -> u32
 where
-    P1: windows_core::Param<super::super::Data::Xml::MsXml::IXMLDOMNode>,
+    P0: windows_core::Param<super::super::Data::Xml::MsXml::IXMLDOMNode>,
 {
     windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerCredentialsXml2Blob(dwflags : u32, pcredentialsdoc : * mut core::ffi::c_void, dwsizeofconfigin : u32, pconfigin : *const u8, pdwsizeofcredentialsout : *mut u32, ppcredentialsout : *mut *mut u8, peapmethodtype : *mut EAP_METHOD_TYPE, ppeaperror : *mut *mut EAP_ERROR) -> u32);
     EapHostPeerCredentialsXml2Blob(dwflags, pcredentialsdoc.param().abi(), pconfigin.len().try_into().unwrap(), core::mem::transmute(pconfigin.as_ptr()), pdwsizeofcredentialsout, ppcredentialsout, peapmethodtype, ppeaperror)
@@ -71,25 +71,25 @@ pub unsafe fn EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedc
     EapHostPeerGetDataToUnplumbCredentials(pconnectionidthatlastsavedcreds, phcredentialimpersonationtoken, sessionhandle, ppeaperror, fsavetocredman)
 }
 #[inline]
-pub unsafe fn EapHostPeerGetEncryptedPassword<P1>(dwsizeofpassword: u32, szpassword: P1, ppszencpassword: *mut windows_core::PWSTR) -> u32
+pub unsafe fn EapHostPeerGetEncryptedPassword<P0>(dwsizeofpassword: u32, szpassword: P0, ppszencpassword: *mut windows_core::PWSTR) -> u32
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerGetEncryptedPassword(dwsizeofpassword : u32, szpassword : windows_core::PCWSTR, ppszencpassword : *mut windows_core::PWSTR) -> u32);
     EapHostPeerGetEncryptedPassword(dwsizeofpassword, szpassword.param().abi(), ppszencpassword)
 }
 #[inline]
-pub unsafe fn EapHostPeerGetIdentity<P7>(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, pconnectiondata: &[u8], puserdata: Option<&[u8]>, htokenimpersonateuser: P7, pfinvokeui: *mut super::super::Foundation::BOOL, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut windows_core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut u8) -> u32
+pub unsafe fn EapHostPeerGetIdentity<P0>(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, pconnectiondata: &[u8], puserdata: Option<&[u8]>, htokenimpersonateuser: P0, pfinvokeui: *mut super::super::Foundation::BOOL, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut windows_core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut u8) -> u32
 where
-    P7: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerGetIdentity(dwversion : u32, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, htokenimpersonateuser : super::super::Foundation:: HANDLE, pfinvokeui : *mut super::super::Foundation:: BOOL, pdwsizeofuserdataout : *mut u32, ppuserdataout : *mut *mut u8, ppwszidentity : *mut windows_core::PWSTR, ppeaperror : *mut *mut EAP_ERROR, ppvreserved : *mut *mut u8) -> u32);
     EapHostPeerGetIdentity(dwversion, dwflags, core::mem::transmute(eapmethodtype), pconnectiondata.len().try_into().unwrap(), core::mem::transmute(pconnectiondata.as_ptr()), puserdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(puserdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), htokenimpersonateuser.param().abi(), pfinvokeui, pdwsizeofuserdataout, ppuserdataout, ppwszidentity, ppeaperror, ppvreserved)
 }
 #[inline]
-pub unsafe fn EapHostPeerGetMethodProperties<P3>(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, huserimpersonationtoken: P3, pbeapconndata: &[u8], pbuserdata: &[u8], pmethodpropertyarray: *mut EAP_METHOD_PROPERTY_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32
+pub unsafe fn EapHostPeerGetMethodProperties<P0>(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, huserimpersonationtoken: P0, pbeapconndata: &[u8], pbuserdata: &[u8], pmethodpropertyarray: *mut EAP_METHOD_PROPERTY_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32
 where
-    P3: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerGetMethodProperties(dwversion : u32, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, huserimpersonationtoken : super::super::Foundation:: HANDLE, dweapconndatasize : u32, pbeapconndata : *const u8, dwuserdatasize : u32, pbuserdata : *const u8, pmethodpropertyarray : *mut EAP_METHOD_PROPERTY_ARRAY, ppeaperror : *mut *mut EAP_ERROR) -> u32);
     EapHostPeerGetMethodProperties(dwversion, dwflags, core::mem::transmute(eapmethodtype), huserimpersonationtoken.param().abi(), pbeapconndata.len().try_into().unwrap(), core::mem::transmute(pbeapconndata.as_ptr()), pbuserdata.len().try_into().unwrap(), core::mem::transmute(pbuserdata.as_ptr()), pmethodpropertyarray, ppeaperror)
@@ -133,9 +133,9 @@ where
     EapHostPeerInvokeConfigUI(hwndparent.param().abi(), dwflags, core::mem::transmute(eapmethodtype), pconfigin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pconfigin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdwsizeofconfigout, ppconfigout, ppeaperror)
 }
 #[inline]
-pub unsafe fn EapHostPeerInvokeIdentityUI<P3>(dwversion: u32, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, hwndparent: P3, pconnectiondata: &[u8], puserdata: Option<&[u8]>, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut windows_core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut core::ffi::c_void) -> u32
+pub unsafe fn EapHostPeerInvokeIdentityUI<P0>(dwversion: u32, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, hwndparent: P0, pconnectiondata: &[u8], puserdata: Option<&[u8]>, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut windows_core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut core::ffi::c_void) -> u32
 where
-    P3: windows_core::Param<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerInvokeIdentityUI(dwversion : u32, eapmethodtype : EAP_METHOD_TYPE, dwflags : u32, hwndparent : super::super::Foundation:: HWND, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, pdwsizeofuserdataout : *mut u32, ppuserdataout : *mut *mut u8, ppwszidentity : *mut windows_core::PWSTR, ppeaperror : *mut *mut EAP_ERROR, ppvreserved : *mut *mut core::ffi::c_void) -> u32);
     EapHostPeerInvokeIdentityUI(dwversion, core::mem::transmute(eapmethodtype), dwflags, hwndparent.param().abi(), pconnectiondata.len().try_into().unwrap(), core::mem::transmute(pconnectiondata.as_ptr()), puserdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(puserdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdwsizeofuserdataout, ppuserdataout, ppwszidentity, ppeaperror, ppvreserved)
@@ -195,6 +195,12 @@ pub unsafe fn EapHostPeerUninitialize() {
     EapHostPeerUninitialize()
 }
 windows_core::imp::define_interface!(IAccountingProviderConfig, IAccountingProviderConfig_Vtbl, 0x66a2db18_d706_11d0_a37b_00c04fc9da04);
+impl core::ops::Deref for IAccountingProviderConfig {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAccountingProviderConfig, windows_core::IUnknown);
 impl IAccountingProviderConfig {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0) -> windows_core::Result<usize>
@@ -207,9 +213,9 @@ impl IAccountingProviderConfig {
     pub unsafe fn Uninitialize(&self, uconnectionparam: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Uninitialize)(windows_core::Interface::as_raw(self), uconnectionparam).ok()
     }
-    pub unsafe fn Configure<P1>(&self, uconnectionparam: usize, hwnd: P1, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>
+    pub unsafe fn Configure<P0>(&self, uconnectionparam: usize, hwnd: P0, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), uconnectionparam, hwnd.param().abi(), dwflags, ureserved1, ureserved2).ok()
     }
@@ -229,15 +235,16 @@ pub struct IAccountingProviderConfig_Vtbl {
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, usize) -> windows_core::HRESULT,
     pub Deactivate: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, usize) -> windows_core::HRESULT,
 }
-pub trait IAccountingProviderConfig_Impl: windows_core::IUnknownImpl {
+pub trait IAccountingProviderConfig_Impl: Sized + windows_core::IUnknownImpl {
     fn Initialize(&self, pszmachinename: &windows_core::PCWSTR) -> windows_core::Result<usize>;
     fn Uninitialize(&self, uconnectionparam: usize) -> windows_core::Result<()>;
     fn Configure(&self, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>;
     fn Activate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>;
     fn Deactivate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IAccountingProviderConfig {}
 impl IAccountingProviderConfig_Vtbl {
-    pub const fn new<Identity: IAccountingProviderConfig_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IAccountingProviderConfig_Impl, const OFFSET: isize>() -> IAccountingProviderConfig_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IAccountingProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, puconnectionparam: *mut usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAccountingProviderConfig_Impl::Initialize(this, core::mem::transmute(&pszmachinename)) {
@@ -277,8 +284,13 @@ impl IAccountingProviderConfig_Vtbl {
         iid == &<IAccountingProviderConfig as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IAccountingProviderConfig {}
 windows_core::imp::define_interface!(IAuthenticationProviderConfig, IAuthenticationProviderConfig_Vtbl, 0x66a2db17_d706_11d0_a37b_00c04fc9da04);
+impl core::ops::Deref for IAuthenticationProviderConfig {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAuthenticationProviderConfig, windows_core::IUnknown);
 impl IAuthenticationProviderConfig {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0) -> windows_core::Result<usize>
@@ -291,9 +303,9 @@ impl IAuthenticationProviderConfig {
     pub unsafe fn Uninitialize(&self, uconnectionparam: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Uninitialize)(windows_core::Interface::as_raw(self), uconnectionparam).ok()
     }
-    pub unsafe fn Configure<P1>(&self, uconnectionparam: usize, hwnd: P1, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>
+    pub unsafe fn Configure<P0>(&self, uconnectionparam: usize, hwnd: P0, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), uconnectionparam, hwnd.param().abi(), dwflags, ureserved1, ureserved2).ok()
     }
@@ -313,15 +325,16 @@ pub struct IAuthenticationProviderConfig_Vtbl {
     pub Activate: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, usize) -> windows_core::HRESULT,
     pub Deactivate: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, usize) -> windows_core::HRESULT,
 }
-pub trait IAuthenticationProviderConfig_Impl: windows_core::IUnknownImpl {
+pub trait IAuthenticationProviderConfig_Impl: Sized + windows_core::IUnknownImpl {
     fn Initialize(&self, pszmachinename: &windows_core::PCWSTR) -> windows_core::Result<usize>;
     fn Uninitialize(&self, uconnectionparam: usize) -> windows_core::Result<()>;
     fn Configure(&self, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, dwflags: u32, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>;
     fn Activate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>;
     fn Deactivate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IAuthenticationProviderConfig {}
 impl IAuthenticationProviderConfig_Vtbl {
-    pub const fn new<Identity: IAuthenticationProviderConfig_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IAuthenticationProviderConfig_Impl, const OFFSET: isize>() -> IAuthenticationProviderConfig_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IAuthenticationProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, puconnectionparam: *mut usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IAuthenticationProviderConfig_Impl::Initialize(this, core::mem::transmute(&pszmachinename)) {
@@ -361,8 +374,13 @@ impl IAuthenticationProviderConfig_Vtbl {
         iid == &<IAuthenticationProviderConfig as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IAuthenticationProviderConfig {}
 windows_core::imp::define_interface!(IEAPProviderConfig, IEAPProviderConfig_Vtbl, 0x66a2db19_d706_11d0_a37b_00c04fc9da04);
+impl core::ops::Deref for IEAPProviderConfig {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEAPProviderConfig, windows_core::IUnknown);
 impl IEAPProviderConfig {
     pub unsafe fn Initialize<P0>(&self, pszmachinename: P0, dweaptypeid: u32) -> windows_core::Result<usize>
@@ -375,21 +393,21 @@ impl IEAPProviderConfig {
     pub unsafe fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Uninitialize)(windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam).ok()
     }
-    pub unsafe fn ServerInvokeConfigUI<P2>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P2, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>
+    pub unsafe fn ServerInvokeConfigUI<P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P0, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         (windows_core::Interface::vtable(self).ServerInvokeConfigUI)(windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwnd.param().abi(), ureserved1, ureserved2).ok()
     }
-    pub unsafe fn RouterInvokeConfigUI<P2>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P2, dwflags: u32, pconnectiondatain: &[u8], ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn RouterInvokeConfigUI<P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P0, dwflags: u32, pconnectiondatain: &[u8], ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         (windows_core::Interface::vtable(self).RouterInvokeConfigUI)(windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwndparent.param().abi(), dwflags, core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len().try_into().unwrap(), ppconnectiondataout, pdwsizeofconnectiondataout).ok()
     }
-    pub unsafe fn RouterInvokeCredentialsUI<P2>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P2, dwflags: u32, pconnectiondatain: &[u8], puserdatain: &[u8], ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn RouterInvokeCredentialsUI<P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: P0, dwflags: u32, pconnectiondatain: &[u8], puserdatain: &[u8], ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         (windows_core::Interface::vtable(self).RouterInvokeCredentialsUI)(windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwndparent.param().abi(), dwflags, core::mem::transmute(pconnectiondatain.as_ptr()), pconnectiondatain.len().try_into().unwrap(), core::mem::transmute(puserdatain.as_ptr()), puserdatain.len().try_into().unwrap(), ppuserdataout, pdwsizeofuserdataout).ok()
     }
@@ -403,15 +421,16 @@ pub struct IEAPProviderConfig_Vtbl {
     pub RouterInvokeConfigUI: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize, super::super::Foundation::HWND, u32, *const u8, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub RouterInvokeCredentialsUI: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize, super::super::Foundation::HWND, u32, *const u8, u32, *const u8, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-pub trait IEAPProviderConfig_Impl: windows_core::IUnknownImpl {
+pub trait IEAPProviderConfig_Impl: Sized + windows_core::IUnknownImpl {
     fn Initialize(&self, pszmachinename: &windows_core::PCWSTR, dweaptypeid: u32) -> windows_core::Result<usize>;
     fn Uninitialize(&self, dweaptypeid: u32, uconnectionparam: usize) -> windows_core::Result<()>;
     fn ServerInvokeConfigUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, ureserved1: usize, ureserved2: usize) -> windows_core::Result<()>;
     fn RouterInvokeConfigUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: super::super::Foundation::HWND, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> windows_core::Result<()>;
     fn RouterInvokeCredentialsUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: super::super::Foundation::HWND, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, puserdatain: *const u8, dwsizeofuserdatain: u32, ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IEAPProviderConfig {}
 impl IEAPProviderConfig_Vtbl {
-    pub const fn new<Identity: IEAPProviderConfig_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEAPProviderConfig_Impl, const OFFSET: isize>() -> IEAPProviderConfig_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IEAPProviderConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, dweaptypeid: u32, puconnectionparam: *mut usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEAPProviderConfig_Impl::Initialize(this, core::mem::transmute(&pszmachinename), core::mem::transmute_copy(&dweaptypeid)) {
@@ -451,7 +470,6 @@ impl IEAPProviderConfig_Vtbl {
         iid == &<IEAPProviderConfig as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IEAPProviderConfig {}
 windows_core::imp::define_interface!(IEAPProviderConfig2, IEAPProviderConfig2_Vtbl, 0xd565917a_85c4_4466_856e_671c3742ea9a);
 impl core::ops::Deref for IEAPProviderConfig2 {
     type Target = IEAPProviderConfig;
@@ -461,9 +479,9 @@ impl core::ops::Deref for IEAPProviderConfig2 {
 }
 windows_core::imp::interface_hierarchy!(IEAPProviderConfig2, windows_core::IUnknown, IEAPProviderConfig);
 impl IEAPProviderConfig2 {
-    pub unsafe fn ServerInvokeConfigUI2<P2>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P2, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn ServerInvokeConfigUI2<P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P0, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         (windows_core::Interface::vtable(self).ServerInvokeConfigUI2)(windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwnd.param().abi(), pconfigdatain, dwsizeofconfigdatain, ppconfigdataout, pdwsizeofconfigdataout).ok()
     }
@@ -477,12 +495,13 @@ pub struct IEAPProviderConfig2_Vtbl {
     pub ServerInvokeConfigUI2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize, super::super::Foundation::HWND, *const u8, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetGlobalConfig: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-pub trait IEAPProviderConfig2_Impl: IEAPProviderConfig_Impl {
+pub trait IEAPProviderConfig2_Impl: Sized + IEAPProviderConfig_Impl {
     fn ServerInvokeConfigUI2(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> windows_core::Result<()>;
     fn GetGlobalConfig(&self, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IEAPProviderConfig2 {}
 impl IEAPProviderConfig2_Vtbl {
-    pub const fn new<Identity: IEAPProviderConfig2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEAPProviderConfig2_Impl, const OFFSET: isize>() -> IEAPProviderConfig2_Vtbl {
         unsafe extern "system" fn ServerInvokeConfigUI2<Identity: IEAPProviderConfig2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEAPProviderConfig2_Impl::ServerInvokeConfigUI2(this, core::mem::transmute_copy(&dweaptypeid), core::mem::transmute_copy(&uconnectionparam), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&pconfigdatain), core::mem::transmute_copy(&dwsizeofconfigdatain), core::mem::transmute_copy(&ppconfigdataout), core::mem::transmute_copy(&pdwsizeofconfigdataout)).into()
@@ -498,10 +517,9 @@ impl IEAPProviderConfig2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEAPProviderConfig2 as windows_core::Interface>::IID
+        iid == &<IEAPProviderConfig2 as windows_core::Interface>::IID || iid == &<IEAPProviderConfig as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IEAPProviderConfig2 {}
 windows_core::imp::define_interface!(IEAPProviderConfig3, IEAPProviderConfig3_Vtbl, 0xb78ecd12_68bb_4f86_9bf0_8438dd3be982);
 impl core::ops::Deref for IEAPProviderConfig3 {
     type Target = IEAPProviderConfig2;
@@ -511,9 +529,9 @@ impl core::ops::Deref for IEAPProviderConfig3 {
 }
 windows_core::imp::interface_hierarchy!(IEAPProviderConfig3, windows_core::IUnknown, IEAPProviderConfig, IEAPProviderConfig2);
 impl IEAPProviderConfig3 {
-    pub unsafe fn ServerInvokeCertificateConfigUI<P2>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P2, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> windows_core::Result<()>
+    pub unsafe fn ServerInvokeCertificateConfigUI<P0>(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: P0, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::Foundation::HWND>,
     {
         (windows_core::Interface::vtable(self).ServerInvokeCertificateConfigUI)(windows_core::Interface::as_raw(self), dweaptypeid, uconnectionparam, hwnd.param().abi(), pconfigdatain, dwsizeofconfigdatain, ppconfigdataout, pdwsizeofconfigdataout, ureserved).ok()
     }
@@ -523,11 +541,12 @@ pub struct IEAPProviderConfig3_Vtbl {
     pub base__: IEAPProviderConfig2_Vtbl,
     pub ServerInvokeCertificateConfigUI: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize, super::super::Foundation::HWND, *const u8, u32, *mut *mut u8, *mut u32, usize) -> windows_core::HRESULT,
 }
-pub trait IEAPProviderConfig3_Impl: IEAPProviderConfig2_Impl {
+pub trait IEAPProviderConfig3_Impl: Sized + IEAPProviderConfig2_Impl {
     fn ServerInvokeCertificateConfigUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IEAPProviderConfig3 {}
 impl IEAPProviderConfig3_Vtbl {
-    pub const fn new<Identity: IEAPProviderConfig3_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEAPProviderConfig3_Impl, const OFFSET: isize>() -> IEAPProviderConfig3_Vtbl {
         unsafe extern "system" fn ServerInvokeCertificateConfigUI<Identity: IEAPProviderConfig3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEAPProviderConfig3_Impl::ServerInvokeCertificateConfigUI(this, core::mem::transmute_copy(&dweaptypeid), core::mem::transmute_copy(&uconnectionparam), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&pconfigdatain), core::mem::transmute_copy(&dwsizeofconfigdatain), core::mem::transmute_copy(&ppconfigdataout), core::mem::transmute_copy(&pdwsizeofconfigdataout), core::mem::transmute_copy(&ureserved)).into()
@@ -538,26 +557,31 @@ impl IEAPProviderConfig3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEAPProviderConfig3 as windows_core::Interface>::IID
+        iid == &<IEAPProviderConfig3 as windows_core::Interface>::IID || iid == &<IEAPProviderConfig as windows_core::Interface>::IID || iid == &<IEAPProviderConfig2 as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IEAPProviderConfig3 {}
 windows_core::imp::define_interface!(IRouterProtocolConfig, IRouterProtocolConfig_Vtbl, 0x66a2db16_d706_11d0_a37b_00c04fc9da04);
+impl core::ops::Deref for IRouterProtocolConfig {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IRouterProtocolConfig, windows_core::IUnknown);
 impl IRouterProtocolConfig {
-    pub unsafe fn AddProtocol<P0, P3, P5>(&self, pszmachinename: P0, dwtransportid: u32, dwprotocolid: u32, hwnd: P3, dwflags: u32, prouter: P5, ureserved1: usize) -> windows_core::Result<()>
+    pub unsafe fn AddProtocol<P0, P1, P2>(&self, pszmachinename: P0, dwtransportid: u32, dwprotocolid: u32, hwnd: P1, dwflags: u32, prouter: P2, ureserved1: usize) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<super::super::Foundation::HWND>,
-        P5: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<super::super::Foundation::HWND>,
+        P2: windows_core::Param<windows_core::IUnknown>,
     {
         (windows_core::Interface::vtable(self).AddProtocol)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), dwtransportid, dwprotocolid, hwnd.param().abi(), dwflags, prouter.param().abi(), ureserved1).ok()
     }
-    pub unsafe fn RemoveProtocol<P0, P3, P5>(&self, pszmachinename: P0, dwtransportid: u32, dwprotocolid: u32, hwnd: P3, dwflags: u32, prouter: P5, ureserved1: usize) -> windows_core::Result<()>
+    pub unsafe fn RemoveProtocol<P0, P1, P2>(&self, pszmachinename: P0, dwtransportid: u32, dwprotocolid: u32, hwnd: P1, dwflags: u32, prouter: P2, ureserved1: usize) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<super::super::Foundation::HWND>,
-        P5: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<super::super::Foundation::HWND>,
+        P2: windows_core::Param<windows_core::IUnknown>,
     {
         (windows_core::Interface::vtable(self).RemoveProtocol)(windows_core::Interface::as_raw(self), pszmachinename.param().abi(), dwtransportid, dwprotocolid, hwnd.param().abi(), dwflags, prouter.param().abi(), ureserved1).ok()
     }
@@ -568,12 +592,13 @@ pub struct IRouterProtocolConfig_Vtbl {
     pub AddProtocol: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u32, super::super::Foundation::HWND, u32, *mut core::ffi::c_void, usize) -> windows_core::HRESULT,
     pub RemoveProtocol: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u32, super::super::Foundation::HWND, u32, *mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
-pub trait IRouterProtocolConfig_Impl: windows_core::IUnknownImpl {
+pub trait IRouterProtocolConfig_Impl: Sized + windows_core::IUnknownImpl {
     fn AddProtocol(&self, pszmachinename: &windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: Option<&windows_core::IUnknown>, ureserved1: usize) -> windows_core::Result<()>;
     fn RemoveProtocol(&self, pszmachinename: &windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: Option<&windows_core::IUnknown>, ureserved1: usize) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IRouterProtocolConfig {}
 impl IRouterProtocolConfig_Vtbl {
-    pub const fn new<Identity: IRouterProtocolConfig_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IRouterProtocolConfig_Impl, const OFFSET: isize>() -> IRouterProtocolConfig_Vtbl {
         unsafe extern "system" fn AddProtocol<Identity: IRouterProtocolConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszmachinename: windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut core::ffi::c_void, ureserved1: usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IRouterProtocolConfig_Impl::AddProtocol(this, core::mem::transmute(&pszmachinename), core::mem::transmute_copy(&dwtransportid), core::mem::transmute_copy(&dwprotocolid), core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&dwflags), windows_core::from_raw_borrowed(&prouter), core::mem::transmute_copy(&ureserved1)).into()
@@ -592,7 +617,6 @@ impl IRouterProtocolConfig_Vtbl {
         iid == &<IRouterProtocolConfig as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IRouterProtocolConfig {}
 pub const CERTIFICATE_HASH_LENGTH: u32 = 20u32;
 pub const EAPACTION_Authenticate: PPP_EAP_ACTION = PPP_EAP_ACTION(1i32);
 pub const EAPACTION_Done: PPP_EAP_ACTION = PPP_EAP_ACTION(2i32);
@@ -1142,130 +1166,220 @@ pub const raatUserName: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(1i32);
 pub const raatUserPassword: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(2i32);
 pub const raatVendorSpecific: RAS_AUTH_ATTRIBUTE_TYPE = RAS_AUTH_ATTRIBUTE_TYPE(26i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EAPHOST_AUTH_STATUS(pub i32);
 impl windows_core::TypeKind for EAPHOST_AUTH_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EAPHOST_AUTH_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EAPHOST_AUTH_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EAP_ATTRIBUTE_TYPE(pub i32);
 impl windows_core::TypeKind for EAP_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EAP_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EAP_ATTRIBUTE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EAP_AUTHENTICATOR_SEND_TIMEOUT(pub i32);
 impl windows_core::TypeKind for EAP_AUTHENTICATOR_SEND_TIMEOUT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EAP_AUTHENTICATOR_SEND_TIMEOUT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EAP_AUTHENTICATOR_SEND_TIMEOUT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EAP_CONFIG_INPUT_FIELD_TYPE(pub i32);
 impl windows_core::TypeKind for EAP_CONFIG_INPUT_FIELD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EAP_CONFIG_INPUT_FIELD_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EAP_CONFIG_INPUT_FIELD_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EAP_INTERACTIVE_UI_DATA_TYPE(pub i32);
 impl windows_core::TypeKind for EAP_INTERACTIVE_UI_DATA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EAP_INTERACTIVE_UI_DATA_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EAP_INTERACTIVE_UI_DATA_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION(pub i32);
 impl windows_core::TypeKind for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EAP_METHOD_PROPERTY_TYPE(pub i32);
 impl windows_core::TypeKind for EAP_METHOD_PROPERTY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EAP_METHOD_PROPERTY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EAP_METHOD_PROPERTY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EAP_METHOD_PROPERTY_VALUE_TYPE(pub i32);
 impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EAP_METHOD_PROPERTY_VALUE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EAP_METHOD_PROPERTY_VALUE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EapCode(pub i32);
 impl windows_core::TypeKind for EapCode {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EapCode {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EapCode").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EapCredentialType(pub i32);
 impl windows_core::TypeKind for EapCredentialType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EapCredentialType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EapCredentialType").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EapHostPeerAuthParams(pub i32);
 impl windows_core::TypeKind for EapHostPeerAuthParams {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EapHostPeerAuthParams {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EapHostPeerAuthParams").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EapHostPeerMethodResultReason(pub i32);
 impl windows_core::TypeKind for EapHostPeerMethodResultReason {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EapHostPeerMethodResultReason {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EapHostPeerMethodResultReason").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EapHostPeerResponseAction(pub i32);
 impl windows_core::TypeKind for EapHostPeerResponseAction {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EapHostPeerResponseAction {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EapHostPeerResponseAction").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EapPeerMethodResponseAction(pub i32);
 impl windows_core::TypeKind for EapPeerMethodResponseAction {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EapPeerMethodResponseAction {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EapPeerMethodResponseAction").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EapPeerMethodResultReason(pub i32);
 impl windows_core::TypeKind for EapPeerMethodResultReason {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EapPeerMethodResultReason {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EapPeerMethodResultReason").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ISOLATION_STATE(pub i32);
 impl windows_core::TypeKind for ISOLATION_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ISOLATION_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ISOLATION_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PPP_EAP_ACTION(pub i32);
 impl windows_core::TypeKind for PPP_EAP_ACTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PPP_EAP_ACTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PPP_EAP_ACTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RAS_AUTH_ATTRIBUTE_TYPE(pub i32);
 impl windows_core::TypeKind for RAS_AUTH_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RAS_AUTH_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RAS_AUTH_ATTRIBUTE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAPHOST_AUTH_INFO {
     pub status: EAPHOST_AUTH_STATUS,
     pub dwErrorCode: u32,
     pub dwReasonCode: u32,
+}
+impl windows_core::TypeKind for EAPHOST_AUTH_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAPHOST_AUTH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAPHOST_AUTH_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub eapMethodType: EAP_METHOD_TYPE,
     pub dwFlags: u32,
@@ -1279,16 +1393,16 @@ pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub dwError: u32,
     pub pEapError: *mut EAP_ERROR,
 }
+impl windows_core::TypeKind for EAPHOST_IDENTITY_UI_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EAPHOST_IDENTITY_UI_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAPHOST_IDENTITY_UI_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
     pub dwSizeofContextData: u32,
     pub pContextData: *mut u8,
@@ -1297,45 +1411,45 @@ pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
     pub dwError: u32,
     pub pEapError: *mut EAP_ERROR,
 }
+impl windows_core::TypeKind for EAPHOST_INTERACTIVE_UI_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EAPHOST_INTERACTIVE_UI_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAPHOST_INTERACTIVE_UI_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_ATTRIBUTE {
     pub eaType: EAP_ATTRIBUTE_TYPE,
     pub dwLength: u32,
     pub pValue: *mut u8,
+}
+impl windows_core::TypeKind for EAP_ATTRIBUTE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_ATTRIBUTES {
     pub dwNumberOfAttributes: u32,
     pub pAttribs: *mut EAP_ATTRIBUTE,
+}
+impl windows_core::TypeKind for EAP_ATTRIBUTES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_AUTHENTICATOR_METHOD_ROUTINES {
     pub dwSizeInBytes: u32,
     pub pEapType: *mut EAP_METHOD_TYPE,
@@ -1350,31 +1464,31 @@ pub struct EAP_AUTHENTICATOR_METHOD_ROUTINES {
     pub EapMethodAuthenticatorEndSession: isize,
     pub EapMethodAuthenticatorShutdown: isize,
 }
+impl windows_core::TypeKind for EAP_AUTHENTICATOR_METHOD_ROUTINES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EAP_AUTHENTICATOR_METHOD_ROUTINES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_AUTHENTICATOR_METHOD_ROUTINES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_CONFIG_INPUT_FIELD_ARRAY {
     pub dwVersion: u32,
     pub dwNumberOfFields: u32,
     pub pFields: *mut EAP_CONFIG_INPUT_FIELD_DATA,
+}
+impl windows_core::TypeKind for EAP_CONFIG_INPUT_FIELD_ARRAY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_CONFIG_INPUT_FIELD_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_CONFIG_INPUT_FIELD_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_CONFIG_INPUT_FIELD_DATA {
     pub dwSize: u32,
     pub Type: EAP_CONFIG_INPUT_FIELD_TYPE,
@@ -1384,30 +1498,30 @@ pub struct EAP_CONFIG_INPUT_FIELD_DATA {
     pub dwMinDataLength: u32,
     pub dwMaxDataLength: u32,
 }
+impl windows_core::TypeKind for EAP_CONFIG_INPUT_FIELD_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EAP_CONFIG_INPUT_FIELD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_CONFIG_INPUT_FIELD_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_CRED_EXPIRY_REQ {
     pub curCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
     pub newCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
+}
+impl windows_core::TypeKind for EAP_CRED_EXPIRY_REQ {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_CRED_EXPIRY_REQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_CRED_EXPIRY_REQ {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_ERROR {
     pub dwWinError: u32,
     pub r#type: EAP_METHOD_TYPE,
@@ -1418,16 +1532,16 @@ pub struct EAP_ERROR {
     pub pRootCauseString: windows_core::PWSTR,
     pub pRepairString: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for EAP_ERROR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EAP_ERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EAP_INTERACTIVE_UI_DATA {
     pub dwVersion: u32,
     pub dwSize: u32,
@@ -1435,31 +1549,31 @@ pub struct EAP_INTERACTIVE_UI_DATA {
     pub cbUiData: u32,
     pub pbUiData: EAP_UI_DATA_FORMAT,
 }
+impl windows_core::TypeKind for EAP_INTERACTIVE_UI_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EAP_INTERACTIVE_UI_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_INTERACTIVE_UI_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_AUTHENTICATOR_RESULT {
     pub fIsSuccess: super::super::Foundation::BOOL,
     pub dwFailureReason: u32,
     pub pAuthAttribs: *mut EAP_ATTRIBUTES,
+}
+impl windows_core::TypeKind for EAP_METHOD_AUTHENTICATOR_RESULT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_METHOD_AUTHENTICATOR_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_AUTHENTICATOR_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_core::PWSTR,
@@ -1467,44 +1581,44 @@ pub struct EAP_METHOD_INFO {
     pub eapProperties: u32,
     pub pInnerMethodInfo: *mut EAP_METHOD_INFO,
 }
+impl windows_core::TypeKind for EAP_METHOD_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EAP_METHOD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO,
+}
+impl windows_core::TypeKind for EAP_METHOD_INFO_ARRAY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_METHOD_INFO_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_INFO_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY_EX {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO_EX,
+}
+impl windows_core::TypeKind for EAP_METHOD_INFO_ARRAY_EX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_METHOD_INFO_ARRAY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_INFO_ARRAY_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_EX {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_core::PWSTR,
@@ -1512,116 +1626,116 @@ pub struct EAP_METHOD_INFO_EX {
     pub eapProperties: u32,
     pub pInnerMethodInfoArray: *mut EAP_METHOD_INFO_ARRAY_EX,
 }
+impl windows_core::TypeKind for EAP_METHOD_INFO_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EAP_METHOD_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EAP_METHOD_PROPERTY {
     pub eapMethodPropertyType: EAP_METHOD_PROPERTY_TYPE,
     pub eapMethodPropertyValueType: EAP_METHOD_PROPERTY_VALUE_TYPE,
     pub eapMethodPropertyValue: EAP_METHOD_PROPERTY_VALUE,
+}
+impl windows_core::TypeKind for EAP_METHOD_PROPERTY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_METHOD_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_ARRAY {
     pub dwNumberOfProperties: u32,
     pub pMethodProperty: *mut EAP_METHOD_PROPERTY,
+}
+impl windows_core::TypeKind for EAP_METHOD_PROPERTY_ARRAY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_METHOD_PROPERTY_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_PROPERTY_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EAP_METHOD_PROPERTY_VALUE {
     pub empvBool: EAP_METHOD_PROPERTY_VALUE_BOOL,
     pub empvDword: EAP_METHOD_PROPERTY_VALUE_DWORD,
     pub empvString: EAP_METHOD_PROPERTY_VALUE_STRING,
+}
+impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_METHOD_PROPERTY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_BOOL {
     pub length: u32,
     pub value: super::super::Foundation::BOOL,
+}
+impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE_BOOL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_METHOD_PROPERTY_VALUE_BOOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE_BOOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_DWORD {
     pub length: u32,
     pub value: u32,
+}
+impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE_DWORD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_METHOD_PROPERTY_VALUE_DWORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE_DWORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_STRING {
     pub length: u32,
     pub value: *mut u8,
+}
+impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE_STRING {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_METHOD_PROPERTY_VALUE_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_PROPERTY_VALUE_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_TYPE {
     pub eapType: EAP_TYPE,
     pub dwAuthorId: u32,
+}
+impl windows_core::TypeKind for EAP_METHOD_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_METHOD_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_METHOD_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_PEER_METHOD_ROUTINES {
     pub dwVersion: u32,
     pub pEapType: *mut EAP_TYPE,
@@ -1639,89 +1753,89 @@ pub struct EAP_PEER_METHOD_ROUTINES {
     pub EapPeerEndSession: isize,
     pub EapPeerShutdown: isize,
 }
+impl windows_core::TypeKind for EAP_PEER_METHOD_ROUTINES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EAP_PEER_METHOD_ROUTINES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_PEER_METHOD_ROUTINES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_TYPE {
     pub r#type: u8,
     pub dwVendorId: u32,
     pub dwVendorType: u32,
+}
+impl windows_core::TypeKind for EAP_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EAP_UI_DATA_FORMAT {
     pub credData: *mut EAP_CONFIG_INPUT_FIELD_ARRAY,
     pub credExpiryData: *mut EAP_CRED_EXPIRY_REQ,
     pub credLogonData: *mut EAP_CONFIG_INPUT_FIELD_ARRAY,
+}
+impl windows_core::TypeKind for EAP_UI_DATA_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EAP_UI_DATA_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EAP_UI_DATA_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapCertificateCredential {
     pub certHash: [u8; 20],
     pub password: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for EapCertificateCredential {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EapCertificateCredential {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EapCertificateCredential {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EapCredential {
     pub credType: EapCredentialType,
     pub credData: EapCredentialTypeData,
+}
+impl windows_core::TypeKind for EapCredential {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EapCredential {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EapCredential {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EapCredentialTypeData {
     pub username_password: EapUsernamePasswordCredential,
     pub certificate: EapCertificateCredential,
     pub sim: EapSimCredential,
+}
+impl windows_core::TypeKind for EapCredentialTypeData {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EapCredentialTypeData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EapCredentialTypeData {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapHostPeerMethodResult {
     pub fIsSuccess: super::super::Foundation::BOOL,
     pub dwFailureReasonCode: u32,
@@ -1736,47 +1850,47 @@ pub struct EapHostPeerMethodResult {
     pub pEapMethodInfo: *mut EAP_METHOD_INFO,
     pub pEapError: *mut EAP_ERROR,
 }
+impl windows_core::TypeKind for EapHostPeerMethodResult {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EapHostPeerMethodResult {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EapHostPeerMethodResult {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapPacket {
     pub Code: u8,
     pub Id: u8,
     pub Length: [u8; 2],
     pub Data: [u8; 1],
 }
+impl windows_core::TypeKind for EapPacket {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EapPacket {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EapPacket {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapPeerMethodOutput {
     pub action: EapPeerMethodResponseAction,
     pub fAllowNotifications: super::super::Foundation::BOOL,
+}
+impl windows_core::TypeKind for EapPeerMethodOutput {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EapPeerMethodOutput {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EapPeerMethodOutput {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapPeerMethodResult {
     pub fIsSuccess: super::super::Foundation::BOOL,
     pub dwFailureReasonCode: u32,
@@ -1792,44 +1906,44 @@ pub struct EapPeerMethodResult {
     pub fSaveToCredMan: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for EapPeerMethodResult {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for EapPeerMethodResult {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for EapPeerMethodResult {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapSimCredential {
     pub iccID: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for EapSimCredential {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EapSimCredential {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EapSimCredential {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapUsernamePasswordCredential {
     pub username: windows_core::PWSTR,
     pub password: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for EapUsernamePasswordCredential {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EapUsernamePasswordCredential {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EapUsernamePasswordCredential {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LEGACY_IDENTITY_UI_PARAMS {
     pub eapType: u32,
     pub dwFlags: u32,
@@ -1842,16 +1956,16 @@ pub struct LEGACY_IDENTITY_UI_PARAMS {
     pub pwszIdentity: windows_core::PWSTR,
     pub dwError: u32,
 }
+impl windows_core::TypeKind for LEGACY_IDENTITY_UI_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for LEGACY_IDENTITY_UI_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LEGACY_IDENTITY_UI_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LEGACY_INTERACTIVE_UI_PARAMS {
     pub eapType: u32,
     pub dwSizeofContextData: u32,
@@ -1860,21 +1974,25 @@ pub struct LEGACY_INTERACTIVE_UI_PARAMS {
     pub pInteractiveUIData: *mut u8,
     pub dwError: u32,
 }
+impl windows_core::TypeKind for LEGACY_INTERACTIVE_UI_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for LEGACY_INTERACTIVE_UI_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LEGACY_INTERACTIVE_UI_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NgcTicketContext {
     pub wszTicket: [u16; 45],
     pub hKey: super::Cryptography::NCRYPT_KEY_HANDLE,
     pub hImpersonateToken: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for NgcTicketContext {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for NgcTicketContext {
@@ -1882,12 +2000,8 @@ impl Default for NgcTicketContext {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for NgcTicketContext {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_EAP_INFO {
     pub dwSizeInBytes: u32,
     pub dwEapTypeId: u32,
@@ -1896,16 +2010,16 @@ pub struct PPP_EAP_INFO {
     pub RasEapEnd: isize,
     pub RasEapMakeMessage: isize,
 }
+impl windows_core::TypeKind for PPP_EAP_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPP_EAP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPP_EAP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_EAP_INPUT {
     pub dwSizeInBytes: u32,
     pub fFlags: u32,
@@ -1929,17 +2043,17 @@ pub struct PPP_EAP_INPUT {
     pub guidConnectionId: windows_core::GUID,
     pub isVpn: super::super::Foundation::BOOL,
 }
+impl windows_core::TypeKind for PPP_EAP_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPP_EAP_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPP_EAP_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_EAP_OUTPUT {
     pub dwSizeInBytes: u32,
     pub Action: PPP_EAP_ACTION,
@@ -1958,44 +2072,44 @@ pub struct PPP_EAP_OUTPUT {
     pub fSaveToCredMan: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
+impl windows_core::TypeKind for PPP_EAP_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl Default for PPP_EAP_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography")]
-impl windows_core::TypeKind for PPP_EAP_OUTPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_EAP_PACKET {
     pub Code: u8,
     pub Id: u8,
     pub Length: [u8; 2],
     pub Data: [u8; 1],
 }
+impl windows_core::TypeKind for PPP_EAP_PACKET {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPP_EAP_PACKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPP_EAP_PACKET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_AUTH_ATTRIBUTE {
     pub raaType: RAS_AUTH_ATTRIBUTE_TYPE,
     pub dwLength: u32,
     pub Value: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for RAS_AUTH_ATTRIBUTE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RAS_AUTH_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RAS_AUTH_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
 }
 pub type NotificationHandler = Option<unsafe extern "system" fn(connectionid: windows_core::GUID, pcontextdata: *mut core::ffi::c_void)>;

@@ -24,16 +24,16 @@ pub const RTL_CORRELATION_VECTOR_V1_PREFIX_LENGTH: u32 = 16u32;
 pub const RTL_CORRELATION_VECTOR_V2_LENGTH: u32 = 128u32;
 pub const RTL_CORRELATION_VECTOR_V2_PREFIX_LENGTH: u32 = 22u32;
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CORRELATION_VECTOR {
     pub Version: i8,
     pub Vector: [i8; 129],
+}
+impl windows_core::TypeKind for CORRELATION_VECTOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CORRELATION_VECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CORRELATION_VECTOR {
-    type TypeKind = windows_core::CopyType;
 }

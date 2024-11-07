@@ -33,28 +33,33 @@ where
 pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(1i32);
 pub const PMCCounter: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HARDWARE_COUNTER_TYPE(pub i32);
 impl windows_core::TypeKind for HARDWARE_COUNTER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HARDWARE_COUNTER_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HARDWARE_COUNTER_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HARDWARE_COUNTER_DATA {
     pub Type: HARDWARE_COUNTER_TYPE,
     pub Reserved: u32,
     pub Value: u64,
+}
+impl windows_core::TypeKind for HARDWARE_COUNTER_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for HARDWARE_COUNTER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HARDWARE_COUNTER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERFORMANCE_DATA {
     pub Size: u16,
     pub Version: u8,
@@ -66,11 +71,11 @@ pub struct PERFORMANCE_DATA {
     pub Reserved: u32,
     pub HwCounters: [HARDWARE_COUNTER_DATA; 16],
 }
+impl windows_core::TypeKind for PERFORMANCE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PERFORMANCE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for PERFORMANCE_DATA {
-    type TypeKind = windows_core::CopyType;
 }

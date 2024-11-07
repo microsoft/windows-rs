@@ -30,7 +30,6 @@ pub struct IExtendedExecutionSession_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExtendedExecutionRevokedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExtendedExecutionRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ExtendedExecutionRevokedEventArgs,);
 impl ExtendedExecutionRevokedEventArgs {
     pub fn Reason(&self) -> windows_core::Result<ExtendedExecutionRevokedReason> {
         let this = self;
@@ -44,12 +43,14 @@ impl windows_core::RuntimeType for ExtendedExecutionRevokedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExtendedExecutionRevokedEventArgs>();
 }
 unsafe impl windows_core::Interface for ExtendedExecutionRevokedEventArgs {
-    type Vtable = <IExtendedExecutionRevokedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IExtendedExecutionRevokedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IExtendedExecutionRevokedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ExtendedExecutionRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs";
 }
+unsafe impl Send for ExtendedExecutionRevokedEventArgs {}
+unsafe impl Sync for ExtendedExecutionRevokedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExtendedExecutionSession(windows_core::IUnknown);
@@ -62,6 +63,10 @@ impl ExtendedExecutionSession {
     fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ExtendedExecutionSession, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Reason(&self) -> windows_core::Result<ExtendedExecutionReason> {
         let this = self;
@@ -117,23 +122,21 @@ impl ExtendedExecutionSession {
             (windows_core::Interface::vtable(this).RequestExtensionAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
 }
 impl windows_core::RuntimeType for ExtendedExecutionSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExtendedExecutionSession>();
 }
 unsafe impl windows_core::Interface for ExtendedExecutionSession {
-    type Vtable = <IExtendedExecutionSession as windows_core::Interface>::Vtable;
+    type Vtable = IExtendedExecutionSession_Vtbl;
     const IID: windows_core::GUID = <IExtendedExecutionSession as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ExtendedExecutionSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession";
 }
+unsafe impl Send for ExtendedExecutionSession {}
+unsafe impl Sync for ExtendedExecutionSession {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ExtendedExecutionReason(pub i32);
 impl ExtendedExecutionReason {
     pub const Unspecified: Self = Self(0i32);
@@ -143,11 +146,16 @@ impl ExtendedExecutionReason {
 impl windows_core::TypeKind for ExtendedExecutionReason {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ExtendedExecutionReason {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ExtendedExecutionReason").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for ExtendedExecutionReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionReason;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ExtendedExecutionResult(pub i32);
 impl ExtendedExecutionResult {
     pub const Allowed: Self = Self(0i32);
@@ -156,11 +164,16 @@ impl ExtendedExecutionResult {
 impl windows_core::TypeKind for ExtendedExecutionResult {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ExtendedExecutionResult {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ExtendedExecutionResult").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for ExtendedExecutionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ExtendedExecutionRevokedReason(pub i32);
 impl ExtendedExecutionRevokedReason {
     pub const Resumed: Self = Self(0i32);
@@ -168,6 +181,11 @@ impl ExtendedExecutionRevokedReason {
 }
 impl windows_core::TypeKind for ExtendedExecutionRevokedReason {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for ExtendedExecutionRevokedReason {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ExtendedExecutionRevokedReason").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for ExtendedExecutionRevokedReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedReason;i4)");

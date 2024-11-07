@@ -37,9 +37,9 @@ where
     DevicePowerSetDeviceState(devicedescription.param().abi(), setflags, core::mem::transmute(setdata.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn EnumPwrSchemes<P1>(lpfn: PWRSCHEMESENUMPROC, lparam: P1) -> super::super::Foundation::BOOLEAN
+pub unsafe fn EnumPwrSchemes<P0>(lpfn: PWRSCHEMESENUMPROC, lparam: P0) -> super::super::Foundation::BOOLEAN
 where
-    P1: windows_core::Param<super::super::Foundation::LPARAM>,
+    P0: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("powrprof.dll" "system" fn EnumPwrSchemes(lpfn : PWRSCHEMESENUMPROC, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOLEAN);
     EnumPwrSchemes(lpfn, lparam.param().abi())
@@ -203,18 +203,18 @@ pub unsafe fn PowerIsSettingRangeDefined(subkeyguid: Option<*const windows_core:
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerOpenSystemPowerKey<P2>(phsystempowerkey: *mut super::Registry::HKEY, access: u32, openexisting: P2) -> u32
+pub unsafe fn PowerOpenSystemPowerKey<P0>(phsystempowerkey: *mut super::Registry::HKEY, access: u32, openexisting: P0) -> u32
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("powrprof.dll" "system" fn PowerOpenSystemPowerKey(phsystempowerkey : *mut super::Registry:: HKEY, access : u32, openexisting : super::super::Foundation:: BOOL) -> u32);
     PowerOpenSystemPowerKey(phsystempowerkey, access, openexisting.param().abi())
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerOpenUserPowerKey<P2>(phuserpowerkey: *mut super::Registry::HKEY, access: u32, openexisting: P2) -> u32
+pub unsafe fn PowerOpenUserPowerKey<P0>(phuserpowerkey: *mut super::Registry::HKEY, access: u32, openexisting: P0) -> u32
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("powrprof.dll" "system" fn PowerOpenUserPowerKey(phuserpowerkey : *mut super::Registry:: HKEY, access : u32, openexisting : super::super::Foundation:: BOOL) -> u32);
     PowerOpenUserPowerKey(phuserpowerkey, access, openexisting.param().abi())
@@ -375,9 +375,9 @@ pub unsafe fn PowerRegisterForEffectivePowerModeNotifications(version: u32, call
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn PowerRegisterSuspendResumeNotification<P1>(flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS, recipient: P1, registrationhandle: *mut *mut core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn PowerRegisterSuspendResumeNotification<P0>(flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS, recipient: P0, registrationhandle: *mut *mut core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
 where
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("powrprof.dll" "system" fn PowerRegisterSuspendResumeNotification(flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS, recipient : super::super::Foundation:: HANDLE, registrationhandle : *mut *mut core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     PowerRegisterSuspendResumeNotification(flags, recipient.param().abi(), registrationhandle)
@@ -437,9 +437,9 @@ pub unsafe fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerg
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn PowerSettingRegisterNotification<P2>(settingguid: *const windows_core::GUID, flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS, recipient: P2, registrationhandle: *mut *mut core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn PowerSettingRegisterNotification<P0>(settingguid: *const windows_core::GUID, flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS, recipient: P0, registrationhandle: *mut *mut core::ffi::c_void) -> super::super::Foundation::WIN32_ERROR
 where
-    P2: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("powrprof.dll" "system" fn PowerSettingRegisterNotification(settingguid : *const windows_core::GUID, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS, recipient : super::super::Foundation:: HANDLE, registrationhandle : *mut *mut core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     PowerSettingRegisterNotification(settingguid, flags, recipient.param().abi(), registrationhandle)
@@ -697,10 +697,10 @@ pub unsafe fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *
     WriteProcessorPwrScheme(uiid, pmachineprocessorpowerpolicy)
 }
 #[inline]
-pub unsafe fn WritePwrScheme<P1, P2>(puiid: *const u32, lpszschemename: P1, lpszdescription: P2, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN
+pub unsafe fn WritePwrScheme<P0, P1>(puiid: *const u32, lpszschemename: P0, lpszdescription: P1, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("powrprof.dll" "system" fn WritePwrScheme(puiid : *const u32, lpszschemename : windows_core::PCWSTR, lpszdescription : windows_core::PCWSTR, lpscheme : *const POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
     WritePwrScheme(puiid, lpszschemename.param().abi(), lpszdescription.param().abi(), lpscheme)
@@ -1184,34 +1184,59 @@ pub const VerifySystemPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVE
 pub const VerifySystemPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(3i32);
 pub const WakeTimerList: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(50i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ACPI_TIME_RESOLUTION(pub i32);
 impl windows_core::TypeKind for ACPI_TIME_RESOLUTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ACPI_TIME_RESOLUTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ACPI_TIME_RESOLUTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BATTERY_CHARGING_SOURCE_TYPE(pub i32);
 impl windows_core::TypeKind for BATTERY_CHARGING_SOURCE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BATTERY_CHARGING_SOURCE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BATTERY_CHARGING_SOURCE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BATTERY_QUERY_INFORMATION_LEVEL(pub i32);
 impl windows_core::TypeKind for BATTERY_QUERY_INFORMATION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BATTERY_QUERY_INFORMATION_LEVEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BATTERY_QUERY_INFORMATION_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BATTERY_SET_INFORMATION_LEVEL(pub i32);
 impl windows_core::TypeKind for BATTERY_SET_INFORMATION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BATTERY_SET_INFORMATION_LEVEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BATTERY_SET_INFORMATION_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DEVICE_POWER_CAPABILITIES(pub u32);
 impl windows_core::TypeKind for DEVICE_POWER_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DEVICE_POWER_CAPABILITIES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DEVICE_POWER_CAPABILITIES").field(&self.0).finish()
+    }
 }
 impl DEVICE_POWER_CAPABILITIES {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1247,28 +1272,48 @@ impl core::ops::Not for DEVICE_POWER_CAPABILITIES {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DEVICE_POWER_STATE(pub i32);
 impl windows_core::TypeKind for DEVICE_POWER_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DEVICE_POWER_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DEVICE_POWER_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EFFECTIVE_POWER_MODE(pub i32);
 impl windows_core::TypeKind for EFFECTIVE_POWER_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EFFECTIVE_POWER_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EFFECTIVE_POWER_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EMI_MEASUREMENT_UNIT(pub i32);
 impl windows_core::TypeKind for EMI_MEASUREMENT_UNIT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EMI_MEASUREMENT_UNIT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EMI_MEASUREMENT_UNIT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EXECUTION_STATE(pub u32);
 impl windows_core::TypeKind for EXECUTION_STATE {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for EXECUTION_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EXECUTION_STATE").field(&self.0).finish()
+    }
 }
 impl EXECUTION_STATE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1304,22 +1349,37 @@ impl core::ops::Not for EXECUTION_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct LATENCY_TIME(pub i32);
 impl windows_core::TypeKind for LATENCY_TIME {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for LATENCY_TIME {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("LATENCY_TIME").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_ACTION(pub i32);
 impl windows_core::TypeKind for POWER_ACTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_ACTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_ACTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_ACTION_POLICY_EVENT_CODE(pub u32);
 impl windows_core::TypeKind for POWER_ACTION_POLICY_EVENT_CODE {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for POWER_ACTION_POLICY_EVENT_CODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_ACTION_POLICY_EVENT_CODE").field(&self.0).finish()
+    }
 }
 impl POWER_ACTION_POLICY_EVENT_CODE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1355,91 +1415,161 @@ impl core::ops::Not for POWER_ACTION_POLICY_EVENT_CODE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_COOLING_MODE(pub u16);
 impl windows_core::TypeKind for POWER_COOLING_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_COOLING_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_COOLING_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_DATA_ACCESSOR(pub i32);
 impl windows_core::TypeKind for POWER_DATA_ACCESSOR {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_DATA_ACCESSOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_DATA_ACCESSOR").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_INFORMATION_LEVEL(pub i32);
 impl windows_core::TypeKind for POWER_INFORMATION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_INFORMATION_LEVEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_INFORMATION_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_MONITOR_REQUEST_REASON(pub i32);
 impl windows_core::TypeKind for POWER_MONITOR_REQUEST_REASON {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_MONITOR_REQUEST_REASON {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_MONITOR_REQUEST_REASON").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
 impl windows_core::TypeKind for POWER_MONITOR_REQUEST_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_MONITOR_REQUEST_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_MONITOR_REQUEST_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_PLATFORM_ROLE(pub i32);
 impl windows_core::TypeKind for POWER_PLATFORM_ROLE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_PLATFORM_ROLE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_PLATFORM_ROLE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_PLATFORM_ROLE_VERSION(pub u32);
 impl windows_core::TypeKind for POWER_PLATFORM_ROLE_VERSION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_PLATFORM_ROLE_VERSION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_PLATFORM_ROLE_VERSION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_REQUEST_TYPE(pub i32);
 impl windows_core::TypeKind for POWER_REQUEST_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_REQUEST_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_REQUEST_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_SETTING_ALTITUDE(pub i32);
 impl windows_core::TypeKind for POWER_SETTING_ALTITUDE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_SETTING_ALTITUDE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_SETTING_ALTITUDE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_USER_PRESENCE_TYPE(pub i32);
 impl windows_core::TypeKind for POWER_USER_PRESENCE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_USER_PRESENCE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_USER_PRESENCE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SYSTEM_POWER_CONDITION(pub i32);
 impl windows_core::TypeKind for SYSTEM_POWER_CONDITION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SYSTEM_POWER_CONDITION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SYSTEM_POWER_CONDITION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SYSTEM_POWER_STATE(pub i32);
 impl windows_core::TypeKind for SYSTEM_POWER_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SYSTEM_POWER_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SYSTEM_POWER_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct USB_CHARGER_PORT(pub i32);
 impl windows_core::TypeKind for USB_CHARGER_PORT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for USB_CHARGER_PORT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("USB_CHARGER_PORT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct USER_ACTIVITY_PRESENCE(pub i32);
 impl windows_core::TypeKind for USER_ACTIVITY_PRESENCE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for USER_ACTIVITY_PRESENCE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("USER_ACTIVITY_PRESENCE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACPI_REAL_TIME {
     pub Year: u16,
     pub Month: u8,
@@ -1453,16 +1583,16 @@ pub struct ACPI_REAL_TIME {
     pub DayLight: u8,
     pub Reserved1: [u8; 3],
 }
+impl windows_core::TypeKind for ACPI_REAL_TIME {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ACPI_REAL_TIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACPI_REAL_TIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
     pub AcWakeSupported: super::super::Foundation::BOOLEAN,
     pub DcWakeSupported: super::super::Foundation::BOOLEAN,
@@ -1475,16 +1605,16 @@ pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
     pub RealTimeFeaturesSupported: super::super::Foundation::BOOLEAN,
     pub RealTimeResolution: ACPI_TIME_RESOLUTION,
 }
+impl windows_core::TypeKind for ACPI_TIME_AND_ALARM_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ACPI_TIME_AND_ALARM_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACPI_TIME_AND_ALARM_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADMINISTRATOR_POWER_POLICY {
     pub MinSleep: SYSTEM_POWER_STATE,
     pub MaxSleep: SYSTEM_POWER_STATE,
@@ -1493,58 +1623,58 @@ pub struct ADMINISTRATOR_POWER_POLICY {
     pub MinSpindownTimeout: u32,
     pub MaxSpindownTimeout: u32,
 }
+impl windows_core::TypeKind for ADMINISTRATOR_POWER_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ADMINISTRATOR_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADMINISTRATOR_POWER_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_CHARGER_STATUS {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub VaData: [u32; 1],
+}
+impl windows_core::TypeKind for BATTERY_CHARGER_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BATTERY_CHARGER_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BATTERY_CHARGER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_CHARGING_SOURCE {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub MaxCurrent: u32,
+}
+impl windows_core::TypeKind for BATTERY_CHARGING_SOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BATTERY_CHARGING_SOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BATTERY_CHARGING_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_CHARGING_SOURCE_INFORMATION {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub SourceOnline: super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for BATTERY_CHARGING_SOURCE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BATTERY_CHARGING_SOURCE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BATTERY_CHARGING_SOURCE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_INFORMATION {
     pub Capabilities: u32,
     pub Technology: u8,
@@ -1557,91 +1687,91 @@ pub struct BATTERY_INFORMATION {
     pub CriticalBias: u32,
     pub CycleCount: u32,
 }
+impl windows_core::TypeKind for BATTERY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BATTERY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BATTERY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_MANUFACTURE_DATE {
     pub Day: u8,
     pub Month: u8,
     pub Year: u16,
+}
+impl windows_core::TypeKind for BATTERY_MANUFACTURE_DATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BATTERY_MANUFACTURE_DATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BATTERY_MANUFACTURE_DATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_QUERY_INFORMATION {
     pub BatteryTag: u32,
     pub InformationLevel: BATTERY_QUERY_INFORMATION_LEVEL,
     pub AtRate: u32,
+}
+impl windows_core::TypeKind for BATTERY_QUERY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BATTERY_QUERY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BATTERY_QUERY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_REPORTING_SCALE {
     pub Granularity: u32,
     pub Capacity: u32,
+}
+impl windows_core::TypeKind for BATTERY_REPORTING_SCALE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BATTERY_REPORTING_SCALE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BATTERY_REPORTING_SCALE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_SET_INFORMATION {
     pub BatteryTag: u32,
     pub InformationLevel: BATTERY_SET_INFORMATION_LEVEL,
     pub Buffer: [u8; 1],
+}
+impl windows_core::TypeKind for BATTERY_SET_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BATTERY_SET_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BATTERY_SET_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_STATUS {
     pub PowerState: u32,
     pub Capacity: u32,
     pub Voltage: u32,
     pub Rate: i32,
 }
+impl windows_core::TypeKind for BATTERY_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BATTERY_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BATTERY_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_USB_CHARGER_STATUS {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub Reserved: u32,
@@ -1653,16 +1783,16 @@ pub struct BATTERY_USB_CHARGER_STATUS {
     pub PowerSourceInformation: *mut core::ffi::c_void,
     pub OemCharger: windows_core::GUID,
 }
+impl windows_core::TypeKind for BATTERY_USB_CHARGER_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BATTERY_USB_CHARGER_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BATTERY_USB_CHARGER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_WAIT_STATUS {
     pub BatteryTag: u32,
     pub Timeout: u32,
@@ -1670,16 +1800,16 @@ pub struct BATTERY_WAIT_STATUS {
     pub LowCapacity: u32,
     pub HighCapacity: u32,
 }
+impl windows_core::TypeKind for BATTERY_WAIT_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BATTERY_WAIT_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BATTERY_WAIT_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_POWER_DATA {
     pub PD_Size: u32,
     pub PD_MostRecentPowerState: DEVICE_POWER_STATE,
@@ -1690,85 +1820,85 @@ pub struct CM_POWER_DATA {
     pub PD_PowerStateMapping: [DEVICE_POWER_STATE; 7],
     pub PD_DeepestSystemWake: SYSTEM_POWER_STATE,
 }
+impl windows_core::TypeKind for CM_POWER_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_POWER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_POWER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     pub Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
     pub Context: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMI_CHANNEL_MEASUREMENT_DATA {
     pub AbsoluteEnergy: u64,
     pub AbsoluteTime: u64,
+}
+impl windows_core::TypeKind for EMI_CHANNEL_MEASUREMENT_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EMI_CHANNEL_MEASUREMENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EMI_CHANNEL_MEASUREMENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMI_CHANNEL_V2 {
     pub MeasurementUnit: EMI_MEASUREMENT_UNIT,
     pub ChannelNameSize: u16,
     pub ChannelName: [u16; 1],
+}
+impl windows_core::TypeKind for EMI_CHANNEL_V2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EMI_CHANNEL_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EMI_CHANNEL_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMI_MEASUREMENT_DATA_V2 {
     pub ChannelData: [EMI_CHANNEL_MEASUREMENT_DATA; 1],
+}
+impl windows_core::TypeKind for EMI_MEASUREMENT_DATA_V2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EMI_MEASUREMENT_DATA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EMI_MEASUREMENT_DATA_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMI_METADATA_SIZE {
     pub MetadataSize: u32,
+}
+impl windows_core::TypeKind for EMI_METADATA_SIZE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EMI_METADATA_SIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EMI_METADATA_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMI_METADATA_V1 {
     pub MeasurementUnit: EMI_MEASUREMENT_UNIT,
     pub HardwareOEM: [u16; 16],
@@ -1777,16 +1907,16 @@ pub struct EMI_METADATA_V1 {
     pub MeteredHardwareNameSize: u16,
     pub MeteredHardwareName: [u16; 1],
 }
+impl windows_core::TypeKind for EMI_METADATA_V1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EMI_METADATA_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EMI_METADATA_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMI_METADATA_V2 {
     pub HardwareOEM: [u16; 16],
     pub HardwareModel: [u16; 16],
@@ -1794,59 +1924,59 @@ pub struct EMI_METADATA_V2 {
     pub ChannelCount: u16,
     pub Channels: [EMI_CHANNEL_V2; 1],
 }
+impl windows_core::TypeKind for EMI_METADATA_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EMI_METADATA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EMI_METADATA_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMI_VERSION {
     pub EmiVersion: u16,
+}
+impl windows_core::TypeKind for EMI_VERSION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EMI_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EMI_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GLOBAL_MACHINE_POWER_POLICY {
     pub Revision: u32,
     pub LidOpenWakeAc: SYSTEM_POWER_STATE,
     pub LidOpenWakeDc: SYSTEM_POWER_STATE,
     pub BroadcastCapacityResolution: u32,
 }
+impl windows_core::TypeKind for GLOBAL_MACHINE_POWER_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for GLOBAL_MACHINE_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GLOBAL_MACHINE_POWER_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GLOBAL_POWER_POLICY {
     pub user: GLOBAL_USER_POWER_POLICY,
     pub mach: GLOBAL_MACHINE_POWER_POLICY,
+}
+impl windows_core::TypeKind for GLOBAL_POWER_POLICY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for GLOBAL_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GLOBAL_POWER_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GLOBAL_USER_POWER_POLICY {
     pub Revision: u32,
     pub PowerButtonAc: POWER_ACTION_POLICY,
@@ -1858,20 +1988,17 @@ pub struct GLOBAL_USER_POWER_POLICY {
     pub DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
     pub GlobalFlags: u32,
 }
+impl windows_core::TypeKind for GLOBAL_USER_POWER_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for GLOBAL_USER_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GLOBAL_USER_POWER_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPOWERNOTIFY(pub isize);
-impl windows_core::TypeKind for HPOWERNOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
 impl HPOWERNOTIFY {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -1881,13 +2008,20 @@ impl windows_core::Free for HPOWERNOTIFY {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("user32.dll" "system" fn UnregisterPowerSettingNotification(handle : isize) -> i32);
-            UnregisterPowerSettingNotification(self.0);
+            _ = UnregisterPowerSettingNotification(*self);
         }
     }
 }
+impl Default for HPOWERNOTIFY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HPOWERNOTIFY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MACHINE_POWER_POLICY {
     pub Revision: u32,
     pub MinSleepAc: SYSTEM_POWER_STATE,
@@ -1904,214 +2038,214 @@ pub struct MACHINE_POWER_POLICY {
     pub OverThrottledAc: POWER_ACTION_POLICY,
     pub OverThrottledDc: POWER_ACTION_POLICY,
 }
+impl windows_core::TypeKind for MACHINE_POWER_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MACHINE_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MACHINE_POWER_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MACHINE_PROCESSOR_POWER_POLICY {
     pub Revision: u32,
     pub ProcessorPolicyAc: PROCESSOR_POWER_POLICY,
     pub ProcessorPolicyDc: PROCESSOR_POWER_POLICY,
+}
+impl windows_core::TypeKind for MACHINE_PROCESSOR_POWER_POLICY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MACHINE_PROCESSOR_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MACHINE_PROCESSOR_POWER_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWERBROADCAST_SETTING {
     pub PowerSetting: windows_core::GUID,
     pub DataLength: u32,
     pub Data: [u8; 1],
+}
+impl windows_core::TypeKind for POWERBROADCAST_SETTING {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWERBROADCAST_SETTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWERBROADCAST_SETTING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_ACTION_POLICY {
     pub Action: POWER_ACTION,
     pub Flags: u32,
     pub EventCode: POWER_ACTION_POLICY_EVENT_CODE,
+}
+impl windows_core::TypeKind for POWER_ACTION_POLICY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_ACTION_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_ACTION_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_IDLE_RESILIENCY {
     pub CoalescingTimeout: u32,
     pub IdleResiliencyPeriod: u32,
+}
+impl windows_core::TypeKind for POWER_IDLE_RESILIENCY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_IDLE_RESILIENCY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_IDLE_RESILIENCY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_MONITOR_INVOCATION {
     pub Console: super::super::Foundation::BOOLEAN,
     pub RequestReason: POWER_MONITOR_REQUEST_REASON,
+}
+impl windows_core::TypeKind for POWER_MONITOR_INVOCATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_MONITOR_INVOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_MONITOR_INVOCATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_PLATFORM_INFORMATION {
     pub AoAc: super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for POWER_PLATFORM_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_PLATFORM_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_PLATFORM_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_POLICY {
     pub user: USER_POWER_POLICY,
     pub mach: MACHINE_POWER_POLICY,
+}
+impl windows_core::TypeKind for POWER_POLICY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
     pub IsAllowed: super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_SESSION_CONNECT {
     pub Connected: super::super::Foundation::BOOLEAN,
     pub Console: super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for POWER_SESSION_CONNECT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_SESSION_CONNECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_SESSION_CONNECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_SESSION_RIT_STATE {
     pub Active: super::super::Foundation::BOOLEAN,
     pub LastInputTime: u64,
+}
+impl windows_core::TypeKind for POWER_SESSION_RIT_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_SESSION_RIT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_SESSION_RIT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_SESSION_TIMEOUTS {
     pub InputTimeout: u32,
     pub DisplayTimeout: u32,
+}
+impl windows_core::TypeKind for POWER_SESSION_TIMEOUTS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_SESSION_TIMEOUTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_SESSION_TIMEOUTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_SESSION_WINLOGON {
     pub SessionId: u32,
     pub Console: super::super::Foundation::BOOLEAN,
     pub Locked: super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for POWER_SESSION_WINLOGON {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_SESSION_WINLOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_SESSION_WINLOGON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_USER_PRESENCE {
     pub UserPresence: POWER_USER_PRESENCE_TYPE,
+}
+impl windows_core::TypeKind for POWER_USER_PRESENCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_USER_PRESENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_USER_PRESENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLESTATE_EVENT {
     pub NewState: u32,
     pub OldState: u32,
     pub Processors: u64,
+}
+impl windows_core::TypeKind for PPM_IDLESTATE_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PPM_IDLESTATE_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_IDLESTATE_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_ACCOUNTING {
     pub StateCount: u32,
     pub TotalTransitions: u32,
@@ -2119,16 +2253,16 @@ pub struct PPM_IDLE_ACCOUNTING {
     pub StartTime: u64,
     pub State: [PPM_IDLE_STATE_ACCOUNTING; 1],
 }
+impl windows_core::TypeKind for PPM_IDLE_ACCOUNTING {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPM_IDLE_ACCOUNTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_IDLE_ACCOUNTING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_ACCOUNTING_EX {
     pub StateCount: u32,
     pub TotalTransitions: u32,
@@ -2137,16 +2271,16 @@ pub struct PPM_IDLE_ACCOUNTING_EX {
     pub StartTime: u64,
     pub State: [PPM_IDLE_STATE_ACCOUNTING_EX; 1],
 }
+impl windows_core::TypeKind for PPM_IDLE_ACCOUNTING_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPM_IDLE_ACCOUNTING_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_IDLE_ACCOUNTING_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_STATE_ACCOUNTING {
     pub IdleTransitions: u32,
     pub FailedTransitions: u32,
@@ -2154,16 +2288,16 @@ pub struct PPM_IDLE_STATE_ACCOUNTING {
     pub TotalTime: u64,
     pub IdleTimeBuckets: [u32; 6],
 }
+impl windows_core::TypeKind for PPM_IDLE_STATE_ACCOUNTING {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPM_IDLE_STATE_ACCOUNTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_IDLE_STATE_ACCOUNTING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_STATE_ACCOUNTING_EX {
     pub TotalTime: u64,
     pub IdleTransitions: u32,
@@ -2174,48 +2308,48 @@ pub struct PPM_IDLE_STATE_ACCOUNTING_EX {
     pub CancelledTransitions: u32,
     pub IdleTimeBuckets: [PPM_IDLE_STATE_BUCKET_EX; 16],
 }
+impl windows_core::TypeKind for PPM_IDLE_STATE_ACCOUNTING_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPM_IDLE_STATE_ACCOUNTING_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_IDLE_STATE_ACCOUNTING_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_STATE_BUCKET_EX {
     pub TotalTimeUs: u64,
     pub MinTimeUs: u32,
     pub MaxTimeUs: u32,
     pub Count: u32,
 }
+impl windows_core::TypeKind for PPM_IDLE_STATE_BUCKET_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPM_IDLE_STATE_BUCKET_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_IDLE_STATE_BUCKET_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_PERFSTATE_DOMAIN_EVENT {
     pub State: u32,
     pub Latency: u32,
     pub Speed: u32,
     pub Processors: u64,
 }
+impl windows_core::TypeKind for PPM_PERFSTATE_DOMAIN_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPM_PERFSTATE_DOMAIN_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_PERFSTATE_DOMAIN_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_PERFSTATE_EVENT {
     pub State: u32,
     pub Status: u32,
@@ -2223,44 +2357,44 @@ pub struct PPM_PERFSTATE_EVENT {
     pub Speed: u32,
     pub Processor: u32,
 }
+impl windows_core::TypeKind for PPM_PERFSTATE_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPM_PERFSTATE_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_PERFSTATE_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_THERMALCHANGE_EVENT {
     pub ThermalConstraint: u32,
     pub Processors: u64,
+}
+impl windows_core::TypeKind for PPM_THERMALCHANGE_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PPM_THERMALCHANGE_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_THERMALCHANGE_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_THERMAL_POLICY_EVENT {
     pub Mode: u8,
     pub Processors: u64,
+}
+impl windows_core::TypeKind for PPM_THERMAL_POLICY_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PPM_THERMAL_POLICY_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_THERMAL_POLICY_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_IDLE_STATE {
     pub Latency: u32,
     pub Power: u32,
@@ -2274,16 +2408,16 @@ pub struct PPM_WMI_IDLE_STATE {
     pub IdleHandler: u32,
     pub Reserved1: u32,
 }
+impl windows_core::TypeKind for PPM_WMI_IDLE_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPM_WMI_IDLE_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_WMI_IDLE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_IDLE_STATES {
     pub Type: u32,
     pub Count: u32,
@@ -2292,16 +2426,16 @@ pub struct PPM_WMI_IDLE_STATES {
     pub TargetProcessors: u64,
     pub State: [PPM_WMI_IDLE_STATE; 1],
 }
+impl windows_core::TypeKind for PPM_WMI_IDLE_STATES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPM_WMI_IDLE_STATES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_WMI_IDLE_STATES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_IDLE_STATES_EX {
     pub Type: u32,
     pub Count: u32,
@@ -2310,31 +2444,31 @@ pub struct PPM_WMI_IDLE_STATES_EX {
     pub TargetProcessors: *mut core::ffi::c_void,
     pub State: [PPM_WMI_IDLE_STATE; 1],
 }
+impl windows_core::TypeKind for PPM_WMI_IDLE_STATES_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPM_WMI_IDLE_STATES_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_WMI_IDLE_STATES_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_LEGACY_PERFSTATE {
     pub Frequency: u32,
     pub Flags: u32,
     pub PercentFrequency: u32,
+}
+impl windows_core::TypeKind for PPM_WMI_LEGACY_PERFSTATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PPM_WMI_LEGACY_PERFSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_WMI_LEGACY_PERFSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_PERF_STATE {
     pub Frequency: u32,
     pub Power: u32,
@@ -2351,16 +2485,16 @@ pub struct PPM_WMI_PERF_STATE {
     pub Reserved2: u64,
     pub Reserved3: u64,
 }
+impl windows_core::TypeKind for PPM_WMI_PERF_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPM_WMI_PERF_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_WMI_PERF_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_PERF_STATES {
     pub Count: u32,
     pub MaxFrequency: u32,
@@ -2384,16 +2518,16 @@ pub struct PPM_WMI_PERF_STATES {
     pub Reserved2: u64,
     pub State: [PPM_WMI_PERF_STATE; 1],
 }
+impl windows_core::TypeKind for PPM_WMI_PERF_STATES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPM_WMI_PERF_STATES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_WMI_PERF_STATES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_PERF_STATES_EX {
     pub Count: u32,
     pub MaxFrequency: u32,
@@ -2417,47 +2551,47 @@ pub struct PPM_WMI_PERF_STATES_EX {
     pub Reserved2: u64,
     pub State: [PPM_WMI_PERF_STATE; 1],
 }
+impl windows_core::TypeKind for PPM_WMI_PERF_STATES_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PPM_WMI_PERF_STATES_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PPM_WMI_PERF_STATES_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_OBJECT_INFO {
     pub PhysicalID: u32,
     pub PBlkAddress: u32,
     pub PBlkLength: u8,
+}
+impl windows_core::TypeKind for PROCESSOR_OBJECT_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESSOR_OBJECT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESSOR_OBJECT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_OBJECT_INFO_EX {
     pub PhysicalID: u32,
     pub PBlkAddress: u32,
     pub PBlkLength: u8,
     pub InitialApicId: u32,
 }
+impl windows_core::TypeKind for PROCESSOR_OBJECT_INFO_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PROCESSOR_OBJECT_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESSOR_OBJECT_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_POWER_INFORMATION {
     pub Number: u32,
     pub MaxMhz: u32,
@@ -2466,16 +2600,16 @@ pub struct PROCESSOR_POWER_INFORMATION {
     pub MaxIdleState: u32,
     pub CurrentIdleState: u32,
 }
+impl windows_core::TypeKind for PROCESSOR_POWER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PROCESSOR_POWER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESSOR_POWER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_POWER_POLICY {
     pub Revision: u32,
     pub DynamicThrottle: u8,
@@ -2484,16 +2618,16 @@ pub struct PROCESSOR_POWER_POLICY {
     pub PolicyCount: u32,
     pub Policy: [PROCESSOR_POWER_POLICY_INFO; 3],
 }
+impl windows_core::TypeKind for PROCESSOR_POWER_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PROCESSOR_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESSOR_POWER_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_POWER_POLICY_INFO {
     pub TimeCheck: u32,
     pub DemoteLimit: u32,
@@ -2503,31 +2637,31 @@ pub struct PROCESSOR_POWER_POLICY_INFO {
     pub Spare: [u8; 2],
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for PROCESSOR_POWER_POLICY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PROCESSOR_POWER_POLICY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESSOR_POWER_POLICY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESUME_PERFORMANCE {
     pub PostTimeMs: u32,
     pub TotalResumeTimeMs: u64,
     pub ResumeCompleteTimestamp: u64,
+}
+impl windows_core::TypeKind for RESUME_PERFORMANCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for RESUME_PERFORMANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESUME_PERFORMANCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SET_POWER_SETTING_VALUE {
     pub Version: u32,
     pub Guid: windows_core::GUID,
@@ -2535,16 +2669,16 @@ pub struct SET_POWER_SETTING_VALUE {
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
+impl windows_core::TypeKind for SET_POWER_SETTING_VALUE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SET_POWER_SETTING_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SET_POWER_SETTING_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_BATTERY_STATE {
     pub AcOnLine: super::super::Foundation::BOOLEAN,
     pub BatteryPresent: super::super::Foundation::BOOLEAN,
@@ -2559,16 +2693,16 @@ pub struct SYSTEM_BATTERY_STATE {
     pub DefaultAlert1: u32,
     pub DefaultAlert2: u32,
 }
+impl windows_core::TypeKind for SYSTEM_BATTERY_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SYSTEM_BATTERY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_BATTERY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_CAPABILITIES {
     pub PowerButtonPresent: super::super::Foundation::BOOLEAN,
     pub SleepButtonPresent: super::super::Foundation::BOOLEAN,
@@ -2604,32 +2738,32 @@ pub struct SYSTEM_POWER_CAPABILITIES {
     pub MinDeviceWakeState: SYSTEM_POWER_STATE,
     pub DefaultLowLatencyWake: SYSTEM_POWER_STATE,
 }
+impl windows_core::TypeKind for SYSTEM_POWER_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SYSTEM_POWER_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_POWER_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_INFORMATION {
     pub MaxIdlenessAllowed: u32,
     pub Idleness: u32,
     pub TimeRemaining: u32,
     pub CoolingMode: POWER_COOLING_MODE,
 }
+impl windows_core::TypeKind for SYSTEM_POWER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SYSTEM_POWER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_POWER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_LEVEL {
     pub Enable: super::super::Foundation::BOOLEAN,
     pub Spare: [u8; 3],
@@ -2637,16 +2771,16 @@ pub struct SYSTEM_POWER_LEVEL {
     pub PowerPolicy: POWER_ACTION_POLICY,
     pub MinSystemState: SYSTEM_POWER_STATE,
 }
+impl windows_core::TypeKind for SYSTEM_POWER_LEVEL {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SYSTEM_POWER_LEVEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_POWER_LEVEL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_POLICY {
     pub Revision: u32,
     pub PowerButton: POWER_ACTION_POLICY,
@@ -2677,16 +2811,16 @@ pub struct SYSTEM_POWER_POLICY {
     pub MinThrottle: u8,
     pub OverThrottled: POWER_ACTION_POLICY,
 }
+impl windows_core::TypeKind for SYSTEM_POWER_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SYSTEM_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_POWER_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_STATUS {
     pub ACLineStatus: u8,
     pub BatteryFlag: u8,
@@ -2695,16 +2829,16 @@ pub struct SYSTEM_POWER_STATUS {
     pub BatteryLifeTime: u32,
     pub BatteryFullLifeTime: u32,
 }
+impl windows_core::TypeKind for SYSTEM_POWER_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SYSTEM_POWER_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_POWER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct THERMAL_EVENT {
     pub Version: u32,
     pub Size: u32,
@@ -2713,16 +2847,16 @@ pub struct THERMAL_EVENT {
     pub TripPointTemperature: u32,
     pub Initiator: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for THERMAL_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for THERMAL_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for THERMAL_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct THERMAL_INFORMATION {
     pub ThermalStamp: u32,
     pub ThermalConstant1: u32,
@@ -2735,16 +2869,16 @@ pub struct THERMAL_INFORMATION {
     pub ActiveTripPointCount: u8,
     pub ActiveTripPoint: [u32; 10],
 }
+impl windows_core::TypeKind for THERMAL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for THERMAL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for THERMAL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct THERMAL_POLICY {
     pub Version: u32,
     pub WaitForUpdate: super::super::Foundation::BOOLEAN,
@@ -2756,31 +2890,31 @@ pub struct THERMAL_POLICY {
     pub ActiveLevel: u32,
     pub OverThrottled: super::super::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for THERMAL_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for THERMAL_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for THERMAL_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct THERMAL_WAIT_READ {
     pub Timeout: u32,
     pub LowTemperature: u32,
     pub HighTemperature: u32,
+}
+impl windows_core::TypeKind for THERMAL_WAIT_READ {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for THERMAL_WAIT_READ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for THERMAL_WAIT_READ {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_POWER_POLICY {
     pub Revision: u32,
     pub IdleAc: POWER_ACTION_POLICY,
@@ -2805,27 +2939,27 @@ pub struct USER_POWER_POLICY {
     pub ForcedThrottleAc: u8,
     pub ForcedThrottleDc: u8,
 }
+impl windows_core::TypeKind for USER_POWER_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for USER_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for USER_POWER_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WAKE_ALARM_INFORMATION {
     pub TimerIdentifier: u32,
     pub Timeout: u32,
+}
+impl windows_core::TypeKind for WAKE_ALARM_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WAKE_ALARM_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WAKE_ALARM_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 pub type EFFECTIVE_POWER_MODE_CALLBACK = Option<unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const core::ffi::c_void)>;
 pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, r#type: u32, setting: *const core::ffi::c_void) -> u32>;

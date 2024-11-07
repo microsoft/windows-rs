@@ -1,20 +1,33 @@
 windows_core::imp::define_interface!(IDontSupportEventSubscription, IDontSupportEventSubscription_Vtbl, 0x784121f1_62a6_4b89_855f_d65f296de83a);
+impl core::ops::Deref for IDontSupportEventSubscription {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDontSupportEventSubscription, windows_core::IUnknown);
+impl IDontSupportEventSubscription {}
 #[repr(C)]
 pub struct IDontSupportEventSubscription_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
-pub trait IDontSupportEventSubscription_Impl: windows_core::IUnknownImpl {}
+pub trait IDontSupportEventSubscription_Impl: Sized + windows_core::IUnknownImpl {}
+impl windows_core::RuntimeName for IDontSupportEventSubscription {}
 impl IDontSupportEventSubscription_Vtbl {
-    pub const fn new<Identity: IDontSupportEventSubscription_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IDontSupportEventSubscription_Impl, const OFFSET: isize>() -> IDontSupportEventSubscription_Vtbl {
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDontSupportEventSubscription as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IDontSupportEventSubscription {}
 windows_core::imp::define_interface!(IEnumEventObject, IEnumEventObject_Vtbl, 0xf4a07d63_2e25_11d1_9964_00c04fbbb345);
+impl core::ops::Deref for IEnumEventObject {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumEventObject, windows_core::IUnknown);
 impl IEnumEventObject {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumEventObject> {
@@ -39,14 +52,15 @@ pub struct IEnumEventObject_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IEnumEventObject_Impl: windows_core::IUnknownImpl {
+pub trait IEnumEventObject_Impl: Sized + windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumEventObject>;
     fn Next(&self, creqelem: u32, ppinterface: *mut Option<windows_core::IUnknown>, cretelem: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::HRESULT;
     fn Skip(&self, cskipelem: u32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IEnumEventObject {}
 impl IEnumEventObject_Vtbl {
-    pub const fn new<Identity: IEnumEventObject_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEnumEventObject_Impl, const OFFSET: isize>() -> IEnumEventObject_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumEventObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEnumEventObject_Impl::Clone(this) {
@@ -81,7 +95,6 @@ impl IEnumEventObject_Vtbl {
         iid == &<IEnumEventObject as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IEnumEventObject {}
 windows_core::imp::define_interface!(IEventClass, IEventClass_Vtbl, 0xfb2b72a0_7a68_11d1_88f9_0080c7d771bf);
 impl core::ops::Deref for IEventClass {
     type Target = super::IDispatch;
@@ -93,7 +106,7 @@ windows_core::imp::interface_hierarchy!(IEventClass, windows_core::IUnknown, sup
 impl IEventClass {
     pub unsafe fn EventClassID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EventClassID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).EventClassID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetEventClassID<P0>(&self, bstreventclassid: P0) -> windows_core::Result<()>
     where
@@ -103,7 +116,7 @@ impl IEventClass {
     }
     pub unsafe fn EventClassName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EventClassName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).EventClassName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetEventClassName<P0>(&self, bstreventclassname: P0) -> windows_core::Result<()>
     where
@@ -113,7 +126,7 @@ impl IEventClass {
     }
     pub unsafe fn OwnerSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).OwnerSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).OwnerSID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetOwnerSID<P0>(&self, bstrownersid: P0) -> windows_core::Result<()>
     where
@@ -123,7 +136,7 @@ impl IEventClass {
     }
     pub unsafe fn FiringInterfaceID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FiringInterfaceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).FiringInterfaceID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFiringInterfaceID<P0>(&self, bstrfiringinterfaceid: P0) -> windows_core::Result<()>
     where
@@ -133,7 +146,7 @@ impl IEventClass {
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
@@ -143,7 +156,7 @@ impl IEventClass {
     }
     pub unsafe fn CustomConfigCLSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CustomConfigCLSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).CustomConfigCLSID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetCustomConfigCLSID<P0>(&self, bstrcustomconfigclsid: P0) -> windows_core::Result<()>
     where
@@ -153,7 +166,7 @@ impl IEventClass {
     }
     pub unsafe fn TypeLib(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).TypeLib)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).TypeLib)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetTypeLib<P0>(&self, bstrtypelib: P0) -> windows_core::Result<()>
     where
@@ -181,7 +194,7 @@ pub struct IEventClass_Vtbl {
     pub SetTypeLib: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IEventClass_Impl: super::IDispatch_Impl {
+pub trait IEventClass_Impl: Sized + super::IDispatch_Impl {
     fn EventClassID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetEventClassID(&self, bstreventclassid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn EventClassName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -198,8 +211,10 @@ pub trait IEventClass_Impl: super::IDispatch_Impl {
     fn SetTypeLib(&self, bstrtypelib: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IEventClass {}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventClass_Vtbl {
-    pub const fn new<Identity: IEventClass_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEventClass_Impl, const OFFSET: isize>() -> IEventClass_Vtbl {
         unsafe extern "system" fn EventClassID<Identity: IEventClass_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstreventclassid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEventClass_Impl::EventClassID(this) {
@@ -317,11 +332,9 @@ impl IEventClass_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEventClass as windows_core::Interface>::IID
+        iid == &<IEventClass as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IEventClass {}
 windows_core::imp::define_interface!(IEventClass2, IEventClass2_Vtbl, 0xfb2b72a1_7a68_11d1_88f9_0080c7d771bf);
 impl core::ops::Deref for IEventClass2 {
     type Target = IEventClass;
@@ -333,7 +346,7 @@ windows_core::imp::interface_hierarchy!(IEventClass2, windows_core::IUnknown, su
 impl IEventClass2 {
     pub unsafe fn PublisherID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).PublisherID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).PublisherID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetPublisherID<P0>(&self, bstrpublisherid: P0) -> windows_core::Result<()>
     where
@@ -343,7 +356,7 @@ impl IEventClass2 {
     }
     pub unsafe fn MultiInterfacePublisherFilterCLSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MultiInterfacePublisherFilterCLSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).MultiInterfacePublisherFilterCLSID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMultiInterfacePublisherFilterCLSID<P0>(&self, bstrpubfilclsid: P0) -> windows_core::Result<()>
     where
@@ -385,7 +398,7 @@ pub struct IEventClass2_Vtbl {
     pub SetFireInParallel: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IEventClass2_Impl: IEventClass_Impl {
+pub trait IEventClass2_Impl: Sized + IEventClass_Impl {
     fn PublisherID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetPublisherID(&self, bstrpublisherid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn MultiInterfacePublisherFilterCLSID(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -396,8 +409,10 @@ pub trait IEventClass2_Impl: IEventClass_Impl {
     fn SetFireInParallel(&self, ffireinparallel: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IEventClass2 {}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventClass2_Vtbl {
-    pub const fn new<Identity: IEventClass2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEventClass2_Impl, const OFFSET: isize>() -> IEventClass2_Vtbl {
         unsafe extern "system" fn PublisherID<Identity: IEventClass2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpublisherid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEventClass2_Impl::PublisherID(this) {
@@ -467,11 +482,9 @@ impl IEventClass2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEventClass2 as windows_core::Interface>::IID
+        iid == &<IEventClass2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IEventClass as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IEventClass2 {}
 windows_core::imp::define_interface!(IEventControl, IEventControl_Vtbl, 0x0343e2f4_86f6_11d1_b760_00c04fb926af);
 impl core::ops::Deref for IEventControl {
     type Target = super::IDispatch;
@@ -525,7 +538,7 @@ pub struct IEventControl_Vtbl {
     pub SetDefaultQuery: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IEventControl_Impl: super::IDispatch_Impl {
+pub trait IEventControl_Impl: Sized + super::IDispatch_Impl {
     fn SetPublisherFilter(&self, methodname: &windows_core::BSTR, ppublisherfilter: Option<&IPublisherFilter>) -> windows_core::Result<()>;
     fn AllowInprocActivation(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn SetAllowInprocActivation(&self, fallowinprocactivation: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
@@ -533,8 +546,10 @@ pub trait IEventControl_Impl: super::IDispatch_Impl {
     fn SetDefaultQuery(&self, methodname: &windows_core::BSTR, criteria: &windows_core::BSTR) -> windows_core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IEventControl {}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventControl_Vtbl {
-    pub const fn new<Identity: IEventControl_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEventControl_Impl, const OFFSET: isize>() -> IEventControl_Vtbl {
         unsafe extern "system" fn SetPublisherFilter<Identity: IEventControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, methodname: core::mem::MaybeUninit<windows_core::BSTR>, ppublisherfilter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEventControl_Impl::SetPublisherFilter(this, core::mem::transmute(&methodname), windows_core::from_raw_borrowed(&ppublisherfilter)).into()
@@ -583,29 +598,33 @@ impl IEventControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEventControl as windows_core::Interface>::IID
+        iid == &<IEventControl as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IEventControl {}
 windows_core::imp::define_interface!(IEventObjectChange, IEventObjectChange_Vtbl, 0xf4a07d70_2e25_11d1_9964_00c04fbbb345);
+impl core::ops::Deref for IEventObjectChange {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEventObjectChange, windows_core::IUnknown);
 impl IEventObjectChange {
-    pub unsafe fn ChangedSubscription<P1>(&self, changetype: EOC_ChangeType, bstrsubscriptionid: P1) -> windows_core::Result<()>
+    pub unsafe fn ChangedSubscription<P0>(&self, changetype: EOC_ChangeType, bstrsubscriptionid: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).ChangedSubscription)(windows_core::Interface::as_raw(self), changetype, bstrsubscriptionid.param().abi()).ok()
     }
-    pub unsafe fn ChangedEventClass<P1>(&self, changetype: EOC_ChangeType, bstreventclassid: P1) -> windows_core::Result<()>
+    pub unsafe fn ChangedEventClass<P0>(&self, changetype: EOC_ChangeType, bstreventclassid: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).ChangedEventClass)(windows_core::Interface::as_raw(self), changetype, bstreventclassid.param().abi()).ok()
     }
-    pub unsafe fn ChangedPublisher<P1>(&self, changetype: EOC_ChangeType, bstrpublisherid: P1) -> windows_core::Result<()>
+    pub unsafe fn ChangedPublisher<P0>(&self, changetype: EOC_ChangeType, bstrpublisherid: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).ChangedPublisher)(windows_core::Interface::as_raw(self), changetype, bstrpublisherid.param().abi()).ok()
     }
@@ -617,13 +636,14 @@ pub struct IEventObjectChange_Vtbl {
     pub ChangedEventClass: unsafe extern "system" fn(*mut core::ffi::c_void, EOC_ChangeType, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub ChangedPublisher: unsafe extern "system" fn(*mut core::ffi::c_void, EOC_ChangeType, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-pub trait IEventObjectChange_Impl: windows_core::IUnknownImpl {
+pub trait IEventObjectChange_Impl: Sized + windows_core::IUnknownImpl {
     fn ChangedSubscription(&self, changetype: EOC_ChangeType, bstrsubscriptionid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ChangedEventClass(&self, changetype: EOC_ChangeType, bstreventclassid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn ChangedPublisher(&self, changetype: EOC_ChangeType, bstrpublisherid: &windows_core::BSTR) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IEventObjectChange {}
 impl IEventObjectChange_Vtbl {
-    pub const fn new<Identity: IEventObjectChange_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEventObjectChange_Impl, const OFFSET: isize>() -> IEventObjectChange_Vtbl {
         unsafe extern "system" fn ChangedSubscription<Identity: IEventObjectChange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, changetype: EOC_ChangeType, bstrsubscriptionid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEventObjectChange_Impl::ChangedSubscription(this, core::mem::transmute_copy(&changetype), core::mem::transmute(&bstrsubscriptionid)).into()
@@ -647,15 +667,20 @@ impl IEventObjectChange_Vtbl {
         iid == &<IEventObjectChange as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IEventObjectChange {}
 windows_core::imp::define_interface!(IEventObjectChange2, IEventObjectChange2_Vtbl, 0x7701a9c3_bd68_438f_83e0_67bf4f53a422);
+impl core::ops::Deref for IEventObjectChange2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEventObjectChange2, windows_core::IUnknown);
 impl IEventObjectChange2 {
     pub unsafe fn ChangedSubscription(&self, pinfo: *const COMEVENTSYSCHANGEINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ChangedSubscription)(windows_core::Interface::as_raw(self), core::mem::transmute(pinfo)).ok()
+        (windows_core::Interface::vtable(self).ChangedSubscription)(windows_core::Interface::as_raw(self), pinfo).ok()
     }
     pub unsafe fn ChangedEventClass(&self, pinfo: *const COMEVENTSYSCHANGEINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ChangedEventClass)(windows_core::Interface::as_raw(self), core::mem::transmute(pinfo)).ok()
+        (windows_core::Interface::vtable(self).ChangedEventClass)(windows_core::Interface::as_raw(self), pinfo).ok()
     }
 }
 #[repr(C)]
@@ -664,12 +689,13 @@ pub struct IEventObjectChange2_Vtbl {
     pub ChangedSubscription: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMEVENTSYSCHANGEINFO) -> windows_core::HRESULT,
     pub ChangedEventClass: unsafe extern "system" fn(*mut core::ffi::c_void, *const COMEVENTSYSCHANGEINFO) -> windows_core::HRESULT,
 }
-pub trait IEventObjectChange2_Impl: windows_core::IUnknownImpl {
+pub trait IEventObjectChange2_Impl: Sized + windows_core::IUnknownImpl {
     fn ChangedSubscription(&self, pinfo: *const COMEVENTSYSCHANGEINFO) -> windows_core::Result<()>;
     fn ChangedEventClass(&self, pinfo: *const COMEVENTSYSCHANGEINFO) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IEventObjectChange2 {}
 impl IEventObjectChange2_Vtbl {
-    pub const fn new<Identity: IEventObjectChange2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEventObjectChange2_Impl, const OFFSET: isize>() -> IEventObjectChange2_Vtbl {
         unsafe extern "system" fn ChangedSubscription<Identity: IEventObjectChange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const COMEVENTSYSCHANGEINFO) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEventObjectChange2_Impl::ChangedSubscription(this, core::mem::transmute_copy(&pinfo)).into()
@@ -688,7 +714,6 @@ impl IEventObjectChange2_Vtbl {
         iid == &<IEventObjectChange2 as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IEventObjectChange2 {}
 windows_core::imp::define_interface!(IEventObjectCollection, IEventObjectCollection_Vtbl, 0xf89ac270_d4eb_11d1_b682_00805fc79216);
 impl core::ops::Deref for IEventObjectCollection {
     type Target = super::IDispatch;
@@ -708,7 +733,7 @@ impl IEventObjectCollection {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), objectid.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), objectid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn NewEnum(&self) -> windows_core::Result<IEnumEventObject> {
         let mut result__ = core::mem::zeroed();
@@ -719,9 +744,9 @@ impl IEventObjectCollection {
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Add<P1>(&self, item: *const super::super::Variant::VARIANT, objectid: P1) -> windows_core::Result<()>
+    pub unsafe fn Add<P0>(&self, item: *const super::super::Variant::VARIANT, objectid: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<windows_core::BSTR>,
+        P0: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute(item), objectid.param().abi()).ok()
     }
@@ -737,19 +762,19 @@ pub struct IEventObjectCollection_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
     pub NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Variant::VARIANT, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::Variant::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Add: usize,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IEventObjectCollection_Impl: super::IDispatch_Impl {
+pub trait IEventObjectCollection_Impl: Sized + super::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn get_Item(&self, objectid: &windows_core::BSTR) -> windows_core::Result<super::super::Variant::VARIANT>;
     fn NewEnum(&self) -> windows_core::Result<IEnumEventObject>;
@@ -758,8 +783,10 @@ pub trait IEventObjectCollection_Impl: super::IDispatch_Impl {
     fn Remove(&self, objectid: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IEventObjectCollection {}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventObjectCollection_Vtbl {
-    pub const fn new<Identity: IEventObjectCollection_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEventObjectCollection_Impl, const OFFSET: isize>() -> IEventObjectCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunkenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEventObjectCollection_Impl::_NewEnum(this) {
@@ -770,7 +797,7 @@ impl IEventObjectCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: core::mem::MaybeUninit<windows_core::BSTR>, pitem: *mut super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: core::mem::MaybeUninit<windows_core::BSTR>, pitem: *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEventObjectCollection_Impl::get_Item(this, core::mem::transmute(&objectid)) {
                 Ok(ok__) => {
@@ -800,7 +827,7 @@ impl IEventObjectCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: *const super::super::Variant::VARIANT, objectid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: *const core::mem::MaybeUninit<super::super::Variant::VARIANT>, objectid: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEventObjectCollection_Impl::Add(this, core::mem::transmute_copy(&item), core::mem::transmute(&objectid)).into()
         }
@@ -819,11 +846,9 @@ impl IEventObjectCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEventObjectCollection as windows_core::Interface>::IID
+        iid == &<IEventObjectCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IEventObjectCollection {}
 windows_core::imp::define_interface!(IEventProperty, IEventProperty_Vtbl, 0xda538ee2_f4de_11d1_b6bb_00805fc79216);
 impl core::ops::Deref for IEventProperty {
     type Target = super::IDispatch;
@@ -835,7 +860,7 @@ windows_core::imp::interface_hierarchy!(IEventProperty, windows_core::IUnknown, 
 impl IEventProperty {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, propertyname: P0) -> windows_core::Result<()>
     where
@@ -846,7 +871,7 @@ impl IEventProperty {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Value(&self) -> windows_core::Result<super::super::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValue(&self, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()> {
@@ -859,24 +884,26 @@ pub struct IEventProperty_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Value: usize,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetValue: usize,
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IEventProperty_Impl: super::IDispatch_Impl {
+pub trait IEventProperty_Impl: Sized + super::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Value(&self) -> windows_core::Result<super::super::Variant::VARIANT>;
     fn SetValue(&self, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IEventProperty {}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventProperty_Vtbl {
-    pub const fn new<Identity: IEventProperty_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEventProperty_Impl, const OFFSET: isize>() -> IEventProperty_Vtbl {
         unsafe extern "system" fn Name<Identity: IEventProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEventProperty_Impl::Name(this) {
@@ -891,7 +918,7 @@ impl IEventProperty_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEventProperty_Impl::SetName(this, core::mem::transmute(&propertyname)).into()
         }
-        unsafe extern "system" fn Value<Identity: IEventProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyvalue: *mut super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: IEventProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyvalue: *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEventProperty_Impl::Value(this) {
                 Ok(ok__) => {
@@ -901,7 +928,7 @@ impl IEventProperty_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: IEventProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: IEventProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyvalue: *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEventProperty_Impl::SetValue(this, core::mem::transmute_copy(&propertyvalue)).into()
         }
@@ -914,11 +941,9 @@ impl IEventProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEventProperty as windows_core::Interface>::IID
+        iid == &<IEventProperty as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IEventProperty {}
 windows_core::imp::define_interface!(IEventPublisher, IEventPublisher_Vtbl, 0xe341516b_2e32_11d1_9964_00c04fbbb345);
 impl core::ops::Deref for IEventPublisher {
     type Target = super::IDispatch;
@@ -930,7 +955,7 @@ windows_core::imp::interface_hierarchy!(IEventPublisher, windows_core::IUnknown,
 impl IEventPublisher {
     pub unsafe fn PublisherID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).PublisherID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).PublisherID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetPublisherID<P0>(&self, bstrpublisherid: P0) -> windows_core::Result<()>
     where
@@ -940,7 +965,7 @@ impl IEventPublisher {
     }
     pub unsafe fn PublisherName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).PublisherName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).PublisherName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetPublisherName<P0>(&self, bstrpublishername: P0) -> windows_core::Result<()>
     where
@@ -950,7 +975,7 @@ impl IEventPublisher {
     }
     pub unsafe fn PublisherType(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).PublisherType)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).PublisherType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetPublisherType<P0>(&self, bstrpublishertype: P0) -> windows_core::Result<()>
     where
@@ -960,7 +985,7 @@ impl IEventPublisher {
     }
     pub unsafe fn OwnerSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).OwnerSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).OwnerSID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetOwnerSID<P0>(&self, bstrownersid: P0) -> windows_core::Result<()>
     where
@@ -970,7 +995,7 @@ impl IEventPublisher {
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
@@ -984,7 +1009,7 @@ impl IEventPublisher {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDefaultProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetDefaultProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutDefaultProperty<P0>(&self, bstrpropertyname: P0, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()>
@@ -1018,18 +1043,18 @@ pub struct IEventPublisher_Vtbl {
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetDefaultProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetDefaultProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetDefaultProperty: usize,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PutDefaultProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const super::super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub PutDefaultProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     PutDefaultProperty: usize,
     pub RemoveDefaultProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetDefaultPropertyCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IEventPublisher_Impl: super::IDispatch_Impl {
+pub trait IEventPublisher_Impl: Sized + super::IDispatch_Impl {
     fn PublisherID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetPublisherID(&self, bstrpublisherid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn PublisherName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1046,8 +1071,10 @@ pub trait IEventPublisher_Impl: super::IDispatch_Impl {
     fn GetDefaultPropertyCollection(&self) -> windows_core::Result<IEventObjectCollection>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IEventPublisher {}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventPublisher_Vtbl {
-    pub const fn new<Identity: IEventPublisher_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEventPublisher_Impl, const OFFSET: isize>() -> IEventPublisher_Vtbl {
         unsafe extern "system" fn PublisherID<Identity: IEventPublisher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpublisherid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEventPublisher_Impl::PublisherID(this) {
@@ -1118,7 +1145,7 @@ impl IEventPublisher_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEventPublisher_Impl::SetDescription(this, core::mem::transmute(&bstrdescription)).into()
         }
-        unsafe extern "system" fn GetDefaultProperty<Identity: IEventPublisher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *mut super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDefaultProperty<Identity: IEventPublisher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEventPublisher_Impl::GetDefaultProperty(this, core::mem::transmute(&bstrpropertyname)) {
                 Ok(ok__) => {
@@ -1128,7 +1155,7 @@ impl IEventPublisher_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutDefaultProperty<Identity: IEventPublisher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn PutDefaultProperty<Identity: IEventPublisher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEventPublisher_Impl::PutDefaultProperty(this, core::mem::transmute(&bstrpropertyname), core::mem::transmute_copy(&propertyvalue)).into()
         }
@@ -1165,11 +1192,9 @@ impl IEventPublisher_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEventPublisher as windows_core::Interface>::IID
+        iid == &<IEventPublisher as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IEventPublisher {}
 windows_core::imp::define_interface!(IEventSubscription, IEventSubscription_Vtbl, 0x4a6b0e15_2e38_11d1_9965_00c04fbbb345);
 impl core::ops::Deref for IEventSubscription {
     type Target = super::IDispatch;
@@ -1181,7 +1206,7 @@ windows_core::imp::interface_hierarchy!(IEventSubscription, windows_core::IUnkno
 impl IEventSubscription {
     pub unsafe fn SubscriptionID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).SubscriptionID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).SubscriptionID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetSubscriptionID<P0>(&self, bstrsubscriptionid: P0) -> windows_core::Result<()>
     where
@@ -1191,7 +1216,7 @@ impl IEventSubscription {
     }
     pub unsafe fn SubscriptionName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).SubscriptionName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).SubscriptionName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetSubscriptionName<P0>(&self, bstrsubscriptionname: P0) -> windows_core::Result<()>
     where
@@ -1201,7 +1226,7 @@ impl IEventSubscription {
     }
     pub unsafe fn PublisherID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).PublisherID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).PublisherID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetPublisherID<P0>(&self, bstrpublisherid: P0) -> windows_core::Result<()>
     where
@@ -1211,7 +1236,7 @@ impl IEventSubscription {
     }
     pub unsafe fn EventClassID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EventClassID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).EventClassID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetEventClassID<P0>(&self, bstreventclassid: P0) -> windows_core::Result<()>
     where
@@ -1221,7 +1246,7 @@ impl IEventSubscription {
     }
     pub unsafe fn MethodName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MethodName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).MethodName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMethodName<P0>(&self, bstrmethodname: P0) -> windows_core::Result<()>
     where
@@ -1231,7 +1256,7 @@ impl IEventSubscription {
     }
     pub unsafe fn SubscriberCLSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).SubscriberCLSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).SubscriberCLSID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetSubscriberCLSID<P0>(&self, bstrsubscriberclsid: P0) -> windows_core::Result<()>
     where
@@ -1261,7 +1286,7 @@ impl IEventSubscription {
     }
     pub unsafe fn OwnerSID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).OwnerSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).OwnerSID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetOwnerSID<P0>(&self, bstrownersid: P0) -> windows_core::Result<()>
     where
@@ -1281,7 +1306,7 @@ impl IEventSubscription {
     }
     pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, bstrdescription: P0) -> windows_core::Result<()>
     where
@@ -1291,7 +1316,7 @@ impl IEventSubscription {
     }
     pub unsafe fn MachineName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MachineName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).MachineName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMachineName<P0>(&self, bstrmachinename: P0) -> windows_core::Result<()>
     where
@@ -1305,7 +1330,7 @@ impl IEventSubscription {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPublisherProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetPublisherProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutPublisherProperty<P0>(&self, bstrpropertyname: P0, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()>
@@ -1330,7 +1355,7 @@ impl IEventSubscription {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSubscriberProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetSubscriberProperty)(windows_core::Interface::as_raw(self), bstrpropertyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutSubscriberProperty<P0>(&self, bstrpropertyname: P0, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::Result<()>
@@ -1351,7 +1376,7 @@ impl IEventSubscription {
     }
     pub unsafe fn InterfaceID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).InterfaceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).InterfaceID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetInterfaceID<P0>(&self, bstrinterfaceid: P0) -> windows_core::Result<()>
     where
@@ -1388,21 +1413,21 @@ pub struct IEventSubscription_Vtbl {
     pub MachineName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetMachineName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetPublisherProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetPublisherProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetPublisherProperty: usize,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PutPublisherProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const super::super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub PutPublisherProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     PutPublisherProperty: usize,
     pub RemovePublisherProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetPublisherPropertyCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetSubscriberProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetSubscriberProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetSubscriberProperty: usize,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PutSubscriberProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const super::super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub PutSubscriberProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     PutSubscriberProperty: usize,
     pub RemoveSubscriberProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
@@ -1411,7 +1436,7 @@ pub struct IEventSubscription_Vtbl {
     pub SetInterfaceID: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IEventSubscription_Impl: super::IDispatch_Impl {
+pub trait IEventSubscription_Impl: Sized + super::IDispatch_Impl {
     fn SubscriptionID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetSubscriptionID(&self, bstrsubscriptionid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SubscriptionName(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1448,8 +1473,10 @@ pub trait IEventSubscription_Impl: super::IDispatch_Impl {
     fn SetInterfaceID(&self, bstrinterfaceid: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IEventSubscription {}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventSubscription_Vtbl {
-    pub const fn new<Identity: IEventSubscription_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEventSubscription_Impl, const OFFSET: isize>() -> IEventSubscription_Vtbl {
         unsafe extern "system" fn SubscriptionID<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrsubscriptionid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEventSubscription_Impl::SubscriptionID(this) {
@@ -1618,7 +1645,7 @@ impl IEventSubscription_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEventSubscription_Impl::SetMachineName(this, core::mem::transmute(&bstrmachinename)).into()
         }
-        unsafe extern "system" fn GetPublisherProperty<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *mut super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPublisherProperty<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEventSubscription_Impl::GetPublisherProperty(this, core::mem::transmute(&bstrpropertyname)) {
                 Ok(ok__) => {
@@ -1628,7 +1655,7 @@ impl IEventSubscription_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutPublisherProperty<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn PutPublisherProperty<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEventSubscription_Impl::PutPublisherProperty(this, core::mem::transmute(&bstrpropertyname), core::mem::transmute_copy(&propertyvalue)).into()
         }
@@ -1646,7 +1673,7 @@ impl IEventSubscription_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSubscriberProperty<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *mut super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSubscriberProperty<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEventSubscription_Impl::GetSubscriberProperty(this, core::mem::transmute(&bstrpropertyname)) {
                 Ok(ok__) => {
@@ -1656,7 +1683,7 @@ impl IEventSubscription_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutSubscriberProperty<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *const super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn PutSubscriberProperty<Identity: IEventSubscription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *const core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEventSubscription_Impl::PutSubscriberProperty(this, core::mem::transmute(&bstrpropertyname), core::mem::transmute_copy(&propertyvalue)).into()
         }
@@ -1727,11 +1754,9 @@ impl IEventSubscription_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEventSubscription as windows_core::Interface>::IID
+        iid == &<IEventSubscription as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IEventSubscription {}
 windows_core::imp::define_interface!(IEventSystem, IEventSystem_Vtbl, 0x4e14fb9f_2e22_11d1_9964_00c04fbbb345);
 impl core::ops::Deref for IEventSystem {
     type Target = super::IDispatch;
@@ -1766,7 +1791,7 @@ impl IEventSystem {
     }
     pub unsafe fn EventObjectChangeEventClassID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EventObjectChangeEventClassID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).EventObjectChangeEventClassID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn QueryS<P0, P1>(&self, progid: P0, querycriteria: P1) -> windows_core::Result<windows_core::IUnknown>
     where
@@ -1795,7 +1820,7 @@ pub struct IEventSystem_Vtbl {
     pub RemoveS: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IEventSystem_Impl: super::IDispatch_Impl {
+pub trait IEventSystem_Impl: Sized + super::IDispatch_Impl {
     fn Query(&self, progid: &windows_core::BSTR, querycriteria: &windows_core::BSTR, errorindex: *mut i32) -> windows_core::Result<windows_core::IUnknown>;
     fn Store(&self, progid: &windows_core::BSTR, pinterface: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Remove(&self, progid: &windows_core::BSTR, querycriteria: &windows_core::BSTR) -> windows_core::Result<i32>;
@@ -1804,8 +1829,10 @@ pub trait IEventSystem_Impl: super::IDispatch_Impl {
     fn RemoveS(&self, progid: &windows_core::BSTR, querycriteria: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IEventSystem {}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEventSystem_Vtbl {
-    pub const fn new<Identity: IEventSystem_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEventSystem_Impl, const OFFSET: isize>() -> IEventSystem_Vtbl {
         unsafe extern "system" fn Query<Identity: IEventSystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, progid: core::mem::MaybeUninit<windows_core::BSTR>, querycriteria: core::mem::MaybeUninit<windows_core::BSTR>, errorindex: *mut i32, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEventSystem_Impl::Query(this, core::mem::transmute(&progid), core::mem::transmute(&querycriteria), core::mem::transmute_copy(&errorindex)) {
@@ -1865,11 +1892,9 @@ impl IEventSystem_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEventSystem as windows_core::Interface>::IID
+        iid == &<IEventSystem as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IEventSystem {}
 windows_core::imp::define_interface!(IFiringControl, IFiringControl_Vtbl, 0xe0498c93_4efe_11d1_9971_00c04fbbb345);
 impl core::ops::Deref for IFiringControl {
     type Target = super::IDispatch;
@@ -1892,12 +1917,14 @@ pub struct IFiringControl_Vtbl {
     pub FireSubscription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IFiringControl_Impl: super::IDispatch_Impl {
+pub trait IFiringControl_Impl: Sized + super::IDispatch_Impl {
     fn FireSubscription(&self, subscription: Option<&IEventSubscription>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IFiringControl {}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFiringControl_Vtbl {
-    pub const fn new<Identity: IFiringControl_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IFiringControl_Impl, const OFFSET: isize>() -> IFiringControl_Vtbl {
         unsafe extern "system" fn FireSubscription<Identity: IFiringControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subscription: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFiringControl_Impl::FireSubscription(this, windows_core::from_raw_borrowed(&subscription)).into()
@@ -1905,12 +1932,16 @@ impl IFiringControl_Vtbl {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), FireSubscription: FireSubscription::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFiringControl as windows_core::Interface>::IID
+        iid == &<IFiringControl as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IFiringControl {}
 windows_core::imp::define_interface!(IMultiInterfaceEventControl, IMultiInterfaceEventControl_Vtbl, 0x0343e2f5_86f6_11d1_b760_00c04fb926af);
+impl core::ops::Deref for IMultiInterfaceEventControl {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMultiInterfaceEventControl, windows_core::IUnknown);
 impl IMultiInterfaceEventControl {
     pub unsafe fn SetMultiInterfacePublisherFilter<P0>(&self, classfilter: P0) -> windows_core::Result<()>
@@ -1919,18 +1950,18 @@ impl IMultiInterfaceEventControl {
     {
         (windows_core::Interface::vtable(self).SetMultiInterfacePublisherFilter)(windows_core::Interface::as_raw(self), classfilter.param().abi()).ok()
     }
-    pub unsafe fn GetSubscriptions<P1, P2>(&self, eventiid: *const windows_core::GUID, bstrmethodname: P1, optionalcriteria: P2, optionalerrorindex: *const i32) -> windows_core::Result<IEventObjectCollection>
+    pub unsafe fn GetSubscriptions<P0, P1>(&self, eventiid: *const windows_core::GUID, bstrmethodname: P0, optionalcriteria: P1, optionalerrorindex: *const i32) -> windows_core::Result<IEventObjectCollection>
     where
+        P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetSubscriptions)(windows_core::Interface::as_raw(self), eventiid, bstrmethodname.param().abi(), optionalcriteria.param().abi(), optionalerrorindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn SetDefaultQuery<P1, P2>(&self, eventiid: *const windows_core::GUID, bstrmethodname: P1, bstrcriteria: P2) -> windows_core::Result<i32>
+    pub unsafe fn SetDefaultQuery<P0, P1>(&self, eventiid: *const windows_core::GUID, bstrmethodname: P0, bstrcriteria: P1) -> windows_core::Result<i32>
     where
+        P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SetDefaultQuery)(windows_core::Interface::as_raw(self), eventiid, bstrmethodname.param().abi(), bstrcriteria.param().abi(), &mut result__).map(|| result__)
@@ -1967,7 +1998,7 @@ pub struct IMultiInterfaceEventControl_Vtbl {
     pub FireInParallel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub SetFireInParallel: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IMultiInterfaceEventControl_Impl: windows_core::IUnknownImpl {
+pub trait IMultiInterfaceEventControl_Impl: Sized + windows_core::IUnknownImpl {
     fn SetMultiInterfacePublisherFilter(&self, classfilter: Option<&IMultiInterfacePublisherFilter>) -> windows_core::Result<()>;
     fn GetSubscriptions(&self, eventiid: *const windows_core::GUID, bstrmethodname: &windows_core::BSTR, optionalcriteria: &windows_core::BSTR, optionalerrorindex: *const i32) -> windows_core::Result<IEventObjectCollection>;
     fn SetDefaultQuery(&self, eventiid: *const windows_core::GUID, bstrmethodname: &windows_core::BSTR, bstrcriteria: &windows_core::BSTR) -> windows_core::Result<i32>;
@@ -1976,8 +2007,9 @@ pub trait IMultiInterfaceEventControl_Impl: windows_core::IUnknownImpl {
     fn FireInParallel(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
     fn SetFireInParallel(&self, ffireinparallel: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IMultiInterfaceEventControl {}
 impl IMultiInterfaceEventControl_Vtbl {
-    pub const fn new<Identity: IMultiInterfaceEventControl_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IMultiInterfaceEventControl_Impl, const OFFSET: isize>() -> IMultiInterfaceEventControl_Vtbl {
         unsafe extern "system" fn SetMultiInterfacePublisherFilter<Identity: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, classfilter: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMultiInterfaceEventControl_Impl::SetMultiInterfacePublisherFilter(this, windows_core::from_raw_borrowed(&classfilter)).into()
@@ -2045,8 +2077,13 @@ impl IMultiInterfaceEventControl_Vtbl {
         iid == &<IMultiInterfaceEventControl as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IMultiInterfaceEventControl {}
 windows_core::imp::define_interface!(IMultiInterfacePublisherFilter, IMultiInterfacePublisherFilter_Vtbl, 0x465e5cc1_7b26_11d1_88fb_0080c7d771bf);
+impl core::ops::Deref for IMultiInterfacePublisherFilter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMultiInterfacePublisherFilter, windows_core::IUnknown);
 impl IMultiInterfacePublisherFilter {
     pub unsafe fn Initialize<P0>(&self, peic: P0) -> windows_core::Result<()>
@@ -2055,10 +2092,10 @@ impl IMultiInterfacePublisherFilter {
     {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), peic.param().abi()).ok()
     }
-    pub unsafe fn PrepareToFire<P1, P2>(&self, iid: *const windows_core::GUID, methodname: P1, firingcontrol: P2) -> windows_core::Result<()>
+    pub unsafe fn PrepareToFire<P0, P1>(&self, iid: *const windows_core::GUID, methodname: P0, firingcontrol: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<windows_core::BSTR>,
-        P2: windows_core::Param<IFiringControl>,
+        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<IFiringControl>,
     {
         (windows_core::Interface::vtable(self).PrepareToFire)(windows_core::Interface::as_raw(self), iid, methodname.param().abi(), firingcontrol.param().abi()).ok()
     }
@@ -2069,12 +2106,13 @@ pub struct IMultiInterfacePublisherFilter_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PrepareToFire: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IMultiInterfacePublisherFilter_Impl: windows_core::IUnknownImpl {
+pub trait IMultiInterfacePublisherFilter_Impl: Sized + windows_core::IUnknownImpl {
     fn Initialize(&self, peic: Option<&IMultiInterfaceEventControl>) -> windows_core::Result<()>;
     fn PrepareToFire(&self, iid: *const windows_core::GUID, methodname: &windows_core::BSTR, firingcontrol: Option<&IFiringControl>) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IMultiInterfacePublisherFilter {}
 impl IMultiInterfacePublisherFilter_Vtbl {
-    pub const fn new<Identity: IMultiInterfacePublisherFilter_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IMultiInterfacePublisherFilter_Impl, const OFFSET: isize>() -> IMultiInterfacePublisherFilter_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IMultiInterfacePublisherFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peic: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMultiInterfacePublisherFilter_Impl::Initialize(this, windows_core::from_raw_borrowed(&peic)).into()
@@ -2093,8 +2131,13 @@ impl IMultiInterfacePublisherFilter_Vtbl {
         iid == &<IMultiInterfacePublisherFilter as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IMultiInterfacePublisherFilter {}
 windows_core::imp::define_interface!(IPublisherFilter, IPublisherFilter_Vtbl, 0x465e5cc0_7b26_11d1_88fb_0080c7d771bf);
+impl core::ops::Deref for IPublisherFilter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPublisherFilter, windows_core::IUnknown);
 impl IPublisherFilter {
     pub unsafe fn Initialize<P0, P1>(&self, methodname: P0, dispuserdefined: P1) -> windows_core::Result<()>
@@ -2118,12 +2161,13 @@ pub struct IPublisherFilter_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub PrepareToFire: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IPublisherFilter_Impl: windows_core::IUnknownImpl {
+pub trait IPublisherFilter_Impl: Sized + windows_core::IUnknownImpl {
     fn Initialize(&self, methodname: &windows_core::BSTR, dispuserdefined: Option<&super::IDispatch>) -> windows_core::Result<()>;
     fn PrepareToFire(&self, methodname: &windows_core::BSTR, firingcontrol: Option<&IFiringControl>) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IPublisherFilter {}
 impl IPublisherFilter_Vtbl {
-    pub const fn new<Identity: IPublisherFilter_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPublisherFilter_Impl, const OFFSET: isize>() -> IPublisherFilter_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IPublisherFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, methodname: core::mem::MaybeUninit<windows_core::BSTR>, dispuserdefined: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPublisherFilter_Impl::Initialize(this, core::mem::transmute(&methodname), windows_core::from_raw_borrowed(&dispuserdefined)).into()
@@ -2142,22 +2186,26 @@ impl IPublisherFilter_Vtbl {
         iid == &<IPublisherFilter as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IPublisherFilter {}
 pub const EOC_DeletedObject: EOC_ChangeType = EOC_ChangeType(2i32);
 pub const EOC_ModifiedObject: EOC_ChangeType = EOC_ChangeType(1i32);
 pub const EOC_NewObject: EOC_ChangeType = EOC_ChangeType(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EOC_ChangeType(pub i32);
 impl windows_core::TypeKind for EOC_ChangeType {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for EOC_ChangeType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EOC_ChangeType").field(&self.0).finish()
+    }
 }
 pub const CEventClass: windows_core::GUID = windows_core::GUID::from_u128(0xcdbec9c0_7a68_11d1_88f9_0080c7d771bf);
 pub const CEventPublisher: windows_core::GUID = windows_core::GUID::from_u128(0xab944620_79c6_11d1_88f9_0080c7d771bf);
 pub const CEventSubscription: windows_core::GUID = windows_core::GUID::from_u128(0x7542e960_79c7_11d1_88f9_0080c7d771bf);
 pub const CEventSystem: windows_core::GUID = windows_core::GUID::from_u128(0x4e14fba2_2e22_11d1_9964_00c04fbbb345);
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct COMEVENTSYSCHANGEINFO {
     pub cbSize: u32,
     pub changeType: EOC_ChangeType,
@@ -2166,13 +2214,18 @@ pub struct COMEVENTSYSCHANGEINFO {
     pub applicationId: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub reserved: [windows_core::GUID; 10],
 }
+impl Clone for COMEVENTSYSCHANGEINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl windows_core::TypeKind for COMEVENTSYSCHANGEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for COMEVENTSYSCHANGEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for COMEVENTSYSCHANGEINFO {
-    type TypeKind = windows_core::CloneType;
 }
 pub const EventObjectChange: windows_core::GUID = windows_core::GUID::from_u128(0xd0565000_9df4_11d1_a281_00c04fca0aa7);
 pub const EventObjectChange2: windows_core::GUID = windows_core::GUID::from_u128(0xbb07bacd_cd56_4e63_a8ff_cbf0355fb9f4);

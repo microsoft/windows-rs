@@ -72,7 +72,6 @@ pub struct IMdmSessionManagerStatics_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MdmAlert(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MdmAlert, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MdmAlert,);
 impl MdmAlert {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -159,7 +158,7 @@ impl windows_core::RuntimeType for MdmAlert {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMdmAlert>();
 }
 unsafe impl windows_core::Interface for MdmAlert {
-    type Vtable = <IMdmAlert as windows_core::Interface>::Vtable;
+    type Vtable = IMdmAlert_Vtbl;
     const IID: windows_core::GUID = <IMdmAlert as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MdmAlert {
@@ -169,7 +168,6 @@ impl windows_core::RuntimeName for MdmAlert {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MdmSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MdmSession, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MdmSession,);
 impl MdmSession {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Alerts(&self) -> windows_core::Result<super::Foundation::Collections::IVectorView<MdmAlert>> {
@@ -234,7 +232,7 @@ impl windows_core::RuntimeType for MdmSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMdmSession>();
 }
 unsafe impl windows_core::Interface for MdmSession {
-    type Vtable = <IMdmSession as windows_core::Interface>::Vtable;
+    type Vtable = IMdmSession_Vtbl;
     const IID: windows_core::GUID = <IMdmSession as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MdmSession {
@@ -273,7 +271,7 @@ impl windows_core::RuntimeName for MdmSessionManager {
     const NAME: &'static str = "Windows.Management.MdmSessionManager";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MdmAlertDataType(pub i32);
 impl MdmAlertDataType {
     pub const String: Self = Self(0i32);
@@ -284,11 +282,16 @@ impl MdmAlertDataType {
 impl windows_core::TypeKind for MdmAlertDataType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MdmAlertDataType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MdmAlertDataType").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for MdmAlertDataType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertDataType;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MdmAlertMark(pub i32);
 impl MdmAlertMark {
     pub const None: Self = Self(0i32);
@@ -300,11 +303,16 @@ impl MdmAlertMark {
 impl windows_core::TypeKind for MdmAlertMark {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MdmAlertMark {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MdmAlertMark").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for MdmAlertMark {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertMark;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MdmSessionState(pub i32);
 impl MdmSessionState {
     pub const NotStarted: Self = Self(0i32);
@@ -317,6 +325,11 @@ impl MdmSessionState {
 }
 impl windows_core::TypeKind for MdmSessionState {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for MdmSessionState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MdmSessionState").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for MdmSessionState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmSessionState;i4)");

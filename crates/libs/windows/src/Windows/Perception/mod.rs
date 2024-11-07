@@ -45,7 +45,6 @@ pub struct IPerceptionTimestampHelperStatics2_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PerceptionTimestamp(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PerceptionTimestamp, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PerceptionTimestamp,);
 impl PerceptionTimestamp {
     pub fn TargetTime(&self) -> windows_core::Result<super::Foundation::DateTime> {
         let this = self;
@@ -73,12 +72,14 @@ impl windows_core::RuntimeType for PerceptionTimestamp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPerceptionTimestamp>();
 }
 unsafe impl windows_core::Interface for PerceptionTimestamp {
-    type Vtable = <IPerceptionTimestamp as windows_core::Interface>::Vtable;
+    type Vtable = IPerceptionTimestamp_Vtbl;
     const IID: windows_core::GUID = <IPerceptionTimestamp as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PerceptionTimestamp {
     const NAME: &'static str = "Windows.Perception.PerceptionTimestamp";
 }
+unsafe impl Send for PerceptionTimestamp {}
+unsafe impl Sync for PerceptionTimestamp {}
 pub struct PerceptionTimestampHelper;
 impl PerceptionTimestampHelper {
     pub fn FromHistoricalTargetTime(targettime: super::Foundation::DateTime) -> windows_core::Result<PerceptionTimestamp> {

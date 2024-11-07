@@ -23,7 +23,6 @@ pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkWorkspaceHostedAppManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkWorkspaceHostedAppManager, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(InkWorkspaceHostedAppManager,);
 impl InkWorkspaceHostedAppManager {
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetThumbnailAsync<P0>(&self, bitmap: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
@@ -51,9 +50,11 @@ impl windows_core::RuntimeType for InkWorkspaceHostedAppManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkWorkspaceHostedAppManager>();
 }
 unsafe impl windows_core::Interface for InkWorkspaceHostedAppManager {
-    type Vtable = <IInkWorkspaceHostedAppManager as windows_core::Interface>::Vtable;
+    type Vtable = IInkWorkspaceHostedAppManager_Vtbl;
     const IID: windows_core::GUID = <IInkWorkspaceHostedAppManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for InkWorkspaceHostedAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.InkWorkspace.InkWorkspaceHostedAppManager";
 }
+unsafe impl Send for InkWorkspaceHostedAppManager {}
+unsafe impl Sync for InkWorkspaceHostedAppManager {}

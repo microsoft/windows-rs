@@ -129,10 +129,15 @@ pub const TH32CS_SNAPMODULE32: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_
 pub const TH32CS_SNAPPROCESS: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(2u32);
 pub const TH32CS_SNAPTHREAD: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(4u32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CREATE_TOOLHELP_SNAPSHOT_FLAGS(pub u32);
 impl windows_core::TypeKind for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CREATE_TOOLHELP_SNAPSHOT_FLAGS").field(&self.0).finish()
+    }
 }
 impl CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -168,13 +173,18 @@ impl core::ops::Not for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HEAPENTRY32_FLAGS(pub u32);
 impl windows_core::TypeKind for HEAPENTRY32_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HEAPENTRY32_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HEAPENTRY32_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HEAPENTRY32 {
     pub dwSize: usize,
     pub hHandle: super::super::super::Foundation::HANDLE,
@@ -186,32 +196,32 @@ pub struct HEAPENTRY32 {
     pub th32ProcessID: u32,
     pub th32HeapID: usize,
 }
+impl windows_core::TypeKind for HEAPENTRY32 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for HEAPENTRY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HEAPENTRY32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HEAPLIST32 {
     pub dwSize: usize,
     pub th32ProcessID: u32,
     pub th32HeapID: usize,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for HEAPLIST32 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for HEAPLIST32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HEAPLIST32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODULEENTRY32 {
     pub dwSize: u32,
     pub th32ModuleID: u32,
@@ -224,16 +234,16 @@ pub struct MODULEENTRY32 {
     pub szModule: [i8; 256],
     pub szExePath: [i8; 260],
 }
+impl windows_core::TypeKind for MODULEENTRY32 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MODULEENTRY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MODULEENTRY32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODULEENTRY32W {
     pub dwSize: u32,
     pub th32ModuleID: u32,
@@ -246,16 +256,16 @@ pub struct MODULEENTRY32W {
     pub szModule: [u16; 256],
     pub szExePath: [u16; 260],
 }
+impl windows_core::TypeKind for MODULEENTRY32W {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MODULEENTRY32W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MODULEENTRY32W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSENTRY32 {
     pub dwSize: u32,
     pub cntUsage: u32,
@@ -268,16 +278,16 @@ pub struct PROCESSENTRY32 {
     pub dwFlags: u32,
     pub szExeFile: [i8; 260],
 }
+impl windows_core::TypeKind for PROCESSENTRY32 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PROCESSENTRY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESSENTRY32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSENTRY32W {
     pub dwSize: u32,
     pub cntUsage: u32,
@@ -290,16 +300,16 @@ pub struct PROCESSENTRY32W {
     pub dwFlags: u32,
     pub szExeFile: [u16; 260],
 }
+impl windows_core::TypeKind for PROCESSENTRY32W {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PROCESSENTRY32W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESSENTRY32W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct THREADENTRY32 {
     pub dwSize: u32,
     pub cntUsage: u32,
@@ -309,11 +319,11 @@ pub struct THREADENTRY32 {
     pub tpDeltaPri: i32,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for THREADENTRY32 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for THREADENTRY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for THREADENTRY32 {
-    type TypeKind = windows_core::CopyType;
 }

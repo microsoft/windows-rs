@@ -1,9 +1,9 @@
 #[inline]
-pub unsafe fn HcsAddResourceToOperation<P0, P2, P3>(operation: P0, r#type: HCS_RESOURCE_TYPE, uri: P2, handle: P3) -> windows_core::Result<()>
+pub unsafe fn HcsAddResourceToOperation<P0, P1, P2>(operation: P0, r#type: HCS_RESOURCE_TYPE, uri: P1, handle: P2) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HCS_OPERATION>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsAddResourceToOperation(operation : HCS_OPERATION, r#type : HCS_RESOURCE_TYPE, uri : windows_core::PCWSTR, handle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     HcsAddResourceToOperation(operation.param().abi(), r#type, uri.param().abi(), handle.param().abi()).ok()
@@ -654,16 +654,26 @@ pub const HcsResourceTypeFile: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(1i32);
 pub const HcsResourceTypeJob: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(2i32);
 pub const HcsResourceTypeNone: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HCS_CREATE_OPTIONS(pub i32);
 impl windows_core::TypeKind for HCS_CREATE_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HCS_CREATE_OPTIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HCS_CREATE_OPTIONS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HCS_EVENT_OPTIONS(pub i32);
 impl windows_core::TypeKind for HCS_EVENT_OPTIONS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for HCS_EVENT_OPTIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HCS_EVENT_OPTIONS").field(&self.0).finish()
+    }
 }
 impl HCS_EVENT_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -699,28 +709,48 @@ impl core::ops::Not for HCS_EVENT_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HCS_EVENT_TYPE(pub i32);
 impl windows_core::TypeKind for HCS_EVENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HCS_EVENT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HCS_EVENT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HCS_NOTIFICATIONS(pub i32);
 impl windows_core::TypeKind for HCS_NOTIFICATIONS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HCS_NOTIFICATIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HCS_NOTIFICATIONS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HCS_NOTIFICATION_FLAGS(pub i32);
 impl windows_core::TypeKind for HCS_NOTIFICATION_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HCS_NOTIFICATION_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HCS_NOTIFICATION_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HCS_OPERATION_OPTIONS(pub i32);
 impl windows_core::TypeKind for HCS_OPERATION_OPTIONS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for HCS_OPERATION_OPTIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HCS_OPERATION_OPTIONS").field(&self.0).finish()
+    }
 }
 impl HCS_OPERATION_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -756,20 +786,30 @@ impl core::ops::Not for HCS_OPERATION_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HCS_OPERATION_TYPE(pub i32);
 impl windows_core::TypeKind for HCS_OPERATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HCS_OPERATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HCS_OPERATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HCS_RESOURCE_TYPE(pub i32);
 impl windows_core::TypeKind for HCS_RESOURCE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HCS_RESOURCE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HCS_RESOURCE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HCS_CREATE_OPTIONS_1 {
     pub Version: HCS_CREATE_OPTIONS,
     pub UserToken: super::super::Foundation::HANDLE,
@@ -779,36 +819,33 @@ pub struct HCS_CREATE_OPTIONS_1 {
     pub Callback: HCS_EVENT_CALLBACK,
 }
 #[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for HCS_CREATE_OPTIONS_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security")]
 impl Default for HCS_CREATE_OPTIONS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for HCS_CREATE_OPTIONS_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HCS_EVENT {
     pub Type: HCS_EVENT_TYPE,
     pub EventData: windows_core::PCWSTR,
     pub Operation: HCS_OPERATION,
+}
+impl windows_core::TypeKind for HCS_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for HCS_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HCS_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCS_OPERATION(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCS_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCS_OPERATION {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -818,8 +855,7 @@ impl windows_core::Free for HCS_OPERATION {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("computecore.dll" "system" fn HcsCloseOperation(operation : *mut core::ffi::c_void));
-            HcsCloseOperation(self.0);
+            HcsCloseOperation(*self);
         }
     }
 }
@@ -828,12 +864,12 @@ impl Default for HCS_OPERATION {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HCS_OPERATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCS_PROCESS(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCS_PROCESS {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCS_PROCESS {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -843,8 +879,7 @@ impl windows_core::Free for HCS_PROCESS {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("computecore.dll" "system" fn HcsCloseProcess(process : *mut core::ffi::c_void));
-            HcsCloseProcess(self.0);
+            HcsCloseProcess(*self);
         }
     }
 }
@@ -853,8 +888,11 @@ impl Default for HCS_PROCESS {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HCS_PROCESS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HCS_PROCESS_INFORMATION {
     pub ProcessId: u32,
     pub Reserved: u32,
@@ -862,20 +900,17 @@ pub struct HCS_PROCESS_INFORMATION {
     pub StdOutput: super::super::Foundation::HANDLE,
     pub StdError: super::super::Foundation::HANDLE,
 }
+impl windows_core::TypeKind for HCS_PROCESS_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for HCS_PROCESS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HCS_PROCESS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCS_SYSTEM(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCS_SYSTEM {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCS_SYSTEM {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -885,8 +920,7 @@ impl windows_core::Free for HCS_SYSTEM {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("computecore.dll" "system" fn HcsCloseComputeSystem(computesystem : *mut core::ffi::c_void));
-            HcsCloseComputeSystem(self.0);
+            HcsCloseComputeSystem(*self);
         }
     }
 }
@@ -894,6 +928,9 @@ impl Default for HCS_SYSTEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for HCS_SYSTEM {
+    type TypeKind = windows_core::CopyType;
 }
 pub type HCS_EVENT_CALLBACK = Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const core::ffi::c_void)>;
 pub type HCS_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(notificationtype: u32, context: *const core::ffi::c_void, notificationstatus: windows_core::HRESULT, notificationdata: windows_core::PCWSTR)>;

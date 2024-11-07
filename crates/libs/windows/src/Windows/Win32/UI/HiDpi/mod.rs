@@ -1,8 +1,8 @@
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn AdjustWindowRectExForDpi<P2>(lprect: *mut super::super::Foundation::RECT, dwstyle: super::WindowsAndMessaging::WINDOW_STYLE, bmenu: P2, dwexstyle: super::WindowsAndMessaging::WINDOW_EX_STYLE, dpi: u32) -> windows_core::Result<()>
+pub unsafe fn AdjustWindowRectExForDpi<P0>(lprect: *mut super::super::Foundation::RECT, dwstyle: super::WindowsAndMessaging::WINDOW_STYLE, bmenu: P0, dwexstyle: super::WindowsAndMessaging::WINDOW_EX_STYLE, dpi: u32) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn AdjustWindowRectExForDpi(lprect : *mut super::super::Foundation:: RECT, dwstyle : super::WindowsAndMessaging:: WINDOW_STYLE, bmenu : super::super::Foundation:: BOOL, dwexstyle : super::WindowsAndMessaging:: WINDOW_EX_STYLE, dpi : u32) -> super::super::Foundation:: BOOL);
     AdjustWindowRectExForDpi(lprect, dwstyle, bmenu.param().abi(), dwexstyle, dpi).ok()
@@ -243,10 +243,15 @@ pub const PROCESS_DPI_UNAWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(0i3
 pub const PROCESS_PER_MONITOR_DPI_AWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(2i32);
 pub const PROCESS_SYSTEM_DPI_AWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(pub i32);
 impl windows_core::TypeKind for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS").field(&self.0).finish()
+    }
 }
 impl DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -282,10 +287,15 @@ impl core::ops::Not for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DIALOG_DPI_CHANGE_BEHAVIORS(pub i32);
 impl windows_core::TypeKind for DIALOG_DPI_CHANGE_BEHAVIORS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DIALOG_DPI_CHANGE_BEHAVIORS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DIALOG_DPI_CHANGE_BEHAVIORS").field(&self.0).finish()
+    }
 }
 impl DIALOG_DPI_CHANGE_BEHAVIORS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -321,35 +331,52 @@ impl core::ops::Not for DIALOG_DPI_CHANGE_BEHAVIORS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DPI_AWARENESS(pub i32);
 impl windows_core::TypeKind for DPI_AWARENESS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DPI_AWARENESS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DPI_AWARENESS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DPI_HOSTING_BEHAVIOR(pub i32);
 impl windows_core::TypeKind for DPI_HOSTING_BEHAVIOR {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DPI_HOSTING_BEHAVIOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DPI_HOSTING_BEHAVIOR").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MONITOR_DPI_TYPE(pub i32);
 impl windows_core::TypeKind for MONITOR_DPI_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MONITOR_DPI_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MONITOR_DPI_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PROCESS_DPI_AWARENESS(pub i32);
 impl windows_core::TypeKind for PROCESS_DPI_AWARENESS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PROCESS_DPI_AWARENESS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PROCESS_DPI_AWARENESS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DPI_AWARENESS_CONTEXT(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for DPI_AWARENESS_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 impl DPI_AWARENESS_CONTEXT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -359,4 +386,7 @@ impl Default for DPI_AWARENESS_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for DPI_AWARENESS_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }

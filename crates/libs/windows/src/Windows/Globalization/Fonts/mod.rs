@@ -52,7 +52,6 @@ pub struct ILanguageFontGroupFactory_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LanguageFont(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LanguageFont, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LanguageFont,);
 impl LanguageFont {
     pub fn FontFamily(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -97,17 +96,18 @@ impl windows_core::RuntimeType for LanguageFont {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanguageFont>();
 }
 unsafe impl windows_core::Interface for LanguageFont {
-    type Vtable = <ILanguageFont as windows_core::Interface>::Vtable;
+    type Vtable = ILanguageFont_Vtbl;
     const IID: windows_core::GUID = <ILanguageFont as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LanguageFont {
     const NAME: &'static str = "Windows.Globalization.Fonts.LanguageFont";
 }
+unsafe impl Send for LanguageFont {}
+unsafe impl Sync for LanguageFont {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LanguageFontGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LanguageFontGroup, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LanguageFontGroup,);
 impl LanguageFontGroup {
     pub fn UITextFont(&self) -> windows_core::Result<LanguageFont> {
         let this = self;
@@ -201,9 +201,11 @@ impl windows_core::RuntimeType for LanguageFontGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanguageFontGroup>();
 }
 unsafe impl windows_core::Interface for LanguageFontGroup {
-    type Vtable = <ILanguageFontGroup as windows_core::Interface>::Vtable;
+    type Vtable = ILanguageFontGroup_Vtbl;
     const IID: windows_core::GUID = <ILanguageFontGroup as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LanguageFontGroup {
     const NAME: &'static str = "Windows.Globalization.Fonts.LanguageFontGroup";
 }
+unsafe impl Send for LanguageFontGroup {}
+unsafe impl Sync for LanguageFontGroup {}

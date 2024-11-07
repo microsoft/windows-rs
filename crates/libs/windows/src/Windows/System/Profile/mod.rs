@@ -285,7 +285,6 @@ impl windows_core::RuntimeName for AnalyticsInfo {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AnalyticsVersionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AnalyticsVersionInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AnalyticsVersionInfo,);
 impl AnalyticsVersionInfo {
     pub fn DeviceFamily(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -313,12 +312,14 @@ impl windows_core::RuntimeType for AnalyticsVersionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAnalyticsVersionInfo>();
 }
 unsafe impl windows_core::Interface for AnalyticsVersionInfo {
-    type Vtable = <IAnalyticsVersionInfo as windows_core::Interface>::Vtable;
+    type Vtable = IAnalyticsVersionInfo_Vtbl;
     const IID: windows_core::GUID = <IAnalyticsVersionInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AnalyticsVersionInfo {
     const NAME: &'static str = "Windows.System.Profile.AnalyticsVersionInfo";
 }
+unsafe impl Send for AnalyticsVersionInfo {}
+unsafe impl Sync for AnalyticsVersionInfo {}
 pub struct AppApplicability;
 impl AppApplicability {
     #[cfg(feature = "Foundation_Collections")]
@@ -379,7 +380,6 @@ impl windows_core::RuntimeName for HardwareIdentification {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HardwareToken(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HardwareToken, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(HardwareToken,);
 impl HardwareToken {
     #[cfg(feature = "Storage_Streams")]
     pub fn Id(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
@@ -410,12 +410,14 @@ impl windows_core::RuntimeType for HardwareToken {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHardwareToken>();
 }
 unsafe impl windows_core::Interface for HardwareToken {
-    type Vtable = <IHardwareToken as windows_core::Interface>::Vtable;
+    type Vtable = IHardwareToken_Vtbl;
     const IID: windows_core::GUID = <IHardwareToken as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HardwareToken {
     const NAME: &'static str = "Windows.System.Profile.HardwareToken";
 }
+unsafe impl Send for HardwareToken {}
+unsafe impl Sync for HardwareToken {}
 pub struct KnownRetailInfoProperties;
 impl KnownRetailInfoProperties {
     pub fn RetailAccessCode() -> windows_core::Result<windows_core::HSTRING> {
@@ -714,7 +716,6 @@ impl windows_core::RuntimeName for SystemIdentification {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemIdentificationInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemIdentificationInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SystemIdentificationInfo,);
 impl SystemIdentificationInfo {
     #[cfg(feature = "Storage_Streams")]
     pub fn Id(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
@@ -736,12 +737,14 @@ impl windows_core::RuntimeType for SystemIdentificationInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemIdentificationInfo>();
 }
 unsafe impl windows_core::Interface for SystemIdentificationInfo {
-    type Vtable = <ISystemIdentificationInfo as windows_core::Interface>::Vtable;
+    type Vtable = ISystemIdentificationInfo_Vtbl;
     const IID: windows_core::GUID = <ISystemIdentificationInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SystemIdentificationInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemIdentificationInfo";
 }
+unsafe impl Send for SystemIdentificationInfo {}
+unsafe impl Sync for SystemIdentificationInfo {}
 pub struct SystemSetupInfo;
 impl SystemSetupInfo {
     pub fn OutOfBoxExperienceState() -> windows_core::Result<SystemOutOfBoxExperienceState> {
@@ -774,7 +777,6 @@ impl windows_core::RuntimeName for SystemSetupInfo {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UnsupportedAppRequirement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UnsupportedAppRequirement, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UnsupportedAppRequirement,);
 impl UnsupportedAppRequirement {
     pub fn Requirement(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -795,12 +797,14 @@ impl windows_core::RuntimeType for UnsupportedAppRequirement {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUnsupportedAppRequirement>();
 }
 unsafe impl windows_core::Interface for UnsupportedAppRequirement {
-    type Vtable = <IUnsupportedAppRequirement as windows_core::Interface>::Vtable;
+    type Vtable = IUnsupportedAppRequirement_Vtbl;
     const IID: windows_core::GUID = <IUnsupportedAppRequirement as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UnsupportedAppRequirement {
     const NAME: &'static str = "Windows.System.Profile.UnsupportedAppRequirement";
 }
+unsafe impl Send for UnsupportedAppRequirement {}
+unsafe impl Sync for UnsupportedAppRequirement {}
 pub struct WindowsIntegrityPolicy;
 impl WindowsIntegrityPolicy {
     pub fn IsEnabled() -> windows_core::Result<bool> {
@@ -848,7 +852,7 @@ impl windows_core::RuntimeName for WindowsIntegrityPolicy {
     const NAME: &'static str = "Windows.System.Profile.WindowsIntegrityPolicy";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PlatformAutomaticAppSignInPolicy(pub i32);
 impl PlatformAutomaticAppSignInPolicy {
     pub const Unknown: Self = Self(0i32);
@@ -858,11 +862,16 @@ impl PlatformAutomaticAppSignInPolicy {
 impl windows_core::TypeKind for PlatformAutomaticAppSignInPolicy {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PlatformAutomaticAppSignInPolicy {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PlatformAutomaticAppSignInPolicy").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PlatformAutomaticAppSignInPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.PlatformAutomaticAppSignInPolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PlatformDataCollectionLevel(pub i32);
 impl PlatformDataCollectionLevel {
     pub const Security: Self = Self(0i32);
@@ -873,11 +882,16 @@ impl PlatformDataCollectionLevel {
 impl windows_core::TypeKind for PlatformDataCollectionLevel {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PlatformDataCollectionLevel {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PlatformDataCollectionLevel").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PlatformDataCollectionLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.PlatformDataCollectionLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SystemIdentificationSource(pub i32);
 impl SystemIdentificationSource {
     pub const None: Self = Self(0i32);
@@ -888,11 +902,16 @@ impl SystemIdentificationSource {
 impl windows_core::TypeKind for SystemIdentificationSource {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SystemIdentificationSource {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SystemIdentificationSource").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for SystemIdentificationSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemIdentificationSource;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SystemOutOfBoxExperienceState(pub i32);
 impl SystemOutOfBoxExperienceState {
     pub const NotStarted: Self = Self(0i32);
@@ -902,11 +921,16 @@ impl SystemOutOfBoxExperienceState {
 impl windows_core::TypeKind for SystemOutOfBoxExperienceState {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SystemOutOfBoxExperienceState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SystemOutOfBoxExperienceState").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for SystemOutOfBoxExperienceState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemOutOfBoxExperienceState;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UnsupportedAppRequirementReasons(pub u32);
 impl UnsupportedAppRequirementReasons {
     pub const Unknown: Self = Self(0u32);
@@ -914,6 +938,44 @@ impl UnsupportedAppRequirementReasons {
 }
 impl windows_core::TypeKind for UnsupportedAppRequirementReasons {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for UnsupportedAppRequirementReasons {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UnsupportedAppRequirementReasons").field(&self.0).finish()
+    }
+}
+impl UnsupportedAppRequirementReasons {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for UnsupportedAppRequirementReasons {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for UnsupportedAppRequirementReasons {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for UnsupportedAppRequirementReasons {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for UnsupportedAppRequirementReasons {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for UnsupportedAppRequirementReasons {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
 }
 impl windows_core::RuntimeType for UnsupportedAppRequirementReasons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.UnsupportedAppRequirementReasons;u4)");

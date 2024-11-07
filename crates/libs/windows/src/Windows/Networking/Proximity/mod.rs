@@ -189,7 +189,6 @@ pub struct ITriggeredConnectionStateChangedEventArgs_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConnectionRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConnectionRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ConnectionRequestedEventArgs,);
 impl ConnectionRequestedEventArgs {
     pub fn PeerInformation(&self) -> windows_core::Result<PeerInformation> {
         let this = self;
@@ -203,12 +202,14 @@ impl windows_core::RuntimeType for ConnectionRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConnectionRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for ConnectionRequestedEventArgs {
-    type Vtable = <IConnectionRequestedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IConnectionRequestedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IConnectionRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.ConnectionRequestedEventArgs";
 }
+unsafe impl Send for ConnectionRequestedEventArgs {}
+unsafe impl Sync for ConnectionRequestedEventArgs {}
 pub struct PeerFinder;
 impl PeerFinder {
     pub fn AllowBluetooth() -> windows_core::Result<bool> {
@@ -355,7 +356,6 @@ impl windows_core::RuntimeName for PeerFinder {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PeerInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PeerInformation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PeerInformation,);
 impl PeerInformation {
     pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -398,17 +398,18 @@ impl windows_core::RuntimeType for PeerInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPeerInformation>();
 }
 unsafe impl windows_core::Interface for PeerInformation {
-    type Vtable = <IPeerInformation as windows_core::Interface>::Vtable;
+    type Vtable = IPeerInformation_Vtbl;
     const IID: windows_core::GUID = <IPeerInformation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PeerInformation {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerInformation";
 }
+unsafe impl Send for PeerInformation {}
+unsafe impl Sync for PeerInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PeerWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PeerWatcher, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PeerWatcher,);
 impl PeerWatcher {
     pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -500,21 +501,22 @@ impl windows_core::RuntimeType for PeerWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPeerWatcher>();
 }
 unsafe impl windows_core::Interface for PeerWatcher {
-    type Vtable = <IPeerWatcher as windows_core::Interface>::Vtable;
+    type Vtable = IPeerWatcher_Vtbl;
     const IID: windows_core::GUID = <IPeerWatcher as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PeerWatcher {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerWatcher";
 }
+unsafe impl Send for PeerWatcher {}
+unsafe impl Sync for PeerWatcher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximityDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProximityDevice, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ProximityDevice,);
 impl ProximityDevice {
-    pub fn SubscribeForMessage<P1>(&self, messagetype: &windows_core::HSTRING, messagereceivedhandler: P1) -> windows_core::Result<i64>
+    pub fn SubscribeForMessage<P0>(&self, messagetype: &windows_core::HSTRING, messagereceivedhandler: P0) -> windows_core::Result<i64>
     where
-        P1: windows_core::Param<MessageReceivedHandler>,
+        P0: windows_core::Param<MessageReceivedHandler>,
     {
         let this = self;
         unsafe {
@@ -529,9 +531,9 @@ impl ProximityDevice {
             (windows_core::Interface::vtable(this).PublishMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetype), core::mem::transmute_copy(message), &mut result__).map(|| result__)
         }
     }
-    pub fn PublishMessageWithCallback<P2>(&self, messagetype: &windows_core::HSTRING, message: &windows_core::HSTRING, messagetransmittedhandler: P2) -> windows_core::Result<i64>
+    pub fn PublishMessageWithCallback<P0>(&self, messagetype: &windows_core::HSTRING, message: &windows_core::HSTRING, messagetransmittedhandler: P0) -> windows_core::Result<i64>
     where
-        P2: windows_core::Param<MessageTransmittedHandler>,
+        P0: windows_core::Param<MessageTransmittedHandler>,
     {
         let this = self;
         unsafe {
@@ -540,9 +542,9 @@ impl ProximityDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn PublishBinaryMessage<P1>(&self, messagetype: &windows_core::HSTRING, message: P1) -> windows_core::Result<i64>
+    pub fn PublishBinaryMessage<P0>(&self, messagetype: &windows_core::HSTRING, message: P0) -> windows_core::Result<i64>
     where
-        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
@@ -551,10 +553,10 @@ impl ProximityDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn PublishBinaryMessageWithCallback<P1, P2>(&self, messagetype: &windows_core::HSTRING, message: P1, messagetransmittedhandler: P2) -> windows_core::Result<i64>
+    pub fn PublishBinaryMessageWithCallback<P0, P1>(&self, messagetype: &windows_core::HSTRING, message: P0, messagetransmittedhandler: P1) -> windows_core::Result<i64>
     where
-        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
-        P2: windows_core::Param<MessageTransmittedHandler>,
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<MessageTransmittedHandler>,
     {
         let this = self;
         unsafe {
@@ -667,17 +669,18 @@ impl windows_core::RuntimeType for ProximityDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProximityDevice>();
 }
 unsafe impl windows_core::Interface for ProximityDevice {
-    type Vtable = <IProximityDevice as windows_core::Interface>::Vtable;
+    type Vtable = IProximityDevice_Vtbl;
     const IID: windows_core::GUID = <IProximityDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ProximityDevice {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityDevice";
 }
+unsafe impl Send for ProximityDevice {}
+unsafe impl Sync for ProximityDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximityMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProximityMessage, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ProximityMessage,);
 impl ProximityMessage {
     pub fn MessageType(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -713,17 +716,18 @@ impl windows_core::RuntimeType for ProximityMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProximityMessage>();
 }
 unsafe impl windows_core::Interface for ProximityMessage {
-    type Vtable = <IProximityMessage as windows_core::Interface>::Vtable;
+    type Vtable = IProximityMessage_Vtbl;
     const IID: windows_core::GUID = <IProximityMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ProximityMessage {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityMessage";
 }
+unsafe impl Send for ProximityMessage {}
+unsafe impl Sync for ProximityMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TriggeredConnectionStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TriggeredConnectionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(TriggeredConnectionStateChangedEventArgs,);
 impl TriggeredConnectionStateChangedEventArgs {
     pub fn State(&self) -> windows_core::Result<TriggeredConnectState> {
         let this = self;
@@ -752,19 +756,133 @@ impl windows_core::RuntimeType for TriggeredConnectionStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITriggeredConnectionStateChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for TriggeredConnectionStateChangedEventArgs {
-    type Vtable = <ITriggeredConnectionStateChangedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ITriggeredConnectionStateChangedEventArgs_Vtbl;
     const IID: windows_core::GUID = <ITriggeredConnectionStateChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TriggeredConnectionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs";
 }
-windows_core::imp::define_interface!(DeviceArrivedEventHandler, DeviceArrivedEventHandler_Vtbl, 0xefa9da69_f6e1_49c9_a49e_8e0fc58fb911);
-impl windows_core::RuntimeType for DeviceArrivedEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+unsafe impl Send for TriggeredConnectionStateChangedEventArgs {}
+unsafe impl Sync for TriggeredConnectionStateChangedEventArgs {}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct PeerDiscoveryTypes(pub u32);
+impl PeerDiscoveryTypes {
+    pub const None: Self = Self(0u32);
+    pub const Browse: Self = Self(1u32);
+    pub const Triggered: Self = Self(2u32);
 }
+impl windows_core::TypeKind for PeerDiscoveryTypes {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PeerDiscoveryTypes {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PeerDiscoveryTypes").field(&self.0).finish()
+    }
+}
+impl PeerDiscoveryTypes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for PeerDiscoveryTypes {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for PeerDiscoveryTypes {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for PeerDiscoveryTypes {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for PeerDiscoveryTypes {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for PeerDiscoveryTypes {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+impl windows_core::RuntimeType for PeerDiscoveryTypes {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerDiscoveryTypes;u4)");
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct PeerRole(pub i32);
+impl PeerRole {
+    pub const Peer: Self = Self(0i32);
+    pub const Host: Self = Self(1i32);
+    pub const Client: Self = Self(2i32);
+}
+impl windows_core::TypeKind for PeerRole {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PeerRole {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PeerRole").field(&self.0).finish()
+    }
+}
+impl windows_core::RuntimeType for PeerRole {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerRole;i4)");
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct PeerWatcherStatus(pub i32);
+impl PeerWatcherStatus {
+    pub const Created: Self = Self(0i32);
+    pub const Started: Self = Self(1i32);
+    pub const EnumerationCompleted: Self = Self(2i32);
+    pub const Stopping: Self = Self(3i32);
+    pub const Stopped: Self = Self(4i32);
+    pub const Aborted: Self = Self(5i32);
+}
+impl windows_core::TypeKind for PeerWatcherStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PeerWatcherStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PeerWatcherStatus").field(&self.0).finish()
+    }
+}
+impl windows_core::RuntimeType for PeerWatcherStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerWatcherStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct TriggeredConnectState(pub i32);
+impl TriggeredConnectState {
+    pub const PeerFound: Self = Self(0i32);
+    pub const Listening: Self = Self(1i32);
+    pub const Connecting: Self = Self(2i32);
+    pub const Completed: Self = Self(3i32);
+    pub const Canceled: Self = Self(4i32);
+    pub const Failed: Self = Self(5i32);
+}
+impl windows_core::TypeKind for TriggeredConnectState {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for TriggeredConnectState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TriggeredConnectState").field(&self.0).finish()
+    }
+}
+impl windows_core::RuntimeType for TriggeredConnectState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.TriggeredConnectState;i4)");
+}
+windows_core::imp::define_interface!(DeviceArrivedEventHandler, DeviceArrivedEventHandler_Vtbl, 0xefa9da69_f6e1_49c9_a49e_8e0fc58fb911);
 impl DeviceArrivedEventHandler {
     pub fn new<F: FnMut(Option<&ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = DeviceArrivedEventHandlerBox { vtable: &DeviceArrivedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = DeviceArrivedEventHandlerBox::<F> { vtable: &DeviceArrivedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
@@ -774,11 +892,6 @@ impl DeviceArrivedEventHandler {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
     }
-}
-#[repr(C)]
-pub struct DeviceArrivedEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
 struct DeviceArrivedEventHandlerBox<F: FnMut(Option<&ProximityDevice>) -> windows_core::Result<()> + Send + 'static> {
@@ -818,13 +931,18 @@ impl<F: FnMut(Option<&ProximityDevice>) -> windows_core::Result<()> + Send + 'st
         (this.invoke)(windows_core::from_raw_borrowed(&sender)).into()
     }
 }
-windows_core::imp::define_interface!(DeviceDepartedEventHandler, DeviceDepartedEventHandler_Vtbl, 0xefa9da69_f6e2_49c9_a49e_8e0fc58fb911);
-impl windows_core::RuntimeType for DeviceDepartedEventHandler {
+impl windows_core::RuntimeType for DeviceArrivedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+#[repr(C)]
+pub struct DeviceArrivedEventHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(DeviceDepartedEventHandler, DeviceDepartedEventHandler_Vtbl, 0xefa9da69_f6e2_49c9_a49e_8e0fc58fb911);
 impl DeviceDepartedEventHandler {
     pub fn new<F: FnMut(Option<&ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = DeviceDepartedEventHandlerBox { vtable: &DeviceDepartedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = DeviceDepartedEventHandlerBox::<F> { vtable: &DeviceDepartedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
@@ -834,11 +952,6 @@ impl DeviceDepartedEventHandler {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi()).ok() }
     }
-}
-#[repr(C)]
-pub struct DeviceDepartedEventHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
 struct DeviceDepartedEventHandlerBox<F: FnMut(Option<&ProximityDevice>) -> windows_core::Result<()> + Send + 'static> {
@@ -878,13 +991,18 @@ impl<F: FnMut(Option<&ProximityDevice>) -> windows_core::Result<()> + Send + 'st
         (this.invoke)(windows_core::from_raw_borrowed(&sender)).into()
     }
 }
-windows_core::imp::define_interface!(MessageReceivedHandler, MessageReceivedHandler_Vtbl, 0xefab0782_f6e2_4675_a045_d8e320c24808);
-impl windows_core::RuntimeType for MessageReceivedHandler {
+impl windows_core::RuntimeType for DeviceDepartedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+#[repr(C)]
+pub struct DeviceDepartedEventHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(MessageReceivedHandler, MessageReceivedHandler_Vtbl, 0xefab0782_f6e2_4675_a045_d8e320c24808);
 impl MessageReceivedHandler {
     pub fn new<F: FnMut(Option<&ProximityDevice>, Option<&ProximityMessage>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = MessageReceivedHandlerBox { vtable: &MessageReceivedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = MessageReceivedHandlerBox::<F> { vtable: &MessageReceivedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, sender: P0, message: P1) -> windows_core::Result<()>
@@ -895,11 +1013,6 @@ impl MessageReceivedHandler {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), message.param().abi()).ok() }
     }
-}
-#[repr(C)]
-pub struct MessageReceivedHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, message: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
 struct MessageReceivedHandlerBox<F: FnMut(Option<&ProximityDevice>, Option<&ProximityMessage>) -> windows_core::Result<()> + Send + 'static> {
@@ -939,13 +1052,18 @@ impl<F: FnMut(Option<&ProximityDevice>, Option<&ProximityMessage>) -> windows_co
         (this.invoke)(windows_core::from_raw_borrowed(&sender), windows_core::from_raw_borrowed(&message)).into()
     }
 }
-windows_core::imp::define_interface!(MessageTransmittedHandler, MessageTransmittedHandler_Vtbl, 0xefaa0b4a_f6e2_4d7d_856c_78fc8efc021e);
-impl windows_core::RuntimeType for MessageTransmittedHandler {
+impl windows_core::RuntimeType for MessageReceivedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+#[repr(C)]
+pub struct MessageReceivedHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(MessageTransmittedHandler, MessageTransmittedHandler_Vtbl, 0xefaa0b4a_f6e2_4d7d_856c_78fc8efc021e);
 impl MessageTransmittedHandler {
     pub fn new<F: FnMut(Option<&ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = MessageTransmittedHandlerBox { vtable: &MessageTransmittedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = MessageTransmittedHandlerBox::<F> { vtable: &MessageTransmittedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, sender: P0, messageid: i64) -> windows_core::Result<()>
@@ -955,11 +1073,6 @@ impl MessageTransmittedHandler {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), sender.param().abi(), messageid).ok() }
     }
-}
-#[repr(C)]
-pub struct MessageTransmittedHandler_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, messageid: i64) -> windows_core::HRESULT,
 }
 #[repr(C)]
 struct MessageTransmittedHandlerBox<F: FnMut(Option<&ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static> {
@@ -999,65 +1112,11 @@ impl<F: FnMut(Option<&ProximityDevice>, i64) -> windows_core::Result<()> + Send 
         (this.invoke)(windows_core::from_raw_borrowed(&sender), messageid).into()
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct PeerDiscoveryTypes(pub u32);
-impl PeerDiscoveryTypes {
-    pub const None: Self = Self(0u32);
-    pub const Browse: Self = Self(1u32);
-    pub const Triggered: Self = Self(2u32);
+impl windows_core::RuntimeType for MessageTransmittedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-impl windows_core::TypeKind for PeerDiscoveryTypes {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for PeerDiscoveryTypes {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerDiscoveryTypes;u4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct PeerRole(pub i32);
-impl PeerRole {
-    pub const Peer: Self = Self(0i32);
-    pub const Host: Self = Self(1i32);
-    pub const Client: Self = Self(2i32);
-}
-impl windows_core::TypeKind for PeerRole {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for PeerRole {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerRole;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct PeerWatcherStatus(pub i32);
-impl PeerWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
-    pub const Aborted: Self = Self(5i32);
-}
-impl windows_core::TypeKind for PeerWatcherStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for PeerWatcherStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerWatcherStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct TriggeredConnectState(pub i32);
-impl TriggeredConnectState {
-    pub const PeerFound: Self = Self(0i32);
-    pub const Listening: Self = Self(1i32);
-    pub const Connecting: Self = Self(2i32);
-    pub const Completed: Self = Self(3i32);
-    pub const Canceled: Self = Self(4i32);
-    pub const Failed: Self = Self(5i32);
-}
-impl windows_core::TypeKind for TriggeredConnectState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for TriggeredConnectState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.TriggeredConnectState;i4)");
+#[repr(C)]
+pub struct MessageTransmittedHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }

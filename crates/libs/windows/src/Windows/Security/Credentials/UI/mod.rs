@@ -106,7 +106,6 @@ impl windows_core::RuntimeName for CredentialPicker {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CredentialPickerOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CredentialPickerOptions, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CredentialPickerOptions,);
 impl CredentialPickerOptions {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -235,7 +234,7 @@ impl windows_core::RuntimeType for CredentialPickerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICredentialPickerOptions>();
 }
 unsafe impl windows_core::Interface for CredentialPickerOptions {
-    type Vtable = <ICredentialPickerOptions as windows_core::Interface>::Vtable;
+    type Vtable = ICredentialPickerOptions_Vtbl;
     const IID: windows_core::GUID = <ICredentialPickerOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CredentialPickerOptions {
@@ -245,7 +244,6 @@ impl windows_core::RuntimeName for CredentialPickerOptions {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CredentialPickerResults(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CredentialPickerResults, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CredentialPickerResults,);
 impl CredentialPickerResults {
     pub fn ErrorCode(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -302,7 +300,7 @@ impl windows_core::RuntimeType for CredentialPickerResults {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICredentialPickerResults>();
 }
 unsafe impl windows_core::Interface for CredentialPickerResults {
-    type Vtable = <ICredentialPickerResults as windows_core::Interface>::Vtable;
+    type Vtable = ICredentialPickerResults_Vtbl;
     const IID: windows_core::GUID = <ICredentialPickerResults as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CredentialPickerResults {
@@ -331,7 +329,7 @@ impl windows_core::RuntimeName for UserConsentVerifier {
     const NAME: &'static str = "Windows.Security.Credentials.UI.UserConsentVerifier";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct AuthenticationProtocol(pub i32);
 impl AuthenticationProtocol {
     pub const Basic: Self = Self(0i32);
@@ -345,11 +343,16 @@ impl AuthenticationProtocol {
 impl windows_core::TypeKind for AuthenticationProtocol {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for AuthenticationProtocol {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("AuthenticationProtocol").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for AuthenticationProtocol {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.AuthenticationProtocol;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CredentialSaveOption(pub i32);
 impl CredentialSaveOption {
     pub const Unselected: Self = Self(0i32);
@@ -359,11 +362,16 @@ impl CredentialSaveOption {
 impl windows_core::TypeKind for CredentialSaveOption {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CredentialSaveOption {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CredentialSaveOption").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for CredentialSaveOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.CredentialSaveOption;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserConsentVerificationResult(pub i32);
 impl UserConsentVerificationResult {
     pub const Verified: Self = Self(0i32);
@@ -377,11 +385,16 @@ impl UserConsentVerificationResult {
 impl windows_core::TypeKind for UserConsentVerificationResult {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UserConsentVerificationResult {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserConsentVerificationResult").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for UserConsentVerificationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerificationResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserConsentVerifierAvailability(pub i32);
 impl UserConsentVerifierAvailability {
     pub const Available: Self = Self(0i32);
@@ -392,6 +405,11 @@ impl UserConsentVerifierAvailability {
 }
 impl windows_core::TypeKind for UserConsentVerifierAvailability {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for UserConsentVerifierAvailability {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserConsentVerifierAvailability").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for UserConsentVerifierAvailability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerifierAvailability;i4)");

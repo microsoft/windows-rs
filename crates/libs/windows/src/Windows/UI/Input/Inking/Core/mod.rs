@@ -162,7 +162,6 @@ pub struct ICoreWetStrokeUpdateSourceStatics_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreIncrementalInkStroke(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreIncrementalInkStroke, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreIncrementalInkStroke,);
 impl CoreIncrementalInkStroke {
     #[cfg(feature = "Foundation_Collections")]
     pub fn AppendInkPoints<P0>(&self, inkpoints: P0) -> windows_core::Result<super::super::super::super::Foundation::Rect>
@@ -223,17 +222,18 @@ impl windows_core::RuntimeType for CoreIncrementalInkStroke {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreIncrementalInkStroke>();
 }
 unsafe impl windows_core::Interface for CoreIncrementalInkStroke {
-    type Vtable = <ICoreIncrementalInkStroke as windows_core::Interface>::Vtable;
+    type Vtable = ICoreIncrementalInkStroke_Vtbl;
     const IID: windows_core::GUID = <ICoreIncrementalInkStroke as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreIncrementalInkStroke {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreIncrementalInkStroke";
 }
+unsafe impl Send for CoreIncrementalInkStroke {}
+unsafe impl Sync for CoreIncrementalInkStroke {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInkIndependentInputSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreInkIndependentInputSource, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreInkIndependentInputSource,);
 impl CoreInkIndependentInputSource {
     #[cfg(feature = "UI_Core")]
     pub fn PointerEntering<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
@@ -381,17 +381,18 @@ impl windows_core::RuntimeType for CoreInkIndependentInputSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInkIndependentInputSource>();
 }
 unsafe impl windows_core::Interface for CoreInkIndependentInputSource {
-    type Vtable = <ICoreInkIndependentInputSource as windows_core::Interface>::Vtable;
+    type Vtable = ICoreInkIndependentInputSource_Vtbl;
     const IID: windows_core::GUID = <ICoreInkIndependentInputSource as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreInkIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreInkIndependentInputSource";
 }
+unsafe impl Send for CoreInkIndependentInputSource {}
+unsafe impl Sync for CoreInkIndependentInputSource {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInkPresenterHost(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreInkPresenterHost, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreInkPresenterHost,);
 impl CoreInkPresenterHost {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -428,17 +429,18 @@ impl windows_core::RuntimeType for CoreInkPresenterHost {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInkPresenterHost>();
 }
 unsafe impl windows_core::Interface for CoreInkPresenterHost {
-    type Vtable = <ICoreInkPresenterHost as windows_core::Interface>::Vtable;
+    type Vtable = ICoreInkPresenterHost_Vtbl;
     const IID: windows_core::GUID = <ICoreInkPresenterHost as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreInkPresenterHost {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreInkPresenterHost";
 }
+unsafe impl Send for CoreInkPresenterHost {}
+unsafe impl Sync for CoreInkPresenterHost {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreWetStrokeUpdateEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreWetStrokeUpdateEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreWetStrokeUpdateEventArgs,);
 impl CoreWetStrokeUpdateEventArgs {
     #[cfg(feature = "Foundation_Collections")]
     pub fn NewInkPoints(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IVector<super::InkPoint>> {
@@ -471,17 +473,18 @@ impl windows_core::RuntimeType for CoreWetStrokeUpdateEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWetStrokeUpdateEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreWetStrokeUpdateEventArgs {
-    type Vtable = <ICoreWetStrokeUpdateEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ICoreWetStrokeUpdateEventArgs_Vtbl;
     const IID: windows_core::GUID = <ICoreWetStrokeUpdateEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreWetStrokeUpdateEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateEventArgs";
 }
+unsafe impl Send for CoreWetStrokeUpdateEventArgs {}
+unsafe impl Sync for CoreWetStrokeUpdateEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreWetStrokeUpdateSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreWetStrokeUpdateSource, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreWetStrokeUpdateSource,);
 impl CoreWetStrokeUpdateSource {
     pub fn WetStrokeStarting<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -578,14 +581,16 @@ impl windows_core::RuntimeType for CoreWetStrokeUpdateSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWetStrokeUpdateSource>();
 }
 unsafe impl windows_core::Interface for CoreWetStrokeUpdateSource {
-    type Vtable = <ICoreWetStrokeUpdateSource as windows_core::Interface>::Vtable;
+    type Vtable = ICoreWetStrokeUpdateSource_Vtbl;
     const IID: windows_core::GUID = <ICoreWetStrokeUpdateSource as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreWetStrokeUpdateSource {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateSource";
 }
+unsafe impl Send for CoreWetStrokeUpdateSource {}
+unsafe impl Sync for CoreWetStrokeUpdateSource {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CoreWetStrokeDisposition(pub i32);
 impl CoreWetStrokeDisposition {
     pub const Inking: Self = Self(0i32);
@@ -594,6 +599,11 @@ impl CoreWetStrokeDisposition {
 }
 impl windows_core::TypeKind for CoreWetStrokeDisposition {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CoreWetStrokeDisposition {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CoreWetStrokeDisposition").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for CoreWetStrokeDisposition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Core.CoreWetStrokeDisposition;i4)");

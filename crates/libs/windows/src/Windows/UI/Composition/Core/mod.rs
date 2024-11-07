@@ -65,9 +65,11 @@ impl windows_core::RuntimeType for CompositorController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositorController>();
 }
 unsafe impl windows_core::Interface for CompositorController {
-    type Vtable = <ICompositorController as windows_core::Interface>::Vtable;
+    type Vtable = ICompositorController_Vtbl;
     const IID: windows_core::GUID = <ICompositorController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CompositorController {
     const NAME: &'static str = "Windows.UI.Composition.Core.CompositorController";
 }
+unsafe impl Send for CompositorController {}
+unsafe impl Sync for CompositorController {}

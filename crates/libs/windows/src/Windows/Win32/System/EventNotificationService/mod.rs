@@ -88,7 +88,7 @@ pub struct ISensLogon_Vtbl {
     pub StopScreenSaver: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISensLogon_Impl: super::Com::IDispatch_Impl {
+pub trait ISensLogon_Impl: Sized + super::Com::IDispatch_Impl {
     fn Logon(&self, bstrusername: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Logoff(&self, bstrusername: &windows_core::BSTR) -> windows_core::Result<()>;
     fn StartShell(&self, bstrusername: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -98,8 +98,10 @@ pub trait ISensLogon_Impl: super::Com::IDispatch_Impl {
     fn StopScreenSaver(&self, bstrusername: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISensLogon {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISensLogon_Vtbl {
-    pub const fn new<Identity: ISensLogon_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ISensLogon_Impl, const OFFSET: isize>() -> ISensLogon_Vtbl {
         unsafe extern "system" fn Logon<Identity: ISensLogon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISensLogon_Impl::Logon(this, core::mem::transmute(&bstrusername)).into()
@@ -140,11 +142,9 @@ impl ISensLogon_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISensLogon as windows_core::Interface>::IID
+        iid == &<ISensLogon as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISensLogon {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISensLogon2, ISensLogon2_Vtbl, 0xd597bab4_5b9f_11d1_8dd2_00aa004abd5e);
 #[cfg(feature = "Win32_System_Com")]
@@ -200,7 +200,7 @@ pub struct ISensLogon2_Vtbl {
     pub PostShell: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISensLogon2_Impl: super::Com::IDispatch_Impl {
+pub trait ISensLogon2_Impl: Sized + super::Com::IDispatch_Impl {
     fn Logon(&self, bstrusername: &windows_core::BSTR, dwsessionid: u32) -> windows_core::Result<()>;
     fn Logoff(&self, bstrusername: &windows_core::BSTR, dwsessionid: u32) -> windows_core::Result<()>;
     fn SessionDisconnect(&self, bstrusername: &windows_core::BSTR, dwsessionid: u32) -> windows_core::Result<()>;
@@ -208,8 +208,10 @@ pub trait ISensLogon2_Impl: super::Com::IDispatch_Impl {
     fn PostShell(&self, bstrusername: &windows_core::BSTR, dwsessionid: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISensLogon2 {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISensLogon2_Vtbl {
-    pub const fn new<Identity: ISensLogon2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ISensLogon2_Impl, const OFFSET: isize>() -> ISensLogon2_Vtbl {
         unsafe extern "system" fn Logon<Identity: ISensLogon2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: core::mem::MaybeUninit<windows_core::BSTR>, dwsessionid: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISensLogon2_Impl::Logon(this, core::mem::transmute(&bstrusername), core::mem::transmute_copy(&dwsessionid)).into()
@@ -240,11 +242,9 @@ impl ISensLogon2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISensLogon2 as windows_core::Interface>::IID
+        iid == &<ISensLogon2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISensLogon2 {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISensNetwork, ISensNetwork_Vtbl, 0xd597bab1_5b9f_11d1_8dd2_00aa004abd5e);
 #[cfg(feature = "Win32_System_Com")]
@@ -302,7 +302,7 @@ pub struct ISensNetwork_Vtbl {
     pub DestinationReachableNoQOCInfo: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISensNetwork_Impl: super::Com::IDispatch_Impl {
+pub trait ISensNetwork_Impl: Sized + super::Com::IDispatch_Impl {
     fn ConnectionMade(&self, bstrconnection: &windows_core::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::Result<()>;
     fn ConnectionMadeNoQOCInfo(&self, bstrconnection: &windows_core::BSTR, ultype: u32) -> windows_core::Result<()>;
     fn ConnectionLost(&self, bstrconnection: &windows_core::BSTR, ultype: SENS_CONNECTION_TYPE) -> windows_core::Result<()>;
@@ -310,8 +310,10 @@ pub trait ISensNetwork_Impl: super::Com::IDispatch_Impl {
     fn DestinationReachableNoQOCInfo(&self, bstrdestination: &windows_core::BSTR, bstrconnection: &windows_core::BSTR, ultype: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISensNetwork {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISensNetwork_Vtbl {
-    pub const fn new<Identity: ISensNetwork_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ISensNetwork_Impl, const OFFSET: isize>() -> ISensNetwork_Vtbl {
         unsafe extern "system" fn ConnectionMade<Identity: ISensNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrconnection: core::mem::MaybeUninit<windows_core::BSTR>, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISensNetwork_Impl::ConnectionMade(this, core::mem::transmute(&bstrconnection), core::mem::transmute_copy(&ultype), core::mem::transmute_copy(&lpqocinfo)).into()
@@ -342,11 +344,9 @@ impl ISensNetwork_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISensNetwork as windows_core::Interface>::IID
+        iid == &<ISensNetwork as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISensNetwork {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISensOnNow, ISensOnNow_Vtbl, 0xd597bab2_5b9f_11d1_8dd2_00aa004abd5e);
 #[cfg(feature = "Win32_System_Com")]
@@ -379,14 +379,16 @@ pub struct ISensOnNow_Vtbl {
     pub BatteryLow: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISensOnNow_Impl: super::Com::IDispatch_Impl {
+pub trait ISensOnNow_Impl: Sized + super::Com::IDispatch_Impl {
     fn OnACPower(&self) -> windows_core::Result<()>;
     fn OnBatteryPower(&self, dwbatterylifepercent: u32) -> windows_core::Result<()>;
     fn BatteryLow(&self, dwbatterylifepercent: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISensOnNow {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISensOnNow_Vtbl {
-    pub const fn new<Identity: ISensOnNow_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ISensOnNow_Impl, const OFFSET: isize>() -> ISensOnNow_Vtbl {
         unsafe extern "system" fn OnACPower<Identity: ISensOnNow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISensOnNow_Impl::OnACPower(this).into()
@@ -407,11 +409,9 @@ impl ISensOnNow_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISensOnNow as windows_core::Interface>::IID
+        iid == &<ISensOnNow as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISensOnNow {}
 pub const CONNECTION_AOL: u32 = 4u32;
 pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(0u32);
 pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(1u32);
@@ -427,41 +427,46 @@ pub const SENSGUID_PUBLISHER: windows_core::GUID = windows_core::GUID::from_u128
 pub const SENSGUID_SUBSCRIBER_LCE: windows_core::GUID = windows_core::GUID::from_u128(0xd3938ab0_5b9d_11d1_8dd2_00aa004abd5e);
 pub const SENSGUID_SUBSCRIBER_WININET: windows_core::GUID = windows_core::GUID::from_u128(0xd3938ab5_5b9d_11d1_8dd2_00aa004abd5e);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SENS_CONNECTION_TYPE(pub u32);
 impl windows_core::TypeKind for SENS_CONNECTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SENS_CONNECTION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SENS_CONNECTION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QOCINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwInSpeed: u32,
     pub dwOutSpeed: u32,
 }
+impl windows_core::TypeKind for QOCINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for QOCINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QOCINFO {
-    type TypeKind = windows_core::CopyType;
-}
 pub const SENS: windows_core::GUID = windows_core::GUID::from_u128(0xd597cafe_5b9f_11d1_8dd2_00aa004abd5e);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SENS_QOCINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwOutSpeed: u32,
     pub dwInSpeed: u32,
 }
+impl windows_core::TypeKind for SENS_QOCINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SENS_QOCINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SENS_QOCINFO {
-    type TypeKind = windows_core::CopyType;
 }
