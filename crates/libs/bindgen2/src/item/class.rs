@@ -119,6 +119,7 @@ impl Class {
             let interfaces = self
                 .required_interfaces
                 .iter()
+                .filter(|ty|!ty.def.has_attribute("ExclusiveToAttribute"))
                 .map(|ty| ty.write_name(writer));
 
             quote! {
