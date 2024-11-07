@@ -158,25 +158,29 @@ pub struct IRfcommServiceProviderStatics_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommDeviceService(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommDeviceService, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RfcommDeviceService, IRfcommDeviceService, IRfcommDeviceService2, IRfcommDeviceService3, IRfcommDeviceServiceStatics, IRfcommDeviceServiceStatics2, super::super::super::Foundation::IClosable);
+windows_core::imp::required_hierarchy!(RfcommDeviceService, super::super::super::Foundation::IClosable);
 impl RfcommDeviceService {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     #[cfg(feature = "Networking")]
     pub fn ConnectionHostName(&self) -> windows_core::Result<super::super::super::Networking::HostName> {
-        let this = &windows_core::Interface::cast::<IRfcommDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConnectionHostName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ConnectionServiceName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IRfcommDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConnectionServiceName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ServiceId(&self) -> windows_core::Result<RfcommServiceId> {
-        let this = &windows_core::Interface::cast::<IRfcommDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -184,7 +188,7 @@ impl RfcommDeviceService {
     }
     #[cfg(feature = "Networking_Sockets")]
     pub fn ProtectionLevel(&self) -> windows_core::Result<super::super::super::Networking::Sockets::SocketProtectionLevel> {
-        let this = &windows_core::Interface::cast::<IRfcommDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -192,7 +196,7 @@ impl RfcommDeviceService {
     }
     #[cfg(feature = "Networking_Sockets")]
     pub fn MaxProtectionLevel(&self) -> windows_core::Result<super::super::super::Networking::Sockets::SocketProtectionLevel> {
-        let this = &windows_core::Interface::cast::<IRfcommDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -200,7 +204,7 @@ impl RfcommDeviceService {
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetSdpRawAttributesAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>> {
-        let this = &windows_core::Interface::cast::<IRfcommDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSdpRawAttributesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -208,7 +212,7 @@ impl RfcommDeviceService {
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetSdpRawAttributesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>> {
-        let this = &windows_core::Interface::cast::<IRfcommDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSdpRawAttributesWithCacheModeAsync)(windows_core::Interface::as_raw(this), cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -290,10 +294,6 @@ impl RfcommDeviceService {
             (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode)(windows_core::Interface::as_raw(this), bluetoothdevice.param().abi(), serviceid.param().abi(), cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     fn IRfcommDeviceServiceStatics<R, F: FnOnce(&IRfcommDeviceServiceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RfcommDeviceService, IRfcommDeviceServiceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -307,17 +307,18 @@ impl windows_core::RuntimeType for RfcommDeviceService {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommDeviceService>();
 }
 unsafe impl windows_core::Interface for RfcommDeviceService {
-    type Vtable = <IRfcommDeviceService as windows_core::Interface>::Vtable;
+    type Vtable = IRfcommDeviceService_Vtbl;
     const IID: windows_core::GUID = <IRfcommDeviceService as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RfcommDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService";
 }
+unsafe impl Send for RfcommDeviceService {}
+unsafe impl Sync for RfcommDeviceService {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommDeviceServicesResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommDeviceServicesResult, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RfcommDeviceServicesResult, IRfcommDeviceServicesResult);
 impl RfcommDeviceServicesResult {
     pub fn Error(&self) -> windows_core::Result<super::BluetoothError> {
         let this = self;
@@ -339,17 +340,18 @@ impl windows_core::RuntimeType for RfcommDeviceServicesResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommDeviceServicesResult>();
 }
 unsafe impl windows_core::Interface for RfcommDeviceServicesResult {
-    type Vtable = <IRfcommDeviceServicesResult as windows_core::Interface>::Vtable;
+    type Vtable = IRfcommDeviceServicesResult_Vtbl;
     const IID: windows_core::GUID = <IRfcommDeviceServicesResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RfcommDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult";
 }
+unsafe impl Send for RfcommDeviceServicesResult {}
+unsafe impl Sync for RfcommDeviceServicesResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommServiceId(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommServiceId, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RfcommServiceId, IRfcommServiceId, IRfcommServiceIdStatics);
 impl RfcommServiceId {
     pub fn Uuid(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -429,20 +431,21 @@ impl windows_core::RuntimeType for RfcommServiceId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommServiceId>();
 }
 unsafe impl windows_core::Interface for RfcommServiceId {
-    type Vtable = <IRfcommServiceId as windows_core::Interface>::Vtable;
+    type Vtable = IRfcommServiceId_Vtbl;
     const IID: windows_core::GUID = <IRfcommServiceId as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RfcommServiceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId";
 }
+unsafe impl Send for RfcommServiceId {}
+unsafe impl Sync for RfcommServiceId {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommServiceProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommServiceProvider, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RfcommServiceProvider, IRfcommServiceProvider, IRfcommServiceProvider2, IRfcommServiceProviderStatics);
 impl RfcommServiceProvider {
     pub fn ServiceId(&self) -> windows_core::Result<RfcommServiceId> {
-        let this = &windows_core::Interface::cast::<IRfcommServiceProvider>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -450,7 +453,7 @@ impl RfcommServiceProvider {
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn SdpRawAttributes(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<u32, super::super::super::Storage::Streams::IBuffer>> {
-        let this = &windows_core::Interface::cast::<IRfcommServiceProvider>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SdpRawAttributes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -461,11 +464,11 @@ impl RfcommServiceProvider {
     where
         P0: windows_core::Param<super::super::super::Networking::Sockets::StreamSocketListener>,
     {
-        let this = &windows_core::Interface::cast::<IRfcommServiceProvider>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartAdvertising)(windows_core::Interface::as_raw(this), listener.param().abi()).ok() }
     }
     pub fn StopAdvertising(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IRfcommServiceProvider>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).StopAdvertising)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Networking_Sockets")]
@@ -494,9 +497,11 @@ impl windows_core::RuntimeType for RfcommServiceProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommServiceProvider>();
 }
 unsafe impl windows_core::Interface for RfcommServiceProvider {
-    type Vtable = <IRfcommServiceProvider as windows_core::Interface>::Vtable;
+    type Vtable = IRfcommServiceProvider_Vtbl;
     const IID: windows_core::GUID = <IRfcommServiceProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RfcommServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider";
 }
+unsafe impl Send for RfcommServiceProvider {}
+unsafe impl Sync for RfcommServiceProvider {}

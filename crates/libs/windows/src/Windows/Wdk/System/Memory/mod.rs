@@ -47,8 +47,13 @@ where
 pub const ViewShare: SECTION_INHERIT = SECTION_INHERIT(1i32);
 pub const ViewUnmap: SECTION_INHERIT = SECTION_INHERIT(2i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SECTION_INHERIT(pub i32);
 impl windows_core::TypeKind for SECTION_INHERIT {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for SECTION_INHERIT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SECTION_INHERIT").field(&self.0).finish()
+    }
 }

@@ -355,17 +355,17 @@ pub unsafe fn GetDnsSettings(settings: *mut DNS_SETTINGS) -> super::super::Found
     GetDnsSettings(settings)
 }
 #[inline]
-pub unsafe fn GetExtendedTcpTable<P2>(ptcptable: Option<*mut core::ffi::c_void>, pdwsize: *mut u32, border: P2, ulaf: u32, tableclass: TCP_TABLE_CLASS, reserved: u32) -> u32
+pub unsafe fn GetExtendedTcpTable<P0>(ptcptable: Option<*mut core::ffi::c_void>, pdwsize: *mut u32, border: P0, ulaf: u32, tableclass: TCP_TABLE_CLASS, reserved: u32) -> u32
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn GetExtendedTcpTable(ptcptable : *mut core::ffi::c_void, pdwsize : *mut u32, border : super::super::Foundation:: BOOL, ulaf : u32, tableclass : TCP_TABLE_CLASS, reserved : u32) -> u32);
     GetExtendedTcpTable(core::mem::transmute(ptcptable.unwrap_or(core::ptr::null_mut())), pdwsize, border.param().abi(), ulaf, tableclass, reserved)
 }
 #[inline]
-pub unsafe fn GetExtendedUdpTable<P2>(pudptable: Option<*mut core::ffi::c_void>, pdwsize: *mut u32, border: P2, ulaf: u32, tableclass: UDP_TABLE_CLASS, reserved: u32) -> u32
+pub unsafe fn GetExtendedUdpTable<P0>(pudptable: Option<*mut core::ffi::c_void>, pdwsize: *mut u32, border: P0, ulaf: u32, tableclass: UDP_TABLE_CLASS, reserved: u32) -> u32
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn GetExtendedUdpTable(pudptable : *mut core::ffi::c_void, pdwsize : *mut u32, border : super::super::Foundation:: BOOL, ulaf : u32, tableclass : UDP_TABLE_CLASS, reserved : u32) -> u32);
     GetExtendedUdpTable(core::mem::transmute(pudptable.unwrap_or(core::ptr::null_mut())), pdwsize, border.param().abi(), ulaf, tableclass, reserved)
@@ -408,9 +408,9 @@ pub unsafe fn GetIfStackTable(table: *mut *mut MIB_IFSTACK_TABLE) -> super::supe
     GetIfStackTable(table)
 }
 #[inline]
-pub unsafe fn GetIfTable<P2>(piftable: Option<*mut MIB_IFTABLE>, pdwsize: *mut u32, border: P2) -> u32
+pub unsafe fn GetIfTable<P0>(piftable: Option<*mut MIB_IFTABLE>, pdwsize: *mut u32, border: P0) -> u32
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn GetIfTable(piftable : *mut MIB_IFTABLE, pdwsize : *mut u32, border : super::super::Foundation:: BOOL) -> u32);
     GetIfTable(core::mem::transmute(piftable.unwrap_or(core::ptr::null_mut())), pdwsize, border.param().abi())
@@ -467,9 +467,9 @@ pub unsafe fn GetInvertedIfStackTable(table: *mut *mut MIB_INVERTEDIFSTACK_TABLE
     GetInvertedIfStackTable(table)
 }
 #[inline]
-pub unsafe fn GetIpAddrTable<P2>(pipaddrtable: Option<*mut MIB_IPADDRTABLE>, pdwsize: *mut u32, border: P2) -> u32
+pub unsafe fn GetIpAddrTable<P0>(pipaddrtable: Option<*mut MIB_IPADDRTABLE>, pdwsize: *mut u32, border: P0) -> u32
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn GetIpAddrTable(pipaddrtable : *mut MIB_IPADDRTABLE, pdwsize : *mut u32, border : super::super::Foundation:: BOOL) -> u32);
     GetIpAddrTable(core::mem::transmute(pipaddrtable.unwrap_or(core::ptr::null_mut())), pdwsize, border.param().abi())
@@ -487,9 +487,9 @@ pub unsafe fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> super::super::
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn GetIpForwardTable<P2>(pipforwardtable: Option<*mut MIB_IPFORWARDTABLE>, pdwsize: *mut u32, border: P2) -> u32
+pub unsafe fn GetIpForwardTable<P0>(pipforwardtable: Option<*mut MIB_IPFORWARDTABLE>, pdwsize: *mut u32, border: P0) -> u32
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn GetIpForwardTable(pipforwardtable : *mut MIB_IPFORWARDTABLE, pdwsize : *mut u32, border : super::super::Foundation:: BOOL) -> u32);
     GetIpForwardTable(core::mem::transmute(pipforwardtable.unwrap_or(core::ptr::null_mut())), pdwsize, border.param().abi())
@@ -519,9 +519,9 @@ pub unsafe fn GetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> super::super::Foundati
     GetIpNetEntry2(row)
 }
 #[inline]
-pub unsafe fn GetIpNetTable<P2>(ipnettable: Option<*mut MIB_IPNETTABLE>, sizepointer: *mut u32, order: P2) -> u32
+pub unsafe fn GetIpNetTable<P0>(ipnettable: Option<*mut MIB_IPNETTABLE>, sizepointer: *mut u32, order: P0) -> u32
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn GetIpNetTable(ipnettable : *mut MIB_IPNETTABLE, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
     GetIpNetTable(core::mem::transmute(ipnettable.unwrap_or(core::ptr::null_mut())), sizepointer, order.param().abi())
@@ -684,18 +684,18 @@ pub unsafe fn GetSessionCompartmentId(sessionid: u32) -> super::super::Foundatio
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn GetTcp6Table<P2>(tcptable: *mut MIB_TCP6TABLE, sizepointer: *mut u32, order: P2) -> u32
+pub unsafe fn GetTcp6Table<P0>(tcptable: *mut MIB_TCP6TABLE, sizepointer: *mut u32, order: P0) -> u32
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn GetTcp6Table(tcptable : *mut MIB_TCP6TABLE, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
     GetTcp6Table(tcptable, sizepointer, order.param().abi())
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn GetTcp6Table2<P2>(tcptable: *mut MIB_TCP6TABLE2, sizepointer: *mut u32, order: P2) -> u32
+pub unsafe fn GetTcp6Table2<P0>(tcptable: *mut MIB_TCP6TABLE2, sizepointer: *mut u32, order: P0) -> u32
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn GetTcp6Table2(tcptable : *mut MIB_TCP6TABLE2, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
     GetTcp6Table2(tcptable, sizepointer, order.param().abi())
@@ -716,17 +716,17 @@ pub unsafe fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: u32) -
     GetTcpStatisticsEx2(statistics, family)
 }
 #[inline]
-pub unsafe fn GetTcpTable<P2>(tcptable: Option<*mut MIB_TCPTABLE>, sizepointer: *mut u32, order: P2) -> u32
+pub unsafe fn GetTcpTable<P0>(tcptable: Option<*mut MIB_TCPTABLE>, sizepointer: *mut u32, order: P0) -> u32
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn GetTcpTable(tcptable : *mut MIB_TCPTABLE, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
     GetTcpTable(core::mem::transmute(tcptable.unwrap_or(core::ptr::null_mut())), sizepointer, order.param().abi())
 }
 #[inline]
-pub unsafe fn GetTcpTable2<P2>(tcptable: Option<*mut MIB_TCPTABLE2>, sizepointer: *mut u32, order: P2) -> u32
+pub unsafe fn GetTcpTable2<P0>(tcptable: Option<*mut MIB_TCPTABLE2>, sizepointer: *mut u32, order: P0) -> u32
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn GetTcpTable2(tcptable : *mut MIB_TCPTABLE2, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
     GetTcpTable2(core::mem::transmute(tcptable.unwrap_or(core::ptr::null_mut())), sizepointer, order.param().abi())
@@ -738,9 +738,9 @@ pub unsafe fn GetTeredoPort(port: *mut u16) -> super::super::Foundation::WIN32_E
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn GetUdp6Table<P2>(udp6table: Option<*mut MIB_UDP6TABLE>, sizepointer: *mut u32, order: P2) -> u32
+pub unsafe fn GetUdp6Table<P0>(udp6table: Option<*mut MIB_UDP6TABLE>, sizepointer: *mut u32, order: P0) -> u32
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn GetUdp6Table(udp6table : *mut MIB_UDP6TABLE, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
     GetUdp6Table(core::mem::transmute(udp6table.unwrap_or(core::ptr::null_mut())), sizepointer, order.param().abi())
@@ -761,9 +761,9 @@ pub unsafe fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: u32) -
     GetUdpStatisticsEx2(statistics, family)
 }
 #[inline]
-pub unsafe fn GetUdpTable<P2>(udptable: Option<*mut MIB_UDPTABLE>, sizepointer: *mut u32, order: P2) -> u32
+pub unsafe fn GetUdpTable<P0>(udptable: Option<*mut MIB_UDPTABLE>, sizepointer: *mut u32, order: P0) -> u32
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn GetUdpTable(udptable : *mut MIB_UDPTABLE, sizepointer : *mut u32, order : super::super::Foundation:: BOOL) -> u32);
     GetUdpTable(core::mem::transmute(udptable.unwrap_or(core::ptr::null_mut())), sizepointer, order.param().abi())
@@ -892,10 +892,10 @@ pub unsafe fn LookupPersistentUdpPortReservation(startport: u16, numberofports: 
     LookupPersistentUdpPortReservation(startport, numberofports, token)
 }
 #[inline]
-pub unsafe fn NhpAllocateAndGetInterfaceInfoFromStack<P2, P3>(pptable: *mut *mut IP_INTERFACE_NAME_INFO_W2KSP1, pdwcount: *mut u32, border: P2, hheap: P3, dwflags: u32) -> u32
+pub unsafe fn NhpAllocateAndGetInterfaceInfoFromStack<P0, P1>(pptable: *mut *mut IP_INTERFACE_NAME_INFO_W2KSP1, pdwcount: *mut u32, border: P0, hheap: P1, dwflags: u32) -> u32
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
-    P3: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn NhpAllocateAndGetInterfaceInfoFromStack(pptable : *mut *mut IP_INTERFACE_NAME_INFO_W2KSP1, pdwcount : *mut u32, border : super::super::Foundation:: BOOL, hheap : super::super::Foundation:: HANDLE, dwflags : u32) -> u32);
     NhpAllocateAndGetInterfaceInfoFromStack(pptable, pdwcount, border.param().abi(), hheap.param().abi(), dwflags)
@@ -913,18 +913,18 @@ pub unsafe fn NotifyIfTimestampConfigChange(callercontext: Option<*const core::f
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NotifyIpInterfaceChange<P3>(family: super::super::Networking::WinSock::ADDRESS_FAMILY, callback: PIPINTERFACE_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: P3, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn NotifyIpInterfaceChange<P0>(family: super::super::Networking::WinSock::ADDRESS_FAMILY, callback: PIPINTERFACE_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: P0, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR
 where
-    P3: windows_core::Param<super::super::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn NotifyIpInterfaceChange(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PIPINTERFACE_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     NotifyIpInterfaceChange(family, callback, core::mem::transmute(callercontext.unwrap_or(core::ptr::null())), initialnotification.param().abi(), notificationhandle)
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn NotifyNetworkConnectivityHintChange<P2>(callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: P2, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn NotifyNetworkConnectivityHintChange<P0>(callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: P0, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR
 where
-    P2: windows_core::Param<super::super::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn NotifyNetworkConnectivityHintChange(callback : PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     NotifyNetworkConnectivityHintChange(callback, core::mem::transmute(callercontext.unwrap_or(core::ptr::null())), initialnotification.param().abi(), notificationhandle)
@@ -937,9 +937,9 @@ pub unsafe fn NotifyRouteChange(handle: *mut super::super::Foundation::HANDLE, o
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NotifyRouteChange2<P3>(addressfamily: super::super::Networking::WinSock::ADDRESS_FAMILY, callback: PIPFORWARD_CHANGE_CALLBACK, callercontext: *const core::ffi::c_void, initialnotification: P3, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn NotifyRouteChange2<P0>(addressfamily: super::super::Networking::WinSock::ADDRESS_FAMILY, callback: PIPFORWARD_CHANGE_CALLBACK, callercontext: *const core::ffi::c_void, initialnotification: P0, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR
 where
-    P3: windows_core::Param<super::super::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn NotifyRouteChange2(addressfamily : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PIPFORWARD_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     NotifyRouteChange2(addressfamily, callback, callercontext, initialnotification.param().abi(), notificationhandle)
@@ -951,18 +951,18 @@ pub unsafe fn NotifyStableUnicastIpAddressTable(family: super::super::Networking
     NotifyStableUnicastIpAddressTable(family, table, callercallback, callercontext, notificationhandle)
 }
 #[inline]
-pub unsafe fn NotifyTeredoPortChange<P2>(callback: PTEREDO_PORT_CHANGE_CALLBACK, callercontext: *const core::ffi::c_void, initialnotification: P2, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn NotifyTeredoPortChange<P0>(callback: PTEREDO_PORT_CHANGE_CALLBACK, callercontext: *const core::ffi::c_void, initialnotification: P0, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR
 where
-    P2: windows_core::Param<super::super::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn NotifyTeredoPortChange(callback : PTEREDO_PORT_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     NotifyTeredoPortChange(callback, callercontext, initialnotification.param().abi(), notificationhandle)
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NotifyUnicastIpAddressChange<P3>(family: super::super::Networking::WinSock::ADDRESS_FAMILY, callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: P3, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn NotifyUnicastIpAddressChange<P0>(family: super::super::Networking::WinSock::ADDRESS_FAMILY, callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: P0, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR
 where
-    P3: windows_core::Param<super::super::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn NotifyUnicastIpAddressChange(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     NotifyUnicastIpAddressChange(family, callback, core::mem::transmute(callercontext.unwrap_or(core::ptr::null())), initialnotification.param().abi(), notificationhandle)
@@ -997,10 +997,10 @@ pub unsafe fn PfBindInterfaceToIndex(pinterface: *mut core::ffi::c_void, dwindex
     PfBindInterfaceToIndex(pinterface, dwindex, pfatlinktype, linkipaddress)
 }
 #[inline]
-pub unsafe fn PfCreateInterface<P3, P4>(dwname: u32, inaction: PFFORWARD_ACTION, outaction: PFFORWARD_ACTION, buselog: P3, bmustbeunique: P4, ppinterface: *mut *mut core::ffi::c_void) -> u32
+pub unsafe fn PfCreateInterface<P0, P1>(dwname: u32, inaction: PFFORWARD_ACTION, outaction: PFFORWARD_ACTION, buselog: P0, bmustbeunique: P1, ppinterface: *mut *mut core::ffi::c_void) -> u32
 where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
-    P4: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn PfCreateInterface(dwname : u32, inaction : PFFORWARD_ACTION, outaction : PFFORWARD_ACTION, buselog : super::super::Foundation:: BOOL, bmustbeunique : super::super::Foundation:: BOOL, ppinterface : *mut *mut core::ffi::c_void) -> u32);
     PfCreateInterface(dwname, inaction, outaction, buselog.param().abi(), bmustbeunique.param().abi(), ppinterface)
@@ -1016,9 +1016,9 @@ pub unsafe fn PfDeleteLog() -> u32 {
     PfDeleteLog()
 }
 #[inline]
-pub unsafe fn PfGetInterfaceStatistics<P3>(pinterface: *mut core::ffi::c_void, ppfstats: *mut PF_INTERFACE_STATS, pdwbuffersize: *mut u32, fresetcounters: P3) -> u32
+pub unsafe fn PfGetInterfaceStatistics<P0>(pinterface: *mut core::ffi::c_void, ppfstats: *mut PF_INTERFACE_STATS, pdwbuffersize: *mut u32, fresetcounters: P0) -> u32
 where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn PfGetInterfaceStatistics(pinterface : *mut core::ffi::c_void, ppfstats : *mut PF_INTERFACE_STATS, pdwbuffersize : *mut u32, fresetcounters : super::super::Foundation:: BOOL) -> u32);
     PfGetInterfaceStatistics(pinterface, ppfstats, pdwbuffersize, fresetcounters.param().abi())
@@ -1172,9 +1172,9 @@ where
     SetJobCompartmentId(jobhandle.param().abi(), compartmentid)
 }
 #[inline]
-pub unsafe fn SetNetworkInformation<P2>(networkguid: *const windows_core::GUID, compartmentid: u32, networkname: P2) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn SetNetworkInformation<P0>(networkguid: *const windows_core::GUID, compartmentid: u32, networkname: P0) -> super::super::Foundation::WIN32_ERROR
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("iphlpapi.dll" "system" fn SetNetworkInformation(networkguid : *const windows_core::GUID, compartmentid : u32, networkname : windows_core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
     SetNetworkInformation(networkguid, compartmentid, networkname.param().abi())
@@ -1838,16 +1838,26 @@ pub const UDP_TABLE_BASIC: UDP_TABLE_CLASS = UDP_TABLE_CLASS(0i32);
 pub const UDP_TABLE_OWNER_MODULE: UDP_TABLE_CLASS = UDP_TABLE_CLASS(2i32);
 pub const UDP_TABLE_OWNER_PID: UDP_TABLE_CLASS = UDP_TABLE_CLASS(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DNS_SERVER_PROPERTY_TYPE(pub i32);
 impl windows_core::TypeKind for DNS_SERVER_PROPERTY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DNS_SERVER_PROPERTY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DNS_SERVER_PROPERTY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GET_ADAPTERS_ADDRESSES_FLAGS(pub u32);
 impl windows_core::TypeKind for GET_ADAPTERS_ADDRESSES_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for GET_ADAPTERS_ADDRESSES_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GET_ADAPTERS_ADDRESSES_FLAGS").field(&self.0).finish()
+    }
 }
 impl GET_ADAPTERS_ADDRESSES_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1883,179 +1893,299 @@ impl core::ops::Not for GET_ADAPTERS_ADDRESSES_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GLOBAL_FILTER(pub i32);
 impl windows_core::TypeKind for GLOBAL_FILTER {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for GLOBAL_FILTER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GLOBAL_FILTER").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ICMP4_TYPE(pub i32);
 impl windows_core::TypeKind for ICMP4_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ICMP4_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ICMP4_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ICMP6_TYPE(pub i32);
 impl windows_core::TypeKind for ICMP6_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ICMP6_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ICMP6_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IF_ACCESS_TYPE(pub i32);
 impl windows_core::TypeKind for IF_ACCESS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IF_ACCESS_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IF_ACCESS_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct INTERNAL_IF_OPER_STATUS(pub i32);
 impl windows_core::TypeKind for INTERNAL_IF_OPER_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for INTERNAL_IF_OPER_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("INTERNAL_IF_OPER_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MIB_IF_ENTRY_LEVEL(pub i32);
 impl windows_core::TypeKind for MIB_IF_ENTRY_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MIB_IF_ENTRY_LEVEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MIB_IF_ENTRY_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MIB_IF_TABLE_LEVEL(pub i32);
 impl windows_core::TypeKind for MIB_IF_TABLE_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MIB_IF_TABLE_LEVEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MIB_IF_TABLE_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MIB_IPFORWARD_TYPE(pub i32);
 impl windows_core::TypeKind for MIB_IPFORWARD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MIB_IPFORWARD_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MIB_IPFORWARD_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MIB_IPNET_TYPE(pub i32);
 impl windows_core::TypeKind for MIB_IPNET_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MIB_IPNET_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MIB_IPNET_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MIB_IPSTATS_FORWARDING(pub i32);
 impl windows_core::TypeKind for MIB_IPSTATS_FORWARDING {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MIB_IPSTATS_FORWARDING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MIB_IPSTATS_FORWARDING").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MIB_NOTIFICATION_TYPE(pub i32);
 impl windows_core::TypeKind for MIB_NOTIFICATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MIB_NOTIFICATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MIB_NOTIFICATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MIB_TCP_STATE(pub i32);
 impl windows_core::TypeKind for MIB_TCP_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MIB_TCP_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MIB_TCP_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NET_ADDRESS_FORMAT(pub i32);
 impl windows_core::TypeKind for NET_ADDRESS_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NET_ADDRESS_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NET_ADDRESS_FORMAT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PFADDRESSTYPE(pub i32);
 impl windows_core::TypeKind for PFADDRESSTYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PFADDRESSTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PFADDRESSTYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PFFORWARD_ACTION(pub i32);
 impl windows_core::TypeKind for PFFORWARD_ACTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PFFORWARD_ACTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PFFORWARD_ACTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PFFRAMETYPE(pub i32);
 impl windows_core::TypeKind for PFFRAMETYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PFFRAMETYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PFFRAMETYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TCPIP_OWNER_MODULE_INFO_CLASS(pub i32);
 impl windows_core::TypeKind for TCPIP_OWNER_MODULE_INFO_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for TCPIP_OWNER_MODULE_INFO_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TCPIP_OWNER_MODULE_INFO_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TCP_BOOLEAN_OPTIONAL(pub i32);
 impl windows_core::TypeKind for TCP_BOOLEAN_OPTIONAL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for TCP_BOOLEAN_OPTIONAL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TCP_BOOLEAN_OPTIONAL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TCP_CONNECTION_OFFLOAD_STATE(pub i32);
 impl windows_core::TypeKind for TCP_CONNECTION_OFFLOAD_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for TCP_CONNECTION_OFFLOAD_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TCP_CONNECTION_OFFLOAD_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TCP_ESTATS_TYPE(pub i32);
 impl windows_core::TypeKind for TCP_ESTATS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for TCP_ESTATS_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TCP_ESTATS_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TCP_RTO_ALGORITHM(pub i32);
 impl windows_core::TypeKind for TCP_RTO_ALGORITHM {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for TCP_RTO_ALGORITHM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TCP_RTO_ALGORITHM").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TCP_SOFT_ERROR(pub i32);
 impl windows_core::TypeKind for TCP_SOFT_ERROR {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for TCP_SOFT_ERROR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TCP_SOFT_ERROR").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TCP_TABLE_CLASS(pub i32);
 impl windows_core::TypeKind for TCP_TABLE_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for TCP_TABLE_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TCP_TABLE_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UDP_TABLE_CLASS(pub i32);
 impl windows_core::TypeKind for UDP_TABLE_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UDP_TABLE_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UDP_TABLE_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARP_SEND_REPLY {
     pub DestAddress: u32,
     pub SrcAddress: u32,
+}
+impl windows_core::TypeKind for ARP_SEND_REPLY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ARP_SEND_REPLY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ARP_SEND_REPLY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_DOH_SERVER_SETTINGS {
     pub Template: windows_core::PWSTR,
     pub Flags: u64,
+}
+impl windows_core::TypeKind for DNS_DOH_SERVER_SETTINGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DNS_DOH_SERVER_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DNS_DOH_SERVER_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
@@ -2068,16 +2198,16 @@ pub struct DNS_INTERFACE_SETTINGS {
     pub QueryAdapterName: u32,
     pub ProfileNameServer: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for DNS_INTERFACE_SETTINGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DNS_INTERFACE_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DNS_INTERFACE_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS3 {
     pub Version: u32,
     pub Flags: u64,
@@ -2096,16 +2226,16 @@ pub struct DNS_INTERFACE_SETTINGS3 {
     pub cProfileServerProperties: u32,
     pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
 }
+impl windows_core::TypeKind for DNS_INTERFACE_SETTINGS3 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DNS_INTERFACE_SETTINGS3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DNS_INTERFACE_SETTINGS3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS4 {
     pub Version: u32,
     pub Flags: u64,
@@ -2125,60 +2255,60 @@ pub struct DNS_INTERFACE_SETTINGS4 {
     pub ProfileServerProperties: *mut DNS_SERVER_PROPERTY,
     pub EncryptedDnsAdapterFlags: u32,
 }
+impl windows_core::TypeKind for DNS_INTERFACE_SETTINGS4 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DNS_INTERFACE_SETTINGS4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DNS_INTERFACE_SETTINGS4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS_EX {
     pub SettingsV1: DNS_INTERFACE_SETTINGS,
     pub DisableUnconstrainedQueries: u32,
     pub SupplementalSearchList: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for DNS_INTERFACE_SETTINGS_EX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DNS_INTERFACE_SETTINGS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DNS_INTERFACE_SETTINGS_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_SERVER_PROPERTY {
     pub Version: u32,
     pub ServerIndex: u32,
     pub Type: DNS_SERVER_PROPERTY_TYPE,
     pub Property: DNS_SERVER_PROPERTY_TYPES,
 }
+impl windows_core::TypeKind for DNS_SERVER_PROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DNS_SERVER_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DNS_SERVER_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DNS_SERVER_PROPERTY_TYPES {
     pub DohSettings: *mut DNS_DOH_SERVER_SETTINGS,
+}
+impl windows_core::TypeKind for DNS_SERVER_PROPERTY_TYPES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DNS_SERVER_PROPERTY_TYPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DNS_SERVER_PROPERTY_TYPES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
@@ -2186,16 +2316,16 @@ pub struct DNS_SETTINGS {
     pub Domain: windows_core::PWSTR,
     pub SearchList: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for DNS_SETTINGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DNS_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DNS_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_SETTINGS2 {
     pub Version: u32,
     pub Flags: u64,
@@ -2204,16 +2334,16 @@ pub struct DNS_SETTINGS2 {
     pub SearchList: windows_core::PWSTR,
     pub SettingFlags: u64,
 }
+impl windows_core::TypeKind for DNS_SETTINGS2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DNS_SETTINGS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DNS_SETTINGS2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FIXED_INFO_W2KSP1 {
     pub HostName: [i8; 132],
     pub DomainName: [i8; 132],
@@ -2225,20 +2355,17 @@ pub struct FIXED_INFO_W2KSP1 {
     pub EnableProxy: u32,
     pub EnableDns: u32,
 }
+impl windows_core::TypeKind for FIXED_INFO_W2KSP1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FIXED_INFO_W2KSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FIXED_INFO_W2KSP1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIFTIMESTAMPCHANGE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HIFTIMESTAMPCHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HIFTIMESTAMPCHANGE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -2248,8 +2375,7 @@ impl windows_core::Free for HIFTIMESTAMPCHANGE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("iphlpapi.dll" "system" fn UnregisterInterfaceTimestampConfigChange(notificationhandle : *mut core::ffi::c_void));
-            UnregisterInterfaceTimestampConfigChange(self.0);
+            UnregisterInterfaceTimestampConfigChange(*self);
         }
     }
 }
@@ -2258,23 +2384,26 @@ impl Default for HIFTIMESTAMPCHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HIFTIMESTAMPCHANGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ICMPV6_ECHO_REPLY_LH {
     pub Address: IPV6_ADDRESS_EX,
     pub Status: u32,
     pub RoundTripTime: u32,
+}
+impl windows_core::TypeKind for ICMPV6_ECHO_REPLY_LH {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ICMPV6_ECHO_REPLY_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ICMPV6_ECHO_REPLY_LH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICMP_ECHO_REPLY {
     pub Address: u32,
     pub Status: u32,
@@ -2284,17 +2413,17 @@ pub struct ICMP_ECHO_REPLY {
     pub Data: *mut core::ffi::c_void,
     pub Options: IP_OPTION_INFORMATION,
 }
+impl windows_core::TypeKind for ICMP_ECHO_REPLY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ICMP_ECHO_REPLY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ICMP_ECHO_REPLY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICMP_ECHO_REPLY32 {
     pub Address: u32,
     pub Status: u32,
@@ -2305,32 +2434,32 @@ pub struct ICMP_ECHO_REPLY32 {
     pub Options: IP_OPTION_INFORMATION32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ICMP_ECHO_REPLY32 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for ICMP_ECHO_REPLY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ICMP_ECHO_REPLY32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERFACE_HARDWARE_CROSSTIMESTAMP {
     pub SystemTimestamp1: u64,
     pub HardwareClockTimestamp: u64,
     pub SystemTimestamp2: u64,
+}
+impl windows_core::TypeKind for INTERFACE_HARDWARE_CROSSTIMESTAMP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERFACE_HARDWARE_CROSSTIMESTAMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERFACE_HARDWARE_CROSSTIMESTAMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
     pub PtpV2OverUdpIPv4EventMessageReceive: super::super::Foundation::BOOLEAN,
     pub PtpV2OverUdpIPv4AllMessageReceive: super::super::Foundation::BOOLEAN,
@@ -2344,64 +2473,64 @@ pub struct INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
     pub AllTransmit: super::super::Foundation::BOOLEAN,
     pub TaggedTransmit: super::super::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
     pub AllReceive: super::super::Foundation::BOOLEAN,
     pub AllTransmit: super::super::Foundation::BOOLEAN,
     pub TaggedTransmit: super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERFACE_TIMESTAMP_CAPABILITIES {
     pub HardwareClockFrequencyHz: u64,
     pub SupportsCrossTimestamp: super::super::Foundation::BOOLEAN,
     pub HardwareCapabilities: INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES,
     pub SoftwareCapabilities: INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES,
 }
+impl windows_core::TypeKind for INTERFACE_TIMESTAMP_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for INTERFACE_TIMESTAMP_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERFACE_TIMESTAMP_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IPV6_ADDRESS_EX {
     pub sin6_port: u16,
     pub sin6_flowinfo: u32,
     pub sin6_addr: [u16; 8],
     pub sin6_scope_id: u32,
 }
+impl windows_core::TypeKind for IPV6_ADDRESS_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IPV6_ADDRESS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPV6_ADDRESS_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_ADDRESSES_LH {
     pub Anonymous1: IP_ADAPTER_ADDRESSES_LH_0,
     pub Next: *mut IP_ADAPTER_ADDRESSES_LH,
@@ -2441,21 +2570,25 @@ pub struct IP_ADAPTER_ADDRESSES_LH {
     pub FirstDnsSuffix: *mut IP_ADAPTER_DNS_SUFFIX,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_LH {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for IP_ADAPTER_ADDRESSES_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_LH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_ADDRESSES_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_0_0,
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_LH_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for IP_ADAPTER_ADDRESSES_LH_0 {
@@ -2463,16 +2596,16 @@ impl Default for IP_ADAPTER_ADDRESSES_LH_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_LH_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_ADDRESSES_LH_0_0 {
     pub Length: u32,
     pub IfIndex: u32,
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_LH_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for IP_ADAPTER_ADDRESSES_LH_0_0 {
@@ -2480,16 +2613,16 @@ impl Default for IP_ADAPTER_ADDRESSES_LH_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_LH_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_ADDRESSES_LH_1 {
     pub Flags: u32,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_1_0,
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_LH_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for IP_ADAPTER_ADDRESSES_LH_1 {
@@ -2497,15 +2630,15 @@ impl Default for IP_ADAPTER_ADDRESSES_LH_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_LH_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_ADDRESSES_LH_1_0 {
     pub _bitfield: u32,
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_LH_1_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for IP_ADAPTER_ADDRESSES_LH_1_0 {
@@ -2513,13 +2646,9 @@ impl Default for IP_ADAPTER_ADDRESSES_LH_1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_LH_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_ADDRESSES_XP {
     pub Anonymous: IP_ADAPTER_ADDRESSES_XP_0,
     pub Next: *mut IP_ADAPTER_ADDRESSES_XP,
@@ -2542,21 +2671,25 @@ pub struct IP_ADAPTER_ADDRESSES_XP {
     pub FirstPrefix: *mut IP_ADAPTER_PREFIX_XP,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_XP {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for IP_ADAPTER_ADDRESSES_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_XP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_ADDRESSES_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ADDRESSES_XP_0_0,
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_XP_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for IP_ADAPTER_ADDRESSES_XP_0 {
@@ -2564,16 +2697,16 @@ impl Default for IP_ADAPTER_ADDRESSES_XP_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_XP_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_ADDRESSES_XP_0_0 {
     pub Length: u32,
     pub IfIndex: u32,
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_XP_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for IP_ADAPTER_ADDRESSES_XP_0_0 {
@@ -2581,17 +2714,17 @@ impl Default for IP_ADAPTER_ADDRESSES_XP_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for IP_ADAPTER_ADDRESSES_XP_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0,
     pub Next: *mut IP_ADAPTER_ANYCAST_ADDRESS_XP,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_ANYCAST_ADDRESS_XP {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_ANYCAST_ADDRESS_XP {
@@ -2599,16 +2732,16 @@ impl Default for IP_ADAPTER_ANYCAST_ADDRESS_XP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_ANYCAST_ADDRESS_XP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
@@ -2616,16 +2749,16 @@ impl Default for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
@@ -2633,17 +2766,17 @@ impl Default for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0,
     pub Next: *mut IP_ADAPTER_DNS_SERVER_ADDRESS_XP,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
@@ -2651,16 +2784,16 @@ impl Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
@@ -2668,16 +2801,16 @@ impl Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Reserved: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
@@ -2685,31 +2818,31 @@ impl Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_DNS_SUFFIX {
     pub Next: *mut IP_ADAPTER_DNS_SUFFIX,
     pub String: [u16; 256],
+}
+impl windows_core::TypeKind for IP_ADAPTER_DNS_SUFFIX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IP_ADAPTER_DNS_SUFFIX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IP_ADAPTER_DNS_SUFFIX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH {
     pub Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0,
     pub Next: *mut IP_ADAPTER_GATEWAY_ADDRESS_LH,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_GATEWAY_ADDRESS_LH {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_GATEWAY_ADDRESS_LH {
@@ -2717,16 +2850,16 @@ impl Default for IP_ADAPTER_GATEWAY_ADDRESS_LH {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_GATEWAY_ADDRESS_LH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
@@ -2734,16 +2867,16 @@ impl Default for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Reserved: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
@@ -2751,26 +2884,22 @@ impl Default for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_INDEX_MAP {
     pub Index: u32,
     pub Name: [u16; 128],
+}
+impl windows_core::TypeKind for IP_ADAPTER_INDEX_MAP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IP_ADAPTER_INDEX_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IP_ADAPTER_INDEX_MAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_INFO {
     pub Next: *mut IP_ADAPTER_INFO,
     pub ComboIndex: u32,
@@ -2791,21 +2920,25 @@ pub struct IP_ADAPTER_INFO {
     pub LeaseObtained: i64,
     pub LeaseExpires: i64,
 }
+impl windows_core::TypeKind for IP_ADAPTER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IP_ADAPTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IP_ADAPTER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0,
     pub Next: *mut IP_ADAPTER_MULTICAST_ADDRESS_XP,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_MULTICAST_ADDRESS_XP {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_MULTICAST_ADDRESS_XP {
@@ -2813,16 +2946,16 @@ impl Default for IP_ADAPTER_MULTICAST_ADDRESS_XP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_MULTICAST_ADDRESS_XP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
@@ -2830,16 +2963,16 @@ impl Default for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
@@ -2847,27 +2980,23 @@ impl Default for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_ORDER_MAP {
     pub NumAdapters: u32,
     pub AdapterOrder: [u32; 1],
+}
+impl windows_core::TypeKind for IP_ADAPTER_ORDER_MAP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IP_ADAPTER_ORDER_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IP_ADAPTER_ORDER_MAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_PREFIX_XP {
     pub Anonymous: IP_ADAPTER_PREFIX_XP_0,
     pub Next: *mut IP_ADAPTER_PREFIX_XP,
@@ -2875,21 +3004,25 @@ pub struct IP_ADAPTER_PREFIX_XP {
     pub PrefixLength: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_PREFIX_XP {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_PREFIX_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_PREFIX_XP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_PREFIX_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_PREFIX_XP_0_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_PREFIX_XP_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_PREFIX_XP_0 {
@@ -2897,16 +3030,16 @@ impl Default for IP_ADAPTER_PREFIX_XP_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_PREFIX_XP_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_PREFIX_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_PREFIX_XP_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_PREFIX_XP_0_0 {
@@ -2914,13 +3047,9 @@ impl Default for IP_ADAPTER_PREFIX_XP_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_PREFIX_XP_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_LH {
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0,
     pub Next: *mut IP_ADAPTER_UNICAST_ADDRESS_LH,
@@ -2934,21 +3063,25 @@ pub struct IP_ADAPTER_UNICAST_ADDRESS_LH {
     pub OnLinkPrefixLength: u8,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_LH {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_UNICAST_ADDRESS_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_LH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
@@ -2956,16 +3089,16 @@ impl Default for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Flags: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
@@ -2973,13 +3106,9 @@ impl Default for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_XP {
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0,
     pub Next: *mut IP_ADAPTER_UNICAST_ADDRESS_XP,
@@ -2992,21 +3121,25 @@ pub struct IP_ADAPTER_UNICAST_ADDRESS_XP {
     pub LeaseLifetime: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_XP {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_UNICAST_ADDRESS_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_XP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
@@ -3014,16 +3147,16 @@ impl Default for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
@@ -3031,17 +3164,17 @@ impl Default for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
     pub Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0,
     pub Next: *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH,
     pub Address: super::super::Networking::WinSock::SOCKET_ADDRESS,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
@@ -3049,16 +3182,16 @@ impl Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
@@ -3066,16 +3199,16 @@ impl Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Reserved: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
@@ -3083,16 +3216,16 @@ impl Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IP_ADDRESS_PREFIX {
     pub Prefix: super::super::Networking::WinSock::SOCKADDR_INET,
     pub PrefixLength: u8,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for IP_ADDRESS_PREFIX {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADDRESS_PREFIX {
@@ -3100,55 +3233,51 @@ impl Default for IP_ADDRESS_PREFIX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for IP_ADDRESS_PREFIX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADDRESS_STRING {
     pub String: [i8; 16],
+}
+impl windows_core::TypeKind for IP_ADDRESS_STRING {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IP_ADDRESS_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IP_ADDRESS_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADDR_STRING {
     pub Next: *mut IP_ADDR_STRING,
     pub IpAddress: IP_ADDRESS_STRING,
     pub IpMask: IP_ADDRESS_STRING,
     pub Context: u32,
 }
+impl windows_core::TypeKind for IP_ADDR_STRING {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IP_ADDR_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IP_ADDR_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_INTERFACE_INFO {
     pub NumAdapters: i32,
     pub Adapter: [IP_ADAPTER_INDEX_MAP; 1],
+}
+impl windows_core::TypeKind for IP_INTERFACE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IP_INTERFACE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IP_INTERFACE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_INTERFACE_NAME_INFO_W2KSP1 {
     pub Index: u32,
     pub MediaType: u32,
@@ -3157,32 +3286,32 @@ pub struct IP_INTERFACE_NAME_INFO_W2KSP1 {
     pub DeviceGuid: windows_core::GUID,
     pub InterfaceGuid: windows_core::GUID,
 }
+impl windows_core::TypeKind for IP_INTERFACE_NAME_INFO_W2KSP1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IP_INTERFACE_NAME_INFO_W2KSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IP_INTERFACE_NAME_INFO_W2KSP1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_MCAST_COUNTER_INFO {
     pub InMcastOctets: u64,
     pub OutMcastOctets: u64,
     pub InMcastPkts: u64,
     pub OutMcastPkts: u64,
 }
+impl windows_core::TypeKind for IP_MCAST_COUNTER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IP_MCAST_COUNTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IP_MCAST_COUNTER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_OPTION_INFORMATION {
     pub Ttl: u8,
     pub Tos: u8,
@@ -3190,17 +3319,17 @@ pub struct IP_OPTION_INFORMATION {
     pub OptionsSize: u8,
     pub OptionsData: *mut u8,
 }
+impl windows_core::TypeKind for IP_OPTION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IP_OPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IP_OPTION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_OPTION_INFORMATION32 {
     pub Ttl: u8,
     pub Tos: u8,
@@ -3209,61 +3338,61 @@ pub struct IP_OPTION_INFORMATION32 {
     pub OptionsData: *mut u8,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for IP_OPTION_INFORMATION32 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for IP_OPTION_INFORMATION32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for IP_OPTION_INFORMATION32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_PER_ADAPTER_INFO_W2KSP1 {
     pub AutoconfigEnabled: u32,
     pub AutoconfigActive: u32,
     pub CurrentDnsServer: *mut IP_ADDR_STRING,
     pub DnsServerList: IP_ADDR_STRING,
 }
+impl windows_core::TypeKind for IP_PER_ADAPTER_INFO_W2KSP1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IP_PER_ADAPTER_INFO_W2KSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IP_PER_ADAPTER_INFO_W2KSP1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
     pub NumAdapters: u32,
     pub Address: [u32; 1],
+}
+impl windows_core::TypeKind for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIBICMPINFO {
     pub icmpInStats: MIBICMPSTATS,
     pub icmpOutStats: MIBICMPSTATS,
+}
+impl windows_core::TypeKind for MIBICMPINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIBICMPINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIBICMPINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIBICMPSTATS {
     pub dwMsgs: u32,
     pub dwErrors: u32,
@@ -3279,32 +3408,32 @@ pub struct MIBICMPSTATS {
     pub dwAddrMasks: u32,
     pub dwAddrMaskReps: u32,
 }
+impl windows_core::TypeKind for MIBICMPSTATS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIBICMPSTATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIBICMPSTATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIBICMPSTATS_EX_XPSP1 {
     pub dwMsgs: u32,
     pub dwErrors: u32,
     pub rgdwTypeCount: [u32; 256],
+}
+impl windows_core::TypeKind for MIBICMPSTATS_EX_XPSP1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIBICMPSTATS_EX_XPSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIBICMPSTATS_EX_XPSP1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_ANYCASTIPADDRESS_ROW {
     pub Address: super::super::Networking::WinSock::SOCKADDR_INET,
     pub InterfaceLuid: super::Ndis::NET_LUID_LH,
@@ -3312,21 +3441,25 @@ pub struct MIB_ANYCASTIPADDRESS_ROW {
     pub ScopeId: super::super::Networking::WinSock::SCOPE_ID,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_ANYCASTIPADDRESS_ROW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_ANYCASTIPADDRESS_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_ANYCASTIPADDRESS_ROW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_ANYCASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_ANYCASTIPADDRESS_ROW; 1],
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_ANYCASTIPADDRESS_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_ANYCASTIPADDRESS_TABLE {
@@ -3334,80 +3467,76 @@ impl Default for MIB_ANYCASTIPADDRESS_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_ANYCASTIPADDRESS_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_BEST_IF {
     pub dwDestAddr: u32,
     pub dwIfIndex: u32,
+}
+impl windows_core::TypeKind for MIB_BEST_IF {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_BEST_IF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_BEST_IF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_BOUNDARYROW {
     pub dwGroupAddress: u32,
     pub dwGroupMask: u32,
+}
+impl windows_core::TypeKind for MIB_BOUNDARYROW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_BOUNDARYROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_BOUNDARYROW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_ICMP {
     pub stats: MIBICMPINFO,
+}
+impl windows_core::TypeKind for MIB_ICMP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_ICMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_ICMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_ICMP_EX_XPSP1 {
     pub icmpInStats: MIBICMPSTATS_EX_XPSP1,
     pub icmpOutStats: MIBICMPSTATS_EX_XPSP1,
+}
+impl windows_core::TypeKind for MIB_ICMP_EX_XPSP1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_ICMP_EX_XPSP1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_ICMP_EX_XPSP1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IFNUMBER {
     pub dwValue: u32,
+}
+impl windows_core::TypeKind for MIB_IFNUMBER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_IFNUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IFNUMBER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IFROW {
     pub wszName: [u16; 256],
     pub dwIndex: u32,
@@ -3434,44 +3563,44 @@ pub struct MIB_IFROW {
     pub dwDescrLen: u32,
     pub bDescr: [u8; 256],
 }
+impl windows_core::TypeKind for MIB_IFROW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IFROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IFROW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IFSTACK_ROW {
     pub HigherLayerInterfaceIndex: u32,
     pub LowerLayerInterfaceIndex: u32,
+}
+impl windows_core::TypeKind for MIB_IFSTACK_ROW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_IFSTACK_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IFSTACK_ROW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IFSTACK_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_IFSTACK_ROW; 1],
+}
+impl windows_core::TypeKind for MIB_IFSTACK_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_IFSTACK_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IFSTACK_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IFSTATUS {
     pub dwIfIndex: u32,
     pub dwAdminStatus: u32,
@@ -3479,31 +3608,31 @@ pub struct MIB_IFSTATUS {
     pub bMHbeatActive: super::super::Foundation::BOOL,
     pub bMHbeatAlive: super::super::Foundation::BOOL,
 }
+impl windows_core::TypeKind for MIB_IFSTATUS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IFSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IFSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IFTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IFROW; 1],
+}
+impl windows_core::TypeKind for MIB_IFTABLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_IFTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IFTABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IF_ROW2 {
     pub InterfaceLuid: super::Ndis::NET_LUID_LH,
     pub InterfaceIndex: u32,
@@ -3548,20 +3677,24 @@ pub struct MIB_IF_ROW2 {
     pub OutQLen: u64,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for MIB_IF_ROW2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for MIB_IF_ROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for MIB_IF_ROW2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IF_ROW2_0 {
     pub _bitfield: u8,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for MIB_IF_ROW2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for MIB_IF_ROW2_0 {
@@ -3569,16 +3702,16 @@ impl Default for MIB_IF_ROW2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for MIB_IF_ROW2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IF_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IF_ROW2; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for MIB_IF_TABLE2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for MIB_IF_TABLE2 {
@@ -3586,40 +3719,36 @@ impl Default for MIB_IF_TABLE2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for MIB_IF_TABLE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_INVERTEDIFSTACK_ROW {
     pub LowerLayerInterfaceIndex: u32,
     pub HigherLayerInterfaceIndex: u32,
+}
+impl windows_core::TypeKind for MIB_INVERTEDIFSTACK_ROW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_INVERTEDIFSTACK_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_INVERTEDIFSTACK_ROW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_INVERTEDIFSTACK_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_INVERTEDIFSTACK_ROW; 1],
+}
+impl windows_core::TypeKind for MIB_INVERTEDIFSTACK_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_INVERTEDIFSTACK_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_INVERTEDIFSTACK_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPADDRROW_W2K {
     pub dwAddr: u32,
     pub dwIndex: u32,
@@ -3629,16 +3758,16 @@ pub struct MIB_IPADDRROW_W2K {
     pub unused1: u16,
     pub unused2: u16,
 }
+impl windows_core::TypeKind for MIB_IPADDRROW_W2K {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPADDRROW_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPADDRROW_W2K {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPADDRROW_XP {
     pub dwAddr: u32,
     pub dwIndex: u32,
@@ -3648,35 +3777,39 @@ pub struct MIB_IPADDRROW_XP {
     pub unused1: u16,
     pub wType: u16,
 }
+impl windows_core::TypeKind for MIB_IPADDRROW_XP {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPADDRROW_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPADDRROW_XP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPADDRTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPADDRROW_XP; 1],
+}
+impl windows_core::TypeKind for MIB_IPADDRTABLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_IPADDRTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPADDRTABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPDESTROW {
     pub ForwardRow: MIB_IPFORWARDROW,
     pub dwForwardPreference: u32,
     pub dwForwardViewSet: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for MIB_IPDESTROW {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MIB_IPDESTROW {
@@ -3684,16 +3817,16 @@ impl Default for MIB_IPDESTROW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MIB_IPDESTROW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPDESTTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPDESTROW; 1],
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for MIB_IPDESTTABLE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MIB_IPDESTTABLE {
@@ -3701,26 +3834,22 @@ impl Default for MIB_IPDESTTABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MIB_IPDESTTABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPFORWARDNUMBER {
     pub dwValue: u32,
+}
+impl windows_core::TypeKind for MIB_IPFORWARDNUMBER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_IPFORWARDNUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPFORWARDNUMBER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPFORWARDROW {
     pub dwForwardDest: u32,
     pub dwForwardMask: u32,
@@ -3738,21 +3867,25 @@ pub struct MIB_IPFORWARDROW {
     pub dwForwardMetric5: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for MIB_IPFORWARDROW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MIB_IPFORWARDROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MIB_IPFORWARDROW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIB_IPFORWARDROW_0 {
     pub dwForwardType: u32,
     pub ForwardType: MIB_IPFORWARD_TYPE,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for MIB_IPFORWARDROW_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MIB_IPFORWARDROW_0 {
@@ -3760,16 +3893,16 @@ impl Default for MIB_IPFORWARDROW_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MIB_IPFORWARDROW_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIB_IPFORWARDROW_1 {
     pub dwForwardProto: u32,
     pub ForwardProto: super::super::Networking::WinSock::NL_ROUTE_PROTOCOL,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for MIB_IPFORWARDROW_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MIB_IPFORWARDROW_1 {
@@ -3777,16 +3910,16 @@ impl Default for MIB_IPFORWARDROW_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MIB_IPFORWARDROW_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPFORWARDTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPFORWARDROW; 1],
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for MIB_IPFORWARDTABLE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MIB_IPFORWARDTABLE {
@@ -3794,13 +3927,9 @@ impl Default for MIB_IPFORWARDTABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MIB_IPFORWARDTABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPFORWARD_ROW2 {
     pub InterfaceLuid: super::Ndis::NET_LUID_LH,
     pub InterfaceIndex: u32,
@@ -3819,21 +3948,25 @@ pub struct MIB_IPFORWARD_ROW2 {
     pub Origin: super::super::Networking::WinSock::NL_ROUTE_ORIGIN,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_IPFORWARD_ROW2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPFORWARD_ROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_IPFORWARD_ROW2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPFORWARD_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IPFORWARD_ROW2; 1],
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_IPFORWARD_TABLE2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPFORWARD_TABLE2 {
@@ -3841,13 +3974,9 @@ impl Default for MIB_IPFORWARD_TABLE2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_IPFORWARD_TABLE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPINTERFACE_ROW {
     pub Family: super::super::Networking::WinSock::ADDRESS_FAMILY,
     pub InterfaceLuid: super::Ndis::NET_LUID_LH,
@@ -3886,21 +4015,25 @@ pub struct MIB_IPINTERFACE_ROW {
     pub DisableDefaultRoutes: super::super::Foundation::BOOLEAN,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_IPINTERFACE_ROW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPINTERFACE_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_IPINTERFACE_ROW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPINTERFACE_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_IPINTERFACE_ROW; 1],
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_IPINTERFACE_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPINTERFACE_TABLE {
@@ -3908,55 +4041,51 @@ impl Default for MIB_IPINTERFACE_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_IPINTERFACE_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_BOUNDARY {
     pub dwIfIndex: u32,
     pub dwGroupAddress: u32,
     pub dwGroupMask: u32,
     pub dwStatus: u32,
 }
+impl windows_core::TypeKind for MIB_IPMCAST_BOUNDARY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPMCAST_BOUNDARY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPMCAST_BOUNDARY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_BOUNDARY_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_BOUNDARY; 1],
+}
+impl windows_core::TypeKind for MIB_IPMCAST_BOUNDARY_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_IPMCAST_BOUNDARY_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPMCAST_BOUNDARY_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_GLOBAL {
     pub dwEnable: u32,
+}
+impl windows_core::TypeKind for MIB_IPMCAST_GLOBAL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_IPMCAST_GLOBAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPMCAST_GLOBAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_IF_ENTRY {
     pub dwIfIndex: u32,
     pub dwTtl: u32,
@@ -3965,30 +4094,30 @@ pub struct MIB_IPMCAST_IF_ENTRY {
     pub ulInMcastOctets: u32,
     pub ulOutMcastOctets: u32,
 }
+impl windows_core::TypeKind for MIB_IPMCAST_IF_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPMCAST_IF_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPMCAST_IF_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_IF_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_IF_ENTRY; 1],
+}
+impl windows_core::TypeKind for MIB_IPMCAST_IF_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_IPMCAST_IF_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPMCAST_IF_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_MFE {
     pub dwGroup: u32,
     pub dwSource: u32,
@@ -4007,16 +4136,16 @@ pub struct MIB_IPMCAST_MFE {
     pub dwReserved: u32,
     pub rgmioOutInfo: [MIB_IPMCAST_OIF_XP; 1],
 }
+impl windows_core::TypeKind for MIB_IPMCAST_MFE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPMCAST_MFE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPMCAST_MFE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_MFE_STATS {
     pub dwGroup: u32,
     pub dwSource: u32,
@@ -4036,16 +4165,16 @@ pub struct MIB_IPMCAST_MFE_STATS {
     pub ulQueueOverflow: u32,
     pub rgmiosOutStats: [MIB_IPMCAST_OIF_STATS_LH; 1],
 }
+impl windows_core::TypeKind for MIB_IPMCAST_MFE_STATS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPMCAST_MFE_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPMCAST_MFE_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_MFE_STATS_EX_XP {
     pub dwGroup: u32,
     pub dwSource: u32,
@@ -4070,16 +4199,16 @@ pub struct MIB_IPMCAST_MFE_STATS_EX_XP {
     pub ulTotalOutPackets: u32,
     pub rgmiosOutStats: [MIB_IPMCAST_OIF_STATS_LH; 1],
 }
+impl windows_core::TypeKind for MIB_IPMCAST_MFE_STATS_EX_XP {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPMCAST_MFE_STATS_EX_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPMCAST_MFE_STATS_EX_XP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_OIF_STATS_LH {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
@@ -4089,16 +4218,16 @@ pub struct MIB_IPMCAST_OIF_STATS_LH {
     pub ulOutPackets: u32,
     pub ulOutDiscards: u32,
 }
+impl windows_core::TypeKind for MIB_IPMCAST_OIF_STATS_LH {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPMCAST_OIF_STATS_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPMCAST_OIF_STATS_LH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_OIF_STATS_W2K {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
@@ -4108,64 +4237,64 @@ pub struct MIB_IPMCAST_OIF_STATS_W2K {
     pub ulOutPackets: u32,
     pub ulOutDiscards: u32,
 }
+impl windows_core::TypeKind for MIB_IPMCAST_OIF_STATS_W2K {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPMCAST_OIF_STATS_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPMCAST_OIF_STATS_W2K {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_OIF_W2K {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
     pub pvReserved: *mut core::ffi::c_void,
     pub dwReserved: u32,
 }
+impl windows_core::TypeKind for MIB_IPMCAST_OIF_W2K {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPMCAST_OIF_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPMCAST_OIF_W2K {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_OIF_XP {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
     pub dwReserved: u32,
     pub dwReserved1: u32,
 }
+impl windows_core::TypeKind for MIB_IPMCAST_OIF_XP {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPMCAST_OIF_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPMCAST_OIF_XP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_SCOPE {
     pub dwGroupAddress: u32,
     pub dwGroupMask: u32,
     pub snNameBuffer: [u16; 256],
     pub dwStatus: u32,
 }
+impl windows_core::TypeKind for MIB_IPMCAST_SCOPE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPMCAST_SCOPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPMCAST_SCOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPNETROW_LH {
     pub dwIndex: u32,
     pub dwPhysAddrLen: u32,
@@ -4173,30 +4302,30 @@ pub struct MIB_IPNETROW_LH {
     pub dwAddr: u32,
     pub Anonymous: MIB_IPNETROW_LH_0,
 }
+impl windows_core::TypeKind for MIB_IPNETROW_LH {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPNETROW_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPNETROW_LH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIB_IPNETROW_LH_0 {
     pub dwType: u32,
     pub Type: MIB_IPNET_TYPE,
+}
+impl windows_core::TypeKind for MIB_IPNETROW_LH_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_IPNETROW_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPNETROW_LH_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPNETROW_W2K {
     pub dwIndex: u32,
     pub dwPhysAddrLen: u32,
@@ -4204,31 +4333,31 @@ pub struct MIB_IPNETROW_W2K {
     pub dwAddr: u32,
     pub dwType: u32,
 }
+impl windows_core::TypeKind for MIB_IPNETROW_W2K {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPNETROW_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPNETROW_W2K {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPNETTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPNETROW_LH; 1],
+}
+impl windows_core::TypeKind for MIB_IPNETTABLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_IPNETTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPNETTABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPNET_ROW2 {
     pub Address: super::super::Networking::WinSock::SOCKADDR_INET,
     pub InterfaceIndex: u32,
@@ -4240,21 +4369,25 @@ pub struct MIB_IPNET_ROW2 {
     pub ReachabilityTime: MIB_IPNET_ROW2_1,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_IPNET_ROW2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPNET_ROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_IPNET_ROW2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIB_IPNET_ROW2_0 {
     pub Anonymous: MIB_IPNET_ROW2_0_0,
     pub Flags: u8,
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_IPNET_ROW2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPNET_ROW2_0 {
@@ -4262,15 +4395,15 @@ impl Default for MIB_IPNET_ROW2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_IPNET_ROW2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPNET_ROW2_0_0 {
     pub _bitfield: u8,
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_IPNET_ROW2_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPNET_ROW2_0_0 {
@@ -4278,16 +4411,16 @@ impl Default for MIB_IPNET_ROW2_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_IPNET_ROW2_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIB_IPNET_ROW2_1 {
     pub LastReachable: u32,
     pub LastUnreachable: u32,
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_IPNET_ROW2_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPNET_ROW2_1 {
@@ -4295,16 +4428,16 @@ impl Default for MIB_IPNET_ROW2_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_IPNET_ROW2_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPNET_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IPNET_ROW2; 1],
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_IPNET_TABLE2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPNET_TABLE2 {
@@ -4312,13 +4445,9 @@ impl Default for MIB_IPNET_TABLE2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_IPNET_TABLE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPPATH_ROW {
     pub Source: super::super::Networking::WinSock::SOCKADDR_INET,
     pub Destination: super::super::Networking::WinSock::SOCKADDR_INET,
@@ -4334,21 +4463,25 @@ pub struct MIB_IPPATH_ROW {
     pub LinkReceiveSpeed: u64,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_IPPATH_ROW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPPATH_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_IPPATH_ROW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIB_IPPATH_ROW_0 {
     pub LastReachable: u32,
     pub LastUnreachable: u32,
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_IPPATH_ROW_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPPATH_ROW_0 {
@@ -4356,16 +4489,16 @@ impl Default for MIB_IPPATH_ROW_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_IPPATH_ROW_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPPATH_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_IPPATH_ROW; 1],
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_IPPATH_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPPATH_TABLE {
@@ -4373,12 +4506,8 @@ impl Default for MIB_IPPATH_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_IPPATH_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_IPSTATS_LH {
     pub Anonymous: MIB_IPSTATS_LH_0,
     pub dwDefaultTTL: u32,
@@ -4404,30 +4533,30 @@ pub struct MIB_IPSTATS_LH {
     pub dwNumAddr: u32,
     pub dwNumRoutes: u32,
 }
+impl windows_core::TypeKind for MIB_IPSTATS_LH {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPSTATS_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPSTATS_LH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIB_IPSTATS_LH_0 {
     pub dwForwarding: u32,
     pub Forwarding: MIB_IPSTATS_FORWARDING,
+}
+impl windows_core::TypeKind for MIB_IPSTATS_LH_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_IPSTATS_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPSTATS_LH_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPSTATS_W2K {
     pub dwForwarding: u32,
     pub dwDefaultTTL: u32,
@@ -4453,20 +4582,24 @@ pub struct MIB_IPSTATS_W2K {
     pub dwNumAddr: u32,
     pub dwNumRoutes: u32,
 }
+impl windows_core::TypeKind for MIB_IPSTATS_W2K {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_IPSTATS_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_IPSTATS_W2K {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
     pub InboundBandwidthInformation: super::super::Networking::WinSock::NL_BANDWIDTH_INFORMATION,
     pub OutboundBandwidthInformation: super::super::Networking::WinSock::NL_BANDWIDTH_INFORMATION,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
@@ -4474,69 +4607,65 @@ impl Default for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_MCAST_LIMIT_ROW {
     pub dwTtl: u32,
     pub dwRateLimit: u32,
+}
+impl windows_core::TypeKind for MIB_MCAST_LIMIT_ROW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_MCAST_LIMIT_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_MCAST_LIMIT_ROW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_MFE_STATS_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_MFE_STATS; 1],
+}
+impl windows_core::TypeKind for MIB_MFE_STATS_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_MFE_STATS_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_MFE_STATS_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_MFE_STATS_TABLE_EX_XP {
     pub dwNumEntries: u32,
     pub table: [*mut MIB_IPMCAST_MFE_STATS_EX_XP; 1],
+}
+impl windows_core::TypeKind for MIB_MFE_STATS_TABLE_EX_XP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_MFE_STATS_TABLE_EX_XP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_MFE_STATS_TABLE_EX_XP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_MFE_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_MFE; 1],
+}
+impl windows_core::TypeKind for MIB_MFE_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_MFE_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_MFE_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_MULTICASTIPADDRESS_ROW {
     pub Address: super::super::Networking::WinSock::SOCKADDR_INET,
     pub InterfaceIndex: u32,
@@ -4544,21 +4673,25 @@ pub struct MIB_MULTICASTIPADDRESS_ROW {
     pub ScopeId: super::super::Networking::WinSock::SCOPE_ID,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_MULTICASTIPADDRESS_ROW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_MULTICASTIPADDRESS_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_MULTICASTIPADDRESS_ROW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_MULTICASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_MULTICASTIPADDRESS_ROW; 1],
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_MULTICASTIPADDRESS_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_MULTICASTIPADDRESS_TABLE {
@@ -4566,83 +4699,79 @@ impl Default for MIB_MULTICASTIPADDRESS_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_MULTICASTIPADDRESS_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_OPAQUE_INFO {
     pub dwId: u32,
     pub Anonymous: MIB_OPAQUE_INFO_0,
+}
+impl windows_core::TypeKind for MIB_OPAQUE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_OPAQUE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_OPAQUE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIB_OPAQUE_INFO_0 {
     pub ullAlign: u64,
     pub rgbyData: [u8; 1],
+}
+impl windows_core::TypeKind for MIB_OPAQUE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_OPAQUE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_OPAQUE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_OPAQUE_QUERY {
     pub dwVarId: u32,
     pub rgdwVarIndex: [u32; 1],
+}
+impl windows_core::TypeKind for MIB_OPAQUE_QUERY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_OPAQUE_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_OPAQUE_QUERY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_PROXYARP {
     pub dwAddress: u32,
     pub dwMask: u32,
     pub dwIfIndex: u32,
+}
+impl windows_core::TypeKind for MIB_PROXYARP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_PROXYARP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_PROXYARP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_ROUTESTATE {
     pub bRoutesSetToStack: super::super::Foundation::BOOL,
+}
+impl windows_core::TypeKind for MIB_ROUTESTATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_ROUTESTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_ROUTESTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_TCP6ROW {
     pub State: MIB_TCP_STATE,
     pub LocalAddr: super::super::Networking::WinSock::IN6_ADDR,
@@ -4653,18 +4782,18 @@ pub struct MIB_TCP6ROW {
     pub dwRemotePort: u32,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for MIB_TCP6ROW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MIB_TCP6ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MIB_TCP6ROW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_TCP6ROW2 {
     pub LocalAddr: super::super::Networking::WinSock::IN6_ADDR,
     pub dwLocalScopeId: u32,
@@ -4677,17 +4806,17 @@ pub struct MIB_TCP6ROW2 {
     pub dwOffloadState: TCP_CONNECTION_OFFLOAD_STATE,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for MIB_TCP6ROW2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MIB_TCP6ROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MIB_TCP6ROW2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCP6ROW_OWNER_MODULE {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -4700,16 +4829,16 @@ pub struct MIB_TCP6ROW_OWNER_MODULE {
     pub liCreateTimestamp: i64,
     pub OwningModuleInfo: [u64; 16],
 }
+impl windows_core::TypeKind for MIB_TCP6ROW_OWNER_MODULE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_TCP6ROW_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCP6ROW_OWNER_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCP6ROW_OWNER_PID {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -4720,20 +4849,24 @@ pub struct MIB_TCP6ROW_OWNER_PID {
     pub dwState: u32,
     pub dwOwningPid: u32,
 }
+impl windows_core::TypeKind for MIB_TCP6ROW_OWNER_PID {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_TCP6ROW_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCP6ROW_OWNER_PID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_TCP6TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW; 1],
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for MIB_TCP6TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MIB_TCP6TABLE {
@@ -4741,16 +4874,16 @@ impl Default for MIB_TCP6TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MIB_TCP6TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_TCP6TABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW2; 1],
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for MIB_TCP6TABLE2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MIB_TCP6TABLE2 {
@@ -4758,40 +4891,36 @@ impl Default for MIB_TCP6TABLE2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MIB_TCP6TABLE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCP6TABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW_OWNER_MODULE; 1],
+}
+impl windows_core::TypeKind for MIB_TCP6TABLE_OWNER_MODULE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_TCP6TABLE_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCP6TABLE_OWNER_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCP6TABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW_OWNER_PID; 1],
+}
+impl windows_core::TypeKind for MIB_TCP6TABLE_OWNER_PID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_TCP6TABLE_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCP6TABLE_OWNER_PID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPROW2 {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -4801,16 +4930,16 @@ pub struct MIB_TCPROW2 {
     pub dwOwningPid: u32,
     pub dwOffloadState: TCP_CONNECTION_OFFLOAD_STATE,
 }
+impl windows_core::TypeKind for MIB_TCPROW2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_TCPROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCPROW2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_TCPROW_LH {
     pub Anonymous: MIB_TCPROW_LH_0,
     pub dwLocalAddr: u32,
@@ -4818,30 +4947,30 @@ pub struct MIB_TCPROW_LH {
     pub dwRemoteAddr: u32,
     pub dwRemotePort: u32,
 }
+impl windows_core::TypeKind for MIB_TCPROW_LH {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_TCPROW_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCPROW_LH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIB_TCPROW_LH_0 {
     pub dwState: u32,
     pub State: MIB_TCP_STATE,
+}
+impl windows_core::TypeKind for MIB_TCPROW_LH_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_TCPROW_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCPROW_LH_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPROW_OWNER_MODULE {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -4852,16 +4981,16 @@ pub struct MIB_TCPROW_OWNER_MODULE {
     pub liCreateTimestamp: i64,
     pub OwningModuleInfo: [u64; 16],
 }
+impl windows_core::TypeKind for MIB_TCPROW_OWNER_MODULE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_TCPROW_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCPROW_OWNER_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPROW_OWNER_PID {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -4870,16 +4999,16 @@ pub struct MIB_TCPROW_OWNER_PID {
     pub dwRemotePort: u32,
     pub dwOwningPid: u32,
 }
+impl windows_core::TypeKind for MIB_TCPROW_OWNER_PID {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_TCPROW_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCPROW_OWNER_PID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPROW_W2K {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -4887,16 +5016,16 @@ pub struct MIB_TCPROW_W2K {
     pub dwRemoteAddr: u32,
     pub dwRemotePort: u32,
 }
+impl windows_core::TypeKind for MIB_TCPROW_W2K {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_TCPROW_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCPROW_W2K {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPSTATS2 {
     pub RtoAlgorithm: TCP_RTO_ALGORITHM,
     pub dwRtoMin: u32,
@@ -4914,16 +5043,16 @@ pub struct MIB_TCPSTATS2 {
     pub dwOutRsts: u32,
     pub dwNumConns: u32,
 }
+impl windows_core::TypeKind for MIB_TCPSTATS2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_TCPSTATS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCPSTATS2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_TCPSTATS_LH {
     pub Anonymous: MIB_TCPSTATS_LH_0,
     pub dwRtoMin: u32,
@@ -4941,30 +5070,30 @@ pub struct MIB_TCPSTATS_LH {
     pub dwOutRsts: u32,
     pub dwNumConns: u32,
 }
+impl windows_core::TypeKind for MIB_TCPSTATS_LH {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_TCPSTATS_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCPSTATS_LH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIB_TCPSTATS_LH_0 {
     pub dwRtoAlgorithm: u32,
     pub RtoAlgorithm: TCP_RTO_ALGORITHM,
+}
+impl windows_core::TypeKind for MIB_TCPSTATS_LH_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_TCPSTATS_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCPSTATS_LH_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPSTATS_W2K {
     pub dwRtoAlgorithm: u32,
     pub dwRtoMin: u32,
@@ -4982,77 +5111,81 @@ pub struct MIB_TCPSTATS_W2K {
     pub dwOutRsts: u32,
     pub dwNumConns: u32,
 }
+impl windows_core::TypeKind for MIB_TCPSTATS_W2K {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_TCPSTATS_W2K {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCPSTATS_W2K {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_TCPTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW_LH; 1],
+}
+impl windows_core::TypeKind for MIB_TCPTABLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_TCPTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCPTABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPTABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW2; 1],
+}
+impl windows_core::TypeKind for MIB_TCPTABLE2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_TCPTABLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCPTABLE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPTABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW_OWNER_MODULE; 1],
+}
+impl windows_core::TypeKind for MIB_TCPTABLE_OWNER_MODULE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_TCPTABLE_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCPTABLE_OWNER_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPTABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW_OWNER_PID; 1],
+}
+impl windows_core::TypeKind for MIB_TCPTABLE_OWNER_PID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_TCPTABLE_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_TCPTABLE_OWNER_PID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDP6ROW {
     pub dwLocalAddr: super::super::Networking::WinSock::IN6_ADDR,
     pub dwLocalScopeId: u32,
     pub dwLocalPort: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for MIB_UDP6ROW {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MIB_UDP6ROW {
@@ -5060,12 +5193,8 @@ impl Default for MIB_UDP6ROW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MIB_UDP6ROW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDP6ROW2 {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -5078,43 +5207,43 @@ pub struct MIB_UDP6ROW2 {
     pub dwRemoteScopeId: u32,
     pub dwRemotePort: u32,
 }
+impl windows_core::TypeKind for MIB_UDP6ROW2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_UDP6ROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDP6ROW2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIB_UDP6ROW2_0 {
     pub Anonymous: MIB_UDP6ROW2_0_0,
     pub dwFlags: i32,
+}
+impl windows_core::TypeKind for MIB_UDP6ROW2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDP6ROW2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDP6ROW2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDP6ROW2_0_0 {
     pub _bitfield: i32,
+}
+impl windows_core::TypeKind for MIB_UDP6ROW2_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDP6ROW2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDP6ROW2_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDP6ROW_OWNER_MODULE {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -5124,63 +5253,67 @@ pub struct MIB_UDP6ROW_OWNER_MODULE {
     pub Anonymous: MIB_UDP6ROW_OWNER_MODULE_0,
     pub OwningModuleInfo: [u64; 16],
 }
+impl windows_core::TypeKind for MIB_UDP6ROW_OWNER_MODULE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_UDP6ROW_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDP6ROW_OWNER_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIB_UDP6ROW_OWNER_MODULE_0 {
     pub Anonymous: MIB_UDP6ROW_OWNER_MODULE_0_0,
     pub dwFlags: i32,
+}
+impl windows_core::TypeKind for MIB_UDP6ROW_OWNER_MODULE_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDP6ROW_OWNER_MODULE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDP6ROW_OWNER_MODULE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDP6ROW_OWNER_MODULE_0_0 {
     pub _bitfield: i32,
+}
+impl windows_core::TypeKind for MIB_UDP6ROW_OWNER_MODULE_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDP6ROW_OWNER_MODULE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDP6ROW_OWNER_MODULE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDP6ROW_OWNER_PID {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
     pub dwLocalPort: u32,
     pub dwOwningPid: u32,
 }
+impl windows_core::TypeKind for MIB_UDP6ROW_OWNER_PID {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_UDP6ROW_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDP6ROW_OWNER_PID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDP6TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW; 1],
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for MIB_UDP6TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MIB_UDP6TABLE {
@@ -5188,68 +5321,64 @@ impl Default for MIB_UDP6TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for MIB_UDP6TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDP6TABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW2; 1],
+}
+impl windows_core::TypeKind for MIB_UDP6TABLE2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDP6TABLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDP6TABLE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDP6TABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW_OWNER_MODULE; 1],
+}
+impl windows_core::TypeKind for MIB_UDP6TABLE_OWNER_MODULE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDP6TABLE_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDP6TABLE_OWNER_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDP6TABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW_OWNER_PID; 1],
+}
+impl windows_core::TypeKind for MIB_UDP6TABLE_OWNER_PID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDP6TABLE_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDP6TABLE_OWNER_PID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPROW {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
+}
+impl windows_core::TypeKind for MIB_UDPROW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDPROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDPROW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDPROW2 {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
@@ -5260,43 +5389,43 @@ pub struct MIB_UDPROW2 {
     pub dwRemoteAddr: u32,
     pub dwRemotePort: u32,
 }
+impl windows_core::TypeKind for MIB_UDPROW2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_UDPROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDPROW2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIB_UDPROW2_0 {
     pub Anonymous: MIB_UDPROW2_0_0,
     pub dwFlags: i32,
+}
+impl windows_core::TypeKind for MIB_UDPROW2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDPROW2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDPROW2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPROW2_0_0 {
     pub _bitfield: i32,
+}
+impl windows_core::TypeKind for MIB_UDPROW2_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDPROW2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDPROW2_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDPROW_OWNER_MODULE {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
@@ -5305,58 +5434,58 @@ pub struct MIB_UDPROW_OWNER_MODULE {
     pub Anonymous: MIB_UDPROW_OWNER_MODULE_0,
     pub OwningModuleInfo: [u64; 16],
 }
+impl windows_core::TypeKind for MIB_UDPROW_OWNER_MODULE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_UDPROW_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDPROW_OWNER_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIB_UDPROW_OWNER_MODULE_0 {
     pub Anonymous: MIB_UDPROW_OWNER_MODULE_0_0,
     pub dwFlags: i32,
+}
+impl windows_core::TypeKind for MIB_UDPROW_OWNER_MODULE_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDPROW_OWNER_MODULE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDPROW_OWNER_MODULE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPROW_OWNER_MODULE_0_0 {
     pub _bitfield: i32,
+}
+impl windows_core::TypeKind for MIB_UDPROW_OWNER_MODULE_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDPROW_OWNER_MODULE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDPROW_OWNER_MODULE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPROW_OWNER_PID {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
     pub dwOwningPid: u32,
+}
+impl windows_core::TypeKind for MIB_UDPROW_OWNER_PID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDPROW_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDPROW_OWNER_PID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPSTATS {
     pub dwInDatagrams: u32,
     pub dwNoPorts: u32,
@@ -5364,16 +5493,16 @@ pub struct MIB_UDPSTATS {
     pub dwOutDatagrams: u32,
     pub dwNumAddrs: u32,
 }
+impl windows_core::TypeKind for MIB_UDPSTATS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_UDPSTATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDPSTATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPSTATS2 {
     pub dw64InDatagrams: u64,
     pub dwNoPorts: u32,
@@ -5381,73 +5510,73 @@ pub struct MIB_UDPSTATS2 {
     pub dw64OutDatagrams: u64,
     pub dwNumAddrs: u32,
 }
+impl windows_core::TypeKind for MIB_UDPSTATS2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIB_UDPSTATS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDPSTATS2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW; 1],
+}
+impl windows_core::TypeKind for MIB_UDPTABLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDPTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDPTABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDPTABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW2; 1],
+}
+impl windows_core::TypeKind for MIB_UDPTABLE2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDPTABLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDPTABLE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_UDPTABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW_OWNER_MODULE; 1],
+}
+impl windows_core::TypeKind for MIB_UDPTABLE_OWNER_MODULE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDPTABLE_OWNER_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDPTABLE_OWNER_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPTABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW_OWNER_PID; 1],
+}
+impl windows_core::TypeKind for MIB_UDPTABLE_OWNER_PID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIB_UDPTABLE_OWNER_PID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIB_UDPTABLE_OWNER_PID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_UNICASTIPADDRESS_ROW {
     pub Address: super::super::Networking::WinSock::SOCKADDR_INET,
     pub InterfaceLuid: super::Ndis::NET_LUID_LH,
@@ -5463,21 +5592,25 @@ pub struct MIB_UNICASTIPADDRESS_ROW {
     pub CreationTimeStamp: i64,
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_UNICASTIPADDRESS_ROW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_UNICASTIPADDRESS_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_UNICASTIPADDRESS_ROW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIB_UNICASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_UNICASTIPADDRESS_ROW; 1],
+}
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
+impl windows_core::TypeKind for MIB_UNICASTIPADDRESS_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_UNICASTIPADDRESS_TABLE {
@@ -5485,16 +5618,16 @@ impl Default for MIB_UNICASTIPADDRESS_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-impl windows_core::TypeKind for MIB_UNICASTIPADDRESS_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NET_ADDRESS_INFO {
     pub Format: NET_ADDRESS_FORMAT,
     pub Anonymous: NET_ADDRESS_INFO_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for NET_ADDRESS_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for NET_ADDRESS_INFO {
@@ -5502,13 +5635,9 @@ impl Default for NET_ADDRESS_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for NET_ADDRESS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NET_ADDRESS_INFO_0 {
     pub NamedAddress: NET_ADDRESS_INFO_0_0,
     pub Ipv4Address: super::super::Networking::WinSock::SOCKADDR_IN,
@@ -5516,21 +5645,25 @@ pub union NET_ADDRESS_INFO_0 {
     pub IpAddress: super::super::Networking::WinSock::SOCKADDR,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for NET_ADDRESS_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for NET_ADDRESS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for NET_ADDRESS_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NET_ADDRESS_INFO_0_0 {
     pub Address: [u16; 256],
     pub Port: [u16; 6],
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for NET_ADDRESS_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for NET_ADDRESS_INFO_0_0 {
@@ -5538,12 +5671,8 @@ impl Default for NET_ADDRESS_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for NET_ADDRESS_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PFLOGFRAME {
     pub Timestamp: i64,
     pub pfeTypeOfFrame: PFFRAMETYPE,
@@ -5555,16 +5684,16 @@ pub struct PFLOGFRAME {
     pub dwIPIndex: u32,
     pub bPacketData: [u8; 1],
 }
+impl windows_core::TypeKind for PFLOGFRAME {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PFLOGFRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PFLOGFRAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PF_FILTER_DESCRIPTOR {
     pub dwFilterFlags: u32,
     pub dwRule: u32,
@@ -5580,30 +5709,30 @@ pub struct PF_FILTER_DESCRIPTOR {
     pub wSrcPortHighRange: u16,
     pub wDstPortHighRange: u16,
 }
+impl windows_core::TypeKind for PF_FILTER_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PF_FILTER_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PF_FILTER_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PF_FILTER_STATS {
     pub dwNumPacketsFiltered: u32,
     pub info: PF_FILTER_DESCRIPTOR,
+}
+impl windows_core::TypeKind for PF_FILTER_STATS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PF_FILTER_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PF_FILTER_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PF_INTERFACE_STATS {
     pub pvDriverContext: *mut core::ffi::c_void,
     pub dwFlags: u32,
@@ -5622,45 +5751,45 @@ pub struct PF_INTERFACE_STATS {
     pub dwLostLogEntries: u32,
     pub FilterInfo: [PF_FILTER_STATS; 1],
 }
+impl windows_core::TypeKind for PF_INTERFACE_STATS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PF_INTERFACE_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PF_INTERFACE_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PF_LATEBIND_INFO {
     pub SrcAddr: *mut u8,
     pub DstAddr: *mut u8,
     pub Mask: *mut u8,
+}
+impl windows_core::TypeKind for PF_LATEBIND_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PF_LATEBIND_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PF_LATEBIND_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCPIP_OWNER_MODULE_BASIC_INFO {
     pub pModuleName: windows_core::PWSTR,
     pub pModulePath: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for TCPIP_OWNER_MODULE_BASIC_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TCPIP_OWNER_MODULE_BASIC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCPIP_OWNER_MODULE_BASIC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_BANDWIDTH_ROD_v0 {
     pub OutboundBandwidth: u64,
     pub InboundBandwidth: u64,
@@ -5669,30 +5798,30 @@ pub struct TCP_ESTATS_BANDWIDTH_ROD_v0 {
     pub OutboundBandwidthPeaked: super::super::Foundation::BOOLEAN,
     pub InboundBandwidthPeaked: super::super::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for TCP_ESTATS_BANDWIDTH_ROD_v0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for TCP_ESTATS_BANDWIDTH_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_BANDWIDTH_ROD_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_BANDWIDTH_RW_v0 {
     pub EnableCollectionOutbound: TCP_BOOLEAN_OPTIONAL,
     pub EnableCollectionInbound: TCP_BOOLEAN_OPTIONAL,
+}
+impl windows_core::TypeKind for TCP_ESTATS_BANDWIDTH_RW_v0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TCP_ESTATS_BANDWIDTH_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_BANDWIDTH_RW_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_DATA_ROD_v0 {
     pub DataBytesOut: u64,
     pub DataSegsOut: u64,
@@ -5709,87 +5838,87 @@ pub struct TCP_ESTATS_DATA_ROD_v0 {
     pub RcvNxt: u32,
     pub ThruBytesReceived: u64,
 }
+impl windows_core::TypeKind for TCP_ESTATS_DATA_ROD_v0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for TCP_ESTATS_DATA_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_DATA_ROD_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_DATA_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for TCP_ESTATS_DATA_RW_v0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TCP_ESTATS_DATA_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_DATA_RW_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_FINE_RTT_ROD_v0 {
     pub RttVar: u32,
     pub MaxRtt: u32,
     pub MinRtt: u32,
     pub SumRtt: u32,
 }
+impl windows_core::TypeKind for TCP_ESTATS_FINE_RTT_ROD_v0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for TCP_ESTATS_FINE_RTT_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_FINE_RTT_ROD_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_FINE_RTT_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for TCP_ESTATS_FINE_RTT_RW_v0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TCP_ESTATS_FINE_RTT_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_FINE_RTT_RW_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_OBS_REC_ROD_v0 {
     pub CurRwinRcvd: u32,
     pub MaxRwinRcvd: u32,
     pub MinRwinRcvd: u32,
     pub WinScaleRcvd: u8,
 }
+impl windows_core::TypeKind for TCP_ESTATS_OBS_REC_ROD_v0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for TCP_ESTATS_OBS_REC_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_OBS_REC_ROD_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_OBS_REC_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for TCP_ESTATS_OBS_REC_RW_v0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TCP_ESTATS_OBS_REC_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_OBS_REC_RW_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_PATH_ROD_v0 {
     pub FastRetran: u32,
     pub Timeouts: u32,
@@ -5832,29 +5961,29 @@ pub struct TCP_ESTATS_PATH_ROD_v0 {
     pub MinMss: u32,
     pub SpuriousRtoDetections: u32,
 }
+impl windows_core::TypeKind for TCP_ESTATS_PATH_ROD_v0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for TCP_ESTATS_PATH_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_PATH_ROD_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_PATH_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for TCP_ESTATS_PATH_RW_v0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TCP_ESTATS_PATH_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_PATH_RW_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_REC_ROD_v0 {
     pub CurRwinSent: u32,
     pub MaxRwinSent: u32,
@@ -5871,58 +6000,58 @@ pub struct TCP_ESTATS_REC_ROD_v0 {
     pub MaxAppRQueue: usize,
     pub WinScaleSent: u8,
 }
+impl windows_core::TypeKind for TCP_ESTATS_REC_ROD_v0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for TCP_ESTATS_REC_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_REC_ROD_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_REC_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for TCP_ESTATS_REC_RW_v0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TCP_ESTATS_REC_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_REC_RW_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_SEND_BUFF_ROD_v0 {
     pub CurRetxQueue: usize,
     pub MaxRetxQueue: usize,
     pub CurAppWQueue: usize,
     pub MaxAppWQueue: usize,
 }
+impl windows_core::TypeKind for TCP_ESTATS_SEND_BUFF_ROD_v0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for TCP_ESTATS_SEND_BUFF_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_SEND_BUFF_ROD_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_SEND_BUFF_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for TCP_ESTATS_SEND_BUFF_RW_v0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TCP_ESTATS_SEND_BUFF_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_SEND_BUFF_RW_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_SND_CONG_ROD_v0 {
     pub SndLimTransRwin: u32,
     pub SndLimTimeRwin: u32,
@@ -5943,68 +6072,68 @@ pub struct TCP_ESTATS_SND_CONG_ROD_v0 {
     pub MaxSsthresh: u32,
     pub MinSsthresh: u32,
 }
+impl windows_core::TypeKind for TCP_ESTATS_SND_CONG_ROD_v0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for TCP_ESTATS_SND_CONG_ROD_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_SND_CONG_ROD_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_SND_CONG_ROS_v0 {
     pub LimCwnd: u32,
+}
+impl windows_core::TypeKind for TCP_ESTATS_SND_CONG_ROS_v0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TCP_ESTATS_SND_CONG_ROS_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_SND_CONG_ROS_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_SND_CONG_RW_v0 {
     pub EnableCollection: super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for TCP_ESTATS_SND_CONG_RW_v0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TCP_ESTATS_SND_CONG_RW_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_SND_CONG_RW_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_ESTATS_SYN_OPTS_ROS_v0 {
     pub ActiveOpen: super::super::Foundation::BOOLEAN,
     pub MssRcvd: u32,
     pub MssSent: u32,
+}
+impl windows_core::TypeKind for TCP_ESTATS_SYN_OPTS_ROS_v0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TCP_ESTATS_SYN_OPTS_ROS_v0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TCP_ESTATS_SYN_OPTS_ROS_v0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TCP_RESERVE_PORT_RANGE {
     pub UpperRange: u16,
     pub LowerRange: u16,
+}
+impl windows_core::TypeKind for TCP_RESERVE_PORT_RANGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TCP_RESERVE_PORT_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TCP_RESERVE_PORT_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void)>;
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]

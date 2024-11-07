@@ -76,7 +76,6 @@ pub struct IPowerGridForecastStatics_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Battery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Battery, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Battery, IBattery, IBatteryStatics);
 impl Battery {
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -133,17 +132,18 @@ impl windows_core::RuntimeType for Battery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBattery>();
 }
 unsafe impl windows_core::Interface for Battery {
-    type Vtable = <IBattery as windows_core::Interface>::Vtable;
+    type Vtable = IBattery_Vtbl;
     const IID: windows_core::GUID = <IBattery as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Battery {
     const NAME: &'static str = "Windows.Devices.Power.Battery";
 }
+unsafe impl Send for Battery {}
+unsafe impl Sync for Battery {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BatteryReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BatteryReport, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(BatteryReport, IBatteryReport);
 impl BatteryReport {
     pub fn ChargeRateInMilliwatts(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -186,17 +186,18 @@ impl windows_core::RuntimeType for BatteryReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBatteryReport>();
 }
 unsafe impl windows_core::Interface for BatteryReport {
-    type Vtable = <IBatteryReport as windows_core::Interface>::Vtable;
+    type Vtable = IBatteryReport_Vtbl;
     const IID: windows_core::GUID = <IBatteryReport as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for BatteryReport {
     const NAME: &'static str = "Windows.Devices.Power.BatteryReport";
 }
+unsafe impl Send for BatteryReport {}
+unsafe impl Sync for BatteryReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PowerGridData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PowerGridData, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PowerGridData, IPowerGridData);
 impl PowerGridData {
     pub fn Severity(&self) -> windows_core::Result<f64> {
         let this = self;
@@ -217,17 +218,18 @@ impl windows_core::RuntimeType for PowerGridData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPowerGridData>();
 }
 unsafe impl windows_core::Interface for PowerGridData {
-    type Vtable = <IPowerGridData as windows_core::Interface>::Vtable;
+    type Vtable = IPowerGridData_Vtbl;
     const IID: windows_core::GUID = <IPowerGridData as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PowerGridData {
     const NAME: &'static str = "Windows.Devices.Power.PowerGridData";
 }
+unsafe impl Send for PowerGridData {}
+unsafe impl Sync for PowerGridData {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PowerGridForecast(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PowerGridForecast, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PowerGridForecast, IPowerGridForecast, IPowerGridForecastStatics);
 impl PowerGridForecast {
     pub fn StartTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -278,9 +280,11 @@ impl windows_core::RuntimeType for PowerGridForecast {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPowerGridForecast>();
 }
 unsafe impl windows_core::Interface for PowerGridForecast {
-    type Vtable = <IPowerGridForecast as windows_core::Interface>::Vtable;
+    type Vtable = IPowerGridForecast_Vtbl;
     const IID: windows_core::GUID = <IPowerGridForecast as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PowerGridForecast {
     const NAME: &'static str = "Windows.Devices.Power.PowerGridForecast";
 }
+unsafe impl Send for PowerGridForecast {}
+unsafe impl Sync for PowerGridForecast {}

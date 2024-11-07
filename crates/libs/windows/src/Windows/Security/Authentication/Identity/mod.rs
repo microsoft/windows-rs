@@ -38,7 +38,6 @@ pub struct IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnterpriseKeyCredentialRegistrationInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnterpriseKeyCredentialRegistrationInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(EnterpriseKeyCredentialRegistrationInfo, IEnterpriseKeyCredentialRegistrationInfo);
 impl EnterpriseKeyCredentialRegistrationInfo {
     pub fn TenantId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -80,17 +79,18 @@ impl windows_core::RuntimeType for EnterpriseKeyCredentialRegistrationInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseKeyCredentialRegistrationInfo>();
 }
 unsafe impl windows_core::Interface for EnterpriseKeyCredentialRegistrationInfo {
-    type Vtable = <IEnterpriseKeyCredentialRegistrationInfo as windows_core::Interface>::Vtable;
+    type Vtable = IEnterpriseKeyCredentialRegistrationInfo_Vtbl;
     const IID: windows_core::GUID = <IEnterpriseKeyCredentialRegistrationInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EnterpriseKeyCredentialRegistrationInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo";
 }
+unsafe impl Send for EnterpriseKeyCredentialRegistrationInfo {}
+unsafe impl Sync for EnterpriseKeyCredentialRegistrationInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnterpriseKeyCredentialRegistrationManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnterpriseKeyCredentialRegistrationManager, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(EnterpriseKeyCredentialRegistrationManager, IEnterpriseKeyCredentialRegistrationManager, IEnterpriseKeyCredentialRegistrationManagerStatics);
 impl EnterpriseKeyCredentialRegistrationManager {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRegistrationsAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>> {
@@ -115,9 +115,11 @@ impl windows_core::RuntimeType for EnterpriseKeyCredentialRegistrationManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseKeyCredentialRegistrationManager>();
 }
 unsafe impl windows_core::Interface for EnterpriseKeyCredentialRegistrationManager {
-    type Vtable = <IEnterpriseKeyCredentialRegistrationManager as windows_core::Interface>::Vtable;
+    type Vtable = IEnterpriseKeyCredentialRegistrationManager_Vtbl;
     const IID: windows_core::GUID = <IEnterpriseKeyCredentialRegistrationManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EnterpriseKeyCredentialRegistrationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationManager";
 }
+unsafe impl Send for EnterpriseKeyCredentialRegistrationManager {}
+unsafe impl Sync for EnterpriseKeyCredentialRegistrationManager {}

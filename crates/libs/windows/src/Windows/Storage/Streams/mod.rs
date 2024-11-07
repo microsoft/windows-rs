@@ -1,6 +1,9 @@
 windows_core::imp::define_interface!(IBuffer, IBuffer_Vtbl, 0x905a0fe0_bc53_11df_8c49_001e4fc686da);
-impl windows_core::RuntimeType for IBuffer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IBuffer {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IBuffer, windows_core::IUnknown, windows_core::IInspectable);
 impl IBuffer {
@@ -23,6 +26,9 @@ impl IBuffer {
         unsafe { (windows_core::Interface::vtable(this).SetLength)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for IBuffer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IBuffer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -30,16 +36,16 @@ pub struct IBuffer_Vtbl {
     pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetLength: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IBuffer {
-    const NAME: &'static str = "Windows.Storage.Streams.IBuffer";
-}
 pub trait IBuffer_Impl: Sized + windows_core::IUnknownImpl {
     fn Capacity(&self) -> windows_core::Result<u32>;
     fn Length(&self) -> windows_core::Result<u32>;
     fn SetLength(&self, value: u32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IBuffer {
+    const NAME: &'static str = "Windows.Storage.Streams.IBuffer";
+}
 impl IBuffer_Vtbl {
-    pub const fn new<Identity: IBuffer_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IBuffer_Impl, const OFFSET: isize>() -> IBuffer_Vtbl {
         unsafe extern "system" fn Capacity<Identity: IBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IBuffer_Impl::Capacity(this) {
@@ -95,8 +101,11 @@ pub struct IBufferStatics_Vtbl {
     pub CreateMemoryBufferOverIBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContentTypeProvider, IContentTypeProvider_Vtbl, 0x97d098a5_3b99_4de9_88a5_e11d2f50c795);
-impl windows_core::RuntimeType for IContentTypeProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IContentTypeProvider {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IContentTypeProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IContentTypeProvider {
@@ -108,19 +117,22 @@ impl IContentTypeProvider {
         }
     }
 }
+impl windows_core::RuntimeType for IContentTypeProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IContentTypeProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IContentTypeProvider {
-    const NAME: &'static str = "Windows.Storage.Streams.IContentTypeProvider";
-}
 pub trait IContentTypeProvider_Impl: Sized + windows_core::IUnknownImpl {
     fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
+impl windows_core::RuntimeName for IContentTypeProvider {
+    const NAME: &'static str = "Windows.Storage.Streams.IContentTypeProvider";
+}
 impl IContentTypeProvider_Vtbl {
-    pub const fn new<Identity: IContentTypeProvider_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IContentTypeProvider_Impl, const OFFSET: isize>() -> IContentTypeProvider_Vtbl {
         unsafe extern "system" fn ContentType<Identity: IContentTypeProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IContentTypeProvider_Impl::ContentType(this) {
@@ -139,8 +151,11 @@ impl IContentTypeProvider_Vtbl {
     }
 }
 windows_core::imp::define_interface!(IDataReader, IDataReader_Vtbl, 0xe2b50029_b4c1_4314_a4b8_fb813a2f275e);
-impl windows_core::RuntimeType for IDataReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IDataReader {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IDataReader, windows_core::IUnknown, windows_core::IInspectable);
 impl IDataReader {
@@ -315,6 +330,9 @@ impl IDataReader {
         }
     }
 }
+impl windows_core::RuntimeType for IDataReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDataReader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -345,9 +363,6 @@ pub struct IDataReader_Vtbl {
     pub DetachBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DetachStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IDataReader {
-    const NAME: &'static str = "Windows.Storage.Streams.IDataReader";
-}
 pub trait IDataReader_Impl: Sized + windows_core::IUnknownImpl {
     fn UnconsumedBufferLength(&self) -> windows_core::Result<u32>;
     fn UnicodeEncoding(&self) -> windows_core::Result<UnicodeEncoding>;
@@ -369,15 +384,18 @@ pub trait IDataReader_Impl: Sized + windows_core::IUnknownImpl {
     fn ReadUInt64(&self) -> windows_core::Result<u64>;
     fn ReadSingle(&self) -> windows_core::Result<f32>;
     fn ReadDouble(&self) -> windows_core::Result<f64>;
-    fn ReadString(&self, codeUnitCount: u32) -> windows_core::Result<windows_core::HSTRING>;
+    fn ReadString(&self, codeunitcount: u32) -> windows_core::Result<windows_core::HSTRING>;
     fn ReadDateTime(&self) -> windows_core::Result<super::super::Foundation::DateTime>;
     fn ReadTimeSpan(&self) -> windows_core::Result<super::super::Foundation::TimeSpan>;
     fn LoadAsync(&self, count: u32) -> windows_core::Result<DataReaderLoadOperation>;
     fn DetachBuffer(&self) -> windows_core::Result<IBuffer>;
     fn DetachStream(&self) -> windows_core::Result<IInputStream>;
 }
+impl windows_core::RuntimeName for IDataReader {
+    const NAME: &'static str = "Windows.Storage.Streams.IDataReader";
+}
 impl IDataReader_Vtbl {
-    pub const fn new<Identity: IDataReader_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IDataReader_Impl, const OFFSET: isize>() -> IDataReader_Vtbl {
         unsafe extern "system" fn UnconsumedBufferLength<Identity: IDataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDataReader_Impl::UnconsumedBufferLength(this) {
@@ -672,8 +690,11 @@ pub struct IDataReaderStatics_Vtbl {
     pub FromBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDataWriter, IDataWriter_Vtbl, 0x64b89265_d341_4922_b38a_dd4af8808c4e);
-impl windows_core::RuntimeType for IDataWriter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IDataWriter {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IDataWriter, windows_core::IUnknown, windows_core::IInspectable);
 impl IDataWriter {
@@ -819,6 +840,9 @@ impl IDataWriter {
         }
     }
 }
+impl windows_core::RuntimeType for IDataWriter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IDataWriter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -850,9 +874,6 @@ pub struct IDataWriter_Vtbl {
     pub DetachBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DetachStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IDataWriter {
-    const NAME: &'static str = "Windows.Storage.Streams.IDataWriter";
-}
 pub trait IDataWriter_Impl: Sized + windows_core::IUnknownImpl {
     fn UnstoredBufferLength(&self) -> windows_core::Result<u32>;
     fn UnicodeEncoding(&self) -> windows_core::Result<UnicodeEncoding>;
@@ -882,8 +903,11 @@ pub trait IDataWriter_Impl: Sized + windows_core::IUnknownImpl {
     fn DetachBuffer(&self) -> windows_core::Result<IBuffer>;
     fn DetachStream(&self) -> windows_core::Result<IOutputStream>;
 }
+impl windows_core::RuntimeName for IDataWriter {
+    const NAME: &'static str = "Windows.Storage.Streams.IDataWriter";
+}
 impl IDataWriter_Vtbl {
-    pub const fn new<Identity: IDataWriter_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IDataWriter_Impl, const OFFSET: isize>() -> IDataWriter_Vtbl {
         unsafe extern "system" fn UnstoredBufferLength<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDataWriter_Impl::UnstoredBufferLength(this) {
@@ -1123,8 +1147,11 @@ pub struct IFileRandomAccessStreamStatics_Vtbl {
     OpenTransactedWriteForUserWithOptionsAsync: usize,
 }
 windows_core::imp::define_interface!(IInputStream, IInputStream_Vtbl, 0x905a0fe2_bc53_11df_8c49_001e4fc686da);
-impl windows_core::RuntimeType for IInputStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IInputStream {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IInputStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IInputStream, super::super::Foundation::IClosable);
@@ -1144,19 +1171,22 @@ impl IInputStream {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for IInputStream {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInputStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, InputStreamOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IInputStream_Impl: Sized + windows_core::IUnknownImpl + super::super::Foundation::IClosable_Impl {
+    fn ReadAsync(&self, buffer: Option<&IBuffer>, count: u32, options: InputStreamOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>;
+}
 impl windows_core::RuntimeName for IInputStream {
     const NAME: &'static str = "Windows.Storage.Streams.IInputStream";
 }
-pub trait IInputStream_Impl: super::super::Foundation::IClosable_Impl {
-    fn ReadAsync(&self, buffer: Option<&IBuffer>, count: u32, options: InputStreamOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>;
-}
 impl IInputStream_Vtbl {
-    pub const fn new<Identity: IInputStream_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IInputStream_Impl, const OFFSET: isize>() -> IInputStream_Vtbl {
         unsafe extern "system" fn ReadAsync<Identity: IInputStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *mut core::ffi::c_void, count: u32, options: InputStreamOptions, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IInputStream_Impl::ReadAsync(this, windows_core::from_raw_borrowed(&buffer), count, options) {
@@ -1175,8 +1205,11 @@ impl IInputStream_Vtbl {
     }
 }
 windows_core::imp::define_interface!(IInputStreamReference, IInputStreamReference_Vtbl, 0x43929d18_5ec9_4b5a_919c_4205b0c804b6);
-impl windows_core::RuntimeType for IInputStreamReference {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IInputStreamReference {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IInputStreamReference, windows_core::IUnknown, windows_core::IInspectable);
 impl IInputStreamReference {
@@ -1188,19 +1221,22 @@ impl IInputStreamReference {
         }
     }
 }
+impl windows_core::RuntimeType for IInputStreamReference {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IInputStreamReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenSequentialReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IInputStreamReference {
-    const NAME: &'static str = "Windows.Storage.Streams.IInputStreamReference";
-}
 pub trait IInputStreamReference_Impl: Sized + windows_core::IUnknownImpl {
     fn OpenSequentialReadAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IInputStream>>;
 }
+impl windows_core::RuntimeName for IInputStreamReference {
+    const NAME: &'static str = "Windows.Storage.Streams.IInputStreamReference";
+}
 impl IInputStreamReference_Vtbl {
-    pub const fn new<Identity: IInputStreamReference_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IInputStreamReference_Impl, const OFFSET: isize>() -> IInputStreamReference_Vtbl {
         unsafe extern "system" fn OpenSequentialReadAsync<Identity: IInputStreamReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IInputStreamReference_Impl::OpenSequentialReadAsync(this) {
@@ -1222,8 +1258,11 @@ impl IInputStreamReference_Vtbl {
     }
 }
 windows_core::imp::define_interface!(IOutputStream, IOutputStream_Vtbl, 0x905a0fe6_bc53_11df_8c49_001e4fc686da);
-impl windows_core::RuntimeType for IOutputStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IOutputStream {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IOutputStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IOutputStream, super::super::Foundation::IClosable);
@@ -1250,21 +1289,24 @@ impl IOutputStream {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for IOutputStream {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IOutputStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub WriteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FlushAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IOutputStream {
-    const NAME: &'static str = "Windows.Storage.Streams.IOutputStream";
-}
-pub trait IOutputStream_Impl: super::super::Foundation::IClosable_Impl {
+pub trait IOutputStream_Impl: Sized + windows_core::IUnknownImpl + super::super::Foundation::IClosable_Impl {
     fn WriteAsync(&self, buffer: Option<&IBuffer>) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
     fn FlushAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
+impl windows_core::RuntimeName for IOutputStream {
+    const NAME: &'static str = "Windows.Storage.Streams.IOutputStream";
+}
 impl IOutputStream_Vtbl {
-    pub const fn new<Identity: IOutputStream_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IOutputStream_Impl, const OFFSET: isize>() -> IOutputStream_Vtbl {
         unsafe extern "system" fn WriteAsync<Identity: IOutputStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IOutputStream_Impl::WriteAsync(this, windows_core::from_raw_borrowed(&buffer)) {
@@ -1298,8 +1340,11 @@ impl IOutputStream_Vtbl {
     }
 }
 windows_core::imp::define_interface!(IPropertySetSerializer, IPropertySetSerializer_Vtbl, 0x6e8ebf1c_ef3d_4376_b20e_5be638aeac77);
-impl windows_core::RuntimeType for IPropertySetSerializer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IPropertySetSerializer {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IPropertySetSerializer, windows_core::IUnknown, windows_core::IInspectable);
 impl IPropertySetSerializer {
@@ -1324,6 +1369,9 @@ impl IPropertySetSerializer {
         unsafe { (windows_core::Interface::vtable(this).Deserialize)(windows_core::Interface::as_raw(this), propertyset.param().abi(), buffer.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for IPropertySetSerializer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPropertySetSerializer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1337,17 +1385,17 @@ pub struct IPropertySetSerializer_Vtbl {
     Deserialize: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
+pub trait IPropertySetSerializer_Impl: Sized + windows_core::IUnknownImpl {
+    fn Serialize(&self, propertyset: Option<&super::super::Foundation::Collections::IPropertySet>) -> windows_core::Result<IBuffer>;
+    fn Deserialize(&self, propertyset: Option<&super::super::Foundation::Collections::IPropertySet>, buffer: Option<&IBuffer>) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for IPropertySetSerializer {
     const NAME: &'static str = "Windows.Storage.Streams.IPropertySetSerializer";
 }
 #[cfg(feature = "Foundation_Collections")]
-pub trait IPropertySetSerializer_Impl: Sized + windows_core::IUnknownImpl {
-    fn Serialize(&self, propertySet: Option<&super::super::Foundation::Collections::IPropertySet>) -> windows_core::Result<IBuffer>;
-    fn Deserialize(&self, propertySet: Option<&super::super::Foundation::Collections::IPropertySet>, buffer: Option<&IBuffer>) -> windows_core::Result<()>;
-}
-#[cfg(feature = "Foundation_Collections")]
 impl IPropertySetSerializer_Vtbl {
-    pub const fn new<Identity: IPropertySetSerializer_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPropertySetSerializer_Impl, const OFFSET: isize>() -> IPropertySetSerializer_Vtbl {
         unsafe extern "system" fn Serialize<Identity: IPropertySetSerializer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyset: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPropertySetSerializer_Impl::Serialize(this, windows_core::from_raw_borrowed(&propertyset)) {
@@ -1374,8 +1422,11 @@ impl IPropertySetSerializer_Vtbl {
     }
 }
 windows_core::imp::define_interface!(IRandomAccessStream, IRandomAccessStream_Vtbl, 0x905a0fe1_bc53_11df_8c49_001e4fc686da);
-impl windows_core::RuntimeType for IRandomAccessStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IRandomAccessStream {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IRandomAccessStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IRandomAccessStream, super::super::Foundation::IClosable, IInputStream, IOutputStream);
@@ -1469,6 +1520,9 @@ impl IRandomAccessStream {
         }
     }
 }
+impl windows_core::RuntimeType for IRandomAccessStream {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRandomAccessStream_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1482,10 +1536,7 @@ pub struct IRandomAccessStream_Vtbl {
     pub CanRead: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub CanWrite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IRandomAccessStream {
-    const NAME: &'static str = "Windows.Storage.Streams.IRandomAccessStream";
-}
-pub trait IRandomAccessStream_Impl: super::super::Foundation::IClosable_Impl + IInputStream_Impl + IOutputStream_Impl {
+pub trait IRandomAccessStream_Impl: Sized + windows_core::IUnknownImpl + super::super::Foundation::IClosable_Impl + IInputStream_Impl + IOutputStream_Impl {
     fn Size(&self) -> windows_core::Result<u64>;
     fn SetSize(&self, value: u64) -> windows_core::Result<()>;
     fn GetInputStreamAt(&self, position: u64) -> windows_core::Result<IInputStream>;
@@ -1496,8 +1547,11 @@ pub trait IRandomAccessStream_Impl: super::super::Foundation::IClosable_Impl + I
     fn CanRead(&self) -> windows_core::Result<bool>;
     fn CanWrite(&self) -> windows_core::Result<bool>;
 }
+impl windows_core::RuntimeName for IRandomAccessStream {
+    const NAME: &'static str = "Windows.Storage.Streams.IRandomAccessStream";
+}
 impl IRandomAccessStream_Vtbl {
-    pub const fn new<Identity: IRandomAccessStream_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IRandomAccessStream_Impl, const OFFSET: isize>() -> IRandomAccessStream_Vtbl {
         unsafe extern "system" fn Size<Identity: IRandomAccessStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IRandomAccessStream_Impl::Size(this) {
@@ -1597,8 +1651,11 @@ impl IRandomAccessStream_Vtbl {
     }
 }
 windows_core::imp::define_interface!(IRandomAccessStreamReference, IRandomAccessStreamReference_Vtbl, 0x33ee3134_1dd6_4e3a_8067_d1c162e8642b);
-impl windows_core::RuntimeType for IRandomAccessStreamReference {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IRandomAccessStreamReference {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IRandomAccessStreamReference, windows_core::IUnknown, windows_core::IInspectable);
 impl IRandomAccessStreamReference {
@@ -1610,19 +1667,22 @@ impl IRandomAccessStreamReference {
         }
     }
 }
+impl windows_core::RuntimeType for IRandomAccessStreamReference {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRandomAccessStreamReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IRandomAccessStreamReference {
-    const NAME: &'static str = "Windows.Storage.Streams.IRandomAccessStreamReference";
-}
 pub trait IRandomAccessStreamReference_Impl: Sized + windows_core::IUnknownImpl {
     fn OpenReadAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>>;
 }
+impl windows_core::RuntimeName for IRandomAccessStreamReference {
+    const NAME: &'static str = "Windows.Storage.Streams.IRandomAccessStreamReference";
+}
 impl IRandomAccessStreamReference_Vtbl {
-    pub const fn new<Identity: IRandomAccessStreamReference_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IRandomAccessStreamReference_Impl, const OFFSET: isize>() -> IRandomAccessStreamReference_Vtbl {
         unsafe extern "system" fn OpenReadAsync<Identity: IRandomAccessStreamReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IRandomAccessStreamReference_Impl::OpenReadAsync(this) {
@@ -1666,11 +1726,14 @@ pub struct IRandomAccessStreamStatics_Vtbl {
     pub CopyAndCloseAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRandomAccessStreamWithContentType, IRandomAccessStreamWithContentType_Vtbl, 0xcc254827_4b3d_438f_9232_10c76bc7e038);
-impl windows_core::RuntimeType for IRandomAccessStreamWithContentType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IRandomAccessStreamWithContentType {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IRandomAccessStreamWithContentType, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(IRandomAccessStreamWithContentType, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream, IContentTypeProvider);
+windows_core::imp::required_hierarchy!(IRandomAccessStreamWithContentType, super::super::Foundation::IClosable, IContentTypeProvider, IInputStream, IOutputStream, IRandomAccessStream);
 impl IRandomAccessStreamWithContentType {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1768,16 +1831,19 @@ impl IRandomAccessStreamWithContentType {
         }
     }
 }
+impl windows_core::RuntimeType for IRandomAccessStreamWithContentType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IRandomAccessStreamWithContentType_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
+pub trait IRandomAccessStreamWithContentType_Impl: Sized + windows_core::IUnknownImpl + super::super::Foundation::IClosable_Impl + IContentTypeProvider_Impl + IInputStream_Impl + IOutputStream_Impl + IRandomAccessStream_Impl {}
 impl windows_core::RuntimeName for IRandomAccessStreamWithContentType {
     const NAME: &'static str = "Windows.Storage.Streams.IRandomAccessStreamWithContentType";
 }
-pub trait IRandomAccessStreamWithContentType_Impl: super::super::Foundation::IClosable_Impl + IInputStream_Impl + IOutputStream_Impl + IRandomAccessStream_Impl + IContentTypeProvider_Impl {}
 impl IRandomAccessStreamWithContentType_Vtbl {
-    pub const fn new<Identity: IRandomAccessStreamWithContentType_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IRandomAccessStreamWithContentType_Impl, const OFFSET: isize>() -> IRandomAccessStreamWithContentType_Vtbl {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IRandomAccessStreamWithContentType, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -1787,8 +1853,7 @@ impl IRandomAccessStreamWithContentType_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Buffer(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(Buffer, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Buffer, IBuffer, IBufferFactory, IBufferStatics);
+windows_core::imp::interface_hierarchy!(Buffer, windows_core::IUnknown, windows_core::IInspectable, IBuffer);
 impl Buffer {
     pub fn Capacity(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -1845,17 +1910,19 @@ impl windows_core::RuntimeType for Buffer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBuffer>();
 }
 unsafe impl windows_core::Interface for Buffer {
-    type Vtable = <IBuffer as windows_core::Interface>::Vtable;
+    type Vtable = IBuffer_Vtbl;
     const IID: windows_core::GUID = <IBuffer as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Buffer {
     const NAME: &'static str = "Windows.Storage.Streams.Buffer";
 }
+unsafe impl Send for Buffer {}
+unsafe impl Sync for Buffer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataReader(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(DataReader, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DataReader, super::super::Foundation::IClosable, IDataReader, IDataReaderFactory, IDataReaderStatics);
+windows_core::imp::interface_hierarchy!(DataReader, windows_core::IUnknown, windows_core::IInspectable, IDataReader);
+windows_core::imp::required_hierarchy!(DataReader, super::super::Foundation::IClosable);
 impl DataReader {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2062,84 +2129,20 @@ impl windows_core::RuntimeType for DataReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataReader>();
 }
 unsafe impl windows_core::Interface for DataReader {
-    type Vtable = <IDataReader as windows_core::Interface>::Vtable;
+    type Vtable = IDataReader_Vtbl;
     const IID: windows_core::GUID = <IDataReader as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DataReader {
     const NAME: &'static str = "Windows.Storage.Streams.DataReader";
 }
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
-pub struct DataReaderLoadOperation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(DataReaderLoadOperation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DataReaderLoadOperation, super::super::Foundation::IAsyncInfo, super::super::Foundation::IAsyncOperation<u32>);
-impl DataReaderLoadOperation {
-    pub fn Id(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Status(&self) -> windows_core::Result<super::super::Foundation::AsyncStatus> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ErrorCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Cancel(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Cancel)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn SetCompleted<P0>(&self, handler: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::AsyncOperationCompletedHandler<u32>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCompleted)(windows_core::Interface::as_raw(this), handler.param().abi()).ok() }
-    }
-    pub fn Completed(&self) -> windows_core::Result<super::super::Foundation::AsyncOperationCompletedHandler<u32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetResults(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetResults)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for DataReaderLoadOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IAsyncOperation<u32>>();
-}
-unsafe impl windows_core::Interface for DataReaderLoadOperation {
-    type Vtable = <super::super::Foundation::IAsyncOperation<u32> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::Foundation::IAsyncOperation<u32> as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for DataReaderLoadOperation {
-    const NAME: &'static str = "Windows.Storage.Streams.DataReaderLoadOperation";
-}
+unsafe impl Send for DataReader {}
+unsafe impl Sync for DataReader {}
+pub type DataReaderLoadOperation = super::super::Foundation::IAsyncOperation<u32>;
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataWriter(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(DataWriter, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DataWriter, super::super::Foundation::IClosable, IDataWriter, IDataWriterFactory);
+windows_core::imp::interface_hierarchy!(DataWriter, windows_core::IUnknown, windows_core::IInspectable, IDataWriter);
+windows_core::imp::required_hierarchy!(DataWriter, super::super::Foundation::IClosable);
 impl DataWriter {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2311,84 +2314,20 @@ impl windows_core::RuntimeType for DataWriter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataWriter>();
 }
 unsafe impl windows_core::Interface for DataWriter {
-    type Vtable = <IDataWriter as windows_core::Interface>::Vtable;
+    type Vtable = IDataWriter_Vtbl;
     const IID: windows_core::GUID = <IDataWriter as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DataWriter {
     const NAME: &'static str = "Windows.Storage.Streams.DataWriter";
 }
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
-pub struct DataWriterStoreOperation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(DataWriterStoreOperation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DataWriterStoreOperation, super::super::Foundation::IAsyncInfo, super::super::Foundation::IAsyncOperation<u32>);
-impl DataWriterStoreOperation {
-    pub fn Id(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Status(&self) -> windows_core::Result<super::super::Foundation::AsyncStatus> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ErrorCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Cancel(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Cancel)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn SetCompleted<P0>(&self, handler: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::AsyncOperationCompletedHandler<u32>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetCompleted)(windows_core::Interface::as_raw(this), handler.param().abi()).ok() }
-    }
-    pub fn Completed(&self) -> windows_core::Result<super::super::Foundation::AsyncOperationCompletedHandler<u32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetResults(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetResults)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for DataWriterStoreOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IAsyncOperation<u32>>();
-}
-unsafe impl windows_core::Interface for DataWriterStoreOperation {
-    type Vtable = <super::super::Foundation::IAsyncOperation<u32> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <super::super::Foundation::IAsyncOperation<u32> as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for DataWriterStoreOperation {
-    const NAME: &'static str = "Windows.Storage.Streams.DataWriterStoreOperation";
-}
+unsafe impl Send for DataWriter {}
+unsafe impl Sync for DataWriter {}
+pub type DataWriterStoreOperation = super::super::Foundation::IAsyncOperation<u32>;
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileInputStream(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(FileInputStream, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(FileInputStream, super::super::Foundation::IClosable, IInputStream);
+windows_core::imp::interface_hierarchy!(FileInputStream, windows_core::IUnknown, windows_core::IInspectable, IInputStream);
+windows_core::imp::required_hierarchy!(FileInputStream, super::super::Foundation::IClosable);
 impl FileInputStream {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2409,17 +2348,19 @@ impl windows_core::RuntimeType for FileInputStream {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputStream>();
 }
 unsafe impl windows_core::Interface for FileInputStream {
-    type Vtable = <IInputStream as windows_core::Interface>::Vtable;
+    type Vtable = IInputStream_Vtbl;
     const IID: windows_core::GUID = <IInputStream as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FileInputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileInputStream";
 }
+unsafe impl Send for FileInputStream {}
+unsafe impl Sync for FileInputStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileOutputStream(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(FileOutputStream, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(FileOutputStream, super::super::Foundation::IClosable, IOutputStream);
+windows_core::imp::interface_hierarchy!(FileOutputStream, windows_core::IUnknown, windows_core::IInspectable, IOutputStream);
+windows_core::imp::required_hierarchy!(FileOutputStream, super::super::Foundation::IClosable);
 impl FileOutputStream {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2447,17 +2388,19 @@ impl windows_core::RuntimeType for FileOutputStream {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOutputStream>();
 }
 unsafe impl windows_core::Interface for FileOutputStream {
-    type Vtable = <IOutputStream as windows_core::Interface>::Vtable;
+    type Vtable = IOutputStream_Vtbl;
     const IID: windows_core::GUID = <IOutputStream as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FileOutputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileOutputStream";
 }
+unsafe impl Send for FileOutputStream {}
+unsafe impl Sync for FileOutputStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileRandomAccessStream(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(FileRandomAccessStream, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(FileRandomAccessStream, super::super::Foundation::IClosable, IFileRandomAccessStreamStatics, IInputStream, IOutputStream, IRandomAccessStream);
+windows_core::imp::interface_hierarchy!(FileRandomAccessStream, windows_core::IUnknown, windows_core::IInspectable, IRandomAccessStream);
+windows_core::imp::required_hierarchy!(FileRandomAccessStream, super::super::Foundation::IClosable, IInputStream, IOutputStream);
 impl FileRandomAccessStream {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2620,17 +2563,19 @@ impl windows_core::RuntimeType for FileRandomAccessStream {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStream>();
 }
 unsafe impl windows_core::Interface for FileRandomAccessStream {
-    type Vtable = <IRandomAccessStream as windows_core::Interface>::Vtable;
+    type Vtable = IRandomAccessStream_Vtbl;
     const IID: windows_core::GUID = <IRandomAccessStream as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FileRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileRandomAccessStream";
 }
+unsafe impl Send for FileRandomAccessStream {}
+unsafe impl Sync for FileRandomAccessStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InMemoryRandomAccessStream(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(InMemoryRandomAccessStream, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(InMemoryRandomAccessStream, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream);
+windows_core::imp::interface_hierarchy!(InMemoryRandomAccessStream, windows_core::IUnknown, windows_core::IInspectable, IRandomAccessStream);
+windows_core::imp::required_hierarchy!(InMemoryRandomAccessStream, super::super::Foundation::IClosable, IInputStream, IOutputStream);
 impl InMemoryRandomAccessStream {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2732,17 +2677,19 @@ impl windows_core::RuntimeType for InMemoryRandomAccessStream {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStream>();
 }
 unsafe impl windows_core::Interface for InMemoryRandomAccessStream {
-    type Vtable = <IRandomAccessStream as windows_core::Interface>::Vtable;
+    type Vtable = IRandomAccessStream_Vtbl;
     const IID: windows_core::GUID = <IRandomAccessStream as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for InMemoryRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.InMemoryRandomAccessStream";
 }
+unsafe impl Send for InMemoryRandomAccessStream {}
+unsafe impl Sync for InMemoryRandomAccessStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InputStreamOverStream(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(InputStreamOverStream, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(InputStreamOverStream, super::super::Foundation::IClosable, IInputStream);
+windows_core::imp::interface_hierarchy!(InputStreamOverStream, windows_core::IUnknown, windows_core::IInspectable, IInputStream);
+windows_core::imp::required_hierarchy!(InputStreamOverStream, super::super::Foundation::IClosable);
 impl InputStreamOverStream {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2763,17 +2710,19 @@ impl windows_core::RuntimeType for InputStreamOverStream {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputStream>();
 }
 unsafe impl windows_core::Interface for InputStreamOverStream {
-    type Vtable = <IInputStream as windows_core::Interface>::Vtable;
+    type Vtable = IInputStream_Vtbl;
     const IID: windows_core::GUID = <IInputStream as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for InputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.InputStreamOverStream";
 }
+unsafe impl Send for InputStreamOverStream {}
+unsafe impl Sync for InputStreamOverStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OutputStreamOverStream(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(OutputStreamOverStream, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(OutputStreamOverStream, super::super::Foundation::IClosable, IOutputStream);
+windows_core::imp::interface_hierarchy!(OutputStreamOverStream, windows_core::IUnknown, windows_core::IInspectable, IOutputStream);
+windows_core::imp::required_hierarchy!(OutputStreamOverStream, super::super::Foundation::IClosable);
 impl OutputStreamOverStream {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2801,12 +2750,14 @@ impl windows_core::RuntimeType for OutputStreamOverStream {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOutputStream>();
 }
 unsafe impl windows_core::Interface for OutputStreamOverStream {
-    type Vtable = <IOutputStream as windows_core::Interface>::Vtable;
+    type Vtable = IOutputStream_Vtbl;
     const IID: windows_core::GUID = <IOutputStream as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for OutputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.OutputStreamOverStream";
 }
+unsafe impl Send for OutputStreamOverStream {}
+unsafe impl Sync for OutputStreamOverStream {}
 pub struct RandomAccessStream;
 impl RandomAccessStream {
     pub fn CopyAsync<P0, P1>(source: P0, destination: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
@@ -2850,8 +2801,8 @@ impl windows_core::RuntimeName for RandomAccessStream {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RandomAccessStreamOverStream(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RandomAccessStreamOverStream, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RandomAccessStreamOverStream, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream);
+windows_core::imp::interface_hierarchy!(RandomAccessStreamOverStream, windows_core::IUnknown, windows_core::IInspectable, IRandomAccessStream);
+windows_core::imp::required_hierarchy!(RandomAccessStreamOverStream, super::super::Foundation::IClosable, IInputStream, IOutputStream);
 impl RandomAccessStreamOverStream {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2946,17 +2897,18 @@ impl windows_core::RuntimeType for RandomAccessStreamOverStream {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStream>();
 }
 unsafe impl windows_core::Interface for RandomAccessStreamOverStream {
-    type Vtable = <IRandomAccessStream as windows_core::Interface>::Vtable;
+    type Vtable = IRandomAccessStream_Vtbl;
     const IID: windows_core::GUID = <IRandomAccessStream as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RandomAccessStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamOverStream";
 }
+unsafe impl Send for RandomAccessStreamOverStream {}
+unsafe impl Sync for RandomAccessStreamOverStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RandomAccessStreamReference(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RandomAccessStreamReference, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RandomAccessStreamReference, IRandomAccessStreamReference, IRandomAccessStreamReferenceStatics);
+windows_core::imp::interface_hierarchy!(RandomAccessStreamReference, windows_core::IUnknown, windows_core::IInspectable, IRandomAccessStreamReference);
 impl RandomAccessStreamReference {
     pub fn OpenReadAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>> {
         let this = self;
@@ -3001,14 +2953,16 @@ impl windows_core::RuntimeType for RandomAccessStreamReference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStreamReference>();
 }
 unsafe impl windows_core::Interface for RandomAccessStreamReference {
-    type Vtable = <IRandomAccessStreamReference as windows_core::Interface>::Vtable;
+    type Vtable = IRandomAccessStreamReference_Vtbl;
     const IID: windows_core::GUID = <IRandomAccessStreamReference as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RandomAccessStreamReference {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamReference";
 }
+unsafe impl Send for RandomAccessStreamReference {}
+unsafe impl Sync for RandomAccessStreamReference {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ByteOrder(pub i32);
 impl ByteOrder {
     pub const LittleEndian: Self = Self(0i32);
@@ -3017,11 +2971,16 @@ impl ByteOrder {
 impl windows_core::TypeKind for ByteOrder {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ByteOrder {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ByteOrder").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for ByteOrder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.ByteOrder;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FileOpenDisposition(pub i32);
 impl FileOpenDisposition {
     pub const OpenExisting: Self = Self(0i32);
@@ -3033,11 +2992,16 @@ impl FileOpenDisposition {
 impl windows_core::TypeKind for FileOpenDisposition {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FileOpenDisposition {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FileOpenDisposition").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for FileOpenDisposition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.FileOpenDisposition;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct InputStreamOptions(pub u32);
 impl InputStreamOptions {
     pub const None: Self = Self(0u32);
@@ -3047,11 +3011,49 @@ impl InputStreamOptions {
 impl windows_core::TypeKind for InputStreamOptions {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for InputStreamOptions {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("InputStreamOptions").field(&self.0).finish()
+    }
+}
+impl InputStreamOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for InputStreamOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for InputStreamOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for InputStreamOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for InputStreamOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for InputStreamOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 impl windows_core::RuntimeType for InputStreamOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.InputStreamOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UnicodeEncoding(pub i32);
 impl UnicodeEncoding {
     pub const Utf8: Self = Self(0i32);
@@ -3060,6 +3062,11 @@ impl UnicodeEncoding {
 }
 impl windows_core::TypeKind for UnicodeEncoding {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for UnicodeEncoding {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UnicodeEncoding").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for UnicodeEncoding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.UnicodeEncoding;i4)");

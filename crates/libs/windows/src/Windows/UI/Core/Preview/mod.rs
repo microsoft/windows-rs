@@ -52,7 +52,6 @@ pub struct ISystemNavigationManagerPreviewStatics_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreAppWindowPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreAppWindowPreview, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CoreAppWindowPreview, ICoreAppWindowPreview, ICoreAppWindowPreviewStatics);
 impl CoreAppWindowPreview {
     #[cfg(feature = "UI_WindowManagement")]
     pub fn GetIdFromWindow<P0>(window: P0) -> windows_core::Result<i32>
@@ -73,17 +72,18 @@ impl windows_core::RuntimeType for CoreAppWindowPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreAppWindowPreview>();
 }
 unsafe impl windows_core::Interface for CoreAppWindowPreview {
-    type Vtable = <ICoreAppWindowPreview as windows_core::Interface>::Vtable;
+    type Vtable = ICoreAppWindowPreview_Vtbl;
     const IID: windows_core::GUID = <ICoreAppWindowPreview as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreAppWindowPreview {
     const NAME: &'static str = "Windows.UI.Core.Preview.CoreAppWindowPreview";
 }
+unsafe impl Send for CoreAppWindowPreview {}
+unsafe impl Sync for CoreAppWindowPreview {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemNavigationCloseRequestedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemNavigationCloseRequestedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SystemNavigationCloseRequestedPreviewEventArgs, ISystemNavigationCloseRequestedPreviewEventArgs);
 impl SystemNavigationCloseRequestedPreviewEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -108,17 +108,18 @@ impl windows_core::RuntimeType for SystemNavigationCloseRequestedPreviewEventArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemNavigationCloseRequestedPreviewEventArgs>();
 }
 unsafe impl windows_core::Interface for SystemNavigationCloseRequestedPreviewEventArgs {
-    type Vtable = <ISystemNavigationCloseRequestedPreviewEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl;
     const IID: windows_core::GUID = <ISystemNavigationCloseRequestedPreviewEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SystemNavigationCloseRequestedPreviewEventArgs {
     const NAME: &'static str = "Windows.UI.Core.Preview.SystemNavigationCloseRequestedPreviewEventArgs";
 }
+unsafe impl Send for SystemNavigationCloseRequestedPreviewEventArgs {}
+unsafe impl Sync for SystemNavigationCloseRequestedPreviewEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemNavigationManagerPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemNavigationManagerPreview, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SystemNavigationManagerPreview, ISystemNavigationManagerPreview, ISystemNavigationManagerPreviewStatics);
 impl SystemNavigationManagerPreview {
     pub fn CloseRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -149,9 +150,11 @@ impl windows_core::RuntimeType for SystemNavigationManagerPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemNavigationManagerPreview>();
 }
 unsafe impl windows_core::Interface for SystemNavigationManagerPreview {
-    type Vtable = <ISystemNavigationManagerPreview as windows_core::Interface>::Vtable;
+    type Vtable = ISystemNavigationManagerPreview_Vtbl;
     const IID: windows_core::GUID = <ISystemNavigationManagerPreview as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SystemNavigationManagerPreview {
     const NAME: &'static str = "Windows.UI.Core.Preview.SystemNavigationManagerPreview";
 }
+unsafe impl Send for SystemNavigationManagerPreview {}
+unsafe impl Sync for SystemNavigationManagerPreview {}

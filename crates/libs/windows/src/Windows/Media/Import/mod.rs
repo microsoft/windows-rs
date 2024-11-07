@@ -321,7 +321,6 @@ pub struct IPhotoImportVideoSegment_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportDeleteImportedItemsFromSourceResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportDeleteImportedItemsFromSourceResult, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PhotoImportDeleteImportedItemsFromSourceResult, IPhotoImportDeleteImportedItemsFromSourceResult);
 impl PhotoImportDeleteImportedItemsFromSourceResult {
     pub fn Session(&self) -> windows_core::Result<PhotoImportSession> {
         let this = self;
@@ -420,17 +419,18 @@ impl windows_core::RuntimeType for PhotoImportDeleteImportedItemsFromSourceResul
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportDeleteImportedItemsFromSourceResult>();
 }
 unsafe impl windows_core::Interface for PhotoImportDeleteImportedItemsFromSourceResult {
-    type Vtable = <IPhotoImportDeleteImportedItemsFromSourceResult as windows_core::Interface>::Vtable;
+    type Vtable = IPhotoImportDeleteImportedItemsFromSourceResult_Vtbl;
     const IID: windows_core::GUID = <IPhotoImportDeleteImportedItemsFromSourceResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhotoImportDeleteImportedItemsFromSourceResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportDeleteImportedItemsFromSourceResult";
 }
+unsafe impl Send for PhotoImportDeleteImportedItemsFromSourceResult {}
+unsafe impl Sync for PhotoImportDeleteImportedItemsFromSourceResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportFindItemsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportFindItemsResult, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PhotoImportFindItemsResult, IPhotoImportFindItemsResult, IPhotoImportFindItemsResult2);
 impl PhotoImportFindItemsResult {
     pub fn Session(&self) -> windows_core::Result<PhotoImportSession> {
         let this = self;
@@ -664,17 +664,18 @@ impl windows_core::RuntimeType for PhotoImportFindItemsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportFindItemsResult>();
 }
 unsafe impl windows_core::Interface for PhotoImportFindItemsResult {
-    type Vtable = <IPhotoImportFindItemsResult as windows_core::Interface>::Vtable;
+    type Vtable = IPhotoImportFindItemsResult_Vtbl;
     const IID: windows_core::GUID = <IPhotoImportFindItemsResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhotoImportFindItemsResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportFindItemsResult";
 }
+unsafe impl Send for PhotoImportFindItemsResult {}
+unsafe impl Sync for PhotoImportFindItemsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportImportItemsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportImportItemsResult, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PhotoImportImportItemsResult, IPhotoImportImportItemsResult);
 impl PhotoImportImportItemsResult {
     pub fn Session(&self) -> windows_core::Result<PhotoImportSession> {
         let this = self;
@@ -780,17 +781,18 @@ impl windows_core::RuntimeType for PhotoImportImportItemsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportImportItemsResult>();
 }
 unsafe impl windows_core::Interface for PhotoImportImportItemsResult {
-    type Vtable = <IPhotoImportImportItemsResult as windows_core::Interface>::Vtable;
+    type Vtable = IPhotoImportImportItemsResult_Vtbl;
     const IID: windows_core::GUID = <IPhotoImportImportItemsResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhotoImportImportItemsResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportImportItemsResult";
 }
+unsafe impl Send for PhotoImportImportItemsResult {}
+unsafe impl Sync for PhotoImportImportItemsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportItem, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PhotoImportItem, IPhotoImportItem, IPhotoImportItem2);
 impl PhotoImportItem {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -897,17 +899,18 @@ impl windows_core::RuntimeType for PhotoImportItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportItem>();
 }
 unsafe impl windows_core::Interface for PhotoImportItem {
-    type Vtable = <IPhotoImportItem as windows_core::Interface>::Vtable;
+    type Vtable = IPhotoImportItem_Vtbl;
     const IID: windows_core::GUID = <IPhotoImportItem as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhotoImportItem {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportItem";
 }
+unsafe impl Send for PhotoImportItem {}
+unsafe impl Sync for PhotoImportItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportItemImportedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportItemImportedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PhotoImportItemImportedEventArgs, IPhotoImportItemImportedEventArgs);
 impl PhotoImportItemImportedEventArgs {
     pub fn ImportedItem(&self) -> windows_core::Result<PhotoImportItem> {
         let this = self;
@@ -921,12 +924,14 @@ impl windows_core::RuntimeType for PhotoImportItemImportedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportItemImportedEventArgs>();
 }
 unsafe impl windows_core::Interface for PhotoImportItemImportedEventArgs {
-    type Vtable = <IPhotoImportItemImportedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPhotoImportItemImportedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPhotoImportItemImportedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhotoImportItemImportedEventArgs {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportItemImportedEventArgs";
 }
+unsafe impl Send for PhotoImportItemImportedEventArgs {}
+unsafe impl Sync for PhotoImportItemImportedEventArgs {}
 pub struct PhotoImportManager;
 impl PhotoImportManager {
     pub fn IsSupportedAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
@@ -961,7 +966,6 @@ impl windows_core::RuntimeName for PhotoImportManager {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportOperation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PhotoImportOperation, IPhotoImportOperation);
 impl PhotoImportOperation {
     pub fn Stage(&self) -> windows_core::Result<PhotoImportStage> {
         let this = self;
@@ -1003,17 +1007,18 @@ impl windows_core::RuntimeType for PhotoImportOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportOperation>();
 }
 unsafe impl windows_core::Interface for PhotoImportOperation {
-    type Vtable = <IPhotoImportOperation as windows_core::Interface>::Vtable;
+    type Vtable = IPhotoImportOperation_Vtbl;
     const IID: windows_core::GUID = <IPhotoImportOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhotoImportOperation {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportOperation";
 }
+unsafe impl Send for PhotoImportOperation {}
+unsafe impl Sync for PhotoImportOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSelectionChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSelectionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PhotoImportSelectionChangedEventArgs, IPhotoImportSelectionChangedEventArgs);
 impl PhotoImportSelectionChangedEventArgs {
     pub fn IsSelectionEmpty(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -1027,17 +1032,19 @@ impl windows_core::RuntimeType for PhotoImportSelectionChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSelectionChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for PhotoImportSelectionChangedEventArgs {
-    type Vtable = <IPhotoImportSelectionChangedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPhotoImportSelectionChangedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPhotoImportSelectionChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhotoImportSelectionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSelectionChangedEventArgs";
 }
+unsafe impl Send for PhotoImportSelectionChangedEventArgs {}
+unsafe impl Sync for PhotoImportSelectionChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSession, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PhotoImportSession, super::super::Foundation::IClosable, IPhotoImportSession, IPhotoImportSession2);
+windows_core::imp::required_hierarchy!(PhotoImportSession, super::super::Foundation::IClosable);
 impl PhotoImportSession {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1140,17 +1147,18 @@ impl windows_core::RuntimeType for PhotoImportSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSession>();
 }
 unsafe impl windows_core::Interface for PhotoImportSession {
-    type Vtable = <IPhotoImportSession as windows_core::Interface>::Vtable;
+    type Vtable = IPhotoImportSession_Vtbl;
     const IID: windows_core::GUID = <IPhotoImportSession as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhotoImportSession {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSession";
 }
+unsafe impl Send for PhotoImportSession {}
+unsafe impl Sync for PhotoImportSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSidecar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSidecar, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PhotoImportSidecar, IPhotoImportSidecar);
 impl PhotoImportSidecar {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1178,17 +1186,18 @@ impl windows_core::RuntimeType for PhotoImportSidecar {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSidecar>();
 }
 unsafe impl windows_core::Interface for PhotoImportSidecar {
-    type Vtable = <IPhotoImportSidecar as windows_core::Interface>::Vtable;
+    type Vtable = IPhotoImportSidecar_Vtbl;
     const IID: windows_core::GUID = <IPhotoImportSidecar as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhotoImportSidecar {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSidecar";
 }
+unsafe impl Send for PhotoImportSidecar {}
+unsafe impl Sync for PhotoImportSidecar {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSource, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PhotoImportSource, IPhotoImportSource, IPhotoImportSourceStatics);
 impl PhotoImportSource {
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1336,17 +1345,18 @@ impl windows_core::RuntimeType for PhotoImportSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSource>();
 }
 unsafe impl windows_core::Interface for PhotoImportSource {
-    type Vtable = <IPhotoImportSource as windows_core::Interface>::Vtable;
+    type Vtable = IPhotoImportSource_Vtbl;
     const IID: windows_core::GUID = <IPhotoImportSource as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhotoImportSource {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSource";
 }
+unsafe impl Send for PhotoImportSource {}
+unsafe impl Sync for PhotoImportSource {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportStorageMedium(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportStorageMedium, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PhotoImportStorageMedium, IPhotoImportStorageMedium);
 impl PhotoImportStorageMedium {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1406,17 +1416,18 @@ impl windows_core::RuntimeType for PhotoImportStorageMedium {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportStorageMedium>();
 }
 unsafe impl windows_core::Interface for PhotoImportStorageMedium {
-    type Vtable = <IPhotoImportStorageMedium as windows_core::Interface>::Vtable;
+    type Vtable = IPhotoImportStorageMedium_Vtbl;
     const IID: windows_core::GUID = <IPhotoImportStorageMedium as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhotoImportStorageMedium {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportStorageMedium";
 }
+unsafe impl Send for PhotoImportStorageMedium {}
+unsafe impl Sync for PhotoImportStorageMedium {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportVideoSegment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportVideoSegment, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PhotoImportVideoSegment, IPhotoImportVideoSegment);
 impl PhotoImportVideoSegment {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1459,14 +1470,16 @@ impl windows_core::RuntimeType for PhotoImportVideoSegment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportVideoSegment>();
 }
 unsafe impl windows_core::Interface for PhotoImportVideoSegment {
-    type Vtable = <IPhotoImportVideoSegment as windows_core::Interface>::Vtable;
+    type Vtable = IPhotoImportVideoSegment_Vtbl;
     const IID: windows_core::GUID = <IPhotoImportVideoSegment as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhotoImportVideoSegment {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportVideoSegment";
 }
+unsafe impl Send for PhotoImportVideoSegment {}
+unsafe impl Sync for PhotoImportVideoSegment {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PhotoImportAccessMode(pub i32);
 impl PhotoImportAccessMode {
     pub const ReadWrite: Self = Self(0i32);
@@ -1476,11 +1489,16 @@ impl PhotoImportAccessMode {
 impl windows_core::TypeKind for PhotoImportAccessMode {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PhotoImportAccessMode {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PhotoImportAccessMode").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PhotoImportAccessMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportAccessMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PhotoImportConnectionTransport(pub i32);
 impl PhotoImportConnectionTransport {
     pub const Unknown: Self = Self(0i32);
@@ -1491,11 +1509,16 @@ impl PhotoImportConnectionTransport {
 impl windows_core::TypeKind for PhotoImportConnectionTransport {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PhotoImportConnectionTransport {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PhotoImportConnectionTransport").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PhotoImportConnectionTransport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportConnectionTransport;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PhotoImportContentType(pub i32);
 impl PhotoImportContentType {
     pub const Unknown: Self = Self(0i32);
@@ -1505,11 +1528,16 @@ impl PhotoImportContentType {
 impl windows_core::TypeKind for PhotoImportContentType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PhotoImportContentType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PhotoImportContentType").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PhotoImportContentType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentType;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PhotoImportContentTypeFilter(pub i32);
 impl PhotoImportContentTypeFilter {
     pub const OnlyImages: Self = Self(0i32);
@@ -1520,11 +1548,16 @@ impl PhotoImportContentTypeFilter {
 impl windows_core::TypeKind for PhotoImportContentTypeFilter {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PhotoImportContentTypeFilter {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PhotoImportContentTypeFilter").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PhotoImportContentTypeFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentTypeFilter;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PhotoImportImportMode(pub i32);
 impl PhotoImportImportMode {
     pub const ImportEverything: Self = Self(0i32);
@@ -1535,11 +1568,16 @@ impl PhotoImportImportMode {
 impl windows_core::TypeKind for PhotoImportImportMode {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PhotoImportImportMode {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PhotoImportImportMode").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PhotoImportImportMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportImportMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PhotoImportItemSelectionMode(pub i32);
 impl PhotoImportItemSelectionMode {
     pub const SelectAll: Self = Self(0i32);
@@ -1549,11 +1587,16 @@ impl PhotoImportItemSelectionMode {
 impl windows_core::TypeKind for PhotoImportItemSelectionMode {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PhotoImportItemSelectionMode {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PhotoImportItemSelectionMode").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PhotoImportItemSelectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportItemSelectionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PhotoImportPowerSource(pub i32);
 impl PhotoImportPowerSource {
     pub const Unknown: Self = Self(0i32);
@@ -1563,11 +1606,16 @@ impl PhotoImportPowerSource {
 impl windows_core::TypeKind for PhotoImportPowerSource {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PhotoImportPowerSource {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PhotoImportPowerSource").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PhotoImportPowerSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportPowerSource;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PhotoImportSourceType(pub i32);
 impl PhotoImportSourceType {
     pub const Generic: Self = Self(0i32);
@@ -1581,11 +1629,16 @@ impl PhotoImportSourceType {
 impl windows_core::TypeKind for PhotoImportSourceType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PhotoImportSourceType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PhotoImportSourceType").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PhotoImportSourceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSourceType;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PhotoImportStage(pub i32);
 impl PhotoImportStage {
     pub const NotStarted: Self = Self(0i32);
@@ -1596,11 +1649,16 @@ impl PhotoImportStage {
 impl windows_core::TypeKind for PhotoImportStage {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PhotoImportStage {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PhotoImportStage").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PhotoImportStage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStage;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PhotoImportStorageMediumType(pub i32);
 impl PhotoImportStorageMediumType {
     pub const Undefined: Self = Self(0i32);
@@ -1610,11 +1668,16 @@ impl PhotoImportStorageMediumType {
 impl windows_core::TypeKind for PhotoImportStorageMediumType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PhotoImportStorageMediumType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PhotoImportStorageMediumType").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PhotoImportStorageMediumType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStorageMediumType;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PhotoImportSubfolderCreationMode(pub i32);
 impl PhotoImportSubfolderCreationMode {
     pub const DoNotCreateSubfolders: Self = Self(0i32);
@@ -1625,11 +1688,16 @@ impl PhotoImportSubfolderCreationMode {
 impl windows_core::TypeKind for PhotoImportSubfolderCreationMode {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PhotoImportSubfolderCreationMode {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PhotoImportSubfolderCreationMode").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PhotoImportSubfolderCreationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderCreationMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PhotoImportSubfolderDateFormat(pub i32);
 impl PhotoImportSubfolderDateFormat {
     pub const Year: Self = Self(0i32);
@@ -1639,11 +1707,16 @@ impl PhotoImportSubfolderDateFormat {
 impl windows_core::TypeKind for PhotoImportSubfolderDateFormat {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PhotoImportSubfolderDateFormat {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PhotoImportSubfolderDateFormat").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PhotoImportSubfolderDateFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderDateFormat;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PhotoImportProgress {
     pub ItemsImported: u32,
     pub TotalItemsToImport: u32,
@@ -1656,4 +1729,9 @@ impl windows_core::TypeKind for PhotoImportProgress {
 }
 impl windows_core::RuntimeType for PhotoImportProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Media.Import.PhotoImportProgress;u4;u4;u8;u8;f8)");
+}
+impl Default for PhotoImportProgress {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

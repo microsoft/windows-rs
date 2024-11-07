@@ -44,35 +44,45 @@ pub const WINDOWS_BOOT: u32 = 9u32;
 pub const WINDOWS_SHUTDOWN: u32 = 8u32;
 pub const WINDOWS_UPDATE: u32 = 17u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RESTOREPOINTINFO_EVENT_TYPE(pub u32);
 impl windows_core::TypeKind for RESTOREPOINTINFO_EVENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RESTOREPOINTINFO_EVENT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RESTOREPOINTINFO_EVENT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RESTOREPOINTINFO_TYPE(pub u32);
 impl windows_core::TypeKind for RESTOREPOINTINFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RESTOREPOINTINFO_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RESTOREPOINTINFO_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RESTOREPOINTINFOA {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
     pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
     pub llSequenceNumber: i64,
     pub szDescription: [i8; 64],
 }
+impl windows_core::TypeKind for RESTOREPOINTINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RESTOREPOINTINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESTOREPOINTINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RESTOREPOINTINFOEX {
     pub ftCreation: super::super::Foundation::FILETIME,
     pub dwEventType: u32,
@@ -80,41 +90,41 @@ pub struct RESTOREPOINTINFOEX {
     pub dwRPNum: u32,
     pub szDescription: [u16; 256],
 }
+impl windows_core::TypeKind for RESTOREPOINTINFOEX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RESTOREPOINTINFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESTOREPOINTINFOEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RESTOREPOINTINFOW {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
     pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
     pub llSequenceNumber: i64,
     pub szDescription: [u16; 256],
 }
+impl windows_core::TypeKind for RESTOREPOINTINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RESTOREPOINTINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RESTOREPOINTINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct STATEMGRSTATUS {
     pub nStatus: super::super::Foundation::WIN32_ERROR,
     pub llSequenceNumber: i64,
+}
+impl windows_core::TypeKind for STATEMGRSTATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for STATEMGRSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for STATEMGRSTATUS {
-    type TypeKind = windows_core::CopyType;
 }

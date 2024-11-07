@@ -56,7 +56,6 @@ pub struct ISystemSupportInfoStatics2_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OemSupportInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OemSupportInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(OemSupportInfo, IOemSupportInfo);
 impl OemSupportInfo {
     pub fn SupportLink(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -84,12 +83,14 @@ impl windows_core::RuntimeType for OemSupportInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOemSupportInfo>();
 }
 unsafe impl windows_core::Interface for OemSupportInfo {
-    type Vtable = <IOemSupportInfo as windows_core::Interface>::Vtable;
+    type Vtable = IOemSupportInfo_Vtbl;
     const IID: windows_core::GUID = <IOemSupportInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for OemSupportInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.OemSupportInfo";
 }
+unsafe impl Send for OemSupportInfo {}
+unsafe impl Sync for OemSupportInfo {}
 pub struct SmbiosInformation;
 impl SmbiosInformation {
     pub fn SerialNumber() -> windows_core::Result<windows_core::HSTRING> {
@@ -110,7 +111,6 @@ impl windows_core::RuntimeName for SmbiosInformation {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemSupportDeviceInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemSupportDeviceInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SystemSupportDeviceInfo, ISystemSupportDeviceInfo);
 impl SystemSupportDeviceInfo {
     pub fn OperatingSystem(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -166,12 +166,14 @@ impl windows_core::RuntimeType for SystemSupportDeviceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemSupportDeviceInfo>();
 }
 unsafe impl windows_core::Interface for SystemSupportDeviceInfo {
-    type Vtable = <ISystemSupportDeviceInfo as windows_core::Interface>::Vtable;
+    type Vtable = ISystemSupportDeviceInfo_Vtbl;
     const IID: windows_core::GUID = <ISystemSupportDeviceInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SystemSupportDeviceInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo";
 }
+unsafe impl Send for SystemSupportDeviceInfo {}
+unsafe impl Sync for SystemSupportDeviceInfo {}
 pub struct SystemSupportInfo;
 impl SystemSupportInfo {
     pub fn LocalSystemEdition() -> windows_core::Result<windows_core::HSTRING> {

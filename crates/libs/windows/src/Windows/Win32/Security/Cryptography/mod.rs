@@ -7,10 +7,10 @@ pub mod Sip;
 #[cfg(feature = "Win32_Security_Cryptography_UI")]
 pub mod UI;
 #[inline]
-pub unsafe fn BCryptAddContextFunction<P1, P3>(dwtable: BCRYPT_TABLE, pszcontext: P1, dwinterface: BCRYPT_INTERFACE, pszfunction: P3, dwposition: u32) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptAddContextFunction<P0, P1>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pszfunction: P1, dwposition: u32) -> super::super::Foundation::NTSTATUS
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptAddContextFunction(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : windows_core::PCWSTR, dwposition : u32) -> super::super::Foundation:: NTSTATUS);
     BCryptAddContextFunction(dwtable, pszcontext.param().abi(), dwinterface, pszfunction.param().abi(), dwposition)
@@ -21,26 +21,26 @@ pub unsafe fn BCryptCloseAlgorithmProvider(halgorithm: BCRYPT_ALG_HANDLE, dwflag
     BCryptCloseAlgorithmProvider(halgorithm, dwflags)
 }
 #[inline]
-pub unsafe fn BCryptConfigureContext<P1>(dwtable: BCRYPT_TABLE, pszcontext: P1, pconfig: *const CRYPT_CONTEXT_CONFIG) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptConfigureContext<P0>(dwtable: BCRYPT_TABLE, pszcontext: P0, pconfig: *const CRYPT_CONTEXT_CONFIG) -> super::super::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptConfigureContext(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, pconfig : *const CRYPT_CONTEXT_CONFIG) -> super::super::Foundation:: NTSTATUS);
     BCryptConfigureContext(dwtable, pszcontext.param().abi(), pconfig)
 }
 #[inline]
-pub unsafe fn BCryptConfigureContextFunction<P1, P3>(dwtable: BCRYPT_TABLE, pszcontext: P1, dwinterface: BCRYPT_INTERFACE, pszfunction: P3, pconfig: *const CRYPT_CONTEXT_FUNCTION_CONFIG) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptConfigureContextFunction<P0, P1>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pszfunction: P1, pconfig: *const CRYPT_CONTEXT_FUNCTION_CONFIG) -> super::super::Foundation::NTSTATUS
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptConfigureContextFunction(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : windows_core::PCWSTR, pconfig : *const CRYPT_CONTEXT_FUNCTION_CONFIG) -> super::super::Foundation:: NTSTATUS);
     BCryptConfigureContextFunction(dwtable, pszcontext.param().abi(), dwinterface, pszfunction.param().abi(), pconfig)
 }
 #[inline]
-pub unsafe fn BCryptCreateContext<P1>(dwtable: BCRYPT_TABLE, pszcontext: P1, pconfig: Option<*const CRYPT_CONTEXT_CONFIG>) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptCreateContext<P0>(dwtable: BCRYPT_TABLE, pszcontext: P0, pconfig: Option<*const CRYPT_CONTEXT_CONFIG>) -> super::super::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptCreateContext(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, pconfig : *const CRYPT_CONTEXT_CONFIG) -> super::super::Foundation:: NTSTATUS);
     BCryptCreateContext(dwtable, pszcontext.param().abi(), core::mem::transmute(pconfig.unwrap_or(core::ptr::null())))
@@ -72,9 +72,9 @@ pub unsafe fn BCryptDecrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppa
     )
 }
 #[inline]
-pub unsafe fn BCryptDeleteContext<P1>(dwtable: BCRYPT_TABLE, pszcontext: P1) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptDeleteContext<P0>(dwtable: BCRYPT_TABLE, pszcontext: P0) -> super::super::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptDeleteContext(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR) -> super::super::Foundation:: NTSTATUS);
     BCryptDeleteContext(dwtable, pszcontext.param().abi())
@@ -158,18 +158,18 @@ pub unsafe fn BCryptEnumAlgorithms(dwalgoperations: BCRYPT_OPERATION, palgcount:
     BCryptEnumAlgorithms(dwalgoperations, palgcount, ppalglist, dwflags)
 }
 #[inline]
-pub unsafe fn BCryptEnumContextFunctionProviders<P1, P3>(dwtable: BCRYPT_TABLE, pszcontext: P1, dwinterface: BCRYPT_INTERFACE, pszfunction: P3, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_CONTEXT_FUNCTION_PROVIDERS>) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptEnumContextFunctionProviders<P0, P1>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pszfunction: P1, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_CONTEXT_FUNCTION_PROVIDERS>) -> super::super::Foundation::NTSTATUS
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptEnumContextFunctionProviders(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : windows_core::PCWSTR, pcbbuffer : *mut u32, ppbuffer : *mut *mut CRYPT_CONTEXT_FUNCTION_PROVIDERS) -> super::super::Foundation:: NTSTATUS);
     BCryptEnumContextFunctionProviders(dwtable, pszcontext.param().abi(), dwinterface, pszfunction.param().abi(), pcbbuffer, core::mem::transmute(ppbuffer.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn BCryptEnumContextFunctions<P1>(dwtable: BCRYPT_TABLE, pszcontext: P1, dwinterface: BCRYPT_INTERFACE, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_CONTEXT_FUNCTIONS>) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptEnumContextFunctions<P0>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_CONTEXT_FUNCTIONS>) -> super::super::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptEnumContextFunctions(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pcbbuffer : *mut u32, ppbuffer : *mut *mut CRYPT_CONTEXT_FUNCTIONS) -> super::super::Foundation:: NTSTATUS);
     BCryptEnumContextFunctions(dwtable, pszcontext.param().abi(), dwinterface, pcbbuffer, core::mem::transmute(ppbuffer.unwrap_or(core::ptr::null_mut())))
@@ -288,10 +288,10 @@ where
     BCryptKeyDerivation(hkey.param().abi(), core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(pbderivedkey.as_ptr()), pbderivedkey.len().try_into().unwrap(), pcbresult, dwflags)
 }
 #[inline]
-pub unsafe fn BCryptOpenAlgorithmProvider<P1, P2>(phalgorithm: *mut BCRYPT_ALG_HANDLE, pszalgid: P1, pszimplementation: P2, dwflags: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptOpenAlgorithmProvider<P0, P1>(phalgorithm: *mut BCRYPT_ALG_HANDLE, pszalgid: P0, pszimplementation: P1, dwflags: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS) -> super::super::Foundation::NTSTATUS
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptOpenAlgorithmProvider(phalgorithm : *mut BCRYPT_ALG_HANDLE, pszalgid : windows_core::PCWSTR, pszimplementation : windows_core::PCWSTR, dwflags : BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS) -> super::super::Foundation:: NTSTATUS);
     BCryptOpenAlgorithmProvider(phalgorithm, pszalgid.param().abi(), pszimplementation.param().abi(), dwflags)
@@ -302,28 +302,28 @@ pub unsafe fn BCryptProcessMultiOperations(hobject: BCRYPT_HANDLE, operationtype
     BCryptProcessMultiOperations(hobject, operationtype, poperations, cboperations, dwflags)
 }
 #[inline]
-pub unsafe fn BCryptQueryContextConfiguration<P1>(dwtable: BCRYPT_TABLE, pszcontext: P1, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_CONTEXT_CONFIG>) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptQueryContextConfiguration<P0>(dwtable: BCRYPT_TABLE, pszcontext: P0, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_CONTEXT_CONFIG>) -> super::super::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptQueryContextConfiguration(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, pcbbuffer : *mut u32, ppbuffer : *mut *mut CRYPT_CONTEXT_CONFIG) -> super::super::Foundation:: NTSTATUS);
     BCryptQueryContextConfiguration(dwtable, pszcontext.param().abi(), pcbbuffer, core::mem::transmute(ppbuffer.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn BCryptQueryContextFunctionConfiguration<P1, P3>(dwtable: BCRYPT_TABLE, pszcontext: P1, dwinterface: BCRYPT_INTERFACE, pszfunction: P3, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_CONTEXT_FUNCTION_CONFIG>) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptQueryContextFunctionConfiguration<P0, P1>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pszfunction: P1, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_CONTEXT_FUNCTION_CONFIG>) -> super::super::Foundation::NTSTATUS
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptQueryContextFunctionConfiguration(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : windows_core::PCWSTR, pcbbuffer : *mut u32, ppbuffer : *mut *mut CRYPT_CONTEXT_FUNCTION_CONFIG) -> super::super::Foundation:: NTSTATUS);
     BCryptQueryContextFunctionConfiguration(dwtable, pszcontext.param().abi(), dwinterface, pszfunction.param().abi(), pcbbuffer, core::mem::transmute(ppbuffer.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn BCryptQueryContextFunctionProperty<P1, P3, P4>(dwtable: BCRYPT_TABLE, pszcontext: P1, dwinterface: BCRYPT_INTERFACE, pszfunction: P3, pszproperty: P4, pcbvalue: *mut u32, ppbvalue: Option<*mut *mut u8>) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptQueryContextFunctionProperty<P0, P1, P2>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pszfunction: P1, pszproperty: P2, pcbvalue: *mut u32, ppbvalue: Option<*mut *mut u8>) -> super::super::Foundation::NTSTATUS
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptQueryContextFunctionProperty(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : windows_core::PCWSTR, pszproperty : windows_core::PCWSTR, pcbvalue : *mut u32, ppbvalue : *mut *mut u8) -> super::super::Foundation:: NTSTATUS);
     BCryptQueryContextFunctionProperty(dwtable, pszcontext.param().abi(), dwinterface, pszfunction.param().abi(), pszproperty.param().abi(), pcbvalue, core::mem::transmute(ppbvalue.unwrap_or(core::ptr::null_mut())))
@@ -342,20 +342,20 @@ pub unsafe fn BCryptRegisterConfigChangeNotify(phevent: *mut super::super::Found
     BCryptRegisterConfigChangeNotify(phevent)
 }
 #[inline]
-pub unsafe fn BCryptRemoveContextFunction<P1, P3>(dwtable: BCRYPT_TABLE, pszcontext: P1, dwinterface: BCRYPT_INTERFACE, pszfunction: P3) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptRemoveContextFunction<P0, P1>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pszfunction: P1) -> super::super::Foundation::NTSTATUS
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptRemoveContextFunction(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : windows_core::PCWSTR) -> super::super::Foundation:: NTSTATUS);
     BCryptRemoveContextFunction(dwtable, pszcontext.param().abi(), dwinterface, pszfunction.param().abi())
 }
 #[inline]
-pub unsafe fn BCryptResolveProviders<P0, P2, P3>(pszcontext: P0, dwinterface: u32, pszfunction: P2, pszprovider: P3, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwflags: BCRYPT_RESOLVE_PROVIDERS_FLAGS, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_PROVIDER_REFS>) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptResolveProviders<P0, P1, P2>(pszcontext: P0, dwinterface: u32, pszfunction: P1, pszprovider: P2, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwflags: BCRYPT_RESOLVE_PROVIDERS_FLAGS, pcbbuffer: *mut u32, ppbuffer: Option<*mut *mut CRYPT_PROVIDER_REFS>) -> super::super::Foundation::NTSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptResolveProviders(pszcontext : windows_core::PCWSTR, dwinterface : u32, pszfunction : windows_core::PCWSTR, pszprovider : windows_core::PCWSTR, dwmode : BCRYPT_QUERY_PROVIDER_MODE, dwflags : BCRYPT_RESOLVE_PROVIDERS_FLAGS, pcbbuffer : *mut u32, ppbuffer : *mut *mut CRYPT_PROVIDER_REFS) -> super::super::Foundation:: NTSTATUS);
     BCryptResolveProviders(pszcontext.param().abi(), dwinterface, pszfunction.param().abi(), pszprovider.param().abi(), dwmode, dwflags, pcbbuffer, core::mem::transmute(ppbuffer.unwrap_or(core::ptr::null_mut())))
@@ -370,19 +370,19 @@ where
     BCryptSecretAgreement(hprivkey.param().abi(), hpubkey.param().abi(), phagreedsecret, dwflags)
 }
 #[inline]
-pub unsafe fn BCryptSetContextFunctionProperty<P1, P3, P4>(dwtable: BCRYPT_TABLE, pszcontext: P1, dwinterface: BCRYPT_INTERFACE, pszfunction: P3, pszproperty: P4, pbvalue: Option<&[u8]>) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptSetContextFunctionProperty<P0, P1, P2>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pszfunction: P1, pszproperty: P2, pbvalue: Option<&[u8]>) -> super::super::Foundation::NTSTATUS
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptSetContextFunctionProperty(dwtable : BCRYPT_TABLE, pszcontext : windows_core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : windows_core::PCWSTR, pszproperty : windows_core::PCWSTR, cbvalue : u32, pbvalue : *const u8) -> super::super::Foundation:: NTSTATUS);
     BCryptSetContextFunctionProperty(dwtable, pszcontext.param().abi(), dwinterface, pszfunction.param().abi(), pszproperty.param().abi(), pbvalue.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbvalue.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
-pub unsafe fn BCryptSetProperty<P1>(hobject: BCRYPT_HANDLE, pszproperty: P1, pbinput: &[u8], dwflags: u32) -> super::super::Foundation::NTSTATUS
+pub unsafe fn BCryptSetProperty<P0>(hobject: BCRYPT_HANDLE, pszproperty: P0, pbinput: &[u8], dwflags: u32) -> super::super::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("bcrypt.dll" "system" fn BCryptSetProperty(hobject : BCRYPT_HANDLE, pszproperty : windows_core::PCWSTR, pbinput : *const u8, cbinput : u32, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
     BCryptSetProperty(hobject, pszproperty.param().abi(), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), dwflags)
@@ -500,9 +500,9 @@ where
     CertAddEncodedCertificateToSystemStoreW(szcertstorename.param().abi(), core::mem::transmute(pbcertencoded.as_ptr()), pbcertencoded.len().try_into().unwrap()).ok()
 }
 #[inline]
-pub unsafe fn CertAddEnhancedKeyUsageIdentifier<P1>(pcertcontext: *const CERT_CONTEXT, pszusageidentifier: P1) -> windows_core::Result<()>
+pub unsafe fn CertAddEnhancedKeyUsageIdentifier<P0>(pcertcontext: *const CERT_CONTEXT, pszusageidentifier: P0) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertAddEnhancedKeyUsageIdentifier(pcertcontext : *const CERT_CONTEXT, pszusageidentifier : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     CertAddEnhancedKeyUsageIdentifier(pcertcontext, pszusageidentifier.param().abi()).ok()
@@ -848,10 +848,10 @@ pub unsafe fn CertGetCTLContextProperty(pctlcontext: *const CTL_CONTEXT, dwpropi
     CertGetCTLContextProperty(pctlcontext, dwpropid, core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), pcbdata).ok()
 }
 #[inline]
-pub unsafe fn CertGetCertificateChain<P0, P3>(hchainengine: P0, pcertcontext: *const CERT_CONTEXT, ptime: Option<*const super::super::Foundation::FILETIME>, hadditionalstore: P3, pchainpara: *const CERT_CHAIN_PARA, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>, ppchaincontext: *mut *mut CERT_CHAIN_CONTEXT) -> windows_core::Result<()>
+pub unsafe fn CertGetCertificateChain<P0, P1>(hchainengine: P0, pcertcontext: *const CERT_CONTEXT, ptime: Option<*const super::super::Foundation::FILETIME>, hadditionalstore: P1, pchainpara: *const CERT_CHAIN_PARA, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>, ppchaincontext: *mut *mut CERT_CHAIN_CONTEXT) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HCERTCHAINENGINE>,
-    P3: windows_core::Param<HCERTSTORE>,
+    P1: windows_core::Param<HCERTSTORE>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertGetCertificateChain(hchainengine : HCERTCHAINENGINE, pcertcontext : *const CERT_CONTEXT, ptime : *const super::super::Foundation:: FILETIME, hadditionalstore : HCERTSTORE, pchainpara : *const CERT_CHAIN_PARA, dwflags : u32, pvreserved : *const core::ffi::c_void, ppchaincontext : *mut *mut CERT_CHAIN_CONTEXT) -> super::super::Foundation:: BOOL);
     CertGetCertificateChain(hchainengine.param().abi(), pcertcontext, core::mem::transmute(ptime.unwrap_or(core::ptr::null())), hadditionalstore.param().abi(), pchainpara, dwflags, core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), ppchaincontext).ok()
@@ -926,9 +926,9 @@ pub unsafe fn CertIsRDNAttrsInCertificateName(dwcertencodingtype: CERT_QUERY_ENC
     CertIsRDNAttrsInCertificateName(dwcertencodingtype, dwflags, pcertname, prdn).ok()
 }
 #[inline]
-pub unsafe fn CertIsStrongHashToSign<P1>(pstrongsignpara: *const CERT_STRONG_SIGN_PARA, pwszcnghashalgid: P1, psigningcert: Option<*const CERT_CONTEXT>) -> windows_core::Result<()>
+pub unsafe fn CertIsStrongHashToSign<P0>(pstrongsignpara: *const CERT_STRONG_SIGN_PARA, pwszcnghashalgid: P0, psigningcert: Option<*const CERT_CONTEXT>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertIsStrongHashToSign(pstrongsignpara : *const CERT_STRONG_SIGN_PARA, pwszcnghashalgid : windows_core::PCWSTR, psigningcert : *const CERT_CONTEXT) -> super::super::Foundation:: BOOL);
     CertIsStrongHashToSign(pstrongsignpara, pwszcnghashalgid.param().abi(), core::mem::transmute(psigningcert.unwrap_or(core::ptr::null()))).ok()
@@ -939,10 +939,10 @@ pub unsafe fn CertIsValidCRLForCertificate(pcert: *const CERT_CONTEXT, pcrl: *co
     CertIsValidCRLForCertificate(pcert, pcrl, dwflags, core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn CertIsWeakHash<P1, P5>(dwhashusetype: u32, pwszcnghashalgid: P1, dwchainflags: u32, psignerchaincontext: Option<*const CERT_CHAIN_CONTEXT>, ptimestamp: Option<*const super::super::Foundation::FILETIME>, pwszfilename: P5) -> super::super::Foundation::BOOL
+pub unsafe fn CertIsWeakHash<P0, P1>(dwhashusetype: u32, pwszcnghashalgid: P0, dwchainflags: u32, psignerchaincontext: Option<*const CERT_CHAIN_CONTEXT>, ptimestamp: Option<*const super::super::Foundation::FILETIME>, pwszfilename: P1) -> super::super::Foundation::BOOL
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertIsWeakHash(dwhashusetype : u32, pwszcnghashalgid : windows_core::PCWSTR, dwchainflags : u32, psignerchaincontext : *const CERT_CHAIN_CONTEXT, ptimestamp : *const super::super::Foundation:: FILETIME, pwszfilename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     CertIsWeakHash(dwhashusetype, pwszcnghashalgid.param().abi(), dwchainflags, core::mem::transmute(psignerchaincontext.unwrap_or(core::ptr::null())), core::mem::transmute(ptimestamp.unwrap_or(core::ptr::null())), pwszfilename.param().abi())
@@ -971,10 +971,10 @@ pub unsafe fn CertOpenServerOcspResponse(pchaincontext: *const CERT_CHAIN_CONTEX
     CertOpenServerOcspResponse(pchaincontext, dwflags, core::mem::transmute(popenpara.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn CertOpenStore<P0, P2>(lpszstoreprovider: P0, dwencodingtype: CERT_QUERY_ENCODING_TYPE, hcryptprov: P2, dwflags: CERT_OPEN_STORE_FLAGS, pvpara: Option<*const core::ffi::c_void>) -> windows_core::Result<HCERTSTORE>
+pub unsafe fn CertOpenStore<P0, P1>(lpszstoreprovider: P0, dwencodingtype: CERT_QUERY_ENCODING_TYPE, hcryptprov: P1, dwflags: CERT_OPEN_STORE_FLAGS, pvpara: Option<*const core::ffi::c_void>) -> windows_core::Result<HCERTSTORE>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<HCRYPTPROV_LEGACY>,
+    P1: windows_core::Param<HCRYPTPROV_LEGACY>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertOpenStore(lpszstoreprovider : windows_core::PCSTR, dwencodingtype : CERT_QUERY_ENCODING_TYPE, hcryptprov : HCRYPTPROV_LEGACY, dwflags : CERT_OPEN_STORE_FLAGS, pvpara : *const core::ffi::c_void) -> HCERTSTORE);
     let result__ = CertOpenStore(lpszstoreprovider.param().abi(), dwencodingtype, hcryptprov.param().abi(), dwflags, core::mem::transmute(pvpara.unwrap_or(core::ptr::null())));
@@ -1011,9 +1011,9 @@ pub unsafe fn CertRDNValueToStrW(dwvaluetype: u32, pvalue: *const CRYPT_INTEGER_
     CertRDNValueToStrW(dwvaluetype, pvalue, core::mem::transmute(psz.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
-pub unsafe fn CertRegisterPhysicalStore<P2>(pvsystemstore: *const core::ffi::c_void, dwflags: u32, pwszstorename: P2, pstoreinfo: *const CERT_PHYSICAL_STORE_INFO, pvreserved: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL
+pub unsafe fn CertRegisterPhysicalStore<P0>(pvsystemstore: *const core::ffi::c_void, dwflags: u32, pwszstorename: P0, pstoreinfo: *const CERT_PHYSICAL_STORE_INFO, pvreserved: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertRegisterPhysicalStore(pvsystemstore : *const core::ffi::c_void, dwflags : u32, pwszstorename : windows_core::PCWSTR, pstoreinfo : *const CERT_PHYSICAL_STORE_INFO, pvreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     CertRegisterPhysicalStore(pvsystemstore, dwflags, pwszstorename.param().abi(), pstoreinfo, core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())))
@@ -1024,9 +1024,9 @@ pub unsafe fn CertRegisterSystemStore(pvsystemstore: *const core::ffi::c_void, d
     CertRegisterSystemStore(pvsystemstore, dwflags, core::mem::transmute(pstoreinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn CertRemoveEnhancedKeyUsageIdentifier<P1>(pcertcontext: *const CERT_CONTEXT, pszusageidentifier: P1) -> windows_core::Result<()>
+pub unsafe fn CertRemoveEnhancedKeyUsageIdentifier<P0>(pcertcontext: *const CERT_CONTEXT, pszusageidentifier: P0) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertRemoveEnhancedKeyUsageIdentifier(pcertcontext : *const CERT_CONTEXT, pszusageidentifier : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     CertRemoveEnhancedKeyUsageIdentifier(pcertcontext, pszusageidentifier.param().abi()).ok()
@@ -1049,9 +1049,9 @@ where
     CertResyncCertificateChainEngine(hchainengine.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn CertRetrieveLogoOrBiometricInfo<P1>(pcertcontext: *const CERT_CONTEXT, lpszlogoorbiometrictype: P1, dwretrievalflags: u32, dwtimeout: u32, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>, ppbdata: *mut *mut u8, pcbdata: *mut u32, ppwszmimetype: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
+pub unsafe fn CertRetrieveLogoOrBiometricInfo<P0>(pcertcontext: *const CERT_CONTEXT, lpszlogoorbiometrictype: P0, dwretrievalflags: u32, dwtimeout: u32, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>, ppbdata: *mut *mut u8, pcbdata: *mut u32, ppwszmimetype: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertRetrieveLogoOrBiometricInfo(pcertcontext : *const CERT_CONTEXT, lpszlogoorbiometrictype : windows_core::PCSTR, dwretrievalflags : u32, dwtimeout : u32, dwflags : u32, pvreserved : *const core::ffi::c_void, ppbdata : *mut *mut u8, pcbdata : *mut u32, ppwszmimetype : *mut windows_core::PWSTR) -> super::super::Foundation:: BOOL);
     CertRetrieveLogoOrBiometricInfo(pcertcontext, lpszlogoorbiometrictype.param().abi(), dwretrievalflags, dwtimeout, dwflags, core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), ppbdata, pcbdata, core::mem::transmute(ppwszmimetype.unwrap_or(core::ptr::null_mut()))).ok()
@@ -1065,9 +1065,9 @@ where
     CertSaveStore(hcertstore.param().abi(), dwencodingtype, dwsaveas, dwsaveto, pvsavetopara, dwflags).ok()
 }
 #[inline]
-pub unsafe fn CertSelectCertificateChains<P5>(pselectioncontext: Option<*const windows_core::GUID>, dwflags: u32, pchainparameters: Option<*const CERT_SELECT_CHAIN_PARA>, rgpcriteria: Option<&[CERT_SELECT_CRITERIA]>, hstore: P5, pcselection: *mut u32, pprgpselection: *mut *mut *mut CERT_CHAIN_CONTEXT) -> windows_core::Result<()>
+pub unsafe fn CertSelectCertificateChains<P0>(pselectioncontext: Option<*const windows_core::GUID>, dwflags: u32, pchainparameters: Option<*const CERT_SELECT_CHAIN_PARA>, rgpcriteria: Option<&[CERT_SELECT_CRITERIA]>, hstore: P0, pcselection: *mut u32, pprgpselection: *mut *mut *mut CERT_CHAIN_CONTEXT) -> windows_core::Result<()>
 where
-    P5: windows_core::Param<HCERTSTORE>,
+    P0: windows_core::Param<HCERTSTORE>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertSelectCertificateChains(pselectioncontext : *const windows_core::GUID, dwflags : u32, pchainparameters : *const CERT_SELECT_CHAIN_PARA, ccriteria : u32, rgpcriteria : *const CERT_SELECT_CRITERIA, hstore : HCERTSTORE, pcselection : *mut u32, pprgpselection : *mut *mut *mut CERT_CHAIN_CONTEXT) -> super::super::Foundation:: BOOL);
     CertSelectCertificateChains(core::mem::transmute(pselectioncontext.unwrap_or(core::ptr::null())), dwflags, core::mem::transmute(pchainparameters.unwrap_or(core::ptr::null())), rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), hstore.param().abi(), pcselection, pprgpselection).ok()
@@ -1121,25 +1121,25 @@ where
     CertSetStoreProperty(hcertstore.param().abi(), dwpropid, dwflags, core::mem::transmute(pvdata.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn CertStrToNameA<P1>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszx500: P1, dwstrtype: CERT_STRING_TYPE, pvreserved: Option<*const core::ffi::c_void>, pbencoded: Option<*mut u8>, pcbencoded: *mut u32, ppszerror: Option<*mut windows_core::PCSTR>) -> windows_core::Result<()>
+pub unsafe fn CertStrToNameA<P0>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszx500: P0, dwstrtype: CERT_STRING_TYPE, pvreserved: Option<*const core::ffi::c_void>, pbencoded: Option<*mut u8>, pcbencoded: *mut u32, ppszerror: Option<*mut windows_core::PCSTR>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertStrToNameA(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pszx500 : windows_core::PCSTR, dwstrtype : CERT_STRING_TYPE, pvreserved : *const core::ffi::c_void, pbencoded : *mut u8, pcbencoded : *mut u32, ppszerror : *mut windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     CertStrToNameA(dwcertencodingtype, pszx500.param().abi(), dwstrtype, core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pbencoded.unwrap_or(core::ptr::null_mut())), pcbencoded, core::mem::transmute(ppszerror.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn CertStrToNameW<P1>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszx500: P1, dwstrtype: CERT_STRING_TYPE, pvreserved: Option<*const core::ffi::c_void>, pbencoded: Option<*mut u8>, pcbencoded: *mut u32, ppszerror: Option<*mut windows_core::PCWSTR>) -> windows_core::Result<()>
+pub unsafe fn CertStrToNameW<P0>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszx500: P0, dwstrtype: CERT_STRING_TYPE, pvreserved: Option<*const core::ffi::c_void>, pbencoded: Option<*mut u8>, pcbencoded: *mut u32, ppszerror: Option<*mut windows_core::PCWSTR>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertStrToNameW(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pszx500 : windows_core::PCWSTR, dwstrtype : CERT_STRING_TYPE, pvreserved : *const core::ffi::c_void, pbencoded : *mut u8, pcbencoded : *mut u32, ppszerror : *mut windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     CertStrToNameW(dwcertencodingtype, pszx500.param().abi(), dwstrtype, core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pbencoded.unwrap_or(core::ptr::null_mut())), pcbencoded, core::mem::transmute(ppszerror.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn CertUnregisterPhysicalStore<P2>(pvsystemstore: *const core::ffi::c_void, dwflags: u32, pwszstorename: P2) -> super::super::Foundation::BOOL
+pub unsafe fn CertUnregisterPhysicalStore<P0>(pvsystemstore: *const core::ffi::c_void, dwflags: u32, pwszstorename: P0) -> super::super::Foundation::BOOL
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CertUnregisterPhysicalStore(pvsystemstore : *const core::ffi::c_void, dwflags : u32, pwszstorename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     CertUnregisterPhysicalStore(pvsystemstore, dwflags, pwszstorename.param().abi())
@@ -1203,19 +1203,19 @@ pub unsafe fn CryptAcquireCertificatePrivateKey(pcert: *const CERT_CONTEXT, dwfl
     CryptAcquireCertificatePrivateKey(pcert, dwflags, core::mem::transmute(pvparameters.unwrap_or(core::ptr::null())), phcryptprovorncryptkey, core::mem::transmute(pdwkeyspec.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfcallerfreeprovorncryptkey.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn CryptAcquireContextA<P1, P2>(phprov: *mut usize, szcontainer: P1, szprovider: P2, dwprovtype: u32, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn CryptAcquireContextA<P0, P1>(phprov: *mut usize, szcontainer: P0, szprovider: P1, dwprovtype: u32, dwflags: u32) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CryptAcquireContextA(phprov : *mut usize, szcontainer : windows_core::PCSTR, szprovider : windows_core::PCSTR, dwprovtype : u32, dwflags : u32) -> super::super::Foundation:: BOOL);
     CryptAcquireContextA(phprov, szcontainer.param().abi(), szprovider.param().abi(), dwprovtype, dwflags).ok()
 }
 #[inline]
-pub unsafe fn CryptAcquireContextW<P1, P2>(phprov: *mut usize, szcontainer: P1, szprovider: P2, dwprovtype: u32, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn CryptAcquireContextW<P0, P1>(phprov: *mut usize, szcontainer: P0, szprovider: P1, dwprovtype: u32, dwflags: u32) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CryptAcquireContextW(phprov : *mut usize, szcontainer : windows_core::PCWSTR, szprovider : windows_core::PCWSTR, dwprovtype : u32, dwflags : u32) -> super::super::Foundation:: BOOL);
     CryptAcquireContextW(phprov, szcontainer.param().abi(), szprovider.param().abi(), dwprovtype, dwflags).ok()
@@ -1254,9 +1254,9 @@ pub unsafe fn CryptCreateHash(hprov: usize, algid: ALG_ID, hkey: usize, dwflags:
     CryptCreateHash(hprov, algid, hkey, dwflags, phhash).ok()
 }
 #[inline]
-pub unsafe fn CryptCreateKeyIdentifierFromCSP<P1>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpubkeyoid: P1, ppubkeystruc: *const PUBLICKEYSTRUC, cbpubkeystruc: u32, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>, pbhash: Option<*mut u8>, pcbhash: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptCreateKeyIdentifierFromCSP<P0>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpubkeyoid: P0, ppubkeystruc: *const PUBLICKEYSTRUC, cbpubkeystruc: u32, dwflags: u32, pvreserved: Option<*const core::ffi::c_void>, pbhash: Option<*mut u8>, pcbhash: *mut u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptCreateKeyIdentifierFromCSP(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pszpubkeyoid : windows_core::PCSTR, ppubkeystruc : *const PUBLICKEYSTRUC, cbpubkeystruc : u32, dwflags : u32, pvreserved : *const core::ffi::c_void, pbhash : *mut u8, pcbhash : *mut u32) -> super::super::Foundation:: BOOL);
     CryptCreateKeyIdentifierFromCSP(dwcertencodingtype, pszpubkeyoid.param().abi(), ppubkeystruc, cbpubkeystruc, dwflags, core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pbhash.unwrap_or(core::ptr::null_mut())), pcbhash).ok()
@@ -1282,25 +1282,25 @@ pub unsafe fn CryptDecodeMessage(dwmsgtypeflags: u32, pdecryptpara: Option<*cons
     .ok()
 }
 #[inline]
-pub unsafe fn CryptDecodeObject<P1>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: P1, pbencoded: &[u8], dwflags: u32, pvstructinfo: Option<*mut core::ffi::c_void>, pcbstructinfo: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptDecodeObject<P0>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: P0, pbencoded: &[u8], dwflags: u32, pvstructinfo: Option<*mut core::ffi::c_void>, pcbstructinfo: *mut u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptDecodeObject(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, lpszstructtype : windows_core::PCSTR, pbencoded : *const u8, cbencoded : u32, dwflags : u32, pvstructinfo : *mut core::ffi::c_void, pcbstructinfo : *mut u32) -> super::super::Foundation:: BOOL);
     CryptDecodeObject(dwcertencodingtype, lpszstructtype.param().abi(), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), dwflags, core::mem::transmute(pvstructinfo.unwrap_or(core::ptr::null_mut())), pcbstructinfo).ok()
 }
 #[inline]
-pub unsafe fn CryptDecodeObjectEx<P1>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: P1, pbencoded: &[u8], dwflags: u32, pdecodepara: Option<*const CRYPT_DECODE_PARA>, pvstructinfo: Option<*mut core::ffi::c_void>, pcbstructinfo: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptDecodeObjectEx<P0>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: P0, pbencoded: &[u8], dwflags: u32, pdecodepara: Option<*const CRYPT_DECODE_PARA>, pvstructinfo: Option<*mut core::ffi::c_void>, pcbstructinfo: *mut u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptDecodeObjectEx(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, lpszstructtype : windows_core::PCSTR, pbencoded : *const u8, cbencoded : u32, dwflags : u32, pdecodepara : *const CRYPT_DECODE_PARA, pvstructinfo : *mut core::ffi::c_void, pcbstructinfo : *mut u32) -> super::super::Foundation:: BOOL);
     CryptDecodeObjectEx(dwcertencodingtype, lpszstructtype.param().abi(), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), dwflags, core::mem::transmute(pdecodepara.unwrap_or(core::ptr::null())), core::mem::transmute(pvstructinfo.unwrap_or(core::ptr::null_mut())), pcbstructinfo).ok()
 }
 #[inline]
-pub unsafe fn CryptDecrypt<P2>(hkey: usize, hhash: usize, r#final: P2, dwflags: u32, pbdata: *mut u8, pdwdatalen: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptDecrypt<P0>(hkey: usize, hhash: usize, r#final: P0, dwflags: u32, pbdata: *mut u8, pdwdatalen: *mut u32) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CryptDecrypt(hkey : usize, hhash : usize, r#final : super::super::Foundation:: BOOL, dwflags : u32, pbdata : *mut u8, pdwdatalen : *mut u32) -> super::super::Foundation:: BOOL);
     CryptDecrypt(hkey, hhash, r#final.param().abi(), dwflags, pbdata, pdwdatalen).ok()
@@ -1341,25 +1341,25 @@ pub unsafe fn CryptDuplicateKey(hkey: usize, pdwreserved: Option<*const u32>, dw
     CryptDuplicateKey(hkey, core::mem::transmute(pdwreserved.unwrap_or(core::ptr::null())), dwflags, phkey).ok()
 }
 #[inline]
-pub unsafe fn CryptEncodeObject<P1>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: P1, pvstructinfo: *const core::ffi::c_void, pbencoded: Option<*mut u8>, pcbencoded: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptEncodeObject<P0>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: P0, pvstructinfo: *const core::ffi::c_void, pbencoded: Option<*mut u8>, pcbencoded: *mut u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptEncodeObject(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, lpszstructtype : windows_core::PCSTR, pvstructinfo : *const core::ffi::c_void, pbencoded : *mut u8, pcbencoded : *mut u32) -> super::super::Foundation:: BOOL);
     CryptEncodeObject(dwcertencodingtype, lpszstructtype.param().abi(), pvstructinfo, core::mem::transmute(pbencoded.unwrap_or(core::ptr::null_mut())), pcbencoded).ok()
 }
 #[inline]
-pub unsafe fn CryptEncodeObjectEx<P1>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: P1, pvstructinfo: *const core::ffi::c_void, dwflags: CRYPT_ENCODE_OBJECT_FLAGS, pencodepara: Option<*const CRYPT_ENCODE_PARA>, pvencoded: Option<*mut core::ffi::c_void>, pcbencoded: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptEncodeObjectEx<P0>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: P0, pvstructinfo: *const core::ffi::c_void, dwflags: CRYPT_ENCODE_OBJECT_FLAGS, pencodepara: Option<*const CRYPT_ENCODE_PARA>, pvencoded: Option<*mut core::ffi::c_void>, pcbencoded: *mut u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptEncodeObjectEx(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, lpszstructtype : windows_core::PCSTR, pvstructinfo : *const core::ffi::c_void, dwflags : CRYPT_ENCODE_OBJECT_FLAGS, pencodepara : *const CRYPT_ENCODE_PARA, pvencoded : *mut core::ffi::c_void, pcbencoded : *mut u32) -> super::super::Foundation:: BOOL);
     CryptEncodeObjectEx(dwcertencodingtype, lpszstructtype.param().abi(), pvstructinfo, dwflags, core::mem::transmute(pencodepara.unwrap_or(core::ptr::null())), core::mem::transmute(pvencoded.unwrap_or(core::ptr::null_mut())), pcbencoded).ok()
 }
 #[inline]
-pub unsafe fn CryptEncrypt<P2>(hkey: usize, hhash: usize, r#final: P2, dwflags: u32, pbdata: Option<&mut [u8]>, pdwdatalen: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptEncrypt<P0>(hkey: usize, hhash: usize, r#final: P0, dwflags: u32, pbdata: Option<&mut [u8]>, pdwdatalen: *mut u32) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CryptEncrypt(hkey : usize, hhash : usize, r#final : super::super::Foundation:: BOOL, dwflags : u32, pbdata : *mut u8, pdwdatalen : *mut u32, dwbuflen : u32) -> super::super::Foundation:: BOOL);
     CryptEncrypt(hkey, hhash, r#final.param().abi(), dwflags, core::mem::transmute(pbdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdwdatalen, pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
@@ -1370,18 +1370,18 @@ pub unsafe fn CryptEncryptMessage(pencryptpara: *const CRYPT_ENCRYPT_MESSAGE_PAR
     CryptEncryptMessage(pencryptpara, rgprecipientcert.len().try_into().unwrap(), core::mem::transmute(rgprecipientcert.as_ptr()), core::mem::transmute(pbtobeencrypted.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbtobeencrypted.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbencryptedblob.unwrap_or(core::ptr::null_mut())), pcbencryptedblob).ok()
 }
 #[inline]
-pub unsafe fn CryptEnumKeyIdentifierProperties<P3>(pkeyidentifier: Option<*const CRYPT_INTEGER_BLOB>, dwpropid: u32, dwflags: u32, pwszcomputername: P3, pvreserved: Option<*const core::ffi::c_void>, pvarg: Option<*mut core::ffi::c_void>, pfnenum: PFN_CRYPT_ENUM_KEYID_PROP) -> windows_core::Result<()>
+pub unsafe fn CryptEnumKeyIdentifierProperties<P0>(pkeyidentifier: Option<*const CRYPT_INTEGER_BLOB>, dwpropid: u32, dwflags: u32, pwszcomputername: P0, pvreserved: Option<*const core::ffi::c_void>, pvarg: Option<*mut core::ffi::c_void>, pfnenum: PFN_CRYPT_ENUM_KEYID_PROP) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptEnumKeyIdentifierProperties(pkeyidentifier : *const CRYPT_INTEGER_BLOB, dwpropid : u32, dwflags : u32, pwszcomputername : windows_core::PCWSTR, pvreserved : *const core::ffi::c_void, pvarg : *mut core::ffi::c_void, pfnenum : PFN_CRYPT_ENUM_KEYID_PROP) -> super::super::Foundation:: BOOL);
     CryptEnumKeyIdentifierProperties(core::mem::transmute(pkeyidentifier.unwrap_or(core::ptr::null())), dwpropid, dwflags, pwszcomputername.param().abi(), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pvarg.unwrap_or(core::ptr::null_mut())), pfnenum).ok()
 }
 #[inline]
-pub unsafe fn CryptEnumOIDFunction<P1, P2>(dwencodingtype: u32, pszfuncname: P1, pszoid: P2, dwflags: u32, pvarg: Option<*mut core::ffi::c_void>, pfnenumoidfunc: PFN_CRYPT_ENUM_OID_FUNC) -> windows_core::Result<()>
+pub unsafe fn CryptEnumOIDFunction<P0, P1>(dwencodingtype: u32, pszfuncname: P0, pszoid: P1, dwflags: u32, pvarg: Option<*mut core::ffi::c_void>, pfnenumoidfunc: PFN_CRYPT_ENUM_OID_FUNC) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptEnumOIDFunction(dwencodingtype : u32, pszfuncname : windows_core::PCSTR, pszoid : windows_core::PCSTR, dwflags : u32, pvarg : *mut core::ffi::c_void, pfnenumoidfunc : PFN_CRYPT_ENUM_OID_FUNC) -> super::super::Foundation:: BOOL);
     CryptEnumOIDFunction(dwencodingtype, pszfuncname.param().abi(), pszoid.param().abi(), dwflags, core::mem::transmute(pvarg.unwrap_or(core::ptr::null_mut())), pfnenumoidfunc).ok()
@@ -1417,9 +1417,9 @@ pub unsafe fn CryptExportKey(hkey: usize, hexpkey: usize, dwblobtype: u32, dwfla
     CryptExportKey(hkey, hexpkey, dwblobtype, dwflags, core::mem::transmute(pbdata.unwrap_or(core::ptr::null_mut())), pdwdatalen).ok()
 }
 #[inline]
-pub unsafe fn CryptExportPKCS8<P2>(hcryptprov: usize, dwkeyspec: u32, pszprivatekeyobjid: P2, dwflags: u32, pvauxinfo: Option<*const core::ffi::c_void>, pbprivatekeyblob: Option<*mut u8>, pcbprivatekeyblob: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptExportPKCS8<P0>(hcryptprov: usize, dwkeyspec: u32, pszprivatekeyobjid: P0, dwflags: u32, pvauxinfo: Option<*const core::ffi::c_void>, pbprivatekeyblob: Option<*mut u8>, pcbprivatekeyblob: *mut u32) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptExportPKCS8(hcryptprov : usize, dwkeyspec : u32, pszprivatekeyobjid : windows_core::PCSTR, dwflags : u32, pvauxinfo : *const core::ffi::c_void, pbprivatekeyblob : *mut u8, pcbprivatekeyblob : *mut u32) -> super::super::Foundation:: BOOL);
     CryptExportPKCS8(hcryptprov, dwkeyspec, pszprivatekeyobjid.param().abi(), dwflags, core::mem::transmute(pvauxinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pbprivatekeyblob.unwrap_or(core::ptr::null_mut())), pcbprivatekeyblob).ok()
@@ -1433,19 +1433,19 @@ where
     CryptExportPublicKeyInfo(hcryptprovorncryptkey.param().abi(), dwkeyspec, dwcertencodingtype, core::mem::transmute(pinfo.unwrap_or(core::ptr::null_mut())), pcbinfo).ok()
 }
 #[inline]
-pub unsafe fn CryptExportPublicKeyInfoEx<P0, P3>(hcryptprovorncryptkey: P0, dwkeyspec: u32, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid: P3, dwflags: u32, pvauxinfo: Option<*const core::ffi::c_void>, pinfo: Option<*mut CERT_PUBLIC_KEY_INFO>, pcbinfo: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptExportPublicKeyInfoEx<P0, P1>(hcryptprovorncryptkey: P0, dwkeyspec: u32, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid: P1, dwflags: u32, pvauxinfo: Option<*const core::ffi::c_void>, pinfo: Option<*mut CERT_PUBLIC_KEY_INFO>, pcbinfo: *mut u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>,
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptExportPublicKeyInfoEx(hcryptprovorncryptkey : HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec : u32, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid : windows_core::PCSTR, dwflags : u32, pvauxinfo : *const core::ffi::c_void, pinfo : *mut CERT_PUBLIC_KEY_INFO, pcbinfo : *mut u32) -> super::super::Foundation:: BOOL);
     CryptExportPublicKeyInfoEx(hcryptprovorncryptkey.param().abi(), dwkeyspec, dwcertencodingtype, pszpublickeyobjid.param().abi(), dwflags, core::mem::transmute(pvauxinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pinfo.unwrap_or(core::ptr::null_mut())), pcbinfo).ok()
 }
 #[inline]
-pub unsafe fn CryptExportPublicKeyInfoFromBCryptKeyHandle<P0, P2>(hbcryptkey: P0, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid: P2, dwflags: u32, pvauxinfo: Option<*const core::ffi::c_void>, pinfo: Option<*mut CERT_PUBLIC_KEY_INFO>, pcbinfo: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn CryptExportPublicKeyInfoFromBCryptKeyHandle<P0, P1>(hbcryptkey: P0, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid: P1, dwflags: u32, pvauxinfo: Option<*const core::ffi::c_void>, pinfo: Option<*mut CERT_PUBLIC_KEY_INFO>, pcbinfo: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<BCRYPT_KEY_HANDLE>,
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey : BCRYPT_KEY_HANDLE, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid : windows_core::PCSTR, dwflags : u32, pvauxinfo : *const core::ffi::c_void, pinfo : *mut CERT_PUBLIC_KEY_INFO, pcbinfo : *mut u32) -> super::super::Foundation:: BOOL);
     CryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey.param().abi(), dwcertencodingtype, pszpublickeyobjid.param().abi(), dwflags, core::mem::transmute(pvauxinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pinfo.unwrap_or(core::ptr::null_mut())), pcbinfo)
@@ -1469,9 +1469,9 @@ pub unsafe fn CryptFindOIDInfo(dwkeytype: u32, pvkey: *const core::ffi::c_void, 
     CryptFindOIDInfo(dwkeytype, pvkey, dwgroupid)
 }
 #[inline]
-pub unsafe fn CryptFormatObject<P4>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwformattype: u32, dwformatstrtype: u32, pformatstruct: Option<*const core::ffi::c_void>, lpszstructtype: P4, pbencoded: &[u8], pbformat: Option<*mut core::ffi::c_void>, pcbformat: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptFormatObject<P0>(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwformattype: u32, dwformatstrtype: u32, pformatstruct: Option<*const core::ffi::c_void>, lpszstructtype: P0, pbencoded: &[u8], pbformat: Option<*mut core::ffi::c_void>, pcbformat: *mut u32) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptFormatObject(dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, dwformattype : u32, dwformatstrtype : u32, pformatstruct : *const core::ffi::c_void, lpszstructtype : windows_core::PCSTR, pbencoded : *const u8, cbencoded : u32, pbformat : *mut core::ffi::c_void, pcbformat : *mut u32) -> super::super::Foundation:: BOOL);
     CryptFormatObject(dwcertencodingtype, dwformattype, dwformatstrtype, core::mem::transmute(pformatstruct.unwrap_or(core::ptr::null())), lpszstructtype.param().abi(), core::mem::transmute(pbencoded.as_ptr()), pbencoded.len().try_into().unwrap(), core::mem::transmute(pbformat.unwrap_or(core::ptr::null_mut())), pcbformat).ok()
@@ -1506,9 +1506,9 @@ pub unsafe fn CryptGetDefaultOIDDllList(hfuncset: *const core::ffi::c_void, dwen
     CryptGetDefaultOIDDllList(hfuncset, dwencodingtype, core::mem::transmute(pwszdlllist), pcchdlllist).ok()
 }
 #[inline]
-pub unsafe fn CryptGetDefaultOIDFunctionAddress<P2>(hfuncset: *const core::ffi::c_void, dwencodingtype: u32, pwszdll: P2, dwflags: u32, ppvfuncaddr: *mut *mut core::ffi::c_void, phfuncaddr: *mut *mut core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn CryptGetDefaultOIDFunctionAddress<P0>(hfuncset: *const core::ffi::c_void, dwencodingtype: u32, pwszdll: P0, dwflags: u32, ppvfuncaddr: *mut *mut core::ffi::c_void, phfuncaddr: *mut *mut core::ffi::c_void) -> super::super::Foundation::BOOL
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptGetDefaultOIDFunctionAddress(hfuncset : *const core::ffi::c_void, dwencodingtype : u32, pwszdll : windows_core::PCWSTR, dwflags : u32, ppvfuncaddr : *mut *mut core::ffi::c_void, phfuncaddr : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     CryptGetDefaultOIDFunctionAddress(hfuncset, dwencodingtype, pwszdll.param().abi(), dwflags, ppvfuncaddr, phfuncaddr)
@@ -1529,9 +1529,9 @@ pub unsafe fn CryptGetHashParam(hhash: usize, dwparam: u32, pbdata: Option<*mut 
     CryptGetHashParam(hhash, dwparam, core::mem::transmute(pbdata.unwrap_or(core::ptr::null_mut())), pdwdatalen, dwflags).ok()
 }
 #[inline]
-pub unsafe fn CryptGetKeyIdentifierProperty<P3>(pkeyidentifier: *const CRYPT_INTEGER_BLOB, dwpropid: u32, dwflags: u32, pwszcomputername: P3, pvreserved: Option<*const core::ffi::c_void>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptGetKeyIdentifierProperty<P0>(pkeyidentifier: *const CRYPT_INTEGER_BLOB, dwpropid: u32, dwflags: u32, pwszcomputername: P0, pvreserved: Option<*const core::ffi::c_void>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: *mut u32) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptGetKeyIdentifierProperty(pkeyidentifier : *const CRYPT_INTEGER_BLOB, dwpropid : u32, dwflags : u32, pwszcomputername : windows_core::PCWSTR, pvreserved : *const core::ffi::c_void, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: BOOL);
     CryptGetKeyIdentifierProperty(pkeyidentifier, dwpropid, dwflags, pwszcomputername.param().abi(), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), pcbdata).ok()
@@ -1542,9 +1542,9 @@ pub unsafe fn CryptGetKeyParam(hkey: usize, dwparam: CRYPT_KEY_PARAM_ID, pbdata:
     CryptGetKeyParam(hkey, dwparam, core::mem::transmute(pbdata.unwrap_or(core::ptr::null_mut())), pdwdatalen, dwflags).ok()
 }
 #[inline]
-pub unsafe fn CryptGetMessageCertificates<P1>(dwmsgandcertencodingtype: u32, hcryptprov: P1, dwflags: u32, pbsignedblob: &[u8]) -> windows_core::Result<HCERTSTORE>
+pub unsafe fn CryptGetMessageCertificates<P0>(dwmsgandcertencodingtype: u32, hcryptprov: P0, dwflags: u32, pbsignedblob: &[u8]) -> windows_core::Result<HCERTSTORE>
 where
-    P1: windows_core::Param<HCRYPTPROV_LEGACY>,
+    P0: windows_core::Param<HCRYPTPROV_LEGACY>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptGetMessageCertificates(dwmsgandcertencodingtype : u32, hcryptprov : HCRYPTPROV_LEGACY, dwflags : u32, pbsignedblob : *const u8, cbsignedblob : u32) -> HCERTSTORE);
     let result__ = CryptGetMessageCertificates(dwmsgandcertencodingtype, hcryptprov.param().abi(), dwflags, core::mem::transmute(pbsignedblob.as_ptr()), pbsignedblob.len().try_into().unwrap());
@@ -1556,19 +1556,19 @@ pub unsafe fn CryptGetMessageSignerCount(dwmsgencodingtype: u32, pbsignedblob: &
     CryptGetMessageSignerCount(dwmsgencodingtype, core::mem::transmute(pbsignedblob.as_ptr()), pbsignedblob.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn CryptGetOIDFunctionAddress<P2>(hfuncset: *const core::ffi::c_void, dwencodingtype: u32, pszoid: P2, dwflags: u32, ppvfuncaddr: *mut *mut core::ffi::c_void, phfuncaddr: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CryptGetOIDFunctionAddress<P0>(hfuncset: *const core::ffi::c_void, dwencodingtype: u32, pszoid: P0, dwflags: u32, ppvfuncaddr: *mut *mut core::ffi::c_void, phfuncaddr: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptGetOIDFunctionAddress(hfuncset : *const core::ffi::c_void, dwencodingtype : u32, pszoid : windows_core::PCSTR, dwflags : u32, ppvfuncaddr : *mut *mut core::ffi::c_void, phfuncaddr : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     CryptGetOIDFunctionAddress(hfuncset, dwencodingtype, pszoid.param().abi(), dwflags, ppvfuncaddr, phfuncaddr).ok()
 }
 #[inline]
-pub unsafe fn CryptGetOIDFunctionValue<P1, P2, P3>(dwencodingtype: u32, pszfuncname: P1, pszoid: P2, pwszvaluename: P3, pdwvaluetype: Option<*mut u32>, pbvaluedata: Option<*mut u8>, pcbvaluedata: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn CryptGetOIDFunctionValue<P0, P1, P2>(dwencodingtype: u32, pszfuncname: P0, pszoid: P1, pwszvaluename: P2, pdwvaluetype: Option<*mut u32>, pbvaluedata: Option<*mut u8>, pcbvaluedata: Option<*mut u32>) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptGetOIDFunctionValue(dwencodingtype : u32, pszfuncname : windows_core::PCSTR, pszoid : windows_core::PCSTR, pwszvaluename : windows_core::PCWSTR, pdwvaluetype : *mut u32, pbvaluedata : *mut u8, pcbvaluedata : *mut u32) -> super::super::Foundation:: BOOL);
     CryptGetOIDFunctionValue(dwencodingtype, pszfuncname.param().abi(), pszoid.param().abi(), pwszvaluename.param().abi(), core::mem::transmute(pdwvaluetype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pbvaluedata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbvaluedata.unwrap_or(core::ptr::null_mut()))).ok()
@@ -1613,9 +1613,9 @@ pub unsafe fn CryptHashData(hhash: usize, pbdata: &[u8], dwflags: u32) -> window
     CryptHashData(hhash, core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), dwflags).ok()
 }
 #[inline]
-pub unsafe fn CryptHashMessage<P1>(phashpara: *const CRYPT_HASH_MESSAGE_PARA, fdetachedhash: P1, ctobehashed: u32, rgpbtobehashed: *const *const u8, rgcbtobehashed: *const u32, pbhashedblob: Option<*mut u8>, pcbhashedblob: Option<*mut u32>, pbcomputedhash: Option<*mut u8>, pcbcomputedhash: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn CryptHashMessage<P0>(phashpara: *const CRYPT_HASH_MESSAGE_PARA, fdetachedhash: P0, ctobehashed: u32, rgpbtobehashed: *const *const u8, rgcbtobehashed: *const u32, pbhashedblob: Option<*mut u8>, pcbhashedblob: Option<*mut u32>, pbcomputedhash: Option<*mut u8>, pcbcomputedhash: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptHashMessage(phashpara : *const CRYPT_HASH_MESSAGE_PARA, fdetachedhash : super::super::Foundation:: BOOL, ctobehashed : u32, rgpbtobehashed : *const *const u8, rgcbtobehashed : *const u32, pbhashedblob : *mut u8, pcbhashedblob : *mut u32, pbcomputedhash : *mut u8, pcbcomputedhash : *mut u32) -> super::super::Foundation:: BOOL);
     CryptHashMessage(phashpara, fdetachedhash.param().abi(), ctobehashed, rgpbtobehashed, rgcbtobehashed, core::mem::transmute(pbhashedblob.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbhashedblob.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pbcomputedhash.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbcomputedhash.unwrap_or(core::ptr::null_mut()))).ok()
@@ -1685,10 +1685,10 @@ pub unsafe fn CryptInstallDefaultContext(hcryptprov: usize, dwdefaulttype: CRYPT
     CryptInstallDefaultContext(hcryptprov, dwdefaulttype, core::mem::transmute(pvdefaultpara.unwrap_or(core::ptr::null())), dwflags, core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), phdefaultcontext).ok()
 }
 #[inline]
-pub unsafe fn CryptInstallOIDFunctionAddress<P0, P2>(hmodule: P0, dwencodingtype: u32, pszfuncname: P2, rgfuncentry: &[CRYPT_OID_FUNC_ENTRY], dwflags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn CryptInstallOIDFunctionAddress<P0, P1>(hmodule: P0, dwencodingtype: u32, pszfuncname: P1, rgfuncentry: &[CRYPT_OID_FUNC_ENTRY], dwflags: u32) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::super::Foundation::HMODULE>,
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptInstallOIDFunctionAddress(hmodule : super::super::Foundation:: HMODULE, dwencodingtype : u32, pszfuncname : windows_core::PCSTR, cfuncentry : u32, rgfuncentry : *const CRYPT_OID_FUNC_ENTRY, dwflags : u32) -> super::super::Foundation:: BOOL);
     CryptInstallOIDFunctionAddress(hmodule.param().abi(), dwencodingtype, pszfuncname.param().abi(), rgfuncentry.len().try_into().unwrap(), core::mem::transmute(rgfuncentry.as_ptr()), dwflags)
@@ -1709,9 +1709,9 @@ pub unsafe fn CryptMemRealloc(pv: Option<*const core::ffi::c_void>, cbsize: u32)
     CryptMemRealloc(core::mem::transmute(pv.unwrap_or(core::ptr::null())), cbsize)
 }
 #[inline]
-pub unsafe fn CryptMsgCalculateEncodedLength<P4>(dwmsgencodingtype: u32, dwflags: u32, dwmsgtype: u32, pvmsgencodeinfo: *const core::ffi::c_void, pszinnercontentobjid: P4, cbdata: u32) -> u32
+pub unsafe fn CryptMsgCalculateEncodedLength<P0>(dwmsgencodingtype: u32, dwflags: u32, dwmsgtype: u32, pvmsgencodeinfo: *const core::ffi::c_void, pszinnercontentobjid: P0, cbdata: u32) -> u32
 where
-    P4: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgCalculateEncodedLength(dwmsgencodingtype : u32, dwflags : u32, dwmsgtype : u32, pvmsgencodeinfo : *const core::ffi::c_void, pszinnercontentobjid : windows_core::PCSTR, cbdata : u32) -> u32);
     CryptMsgCalculateEncodedLength(dwmsgencodingtype, dwflags, dwmsgtype, pvmsgencodeinfo, pszinnercontentobjid.param().abi(), cbdata)
@@ -1757,17 +1757,17 @@ pub unsafe fn CryptMsgGetParam(hcryptmsg: *const core::ffi::c_void, dwparamtype:
     CryptMsgGetParam(hcryptmsg, dwparamtype, dwindex, core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), pcbdata).ok()
 }
 #[inline]
-pub unsafe fn CryptMsgOpenToDecode<P3>(dwmsgencodingtype: u32, dwflags: u32, dwmsgtype: u32, hcryptprov: P3, precipientinfo: Option<*const CERT_INFO>, pstreaminfo: Option<*const CMSG_STREAM_INFO>) -> *mut core::ffi::c_void
+pub unsafe fn CryptMsgOpenToDecode<P0>(dwmsgencodingtype: u32, dwflags: u32, dwmsgtype: u32, hcryptprov: P0, precipientinfo: Option<*const CERT_INFO>, pstreaminfo: Option<*const CMSG_STREAM_INFO>) -> *mut core::ffi::c_void
 where
-    P3: windows_core::Param<HCRYPTPROV_LEGACY>,
+    P0: windows_core::Param<HCRYPTPROV_LEGACY>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgOpenToDecode(dwmsgencodingtype : u32, dwflags : u32, dwmsgtype : u32, hcryptprov : HCRYPTPROV_LEGACY, precipientinfo : *const CERT_INFO, pstreaminfo : *const CMSG_STREAM_INFO) -> *mut core::ffi::c_void);
     CryptMsgOpenToDecode(dwmsgencodingtype, dwflags, dwmsgtype, hcryptprov.param().abi(), core::mem::transmute(precipientinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pstreaminfo.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn CryptMsgOpenToEncode<P4>(dwmsgencodingtype: u32, dwflags: u32, dwmsgtype: CRYPT_MSG_TYPE, pvmsgencodeinfo: *const core::ffi::c_void, pszinnercontentobjid: P4, pstreaminfo: Option<*const CMSG_STREAM_INFO>) -> *mut core::ffi::c_void
+pub unsafe fn CryptMsgOpenToEncode<P0>(dwmsgencodingtype: u32, dwflags: u32, dwmsgtype: CRYPT_MSG_TYPE, pvmsgencodeinfo: *const core::ffi::c_void, pszinnercontentobjid: P0, pstreaminfo: Option<*const CMSG_STREAM_INFO>) -> *mut core::ffi::c_void
 where
-    P4: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgOpenToEncode(dwmsgencodingtype : u32, dwflags : u32, dwmsgtype : CRYPT_MSG_TYPE, pvmsgencodeinfo : *const core::ffi::c_void, pszinnercontentobjid : windows_core::PCSTR, pstreaminfo : *const CMSG_STREAM_INFO) -> *mut core::ffi::c_void);
     CryptMsgOpenToEncode(dwmsgencodingtype, dwflags, dwmsgtype, pvmsgencodeinfo, pszinnercontentobjid.param().abi(), core::mem::transmute(pstreaminfo.unwrap_or(core::ptr::null())))
@@ -1778,9 +1778,9 @@ pub unsafe fn CryptMsgSignCTL(dwmsgencodingtype: u32, pbctlcontent: &[u8], psign
     CryptMsgSignCTL(dwmsgencodingtype, core::mem::transmute(pbctlcontent.as_ptr()), pbctlcontent.len().try_into().unwrap(), psigninfo, dwflags, core::mem::transmute(pbencoded.unwrap_or(core::ptr::null_mut())), pcbencoded).ok()
 }
 #[inline]
-pub unsafe fn CryptMsgUpdate<P3>(hcryptmsg: *const core::ffi::c_void, pbdata: Option<&[u8]>, ffinal: P3) -> windows_core::Result<()>
+pub unsafe fn CryptMsgUpdate<P0>(hcryptmsg: *const core::ffi::c_void, pbdata: Option<&[u8]>, ffinal: P0) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptMsgUpdate(hcryptmsg : *const core::ffi::c_void, pbdata : *const u8, cbdata : u32, ffinal : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     CryptMsgUpdate(hcryptmsg, core::mem::transmute(pbdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ffinal.param().abi()).ok()
@@ -1802,9 +1802,9 @@ where
     CryptMsgVerifyCountersignatureEncodedEx(hcryptprov.param().abi(), dwencodingtype, core::mem::transmute(pbsignerinfo.as_ptr()), pbsignerinfo.len().try_into().unwrap(), core::mem::transmute(pbsignerinfocountersignature.as_ptr()), pbsignerinfocountersignature.len().try_into().unwrap(), dwsignertype, pvsigner, dwflags, core::mem::transmute(pvextra.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn CryptProtectData<P1>(pdatain: *const CRYPT_INTEGER_BLOB, szdatadescr: P1, poptionalentropy: Option<*const CRYPT_INTEGER_BLOB>, pvreserved: Option<*const core::ffi::c_void>, ppromptstruct: Option<*const CRYPTPROTECT_PROMPTSTRUCT>, dwflags: u32, pdataout: *mut CRYPT_INTEGER_BLOB) -> windows_core::Result<()>
+pub unsafe fn CryptProtectData<P0>(pdatain: *const CRYPT_INTEGER_BLOB, szdatadescr: P0, poptionalentropy: Option<*const CRYPT_INTEGER_BLOB>, pvreserved: Option<*const core::ffi::c_void>, ppromptstruct: Option<*const CRYPTPROTECT_PROMPTSTRUCT>, dwflags: u32, pdataout: *mut CRYPT_INTEGER_BLOB) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptProtectData(pdatain : *const CRYPT_INTEGER_BLOB, szdatadescr : windows_core::PCWSTR, poptionalentropy : *const CRYPT_INTEGER_BLOB, pvreserved : *const core::ffi::c_void, ppromptstruct : *const CRYPTPROTECT_PROMPTSTRUCT, dwflags : u32, pdataout : *mut CRYPT_INTEGER_BLOB) -> super::super::Foundation:: BOOL);
     CryptProtectData(pdatain, szdatadescr.param().abi(), core::mem::transmute(poptionalentropy.unwrap_or(core::ptr::null())), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(ppromptstruct.unwrap_or(core::ptr::null())), dwflags, pdataout).ok()
@@ -1833,21 +1833,21 @@ pub unsafe fn CryptQueryObject(dwobjecttype: CERT_QUERY_OBJECT_TYPE, pvobject: *
     .ok()
 }
 #[inline]
-pub unsafe fn CryptRegisterDefaultOIDFunction<P1, P3>(dwencodingtype: u32, pszfuncname: P1, dwindex: u32, pwszdll: P3) -> super::super::Foundation::BOOL
+pub unsafe fn CryptRegisterDefaultOIDFunction<P0, P1>(dwencodingtype: u32, pszfuncname: P0, dwindex: u32, pwszdll: P1) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptRegisterDefaultOIDFunction(dwencodingtype : u32, pszfuncname : windows_core::PCSTR, dwindex : u32, pwszdll : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     CryptRegisterDefaultOIDFunction(dwencodingtype, pszfuncname.param().abi(), dwindex, pwszdll.param().abi())
 }
 #[inline]
-pub unsafe fn CryptRegisterOIDFunction<P1, P2, P3, P4>(dwencodingtype: u32, pszfuncname: P1, pszoid: P2, pwszdll: P3, pszoverridefuncname: P4) -> super::super::Foundation::BOOL
+pub unsafe fn CryptRegisterOIDFunction<P0, P1, P2, P3>(dwencodingtype: u32, pszfuncname: P0, pszoid: P1, pwszdll: P2, pszoverridefuncname: P3) -> super::super::Foundation::BOOL
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptRegisterOIDFunction(dwencodingtype : u32, pszfuncname : windows_core::PCSTR, pszoid : windows_core::PCSTR, pwszdll : windows_core::PCWSTR, pszoverridefuncname : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     CryptRegisterOIDFunction(dwencodingtype, pszfuncname.param().abi(), pszoid.param().abi(), pwszdll.param().abi(), pszoverridefuncname.param().abi())
@@ -1863,30 +1863,30 @@ pub unsafe fn CryptReleaseContext(hprov: usize, dwflags: u32) -> windows_core::R
     CryptReleaseContext(hprov, dwflags).ok()
 }
 #[inline]
-pub unsafe fn CryptRetrieveObjectByUrlA<P0, P1, P5>(pszurl: P0, pszobjectoid: P1, dwretrievalflags: u32, dwtimeout: u32, ppvobject: *mut *mut core::ffi::c_void, hasyncretrieve: P5, pcredentials: Option<*const CRYPT_CREDENTIALS>, pvverify: Option<*const core::ffi::c_void>, pauxinfo: Option<*mut CRYPT_RETRIEVE_AUX_INFO>) -> super::super::Foundation::BOOL
+pub unsafe fn CryptRetrieveObjectByUrlA<P0, P1, P2>(pszurl: P0, pszobjectoid: P1, dwretrievalflags: u32, dwtimeout: u32, ppvobject: *mut *mut core::ffi::c_void, hasyncretrieve: P2, pcredentials: Option<*const CRYPT_CREDENTIALS>, pvverify: Option<*const core::ffi::c_void>, pauxinfo: Option<*mut CRYPT_RETRIEVE_AUX_INFO>) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P5: windows_core::Param<HCRYPTASYNC>,
+    P2: windows_core::Param<HCRYPTASYNC>,
 {
     windows_targets::link!("cryptnet.dll" "system" fn CryptRetrieveObjectByUrlA(pszurl : windows_core::PCSTR, pszobjectoid : windows_core::PCSTR, dwretrievalflags : u32, dwtimeout : u32, ppvobject : *mut *mut core::ffi::c_void, hasyncretrieve : HCRYPTASYNC, pcredentials : *const CRYPT_CREDENTIALS, pvverify : *const core::ffi::c_void, pauxinfo : *mut CRYPT_RETRIEVE_AUX_INFO) -> super::super::Foundation:: BOOL);
     CryptRetrieveObjectByUrlA(pszurl.param().abi(), pszobjectoid.param().abi(), dwretrievalflags, dwtimeout, ppvobject, hasyncretrieve.param().abi(), core::mem::transmute(pcredentials.unwrap_or(core::ptr::null())), core::mem::transmute(pvverify.unwrap_or(core::ptr::null())), core::mem::transmute(pauxinfo.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn CryptRetrieveObjectByUrlW<P0, P1, P5>(pszurl: P0, pszobjectoid: P1, dwretrievalflags: u32, dwtimeout: u32, ppvobject: *mut *mut core::ffi::c_void, hasyncretrieve: P5, pcredentials: Option<*const CRYPT_CREDENTIALS>, pvverify: Option<*const core::ffi::c_void>, pauxinfo: Option<*mut CRYPT_RETRIEVE_AUX_INFO>) -> super::super::Foundation::BOOL
+pub unsafe fn CryptRetrieveObjectByUrlW<P0, P1, P2>(pszurl: P0, pszobjectoid: P1, dwretrievalflags: u32, dwtimeout: u32, ppvobject: *mut *mut core::ffi::c_void, hasyncretrieve: P2, pcredentials: Option<*const CRYPT_CREDENTIALS>, pvverify: Option<*const core::ffi::c_void>, pauxinfo: Option<*mut CRYPT_RETRIEVE_AUX_INFO>) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P5: windows_core::Param<HCRYPTASYNC>,
+    P2: windows_core::Param<HCRYPTASYNC>,
 {
     windows_targets::link!("cryptnet.dll" "system" fn CryptRetrieveObjectByUrlW(pszurl : windows_core::PCWSTR, pszobjectoid : windows_core::PCSTR, dwretrievalflags : u32, dwtimeout : u32, ppvobject : *mut *mut core::ffi::c_void, hasyncretrieve : HCRYPTASYNC, pcredentials : *const CRYPT_CREDENTIALS, pvverify : *const core::ffi::c_void, pauxinfo : *mut CRYPT_RETRIEVE_AUX_INFO) -> super::super::Foundation:: BOOL);
     CryptRetrieveObjectByUrlW(pszurl.param().abi(), pszobjectoid.param().abi(), dwretrievalflags, dwtimeout, ppvobject, hasyncretrieve.param().abi(), core::mem::transmute(pcredentials.unwrap_or(core::ptr::null())), core::mem::transmute(pvverify.unwrap_or(core::ptr::null())), core::mem::transmute(pauxinfo.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn CryptRetrieveTimeStamp<P0, P3>(wszurl: P0, dwretrievalflags: u32, dwtimeout: u32, pszhashid: P3, ppara: Option<*const CRYPT_TIMESTAMP_PARA>, pbdata: &[u8], pptscontext: *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut *mut CERT_CONTEXT, phstore: Option<*mut HCERTSTORE>) -> windows_core::Result<()>
+pub unsafe fn CryptRetrieveTimeStamp<P0, P1>(wszurl: P0, dwretrievalflags: u32, dwtimeout: u32, pszhashid: P1, ppara: Option<*const CRYPT_TIMESTAMP_PARA>, pbdata: &[u8], pptscontext: *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut *mut CERT_CONTEXT, phstore: Option<*mut HCERTSTORE>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptRetrieveTimeStamp(wszurl : windows_core::PCWSTR, dwretrievalflags : u32, dwtimeout : u32, pszhashid : windows_core::PCSTR, ppara : *const CRYPT_TIMESTAMP_PARA, pbdata : *const u8, cbdata : u32, pptscontext : *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner : *mut *mut CERT_CONTEXT, phstore : *mut HCERTSTORE) -> super::super::Foundation:: BOOL);
     CryptRetrieveTimeStamp(wszurl.param().abi(), dwretrievalflags, dwtimeout, pszhashid.param().abi(), core::mem::transmute(ppara.unwrap_or(core::ptr::null())), core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), pptscontext, pptssigner, core::mem::transmute(phstore.unwrap_or(core::ptr::null_mut()))).ok()
@@ -1906,9 +1906,9 @@ pub unsafe fn CryptSetHashParam(hhash: usize, dwparam: CRYPT_SET_HASH_PARAM, pbd
     CryptSetHashParam(hhash, dwparam, pbdata, dwflags).ok()
 }
 #[inline]
-pub unsafe fn CryptSetKeyIdentifierProperty<P3>(pkeyidentifier: *const CRYPT_INTEGER_BLOB, dwpropid: u32, dwflags: u32, pwszcomputername: P3, pvreserved: Option<*const core::ffi::c_void>, pvdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn CryptSetKeyIdentifierProperty<P0>(pkeyidentifier: *const CRYPT_INTEGER_BLOB, dwpropid: u32, dwflags: u32, pwszcomputername: P0, pvreserved: Option<*const core::ffi::c_void>, pvdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptSetKeyIdentifierProperty(pkeyidentifier : *const CRYPT_INTEGER_BLOB, dwpropid : u32, dwflags : u32, pwszcomputername : windows_core::PCWSTR, pvreserved : *const core::ffi::c_void, pvdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     CryptSetKeyIdentifierProperty(pkeyidentifier, dwpropid, dwflags, pwszcomputername.param().abi(), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null()))).ok()
@@ -1920,11 +1920,11 @@ pub unsafe fn CryptSetKeyParam(hkey: usize, dwparam: CRYPT_KEY_PARAM_ID, pbdata:
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn CryptSetOIDFunctionValue<P1, P2, P3>(dwencodingtype: u32, pszfuncname: P1, pszoid: P2, pwszvaluename: P3, dwvaluetype: super::super::System::Registry::REG_VALUE_TYPE, pbvaluedata: Option<&[u8]>) -> super::super::Foundation::BOOL
+pub unsafe fn CryptSetOIDFunctionValue<P0, P1, P2>(dwencodingtype: u32, pszfuncname: P0, pszoid: P1, pwszvaluename: P2, dwvaluetype: super::super::System::Registry::REG_VALUE_TYPE, pbvaluedata: Option<&[u8]>) -> super::super::Foundation::BOOL
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptSetOIDFunctionValue(dwencodingtype : u32, pszfuncname : windows_core::PCSTR, pszoid : windows_core::PCSTR, pwszvaluename : windows_core::PCWSTR, dwvaluetype : super::super::System::Registry:: REG_VALUE_TYPE, pbvaluedata : *const u8, cbvaluedata : u32) -> super::super::Foundation:: BOOL);
     CryptSetOIDFunctionValue(dwencodingtype, pszfuncname.param().abi(), pszoid.param().abi(), pwszvaluename.param().abi(), dwvaluetype, core::mem::transmute(pbvaluedata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbvaluedata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
@@ -1967,10 +1967,10 @@ where
     CryptSetProviderW(pszprovname.param().abi(), dwprovtype).ok()
 }
 #[inline]
-pub unsafe fn CryptSignAndEncodeCertificate<P0, P3>(hcryptprovorncryptkey: P0, dwkeyspec: CERT_KEY_SPEC, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: P3, pvstructinfo: *const core::ffi::c_void, psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo: Option<*const core::ffi::c_void>, pbencoded: Option<*mut u8>, pcbencoded: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptSignAndEncodeCertificate<P0, P1>(hcryptprovorncryptkey: P0, dwkeyspec: CERT_KEY_SPEC, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: P1, pvstructinfo: *const core::ffi::c_void, psignaturealgorithm: *const CRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo: Option<*const core::ffi::c_void>, pbencoded: Option<*mut u8>, pcbencoded: *mut u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>,
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptSignAndEncodeCertificate(hcryptprovorncryptkey : HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec : CERT_KEY_SPEC, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, lpszstructtype : windows_core::PCSTR, pvstructinfo : *const core::ffi::c_void, psignaturealgorithm : *const CRYPT_ALGORITHM_IDENTIFIER, pvhashauxinfo : *const core::ffi::c_void, pbencoded : *mut u8, pcbencoded : *mut u32) -> super::super::Foundation:: BOOL);
     CryptSignAndEncodeCertificate(hcryptprovorncryptkey.param().abi(), dwkeyspec, dwcertencodingtype, lpszstructtype.param().abi(), pvstructinfo, psignaturealgorithm, core::mem::transmute(pvhashauxinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pbencoded.unwrap_or(core::ptr::null_mut())), pcbencoded).ok()
@@ -1989,25 +1989,25 @@ where
     CryptSignCertificate(hcryptprovorncryptkey.param().abi(), dwkeyspec, dwcertencodingtype, core::mem::transmute(pbencodedtobesigned.as_ptr()), pbencodedtobesigned.len().try_into().unwrap(), psignaturealgorithm, core::mem::transmute(pvhashauxinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pbsignature.unwrap_or(core::ptr::null_mut())), pcbsignature).ok()
 }
 #[inline]
-pub unsafe fn CryptSignHashA<P2>(hhash: usize, dwkeyspec: u32, szdescription: P2, dwflags: u32, pbsignature: Option<*mut u8>, pdwsiglen: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptSignHashA<P0>(hhash: usize, dwkeyspec: u32, szdescription: P0, dwflags: u32, pbsignature: Option<*mut u8>, pdwsiglen: *mut u32) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CryptSignHashA(hhash : usize, dwkeyspec : u32, szdescription : windows_core::PCSTR, dwflags : u32, pbsignature : *mut u8, pdwsiglen : *mut u32) -> super::super::Foundation:: BOOL);
     CryptSignHashA(hhash, dwkeyspec, szdescription.param().abi(), dwflags, core::mem::transmute(pbsignature.unwrap_or(core::ptr::null_mut())), pdwsiglen).ok()
 }
 #[inline]
-pub unsafe fn CryptSignHashW<P2>(hhash: usize, dwkeyspec: u32, szdescription: P2, dwflags: u32, pbsignature: Option<*mut u8>, pdwsiglen: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptSignHashW<P0>(hhash: usize, dwkeyspec: u32, szdescription: P0, dwflags: u32, pbsignature: Option<*mut u8>, pdwsiglen: *mut u32) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CryptSignHashW(hhash : usize, dwkeyspec : u32, szdescription : windows_core::PCWSTR, dwflags : u32, pbsignature : *mut u8, pdwsiglen : *mut u32) -> super::super::Foundation:: BOOL);
     CryptSignHashW(hhash, dwkeyspec, szdescription.param().abi(), dwflags, core::mem::transmute(pbsignature.unwrap_or(core::ptr::null_mut())), pdwsiglen).ok()
 }
 #[inline]
-pub unsafe fn CryptSignMessage<P1>(psignpara: *const CRYPT_SIGN_MESSAGE_PARA, fdetachedsignature: P1, ctobesigned: u32, rgpbtobesigned: Option<*const *const u8>, rgcbtobesigned: *const u32, pbsignedblob: Option<*mut u8>, pcbsignedblob: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CryptSignMessage<P0>(psignpara: *const CRYPT_SIGN_MESSAGE_PARA, fdetachedsignature: P0, ctobesigned: u32, rgpbtobesigned: Option<*const *const u8>, rgcbtobesigned: *const u32, pbsignedblob: Option<*mut u8>, pcbsignedblob: *mut u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptSignMessage(psignpara : *const CRYPT_SIGN_MESSAGE_PARA, fdetachedsignature : super::super::Foundation:: BOOL, ctobesigned : u32, rgpbtobesigned : *const *const u8, rgcbtobesigned : *const u32, pbsignedblob : *mut u8, pcbsignedblob : *mut u32) -> super::super::Foundation:: BOOL);
     CryptSignMessage(psignpara, fdetachedsignature.param().abi(), ctobesigned, core::mem::transmute(rgpbtobesigned.unwrap_or(core::ptr::null())), rgcbtobesigned, core::mem::transmute(pbsignedblob.unwrap_or(core::ptr::null_mut())), pcbsignedblob).ok()
@@ -2048,19 +2048,19 @@ pub unsafe fn CryptUnprotectMemory(pdatain: *mut core::ffi::c_void, cbdatain: u3
     CryptUnprotectMemory(pdatain, cbdatain, dwflags).ok()
 }
 #[inline]
-pub unsafe fn CryptUnregisterDefaultOIDFunction<P1, P2>(dwencodingtype: u32, pszfuncname: P1, pwszdll: P2) -> super::super::Foundation::BOOL
+pub unsafe fn CryptUnregisterDefaultOIDFunction<P0, P1>(dwencodingtype: u32, pszfuncname: P0, pwszdll: P1) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptUnregisterDefaultOIDFunction(dwencodingtype : u32, pszfuncname : windows_core::PCSTR, pwszdll : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     CryptUnregisterDefaultOIDFunction(dwencodingtype, pszfuncname.param().abi(), pwszdll.param().abi())
 }
 #[inline]
-pub unsafe fn CryptUnregisterOIDFunction<P1, P2>(dwencodingtype: u32, pszfuncname: P1, pszoid: P2) -> super::super::Foundation::BOOL
+pub unsafe fn CryptUnregisterOIDFunction<P0, P1>(dwencodingtype: u32, pszfuncname: P0, pszoid: P1) -> super::super::Foundation::BOOL
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptUnregisterOIDFunction(dwencodingtype : u32, pszfuncname : windows_core::PCSTR, pszoid : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     CryptUnregisterOIDFunction(dwencodingtype, pszfuncname.param().abi(), pszoid.param().abi())
@@ -2121,25 +2121,25 @@ pub unsafe fn CryptVerifyMessageSignatureWithKey(pverifypara: *const CRYPT_KEY_V
     CryptVerifyMessageSignatureWithKey(pverifypara, core::mem::transmute(ppublickeyinfo.unwrap_or(core::ptr::null())), core::mem::transmute(pbsignedblob.as_ptr()), pbsignedblob.len().try_into().unwrap(), core::mem::transmute(pbdecoded.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdecoded.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn CryptVerifySignatureA<P4>(hhash: usize, pbsignature: &[u8], hpubkey: usize, szdescription: P4, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn CryptVerifySignatureA<P0>(hhash: usize, pbsignature: &[u8], hpubkey: usize, szdescription: P0, dwflags: u32) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CryptVerifySignatureA(hhash : usize, pbsignature : *const u8, dwsiglen : u32, hpubkey : usize, szdescription : windows_core::PCSTR, dwflags : u32) -> super::super::Foundation:: BOOL);
     CryptVerifySignatureA(hhash, core::mem::transmute(pbsignature.as_ptr()), pbsignature.len().try_into().unwrap(), hpubkey, szdescription.param().abi(), dwflags).ok()
 }
 #[inline]
-pub unsafe fn CryptVerifySignatureW<P4>(hhash: usize, pbsignature: &[u8], hpubkey: usize, szdescription: P4, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn CryptVerifySignatureW<P0>(hhash: usize, pbsignature: &[u8], hpubkey: usize, szdescription: P0, dwflags: u32) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CryptVerifySignatureW(hhash : usize, pbsignature : *const u8, dwsiglen : u32, hpubkey : usize, szdescription : windows_core::PCWSTR, dwflags : u32) -> super::super::Foundation:: BOOL);
     CryptVerifySignatureW(hhash, core::mem::transmute(pbsignature.as_ptr()), pbsignature.len().try_into().unwrap(), hpubkey, szdescription.param().abi(), dwflags).ok()
 }
 #[inline]
-pub unsafe fn CryptVerifyTimeStampSignature<P4>(pbtscontentinfo: &[u8], pbdata: Option<&[u8]>, hadditionalstore: P4, pptscontext: *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut *mut CERT_CONTEXT, phstore: Option<*mut HCERTSTORE>) -> windows_core::Result<()>
+pub unsafe fn CryptVerifyTimeStampSignature<P0>(pbtscontentinfo: &[u8], pbdata: Option<&[u8]>, hadditionalstore: P0, pptscontext: *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner: *mut *mut CERT_CONTEXT, phstore: Option<*mut HCERTSTORE>) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<HCERTSTORE>,
+    P0: windows_core::Param<HCERTSTORE>,
 {
     windows_targets::link!("crypt32.dll" "system" fn CryptVerifyTimeStampSignature(pbtscontentinfo : *const u8, cbtscontentinfo : u32, pbdata : *const u8, cbdata : u32, hadditionalstore : HCERTSTORE, pptscontext : *mut *mut CRYPT_TIMESTAMP_CONTEXT, pptssigner : *mut *mut CERT_CONTEXT, phstore : *mut HCERTSTORE) -> super::super::Foundation:: BOOL);
     CryptVerifyTimeStampSignature(core::mem::transmute(pbtscontentinfo.as_ptr()), pbtscontentinfo.len().try_into().unwrap(), core::mem::transmute(pbdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hadditionalstore.param().abi(), pptscontext, pptssigner, core::mem::transmute(phstore.unwrap_or(core::ptr::null_mut()))).ok()
@@ -2156,11 +2156,11 @@ pub unsafe fn CryptXmlClose(hcryptxml: *const core::ffi::c_void) -> windows_core
     CryptXmlClose(hcryptxml).ok()
 }
 #[inline]
-pub unsafe fn CryptXmlCreateReference<P2, P3, P4>(hcryptxml: *const core::ffi::c_void, dwflags: u32, wszid: P2, wszuri: P3, wsztype: P4, pdigestmethod: *const CRYPT_XML_ALGORITHM, rgtransform: Option<&[CRYPT_XML_ALGORITHM]>, phreference: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CryptXmlCreateReference<P0, P1, P2>(hcryptxml: *const core::ffi::c_void, dwflags: u32, wszid: P0, wszuri: P1, wsztype: P2, pdigestmethod: *const CRYPT_XML_ALGORITHM, rgtransform: Option<&[CRYPT_XML_ALGORITHM]>, phreference: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cryptxml.dll" "system" fn CryptXmlCreateReference(hcryptxml : *const core::ffi::c_void, dwflags : u32, wszid : windows_core::PCWSTR, wszuri : windows_core::PCWSTR, wsztype : windows_core::PCWSTR, pdigestmethod : *const CRYPT_XML_ALGORITHM, ctransform : u32, rgtransform : *const CRYPT_XML_ALGORITHM, phreference : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     CryptXmlCreateReference(hcryptxml, dwflags, wszid.param().abi(), wszuri.param().abi(), wsztype.param().abi(), pdigestmethod, rgtransform.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgtransform.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), phreference).ok()
@@ -2233,9 +2233,9 @@ pub unsafe fn CryptXmlOpenToDecode(pconfig: Option<*const CRYPT_XML_TRANSFORM_CH
     CryptXmlOpenToDecode(core::mem::transmute(pconfig.unwrap_or(core::ptr::null())), dwflags, core::mem::transmute(rgproperty.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgproperty.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pencoded, phcryptxml).ok()
 }
 #[inline]
-pub unsafe fn CryptXmlOpenToEncode<P2>(pconfig: Option<*const CRYPT_XML_TRANSFORM_CHAIN_CONFIG>, dwflags: CRYPT_XML_FLAGS, wszid: P2, rgproperty: Option<&[CRYPT_XML_PROPERTY]>, pencoded: Option<*const CRYPT_XML_BLOB>, phsignature: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CryptXmlOpenToEncode<P0>(pconfig: Option<*const CRYPT_XML_TRANSFORM_CHAIN_CONFIG>, dwflags: CRYPT_XML_FLAGS, wszid: P0, rgproperty: Option<&[CRYPT_XML_PROPERTY]>, pencoded: Option<*const CRYPT_XML_BLOB>, phsignature: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cryptxml.dll" "system" fn CryptXmlOpenToEncode(pconfig : *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwflags : CRYPT_XML_FLAGS, wszid : windows_core::PCWSTR, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pencoded : *const CRYPT_XML_BLOB, phsignature : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     CryptXmlOpenToEncode(core::mem::transmute(pconfig.unwrap_or(core::ptr::null())), dwflags, wszid.param().abi(), core::mem::transmute(rgproperty.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgproperty.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pencoded.unwrap_or(core::ptr::null())), phsignature).ok()
@@ -2246,41 +2246,41 @@ pub unsafe fn CryptXmlSetHMACSecret(hsignature: *const core::ffi::c_void, pbsecr
     CryptXmlSetHMACSecret(hsignature, core::mem::transmute(pbsecret.as_ptr()), pbsecret.len().try_into().unwrap()).ok()
 }
 #[inline]
-pub unsafe fn CryptXmlSign<P1>(hsignature: *const core::ffi::c_void, hkey: P1, dwkeyspec: CERT_KEY_SPEC, dwflags: CRYPT_XML_FLAGS, dwkeyinfospec: CRYPT_XML_KEYINFO_SPEC, pvkeyinfospec: Option<*const core::ffi::c_void>, psignaturemethod: *const CRYPT_XML_ALGORITHM, pcanonicalization: *const CRYPT_XML_ALGORITHM) -> windows_core::Result<()>
+pub unsafe fn CryptXmlSign<P0>(hsignature: *const core::ffi::c_void, hkey: P0, dwkeyspec: CERT_KEY_SPEC, dwflags: CRYPT_XML_FLAGS, dwkeyinfospec: CRYPT_XML_KEYINFO_SPEC, pvkeyinfospec: Option<*const core::ffi::c_void>, psignaturemethod: *const CRYPT_XML_ALGORITHM, pcanonicalization: *const CRYPT_XML_ALGORITHM) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>,
+    P0: windows_core::Param<HCRYPTPROV_OR_NCRYPT_KEY_HANDLE>,
 {
     windows_targets::link!("cryptxml.dll" "system" fn CryptXmlSign(hsignature : *const core::ffi::c_void, hkey : HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec : CERT_KEY_SPEC, dwflags : CRYPT_XML_FLAGS, dwkeyinfospec : CRYPT_XML_KEYINFO_SPEC, pvkeyinfospec : *const core::ffi::c_void, psignaturemethod : *const CRYPT_XML_ALGORITHM, pcanonicalization : *const CRYPT_XML_ALGORITHM) -> windows_core::HRESULT);
     CryptXmlSign(hsignature, hkey.param().abi(), dwkeyspec, dwflags, dwkeyinfospec, core::mem::transmute(pvkeyinfospec.unwrap_or(core::ptr::null())), psignaturemethod, pcanonicalization).ok()
 }
 #[inline]
-pub unsafe fn CryptXmlVerifySignature<P1>(hsignature: *const core::ffi::c_void, hkey: P1, dwflags: CRYPT_XML_FLAGS) -> windows_core::Result<()>
+pub unsafe fn CryptXmlVerifySignature<P0>(hsignature: *const core::ffi::c_void, hkey: P0, dwflags: CRYPT_XML_FLAGS) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<BCRYPT_KEY_HANDLE>,
+    P0: windows_core::Param<BCRYPT_KEY_HANDLE>,
 {
     windows_targets::link!("cryptxml.dll" "system" fn CryptXmlVerifySignature(hsignature : *const core::ffi::c_void, hkey : BCRYPT_KEY_HANDLE, dwflags : CRYPT_XML_FLAGS) -> windows_core::HRESULT);
     CryptXmlVerifySignature(hsignature, hkey.param().abi(), dwflags).ok()
 }
 #[inline]
-pub unsafe fn Decrypt<P1>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, foaep: P1, pindata: &[u8], pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn Decrypt<P0>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, foaep: P0, pindata: &[u8], pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("infocardapi.dll" "system" fn Decrypt(hcrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, foaep : super::super::Foundation:: BOOL, cbindata : u32, pindata : *const u8, pcboutdata : *mut u32, ppoutdata : *mut *mut u8) -> windows_core::HRESULT);
     Decrypt(hcrypto, foaep.param().abi(), pindata.len().try_into().unwrap(), core::mem::transmute(pindata.as_ptr()), pcboutdata, ppoutdata).ok()
 }
 #[inline]
-pub unsafe fn Encrypt<P1>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, foaep: P1, pindata: &[u8], pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn Encrypt<P0>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, foaep: P0, pindata: &[u8], pcboutdata: *mut u32, ppoutdata: *mut *mut u8) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("infocardapi.dll" "system" fn Encrypt(hcrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, foaep : super::super::Foundation:: BOOL, cbindata : u32, pindata : *const u8, pcboutdata : *mut u32, ppoutdata : *mut *mut u8) -> windows_core::HRESULT);
     Encrypt(hcrypto, foaep.param().abi(), pindata.len().try_into().unwrap(), core::mem::transmute(pindata.as_ptr()), pcboutdata, ppoutdata).ok()
 }
 #[inline]
-pub unsafe fn FindCertsByIssuer<P5>(pcertchains: Option<*mut CERT_CHAIN>, pcbcertchains: *mut u32, pccertchains: *mut u32, pbencodedissuername: Option<&[u8]>, pwszpurpose: P5, dwkeyspec: u32) -> windows_core::Result<()>
+pub unsafe fn FindCertsByIssuer<P0>(pcertchains: Option<*mut CERT_CHAIN>, pcbcertchains: *mut u32, pccertchains: *mut u32, pbencodedissuername: Option<&[u8]>, pwszpurpose: P0, dwkeyspec: u32) -> windows_core::Result<()>
 where
-    P5: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wintrust.dll" "system" fn FindCertsByIssuer(pcertchains : *mut CERT_CHAIN, pcbcertchains : *mut u32, pccertchains : *mut u32, pbencodedissuername : *const u8, cbencodedissuername : u32, pwszpurpose : windows_core::PCWSTR, dwkeyspec : u32) -> windows_core::HRESULT);
     FindCertsByIssuer(core::mem::transmute(pcertchains.unwrap_or(core::ptr::null_mut())), pcbcertchains, pccertchains, core::mem::transmute(pbencodedissuername.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbencodedissuername.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pwszpurpose.param().abi(), dwkeyspec).ok()
@@ -2291,9 +2291,9 @@ pub unsafe fn FreeToken(pallocmemory: *const GENERIC_XML_TOKEN) -> super::super:
     FreeToken(pallocmemory)
 }
 #[inline]
-pub unsafe fn GenerateDerivedKey<P7>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, plabel: &[u8], pnonce: &[u8], derivedkeylength: u32, offset: u32, algid: P7, pcbkey: *mut u32, ppkey: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn GenerateDerivedKey<P0>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, plabel: &[u8], pnonce: &[u8], derivedkeylength: u32, offset: u32, algid: P0, pcbkey: *mut u32, ppkey: *mut *mut u8) -> windows_core::Result<()>
 where
-    P7: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("infocardapi.dll" "system" fn GenerateDerivedKey(hcrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, cblabel : u32, plabel : *const u8, cbnonce : u32, pnonce : *const u8, derivedkeylength : u32, offset : u32, algid : windows_core::PCWSTR, pcbkey : *mut u32, ppkey : *mut *mut u8) -> windows_core::HRESULT);
     GenerateDerivedKey(hcrypto, plabel.len().try_into().unwrap(), core::mem::transmute(plabel.as_ptr()), pnonce.len().try_into().unwrap(), core::mem::transmute(pnonce.as_ptr()), derivedkeylength, offset, algid.param().abi(), pcbkey, ppkey).ok()
@@ -2377,11 +2377,11 @@ where
     NCryptCreateClaim(hsubjectkey.param().abi(), hauthoritykey.param().abi(), dwclaimtype, core::mem::transmute(pparameterlist.unwrap_or(core::ptr::null())), core::mem::transmute(pbclaimblob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbclaimblob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult, dwflags).ok()
 }
 #[inline]
-pub unsafe fn NCryptCreatePersistedKey<P0, P2, P3>(hprovider: P0, phkey: *mut NCRYPT_KEY_HANDLE, pszalgid: P2, pszkeyname: P3, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
+pub unsafe fn NCryptCreatePersistedKey<P0, P1, P2>(hprovider: P0, phkey: *mut NCRYPT_KEY_HANDLE, pszalgid: P1, pszkeyname: P2, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
 where
     P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptCreatePersistedKey(hprovider : NCRYPT_PROV_HANDLE, phkey : *mut NCRYPT_KEY_HANDLE, pszalgid : windows_core::PCWSTR, pszkeyname : windows_core::PCWSTR, dwlegacykeyspec : CERT_KEY_SPEC, dwflags : NCRYPT_FLAGS) -> windows_core::HRESULT);
     NCryptCreatePersistedKey(hprovider.param().abi(), phkey, pszalgid.param().abi(), pszkeyname.param().abi(), dwlegacykeyspec, dwflags).ok()
@@ -2542,27 +2542,27 @@ where
     NCryptNotifyChangeKey(hprovider.param().abi(), phevent, dwflags).ok()
 }
 #[inline]
-pub unsafe fn NCryptOpenKey<P0, P2>(hprovider: P0, phkey: *mut NCRYPT_KEY_HANDLE, pszkeyname: P2, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
+pub unsafe fn NCryptOpenKey<P0, P1>(hprovider: P0, phkey: *mut NCRYPT_KEY_HANDLE, pszkeyname: P1, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: NCRYPT_FLAGS) -> windows_core::Result<()>
 where
     P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptOpenKey(hprovider : NCRYPT_PROV_HANDLE, phkey : *mut NCRYPT_KEY_HANDLE, pszkeyname : windows_core::PCWSTR, dwlegacykeyspec : CERT_KEY_SPEC, dwflags : NCRYPT_FLAGS) -> windows_core::HRESULT);
     NCryptOpenKey(hprovider.param().abi(), phkey, pszkeyname.param().abi(), dwlegacykeyspec, dwflags).ok()
 }
 #[inline]
-pub unsafe fn NCryptOpenStorageProvider<P1>(phprovider: *mut NCRYPT_PROV_HANDLE, pszprovidername: P1, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn NCryptOpenStorageProvider<P0>(phprovider: *mut NCRYPT_PROV_HANDLE, pszprovidername: P0, dwflags: u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptOpenStorageProvider(phprovider : *mut NCRYPT_PROV_HANDLE, pszprovidername : windows_core::PCWSTR, dwflags : u32) -> windows_core::HRESULT);
     NCryptOpenStorageProvider(phprovider, pszprovidername.param().abi(), dwflags).ok()
 }
 #[inline]
-pub unsafe fn NCryptProtectSecret<P0, P5>(hdescriptor: P0, dwflags: u32, pbdata: &[u8], pmempara: Option<*const NCRYPT_ALLOC_PARA>, hwnd: P5, ppbprotectedblob: *mut *mut u8, pcbprotectedblob: *mut u32) -> windows_core::Result<()>
+pub unsafe fn NCryptProtectSecret<P0, P1>(hdescriptor: P0, dwflags: u32, pbdata: &[u8], pmempara: Option<*const NCRYPT_ALLOC_PARA>, hwnd: P1, ppbprotectedblob: *mut *mut u8, pcbprotectedblob: *mut u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::NCRYPT_DESCRIPTOR_HANDLE>,
-    P5: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptProtectSecret(hdescriptor : super:: NCRYPT_DESCRIPTOR_HANDLE, dwflags : u32, pbdata : *const u8, cbdata : u32, pmempara : *const NCRYPT_ALLOC_PARA, hwnd : super::super::Foundation:: HWND, ppbprotectedblob : *mut *mut u8, pcbprotectedblob : *mut u32) -> windows_core::HRESULT);
     NCryptProtectSecret(hdescriptor.param().abi(), dwflags, core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), core::mem::transmute(pmempara.unwrap_or(core::ptr::null())), hwnd.param().abi(), ppbprotectedblob, pcbprotectedblob).ok()
@@ -2619,38 +2619,38 @@ where
     NCryptStreamClose(hstream.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn NCryptStreamOpenToProtect<P0, P2>(hdescriptor: P0, dwflags: u32, hwnd: P2, pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO) -> windows_core::Result<super::NCRYPT_STREAM_HANDLE>
+pub unsafe fn NCryptStreamOpenToProtect<P0, P1>(hdescriptor: P0, dwflags: u32, hwnd: P1, pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO) -> windows_core::Result<super::NCRYPT_STREAM_HANDLE>
 where
     P0: windows_core::Param<super::NCRYPT_DESCRIPTOR_HANDLE>,
-    P2: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptStreamOpenToProtect(hdescriptor : super:: NCRYPT_DESCRIPTOR_HANDLE, dwflags : u32, hwnd : super::super::Foundation:: HWND, pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO, phstream : *mut super:: NCRYPT_STREAM_HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     NCryptStreamOpenToProtect(hdescriptor.param().abi(), dwflags, hwnd.param().abi(), pstreaminfo, &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn NCryptStreamOpenToUnprotect<P2>(pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO, dwflags: u32, hwnd: P2) -> windows_core::Result<super::NCRYPT_STREAM_HANDLE>
+pub unsafe fn NCryptStreamOpenToUnprotect<P0>(pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO, dwflags: u32, hwnd: P0) -> windows_core::Result<super::NCRYPT_STREAM_HANDLE>
 where
-    P2: windows_core::Param<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptStreamOpenToUnprotect(pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO, dwflags : u32, hwnd : super::super::Foundation:: HWND, phstream : *mut super:: NCRYPT_STREAM_HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     NCryptStreamOpenToUnprotect(pstreaminfo, dwflags, hwnd.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn NCryptStreamOpenToUnprotectEx<P2>(pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO_EX, dwflags: u32, hwnd: P2) -> windows_core::Result<super::NCRYPT_STREAM_HANDLE>
+pub unsafe fn NCryptStreamOpenToUnprotectEx<P0>(pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO_EX, dwflags: u32, hwnd: P0) -> windows_core::Result<super::NCRYPT_STREAM_HANDLE>
 where
-    P2: windows_core::Param<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptStreamOpenToUnprotectEx(pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO_EX, dwflags : u32, hwnd : super::super::Foundation:: HWND, phstream : *mut super:: NCRYPT_STREAM_HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     NCryptStreamOpenToUnprotectEx(pstreaminfo, dwflags, hwnd.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn NCryptStreamUpdate<P0, P3>(hstream: P0, pbdata: &[u8], ffinal: P3) -> windows_core::Result<()>
+pub unsafe fn NCryptStreamUpdate<P0, P1>(hstream: P0, pbdata: &[u8], ffinal: P1) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::NCRYPT_STREAM_HANDLE>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptStreamUpdate(hstream : super:: NCRYPT_STREAM_HANDLE, pbdata : *const u8, cbdata : usize, ffinal : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     NCryptStreamUpdate(hstream.param().abi(), core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), ffinal.param().abi()).ok()
@@ -2661,9 +2661,9 @@ pub unsafe fn NCryptTranslateHandle(phprovider: Option<*mut NCRYPT_PROV_HANDLE>,
     NCryptTranslateHandle(core::mem::transmute(phprovider.unwrap_or(core::ptr::null_mut())), phkey, hlegacyprov, hlegacykey, dwlegacykeyspec, dwflags).ok()
 }
 #[inline]
-pub unsafe fn NCryptUnprotectSecret<P5>(phdescriptor: Option<*mut super::NCRYPT_DESCRIPTOR_HANDLE>, dwflags: NCRYPT_FLAGS, pbprotectedblob: &[u8], pmempara: Option<*const NCRYPT_ALLOC_PARA>, hwnd: P5, ppbdata: *mut *mut u8, pcbdata: *mut u32) -> windows_core::Result<()>
+pub unsafe fn NCryptUnprotectSecret<P0>(phdescriptor: Option<*mut super::NCRYPT_DESCRIPTOR_HANDLE>, dwflags: NCRYPT_FLAGS, pbprotectedblob: &[u8], pmempara: Option<*const NCRYPT_ALLOC_PARA>, hwnd: P0, ppbdata: *mut *mut u8, pcbdata: *mut u32) -> windows_core::Result<()>
 where
-    P5: windows_core::Param<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn NCryptUnprotectSecret(phdescriptor : *mut super:: NCRYPT_DESCRIPTOR_HANDLE, dwflags : NCRYPT_FLAGS, pbprotectedblob : *const u8, cbprotectedblob : u32, pmempara : *const NCRYPT_ALLOC_PARA, hwnd : super::super::Foundation:: HWND, ppbdata : *mut *mut u8, pcbdata : *mut u32) -> windows_core::HRESULT);
     NCryptUnprotectSecret(core::mem::transmute(phdescriptor.unwrap_or(core::ptr::null_mut())), dwflags, core::mem::transmute(pbprotectedblob.as_ptr()), pbprotectedblob.len().try_into().unwrap(), core::mem::transmute(pmempara.unwrap_or(core::ptr::null())), hwnd.param().abi(), ppbdata, pcbdata).ok()
@@ -2686,27 +2686,27 @@ where
     NCryptVerifySignature(hkey.param().abi(), core::mem::transmute(ppaddinginfo.unwrap_or(core::ptr::null())), core::mem::transmute(pbhashvalue.as_ptr()), pbhashvalue.len().try_into().unwrap(), core::mem::transmute(pbsignature.as_ptr()), pbsignature.len().try_into().unwrap(), dwflags).ok()
 }
 #[inline]
-pub unsafe fn PFXExportCertStore<P0, P2>(hstore: P0, ppfx: *mut CRYPT_INTEGER_BLOB, szpassword: P2, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn PFXExportCertStore<P0, P1>(hstore: P0, ppfx: *mut CRYPT_INTEGER_BLOB, szpassword: P1, dwflags: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HCERTSTORE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn PFXExportCertStore(hstore : HCERTSTORE, ppfx : *mut CRYPT_INTEGER_BLOB, szpassword : windows_core::PCWSTR, dwflags : u32) -> super::super::Foundation:: BOOL);
     PFXExportCertStore(hstore.param().abi(), ppfx, szpassword.param().abi(), dwflags).ok()
 }
 #[inline]
-pub unsafe fn PFXExportCertStoreEx<P0, P2>(hstore: P0, ppfx: *mut CRYPT_INTEGER_BLOB, szpassword: P2, pvpara: *const core::ffi::c_void, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn PFXExportCertStoreEx<P0, P1>(hstore: P0, ppfx: *mut CRYPT_INTEGER_BLOB, szpassword: P1, pvpara: *const core::ffi::c_void, dwflags: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HCERTSTORE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn PFXExportCertStoreEx(hstore : HCERTSTORE, ppfx : *mut CRYPT_INTEGER_BLOB, szpassword : windows_core::PCWSTR, pvpara : *const core::ffi::c_void, dwflags : u32) -> super::super::Foundation:: BOOL);
     PFXExportCertStoreEx(hstore.param().abi(), ppfx, szpassword.param().abi(), pvpara, dwflags).ok()
 }
 #[inline]
-pub unsafe fn PFXImportCertStore<P1>(ppfx: *const CRYPT_INTEGER_BLOB, szpassword: P1, dwflags: CRYPT_KEY_FLAGS) -> windows_core::Result<HCERTSTORE>
+pub unsafe fn PFXImportCertStore<P0>(ppfx: *const CRYPT_INTEGER_BLOB, szpassword: P0, dwflags: CRYPT_KEY_FLAGS) -> windows_core::Result<HCERTSTORE>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn PFXImportCertStore(ppfx : *const CRYPT_INTEGER_BLOB, szpassword : windows_core::PCWSTR, dwflags : CRYPT_KEY_FLAGS) -> HCERTSTORE);
     let result__ = PFXImportCertStore(ppfx, szpassword.param().abi(), dwflags);
@@ -2718,9 +2718,9 @@ pub unsafe fn PFXIsPFXBlob(ppfx: *const CRYPT_INTEGER_BLOB) -> super::super::Fou
     PFXIsPFXBlob(ppfx)
 }
 #[inline]
-pub unsafe fn PFXVerifyPassword<P1>(ppfx: *const CRYPT_INTEGER_BLOB, szpassword: P1, dwflags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn PFXVerifyPassword<P0>(ppfx: *const CRYPT_INTEGER_BLOB, szpassword: P0, dwflags: u32) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("crypt32.dll" "system" fn PFXVerifyPassword(ppfx : *const CRYPT_INTEGER_BLOB, szpassword : windows_core::PCWSTR, dwflags : u32) -> super::super::Foundation:: BOOL);
     PFXVerifyPassword(ppfx, szpassword.param().abi(), dwflags)
@@ -2736,9 +2736,9 @@ pub unsafe fn SignError() -> windows_core::Result<()> {
     SignError().ok()
 }
 #[inline]
-pub unsafe fn SignHash<P3>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, phash: &[u8], hashalgoid: P3, pcbsig: *mut u32, ppsig: *mut *mut u8) -> windows_core::Result<()>
+pub unsafe fn SignHash<P0>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, phash: &[u8], hashalgoid: P0, pcbsig: *mut u32, ppsig: *mut *mut u8) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("infocardapi.dll" "system" fn SignHash(hcrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, cbhash : u32, phash : *const u8, hashalgoid : windows_core::PCWSTR, pcbsig : *mut u32, ppsig : *mut *mut u8) -> windows_core::HRESULT);
     SignHash(hcrypto, phash.len().try_into().unwrap(), core::mem::transmute(phash.as_ptr()), hashalgoid.param().abi(), pcbsig, ppsig).ok()
@@ -2749,36 +2749,36 @@ pub unsafe fn SignerFreeSignerContext(psignercontext: *const SIGNER_CONTEXT) -> 
     SignerFreeSignerContext(psignercontext).ok()
 }
 #[inline]
-pub unsafe fn SignerSign<P4>(psubjectinfo: *const SIGNER_SUBJECT_INFO, psignercert: *const SIGNER_CERT, psignatureinfo: *const SIGNER_SIGNATURE_INFO, pproviderinfo: Option<*const SIGNER_PROVIDER_INFO>, pwszhttptimestamp: P4, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SignerSign<P0>(psubjectinfo: *const SIGNER_SUBJECT_INFO, psignercert: *const SIGNER_CERT, psignatureinfo: *const SIGNER_SIGNATURE_INFO, pproviderinfo: Option<*const SIGNER_PROVIDER_INFO>, pwszhttptimestamp: P0, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mssign32.dll" "system" fn SignerSign(psubjectinfo : *const SIGNER_SUBJECT_INFO, psignercert : *const SIGNER_CERT, psignatureinfo : *const SIGNER_SIGNATURE_INFO, pproviderinfo : *const SIGNER_PROVIDER_INFO, pwszhttptimestamp : windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void) -> windows_core::HRESULT);
     SignerSign(psubjectinfo, psignercert, psignatureinfo, core::mem::transmute(pproviderinfo.unwrap_or(core::ptr::null())), pwszhttptimestamp.param().abi(), core::mem::transmute(psrequest.unwrap_or(core::ptr::null())), core::mem::transmute(psipdata.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SignerSignEx<P5>(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, psignercert: *const SIGNER_CERT, psignatureinfo: *const SIGNER_SIGNATURE_INFO, pproviderinfo: Option<*const SIGNER_PROVIDER_INFO>, pwszhttptimestamp: P5, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>) -> windows_core::Result<*mut SIGNER_CONTEXT>
+pub unsafe fn SignerSignEx<P0>(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, psignercert: *const SIGNER_CERT, psignatureinfo: *const SIGNER_SIGNATURE_INFO, pproviderinfo: Option<*const SIGNER_PROVIDER_INFO>, pwszhttptimestamp: P0, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>) -> windows_core::Result<*mut SIGNER_CONTEXT>
 where
-    P5: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mssign32.dll" "system" fn SignerSignEx(dwflags : SIGNER_SIGN_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, psignercert : *const SIGNER_CERT, psignatureinfo : *const SIGNER_SIGNATURE_INFO, pproviderinfo : *const SIGNER_PROVIDER_INFO, pwszhttptimestamp : windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     SignerSignEx(dwflags, psubjectinfo, psignercert, psignatureinfo, core::mem::transmute(pproviderinfo.unwrap_or(core::ptr::null())), pwszhttptimestamp.param().abi(), core::mem::transmute(psrequest.unwrap_or(core::ptr::null())), core::mem::transmute(psipdata.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn SignerSignEx2<P6, P7>(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, psignercert: *const SIGNER_CERT, psignatureinfo: *const SIGNER_SIGNATURE_INFO, pproviderinfo: Option<*const SIGNER_PROVIDER_INFO>, dwtimestampflags: SIGNER_TIMESTAMP_FLAGS, psztimestampalgorithmoid: P6, pwszhttptimestamp: P7, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>, ppsignercontext: *mut *mut SIGNER_CONTEXT, pcryptopolicy: Option<*const CERT_STRONG_SIGN_PARA>, preserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SignerSignEx2<P0, P1>(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, psignercert: *const SIGNER_CERT, psignatureinfo: *const SIGNER_SIGNATURE_INFO, pproviderinfo: Option<*const SIGNER_PROVIDER_INFO>, dwtimestampflags: SIGNER_TIMESTAMP_FLAGS, psztimestampalgorithmoid: P0, pwszhttptimestamp: P1, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>, ppsignercontext: *mut *mut SIGNER_CONTEXT, pcryptopolicy: Option<*const CERT_STRONG_SIGN_PARA>, preserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P6: windows_core::Param<windows_core::PCSTR>,
-    P7: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mssign32.dll" "system" fn SignerSignEx2(dwflags : SIGNER_SIGN_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, psignercert : *const SIGNER_CERT, psignatureinfo : *const SIGNER_SIGNATURE_INFO, pproviderinfo : *const SIGNER_PROVIDER_INFO, dwtimestampflags : SIGNER_TIMESTAMP_FLAGS, psztimestampalgorithmoid : windows_core::PCSTR, pwszhttptimestamp : windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT, pcryptopolicy : *const CERT_STRONG_SIGN_PARA, preserved : *const core::ffi::c_void) -> windows_core::HRESULT);
     SignerSignEx2(dwflags, psubjectinfo, psignercert, psignatureinfo, core::mem::transmute(pproviderinfo.unwrap_or(core::ptr::null())), dwtimestampflags, psztimestampalgorithmoid.param().abi(), pwszhttptimestamp.param().abi(), core::mem::transmute(psrequest.unwrap_or(core::ptr::null())), core::mem::transmute(psipdata.unwrap_or(core::ptr::null())), ppsignercontext, core::mem::transmute(pcryptopolicy.unwrap_or(core::ptr::null())), core::mem::transmute(preserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SignerSignEx3<P6, P7>(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, psignercert: *const SIGNER_CERT, psignatureinfo: *const SIGNER_SIGNATURE_INFO, pproviderinfo: Option<*const SIGNER_PROVIDER_INFO>, dwtimestampflags: SIGNER_TIMESTAMP_FLAGS, psztimestampalgorithmoid: P6, pwszhttptimestamp: P7, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>, ppsignercontext: *mut *mut SIGNER_CONTEXT, pcryptopolicy: Option<*const CERT_STRONG_SIGN_PARA>, pdigestsigninfo: Option<*const SIGNER_DIGEST_SIGN_INFO>, preserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SignerSignEx3<P0, P1>(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, psignercert: *const SIGNER_CERT, psignatureinfo: *const SIGNER_SIGNATURE_INFO, pproviderinfo: Option<*const SIGNER_PROVIDER_INFO>, dwtimestampflags: SIGNER_TIMESTAMP_FLAGS, psztimestampalgorithmoid: P0, pwszhttptimestamp: P1, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>, ppsignercontext: *mut *mut SIGNER_CONTEXT, pcryptopolicy: Option<*const CERT_STRONG_SIGN_PARA>, pdigestsigninfo: Option<*const SIGNER_DIGEST_SIGN_INFO>, preserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P6: windows_core::Param<windows_core::PCSTR>,
-    P7: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mssign32.dll" "system" fn SignerSignEx3(dwflags : SIGNER_SIGN_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, psignercert : *const SIGNER_CERT, psignatureinfo : *const SIGNER_SIGNATURE_INFO, pproviderinfo : *const SIGNER_PROVIDER_INFO, dwtimestampflags : SIGNER_TIMESTAMP_FLAGS, psztimestampalgorithmoid : windows_core::PCSTR, pwszhttptimestamp : windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT, pcryptopolicy : *const CERT_STRONG_SIGN_PARA, pdigestsigninfo : *const SIGNER_DIGEST_SIGN_INFO, preserved : *const core::ffi::c_void) -> windows_core::HRESULT);
     SignerSignEx3(
@@ -2800,36 +2800,36 @@ where
     .ok()
 }
 #[inline]
-pub unsafe fn SignerTimeStamp<P1>(psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P1, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SignerTimeStamp<P0>(psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P0, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mssign32.dll" "system" fn SignerTimeStamp(psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void) -> windows_core::HRESULT);
     SignerTimeStamp(psubjectinfo, pwszhttptimestamp.param().abi(), core::mem::transmute(psrequest.unwrap_or(core::ptr::null())), core::mem::transmute(psipdata.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SignerTimeStampEx<P2>(dwflags: u32, psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P2, psrequest: *const CRYPT_ATTRIBUTES, psipdata: *const core::ffi::c_void) -> windows_core::Result<*mut SIGNER_CONTEXT>
+pub unsafe fn SignerTimeStampEx<P0>(dwflags: u32, psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P0, psrequest: *const CRYPT_ATTRIBUTES, psipdata: *const core::ffi::c_void) -> windows_core::Result<*mut SIGNER_CONTEXT>
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mssign32.dll" "system" fn SignerTimeStampEx(dwflags : u32, psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     SignerTimeStampEx(dwflags, psubjectinfo, pwszhttptimestamp.param().abi(), psrequest, psipdata, &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn SignerTimeStampEx2<P2>(dwflags: SIGNER_TIMESTAMP_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P2, dwalgid: ALG_ID, psrequest: *const CRYPT_ATTRIBUTES, psipdata: *const core::ffi::c_void) -> windows_core::Result<*mut SIGNER_CONTEXT>
+pub unsafe fn SignerTimeStampEx2<P0>(dwflags: SIGNER_TIMESTAMP_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P0, dwalgid: ALG_ID, psrequest: *const CRYPT_ATTRIBUTES, psipdata: *const core::ffi::c_void) -> windows_core::Result<*mut SIGNER_CONTEXT>
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mssign32.dll" "system" fn SignerTimeStampEx2(dwflags : SIGNER_TIMESTAMP_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : windows_core::PCWSTR, dwalgid : ALG_ID, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     SignerTimeStampEx2(dwflags, psubjectinfo, pwszhttptimestamp.param().abi(), dwalgid, psrequest, psipdata, &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn SignerTimeStampEx3<P3, P4>(dwflags: SIGNER_TIMESTAMP_FLAGS, dwindex: u32, psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P3, pszalgorithmoid: P4, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>, ppsignercontext: *mut *mut SIGNER_CONTEXT, pcryptopolicy: Option<*const CERT_STRONG_SIGN_PARA>, preserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SignerTimeStampEx3<P0, P1>(dwflags: SIGNER_TIMESTAMP_FLAGS, dwindex: u32, psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P0, pszalgorithmoid: P1, psrequest: Option<*const CRYPT_ATTRIBUTES>, psipdata: Option<*const core::ffi::c_void>, ppsignercontext: *mut *mut SIGNER_CONTEXT, pcryptopolicy: Option<*const CERT_STRONG_SIGN_PARA>, preserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mssign32.dll" "system" fn SignerTimeStampEx3(dwflags : SIGNER_TIMESTAMP_FLAGS, dwindex : u32, psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : windows_core::PCWSTR, pszalgorithmoid : windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT, pcryptopolicy : *const CERT_STRONG_SIGN_PARA, preserved : *const core::ffi::c_void) -> windows_core::HRESULT);
     SignerTimeStampEx3(dwflags, dwindex, psubjectinfo, pwszhttptimestamp.param().abi(), pszalgorithmoid.param().abi(), core::mem::transmute(psrequest.unwrap_or(core::ptr::null())), core::mem::transmute(psipdata.unwrap_or(core::ptr::null())), ppsignercontext, core::mem::transmute(pcryptopolicy.unwrap_or(core::ptr::null())), core::mem::transmute(preserved.unwrap_or(core::ptr::null()))).ok()
@@ -2882,10 +2882,10 @@ where
     SslComputeSessionHash(hsslprovider.param().abi(), hhandshakehash.param().abi(), dwprotocol, core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult, dwflags).ok()
 }
 #[inline]
-pub unsafe fn SslCreateClientAuthHash<P0, P4>(hsslprovider: P0, phhandshakehash: *mut NCRYPT_HASH_HANDLE, dwprotocol: u32, dwciphersuite: u32, pszhashalgid: P4, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn SslCreateClientAuthHash<P0, P1>(hsslprovider: P0, phhandshakehash: *mut NCRYPT_HASH_HANDLE, dwprotocol: u32, dwciphersuite: u32, pszhashalgid: P1, dwflags: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn SslCreateClientAuthHash(hsslprovider : NCRYPT_PROV_HANDLE, phhandshakehash : *mut NCRYPT_HASH_HANDLE, dwprotocol : u32, dwciphersuite : u32, pszhashalgid : windows_core::PCWSTR, dwflags : u32) -> windows_core::HRESULT);
     SslCreateClientAuthHash(hsslprovider.param().abi(), phhandshakehash, dwprotocol, dwciphersuite, pszhashalgid.param().abi(), dwflags).ok()
@@ -3167,10 +3167,10 @@ where
     SslHashHandshake(hsslprovider.param().abi(), hhandshakehash.param().abi(), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), dwflags).ok()
 }
 #[inline]
-pub unsafe fn SslImportKey<P0, P2>(hsslprovider: P0, phkey: *mut NCRYPT_KEY_HANDLE, pszblobtype: P2, pbkeyblob: &[u8], dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn SslImportKey<P0, P1>(hsslprovider: P0, phkey: *mut NCRYPT_KEY_HANDLE, pszblobtype: P1, pbkeyblob: &[u8], dwflags: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<NCRYPT_PROV_HANDLE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn SslImportKey(hsslprovider : NCRYPT_PROV_HANDLE, phkey : *mut NCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, pbkeyblob : *const u8, cbkeyblob : u32, dwflags : u32) -> windows_core::HRESULT);
     SslImportKey(hsslprovider.param().abi(), phkey, pszblobtype.param().abi(), core::mem::transmute(pbkeyblob.as_ptr()), pbkeyblob.len().try_into().unwrap(), dwflags).ok()
@@ -3217,9 +3217,9 @@ where
     SslOpenPrivateKey(hsslprovider.param().abi(), phprivatekey, pcertcontext, dwflags).ok()
 }
 #[inline]
-pub unsafe fn SslOpenProvider<P1>(phsslprovider: *mut NCRYPT_PROV_HANDLE, pszprovidername: P1, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn SslOpenProvider<P0>(phsslprovider: *mut NCRYPT_PROV_HANDLE, pszprovidername: P0, dwflags: u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ncrypt.dll" "system" fn SslOpenProvider(phsslprovider : *mut NCRYPT_PROV_HANDLE, pszprovidername : windows_core::PCWSTR, dwflags : u32) -> windows_core::HRESULT);
     SslOpenProvider(phsslprovider, pszprovidername.param().abi(), dwflags).ok()
@@ -3258,9 +3258,9 @@ pub unsafe fn TransformFinalBlock(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE,
     TransformFinalBlock(hcrypto, pindata.len().try_into().unwrap(), core::mem::transmute(pindata.as_ptr()), pcboutdata, ppoutdata).ok()
 }
 #[inline]
-pub unsafe fn VerifyHash<P3>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, phash: &[u8], hashalgoid: P3, psig: &[u8]) -> windows_core::Result<super::super::Foundation::BOOL>
+pub unsafe fn VerifyHash<P0>(hcrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, phash: &[u8], hashalgoid: P0, psig: &[u8]) -> windows_core::Result<super::super::Foundation::BOOL>
 where
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("infocardapi.dll" "system" fn VerifyHash(hcrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, cbhash : u32, phash : *const u8, hashalgoid : windows_core::PCWSTR, cbsig : u32, psig : *const u8, pfverified : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
@@ -3285,7 +3285,7 @@ impl ICertSrvSetup {
     }
     pub unsafe fn CAErrorString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CAErrorString)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).CAErrorString)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeDefaults<P0, P1>(&self, bserver: P0, bclient: P1) -> windows_core::Result<()>
     where
@@ -3297,7 +3297,7 @@ impl ICertSrvSetup {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCASetupProperty(&self, propertyid: CASetupProperty) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetCASetupProperty)(windows_core::Interface::as_raw(self), propertyid, &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetCASetupProperty)(windows_core::Interface::as_raw(self), propertyid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetCASetupProperty(&self, propertyid: CASetupProperty, ppropertyvalue: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
@@ -3310,12 +3310,12 @@ impl ICertSrvSetup {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetSupportedCATypes(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetSupportedCATypes)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetSupportedCATypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProviderNameList(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProviderNameList)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetProviderNameList)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetKeyLengthList<P0>(&self, bstrprovidername: P0) -> windows_core::Result<super::super::System::Variant::VARIANT>
@@ -3323,7 +3323,7 @@ impl ICertSrvSetup {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetKeyLengthList)(windows_core::Interface::as_raw(self), bstrprovidername.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetKeyLengthList)(windows_core::Interface::as_raw(self), bstrprovidername.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetHashAlgorithmList<P0>(&self, bstrprovidername: P0) -> windows_core::Result<super::super::System::Variant::VARIANT>
@@ -3331,7 +3331,7 @@ impl ICertSrvSetup {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetHashAlgorithmList)(windows_core::Interface::as_raw(self), bstrprovidername.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetHashAlgorithmList)(windows_core::Interface::as_raw(self), bstrprovidername.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPrivateKeyContainerList<P0>(&self, bstrprovidername: P0) -> windows_core::Result<super::super::System::Variant::VARIANT>
@@ -3339,12 +3339,14 @@ impl ICertSrvSetup {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPrivateKeyContainerList)(windows_core::Interface::as_raw(self), bstrprovidername.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetPrivateKeyContainerList)(windows_core::Interface::as_raw(self), bstrprovidername.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExistingCACertificates(&self) -> windows_core::Result<ICertSrvSetupKeyInformationCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetExistingCACertificates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CAImportPFX<P0, P1, P2>(&self, bstrfilename: P0, bstrpasswd: P1, boverwriteexistingkey: P2) -> windows_core::Result<ICertSrvSetupKeyInformation>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -3405,36 +3407,42 @@ pub struct ICertSrvSetup_Vtbl {
     pub CAErrorString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub InitializeDefaults: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetCASetupProperty: unsafe extern "system" fn(*mut core::ffi::c_void, CASetupProperty, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetCASetupProperty: unsafe extern "system" fn(*mut core::ffi::c_void, CASetupProperty, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetCASetupProperty: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetCASetupProperty: unsafe extern "system" fn(*mut core::ffi::c_void, CASetupProperty, *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub SetCASetupProperty: unsafe extern "system" fn(*mut core::ffi::c_void, CASetupProperty, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetCASetupProperty: usize,
     pub IsPropertyEditable: unsafe extern "system" fn(*mut core::ffi::c_void, CASetupProperty, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetSupportedCATypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetSupportedCATypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetSupportedCATypes: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetProviderNameList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetProviderNameList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetProviderNameList: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetKeyLengthList: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetKeyLengthList: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetKeyLengthList: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetHashAlgorithmList: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetHashAlgorithmList: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetHashAlgorithmList: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetPrivateKeyContainerList: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetPrivateKeyContainerList: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetPrivateKeyContainerList: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub GetExistingCACertificates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    GetExistingCACertificates: usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub CAImportPFX: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::VARIANT_BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    CAImportPFX: usize,
     pub SetCADistinguishedName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::VARIANT_BOOL, super::super::Foundation::VARIANT_BOOL, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub SetDatabaseInformation: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub SetParentCAInformation: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
@@ -3444,7 +3452,7 @@ pub struct ICertSrvSetup_Vtbl {
     pub PostUnInstall: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ICertSrvSetup_Impl: super::super::System::Com::IDispatch_Impl {
+pub trait ICertSrvSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CAErrorId(&self) -> windows_core::Result<i32>;
     fn CAErrorString(&self) -> windows_core::Result<windows_core::BSTR>;
     fn InitializeDefaults(&self, bserver: super::super::Foundation::VARIANT_BOOL, bclient: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -3467,8 +3475,10 @@ pub trait ICertSrvSetup_Impl: super::super::System::Com::IDispatch_Impl {
     fn PostUnInstall(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ICertSrvSetup {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertSrvSetup_Vtbl {
-    pub const fn new<Identity: ICertSrvSetup_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ICertSrvSetup_Impl, const OFFSET: isize>() -> ICertSrvSetup_Vtbl {
         unsafe extern "system" fn CAErrorId<Identity: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertSrvSetup_Impl::CAErrorId(this) {
@@ -3493,7 +3503,7 @@ impl ICertSrvSetup_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertSrvSetup_Impl::InitializeDefaults(this, core::mem::transmute_copy(&bserver), core::mem::transmute_copy(&bclient)).into()
         }
-        unsafe extern "system" fn GetCASetupProperty<Identity: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CASetupProperty, ppropertyvalue: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCASetupProperty<Identity: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CASetupProperty, ppropertyvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertSrvSetup_Impl::GetCASetupProperty(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
@@ -3503,7 +3513,7 @@ impl ICertSrvSetup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCASetupProperty<Identity: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CASetupProperty, ppropertyvalue: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCASetupProperty<Identity: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CASetupProperty, ppropertyvalue: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertSrvSetup_Impl::SetCASetupProperty(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ppropertyvalue)).into()
         }
@@ -3517,7 +3527,7 @@ impl ICertSrvSetup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSupportedCATypes<Identity: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcatypes: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSupportedCATypes<Identity: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcatypes: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertSrvSetup_Impl::GetSupportedCATypes(this) {
                 Ok(ok__) => {
@@ -3527,7 +3537,7 @@ impl ICertSrvSetup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProviderNameList<Identity: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProviderNameList<Identity: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertSrvSetup_Impl::GetProviderNameList(this) {
                 Ok(ok__) => {
@@ -3537,7 +3547,7 @@ impl ICertSrvSetup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetKeyLengthList<Identity: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprovidername: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetKeyLengthList<Identity: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprovidername: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertSrvSetup_Impl::GetKeyLengthList(this, core::mem::transmute(&bstrprovidername)) {
                 Ok(ok__) => {
@@ -3547,7 +3557,7 @@ impl ICertSrvSetup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetHashAlgorithmList<Identity: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprovidername: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHashAlgorithmList<Identity: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprovidername: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertSrvSetup_Impl::GetHashAlgorithmList(this, core::mem::transmute(&bstrprovidername)) {
                 Ok(ok__) => {
@@ -3557,7 +3567,7 @@ impl ICertSrvSetup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPrivateKeyContainerList<Identity: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprovidername: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPrivateKeyContainerList<Identity: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprovidername: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertSrvSetup_Impl::GetPrivateKeyContainerList(this, core::mem::transmute(&bstrprovidername)) {
                 Ok(ok__) => {
@@ -3640,11 +3650,9 @@ impl ICertSrvSetup_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertSrvSetup as windows_core::Interface>::IID
+        iid == &<ICertSrvSetup as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ICertSrvSetup {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICertSrvSetupKeyInformation, ICertSrvSetupKeyInformation_Vtbl, 0x6ba73778_36da_4c39_8a85_bcfa7d000793);
 #[cfg(feature = "Win32_System_Com")]
@@ -3660,7 +3668,7 @@ windows_core::imp::interface_hierarchy!(ICertSrvSetupKeyInformation, windows_cor
 impl ICertSrvSetupKeyInformation {
     pub unsafe fn ProviderName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ProviderName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).ProviderName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProviderName<P0>(&self, bstrval: P0) -> windows_core::Result<()>
     where
@@ -3687,7 +3695,7 @@ impl ICertSrvSetupKeyInformation {
     }
     pub unsafe fn ContainerName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ContainerName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).ContainerName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetContainerName<P0>(&self, bstrval: P0) -> windows_core::Result<()>
     where
@@ -3697,7 +3705,7 @@ impl ICertSrvSetupKeyInformation {
     }
     pub unsafe fn HashAlgorithm(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).HashAlgorithm)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).HashAlgorithm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetHashAlgorithm<P0>(&self, bstrval: P0) -> windows_core::Result<()>
     where
@@ -3708,7 +3716,7 @@ impl ICertSrvSetupKeyInformation {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ExistingCACertificate(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ExistingCACertificate)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).ExistingCACertificate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetExistingCACertificate<P0>(&self, varval: P0) -> windows_core::Result<()>
@@ -3733,16 +3741,16 @@ pub struct ICertSrvSetupKeyInformation_Vtbl {
     pub HashAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetHashAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub ExistingCACertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub ExistingCACertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ExistingCACertificate: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetExistingCACertificate: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub SetExistingCACertificate: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetExistingCACertificate: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ICertSrvSetupKeyInformation_Impl: super::super::System::Com::IDispatch_Impl {
+pub trait ICertSrvSetupKeyInformation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ProviderName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetProviderName(&self, bstrval: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Length(&self) -> windows_core::Result<i32>;
@@ -3757,8 +3765,10 @@ pub trait ICertSrvSetupKeyInformation_Impl: super::super::System::Com::IDispatch
     fn SetExistingCACertificate(&self, varval: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ICertSrvSetupKeyInformation {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertSrvSetupKeyInformation_Vtbl {
-    pub const fn new<Identity: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>() -> ICertSrvSetupKeyInformation_Vtbl {
         unsafe extern "system" fn ProviderName<Identity: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertSrvSetupKeyInformation_Impl::ProviderName(this) {
@@ -3829,7 +3839,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertSrvSetupKeyInformation_Impl::SetHashAlgorithm(this, core::mem::transmute(&bstrval)).into()
         }
-        unsafe extern "system" fn ExistingCACertificate<Identity: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExistingCACertificate<Identity: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertSrvSetupKeyInformation_Impl::ExistingCACertificate(this) {
                 Ok(ok__) => {
@@ -3839,7 +3849,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExistingCACertificate<Identity: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetExistingCACertificate<Identity: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varval: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertSrvSetupKeyInformation_Impl::SetExistingCACertificate(this, core::mem::transmute(&varval)).into()
         }
@@ -3860,11 +3870,9 @@ impl ICertSrvSetupKeyInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertSrvSetupKeyInformation as windows_core::Interface>::IID
+        iid == &<ICertSrvSetupKeyInformation as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ICertSrvSetupKeyInformation {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICertSrvSetupKeyInformationCollection, ICertSrvSetupKeyInformationCollection_Vtbl, 0xe65c8b00_e58f_41f9_a9ec_a28d7427c844);
 #[cfg(feature = "Win32_System_Com")]
@@ -3885,12 +3893,13 @@ impl ICertSrvSetupKeyInformationCollection {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pikeyinformation: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ICertSrvSetupKeyInformation>,
@@ -3904,22 +3913,27 @@ pub struct ICertSrvSetupKeyInformationCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    Add: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ICertSrvSetupKeyInformationCollection_Impl: super::super::System::Com::IDispatch_Impl {
+pub trait ICertSrvSetupKeyInformationCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn get_Item(&self, index: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn Count(&self) -> windows_core::Result<i32>;
     fn Add(&self, pikeyinformation: Option<&ICertSrvSetupKeyInformation>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ICertSrvSetupKeyInformationCollection {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertSrvSetupKeyInformationCollection_Vtbl {
-    pub const fn new<Identity: ICertSrvSetupKeyInformationCollection_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ICertSrvSetupKeyInformationCollection_Impl, const OFFSET: isize>() -> ICertSrvSetupKeyInformationCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ICertSrvSetupKeyInformationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppval: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertSrvSetupKeyInformationCollection_Impl::_NewEnum(this) {
@@ -3930,7 +3944,7 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ICertSrvSetupKeyInformationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ICertSrvSetupKeyInformationCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertSrvSetupKeyInformationCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                 Ok(ok__) => {
@@ -3963,11 +3977,9 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertSrvSetupKeyInformationCollection as windows_core::Interface>::IID
+        iid == &<ICertSrvSetupKeyInformationCollection as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ICertSrvSetupKeyInformationCollection {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICertificateEnrollmentPolicyServerSetup, ICertificateEnrollmentPolicyServerSetup_Vtbl, 0x859252cc_238c_4a88_b8fd_a37e7d04e68b);
 #[cfg(feature = "Win32_System_Com")]
@@ -3983,7 +3995,7 @@ windows_core::imp::interface_hierarchy!(ICertificateEnrollmentPolicyServerSetup,
 impl ICertificateEnrollmentPolicyServerSetup {
     pub unsafe fn ErrorString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ErrorString)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).ErrorString)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeInstallDefaults(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InitializeInstallDefaults)(windows_core::Interface::as_raw(self)).ok()
@@ -3991,7 +4003,7 @@ impl ICertificateEnrollmentPolicyServerSetup {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperty(&self, propertyid: CEPSetupProperty) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), propertyid, &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), propertyid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProperty(&self, propertyid: CEPSetupProperty, ppropertyvalue: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
@@ -4012,21 +4024,21 @@ pub struct ICertificateEnrollmentPolicyServerSetup_Vtbl {
     pub ErrorString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub InitializeInstallDefaults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, CEPSetupProperty, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, CEPSetupProperty, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetProperty: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, CEPSetupProperty, *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, CEPSetupProperty, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetProperty: usize,
     pub Install: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub UnInstall: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub UnInstall: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     UnInstall: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ICertificateEnrollmentPolicyServerSetup_Impl: super::super::System::Com::IDispatch_Impl {
+pub trait ICertificateEnrollmentPolicyServerSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ErrorString(&self) -> windows_core::Result<windows_core::BSTR>;
     fn InitializeInstallDefaults(&self) -> windows_core::Result<()>;
     fn GetProperty(&self, propertyid: CEPSetupProperty) -> windows_core::Result<super::super::System::Variant::VARIANT>;
@@ -4035,8 +4047,10 @@ pub trait ICertificateEnrollmentPolicyServerSetup_Impl: super::super::System::Co
     fn UnInstall(&self, pauthkeybasedrenewal: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ICertificateEnrollmentPolicyServerSetup {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
-    pub const fn new<Identity: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>() -> ICertificateEnrollmentPolicyServerSetup_Vtbl {
         unsafe extern "system" fn ErrorString<Identity: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertificateEnrollmentPolicyServerSetup_Impl::ErrorString(this) {
@@ -4051,7 +4065,7 @@ impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertificateEnrollmentPolicyServerSetup_Impl::InitializeInstallDefaults(this).into()
         }
-        unsafe extern "system" fn GetProperty<Identity: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CEPSetupProperty, ppropertyvalue: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CEPSetupProperty, ppropertyvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertificateEnrollmentPolicyServerSetup_Impl::GetProperty(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
@@ -4061,7 +4075,7 @@ impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProperty<Identity: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CEPSetupProperty, ppropertyvalue: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CEPSetupProperty, ppropertyvalue: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertificateEnrollmentPolicyServerSetup_Impl::SetProperty(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ppropertyvalue)).into()
         }
@@ -4069,7 +4083,7 @@ impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertificateEnrollmentPolicyServerSetup_Impl::Install(this).into()
         }
-        unsafe extern "system" fn UnInstall<Identity: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pauthkeybasedrenewal: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnInstall<Identity: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pauthkeybasedrenewal: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertificateEnrollmentPolicyServerSetup_Impl::UnInstall(this, core::mem::transmute_copy(&pauthkeybasedrenewal)).into()
         }
@@ -4084,11 +4098,9 @@ impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertificateEnrollmentPolicyServerSetup as windows_core::Interface>::IID
+        iid == &<ICertificateEnrollmentPolicyServerSetup as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ICertificateEnrollmentPolicyServerSetup {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ICertificateEnrollmentServerSetup, ICertificateEnrollmentServerSetup_Vtbl, 0x70027fdb_9dd9_4921_8944_b35cb31bd2ec);
 #[cfg(feature = "Win32_System_Com")]
@@ -4104,7 +4116,7 @@ windows_core::imp::interface_hierarchy!(ICertificateEnrollmentServerSetup, windo
 impl ICertificateEnrollmentServerSetup {
     pub unsafe fn ErrorString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ErrorString)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).ErrorString)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeInstallDefaults(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InitializeInstallDefaults)(windows_core::Interface::as_raw(self)).ok()
@@ -4112,7 +4124,7 @@ impl ICertificateEnrollmentServerSetup {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperty(&self, propertyid: CESSetupProperty) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), propertyid, &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), propertyid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProperty(&self, propertyid: CESSetupProperty, ppropertyvalue: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
@@ -4140,22 +4152,22 @@ pub struct ICertificateEnrollmentServerSetup_Vtbl {
     pub ErrorString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub InitializeInstallDefaults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, CESSetupProperty, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, CESSetupProperty, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetProperty: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, CESSetupProperty, *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, CESSetupProperty, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetProperty: usize,
     pub SetApplicationPoolCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Install: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub UnInstall: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::System::Variant::VARIANT, *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub UnInstall: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     UnInstall: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ICertificateEnrollmentServerSetup_Impl: super::super::System::Com::IDispatch_Impl {
+pub trait ICertificateEnrollmentServerSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ErrorString(&self) -> windows_core::Result<windows_core::BSTR>;
     fn InitializeInstallDefaults(&self) -> windows_core::Result<()>;
     fn GetProperty(&self, propertyid: CESSetupProperty) -> windows_core::Result<super::super::System::Variant::VARIANT>;
@@ -4165,8 +4177,10 @@ pub trait ICertificateEnrollmentServerSetup_Impl: super::super::System::Com::IDi
     fn UnInstall(&self, pcaconfig: *const super::super::System::Variant::VARIANT, pauthentication: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ICertificateEnrollmentServerSetup {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertificateEnrollmentServerSetup_Vtbl {
-    pub const fn new<Identity: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>() -> ICertificateEnrollmentServerSetup_Vtbl {
         unsafe extern "system" fn ErrorString<Identity: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertificateEnrollmentServerSetup_Impl::ErrorString(this) {
@@ -4181,7 +4195,7 @@ impl ICertificateEnrollmentServerSetup_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertificateEnrollmentServerSetup_Impl::InitializeInstallDefaults(this).into()
         }
-        unsafe extern "system" fn GetProperty<Identity: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CESSetupProperty, ppropertyvalue: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CESSetupProperty, ppropertyvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ICertificateEnrollmentServerSetup_Impl::GetProperty(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
@@ -4191,7 +4205,7 @@ impl ICertificateEnrollmentServerSetup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProperty<Identity: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CESSetupProperty, ppropertyvalue: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: CESSetupProperty, ppropertyvalue: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertificateEnrollmentServerSetup_Impl::SetProperty(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ppropertyvalue)).into()
         }
@@ -4203,7 +4217,7 @@ impl ICertificateEnrollmentServerSetup_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertificateEnrollmentServerSetup_Impl::Install(this).into()
         }
-        unsafe extern "system" fn UnInstall<Identity: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcaconfig: *const super::super::System::Variant::VARIANT, pauthentication: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnInstall<Identity: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcaconfig: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pauthentication: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ICertificateEnrollmentServerSetup_Impl::UnInstall(this, core::mem::transmute_copy(&pcaconfig), core::mem::transmute_copy(&pauthentication)).into()
         }
@@ -4219,11 +4233,9 @@ impl ICertificateEnrollmentServerSetup_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertificateEnrollmentServerSetup as windows_core::Interface>::IID
+        iid == &<ICertificateEnrollmentServerSetup as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ICertificateEnrollmentServerSetup {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMSCEPSetup, IMSCEPSetup_Vtbl, 0x4f7761bb_9f3b_4592_9ee0_9a73259c313e);
 #[cfg(feature = "Win32_System_Com")]
@@ -4243,7 +4255,7 @@ impl IMSCEPSetup {
     }
     pub unsafe fn MSCEPErrorString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MSCEPErrorString)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).MSCEPErrorString)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeDefaults(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).InitializeDefaults)(windows_core::Interface::as_raw(self)).ok()
@@ -4251,7 +4263,7 @@ impl IMSCEPSetup {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetMSCEPSetupProperty(&self, propertyid: MSCEPSetupProperty) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetMSCEPSetupProperty)(windows_core::Interface::as_raw(self), propertyid, &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetMSCEPSetupProperty)(windows_core::Interface::as_raw(self), propertyid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetMSCEPSetupProperty(&self, propertyid: MSCEPSetupProperty, ppropertyvalue: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
@@ -4274,7 +4286,7 @@ impl IMSCEPSetup {
         P0: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProviderNameList)(windows_core::Interface::as_raw(self), bexchange.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetProviderNameList)(windows_core::Interface::as_raw(self), bexchange.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetKeyLengthList<P0, P1>(&self, bexchange: P0, bstrprovidername: P1) -> windows_core::Result<super::super::System::Variant::VARIANT>
@@ -4283,7 +4295,7 @@ impl IMSCEPSetup {
         P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetKeyLengthList)(windows_core::Interface::as_raw(self), bexchange.param().abi(), bstrprovidername.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetKeyLengthList)(windows_core::Interface::as_raw(self), bexchange.param().abi(), bstrprovidername.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Install(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Install)(windows_core::Interface::as_raw(self)).ok()
@@ -4303,21 +4315,21 @@ pub struct IMSCEPSetup_Vtbl {
     pub MSCEPErrorString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub InitializeDefaults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetMSCEPSetupProperty: unsafe extern "system" fn(*mut core::ffi::c_void, MSCEPSetupProperty, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetMSCEPSetupProperty: unsafe extern "system" fn(*mut core::ffi::c_void, MSCEPSetupProperty, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetMSCEPSetupProperty: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetMSCEPSetupProperty: unsafe extern "system" fn(*mut core::ffi::c_void, MSCEPSetupProperty, *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub SetMSCEPSetupProperty: unsafe extern "system" fn(*mut core::ffi::c_void, MSCEPSetupProperty, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetMSCEPSetupProperty: usize,
     pub SetAccountInformation: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub IsMSCEPStoreEmpty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetProviderNameList: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetProviderNameList: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetProviderNameList: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetKeyLengthList: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
+    pub GetKeyLengthList: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetKeyLengthList: usize,
     pub Install: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4325,7 +4337,7 @@ pub struct IMSCEPSetup_Vtbl {
     pub PostUnInstall: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IMSCEPSetup_Impl: super::super::System::Com::IDispatch_Impl {
+pub trait IMSCEPSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MSCEPErrorId(&self) -> windows_core::Result<i32>;
     fn MSCEPErrorString(&self) -> windows_core::Result<windows_core::BSTR>;
     fn InitializeDefaults(&self) -> windows_core::Result<()>;
@@ -4340,8 +4352,10 @@ pub trait IMSCEPSetup_Impl: super::super::System::Com::IDispatch_Impl {
     fn PostUnInstall(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IMSCEPSetup {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSCEPSetup_Vtbl {
-    pub const fn new<Identity: IMSCEPSetup_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IMSCEPSetup_Impl, const OFFSET: isize>() -> IMSCEPSetup_Vtbl {
         unsafe extern "system" fn MSCEPErrorId<Identity: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pval: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSCEPSetup_Impl::MSCEPErrorId(this) {
@@ -4366,7 +4380,7 @@ impl IMSCEPSetup_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSCEPSetup_Impl::InitializeDefaults(this).into()
         }
-        unsafe extern "system" fn GetMSCEPSetupProperty<Identity: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: MSCEPSetupProperty, pval: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMSCEPSetupProperty<Identity: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: MSCEPSetupProperty, pval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSCEPSetup_Impl::GetMSCEPSetupProperty(this, core::mem::transmute_copy(&propertyid)) {
                 Ok(ok__) => {
@@ -4376,7 +4390,7 @@ impl IMSCEPSetup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMSCEPSetupProperty<Identity: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: MSCEPSetupProperty, ppropertyvalue: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMSCEPSetupProperty<Identity: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: MSCEPSetupProperty, ppropertyvalue: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMSCEPSetup_Impl::SetMSCEPSetupProperty(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&ppropertyvalue)).into()
         }
@@ -4394,7 +4408,7 @@ impl IMSCEPSetup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProviderNameList<Identity: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bexchange: super::super::Foundation::VARIANT_BOOL, pval: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProviderNameList<Identity: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bexchange: super::super::Foundation::VARIANT_BOOL, pval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSCEPSetup_Impl::GetProviderNameList(this, core::mem::transmute_copy(&bexchange)) {
                 Ok(ok__) => {
@@ -4404,7 +4418,7 @@ impl IMSCEPSetup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetKeyLengthList<Identity: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bexchange: super::super::Foundation::VARIANT_BOOL, bstrprovidername: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetKeyLengthList<Identity: IMSCEPSetup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bexchange: super::super::Foundation::VARIANT_BOOL, bstrprovidername: core::mem::MaybeUninit<windows_core::BSTR>, pval: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMSCEPSetup_Impl::GetKeyLengthList(this, core::mem::transmute_copy(&bexchange), core::mem::transmute(&bstrprovidername)) {
                 Ok(ok__) => {
@@ -4443,11 +4457,9 @@ impl IMSCEPSetup_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMSCEPSetup as windows_core::Interface>::IID
+        iid == &<IMSCEPSetup as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IMSCEPSetup {}
 pub const ALG_CLASS_ALL: u32 = 57344u32;
 pub const ALG_CLASS_ANY: u32 = 0u32;
 pub const ALG_CLASS_DATA_ENCRYPT: u32 = 24576u32;
@@ -8171,34 +8183,59 @@ pub const wszXMLNS_DIGSIG: windows_core::PCWSTR = windows_core::w!("http://www.w
 pub const wszXMLNS_DIGSIG_Id: windows_core::PCWSTR = windows_core::w!("Id");
 pub const wszXMLNS_DIGSIG_SignatureProperties: windows_core::PCWSTR = windows_core::w!("http://www.w3.org/2000/09/xmldsig#SignatureProperties");
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ALG_ID(pub u32);
 impl windows_core::TypeKind for ALG_ID {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ALG_ID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ALG_ID").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BCRYPTGENRANDOM_FLAGS(pub u32);
 impl windows_core::TypeKind for BCRYPTGENRANDOM_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BCRYPTGENRANDOM_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BCRYPTGENRANDOM_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BCRYPT_DH_KEY_BLOB_MAGIC(pub u32);
 impl windows_core::TypeKind for BCRYPT_DH_KEY_BLOB_MAGIC {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BCRYPT_DH_KEY_BLOB_MAGIC {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BCRYPT_DH_KEY_BLOB_MAGIC").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BCRYPT_DSA_MAGIC(pub u32);
 impl windows_core::TypeKind for BCRYPT_DSA_MAGIC {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BCRYPT_DSA_MAGIC {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BCRYPT_DSA_MAGIC").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BCRYPT_FLAGS(pub u32);
 impl windows_core::TypeKind for BCRYPT_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for BCRYPT_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BCRYPT_FLAGS").field(&self.0).finish()
+    }
 }
 impl BCRYPT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8234,28 +8271,48 @@ impl core::ops::Not for BCRYPT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BCRYPT_HASH_OPERATION_TYPE(pub i32);
 impl windows_core::TypeKind for BCRYPT_HASH_OPERATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BCRYPT_HASH_OPERATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BCRYPT_HASH_OPERATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BCRYPT_INTERFACE(pub u32);
 impl windows_core::TypeKind for BCRYPT_INTERFACE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BCRYPT_INTERFACE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BCRYPT_INTERFACE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BCRYPT_MULTI_OPERATION_TYPE(pub i32);
 impl windows_core::TypeKind for BCRYPT_MULTI_OPERATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BCRYPT_MULTI_OPERATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BCRYPT_MULTI_OPERATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(pub u32);
 impl windows_core::TypeKind for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS").field(&self.0).finish()
+    }
 }
 impl BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8291,10 +8348,15 @@ impl core::ops::Not for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BCRYPT_OPERATION(pub u32);
 impl windows_core::TypeKind for BCRYPT_OPERATION {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for BCRYPT_OPERATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BCRYPT_OPERATION").field(&self.0).finish()
+    }
 }
 impl BCRYPT_OPERATION {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8330,16 +8392,26 @@ impl core::ops::Not for BCRYPT_OPERATION {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BCRYPT_QUERY_PROVIDER_MODE(pub u32);
 impl windows_core::TypeKind for BCRYPT_QUERY_PROVIDER_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BCRYPT_QUERY_PROVIDER_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BCRYPT_QUERY_PROVIDER_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BCRYPT_RESOLVE_PROVIDERS_FLAGS(pub u32);
 impl windows_core::TypeKind for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BCRYPT_RESOLVE_PROVIDERS_FLAGS").field(&self.0).finish()
+    }
 }
 impl BCRYPT_RESOLVE_PROVIDERS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8375,64 +8447,114 @@ impl core::ops::Not for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BCRYPT_RSAKEY_BLOB_MAGIC(pub u32);
 impl windows_core::TypeKind for BCRYPT_RSAKEY_BLOB_MAGIC {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BCRYPT_RSAKEY_BLOB_MAGIC {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BCRYPT_RSAKEY_BLOB_MAGIC").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BCRYPT_TABLE(pub u32);
 impl windows_core::TypeKind for BCRYPT_TABLE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BCRYPT_TABLE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BCRYPT_TABLE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CARD_DIRECTORY_ACCESS_CONDITION(pub i32);
 impl windows_core::TypeKind for CARD_DIRECTORY_ACCESS_CONDITION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CARD_DIRECTORY_ACCESS_CONDITION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CARD_DIRECTORY_ACCESS_CONDITION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CARD_FILE_ACCESS_CONDITION(pub i32);
 impl windows_core::TypeKind for CARD_FILE_ACCESS_CONDITION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CARD_FILE_ACCESS_CONDITION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CARD_FILE_ACCESS_CONDITION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CASetupProperty(pub i32);
 impl windows_core::TypeKind for CASetupProperty {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CASetupProperty {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CASetupProperty").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CEPSetupProperty(pub i32);
 impl windows_core::TypeKind for CEPSetupProperty {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CEPSetupProperty {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CEPSetupProperty").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_BIOMETRIC_DATA_TYPE(pub u32);
 impl windows_core::TypeKind for CERT_BIOMETRIC_DATA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_BIOMETRIC_DATA_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_BIOMETRIC_DATA_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_CHAIN_POLICY_FLAGS(pub u32);
 impl windows_core::TypeKind for CERT_CHAIN_POLICY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_CHAIN_POLICY_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_CHAIN_POLICY_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_CONTROL_STORE_FLAGS(pub u32);
 impl windows_core::TypeKind for CERT_CONTROL_STORE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_CONTROL_STORE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_CONTROL_STORE_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_CREATE_SELFSIGN_FLAGS(pub u32);
 impl windows_core::TypeKind for CERT_CREATE_SELFSIGN_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CERT_CREATE_SELFSIGN_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_CREATE_SELFSIGN_FLAGS").field(&self.0).finish()
+    }
 }
 impl CERT_CREATE_SELFSIGN_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8468,10 +8590,15 @@ impl core::ops::Not for CERT_CREATE_SELFSIGN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_FIND_CHAIN_IN_STORE_FLAGS(pub u32);
 impl windows_core::TypeKind for CERT_FIND_CHAIN_IN_STORE_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CERT_FIND_CHAIN_IN_STORE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_FIND_CHAIN_IN_STORE_FLAGS").field(&self.0).finish()
+    }
 }
 impl CERT_FIND_CHAIN_IN_STORE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8507,10 +8634,15 @@ impl core::ops::Not for CERT_FIND_CHAIN_IN_STORE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_FIND_FLAGS(pub u32);
 impl windows_core::TypeKind for CERT_FIND_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CERT_FIND_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_FIND_FLAGS").field(&self.0).finish()
+    }
 }
 impl CERT_FIND_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8546,46 +8678,81 @@ impl core::ops::Not for CERT_FIND_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_FIND_TYPE(pub u32);
 impl windows_core::TypeKind for CERT_FIND_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_FIND_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_FIND_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_ID_OPTION(pub u32);
 impl windows_core::TypeKind for CERT_ID_OPTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_ID_OPTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_ID_OPTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_KEY_SPEC(pub u32);
 impl windows_core::TypeKind for CERT_KEY_SPEC {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_KEY_SPEC {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_KEY_SPEC").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_LOGOTYPE_CHOICE(pub u32);
 impl windows_core::TypeKind for CERT_LOGOTYPE_CHOICE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_LOGOTYPE_CHOICE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_LOGOTYPE_CHOICE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_LOGOTYPE_IMAGE_INFO_TYPE(pub u32);
 impl windows_core::TypeKind for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_LOGOTYPE_IMAGE_INFO_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_LOGOTYPE_OPTION(pub u32);
 impl windows_core::TypeKind for CERT_LOGOTYPE_OPTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_LOGOTYPE_OPTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_LOGOTYPE_OPTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_OPEN_STORE_FLAGS(pub u32);
 impl windows_core::TypeKind for CERT_OPEN_STORE_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CERT_OPEN_STORE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_OPEN_STORE_FLAGS").field(&self.0).finish()
+    }
 }
 impl CERT_OPEN_STORE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8621,22 +8788,37 @@ impl core::ops::Not for CERT_OPEN_STORE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_QUERY_CONTENT_TYPE(pub u32);
 impl windows_core::TypeKind for CERT_QUERY_CONTENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_QUERY_CONTENT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_QUERY_CONTENT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_QUERY_CONTENT_TYPE_FLAGS(pub u32);
 impl windows_core::TypeKind for CERT_QUERY_CONTENT_TYPE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_QUERY_CONTENT_TYPE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_QUERY_CONTENT_TYPE_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_QUERY_ENCODING_TYPE(pub u32);
 impl windows_core::TypeKind for CERT_QUERY_ENCODING_TYPE {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CERT_QUERY_ENCODING_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_QUERY_ENCODING_TYPE").field(&self.0).finish()
+    }
 }
 impl CERT_QUERY_ENCODING_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8672,40 +8854,70 @@ impl core::ops::Not for CERT_QUERY_ENCODING_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_QUERY_FORMAT_TYPE(pub u32);
 impl windows_core::TypeKind for CERT_QUERY_FORMAT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_QUERY_FORMAT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_QUERY_FORMAT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_QUERY_FORMAT_TYPE_FLAGS(pub u32);
 impl windows_core::TypeKind for CERT_QUERY_FORMAT_TYPE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_QUERY_FORMAT_TYPE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_QUERY_FORMAT_TYPE_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_QUERY_OBJECT_TYPE(pub u32);
 impl windows_core::TypeKind for CERT_QUERY_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_QUERY_OBJECT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_QUERY_OBJECT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_RDN_ATTR_VALUE_TYPE(pub i32);
 impl windows_core::TypeKind for CERT_RDN_ATTR_VALUE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_RDN_ATTR_VALUE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_RDN_ATTR_VALUE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_REVOCATION_STATUS_REASON(pub u32);
 impl windows_core::TypeKind for CERT_REVOCATION_STATUS_REASON {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_REVOCATION_STATUS_REASON {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_REVOCATION_STATUS_REASON").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_ROOT_PROGRAM_FLAGS(pub u32);
 impl windows_core::TypeKind for CERT_ROOT_PROGRAM_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CERT_ROOT_PROGRAM_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_ROOT_PROGRAM_FLAGS").field(&self.0).finish()
+    }
 }
 impl CERT_ROOT_PROGRAM_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8741,16 +8953,26 @@ impl core::ops::Not for CERT_ROOT_PROGRAM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_SELECT_CRITERIA_TYPE(pub u32);
 impl windows_core::TypeKind for CERT_SELECT_CRITERIA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_SELECT_CRITERIA_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_SELECT_CRITERIA_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_STORE_PROV_FLAGS(pub u32);
 impl windows_core::TypeKind for CERT_STORE_PROV_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CERT_STORE_PROV_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_STORE_PROV_FLAGS").field(&self.0).finish()
+    }
 }
 impl CERT_STORE_PROV_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8786,28 +9008,48 @@ impl core::ops::Not for CERT_STORE_PROV_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_STORE_SAVE_AS(pub u32);
 impl windows_core::TypeKind for CERT_STORE_SAVE_AS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_STORE_SAVE_AS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_STORE_SAVE_AS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_STORE_SAVE_TO(pub u32);
 impl windows_core::TypeKind for CERT_STORE_SAVE_TO {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_STORE_SAVE_TO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_STORE_SAVE_TO").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_STRING_TYPE(pub u32);
 impl windows_core::TypeKind for CERT_STRING_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_STRING_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_STRING_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_STRONG_SIGN_FLAGS(pub u32);
 impl windows_core::TypeKind for CERT_STRONG_SIGN_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CERT_STRONG_SIGN_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_STRONG_SIGN_FLAGS").field(&self.0).finish()
+    }
 }
 impl CERT_STRONG_SIGN_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8843,34 +9085,59 @@ impl core::ops::Not for CERT_STRONG_SIGN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CERT_SYSTEM_STORE_FLAGS(pub u32);
 impl windows_core::TypeKind for CERT_SYSTEM_STORE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CERT_SYSTEM_STORE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CERT_SYSTEM_STORE_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CESSetupProperty(pub i32);
 impl windows_core::TypeKind for CESSetupProperty {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CESSetupProperty {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CESSetupProperty").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CMSG_KEY_AGREE_OPTION(pub u32);
 impl windows_core::TypeKind for CMSG_KEY_AGREE_OPTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CMSG_KEY_AGREE_OPTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CMSG_KEY_AGREE_OPTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CMSG_KEY_AGREE_ORIGINATOR(pub u32);
 impl windows_core::TypeKind for CMSG_KEY_AGREE_ORIGINATOR {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CMSG_KEY_AGREE_ORIGINATOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CMSG_KEY_AGREE_ORIGINATOR").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_ACQUIRE_FLAGS(pub u32);
 impl windows_core::TypeKind for CRYPT_ACQUIRE_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CRYPT_ACQUIRE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_ACQUIRE_FLAGS").field(&self.0).finish()
+    }
 }
 impl CRYPT_ACQUIRE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8906,10 +9173,15 @@ impl core::ops::Not for CRYPT_ACQUIRE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_CONTEXT_CONFIG_FLAGS(pub u32);
 impl windows_core::TypeKind for CRYPT_CONTEXT_CONFIG_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CRYPT_CONTEXT_CONFIG_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_CONTEXT_CONFIG_FLAGS").field(&self.0).finish()
+    }
 }
 impl CRYPT_CONTEXT_CONFIG_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8945,10 +9217,15 @@ impl core::ops::Not for CRYPT_CONTEXT_CONFIG_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_DEFAULT_CONTEXT_FLAGS(pub u32);
 impl windows_core::TypeKind for CRYPT_DEFAULT_CONTEXT_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CRYPT_DEFAULT_CONTEXT_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_DEFAULT_CONTEXT_FLAGS").field(&self.0).finish()
+    }
 }
 impl CRYPT_DEFAULT_CONTEXT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8984,16 +9261,26 @@ impl core::ops::Not for CRYPT_DEFAULT_CONTEXT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_DEFAULT_CONTEXT_TYPE(pub u32);
 impl windows_core::TypeKind for CRYPT_DEFAULT_CONTEXT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_DEFAULT_CONTEXT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_DEFAULT_CONTEXT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_ENCODE_OBJECT_FLAGS(pub u32);
 impl windows_core::TypeKind for CRYPT_ENCODE_OBJECT_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CRYPT_ENCODE_OBJECT_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_ENCODE_OBJECT_FLAGS").field(&self.0).finish()
+    }
 }
 impl CRYPT_ENCODE_OBJECT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9029,16 +9316,26 @@ impl core::ops::Not for CRYPT_ENCODE_OBJECT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_FIND_FLAGS(pub u32);
 impl windows_core::TypeKind for CRYPT_FIND_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_FIND_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_FIND_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_GET_URL_FLAGS(pub u32);
 impl windows_core::TypeKind for CRYPT_GET_URL_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CRYPT_GET_URL_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_GET_URL_FLAGS").field(&self.0).finish()
+    }
 }
 impl CRYPT_GET_URL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9074,10 +9371,15 @@ impl core::ops::Not for CRYPT_GET_URL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_IMAGE_REF_FLAGS(pub u32);
 impl windows_core::TypeKind for CRYPT_IMAGE_REF_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CRYPT_IMAGE_REF_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_IMAGE_REF_FLAGS").field(&self.0).finish()
+    }
 }
 impl CRYPT_IMAGE_REF_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9113,10 +9415,15 @@ impl core::ops::Not for CRYPT_IMAGE_REF_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_IMPORT_PUBLIC_KEY_FLAGS(pub u32);
 impl windows_core::TypeKind for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_IMPORT_PUBLIC_KEY_FLAGS").field(&self.0).finish()
+    }
 }
 impl CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9152,10 +9459,15 @@ impl core::ops::Not for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_KEY_FLAGS(pub u32);
 impl windows_core::TypeKind for CRYPT_KEY_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CRYPT_KEY_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_KEY_FLAGS").field(&self.0).finish()
+    }
 }
 impl CRYPT_KEY_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9191,118 +9503,213 @@ impl core::ops::Not for CRYPT_KEY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_KEY_PARAM_ID(pub u32);
 impl windows_core::TypeKind for CRYPT_KEY_PARAM_ID {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_KEY_PARAM_ID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_KEY_PARAM_ID").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_MSG_TYPE(pub u32);
 impl windows_core::TypeKind for CRYPT_MSG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_MSG_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_MSG_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_OBJECT_LOCATOR_RELEASE_REASON(pub u32);
 impl windows_core::TypeKind for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_OBJECT_LOCATOR_RELEASE_REASON").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_SET_HASH_PARAM(pub u32);
 impl windows_core::TypeKind for CRYPT_SET_HASH_PARAM {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_SET_HASH_PARAM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_SET_HASH_PARAM").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_SET_PROV_PARAM_ID(pub u32);
 impl windows_core::TypeKind for CRYPT_SET_PROV_PARAM_ID {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_SET_PROV_PARAM_ID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_SET_PROV_PARAM_ID").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_STRING(pub u32);
 impl windows_core::TypeKind for CRYPT_STRING {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_STRING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_STRING").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_TIMESTAMP_RESPONSE_STATUS(pub u32);
 impl windows_core::TypeKind for CRYPT_TIMESTAMP_RESPONSE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_TIMESTAMP_RESPONSE_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_TIMESTAMP_RESPONSE_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_TIMESTAMP_VERSION(pub u32);
 impl windows_core::TypeKind for CRYPT_TIMESTAMP_VERSION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_TIMESTAMP_VERSION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_TIMESTAMP_VERSION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_VERIFY_CERT_FLAGS(pub u32);
 impl windows_core::TypeKind for CRYPT_VERIFY_CERT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_VERIFY_CERT_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_VERIFY_CERT_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_XML_CHARSET(pub i32);
 impl windows_core::TypeKind for CRYPT_XML_CHARSET {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_XML_CHARSET {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_CHARSET").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_XML_FLAGS(pub u32);
 impl windows_core::TypeKind for CRYPT_XML_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_XML_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_XML_GROUP_ID(pub u32);
 impl windows_core::TypeKind for CRYPT_XML_GROUP_ID {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_XML_GROUP_ID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_GROUP_ID").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_XML_KEYINFO_SPEC(pub i32);
 impl windows_core::TypeKind for CRYPT_XML_KEYINFO_SPEC {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_XML_KEYINFO_SPEC {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_KEYINFO_SPEC").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_XML_KEYINFO_TYPE(pub u32);
 impl windows_core::TypeKind for CRYPT_XML_KEYINFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_XML_KEYINFO_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_KEYINFO_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_XML_KEY_VALUE_TYPE(pub u32);
 impl windows_core::TypeKind for CRYPT_XML_KEY_VALUE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_XML_KEY_VALUE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_KEY_VALUE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_XML_PROPERTY_ID(pub i32);
 impl windows_core::TypeKind for CRYPT_XML_PROPERTY_ID {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_XML_PROPERTY_ID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_PROPERTY_ID").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_XML_STATUS_ERROR_STATUS(pub u32);
 impl windows_core::TypeKind for CRYPT_XML_STATUS_ERROR_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_XML_STATUS_ERROR_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_STATUS_ERROR_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_XML_STATUS_INFO_STATUS(pub u32);
 impl windows_core::TypeKind for CRYPT_XML_STATUS_INFO_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_XML_STATUS_INFO_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_STATUS_INFO_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_XML_TRANSFORM_FLAGS(pub u32);
 impl windows_core::TypeKind for CRYPT_XML_TRANSFORM_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CRYPT_XML_TRANSFORM_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_TRANSFORM_FLAGS").field(&self.0).finish()
+    }
 }
 impl CRYPT_XML_TRANSFORM_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9338,55 +9745,95 @@ impl core::ops::Not for CRYPT_XML_TRANSFORM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPT_XML_X509DATA_TYPE(pub u32);
 impl windows_core::TypeKind for CRYPT_XML_X509DATA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CRYPT_XML_X509DATA_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_X509DATA_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CertKeyType(pub u32);
 impl windows_core::TypeKind for CertKeyType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CertKeyType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CertKeyType").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DSAFIPSVERSION_ENUM(pub i32);
 impl windows_core::TypeKind for DSAFIPSVERSION_ENUM {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DSAFIPSVERSION_ENUM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DSAFIPSVERSION_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct Direction(pub i32);
 impl windows_core::TypeKind for Direction {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for Direction {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("Direction").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ECC_CURVE_ALG_ID_ENUM(pub i32);
 impl windows_core::TypeKind for ECC_CURVE_ALG_ID_ENUM {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ECC_CURVE_ALG_ID_ENUM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ECC_CURVE_ALG_ID_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ECC_CURVE_TYPE_ENUM(pub i32);
 impl windows_core::TypeKind for ECC_CURVE_TYPE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ECC_CURVE_TYPE_ENUM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ECC_CURVE_TYPE_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HASHALGORITHM_ENUM(pub i32);
 impl windows_core::TypeKind for HASHALGORITHM_ENUM {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HASHALGORITHM_ENUM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HASHALGORITHM_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(pub u32);
 impl windows_core::TypeKind for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HandleType(pub i32);
 impl HandleType {
     pub const Asymmetric: Self = Self(1i32);
@@ -9397,23 +9844,43 @@ impl HandleType {
 impl windows_core::TypeKind for HandleType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HandleType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HandleType").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MSCEPSetupProperty(pub i32);
 impl windows_core::TypeKind for MSCEPSetupProperty {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MSCEPSetupProperty {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MSCEPSetupProperty").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NCRYPT_ALGORITHM_NAME_CLASS(pub u32);
 impl windows_core::TypeKind for NCRYPT_ALGORITHM_NAME_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NCRYPT_ALGORITHM_NAME_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NCRYPT_ALGORITHM_NAME_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NCRYPT_FLAGS(pub u32);
 impl windows_core::TypeKind for NCRYPT_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for NCRYPT_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NCRYPT_FLAGS").field(&self.0).finish()
+    }
 }
 impl NCRYPT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9449,10 +9916,15 @@ impl core::ops::Not for NCRYPT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NCRYPT_OPERATION(pub u32);
 impl windows_core::TypeKind for NCRYPT_OPERATION {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for NCRYPT_OPERATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NCRYPT_OPERATION").field(&self.0).finish()
+    }
 }
 impl NCRYPT_OPERATION {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9488,13 +9960,18 @@ impl core::ops::Not for NCRYPT_OPERATION {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PIN_CACHE_POLICY_TYPE(pub i32);
 impl windows_core::TypeKind for PIN_CACHE_POLICY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PIN_CACHE_POLICY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PIN_CACHE_POLICY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PaddingMode(pub i32);
 impl PaddingMode {
     pub const None: Self = Self(1i32);
@@ -9506,29 +9983,54 @@ impl PaddingMode {
 impl windows_core::TypeKind for PaddingMode {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PaddingMode {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PaddingMode").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SECRET_PURPOSE(pub i32);
 impl windows_core::TypeKind for SECRET_PURPOSE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SECRET_PURPOSE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SECRET_PURPOSE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SECRET_TYPE(pub i32);
 impl windows_core::TypeKind for SECRET_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SECRET_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SECRET_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SIGNER_CERT_CHOICE(pub u32);
 impl windows_core::TypeKind for SIGNER_CERT_CHOICE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SIGNER_CERT_CHOICE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SIGNER_CERT_CHOICE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SIGNER_CERT_POLICY(pub u32);
 impl windows_core::TypeKind for SIGNER_CERT_POLICY {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for SIGNER_CERT_POLICY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SIGNER_CERT_POLICY").field(&self.0).finish()
+    }
 }
 impl SIGNER_CERT_POLICY {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9564,22 +10066,37 @@ impl core::ops::Not for SIGNER_CERT_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SIGNER_PRIVATE_KEY_CHOICE(pub u32);
 impl windows_core::TypeKind for SIGNER_PRIVATE_KEY_CHOICE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SIGNER_PRIVATE_KEY_CHOICE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SIGNER_PRIVATE_KEY_CHOICE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SIGNER_SIGNATURE_ATTRIBUTE_CHOICE(pub u32);
 impl windows_core::TypeKind for SIGNER_SIGNATURE_ATTRIBUTE_CHOICE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SIGNER_SIGNATURE_ATTRIBUTE_CHOICE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SIGNER_SIGNATURE_ATTRIBUTE_CHOICE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SIGNER_SIGN_FLAGS(pub u32);
 impl windows_core::TypeKind for SIGNER_SIGN_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for SIGNER_SIGN_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SIGNER_SIGN_FLAGS").field(&self.0).finish()
+    }
 }
 impl SIGNER_SIGN_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9615,82 +10132,89 @@ impl core::ops::Not for SIGNER_SIGN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SIGNER_SUBJECT_CHOICE(pub u32);
 impl windows_core::TypeKind for SIGNER_SUBJECT_CHOICE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SIGNER_SUBJECT_CHOICE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SIGNER_SUBJECT_CHOICE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SIGNER_TIMESTAMP_FLAGS(pub u32);
 impl windows_core::TypeKind for SIGNER_TIMESTAMP_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SIGNER_TIMESTAMP_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SIGNER_TIMESTAMP_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRegPolicySettings: u32,
     pub pSignerInfo: *mut CMSG_SIGNER_INFO,
+}
+impl windows_core::TypeKind for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub fCommercial: super::super::Foundation::BOOL,
+}
+impl windows_core::TypeKind for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRegPolicySettings: u32,
     pub fCommercial: super::super::Foundation::BOOL,
+}
+impl windows_core::TypeKind for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_ALGORITHM_IDENTIFIER {
     pub pszName: windows_core::PWSTR,
     pub dwClass: u32,
     pub dwFlags: u32,
+}
+impl windows_core::TypeKind for BCRYPT_ALGORITHM_IDENTIFIER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_ALGORITHM_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_ALGORITHM_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_ALG_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for BCRYPT_ALG_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl BCRYPT_ALG_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -9700,8 +10224,7 @@ impl windows_core::Free for BCRYPT_ALG_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("bcrypt.dll" "system" fn BCryptCloseAlgorithmProvider(halgorithm : *mut core::ffi::c_void, dwflags : u32) -> i32);
-            BCryptCloseAlgorithmProvider(self.0, 0);
+            _ = BCryptCloseAlgorithmProvider(*self, 0);
         }
     }
 }
@@ -9710,6 +10233,9 @@ impl Default for BCRYPT_ALG_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for BCRYPT_ALG_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl windows_core::imp::CanInto<BCRYPT_HANDLE> for BCRYPT_ALG_HANDLE {}
 impl From<BCRYPT_ALG_HANDLE> for BCRYPT_HANDLE {
     fn from(value: BCRYPT_ALG_HANDLE) -> Self {
@@ -9717,7 +10243,7 @@ impl From<BCRYPT_ALG_HANDLE> for BCRYPT_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_ASYMMETRIC_ENCRYPTION_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -9734,16 +10260,16 @@ pub struct BCRYPT_ASYMMETRIC_ENCRYPTION_FUNCTION_TABLE {
     pub SignHash: BCryptSignHashFn,
     pub VerifySignature: BCryptVerifySignatureFn,
 }
+impl windows_core::TypeKind for BCRYPT_ASYMMETRIC_ENCRYPTION_FUNCTION_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_ASYMMETRIC_ENCRYPTION_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_ASYMMETRIC_ENCRYPTION_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     pub cbSize: u32,
     pub dwInfoVersion: u32,
@@ -9759,16 +10285,16 @@ pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     pub cbData: u64,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_CIPHER_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -9783,45 +10309,45 @@ pub struct BCRYPT_CIPHER_FUNCTION_TABLE {
     pub DuplicateKey: BCryptDuplicateKeyFn,
     pub DestroyKey: BCryptDestroyKeyFn,
 }
+impl windows_core::TypeKind for BCRYPT_CIPHER_FUNCTION_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_CIPHER_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_CIPHER_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DH_KEY_BLOB {
     pub dwMagic: BCRYPT_DH_KEY_BLOB_MAGIC,
     pub cbKey: u32,
+}
+impl windows_core::TypeKind for BCRYPT_DH_KEY_BLOB {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_DH_KEY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_DH_KEY_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DH_PARAMETER_HEADER {
     pub cbLength: u32,
     pub dwMagic: u32,
     pub cbKeyLength: u32,
+}
+impl windows_core::TypeKind for BCRYPT_DH_PARAMETER_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_DH_PARAMETER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_DH_PARAMETER_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DSA_KEY_BLOB {
     pub dwMagic: BCRYPT_DSA_MAGIC,
     pub cbKey: u32,
@@ -9829,16 +10355,16 @@ pub struct BCRYPT_DSA_KEY_BLOB {
     pub Seed: [u8; 20],
     pub q: [u8; 20],
 }
+impl windows_core::TypeKind for BCRYPT_DSA_KEY_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_DSA_KEY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_DSA_KEY_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DSA_KEY_BLOB_V2 {
     pub dwMagic: BCRYPT_DSA_MAGIC,
     pub cbKey: u32,
@@ -9848,16 +10374,16 @@ pub struct BCRYPT_DSA_KEY_BLOB_V2 {
     pub cbGroupSize: u32,
     pub Count: [u8; 4],
 }
+impl windows_core::TypeKind for BCRYPT_DSA_KEY_BLOB_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_DSA_KEY_BLOB_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_DSA_KEY_BLOB_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DSA_PARAMETER_HEADER {
     pub cbLength: u32,
     pub dwMagic: u32,
@@ -9866,16 +10392,16 @@ pub struct BCRYPT_DSA_PARAMETER_HEADER {
     pub Seed: [u8; 20],
     pub q: [u8; 20],
 }
+impl windows_core::TypeKind for BCRYPT_DSA_PARAMETER_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_DSA_PARAMETER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_DSA_PARAMETER_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DSA_PARAMETER_HEADER_V2 {
     pub cbLength: u32,
     pub dwMagic: u32,
@@ -9886,16 +10412,16 @@ pub struct BCRYPT_DSA_PARAMETER_HEADER_V2 {
     pub cbGroupSize: u32,
     pub Count: [u8; 4],
 }
+impl windows_core::TypeKind for BCRYPT_DSA_PARAMETER_HEADER_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_DSA_PARAMETER_HEADER_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_DSA_PARAMETER_HEADER_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_ECCFULLKEY_BLOB {
     pub dwMagic: u32,
     pub dwVersion: u32,
@@ -9906,44 +10432,44 @@ pub struct BCRYPT_ECCFULLKEY_BLOB {
     pub cbCofactor: u32,
     pub cbSeed: u32,
 }
+impl windows_core::TypeKind for BCRYPT_ECCFULLKEY_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_ECCFULLKEY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_ECCFULLKEY_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_ECCKEY_BLOB {
     pub dwMagic: u32,
     pub cbKey: u32,
+}
+impl windows_core::TypeKind for BCRYPT_ECCKEY_BLOB {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_ECCKEY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_ECCKEY_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_ECC_CURVE_NAMES {
     pub dwEccCurveNames: u32,
     pub pEccCurveNames: *mut windows_core::PWSTR,
+}
+impl windows_core::TypeKind for BCRYPT_ECC_CURVE_NAMES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_ECC_CURVE_NAMES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_ECC_CURVE_NAMES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_ECC_PARAMETER_HEADER {
     pub dwVersion: u32,
     pub dwCurveType: ECC_CURVE_TYPE_ENUM,
@@ -9953,20 +10479,17 @@ pub struct BCRYPT_ECC_PARAMETER_HEADER {
     pub cbCofactor: u32,
     pub cbSeed: u32,
 }
+impl windows_core::TypeKind for BCRYPT_ECC_PARAMETER_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_ECC_PARAMETER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_ECC_PARAMETER_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for BCRYPT_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl BCRYPT_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -9977,8 +10500,11 @@ impl Default for BCRYPT_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for BCRYPT_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_HASH_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -9993,20 +10519,17 @@ pub struct BCRYPT_HASH_FUNCTION_TABLE {
     pub CreateMultiHash: BCryptCreateMultiHashFn,
     pub ProcessMultiOperations: BCryptProcessMultiOperationsFn,
 }
+impl windows_core::TypeKind for BCRYPT_HASH_FUNCTION_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_HASH_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_HASH_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_HASH_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for BCRYPT_HASH_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl BCRYPT_HASH_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -10016,8 +10539,7 @@ impl windows_core::Free for BCRYPT_HASH_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("bcrypt.dll" "system" fn BCryptDestroyHash(hhash : *mut core::ffi::c_void) -> i32);
-            BCryptDestroyHash(self.0);
+            _ = BCryptDestroyHash(*self);
         }
     }
 }
@@ -10026,6 +10548,9 @@ impl Default for BCRYPT_HASH_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for BCRYPT_HASH_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl windows_core::imp::CanInto<BCRYPT_HANDLE> for BCRYPT_HASH_HANDLE {}
 impl From<BCRYPT_HASH_HANDLE> for BCRYPT_HANDLE {
     fn from(value: BCRYPT_HASH_HANDLE) -> Self {
@@ -10033,49 +10558,49 @@ impl From<BCRYPT_HASH_HANDLE> for BCRYPT_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_INTERFACE_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
+}
+impl windows_core::TypeKind for BCRYPT_INTERFACE_VERSION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_INTERFACE_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_INTERFACE_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_KEY_BLOB {
     pub Magic: u32,
+}
+impl windows_core::TypeKind for BCRYPT_KEY_BLOB {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_KEY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_KEY_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_KEY_DATA_BLOB_HEADER {
     pub dwMagic: u32,
     pub dwVersion: u32,
     pub cbKeyData: u32,
+}
+impl windows_core::TypeKind for BCRYPT_KEY_DATA_BLOB_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_KEY_DATA_BLOB_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_KEY_DATA_BLOB_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_KEY_DERIVATION_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -10089,20 +10614,17 @@ pub struct BCRYPT_KEY_DERIVATION_FUNCTION_TABLE {
     pub ImportKey: BCryptImportKeyFn,
     pub DuplicateKey: BCryptDuplicateKeyFn,
 }
+impl windows_core::TypeKind for BCRYPT_KEY_DERIVATION_FUNCTION_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_KEY_DERIVATION_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_KEY_DERIVATION_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_KEY_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for BCRYPT_KEY_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl BCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -10112,8 +10634,7 @@ impl windows_core::Free for BCRYPT_KEY_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("bcrypt.dll" "system" fn BCryptDestroyKey(hkey : *mut core::ffi::c_void) -> i32);
-            BCryptDestroyKey(self.0);
+            _ = BCryptDestroyKey(*self);
         }
     }
 }
@@ -10122,6 +10643,9 @@ impl Default for BCRYPT_KEY_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for BCRYPT_KEY_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl windows_core::imp::CanInto<BCRYPT_HANDLE> for BCRYPT_KEY_HANDLE {}
 impl From<BCRYPT_KEY_HANDLE> for BCRYPT_HANDLE {
     fn from(value: BCRYPT_KEY_HANDLE) -> Self {
@@ -10129,135 +10653,135 @@ impl From<BCRYPT_KEY_HANDLE> for BCRYPT_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_KEY_LENGTHS_STRUCT {
     pub dwMinLength: u32,
     pub dwMaxLength: u32,
     pub dwIncrement: u32,
+}
+impl windows_core::TypeKind for BCRYPT_KEY_LENGTHS_STRUCT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_KEY_LENGTHS_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_KEY_LENGTHS_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_MULTI_HASH_OPERATION {
     pub iHash: u32,
     pub hashOperation: BCRYPT_HASH_OPERATION_TYPE,
     pub pbBuffer: *mut u8,
     pub cbBuffer: u32,
 }
+impl windows_core::TypeKind for BCRYPT_MULTI_HASH_OPERATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_MULTI_HASH_OPERATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_MULTI_HASH_OPERATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
     pub cbPerObject: u32,
     pub cbPerElement: u32,
+}
+impl windows_core::TypeKind for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_OAEP_PADDING_INFO {
     pub pszAlgId: windows_core::PCWSTR,
     pub pbLabel: *mut u8,
     pub cbLabel: u32,
+}
+impl windows_core::TypeKind for BCRYPT_OAEP_PADDING_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_OAEP_PADDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_OAEP_PADDING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_OID {
     pub cbOID: u32,
     pub pbOID: *mut u8,
+}
+impl windows_core::TypeKind for BCRYPT_OID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_OID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_OID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_OID_LIST {
     pub dwOIDCount: u32,
     pub pOIDs: *mut BCRYPT_OID,
+}
+impl windows_core::TypeKind for BCRYPT_OID_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_OID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_OID_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_PKCS1_PADDING_INFO {
     pub pszAlgId: windows_core::PCWSTR,
+}
+impl windows_core::TypeKind for BCRYPT_PKCS1_PADDING_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_PKCS1_PADDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_PKCS1_PADDING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_PROVIDER_NAME {
     pub pszProviderName: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for BCRYPT_PROVIDER_NAME {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_PROVIDER_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_PROVIDER_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_PSS_PADDING_INFO {
     pub pszAlgId: windows_core::PCWSTR,
     pub cbSalt: u32,
+}
+impl windows_core::TypeKind for BCRYPT_PSS_PADDING_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCRYPT_PSS_PADDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_PSS_PADDING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_RNG_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -10266,16 +10790,16 @@ pub struct BCRYPT_RNG_FUNCTION_TABLE {
     pub CloseAlgorithmProvider: BCryptCloseAlgorithmProviderFn,
     pub GenRandom: BCryptGenRandomFn,
 }
+impl windows_core::TypeKind for BCRYPT_RNG_FUNCTION_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_RNG_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_RNG_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_RSAKEY_BLOB {
     pub Magic: BCRYPT_RSAKEY_BLOB_MAGIC,
     pub BitLength: u32,
@@ -10284,16 +10808,16 @@ pub struct BCRYPT_RSAKEY_BLOB {
     pub cbPrime1: u32,
     pub cbPrime2: u32,
 }
+impl windows_core::TypeKind for BCRYPT_RSAKEY_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_RSAKEY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_RSAKEY_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_SECRET_AGREEMENT_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -10309,20 +10833,17 @@ pub struct BCRYPT_SECRET_AGREEMENT_FUNCTION_TABLE {
     pub ExportKey: BCryptExportKeyFn,
     pub DestroyKey: BCryptDestroyKeyFn,
 }
+impl windows_core::TypeKind for BCRYPT_SECRET_AGREEMENT_FUNCTION_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_SECRET_AGREEMENT_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_SECRET_AGREEMENT_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_SECRET_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for BCRYPT_SECRET_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl BCRYPT_SECRET_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -10332,8 +10853,7 @@ impl windows_core::Free for BCRYPT_SECRET_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("bcrypt.dll" "system" fn BCryptDestroySecret(hsecret : *mut core::ffi::c_void) -> i32);
-            BCryptDestroySecret(self.0);
+            _ = BCryptDestroySecret(*self);
         }
     }
 }
@@ -10342,6 +10862,9 @@ impl Default for BCRYPT_SECRET_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for BCRYPT_SECRET_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl windows_core::imp::CanInto<BCRYPT_HANDLE> for BCRYPT_SECRET_HANDLE {}
 impl From<BCRYPT_SECRET_HANDLE> for BCRYPT_HANDLE {
     fn from(value: BCRYPT_SECRET_HANDLE) -> Self {
@@ -10349,7 +10872,7 @@ impl From<BCRYPT_SECRET_HANDLE> for BCRYPT_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_SIGNATURE_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenAlgorithmProvider: BCryptOpenAlgorithmProviderFn,
@@ -10364,46 +10887,46 @@ pub struct BCRYPT_SIGNATURE_FUNCTION_TABLE {
     pub ExportKey: BCryptExportKeyFn,
     pub DestroyKey: BCryptDestroyKeyFn,
 }
+impl windows_core::TypeKind for BCRYPT_SIGNATURE_FUNCTION_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BCRYPT_SIGNATURE_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCRYPT_SIGNATURE_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCryptBuffer {
     pub cbBuffer: u32,
     pub BufferType: u32,
     pub pvBuffer: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for BCryptBuffer {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCryptBuffer {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCryptBuffer {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCryptBufferDesc {
     pub ulVersion: u32,
     pub cBuffers: u32,
     pub pBuffers: *mut BCryptBuffer,
+}
+impl windows_core::TypeKind for BCryptBufferDesc {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BCryptBufferDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BCryptBufferDesc {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_AUTHENTICATE {
     pub dwVersion: u32,
     pub dwFlags: u32,
@@ -10411,63 +10934,63 @@ pub struct CARD_AUTHENTICATE {
     pub cbPinData: u32,
     pub pbPinData: [u8; 1],
 }
+impl windows_core::TypeKind for CARD_AUTHENTICATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CARD_AUTHENTICATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CARD_AUTHENTICATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_AUTHENTICATE_RESPONSE {
     pub dwVersion: u32,
     pub cbSessionPin: u32,
     pub cAttemptsRemaining: u32,
     pub pbSessionPin: [u8; 1],
 }
+impl windows_core::TypeKind for CARD_AUTHENTICATE_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CARD_AUTHENTICATE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CARD_AUTHENTICATE_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_CACHE_FILE_FORMAT {
     pub bVersion: u8,
     pub bPinsFreshness: u8,
     pub wContainersFreshness: u16,
     pub wFilesFreshness: u16,
 }
+impl windows_core::TypeKind for CARD_CACHE_FILE_FORMAT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CARD_CACHE_FILE_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CARD_CACHE_FILE_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_CAPABILITIES {
     pub dwVersion: u32,
     pub fCertificateCompression: super::super::Foundation::BOOL,
     pub fKeyGen: super::super::Foundation::BOOL,
+}
+impl windows_core::TypeKind for CARD_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CARD_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CARD_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_CHANGE_AUTHENTICATOR {
     pub dwVersion: u32,
     pub dwFlags: u32,
@@ -10478,30 +11001,30 @@ pub struct CARD_CHANGE_AUTHENTICATOR {
     pub cRetryCount: u32,
     pub pbData: [u8; 1],
 }
+impl windows_core::TypeKind for CARD_CHANGE_AUTHENTICATOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CARD_CHANGE_AUTHENTICATOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CARD_CHANGE_AUTHENTICATOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_CHANGE_AUTHENTICATOR_RESPONSE {
     pub dwVersion: u32,
     pub cAttemptsRemaining: u32,
+}
+impl windows_core::TypeKind for CARD_CHANGE_AUTHENTICATOR_RESPONSE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CARD_CHANGE_AUTHENTICATOR_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CARD_CHANGE_AUTHENTICATOR_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_DATA {
     pub dwVersion: u32,
     pub pbAtr: *mut u8,
@@ -10567,16 +11090,16 @@ pub struct CARD_DATA {
     pub pfnCardProcessEncryptedData: PFN_CARD_PROCESS_ENCRYPTED_DATA,
     pub pfnCardCreateContainerEx: PFN_CARD_CREATE_CONTAINER_EX,
 }
+impl windows_core::TypeKind for CARD_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CARD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CARD_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_DERIVE_KEY {
     pub dwVersion: u32,
     pub dwFlags: u32,
@@ -10589,16 +11112,16 @@ pub struct CARD_DERIVE_KEY {
     pub dwKeyLen: u32,
     pub hKey: usize,
 }
+impl windows_core::TypeKind for CARD_DERIVE_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CARD_DERIVE_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CARD_DERIVE_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_DH_AGREEMENT_INFO {
     pub dwVersion: u32,
     pub bContainerIndex: u8,
@@ -10609,61 +11132,61 @@ pub struct CARD_DH_AGREEMENT_INFO {
     pub cbReserved: u32,
     pub bSecretAgreementIndex: u8,
 }
+impl windows_core::TypeKind for CARD_DH_AGREEMENT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CARD_DH_AGREEMENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CARD_DH_AGREEMENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_ENCRYPTED_DATA {
     pub pbEncryptedData: *mut u8,
     pub cbEncryptedData: u32,
+}
+impl windows_core::TypeKind for CARD_ENCRYPTED_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CARD_ENCRYPTED_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CARD_ENCRYPTED_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_FILE_INFO {
     pub dwVersion: u32,
     pub cbFileSize: u32,
     pub AccessCondition: CARD_FILE_ACCESS_CONDITION,
+}
+impl windows_core::TypeKind for CARD_FILE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CARD_FILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CARD_FILE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_FREE_SPACE_INFO {
     pub dwVersion: u32,
     pub dwBytesAvailable: u32,
     pub dwKeyContainersAvailable: u32,
     pub dwMaxKeyContainers: u32,
 }
+impl windows_core::TypeKind for CARD_FREE_SPACE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CARD_FREE_SPACE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CARD_FREE_SPACE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_IMPORT_KEYPAIR {
     pub dwVersion: u32,
     pub bContainerIndex: u8,
@@ -10673,16 +11196,16 @@ pub struct CARD_IMPORT_KEYPAIR {
     pub cbInput: u32,
     pub pbInput: [u8; 1],
 }
+impl windows_core::TypeKind for CARD_IMPORT_KEYPAIR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CARD_IMPORT_KEYPAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CARD_IMPORT_KEYPAIR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_KEY_SIZES {
     pub dwVersion: u32,
     pub dwMinimumBitlen: u32,
@@ -10690,16 +11213,16 @@ pub struct CARD_KEY_SIZES {
     pub dwMaximumBitlen: u32,
     pub dwIncrementalBitlen: u32,
 }
+impl windows_core::TypeKind for CARD_KEY_SIZES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CARD_KEY_SIZES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CARD_KEY_SIZES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_RSA_DECRYPT_INFO {
     pub dwVersion: u32,
     pub bContainerIndex: u8,
@@ -10709,16 +11232,16 @@ pub struct CARD_RSA_DECRYPT_INFO {
     pub pPaddingInfo: *mut core::ffi::c_void,
     pub dwPaddingType: u32,
 }
+impl windows_core::TypeKind for CARD_RSA_DECRYPT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CARD_RSA_DECRYPT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CARD_RSA_DECRYPT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CARD_SIGNING_INFO {
     pub dwVersion: u32,
     pub bContainerIndex: u8,
@@ -10732,62 +11255,62 @@ pub struct CARD_SIGNING_INFO {
     pub pPaddingInfo: *mut core::ffi::c_void,
     pub dwPaddingType: u32,
 }
+impl windows_core::TypeKind for CARD_SIGNING_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CARD_SIGNING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for CARD_SIGNING_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 pub const CCertSrvSetup: windows_core::GUID = windows_core::GUID::from_u128(0x961f180f_f55c_413d_a9b3_7d2af4d8e42f);
 pub const CCertSrvSetupKeyInformation: windows_core::GUID = windows_core::GUID::from_u128(0x38373906_5433_4633_b0fb_29b7e78262e1);
 pub const CCertificateEnrollmentPolicyServerSetup: windows_core::GUID = windows_core::GUID::from_u128(0xafe2fa32_41b1_459d_a5de_49add8a72182);
 pub const CCertificateEnrollmentServerSetup: windows_core::GUID = windows_core::GUID::from_u128(0x9902f3bc_88af_4cf8_ae62_7140531552b6);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERTIFICATE_CHAIN_BLOB {
     pub certCount: u32,
     pub rawCertificates: *mut CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CERTIFICATE_CHAIN_BLOB {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERTIFICATE_CHAIN_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERTIFICATE_CHAIN_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CERT_ACCESS_DESCRIPTION {
     pub pszAccessMethod: windows_core::PSTR,
     pub AccessLocation: CERT_ALT_NAME_ENTRY,
+}
+impl windows_core::TypeKind for CERT_ACCESS_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_ACCESS_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_ACCESS_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CERT_ALT_NAME_ENTRY {
     pub dwAltNameChoice: u32,
     pub Anonymous: CERT_ALT_NAME_ENTRY_0,
+}
+impl windows_core::TypeKind for CERT_ALT_NAME_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_ALT_NAME_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_ALT_NAME_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CERT_ALT_NAME_ENTRY_0 {
     pub pOtherName: *mut CERT_OTHER_NAME,
     pub pwszRfc822Name: windows_core::PWSTR,
@@ -10797,89 +11320,89 @@ pub union CERT_ALT_NAME_ENTRY_0 {
     pub IPAddress: CRYPT_INTEGER_BLOB,
     pub pszRegisteredID: windows_core::PSTR,
 }
+impl windows_core::TypeKind for CERT_ALT_NAME_ENTRY_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_ALT_NAME_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_ALT_NAME_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_ALT_NAME_INFO {
     pub cAltEntry: u32,
     pub rgAltEntry: *mut CERT_ALT_NAME_ENTRY,
+}
+impl windows_core::TypeKind for CERT_ALT_NAME_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_ALT_NAME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_ALT_NAME_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_AUTHORITY_INFO_ACCESS {
     pub cAccDescr: u32,
     pub rgAccDescr: *mut CERT_ACCESS_DESCRIPTION,
+}
+impl windows_core::TypeKind for CERT_AUTHORITY_INFO_ACCESS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_AUTHORITY_INFO_ACCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_AUTHORITY_INFO_ACCESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_AUTHORITY_KEY_ID2_INFO {
     pub KeyId: CRYPT_INTEGER_BLOB,
     pub AuthorityCertIssuer: CERT_ALT_NAME_INFO,
     pub AuthorityCertSerialNumber: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CERT_AUTHORITY_KEY_ID2_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_AUTHORITY_KEY_ID2_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_AUTHORITY_KEY_ID2_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_AUTHORITY_KEY_ID_INFO {
     pub KeyId: CRYPT_INTEGER_BLOB,
     pub CertIssuer: CRYPT_INTEGER_BLOB,
     pub CertSerialNumber: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CERT_AUTHORITY_KEY_ID_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_AUTHORITY_KEY_ID_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_AUTHORITY_KEY_ID_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_BASIC_CONSTRAINTS2_INFO {
     pub fCA: super::super::Foundation::BOOL,
     pub fPathLenConstraint: super::super::Foundation::BOOL,
     pub dwPathLenConstraint: u32,
+}
+impl windows_core::TypeKind for CERT_BASIC_CONSTRAINTS2_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_BASIC_CONSTRAINTS2_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_BASIC_CONSTRAINTS2_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_BASIC_CONSTRAINTS_INFO {
     pub SubjectType: CRYPT_BIT_BLOB,
     pub fPathLenConstraint: super::super::Foundation::BOOL,
@@ -10887,74 +11410,74 @@ pub struct CERT_BASIC_CONSTRAINTS_INFO {
     pub cSubtreesConstraint: u32,
     pub rgSubtreesConstraint: *mut CRYPT_INTEGER_BLOB,
 }
+impl windows_core::TypeKind for CERT_BASIC_CONSTRAINTS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_BASIC_CONSTRAINTS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_BASIC_CONSTRAINTS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CERT_BIOMETRIC_DATA {
     pub dwTypeOfBiometricDataChoice: CERT_BIOMETRIC_DATA_TYPE,
     pub Anonymous: CERT_BIOMETRIC_DATA_0,
     pub HashedUrl: CERT_HASHED_URL,
+}
+impl windows_core::TypeKind for CERT_BIOMETRIC_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_BIOMETRIC_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_BIOMETRIC_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CERT_BIOMETRIC_DATA_0 {
     pub dwPredefined: u32,
     pub pszObjId: windows_core::PSTR,
+}
+impl windows_core::TypeKind for CERT_BIOMETRIC_DATA_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_BIOMETRIC_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_BIOMETRIC_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_BIOMETRIC_EXT_INFO {
     pub cBiometricData: u32,
     pub rgBiometricData: *mut CERT_BIOMETRIC_DATA,
+}
+impl windows_core::TypeKind for CERT_BIOMETRIC_EXT_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_BIOMETRIC_EXT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_BIOMETRIC_EXT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN {
     pub cCerts: u32,
     pub certs: *mut CRYPT_INTEGER_BLOB,
     pub keyLocatorInfo: CRYPT_KEY_PROV_INFO,
+}
+impl windows_core::TypeKind for CERT_CHAIN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_CHAIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_CHAIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_CONTEXT {
     pub cbSize: u32,
     pub TrustStatus: CERT_TRUST_STATUS,
@@ -10967,16 +11490,16 @@ pub struct CERT_CHAIN_CONTEXT {
     pub dwCreateFlags: u32,
     pub ChainId: windows_core::GUID,
 }
+impl windows_core::TypeKind for CERT_CHAIN_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_CHAIN_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_CHAIN_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_ELEMENT {
     pub cbSize: u32,
     pub pCertContext: *const CERT_CONTEXT,
@@ -10986,16 +11509,16 @@ pub struct CERT_CHAIN_ELEMENT {
     pub pApplicationUsage: *mut CTL_USAGE,
     pub pwszExtendedErrorInfo: windows_core::PCWSTR,
 }
+impl windows_core::TypeKind for CERT_CHAIN_ELEMENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_CHAIN_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_CHAIN_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_ENGINE_CONFIG {
     pub cbSize: u32,
     pub hRestrictedRoot: HCERTSTORE,
@@ -11011,16 +11534,16 @@ pub struct CERT_CHAIN_ENGINE_CONFIG {
     pub hExclusiveTrustedPeople: HCERTSTORE,
     pub dwExclusiveFlags: u32,
 }
+impl windows_core::TypeKind for CERT_CHAIN_ENGINE_CONFIG {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_CHAIN_ENGINE_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_CHAIN_ENGINE_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_FIND_BY_ISSUER_PARA {
     pub cbSize: u32,
     pub pszUsageIdentifier: windows_core::PCSTR,
@@ -11031,45 +11554,45 @@ pub struct CERT_CHAIN_FIND_BY_ISSUER_PARA {
     pub pfnFindCallback: PFN_CERT_CHAIN_FIND_BY_ISSUER_CALLBACK,
     pub pvFindArg: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for CERT_CHAIN_FIND_BY_ISSUER_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_CHAIN_FIND_BY_ISSUER_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_CHAIN_FIND_BY_ISSUER_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_PARA {
     pub cbSize: u32,
     pub RequestedUsage: CERT_USAGE_MATCH,
+}
+impl windows_core::TypeKind for CERT_CHAIN_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_CHAIN_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_CHAIN_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwFlags: CERT_CHAIN_POLICY_FLAGS,
     pub pvExtraPolicyPara: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for CERT_CHAIN_POLICY_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_CHAIN_POLICY_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_CHAIN_POLICY_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwError: u32,
@@ -11077,16 +11600,16 @@ pub struct CERT_CHAIN_POLICY_STATUS {
     pub lElementIndex: i32,
     pub pvExtraPolicyStatus: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for CERT_CHAIN_POLICY_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_CHAIN_POLICY_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_CHAIN_POLICY_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CONTEXT {
     pub dwCertEncodingType: CERT_QUERY_ENCODING_TYPE,
     pub pbCertEncoded: *mut u8,
@@ -11094,16 +11617,16 @@ pub struct CERT_CONTEXT {
     pub pCertInfo: *mut CERT_INFO,
     pub hCertStore: HCERTSTORE,
 }
+impl windows_core::TypeKind for CERT_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CREATE_CONTEXT_PARA {
     pub cbSize: u32,
     pub pfnFree: PFN_CRYPT_FREE,
@@ -11111,177 +11634,177 @@ pub struct CERT_CREATE_CONTEXT_PARA {
     pub pfnSort: PFN_CERT_CREATE_CONTEXT_SORT_FUNC,
     pub pvSort: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for CERT_CREATE_CONTEXT_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_CREATE_CONTEXT_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_CREATE_CONTEXT_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CRL_CONTEXT_PAIR {
     pub pCertContext: *const CERT_CONTEXT,
     pub pCrlContext: *mut CRL_CONTEXT,
+}
+impl windows_core::TypeKind for CERT_CRL_CONTEXT_PAIR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_CRL_CONTEXT_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_CRL_CONTEXT_PAIR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_DH_PARAMETERS {
     pub p: CRYPT_INTEGER_BLOB,
     pub g: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CERT_DH_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_DH_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_DH_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_DSS_PARAMETERS {
     pub p: CRYPT_INTEGER_BLOB,
     pub q: CRYPT_INTEGER_BLOB,
     pub g: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CERT_DSS_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_DSS_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_DSS_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_ECC_SIGNATURE {
     pub r: CRYPT_INTEGER_BLOB,
     pub s: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CERT_ECC_SIGNATURE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_ECC_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_ECC_SIGNATURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_EXTENSION {
     pub pszObjId: windows_core::PSTR,
     pub fCritical: super::super::Foundation::BOOL,
     pub Value: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CERT_EXTENSION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_EXTENSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_EXTENSIONS {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
+}
+impl windows_core::TypeKind for CERT_EXTENSIONS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_EXTENSIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_EXTENSIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_FORTEZZA_DATA_PROP {
     pub SerialNumber: [u8; 8],
     pub CertIndex: i32,
     pub CertLabel: [u8; 36],
+}
+impl windows_core::TypeKind for CERT_FORTEZZA_DATA_PROP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_FORTEZZA_DATA_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_FORTEZZA_DATA_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CERT_GENERAL_SUBTREE {
     pub Base: CERT_ALT_NAME_ENTRY,
     pub dwMinimum: u32,
     pub fMaximum: super::super::Foundation::BOOL,
     pub dwMaximum: u32,
 }
+impl windows_core::TypeKind for CERT_GENERAL_SUBTREE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_GENERAL_SUBTREE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_GENERAL_SUBTREE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_HASHED_URL {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Hash: CRYPT_INTEGER_BLOB,
     pub pwszUrl: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for CERT_HASHED_URL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_HASHED_URL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_HASHED_URL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CERT_ID {
     pub dwIdChoice: CERT_ID_OPTION,
     pub Anonymous: CERT_ID_0,
+}
+impl windows_core::TypeKind for CERT_ID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CERT_ID_0 {
     pub IssuerSerialNumber: CERT_ISSUER_SERIAL_NUMBER,
     pub KeyId: CRYPT_INTEGER_BLOB,
     pub HashId: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CERT_ID_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_ID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_ID_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_INFO {
     pub dwVersion: u32,
     pub SerialNumber: CRYPT_INTEGER_BLOB,
@@ -11296,132 +11819,132 @@ pub struct CERT_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
+impl windows_core::TypeKind for CERT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_ISSUER_SERIAL_NUMBER {
     pub Issuer: CRYPT_INTEGER_BLOB,
     pub SerialNumber: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CERT_ISSUER_SERIAL_NUMBER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_ISSUER_SERIAL_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_ISSUER_SERIAL_NUMBER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_KEYGEN_REQUEST_INFO {
     pub dwVersion: u32,
     pub SubjectPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
     pub pwszChallengeString: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for CERT_KEYGEN_REQUEST_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_KEYGEN_REQUEST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_KEYGEN_REQUEST_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_KEY_ATTRIBUTES_INFO {
     pub KeyId: CRYPT_INTEGER_BLOB,
     pub IntendedKeyUsage: CRYPT_BIT_BLOB,
     pub pPrivateKeyUsagePeriod: *mut CERT_PRIVATE_KEY_VALIDITY,
+}
+impl windows_core::TypeKind for CERT_KEY_ATTRIBUTES_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_KEY_ATTRIBUTES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_KEY_ATTRIBUTES_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CERT_KEY_CONTEXT {
     pub cbSize: u32,
     pub Anonymous: CERT_KEY_CONTEXT_0,
     pub dwKeySpec: u32,
+}
+impl windows_core::TypeKind for CERT_KEY_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_KEY_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_KEY_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CERT_KEY_CONTEXT_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
+}
+impl windows_core::TypeKind for CERT_KEY_CONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_KEY_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_KEY_CONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_KEY_USAGE_RESTRICTION_INFO {
     pub cCertPolicyId: u32,
     pub rgCertPolicyId: *mut CERT_POLICY_ID,
     pub RestrictedKeyUsage: CRYPT_BIT_BLOB,
+}
+impl windows_core::TypeKind for CERT_KEY_USAGE_RESTRICTION_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_KEY_USAGE_RESTRICTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_KEY_USAGE_RESTRICTION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LDAP_STORE_OPENED_PARA {
     pub pvLdapSessionHandle: *mut core::ffi::c_void,
     pub pwszLdapUrl: windows_core::PCWSTR,
+}
+impl windows_core::TypeKind for CERT_LDAP_STORE_OPENED_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_LDAP_STORE_OPENED_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_LDAP_STORE_OPENED_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_AUDIO {
     pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
     pub pLogotypeAudioInfo: *mut CERT_LOGOTYPE_AUDIO_INFO,
+}
+impl windows_core::TypeKind for CERT_LOGOTYPE_AUDIO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_LOGOTYPE_AUDIO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_LOGOTYPE_AUDIO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_AUDIO_INFO {
     pub dwFileSize: u32,
     pub dwPlayTime: u32,
@@ -11429,47 +11952,47 @@ pub struct CERT_LOGOTYPE_AUDIO_INFO {
     pub dwSampleRate: u32,
     pub pwszLanguage: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for CERT_LOGOTYPE_AUDIO_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_LOGOTYPE_AUDIO_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_LOGOTYPE_AUDIO_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_DATA {
     pub cLogotypeImage: u32,
     pub rgLogotypeImage: *mut CERT_LOGOTYPE_IMAGE,
     pub cLogotypeAudio: u32,
     pub rgLogotypeAudio: *mut CERT_LOGOTYPE_AUDIO,
 }
+impl windows_core::TypeKind for CERT_LOGOTYPE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_LOGOTYPE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_LOGOTYPE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_DETAILS {
     pub pwszMimeType: windows_core::PWSTR,
     pub cHashedUrl: u32,
     pub rgHashedUrl: *mut CERT_HASHED_URL,
+}
+impl windows_core::TypeKind for CERT_LOGOTYPE_DETAILS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_LOGOTYPE_DETAILS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_LOGOTYPE_DETAILS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_EXT_INFO {
     pub cCommunityLogo: u32,
     pub rgCommunityLogo: *mut CERT_LOGOTYPE_INFO,
@@ -11478,30 +12001,30 @@ pub struct CERT_LOGOTYPE_EXT_INFO {
     pub cOtherLogo: u32,
     pub rgOtherLogo: *mut CERT_OTHER_LOGOTYPE_INFO,
 }
+impl windows_core::TypeKind for CERT_LOGOTYPE_EXT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_LOGOTYPE_EXT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_LOGOTYPE_EXT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_IMAGE {
     pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
     pub pLogotypeImageInfo: *mut CERT_LOGOTYPE_IMAGE_INFO,
+}
+impl windows_core::TypeKind for CERT_LOGOTYPE_IMAGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_LOGOTYPE_IMAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_LOGOTYPE_IMAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CERT_LOGOTYPE_IMAGE_INFO {
     pub dwLogotypeImageInfoChoice: CERT_LOGOTYPE_IMAGE_INFO_TYPE,
     pub dwFileSize: u32,
@@ -11511,187 +12034,187 @@ pub struct CERT_LOGOTYPE_IMAGE_INFO {
     pub Anonymous: CERT_LOGOTYPE_IMAGE_INFO_0,
     pub pwszLanguage: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for CERT_LOGOTYPE_IMAGE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_LOGOTYPE_IMAGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_LOGOTYPE_IMAGE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CERT_LOGOTYPE_IMAGE_INFO_0 {
     pub dwNumBits: u32,
     pub dwTableSize: u32,
+}
+impl windows_core::TypeKind for CERT_LOGOTYPE_IMAGE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_LOGOTYPE_IMAGE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_LOGOTYPE_IMAGE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CERT_LOGOTYPE_INFO {
     pub dwLogotypeInfoChoice: CERT_LOGOTYPE_OPTION,
     pub Anonymous: CERT_LOGOTYPE_INFO_0,
+}
+impl windows_core::TypeKind for CERT_LOGOTYPE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_LOGOTYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_LOGOTYPE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CERT_LOGOTYPE_INFO_0 {
     pub pLogotypeDirectInfo: *mut CERT_LOGOTYPE_DATA,
     pub pLogotypeIndirectInfo: *mut CERT_LOGOTYPE_REFERENCE,
+}
+impl windows_core::TypeKind for CERT_LOGOTYPE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_LOGOTYPE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_LOGOTYPE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_REFERENCE {
     pub cHashedUrl: u32,
     pub rgHashedUrl: *mut CERT_HASHED_URL,
+}
+impl windows_core::TypeKind for CERT_LOGOTYPE_REFERENCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_LOGOTYPE_REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_LOGOTYPE_REFERENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_NAME_CONSTRAINTS_INFO {
     pub cPermittedSubtree: u32,
     pub rgPermittedSubtree: *mut CERT_GENERAL_SUBTREE,
     pub cExcludedSubtree: u32,
     pub rgExcludedSubtree: *mut CERT_GENERAL_SUBTREE,
 }
+impl windows_core::TypeKind for CERT_NAME_CONSTRAINTS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_NAME_CONSTRAINTS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_NAME_CONSTRAINTS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_NAME_INFO {
     pub cRDN: u32,
     pub rgRDN: *mut CERT_RDN,
+}
+impl windows_core::TypeKind for CERT_NAME_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_NAME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_NAME_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_NAME_VALUE {
     pub dwValueType: u32,
     pub Value: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CERT_NAME_VALUE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_NAME_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_NAME_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_OR_CRL_BLOB {
     pub dwChoice: u32,
     pub cbEncoded: u32,
     pub pbEncoded: *mut u8,
+}
+impl windows_core::TypeKind for CERT_OR_CRL_BLOB {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_OR_CRL_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_OR_CRL_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_OR_CRL_BUNDLE {
     pub cItem: u32,
     pub rgItem: *mut CERT_OR_CRL_BLOB,
+}
+impl windows_core::TypeKind for CERT_OR_CRL_BUNDLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_OR_CRL_BUNDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_OR_CRL_BUNDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CERT_OTHER_LOGOTYPE_INFO {
     pub pszObjId: windows_core::PSTR,
     pub LogotypeInfo: CERT_LOGOTYPE_INFO,
+}
+impl windows_core::TypeKind for CERT_OTHER_LOGOTYPE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_OTHER_LOGOTYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_OTHER_LOGOTYPE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_OTHER_NAME {
     pub pszObjId: windows_core::PSTR,
     pub Value: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CERT_OTHER_NAME {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_OTHER_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_OTHER_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_PAIR {
     pub Forward: CRYPT_INTEGER_BLOB,
     pub Reverse: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CERT_PAIR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_PAIR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_PHYSICAL_STORE_INFO {
     pub cbSize: u32,
     pub pszOpenStoreProvider: windows_core::PSTR,
@@ -11701,30 +12224,30 @@ pub struct CERT_PHYSICAL_STORE_INFO {
     pub dwFlags: u32,
     pub dwPriority: u32,
 }
+impl windows_core::TypeKind for CERT_PHYSICAL_STORE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_PHYSICAL_STORE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_PHYSICAL_STORE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICIES_INFO {
     pub cPolicyInfo: u32,
     pub rgPolicyInfo: *mut CERT_POLICY_INFO,
+}
+impl windows_core::TypeKind for CERT_POLICIES_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_POLICIES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_POLICIES_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY95_QUALIFIER1 {
     pub pszPracticesReference: windows_core::PWSTR,
     pub pszNoticeIdentifier: windows_core::PSTR,
@@ -11732,221 +12255,225 @@ pub struct CERT_POLICY95_QUALIFIER1 {
     pub cCPSURLs: u32,
     pub rgCPSURLs: *mut CPS_URLS,
 }
+impl windows_core::TypeKind for CERT_POLICY95_QUALIFIER1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_POLICY95_QUALIFIER1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_POLICY95_QUALIFIER1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_CONSTRAINTS_INFO {
     pub fRequireExplicitPolicy: super::super::Foundation::BOOL,
     pub dwRequireExplicitPolicySkipCerts: u32,
     pub fInhibitPolicyMapping: super::super::Foundation::BOOL,
     pub dwInhibitPolicyMappingSkipCerts: u32,
 }
+impl windows_core::TypeKind for CERT_POLICY_CONSTRAINTS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_POLICY_CONSTRAINTS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_POLICY_CONSTRAINTS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_ID {
     pub cCertPolicyElementId: u32,
     pub rgpszCertPolicyElementId: *mut windows_core::PSTR,
+}
+impl windows_core::TypeKind for CERT_POLICY_ID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_POLICY_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_POLICY_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_INFO {
     pub pszPolicyIdentifier: windows_core::PSTR,
     pub cPolicyQualifier: u32,
     pub rgPolicyQualifier: *mut CERT_POLICY_QUALIFIER_INFO,
+}
+impl windows_core::TypeKind for CERT_POLICY_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_POLICY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_POLICY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_MAPPING {
     pub pszIssuerDomainPolicy: windows_core::PSTR,
     pub pszSubjectDomainPolicy: windows_core::PSTR,
+}
+impl windows_core::TypeKind for CERT_POLICY_MAPPING {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_POLICY_MAPPING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_POLICY_MAPPING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_MAPPINGS_INFO {
     pub cPolicyMapping: u32,
     pub rgPolicyMapping: *mut CERT_POLICY_MAPPING,
+}
+impl windows_core::TypeKind for CERT_POLICY_MAPPINGS_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_POLICY_MAPPINGS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_POLICY_MAPPINGS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_QUALIFIER_INFO {
     pub pszPolicyQualifierId: windows_core::PSTR,
     pub Qualifier: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CERT_POLICY_QUALIFIER_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_POLICY_QUALIFIER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_POLICY_QUALIFIER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
     pub pszOrganization: windows_core::PSTR,
     pub cNoticeNumbers: u32,
     pub rgNoticeNumbers: *mut i32,
+}
+impl windows_core::TypeKind for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_QUALIFIER_USER_NOTICE {
     pub pNoticeReference: *mut CERT_POLICY_QUALIFIER_NOTICE_REFERENCE,
     pub pszDisplayText: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for CERT_POLICY_QUALIFIER_USER_NOTICE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_POLICY_QUALIFIER_USER_NOTICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_POLICY_QUALIFIER_USER_NOTICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_PRIVATE_KEY_VALIDITY {
     pub NotBefore: super::super::Foundation::FILETIME,
     pub NotAfter: super::super::Foundation::FILETIME,
+}
+impl windows_core::TypeKind for CERT_PRIVATE_KEY_VALIDITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_PRIVATE_KEY_VALIDITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_PRIVATE_KEY_VALIDITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_PUBLIC_KEY_INFO {
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub PublicKey: CRYPT_BIT_BLOB,
+}
+impl windows_core::TypeKind for CERT_PUBLIC_KEY_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_PUBLIC_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_PUBLIC_KEY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_QC_STATEMENT {
     pub pszStatementId: windows_core::PSTR,
     pub StatementInfo: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CERT_QC_STATEMENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_QC_STATEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_QC_STATEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_QC_STATEMENTS_EXT_INFO {
     pub cStatement: u32,
     pub rgStatement: *mut CERT_QC_STATEMENT,
+}
+impl windows_core::TypeKind for CERT_QC_STATEMENTS_EXT_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_QC_STATEMENTS_EXT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_QC_STATEMENTS_EXT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_RDN {
     pub cRDNAttr: u32,
     pub rgRDNAttr: *mut CERT_RDN_ATTR,
+}
+impl windows_core::TypeKind for CERT_RDN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_RDN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_RDN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_RDN_ATTR {
     pub pszObjId: windows_core::PSTR,
     pub dwValueType: u32,
     pub Value: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CERT_RDN_ATTR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_RDN_ATTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_RDN_ATTR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     pub hKeyBase: super::super::System::Registry::HKEY,
     pub pwszRegPath: windows_core::PWSTR,
+}
+#[cfg(feature = "Win32_System_Registry")]
+impl windows_core::TypeKind for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl Default for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
@@ -11954,16 +12481,16 @@ impl Default for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REGISTRY_STORE_ROAMING_PARA {
     pub hKey: super::super::System::Registry::HKEY,
     pub pwszStoreDirectory: windows_core::PWSTR,
+}
+#[cfg(feature = "Win32_System_Registry")]
+impl windows_core::TypeKind for CERT_REGISTRY_STORE_ROAMING_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl Default for CERT_REGISTRY_STORE_ROAMING_PARA {
@@ -11971,12 +12498,8 @@ impl Default for CERT_REGISTRY_STORE_ROAMING_PARA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CERT_REGISTRY_STORE_ROAMING_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REQUEST_INFO {
     pub dwVersion: u32,
     pub Subject: CRYPT_INTEGER_BLOB,
@@ -11984,16 +12507,16 @@ pub struct CERT_REQUEST_INFO {
     pub cAttribute: u32,
     pub rgAttribute: *mut CRYPT_ATTRIBUTE,
 }
+impl windows_core::TypeKind for CERT_REQUEST_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_REQUEST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_REQUEST_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REVOCATION_CHAIN_PARA {
     pub cbSize: u32,
     pub hChainEngine: HCERTCHAINENGINE,
@@ -12004,16 +12527,16 @@ pub struct CERT_REVOCATION_CHAIN_PARA {
     pub pftCacheResync: *mut super::super::Foundation::FILETIME,
     pub cbMaxUrlRetrievalByteCount: u32,
 }
+impl windows_core::TypeKind for CERT_REVOCATION_CHAIN_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_REVOCATION_CHAIN_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_REVOCATION_CHAIN_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REVOCATION_CRL_INFO {
     pub cbSize: u32,
     pub pBaseCrlContext: *mut CRL_CONTEXT,
@@ -12021,16 +12544,16 @@ pub struct CERT_REVOCATION_CRL_INFO {
     pub pCrlEntry: *mut CRL_ENTRY,
     pub fDeltaCrlEntry: super::super::Foundation::BOOL,
 }
+impl windows_core::TypeKind for CERT_REVOCATION_CRL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_REVOCATION_CRL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_REVOCATION_CRL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REVOCATION_INFO {
     pub cbSize: u32,
     pub dwRevocationResult: u32,
@@ -12040,16 +12563,16 @@ pub struct CERT_REVOCATION_INFO {
     pub dwFreshnessTime: u32,
     pub pCrlInfo: *mut CERT_REVOCATION_CRL_INFO,
 }
+impl windows_core::TypeKind for CERT_REVOCATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_REVOCATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_REVOCATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REVOCATION_PARA {
     pub cbSize: u32,
     pub pIssuerCert: *const CERT_CONTEXT,
@@ -12058,16 +12581,16 @@ pub struct CERT_REVOCATION_PARA {
     pub hCrlStore: HCERTSTORE,
     pub pftTimeToUse: *mut super::super::Foundation::FILETIME,
 }
+impl windows_core::TypeKind for CERT_REVOCATION_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_REVOCATION_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_REVOCATION_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REVOCATION_STATUS {
     pub cbSize: u32,
     pub dwIndex: u32,
@@ -12076,16 +12599,16 @@ pub struct CERT_REVOCATION_STATUS {
     pub fHasFreshnessTime: super::super::Foundation::BOOL,
     pub dwFreshnessTime: u32,
 }
+impl windows_core::TypeKind for CERT_REVOCATION_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_REVOCATION_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_REVOCATION_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SELECT_CHAIN_PARA {
     pub hChainEngine: HCERTCHAINENGINE,
     pub pTime: *mut super::super::Foundation::FILETIME,
@@ -12093,46 +12616,46 @@ pub struct CERT_SELECT_CHAIN_PARA {
     pub pChainPara: *mut CERT_CHAIN_PARA,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for CERT_SELECT_CHAIN_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_SELECT_CHAIN_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_SELECT_CHAIN_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SELECT_CRITERIA {
     pub dwType: CERT_SELECT_CRITERIA_TYPE,
     pub cPara: u32,
     pub ppPara: *mut *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for CERT_SELECT_CRITERIA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_SELECT_CRITERIA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_SELECT_CRITERIA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     pub cbSize: u32,
     pub pbEncodedOcspResponse: *mut u8,
     pub cbEncodedOcspResponse: u32,
+}
+impl windows_core::TypeKind for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -12141,31 +12664,31 @@ pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub pfnUpdateCallback: PFN_CERT_SERVER_OCSP_RESPONSE_UPDATE_CALLBACK,
     pub pvUpdateCallbackArg: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SIGNED_CONTENT_INFO {
     pub ToBeSigned: CRYPT_INTEGER_BLOB,
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Signature: CRYPT_BIT_BLOB,
+}
+impl windows_core::TypeKind for CERT_SIGNED_CONTENT_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_SIGNED_CONTENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_SIGNED_CONTENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SIMPLE_CHAIN {
     pub cbSize: u32,
     pub TrustStatus: CERT_TRUST_STATUS,
@@ -12175,16 +12698,16 @@ pub struct CERT_SIMPLE_CHAIN {
     pub fHasRevocationFreshnessTime: super::super::Foundation::BOOL,
     pub dwRevocationFreshnessTime: u32,
 }
+impl windows_core::TypeKind for CERT_SIMPLE_CHAIN {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_SIMPLE_CHAIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_SIMPLE_CHAIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_STORE_PROV_FIND_INFO {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
@@ -12192,16 +12715,16 @@ pub struct CERT_STORE_PROV_FIND_INFO {
     pub dwFindType: u32,
     pub pvFindPara: *const core::ffi::c_void,
 }
+impl windows_core::TypeKind for CERT_STORE_PROV_FIND_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_STORE_PROV_FIND_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_STORE_PROV_FIND_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_STORE_PROV_INFO {
     pub cbSize: u32,
     pub cStoreProvFunc: u32,
@@ -12210,93 +12733,97 @@ pub struct CERT_STORE_PROV_INFO {
     pub dwStoreProvFlags: CERT_STORE_PROV_FLAGS,
     pub hStoreProvFuncAddr2: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for CERT_STORE_PROV_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_STORE_PROV_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_STORE_PROV_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CERT_STRONG_SIGN_PARA {
     pub cbSize: u32,
     pub dwInfoChoice: u32,
     pub Anonymous: CERT_STRONG_SIGN_PARA_0,
+}
+impl windows_core::TypeKind for CERT_STRONG_SIGN_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_STRONG_SIGN_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_STRONG_SIGN_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CERT_STRONG_SIGN_PARA_0 {
     pub pvInfo: *mut core::ffi::c_void,
     pub pSerializedInfo: *mut CERT_STRONG_SIGN_SERIALIZED_INFO,
     pub pszOID: windows_core::PSTR,
+}
+impl windows_core::TypeKind for CERT_STRONG_SIGN_PARA_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_STRONG_SIGN_PARA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_STRONG_SIGN_PARA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_STRONG_SIGN_SERIALIZED_INFO {
     pub dwFlags: CERT_STRONG_SIGN_FLAGS,
     pub pwszCNGSignHashAlgids: windows_core::PWSTR,
     pub pwszCNGPubKeyMinBitLengths: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for CERT_STRONG_SIGN_SERIALIZED_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_STRONG_SIGN_SERIALIZED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_STRONG_SIGN_SERIALIZED_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SUPPORTED_ALGORITHM_INFO {
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub IntendedKeyUsage: CRYPT_BIT_BLOB,
     pub IntendedCertPolicies: CERT_POLICIES_INFO,
+}
+impl windows_core::TypeKind for CERT_SUPPORTED_ALGORITHM_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_SUPPORTED_ALGORITHM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_SUPPORTED_ALGORITHM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SYSTEM_STORE_INFO {
     pub cbSize: u32,
+}
+impl windows_core::TypeKind for CERT_SYSTEM_STORE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_SYSTEM_STORE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_SYSTEM_STORE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CERT_SYSTEM_STORE_RELOCATE_PARA {
     pub Anonymous1: CERT_SYSTEM_STORE_RELOCATE_PARA_0,
     pub Anonymous2: CERT_SYSTEM_STORE_RELOCATE_PARA_1,
+}
+#[cfg(feature = "Win32_System_Registry")]
+impl windows_core::TypeKind for CERT_SYSTEM_STORE_RELOCATE_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl Default for CERT_SYSTEM_STORE_RELOCATE_PARA {
@@ -12304,16 +12831,16 @@ impl Default for CERT_SYSTEM_STORE_RELOCATE_PARA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CERT_SYSTEM_STORE_RELOCATE_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     pub hKeyBase: super::super::System::Registry::HKEY,
     pub pvBase: *mut core::ffi::c_void,
+}
+#[cfg(feature = "Win32_System_Registry")]
+impl windows_core::TypeKind for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl Default for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
@@ -12321,17 +12848,17 @@ impl Default for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     pub pvSystemStore: *mut core::ffi::c_void,
     pub pszSystemStore: windows_core::PCSTR,
     pub pwszSystemStore: windows_core::PCWSTR,
+}
+#[cfg(feature = "Win32_System_Registry")]
+impl windows_core::TypeKind for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl Default for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
@@ -12339,86 +12866,82 @@ impl Default for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_TEMPLATE_EXT {
     pub pszObjId: windows_core::PSTR,
     pub dwMajorVersion: u32,
     pub fMinorVersion: super::super::Foundation::BOOL,
     pub dwMinorVersion: u32,
 }
+impl windows_core::TypeKind for CERT_TEMPLATE_EXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_TEMPLATE_EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_TEMPLATE_EXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_TPM_SPECIFICATION_INFO {
     pub pwszFamily: windows_core::PWSTR,
     pub dwLevel: u32,
     pub dwRevision: u32,
+}
+impl windows_core::TypeKind for CERT_TPM_SPECIFICATION_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_TPM_SPECIFICATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_TPM_SPECIFICATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_TRUST_LIST_INFO {
     pub cbSize: u32,
     pub pCtlEntry: *mut CTL_ENTRY,
     pub pCtlContext: *mut CTL_CONTEXT,
+}
+impl windows_core::TypeKind for CERT_TRUST_LIST_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_TRUST_LIST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_TRUST_LIST_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_TRUST_STATUS {
     pub dwErrorStatus: u32,
     pub dwInfoStatus: u32,
+}
+impl windows_core::TypeKind for CERT_TRUST_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_TRUST_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_TRUST_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_USAGE_MATCH {
     pub dwType: u32,
     pub Usage: CTL_USAGE,
+}
+impl windows_core::TypeKind for CERT_USAGE_MATCH {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_USAGE_MATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_USAGE_MATCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_X942_DH_PARAMETERS {
     pub p: CRYPT_INTEGER_BLOB,
     pub g: CRYPT_INTEGER_BLOB,
@@ -12426,60 +12949,60 @@ pub struct CERT_X942_DH_PARAMETERS {
     pub j: CRYPT_INTEGER_BLOB,
     pub pValidationParams: *mut CERT_X942_DH_VALIDATION_PARAMS,
 }
+impl windows_core::TypeKind for CERT_X942_DH_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CERT_X942_DH_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_X942_DH_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_X942_DH_VALIDATION_PARAMS {
     pub seed: CRYPT_BIT_BLOB,
     pub pgenCounter: u32,
+}
+impl windows_core::TypeKind for CERT_X942_DH_VALIDATION_PARAMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_X942_DH_VALIDATION_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CERT_X942_DH_VALIDATION_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLAIMLIST {
     pub count: u32,
     pub claims: *const windows_core::PCWSTR,
+}
+impl windows_core::TypeKind for CLAIMLIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLAIMLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLAIMLIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLMD_PIV_CERT_DATA {
     pub dwVersion: u32,
     pub dwCertTag: u32,
     pub pbCert: *mut u8,
     pub cbCert: u32,
 }
+impl windows_core::TypeKind for CLMD_PIV_CERT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CLMD_PIV_CERT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLMD_PIV_CERT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLMD_PIV_GENERATE_ASYMMETRIC_KEY {
     pub dwVersion: u32,
     pub bAlgorithmId: u8,
@@ -12487,32 +13010,32 @@ pub struct CLMD_PIV_GENERATE_ASYMMETRIC_KEY {
     pub pbKey: *mut u8,
     pub cbKey: u32,
 }
+impl windows_core::TypeKind for CLMD_PIV_GENERATE_ASYMMETRIC_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CLMD_PIV_GENERATE_ASYMMETRIC_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLMD_PIV_GENERATE_ASYMMETRIC_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLMD_PIV_PUBLIC_KEY_DATA {
     pub dwVersion: u32,
     pub bKeyId: u8,
     pub pbPublicKey: *mut u8,
     pub cbPublicKey: u32,
 }
+impl windows_core::TypeKind for CLMD_PIV_PUBLIC_KEY_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CLMD_PIV_PUBLIC_KEY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CLMD_PIV_PUBLIC_KEY_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_ADD_ATTRIBUTES_INFO {
     pub dwCmcDataReference: u32,
     pub cCertReference: u32,
@@ -12520,16 +13043,16 @@ pub struct CMC_ADD_ATTRIBUTES_INFO {
     pub cAttribute: u32,
     pub rgAttribute: *mut CRYPT_ATTRIBUTE,
 }
+impl windows_core::TypeKind for CMC_ADD_ATTRIBUTES_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMC_ADD_ATTRIBUTES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMC_ADD_ATTRIBUTES_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_ADD_EXTENSIONS_INFO {
     pub dwCmcDataReference: u32,
     pub cCertReference: u32,
@@ -12537,16 +13060,16 @@ pub struct CMC_ADD_EXTENSIONS_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
+impl windows_core::TypeKind for CMC_ADD_EXTENSIONS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMC_ADD_EXTENSIONS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMC_ADD_EXTENSIONS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_DATA_INFO {
     pub cTaggedAttribute: u32,
     pub rgTaggedAttribute: *mut CMC_TAGGED_ATTRIBUTE,
@@ -12557,30 +13080,30 @@ pub struct CMC_DATA_INFO {
     pub cTaggedOtherMsg: u32,
     pub rgTaggedOtherMsg: *mut CMC_TAGGED_OTHER_MSG,
 }
+impl windows_core::TypeKind for CMC_DATA_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMC_DATA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMC_DATA_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_PEND_INFO {
     pub PendToken: CRYPT_INTEGER_BLOB,
     pub PendTime: super::super::Foundation::FILETIME,
+}
+impl windows_core::TypeKind for CMC_PEND_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMC_PEND_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMC_PEND_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_RESPONSE_INFO {
     pub cTaggedAttribute: u32,
     pub rgTaggedAttribute: *mut CMC_TAGGED_ATTRIBUTE,
@@ -12589,16 +13112,16 @@ pub struct CMC_RESPONSE_INFO {
     pub cTaggedOtherMsg: u32,
     pub rgTaggedOtherMsg: *mut CMC_TAGGED_OTHER_MSG,
 }
+impl windows_core::TypeKind for CMC_RESPONSE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMC_RESPONSE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMC_RESPONSE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMC_STATUS_INFO {
     pub dwStatus: u32,
     pub cBodyList: u32,
@@ -12607,144 +13130,144 @@ pub struct CMC_STATUS_INFO {
     pub dwOtherInfoChoice: u32,
     pub Anonymous: CMC_STATUS_INFO_0,
 }
+impl windows_core::TypeKind for CMC_STATUS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMC_STATUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMC_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CMC_STATUS_INFO_0 {
     pub dwFailInfo: u32,
     pub pPendInfo: *mut CMC_PEND_INFO,
+}
+impl windows_core::TypeKind for CMC_STATUS_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMC_STATUS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMC_STATUS_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_TAGGED_ATTRIBUTE {
     pub dwBodyPartID: u32,
     pub Attribute: CRYPT_ATTRIBUTE,
+}
+impl windows_core::TypeKind for CMC_TAGGED_ATTRIBUTE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMC_TAGGED_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMC_TAGGED_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_TAGGED_CERT_REQUEST {
     pub dwBodyPartID: u32,
     pub SignedCertRequest: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CMC_TAGGED_CERT_REQUEST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMC_TAGGED_CERT_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMC_TAGGED_CERT_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_TAGGED_CONTENT_INFO {
     pub dwBodyPartID: u32,
     pub EncodedContentInfo: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CMC_TAGGED_CONTENT_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMC_TAGGED_CONTENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMC_TAGGED_CONTENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_TAGGED_OTHER_MSG {
     pub dwBodyPartID: u32,
     pub pszObjId: windows_core::PSTR,
     pub Value: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CMC_TAGGED_OTHER_MSG {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMC_TAGGED_OTHER_MSG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMC_TAGGED_OTHER_MSG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMC_TAGGED_REQUEST {
     pub dwTaggedRequestChoice: u32,
     pub Anonymous: CMC_TAGGED_REQUEST_0,
+}
+impl windows_core::TypeKind for CMC_TAGGED_REQUEST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMC_TAGGED_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMC_TAGGED_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CMC_TAGGED_REQUEST_0 {
     pub pTaggedCertRequest: *mut CMC_TAGGED_CERT_REQUEST,
+}
+impl windows_core::TypeKind for CMC_TAGGED_REQUEST_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMC_TAGGED_REQUEST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMC_TAGGED_REQUEST_0 {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CMSCEPSetup: windows_core::GUID = windows_core::GUID::from_u128(0xaa4f5c02_8e7c_49c4_94fa_67a5cc5eadb4);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CMS_RECIPIENT_INFO {
     pub dwRecipientChoice: u32,
     pub Anonymous: CMSG_CMS_RECIPIENT_INFO_0,
+}
+impl windows_core::TypeKind for CMSG_CMS_RECIPIENT_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_CMS_RECIPIENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CMS_RECIPIENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CMSG_CMS_RECIPIENT_INFO_0 {
     pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_INFO,
     pub pKeyAgree: *mut CMSG_KEY_AGREE_RECIPIENT_INFO,
     pub pMailList: *mut CMSG_MAIL_LIST_RECIPIENT_INFO,
+}
+impl windows_core::TypeKind for CMSG_CMS_RECIPIENT_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_CMS_RECIPIENT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CMS_RECIPIENT_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CMS_SIGNER_INFO {
     pub dwVersion: u32,
     pub SignerId: CERT_ID,
@@ -12754,16 +13277,16 @@ pub struct CMSG_CMS_SIGNER_INFO {
     pub AuthAttrs: CRYPT_ATTRIBUTES,
     pub UnauthAttrs: CRYPT_ATTRIBUTES,
 }
+impl windows_core::TypeKind for CMSG_CMS_SIGNER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_CMS_SIGNER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CMS_SIGNER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub cbSize: u32,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -12775,16 +13298,16 @@ pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub hCNGContentEncryptKey: BCRYPT_KEY_HANDLE,
     pub pbCNGContentEncryptKeyObject: *mut u8,
 }
+impl windows_core::TypeKind for CMSG_CNG_CONTENT_DECRYPT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_CNG_CONTENT_DECRYPT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CNG_CONTENT_DECRYPT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CONTENT_ENCRYPT_INFO {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
@@ -12802,90 +13325,90 @@ pub struct CMSG_CONTENT_ENCRYPT_INFO {
     pub pbContentEncryptKey: *mut u8,
     pub cbContentEncryptKey: u32,
 }
+impl windows_core::TypeKind for CMSG_CONTENT_ENCRYPT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_CONTENT_ENCRYPT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CONTENT_ENCRYPT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CMSG_CONTENT_ENCRYPT_INFO_0 {
     pub hContentEncryptKey: usize,
     pub hCNGContentEncryptKey: BCRYPT_KEY_HANDLE,
+}
+impl windows_core::TypeKind for CMSG_CONTENT_ENCRYPT_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_CONTENT_ENCRYPT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CONTENT_ENCRYPT_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
     pub cbSize: u32,
     pub dwSignerIndex: u32,
     pub blob: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CTRL_DECRYPT_PARA {
     pub cbSize: u32,
     pub Anonymous: CMSG_CTRL_DECRYPT_PARA_0,
     pub dwKeySpec: u32,
     pub dwRecipientIndex: u32,
 }
+impl windows_core::TypeKind for CMSG_CTRL_DECRYPT_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_CTRL_DECRYPT_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CTRL_DECRYPT_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CMSG_CTRL_DECRYPT_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
+}
+impl windows_core::TypeKind for CMSG_CTRL_DECRYPT_PARA_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_CTRL_DECRYPT_PARA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CTRL_DECRYPT_PARA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
     pub cbSize: u32,
     pub dwSignerIndex: u32,
     pub dwUnauthAttrIndex: u32,
+}
+impl windows_core::TypeKind for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     pub cbSize: u32,
     pub Anonymous: CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0,
@@ -12895,30 +13418,30 @@ pub struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     pub dwRecipientEncryptedKeyIndex: u32,
     pub OriginatorPublicKey: CRYPT_BIT_BLOB,
 }
+impl windows_core::TypeKind for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
+}
+impl windows_core::TypeKind for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     pub cbSize: u32,
     pub Anonymous: CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0,
@@ -12926,30 +13449,30 @@ pub struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_INFO,
     pub dwRecipientIndex: u32,
 }
+impl windows_core::TypeKind for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
+}
+impl windows_core::TypeKind for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     pub cbSize: u32,
     pub hCryptProv: usize,
@@ -12958,30 +13481,30 @@ pub struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     pub dwKeyChoice: u32,
     pub Anonymous: CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0,
 }
+impl windows_core::TypeKind for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     pub hKeyEncryptionKey: usize,
     pub pvKeyEncryptionKey: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
@@ -12989,31 +13512,31 @@ pub struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     pub dwSignerType: u32,
     pub pvSigner: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_ENCRYPTED_ENCODE_INFO {
     pub cbSize: u32,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvEncryptionAuxInfo: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for CMSG_ENCRYPTED_ENCODE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_ENCRYPTED_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_ENCRYPTED_ENCODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_ENVELOPED_ENCODE_INFO {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
@@ -13022,32 +13545,32 @@ pub struct CMSG_ENVELOPED_ENCODE_INFO {
     pub cRecipients: u32,
     pub rgpRecipients: *mut *mut CERT_INFO,
 }
+impl windows_core::TypeKind for CMSG_ENVELOPED_ENCODE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_ENVELOPED_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_ENVELOPED_ENCODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_HASHED_ENCODE_INFO {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvHashAuxInfo: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for CMSG_HASHED_ENCODE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_HASHED_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_HASHED_ENCODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_AGREE_ENCRYPT_INFO {
     pub cbSize: u32,
     pub dwRecipientIndex: u32,
@@ -13059,44 +13582,44 @@ pub struct CMSG_KEY_AGREE_ENCRYPT_INFO {
     pub rgpKeyAgreeKeyEncryptInfo: *mut *mut CMSG_KEY_AGREE_KEY_ENCRYPT_INFO,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for CMSG_KEY_AGREE_ENCRYPT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_KEY_AGREE_ENCRYPT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_KEY_AGREE_ENCRYPT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
     pub OriginatorCertId: CERT_ID,
     pub OriginatorPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
+}
+impl windows_core::TypeKind for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
     pub cbSize: u32,
     pub EncryptedKey: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     pub cbSize: u32,
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -13111,30 +13634,30 @@ pub struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     pub cRecipientEncryptedKeys: u32,
     pub rgpRecipientEncryptedKeys: *mut *mut CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO,
 }
+impl windows_core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
     pub pEphemeralAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER,
     pub pSenderId: *mut CERT_ID,
+}
+impl windows_core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_AGREE_RECIPIENT_INFO {
     pub dwVersion: u32,
     pub dwOriginatorChoice: CMSG_KEY_AGREE_ORIGINATOR,
@@ -13144,30 +13667,30 @@ pub struct CMSG_KEY_AGREE_RECIPIENT_INFO {
     pub cRecipientEncryptedKeys: u32,
     pub rgpRecipientEncryptedKeys: *mut *mut CMSG_RECIPIENT_ENCRYPTED_KEY_INFO,
 }
+impl windows_core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_KEY_AGREE_RECIPIENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
     pub OriginatorCertId: CERT_ID,
     pub OriginatorPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
+}
+impl windows_core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_KEY_TRANS_ENCRYPT_INFO {
     pub cbSize: u32,
     pub dwRecipientIndex: u32,
@@ -13175,16 +13698,16 @@ pub struct CMSG_KEY_TRANS_ENCRYPT_INFO {
     pub EncryptedKey: CRYPT_INTEGER_BLOB,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for CMSG_KEY_TRANS_ENCRYPT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_KEY_TRANS_ENCRYPT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_KEY_TRANS_ENCRYPT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
     pub cbSize: u32,
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -13193,32 +13716,32 @@ pub struct CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
     pub RecipientPublicKey: CRYPT_BIT_BLOB,
     pub RecipientId: CERT_ID,
 }
+impl windows_core::TypeKind for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_KEY_TRANS_RECIPIENT_INFO {
     pub dwVersion: u32,
     pub RecipientId: CERT_ID,
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub EncryptedKey: CRYPT_INTEGER_BLOB,
 }
+impl windows_core::TypeKind for CMSG_KEY_TRANS_RECIPIENT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_KEY_TRANS_RECIPIENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_KEY_TRANS_RECIPIENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_MAIL_LIST_ENCRYPT_INFO {
     pub cbSize: u32,
     pub dwRecipientIndex: u32,
@@ -13226,16 +13749,16 @@ pub struct CMSG_MAIL_LIST_ENCRYPT_INFO {
     pub EncryptedKey: CRYPT_INTEGER_BLOB,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for CMSG_MAIL_LIST_ENCRYPT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_MAIL_LIST_ENCRYPT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_MAIL_LIST_ENCRYPT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     pub cbSize: u32,
     pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -13247,30 +13770,30 @@ pub struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     pub Date: super::super::Foundation::FILETIME,
     pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
 }
+impl windows_core::TypeKind for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
     pub hKeyEncryptionKey: usize,
     pub pvKeyEncryptionKey: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_MAIL_LIST_RECIPIENT_INFO {
     pub dwVersion: u32,
     pub KeyId: CRYPT_INTEGER_BLOB,
@@ -13279,73 +13802,73 @@ pub struct CMSG_MAIL_LIST_RECIPIENT_INFO {
     pub Date: super::super::Foundation::FILETIME,
     pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
 }
+impl windows_core::TypeKind for CMSG_MAIL_LIST_RECIPIENT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_MAIL_LIST_RECIPIENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_MAIL_LIST_RECIPIENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_RC2_AUX_INFO {
     pub cbSize: u32,
     pub dwBitLen: u32,
+}
+impl windows_core::TypeKind for CMSG_RC2_AUX_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_RC2_AUX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_RC2_AUX_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_RC4_AUX_INFO {
     pub cbSize: u32,
     pub dwBitLen: u32,
+}
+impl windows_core::TypeKind for CMSG_RC4_AUX_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_RC4_AUX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_RC4_AUX_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_RECIPIENT_ENCODE_INFO {
     pub dwRecipientChoice: u32,
     pub Anonymous: CMSG_RECIPIENT_ENCODE_INFO_0,
+}
+impl windows_core::TypeKind for CMSG_RECIPIENT_ENCODE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_RECIPIENT_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_RECIPIENT_ENCODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CMSG_RECIPIENT_ENCODE_INFO_0 {
     pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO,
     pub pKeyAgree: *mut CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO,
     pub pMailList: *mut CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO,
+}
+impl windows_core::TypeKind for CMSG_RECIPIENT_ENCODE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_RECIPIENT_ENCODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_RECIPIENT_ENCODE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     pub cbSize: u32,
     pub RecipientPublicKey: CRYPT_BIT_BLOB,
@@ -13353,47 +13876,47 @@ pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     pub Date: super::super::Foundation::FILETIME,
     pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
 }
+impl windows_core::TypeKind for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
     pub RecipientId: CERT_ID,
     pub EncryptedKey: CRYPT_INTEGER_BLOB,
     pub Date: super::super::Foundation::FILETIME,
     pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
 }
+impl windows_core::TypeKind for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
     pub cbSize: u32,
     pub SignedInfo: CMSG_SIGNED_ENCODE_INFO,
     pub EnvelopedInfo: CMSG_ENVELOPED_ENCODE_INFO,
+}
+impl windows_core::TypeKind for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_SIGNED_ENCODE_INFO {
     pub cbSize: u32,
     pub cSigners: u32,
@@ -13403,16 +13926,16 @@ pub struct CMSG_SIGNED_ENCODE_INFO {
     pub cCrlEncoded: u32,
     pub rgCrlEncoded: *mut CRYPT_INTEGER_BLOB,
 }
+impl windows_core::TypeKind for CMSG_SIGNED_ENCODE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_SIGNED_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_SIGNED_ENCODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMSG_SIGNER_ENCODE_INFO {
     pub cbSize: u32,
     pub pCertInfo: *mut CERT_INFO,
@@ -13425,30 +13948,30 @@ pub struct CMSG_SIGNER_ENCODE_INFO {
     pub cUnauthAttr: u32,
     pub rgUnauthAttr: *mut CRYPT_ATTRIBUTE,
 }
+impl windows_core::TypeKind for CMSG_SIGNER_ENCODE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_SIGNER_ENCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_SIGNER_ENCODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CMSG_SIGNER_ENCODE_INFO_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
+}
+impl windows_core::TypeKind for CMSG_SIGNER_ENCODE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_SIGNER_ENCODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_SIGNER_ENCODE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_SIGNER_INFO {
     pub dwVersion: u32,
     pub Issuer: CRYPT_INTEGER_BLOB,
@@ -13459,45 +13982,45 @@ pub struct CMSG_SIGNER_INFO {
     pub AuthAttrs: CRYPT_ATTRIBUTES,
     pub UnauthAttrs: CRYPT_ATTRIBUTES,
 }
+impl windows_core::TypeKind for CMSG_SIGNER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMSG_SIGNER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_SIGNER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_SP3_COMPATIBLE_AUX_INFO {
     pub cbSize: u32,
     pub dwFlags: u32,
+}
+impl windows_core::TypeKind for CMSG_SP3_COMPATIBLE_AUX_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_SP3_COMPATIBLE_AUX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_SP3_COMPATIBLE_AUX_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_STREAM_INFO {
     pub cbContent: u32,
     pub pfnStreamOutput: PFN_CMSG_STREAM_OUTPUT,
     pub pvArg: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for CMSG_STREAM_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CMSG_STREAM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMSG_STREAM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMS_DH_KEY_INFO {
     pub dwVersion: u32,
     pub Algid: ALG_ID,
@@ -13505,32 +14028,32 @@ pub struct CMS_DH_KEY_INFO {
     pub PubInfo: CRYPT_INTEGER_BLOB,
     pub pReserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for CMS_DH_KEY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMS_DH_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMS_DH_KEY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMS_KEY_INFO {
     pub dwVersion: u32,
     pub Algid: ALG_ID,
     pub pbOID: *mut u8,
     pub cbOID: u32,
 }
+impl windows_core::TypeKind for CMS_KEY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CMS_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CMS_KEY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTAINER_INFO {
     pub dwVersion: u32,
     pub dwReserved: u32,
@@ -13539,16 +14062,16 @@ pub struct CONTAINER_INFO {
     pub cbKeyExPublicKey: u32,
     pub pbKeyExPublicKey: *mut u8,
 }
+impl windows_core::TypeKind for CONTAINER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CONTAINER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONTAINER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTAINER_MAP_RECORD {
     pub wszGuid: [u16; 40],
     pub bFlags: u8,
@@ -13556,31 +14079,31 @@ pub struct CONTAINER_MAP_RECORD {
     pub wSigKeySizeBits: u16,
     pub wKeyExchangeKeySizeBits: u16,
 }
+impl windows_core::TypeKind for CONTAINER_MAP_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CONTAINER_MAP_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONTAINER_MAP_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CPS_URLS {
     pub pszURL: windows_core::PWSTR,
     pub pAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER,
     pub pDigest: *mut CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CPS_URLS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CPS_URLS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CPS_URLS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_CONTEXT {
     pub dwCertEncodingType: CERT_QUERY_ENCODING_TYPE,
     pub pbCrlEncoded: *mut u8,
@@ -13588,102 +14111,102 @@ pub struct CRL_CONTEXT {
     pub pCrlInfo: *mut CRL_INFO,
     pub hCertStore: HCERTSTORE,
 }
+impl windows_core::TypeKind for CRL_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRL_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRL_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CRL_DIST_POINT {
     pub DistPointName: CRL_DIST_POINT_NAME,
     pub ReasonFlags: CRYPT_BIT_BLOB,
     pub CRLIssuer: CERT_ALT_NAME_INFO,
+}
+impl windows_core::TypeKind for CRL_DIST_POINT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRL_DIST_POINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRL_DIST_POINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_DIST_POINTS_INFO {
     pub cDistPoint: u32,
     pub rgDistPoint: *mut CRL_DIST_POINT,
+}
+impl windows_core::TypeKind for CRL_DIST_POINTS_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRL_DIST_POINTS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRL_DIST_POINTS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CRL_DIST_POINT_NAME {
     pub dwDistPointNameChoice: u32,
     pub Anonymous: CRL_DIST_POINT_NAME_0,
+}
+impl windows_core::TypeKind for CRL_DIST_POINT_NAME {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRL_DIST_POINT_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRL_DIST_POINT_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CRL_DIST_POINT_NAME_0 {
     pub FullName: CERT_ALT_NAME_INFO,
+}
+impl windows_core::TypeKind for CRL_DIST_POINT_NAME_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRL_DIST_POINT_NAME_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRL_DIST_POINT_NAME_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_ENTRY {
     pub SerialNumber: CRYPT_INTEGER_BLOB,
     pub RevocationDate: super::super::Foundation::FILETIME,
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
+impl windows_core::TypeKind for CRL_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRL_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRL_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_FIND_ISSUED_FOR_PARA {
     pub pSubjectCert: *const CERT_CONTEXT,
     pub pIssuerCert: *const CERT_CONTEXT,
+}
+impl windows_core::TypeKind for CRL_FIND_ISSUED_FOR_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRL_FIND_ISSUED_FOR_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRL_FIND_ISSUED_FOR_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_INFO {
     pub dwVersion: u32,
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -13695,16 +14218,16 @@ pub struct CRL_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
+impl windows_core::TypeKind for CRL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CRL_ISSUING_DIST_POINT {
     pub DistPointName: CRL_DIST_POINT_NAME,
     pub fOnlyContainsUserCerts: super::super::Foundation::BOOL,
@@ -13712,61 +14235,61 @@ pub struct CRL_ISSUING_DIST_POINT {
     pub OnlySomeReasonFlags: CRYPT_BIT_BLOB,
     pub fIndirectCRL: super::super::Foundation::BOOL,
 }
+impl windows_core::TypeKind for CRL_ISSUING_DIST_POINT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRL_ISSUING_DIST_POINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRL_ISSUING_DIST_POINT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_REVOCATION_INFO {
     pub pCrlEntry: *mut CRL_ENTRY,
     pub pCrlContext: *mut CRL_CONTEXT,
     pub pCrlIssuerChain: *mut CERT_CHAIN_CONTEXT,
+}
+impl windows_core::TypeKind for CRL_REVOCATION_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRL_REVOCATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRL_REVOCATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CROSS_CERT_DIST_POINTS_INFO {
     pub dwSyncDeltaTime: u32,
     pub cDistPoint: u32,
     pub rgDistPoint: *mut CERT_ALT_NAME_INFO,
+}
+impl windows_core::TypeKind for CROSS_CERT_DIST_POINTS_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CROSS_CERT_DIST_POINTS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CROSS_CERT_DIST_POINTS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTNET_URL_CACHE_FLUSH_INFO {
     pub cbSize: u32,
     pub dwExemptSeconds: u32,
     pub ExpireTime: super::super::Foundation::FILETIME,
+}
+impl windows_core::TypeKind for CRYPTNET_URL_CACHE_FLUSH_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPTNET_URL_CACHE_FLUSH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPTNET_URL_CACHE_FLUSH_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
     pub cbSize: u32,
     pub dwObjectType: u32,
@@ -13776,16 +14299,16 @@ pub struct CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
     pub NextUpdateTime: super::super::Foundation::FILETIME,
     pub PublishTime: super::super::Foundation::FILETIME,
 }
+impl windows_core::TypeKind for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTNET_URL_CACHE_RESPONSE_INFO {
     pub cbSize: u32,
     pub wResponseType: u16,
@@ -13795,47 +14318,47 @@ pub struct CRYPTNET_URL_CACHE_RESPONSE_INFO {
     pub pwszETag: windows_core::PCWSTR,
     pub dwProxyId: u32,
 }
+impl windows_core::TypeKind for CRYPTNET_URL_CACHE_RESPONSE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPTNET_URL_CACHE_RESPONSE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPTNET_URL_CACHE_RESPONSE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTPROTECT_PROMPTSTRUCT {
     pub cbSize: u32,
     pub dwPromptFlags: u32,
     pub hwndApp: super::super::Foundation::HWND,
     pub szPrompt: windows_core::PCWSTR,
 }
+impl windows_core::TypeKind for CRYPTPROTECT_PROMPTSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPTPROTECT_PROMPTSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPTPROTECT_PROMPTSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_3DES_KEY_STATE {
     pub Key: [u8; 24],
     pub IV: [u8; 8],
     pub Feedback: [u8; 8],
+}
+impl windows_core::TypeKind for CRYPT_3DES_KEY_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_3DES_KEY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_3DES_KEY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_AES_128_KEY_STATE {
     pub Key: [u8; 16],
     pub IV: [u8; 16],
@@ -13843,16 +14366,16 @@ pub struct CRYPT_AES_128_KEY_STATE {
     pub DecryptionState: [u8; 176],
     pub Feedback: [u8; 16],
 }
+impl windows_core::TypeKind for CRYPT_AES_128_KEY_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_AES_128_KEY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_AES_128_KEY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_AES_256_KEY_STATE {
     pub Key: [u8; 32],
     pub IV: [u8; 16],
@@ -13860,365 +14383,365 @@ pub struct CRYPT_AES_256_KEY_STATE {
     pub DecryptionState: [u8; 240],
     pub Feedback: [u8; 16],
 }
+impl windows_core::TypeKind for CRYPT_AES_256_KEY_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_AES_256_KEY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_AES_256_KEY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ALGORITHM_IDENTIFIER {
     pub pszObjId: windows_core::PSTR,
     pub Parameters: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CRYPT_ALGORITHM_IDENTIFIER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_ALGORITHM_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_ALGORITHM_IDENTIFIER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ASYNC_RETRIEVAL_COMPLETION {
     pub pfnCompletion: PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC,
     pub pvCompletion: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ATTRIBUTE {
     pub pszObjId: windows_core::PSTR,
     pub cValue: u32,
     pub rgValue: *mut CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CRYPT_ATTRIBUTE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ATTRIBUTES {
     pub cAttr: u32,
     pub rgAttr: *mut CRYPT_ATTRIBUTE,
+}
+impl windows_core::TypeKind for CRYPT_ATTRIBUTES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ATTRIBUTE_TYPE_VALUE {
     pub pszObjId: windows_core::PSTR,
     pub Value: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CRYPT_ATTRIBUTE_TYPE_VALUE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_ATTRIBUTE_TYPE_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_ATTRIBUTE_TYPE_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_BIT_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
     pub cUnusedBits: u32,
+}
+impl windows_core::TypeKind for CRYPT_BIT_BLOB {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_BIT_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_BIT_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_BLOB_ARRAY {
     pub cBlob: u32,
     pub rgBlob: *mut CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CRYPT_BLOB_ARRAY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_BLOB_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_BLOB_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTENT_INFO {
     pub pszObjId: windows_core::PSTR,
     pub Content: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CRYPT_CONTENT_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_CONTENT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_CONTENT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
     pub pszObjId: windows_core::PSTR,
     pub cValue: u32,
     pub rgValue: *mut CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTEXTS {
     pub cContexts: u32,
     pub rgpszContexts: *mut windows_core::PWSTR,
+}
+impl windows_core::TypeKind for CRYPT_CONTEXTS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_CONTEXTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_CONTEXTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTEXT_CONFIG {
     pub dwFlags: CRYPT_CONTEXT_CONFIG_FLAGS,
     pub dwReserved: u32,
+}
+impl windows_core::TypeKind for CRYPT_CONTEXT_CONFIG {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_CONTEXT_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_CONTEXT_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTEXT_FUNCTIONS {
     pub cFunctions: u32,
     pub rgpszFunctions: *mut windows_core::PWSTR,
+}
+impl windows_core::TypeKind for CRYPT_CONTEXT_FUNCTIONS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_CONTEXT_FUNCTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_CONTEXT_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTEXT_FUNCTION_CONFIG {
     pub dwFlags: u32,
     pub dwReserved: u32,
+}
+impl windows_core::TypeKind for CRYPT_CONTEXT_FUNCTION_CONFIG {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_CONTEXT_FUNCTION_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_CONTEXT_FUNCTION_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTEXT_FUNCTION_PROVIDERS {
     pub cProviders: u32,
     pub rgpszProviders: *mut windows_core::PWSTR,
+}
+impl windows_core::TypeKind for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CREDENTIALS {
     pub cbSize: u32,
     pub pszCredentialsOid: windows_core::PCSTR,
     pub pvCredentials: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for CRYPT_CREDENTIALS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_CREDENTIALS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_CREDENTIALS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CSP_PROVIDER {
     pub dwKeySpec: u32,
     pub pwszProviderName: windows_core::PWSTR,
     pub Signature: CRYPT_BIT_BLOB,
+}
+impl windows_core::TypeKind for CRYPT_CSP_PROVIDER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_CSP_PROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_CSP_PROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_DECODE_PARA {
     pub cbSize: u32,
     pub pfnAlloc: PFN_CRYPT_ALLOC,
     pub pfnFree: PFN_CRYPT_FREE,
+}
+impl windows_core::TypeKind for CRYPT_DECODE_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_DECODE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_DECODE_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_DECRYPT_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
     pub cCertStore: u32,
     pub rghCertStore: *mut HCERTSTORE,
 }
+impl windows_core::TypeKind for CRYPT_DECRYPT_MESSAGE_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_DECRYPT_MESSAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_DECRYPT_MESSAGE_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
     pub cOID: u32,
     pub rgpszOID: *mut windows_core::PSTR,
+}
+impl windows_core::TypeKind for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_DES_KEY_STATE {
     pub Key: [u8; 8],
     pub IV: [u8; 8],
     pub Feedback: [u8; 8],
+}
+impl windows_core::TypeKind for CRYPT_DES_KEY_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_DES_KEY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_DES_KEY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ECC_CMS_SHARED_INFO {
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub EntityUInfo: CRYPT_INTEGER_BLOB,
     pub rgbSuppPubInfo: [u8; 4],
+}
+impl windows_core::TypeKind for CRYPT_ECC_CMS_SHARED_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_ECC_CMS_SHARED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_ECC_CMS_SHARED_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ECC_PRIVATE_KEY_INFO {
     pub dwVersion: u32,
     pub PrivateKey: CRYPT_INTEGER_BLOB,
     pub szCurveOid: windows_core::PSTR,
     pub PublicKey: CRYPT_BIT_BLOB,
 }
+impl windows_core::TypeKind for CRYPT_ECC_PRIVATE_KEY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_ECC_PRIVATE_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_ECC_PRIVATE_KEY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ENCODE_PARA {
     pub cbSize: u32,
     pub pfnAlloc: PFN_CRYPT_ALLOC,
     pub pfnFree: PFN_CRYPT_FREE,
+}
+impl windows_core::TypeKind for CRYPT_ENCODE_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_ENCODE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_ENCODE_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
     pub EncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub EncryptedPrivateKey: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ENCRYPT_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -14228,30 +14751,30 @@ pub struct CRYPT_ENCRYPT_MESSAGE_PARA {
     pub dwFlags: u32,
     pub dwInnerContentType: u32,
 }
+impl windows_core::TypeKind for CRYPT_ENCRYPT_MESSAGE_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_ENCRYPT_MESSAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_ENCRYPT_MESSAGE_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
     pub pwszName: windows_core::PWSTR,
     pub pwszValue: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     pub cbSize: u32,
     pub iDeltaCrlIndicator: i32,
@@ -14261,30 +14784,30 @@ pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     pub pChainPara: *mut CERT_REVOCATION_CHAIN_PARA,
     pub pDeltaCrlIndicator: *mut CRYPT_INTEGER_BLOB,
 }
+impl windows_core::TypeKind for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_HASH_INFO {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Hash: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CRYPT_HASH_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_HASH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_HASH_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_HASH_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -14292,75 +14815,75 @@ pub struct CRYPT_HASH_MESSAGE_PARA {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvHashAuxInfo: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for CRYPT_HASH_MESSAGE_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_HASH_MESSAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_HASH_MESSAGE_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_IMAGE_REF {
     pub pszImage: windows_core::PWSTR,
     pub dwFlags: CRYPT_IMAGE_REF_FLAGS,
+}
+impl windows_core::TypeKind for CRYPT_IMAGE_REF {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_IMAGE_REF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_IMAGE_REF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_IMAGE_REG {
     pub pszImage: windows_core::PWSTR,
     pub cInterfaces: u32,
     pub rgpInterfaces: *mut *mut CRYPT_INTERFACE_REG,
+}
+impl windows_core::TypeKind for CRYPT_IMAGE_REG {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_IMAGE_REG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_IMAGE_REG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_INTEGER_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
+}
+impl windows_core::TypeKind for CRYPT_INTEGER_BLOB {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_INTEGER_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_INTEGER_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_INTERFACE_REG {
     pub dwInterface: BCRYPT_INTERFACE,
     pub dwFlags: BCRYPT_TABLE,
     pub cFunctions: u32,
     pub rgpszFunctions: *mut windows_core::PWSTR,
 }
+impl windows_core::TypeKind for CRYPT_INTERFACE_REG {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_INTERFACE_REG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_INTERFACE_REG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_KEY_PROV_INFO {
     pub pwszContainerName: windows_core::PWSTR,
     pub pwszProvName: windows_core::PWSTR,
@@ -14370,32 +14893,32 @@ pub struct CRYPT_KEY_PROV_INFO {
     pub rgProvParam: *mut CRYPT_KEY_PROV_PARAM,
     pub dwKeySpec: u32,
 }
+impl windows_core::TypeKind for CRYPT_KEY_PROV_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_KEY_PROV_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_KEY_PROV_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_KEY_PROV_PARAM {
     pub dwParam: u32,
     pub pbData: *mut u8,
     pub cbData: u32,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for CRYPT_KEY_PROV_PARAM {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_KEY_PROV_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_KEY_PROV_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_KEY_SIGN_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: CERT_QUERY_ENCODING_TYPE,
@@ -14405,59 +14928,59 @@ pub struct CRYPT_KEY_SIGN_MESSAGE_PARA {
     pub pvHashAuxInfo: *mut core::ffi::c_void,
     pub PubKeyAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
 }
+impl windows_core::TypeKind for CRYPT_KEY_SIGN_MESSAGE_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_KEY_SIGN_MESSAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_KEY_SIGN_MESSAGE_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: NCRYPT_KEY_HANDLE,
+}
+impl windows_core::TypeKind for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_KEY_VERIFY_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
+}
+impl windows_core::TypeKind for CRYPT_KEY_VERIFY_MESSAGE_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_KEY_VERIFY_MESSAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_KEY_VERIFY_MESSAGE_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_MASK_GEN_ALGORITHM {
     pub pszObjId: windows_core::PSTR,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+}
+impl windows_core::TypeKind for CRYPT_MASK_GEN_ALGORITHM {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_MASK_GEN_ALGORITHM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_MASK_GEN_ALGORITHM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     pub cbSize: u32,
     pub pfnGet: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET,
@@ -14466,44 +14989,44 @@ pub struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     pub pfnFree: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE,
     pub pfnFreeIdentifier: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_IDENTIFIER,
 }
+impl windows_core::TypeKind for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_OBJID_TABLE {
     pub dwAlgId: u32,
     pub pszObjId: windows_core::PCSTR,
+}
+impl windows_core::TypeKind for CRYPT_OBJID_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_OBJID_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_OBJID_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_OID_FUNC_ENTRY {
     pub pszOID: windows_core::PCSTR,
     pub pvFuncAddr: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for CRYPT_OID_FUNC_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_OID_FUNC_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_OID_FUNC_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_OID_INFO {
     pub cbSize: u32,
     pub pszOID: windows_core::PCSTR,
@@ -14512,75 +15035,75 @@ pub struct CRYPT_OID_INFO {
     pub Anonymous: CRYPT_OID_INFO_0,
     pub ExtraInfo: CRYPT_INTEGER_BLOB,
 }
+impl windows_core::TypeKind for CRYPT_OID_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_OID_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_OID_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CRYPT_OID_INFO_0 {
     pub dwValue: u32,
     pub Algid: ALG_ID,
     pub dwLength: u32,
+}
+impl windows_core::TypeKind for CRYPT_OID_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_OID_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_OID_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PASSWORD_CREDENTIALSA {
     pub cbSize: u32,
     pub pszUsername: windows_core::PSTR,
     pub pszPassword: windows_core::PSTR,
+}
+impl windows_core::TypeKind for CRYPT_PASSWORD_CREDENTIALSA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_PASSWORD_CREDENTIALSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_PASSWORD_CREDENTIALSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PASSWORD_CREDENTIALSW {
     pub cbSize: u32,
     pub pszUsername: windows_core::PWSTR,
     pub pszPassword: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for CRYPT_PASSWORD_CREDENTIALSW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_PASSWORD_CREDENTIALSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_PASSWORD_CREDENTIALSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PKCS12_PBE_PARAMS {
     pub iIterations: i32,
     pub cbSalt: u32,
+}
+impl windows_core::TypeKind for CRYPT_PKCS12_PBE_PARAMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_PKCS12_PBE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_PKCS12_PBE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PKCS8_EXPORT_PARAMS {
     pub hCryptProv: usize,
     pub dwKeySpec: u32,
@@ -14588,16 +15111,16 @@ pub struct CRYPT_PKCS8_EXPORT_PARAMS {
     pub pEncryptPrivateKeyFunc: PCRYPT_ENCRYPT_PRIVATE_KEY_FUNC,
     pub pVoidEncryptFunc: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for CRYPT_PKCS8_EXPORT_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_PKCS8_EXPORT_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_PKCS8_EXPORT_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PKCS8_IMPORT_PARAMS {
     pub PrivateKey: CRYPT_INTEGER_BLOB,
     pub pResolvehCryptProvFunc: PCRYPT_RESOLVE_HCRYPTPROV_FUNC,
@@ -14605,61 +15128,61 @@ pub struct CRYPT_PKCS8_IMPORT_PARAMS {
     pub pDecryptPrivateKeyFunc: PCRYPT_DECRYPT_PRIVATE_KEY_FUNC,
     pub pVoidDecryptFunc: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for CRYPT_PKCS8_IMPORT_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_PKCS8_IMPORT_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_PKCS8_IMPORT_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PRIVATE_KEY_INFO {
     pub Version: u32,
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub PrivateKey: CRYPT_INTEGER_BLOB,
     pub pAttributes: *mut CRYPT_ATTRIBUTES,
 }
+impl windows_core::TypeKind for CRYPT_PRIVATE_KEY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_PRIVATE_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_PRIVATE_KEY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROPERTY_REF {
     pub pszProperty: windows_core::PWSTR,
     pub cbValue: u32,
     pub pbValue: *mut u8,
+}
+impl windows_core::TypeKind for CRYPT_PROPERTY_REF {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_PROPERTY_REF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_PROPERTY_REF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDERS {
     pub cProviders: u32,
     pub rgpszProviders: *mut windows_core::PWSTR,
+}
+impl windows_core::TypeKind for CRYPT_PROVIDERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_PROVIDERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_PROVIDERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_REF {
     pub dwInterface: u32,
     pub pszFunction: windows_core::PWSTR,
@@ -14669,91 +15192,91 @@ pub struct CRYPT_PROVIDER_REF {
     pub pUM: *mut CRYPT_IMAGE_REF,
     pub pKM: *mut CRYPT_IMAGE_REF,
 }
+impl windows_core::TypeKind for CRYPT_PROVIDER_REF {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_PROVIDER_REF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_PROVIDER_REF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_REFS {
     pub cProviders: u32,
     pub rgpProviders: *mut *mut CRYPT_PROVIDER_REF,
+}
+impl windows_core::TypeKind for CRYPT_PROVIDER_REFS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_PROVIDER_REFS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_PROVIDER_REFS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_REG {
     pub cAliases: u32,
     pub rgpszAliases: *mut windows_core::PWSTR,
     pub pUM: *mut CRYPT_IMAGE_REG,
     pub pKM: *mut CRYPT_IMAGE_REG,
 }
+impl windows_core::TypeKind for CRYPT_PROVIDER_REG {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_PROVIDER_REG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_PROVIDER_REG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PSOURCE_ALGORITHM {
     pub pszObjId: windows_core::PSTR,
     pub EncodingParameters: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CRYPT_PSOURCE_ALGORITHM {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_PSOURCE_ALGORITHM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_PSOURCE_ALGORITHM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_RC2_CBC_PARAMETERS {
     pub dwVersion: u32,
     pub fIV: super::super::Foundation::BOOL,
     pub rgbIV: [u8; 8],
+}
+impl windows_core::TypeKind for CRYPT_RC2_CBC_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_RC2_CBC_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_RC2_CBC_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_RC4_KEY_STATE {
     pub Key: [u8; 16],
     pub SBox: [u8; 256],
     pub i: u8,
     pub j: u8,
 }
+impl windows_core::TypeKind for CRYPT_RC4_KEY_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_RC4_KEY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_RC4_KEY_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_RETRIEVE_AUX_INFO {
     pub cbSize: u32,
     pub pLastSyncTime: *mut super::super::Foundation::FILETIME,
@@ -14768,61 +15291,61 @@ pub struct CRYPT_RETRIEVE_AUX_INFO {
     pub ppwszErrorResponseHeaders: *mut windows_core::PWSTR,
     pub ppErrorContentBlob: *mut *mut CRYPT_INTEGER_BLOB,
 }
+impl windows_core::TypeKind for CRYPT_RETRIEVE_AUX_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_RETRIEVE_AUX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_RETRIEVE_AUX_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_RSAES_OAEP_PARAMETERS {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub MaskGenAlgorithm: CRYPT_MASK_GEN_ALGORITHM,
     pub PSourceAlgorithm: CRYPT_PSOURCE_ALGORITHM,
+}
+impl windows_core::TypeKind for CRYPT_RSAES_OAEP_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_RSAES_OAEP_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_RSAES_OAEP_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_RSA_SSA_PSS_PARAMETERS {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub MaskGenAlgorithm: CRYPT_MASK_GEN_ALGORITHM,
     pub dwSaltLength: u32,
     pub dwTrailerField: u32,
 }
+impl windows_core::TypeKind for CRYPT_RSA_SSA_PSS_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_RSA_SSA_PSS_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_RSA_SSA_PSS_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_SEQUENCE_OF_ANY {
     pub cValue: u32,
     pub rgValue: *mut CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CRYPT_SEQUENCE_OF_ANY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_SEQUENCE_OF_ANY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_SEQUENCE_OF_ANY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_SIGN_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -14840,88 +15363,88 @@ pub struct CRYPT_SIGN_MESSAGE_PARA {
     pub dwFlags: u32,
     pub dwInnerContentType: u32,
 }
+impl windows_core::TypeKind for CRYPT_SIGN_MESSAGE_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_SIGN_MESSAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_SIGN_MESSAGE_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_SMART_CARD_ROOT_INFO {
     pub rgbCardID: [u8; 16],
     pub luid: ROOT_INFO_LUID,
+}
+impl windows_core::TypeKind for CRYPT_SMART_CARD_ROOT_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_SMART_CARD_ROOT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_SMART_CARD_ROOT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_SMIME_CAPABILITIES {
     pub cCapability: u32,
     pub rgCapability: *mut CRYPT_SMIME_CAPABILITY,
+}
+impl windows_core::TypeKind for CRYPT_SMIME_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_SMIME_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_SMIME_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_SMIME_CAPABILITY {
     pub pszObjId: windows_core::PSTR,
     pub Parameters: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CRYPT_SMIME_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_SMIME_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_SMIME_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_ACCURACY {
     pub dwSeconds: u32,
     pub dwMillis: u32,
     pub dwMicros: u32,
+}
+impl windows_core::TypeKind for CRYPT_TIMESTAMP_ACCURACY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_TIMESTAMP_ACCURACY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_TIMESTAMP_ACCURACY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_CONTEXT {
     pub cbEncoded: u32,
     pub pbEncoded: *mut u8,
     pub pTimeStamp: *mut CRYPT_TIMESTAMP_INFO,
+}
+impl windows_core::TypeKind for CRYPT_TIMESTAMP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_TIMESTAMP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_TIMESTAMP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_INFO {
     pub dwVersion: u32,
     pub pszTSAPolicyId: windows_core::PSTR,
@@ -14936,16 +15459,16 @@ pub struct CRYPT_TIMESTAMP_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
+impl windows_core::TypeKind for CRYPT_TIMESTAMP_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_TIMESTAMP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_TIMESTAMP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_PARA {
     pub pszTSAPolicyId: windows_core::PCSTR,
     pub fRequestCerts: super::super::Foundation::BOOL,
@@ -14953,16 +15476,16 @@ pub struct CRYPT_TIMESTAMP_PARA {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
+impl windows_core::TypeKind for CRYPT_TIMESTAMP_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_TIMESTAMP_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_TIMESTAMP_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_REQUEST {
     pub dwVersion: CRYPT_TIMESTAMP_VERSION,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -14973,16 +15496,16 @@ pub struct CRYPT_TIMESTAMP_REQUEST {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
+impl windows_core::TypeKind for CRYPT_TIMESTAMP_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_TIMESTAMP_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_TIMESTAMP_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_RESPONSE {
     pub dwStatus: CRYPT_TIMESTAMP_RESPONSE_STATUS,
     pub cFreeText: u32,
@@ -14990,16 +15513,16 @@ pub struct CRYPT_TIMESTAMP_RESPONSE {
     pub FailureInfo: CRYPT_BIT_BLOB,
     pub ContentInfo: CRYPT_INTEGER_BLOB,
 }
+impl windows_core::TypeKind for CRYPT_TIMESTAMP_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_TIMESTAMP_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_TIMESTAMP_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIME_STAMP_REQUEST_INFO {
     pub pszTimeStampAlgorithm: windows_core::PSTR,
     pub pszContentType: windows_core::PSTR,
@@ -15007,75 +15530,75 @@ pub struct CRYPT_TIME_STAMP_REQUEST_INFO {
     pub cAttribute: u32,
     pub rgAttribute: *mut CRYPT_ATTRIBUTE,
 }
+impl windows_core::TypeKind for CRYPT_TIME_STAMP_REQUEST_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_TIME_STAMP_REQUEST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_TIME_STAMP_REQUEST_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_URL_ARRAY {
     pub cUrl: u32,
     pub rgwszUrl: *mut windows_core::PWSTR,
+}
+impl windows_core::TypeKind for CRYPT_URL_ARRAY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_URL_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_URL_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_URL_INFO {
     pub cbSize: u32,
     pub dwSyncDeltaTime: u32,
     pub cGroup: u32,
     pub rgcGroupEntry: *mut u32,
 }
+impl windows_core::TypeKind for CRYPT_URL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_URL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_URL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
     pub CertSignHashCNGAlgPropData: CRYPT_INTEGER_BLOB,
     pub CertIssuerPubKeyBitLengthPropData: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     pub cCNGHashAlgid: u32,
     pub rgpwszCNGHashAlgid: *const windows_core::PCWSTR,
     pub dwWeakIndex: u32,
+}
+impl windows_core::TypeKind for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_VERIFY_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
@@ -15083,47 +15606,47 @@ pub struct CRYPT_VERIFY_MESSAGE_PARA {
     pub pfnGetSignerCertificate: PFN_CRYPT_GET_SIGNER_CERTIFICATE,
     pub pvGetArg: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for CRYPT_VERIFY_MESSAGE_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_VERIFY_MESSAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_VERIFY_MESSAGE_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_X942_OTHER_INFO {
     pub pszContentEncryptionObjId: windows_core::PSTR,
     pub rgbCounter: [u8; 4],
     pub rgbKeyLength: [u8; 4],
     pub PubInfo: CRYPT_INTEGER_BLOB,
 }
+impl windows_core::TypeKind for CRYPT_X942_OTHER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_X942_OTHER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_X942_OTHER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_ALGORITHM {
     pub cbSize: u32,
     pub wszAlgorithm: windows_core::PCWSTR,
     pub Encoded: CRYPT_XML_BLOB,
+}
+impl windows_core::TypeKind for CRYPT_XML_ALGORITHM {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_XML_ALGORITHM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_ALGORITHM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_ALGORITHM_INFO {
     pub cbSize: u32,
     pub wszAlgorithmURI: windows_core::PWSTR,
@@ -15136,31 +15659,31 @@ pub struct CRYPT_XML_ALGORITHM_INFO {
     pub pvPaddingInfo: *mut core::ffi::c_void,
     pub pvExtraInfo: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for CRYPT_XML_ALGORITHM_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_ALGORITHM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_ALGORITHM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_BLOB {
     pub dwCharset: CRYPT_XML_CHARSET,
     pub cbData: u32,
     pub pbData: *mut u8,
+}
+impl windows_core::TypeKind for CRYPT_XML_BLOB {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_XML_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     pub cbSize: u32,
     pub fpCryptXmlEncodeAlgorithm: CryptXmlDllEncodeAlgorithm,
@@ -15172,46 +15695,46 @@ pub struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     pub fpCryptXmlVerifySignature: CryptXmlDllVerifySignature,
     pub fpCryptXmlGetAlgorithmInfo: CryptXmlDllGetAlgorithmInfo,
 }
+impl windows_core::TypeKind for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_DATA_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
+}
+impl windows_core::TypeKind for CRYPT_XML_DATA_BLOB {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_XML_DATA_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_DATA_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_DATA_PROVIDER {
     pub pvCallbackState: *mut core::ffi::c_void,
     pub cbBufferSize: u32,
     pub pfnRead: PFN_CRYPT_XML_DATA_PROVIDER_READ,
     pub pfnClose: PFN_CRYPT_XML_DATA_PROVIDER_CLOSE,
 }
+impl windows_core::TypeKind for CRYPT_XML_DATA_PROVIDER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_DATA_PROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_DATA_PROVIDER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_DOC_CTXT {
     pub cbSize: u32,
     pub hDocCtxt: *mut core::ffi::c_void,
@@ -15219,30 +15742,30 @@ pub struct CRYPT_XML_DOC_CTXT {
     pub cSignature: u32,
     pub rgpSignature: *mut *mut CRYPT_XML_SIGNATURE,
 }
+impl windows_core::TypeKind for CRYPT_XML_DOC_CTXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_DOC_CTXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_DOC_CTXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_ISSUER_SERIAL {
     pub wszIssuer: windows_core::PCWSTR,
     pub wszSerial: windows_core::PCWSTR,
+}
+impl windows_core::TypeKind for CRYPT_XML_ISSUER_SERIAL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_XML_ISSUER_SERIAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_ISSUER_SERIAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_KEYINFO_PARAM {
     pub wszId: windows_core::PCWSTR,
     pub wszKeyName: windows_core::PCWSTR,
@@ -15253,16 +15776,16 @@ pub struct CRYPT_XML_KEYINFO_PARAM {
     pub cCRL: u32,
     pub rgCRL: *mut CRYPT_INTEGER_BLOB,
 }
+impl windows_core::TypeKind for CRYPT_XML_KEYINFO_PARAM {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_KEYINFO_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_KEYINFO_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_KEY_DSA_KEY_VALUE {
     pub P: CRYPT_XML_DATA_BLOB,
     pub Q: CRYPT_XML_DATA_BLOB,
@@ -15272,32 +15795,32 @@ pub struct CRYPT_XML_KEY_DSA_KEY_VALUE {
     pub Seed: CRYPT_XML_DATA_BLOB,
     pub Counter: CRYPT_XML_DATA_BLOB,
 }
+impl windows_core::TypeKind for CRYPT_XML_KEY_DSA_KEY_VALUE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_KEY_DSA_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_KEY_DSA_KEY_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_KEY_ECDSA_KEY_VALUE {
     pub wszNamedCurve: windows_core::PCWSTR,
     pub X: CRYPT_XML_DATA_BLOB,
     pub Y: CRYPT_XML_DATA_BLOB,
     pub ExplicitPara: CRYPT_XML_BLOB,
 }
+impl windows_core::TypeKind for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_KEY_INFO {
     pub cbSize: u32,
     pub wszId: windows_core::PCWSTR,
@@ -15305,30 +15828,30 @@ pub struct CRYPT_XML_KEY_INFO {
     pub rgKeyInfo: *mut CRYPT_XML_KEY_INFO_ITEM,
     pub hVerifyKey: BCRYPT_KEY_HANDLE,
 }
+impl windows_core::TypeKind for CRYPT_XML_KEY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_KEY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_KEY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_KEY_INFO_ITEM {
     pub dwType: CRYPT_XML_KEYINFO_TYPE,
     pub Anonymous: CRYPT_XML_KEY_INFO_ITEM_0,
+}
+impl windows_core::TypeKind for CRYPT_XML_KEY_INFO_ITEM {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_XML_KEY_INFO_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_KEY_INFO_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CRYPT_XML_KEY_INFO_ITEM_0 {
     pub wszKeyName: windows_core::PCWSTR,
     pub KeyValue: CRYPT_XML_KEY_VALUE,
@@ -15336,60 +15859,60 @@ pub union CRYPT_XML_KEY_INFO_ITEM_0 {
     pub X509Data: CRYPT_XML_X509DATA,
     pub Custom: CRYPT_XML_BLOB,
 }
+impl windows_core::TypeKind for CRYPT_XML_KEY_INFO_ITEM_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_KEY_INFO_ITEM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_KEY_INFO_ITEM_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_KEY_RSA_KEY_VALUE {
     pub Modulus: CRYPT_XML_DATA_BLOB,
     pub Exponent: CRYPT_XML_DATA_BLOB,
+}
+impl windows_core::TypeKind for CRYPT_XML_KEY_RSA_KEY_VALUE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_XML_KEY_RSA_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_KEY_RSA_KEY_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_KEY_VALUE {
     pub dwType: CRYPT_XML_KEY_VALUE_TYPE,
     pub Anonymous: CRYPT_XML_KEY_VALUE_0,
+}
+impl windows_core::TypeKind for CRYPT_XML_KEY_VALUE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_XML_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_KEY_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CRYPT_XML_KEY_VALUE_0 {
     pub DSAKeyValue: CRYPT_XML_KEY_DSA_KEY_VALUE,
     pub RSAKeyValue: CRYPT_XML_KEY_RSA_KEY_VALUE,
     pub ECDSAKeyValue: CRYPT_XML_KEY_ECDSA_KEY_VALUE,
     pub Custom: CRYPT_XML_BLOB,
 }
+impl windows_core::TypeKind for CRYPT_XML_KEY_VALUE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_KEY_VALUE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_KEY_VALUE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_OBJECT {
     pub cbSize: u32,
     pub hObject: *mut core::ffi::c_void,
@@ -15399,31 +15922,31 @@ pub struct CRYPT_XML_OBJECT {
     pub Manifest: CRYPT_XML_REFERENCES,
     pub Encoded: CRYPT_XML_BLOB,
 }
+impl windows_core::TypeKind for CRYPT_XML_OBJECT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_PROPERTY {
     pub dwPropId: CRYPT_XML_PROPERTY_ID,
     pub pvValue: *const core::ffi::c_void,
     pub cbValue: u32,
+}
+impl windows_core::TypeKind for CRYPT_XML_PROPERTY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_XML_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_REFERENCE {
     pub cbSize: u32,
     pub hReference: *mut core::ffi::c_void,
@@ -15435,30 +15958,30 @@ pub struct CRYPT_XML_REFERENCE {
     pub cTransform: u32,
     pub rgTransform: *mut CRYPT_XML_ALGORITHM,
 }
+impl windows_core::TypeKind for CRYPT_XML_REFERENCE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_REFERENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_REFERENCES {
     pub cReference: u32,
     pub rgpReference: *mut *mut CRYPT_XML_REFERENCE,
+}
+impl windows_core::TypeKind for CRYPT_XML_REFERENCES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_XML_REFERENCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_REFERENCES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_SIGNATURE {
     pub cbSize: u32,
     pub hSignature: *mut core::ffi::c_void,
@@ -15469,16 +15992,16 @@ pub struct CRYPT_XML_SIGNATURE {
     pub cObject: u32,
     pub rgpObject: *mut *mut CRYPT_XML_OBJECT,
 }
+impl windows_core::TypeKind for CRYPT_XML_SIGNATURE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_SIGNATURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_SIGNED_INFO {
     pub cbSize: u32,
     pub wszId: windows_core::PCWSTR,
@@ -15488,46 +16011,46 @@ pub struct CRYPT_XML_SIGNED_INFO {
     pub rgpReference: *mut *mut CRYPT_XML_REFERENCE,
     pub Encoded: CRYPT_XML_BLOB,
 }
+impl windows_core::TypeKind for CRYPT_XML_SIGNED_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_SIGNED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_SIGNED_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_STATUS {
     pub cbSize: u32,
     pub dwErrorStatus: CRYPT_XML_STATUS_ERROR_STATUS,
     pub dwInfoStatus: CRYPT_XML_STATUS_INFO_STATUS,
+}
+impl windows_core::TypeKind for CRYPT_XML_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_XML_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
     pub cbSize: u32,
     pub cTransformInfo: u32,
     pub rgpTransformInfo: *mut *mut CRYPT_XML_TRANSFORM_INFO,
+}
+impl windows_core::TypeKind for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_TRANSFORM_INFO {
     pub cbSize: u32,
     pub wszAlgorithm: windows_core::PCWSTR,
@@ -15535,44 +16058,44 @@ pub struct CRYPT_XML_TRANSFORM_INFO {
     pub dwFlags: CRYPT_XML_TRANSFORM_FLAGS,
     pub pfnCreateTransform: PFN_CRYPT_XML_CREATE_TRANSFORM,
 }
+impl windows_core::TypeKind for CRYPT_XML_TRANSFORM_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_TRANSFORM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_TRANSFORM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_X509DATA {
     pub cX509Data: u32,
     pub rgX509Data: *mut CRYPT_XML_X509DATA_ITEM,
+}
+impl windows_core::TypeKind for CRYPT_XML_X509DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_XML_X509DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_X509DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_XML_X509DATA_ITEM {
     pub dwType: CRYPT_XML_X509DATA_TYPE,
     pub Anonymous: CRYPT_XML_X509DATA_ITEM_0,
+}
+impl windows_core::TypeKind for CRYPT_XML_X509DATA_ITEM {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CRYPT_XML_X509DATA_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_X509DATA_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CRYPT_XML_X509DATA_ITEM_0 {
     pub IssuerSerial: CRYPT_XML_ISSUER_SERIAL,
     pub SKI: CRYPT_XML_DATA_BLOB,
@@ -15581,30 +16104,30 @@ pub union CRYPT_XML_X509DATA_ITEM_0 {
     pub CRL: CRYPT_XML_DATA_BLOB,
     pub Custom: CRYPT_XML_BLOB,
 }
+impl windows_core::TypeKind for CRYPT_XML_X509DATA_ITEM_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRYPT_XML_X509DATA_ITEM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRYPT_XML_X509DATA_ITEM_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_ANY_SUBJECT_INFO {
     pub SubjectAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub SubjectIdentifier: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for CTL_ANY_SUBJECT_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CTL_ANY_SUBJECT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CTL_ANY_SUBJECT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_CONTEXT {
     pub dwMsgAndCertEncodingType: u32,
     pub pbCtlEncoded: *mut u8,
@@ -15615,63 +16138,63 @@ pub struct CTL_CONTEXT {
     pub pbCtlContent: *mut u8,
     pub cbCtlContent: u32,
 }
+impl windows_core::TypeKind for CTL_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CTL_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CTL_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_ENTRY {
     pub SubjectIdentifier: CRYPT_INTEGER_BLOB,
     pub cAttribute: u32,
     pub rgAttribute: *mut CRYPT_ATTRIBUTE,
+}
+impl windows_core::TypeKind for CTL_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CTL_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CTL_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_FIND_SUBJECT_PARA {
     pub cbSize: u32,
     pub pUsagePara: *mut CTL_FIND_USAGE_PARA,
     pub dwSubjectType: u32,
     pub pvSubject: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for CTL_FIND_SUBJECT_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CTL_FIND_SUBJECT_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CTL_FIND_SUBJECT_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_FIND_USAGE_PARA {
     pub cbSize: u32,
     pub SubjectUsage: CTL_USAGE,
     pub ListIdentifier: CRYPT_INTEGER_BLOB,
     pub pSigner: *mut CERT_INFO,
 }
+impl windows_core::TypeKind for CTL_FIND_USAGE_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CTL_FIND_USAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CTL_FIND_USAGE_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_INFO {
     pub dwVersion: u32,
     pub SubjectUsage: CTL_USAGE,
@@ -15685,44 +16208,44 @@ pub struct CTL_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
+impl windows_core::TypeKind for CTL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CTL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CTL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_USAGE {
     pub cUsageIdentifier: u32,
     pub rgpszUsageIdentifier: *mut windows_core::PSTR,
+}
+impl windows_core::TypeKind for CTL_USAGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CTL_USAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CTL_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_USAGE_MATCH {
     pub dwType: u32,
     pub Usage: CTL_USAGE,
+}
+impl windows_core::TypeKind for CTL_USAGE_MATCH {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CTL_USAGE_MATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CTL_USAGE_MATCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_VERIFY_USAGE_PARA {
     pub cbSize: u32,
     pub ListIdentifier: CRYPT_INTEGER_BLOB,
@@ -15731,16 +16254,16 @@ pub struct CTL_VERIFY_USAGE_PARA {
     pub cSignerStore: u32,
     pub rghSignerStore: *mut HCERTSTORE,
 }
+impl windows_core::TypeKind for CTL_VERIFY_USAGE_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CTL_VERIFY_USAGE_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CTL_VERIFY_USAGE_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_VERIFY_USAGE_STATUS {
     pub cbSize: u32,
     pub dwError: u32,
@@ -15750,90 +16273,90 @@ pub struct CTL_VERIFY_USAGE_STATUS {
     pub ppSigner: *mut *mut CERT_CONTEXT,
     pub dwSignerIndex: u32,
 }
+impl windows_core::TypeKind for CTL_VERIFY_USAGE_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CTL_VERIFY_USAGE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CTL_VERIFY_USAGE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSSSEED {
     pub counter: u32,
     pub seed: [u8; 20],
+}
+impl windows_core::TypeKind for DSSSEED {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DSSSEED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DSSSEED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENDPOINTADDRESS {
     pub serviceUrl: windows_core::PCWSTR,
     pub policyUrl: windows_core::PCWSTR,
     pub rawCertificate: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for ENDPOINTADDRESS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ENDPOINTADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENDPOINTADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENDPOINTADDRESS2 {
     pub serviceUrl: windows_core::PCWSTR,
     pub policyUrl: windows_core::PCWSTR,
     pub identityType: u32,
     pub identityBytes: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for ENDPOINTADDRESS2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ENDPOINTADDRESS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENDPOINTADDRESS2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EV_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRootProgramQualifierFlags: CERT_ROOT_PROGRAM_FLAGS,
+}
+impl windows_core::TypeKind for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwQualifiers: u32,
     pub dwIssuanceUsageIndex: u32,
+}
+impl windows_core::TypeKind for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GENERIC_XML_TOKEN {
     pub createDate: super::super::Foundation::FILETIME,
     pub expiryDate: super::super::Foundation::FILETIME,
@@ -15841,20 +16364,17 @@ pub struct GENERIC_XML_TOKEN {
     pub internalTokenReference: windows_core::PWSTR,
     pub externalTokenReference: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for GENERIC_XML_TOKEN {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for GENERIC_XML_TOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GENERIC_XML_TOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCERTCHAINENGINE(pub isize);
-impl windows_core::TypeKind for HCERTCHAINENGINE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCERTCHAINENGINE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -15864,17 +16384,21 @@ impl windows_core::Free for HCERTCHAINENGINE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("crypt32.dll" "system" fn CertFreeCertificateChainEngine(hchainengine : isize));
-            CertFreeCertificateChainEngine(self.0);
+            CertFreeCertificateChainEngine(*self);
         }
     }
+}
+impl Default for HCERTCHAINENGINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HCERTCHAINENGINE {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCERTSTORE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCERTSTORE {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCERTSTORE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -15885,12 +16409,12 @@ impl Default for HCERTSTORE {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HCERTSTORE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCERTSTOREPROV(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCERTSTOREPROV {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCERTSTOREPROV {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -15901,12 +16425,12 @@ impl Default for HCERTSTOREPROV {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HCRYPTASYNC(pub isize);
-impl windows_core::TypeKind for HCRYPTASYNC {
+impl windows_core::TypeKind for HCERTSTOREPROV {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HCRYPTASYNC(pub isize);
 impl HCRYPTASYNC {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -15916,35 +16440,52 @@ impl windows_core::Free for HCRYPTASYNC {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("crypt32.dll" "system" fn CryptCloseAsyncHandle(hasync : isize) -> i32);
-            CryptCloseAsyncHandle(self.0);
+            _ = CryptCloseAsyncHandle(*self);
         }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HCRYPTPROV_LEGACY(pub usize);
-impl windows_core::TypeKind for HCRYPTPROV_LEGACY {
+impl Default for HCRYPTASYNC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HCRYPTASYNC {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HCRYPTPROV_LEGACY(pub usize);
 impl HCRYPTPROV_LEGACY {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HCRYPTPROV_OR_NCRYPT_KEY_HANDLE(pub usize);
-impl windows_core::TypeKind for HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
+impl Default for HCRYPTPROV_LEGACY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HCRYPTPROV_LEGACY {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HCRYPTPROV_OR_NCRYPT_KEY_HANDLE(pub usize);
 impl HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
     }
 }
+impl Default for HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HMAC_INFO {
     pub HashAlgid: ALG_ID,
     pub pbInnerString: *mut u8,
@@ -15952,166 +16493,166 @@ pub struct HMAC_INFO {
     pub pbOuterString: *mut u8,
     pub cbOuterString: u32,
 }
+impl windows_core::TypeKind for HMAC_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for HMAC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HMAC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HTTPSPolicyCallbackData {
     pub Anonymous: HTTPSPolicyCallbackData_0,
     pub dwAuthType: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE,
     pub fdwChecks: u32,
     pub pwszServerName: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for HTTPSPolicyCallbackData {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for HTTPSPolicyCallbackData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HTTPSPolicyCallbackData {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union HTTPSPolicyCallbackData_0 {
     pub cbStruct: u32,
     pub cbSize: u32,
+}
+impl windows_core::TypeKind for HTTPSPolicyCallbackData_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTPSPolicyCallbackData_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HTTPSPolicyCallbackData_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
     pub keySize: i32,
     pub keyExchangeAlgorithm: windows_core::PWSTR,
     pub signatureAlgorithm: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INFORMATIONCARD_CRYPTO_HANDLE {
     pub r#type: HandleType,
     pub expiration: i64,
     pub cryptoParameters: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for INFORMATIONCARD_CRYPTO_HANDLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for INFORMATIONCARD_CRYPTO_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INFORMATIONCARD_CRYPTO_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
     pub hashSize: i32,
     pub transform: INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS,
+}
+impl windows_core::TypeKind for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
     pub keySize: i32,
     pub blockSize: i32,
     pub feedbackSize: i32,
+}
+impl windows_core::TypeKind for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
     pub inputBlockSize: i32,
     pub outputBlockSize: i32,
     pub canTransformMultipleBlocks: super::super::Foundation::BOOL,
     pub canReuseTransform: super::super::Foundation::BOOL,
 }
+impl windows_core::TypeKind for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct InFileSignatureResource {
     pub dwVersion: u32,
     pub dwCrcOffset: u32,
     pub rgbSignature: [u8; 88],
+}
+impl windows_core::TypeKind for InFileSignatureResource {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for InFileSignatureResource {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for InFileSignatureResource {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_TYPE_SUBTYPE {
     pub dwKeySpec: u32,
     pub Type: windows_core::GUID,
     pub Subtype: windows_core::GUID,
+}
+impl windows_core::TypeKind for KEY_TYPE_SUBTYPE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KEY_TYPE_SUBTYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_TYPE_SUBTYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_ALLOC_PARA {
     pub cbSize: u32,
     pub pfnAlloc: PFN_NCRYPT_ALLOC,
     pub pfnFree: PFN_NCRYPT_FREE,
+}
+impl windows_core::TypeKind for NCRYPT_ALLOC_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NCRYPT_ALLOC_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_ALLOC_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_CIPHER_PADDING_INFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -16120,29 +16661,29 @@ pub struct NCRYPT_CIPHER_PADDING_INFO {
     pub pbOtherInfo: *mut u8,
     pub cbOtherInfo: u32,
 }
+impl windows_core::TypeKind for NCRYPT_CIPHER_PADDING_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_CIPHER_PADDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_CIPHER_PADDING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
     pub Header: NCRYPT_EXPORTED_ISOLATED_KEY_HEADER,
+}
+impl windows_core::TypeKind for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     pub Version: u32,
     pub KeyUsage: u32,
@@ -16153,20 +16694,17 @@ pub struct NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     pub cbWrappingKey: u32,
     pub cbIsolatedKey: u32,
 }
+impl windows_core::TypeKind for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NCRYPT_HANDLE(pub usize);
-impl windows_core::TypeKind for NCRYPT_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl NCRYPT_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
@@ -16176,55 +16714,67 @@ impl windows_core::Free for NCRYPT_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("ncrypt.dll" "system" fn NCryptFreeObject(hobject : usize) -> i32);
-            NCryptFreeObject(self.0);
+            _ = NCryptFreeObject(*self);
         }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NCRYPT_HASH_HANDLE(pub usize);
-impl windows_core::TypeKind for NCRYPT_HASH_HANDLE {
+impl Default for NCRYPT_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NCRYPT_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct NCRYPT_HASH_HANDLE(pub usize);
 impl NCRYPT_HASH_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
     }
 }
+impl Default for NCRYPT_HASH_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NCRYPT_HASH_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
     pub Version: u32,
     pub Flags: u32,
     pub cbPublicKeyBlob: u32,
+}
+impl windows_core::TypeKind for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_KEY_ACCESS_POLICY_BLOB {
     pub dwVersion: u32,
     pub dwPolicyFlags: u32,
     pub cbUserSid: u32,
     pub cbApplicationSid: u32,
 }
+impl windows_core::TypeKind for NCRYPT_KEY_ACCESS_POLICY_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_KEY_ACCESS_POLICY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_KEY_ACCESS_POLICY_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_KEY_ATTEST_PADDING_INFO {
     pub magic: u32,
     pub pbKeyBlob: *mut u8,
@@ -16232,36 +16782,33 @@ pub struct NCRYPT_KEY_ATTEST_PADDING_INFO {
     pub pbKeyAuth: *mut u8,
     pub cbKeyAuth: u32,
 }
+impl windows_core::TypeKind for NCRYPT_KEY_ATTEST_PADDING_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_KEY_ATTEST_PADDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_KEY_ATTEST_PADDING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_KEY_BLOB_HEADER {
     pub cbSize: u32,
     pub dwMagic: u32,
     pub cbAlgName: u32,
     pub cbKeyData: u32,
 }
+impl windows_core::TypeKind for NCRYPT_KEY_BLOB_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_KEY_BLOB_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_KEY_BLOB_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NCRYPT_KEY_HANDLE(pub usize);
-impl windows_core::TypeKind for NCRYPT_KEY_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl NCRYPT_KEY_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
@@ -16271,10 +16818,17 @@ impl windows_core::Free for NCRYPT_KEY_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("ncrypt.dll" "system" fn NCryptFreeObject(hobject : usize) -> i32);
-            NCryptFreeObject(self.0);
+            _ = NCryptFreeObject(*self);
         }
     }
+}
+impl Default for NCRYPT_KEY_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NCRYPT_KEY_HANDLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl windows_core::imp::CanInto<NCRYPT_HANDLE> for NCRYPT_KEY_HANDLE {}
 impl From<NCRYPT_KEY_HANDLE> for NCRYPT_HANDLE {
@@ -16283,7 +16837,7 @@ impl From<NCRYPT_KEY_HANDLE> for NCRYPT_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_KEY_STORAGE_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub OpenProvider: NCryptOpenStorageProviderFn,
@@ -16316,16 +16870,16 @@ pub struct NCRYPT_KEY_STORAGE_FUNCTION_TABLE {
     pub CreateClaim: NCryptCreateClaimFn,
     pub VerifyClaim: NCryptVerifyClaimFn,
 }
+impl windows_core::TypeKind for NCRYPT_KEY_STORAGE_FUNCTION_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_KEY_STORAGE_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_KEY_STORAGE_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
     pub dwVersion: u32,
     pub iExpiration: i32,
@@ -16333,46 +16887,46 @@ pub struct NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
     pub pabPolicyRef: [u8; 32],
     pub pabHMAC: [u8; 32],
 }
+impl windows_core::TypeKind for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     pub dwVersion: u32,
     pub cbDigest: u32,
+}
+impl windows_core::TypeKind for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_PCP_TPM_FW_VERSION_INFO {
     pub major1: u16,
     pub major2: u16,
     pub minor1: u16,
     pub minor2: u16,
 }
+impl windows_core::TypeKind for NCRYPT_PCP_TPM_FW_VERSION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_PCP_TPM_FW_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_PCP_TPM_FW_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
     pub Magic: u32,
     pub Version: u32,
@@ -16381,62 +16935,59 @@ pub struct NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
     pub cbSignature: u32,
     pub cbTpmPublic: u32,
 }
+impl windows_core::TypeKind for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
     pub magic: u32,
     pub pcrMask: u32,
+}
+impl windows_core::TypeKind for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_PROTECT_STREAM_INFO {
     pub pfnStreamOutput: PFNCryptStreamOutputCallback,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for NCRYPT_PROTECT_STREAM_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NCRYPT_PROTECT_STREAM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_PROTECT_STREAM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_PROTECT_STREAM_INFO_EX {
     pub pfnStreamOutput: PFNCryptStreamOutputCallbackEx,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for NCRYPT_PROTECT_STREAM_INFO_EX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NCRYPT_PROTECT_STREAM_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_PROTECT_STREAM_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NCRYPT_PROV_HANDLE(pub usize);
-impl windows_core::TypeKind for NCRYPT_PROV_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl NCRYPT_PROV_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
@@ -16446,10 +16997,17 @@ impl windows_core::Free for NCRYPT_PROV_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("ncrypt.dll" "system" fn NCryptFreeObject(hobject : usize) -> i32);
-            NCryptFreeObject(self.0);
+            _ = NCryptFreeObject(*self);
         }
     }
+}
+impl Default for NCRYPT_PROV_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NCRYPT_PROV_HANDLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl windows_core::imp::CanInto<NCRYPT_HANDLE> for NCRYPT_PROV_HANDLE {}
 impl From<NCRYPT_PROV_HANDLE> for NCRYPT_HANDLE {
@@ -16458,18 +17016,23 @@ impl From<NCRYPT_PROV_HANDLE> for NCRYPT_HANDLE {
     }
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NCRYPT_SECRET_HANDLE(pub usize);
-impl windows_core::TypeKind for NCRYPT_SECRET_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl NCRYPT_SECRET_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
     }
 }
+impl Default for NCRYPT_SECRET_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NCRYPT_SECRET_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_SSL_CIPHER_LENGTHS {
     pub cbLength: u32,
     pub dwHeaderLen: u32,
@@ -16477,16 +17040,16 @@ pub struct NCRYPT_SSL_CIPHER_LENGTHS {
     pub dwMaxVariableTrailerLen: u32,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for NCRYPT_SSL_CIPHER_LENGTHS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_SSL_CIPHER_LENGTHS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_SSL_CIPHER_LENGTHS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_SSL_CIPHER_SUITE {
     pub dwProtocol: u32,
     pub dwCipherSuite: u32,
@@ -16503,16 +17066,16 @@ pub struct NCRYPT_SSL_CIPHER_SUITE {
     pub szCertificate: [u16; 64],
     pub dwKeyType: u32,
 }
+impl windows_core::TypeKind for NCRYPT_SSL_CIPHER_SUITE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_SSL_CIPHER_SUITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_SSL_CIPHER_SUITE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_SSL_CIPHER_SUITE_EX {
     pub dwVersion: u32,
     pub dwProtocol: u32,
@@ -16531,16 +17094,16 @@ pub struct NCRYPT_SSL_CIPHER_SUITE_EX {
     pub dwKeyType: u32,
     pub szCipherMode: [u16; 64],
 }
+impl windows_core::TypeKind for NCRYPT_SSL_CIPHER_SUITE_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_SSL_CIPHER_SUITE_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_SSL_CIPHER_SUITE_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_SSL_ECC_CURVE {
     pub szCurveName: [u16; 255],
     pub szOID: [i8; 255],
@@ -16548,16 +17111,16 @@ pub struct NCRYPT_SSL_ECC_CURVE {
     pub dwCurveType: u32,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for NCRYPT_SSL_ECC_CURVE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_SSL_ECC_CURVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_SSL_ECC_CURVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_SSL_FUNCTION_TABLE {
     pub Version: BCRYPT_INTERFACE_VERSION,
     pub ComputeClientAuthHash: SslComputeClientAuthHashFn,
@@ -16602,32 +17165,32 @@ pub struct NCRYPT_SSL_FUNCTION_TABLE {
     pub ExpandBinderKey: SslExpandBinderKeyFn,
     pub ExpandPreSharedKey: SslExpandPreSharedKeyFn,
 }
+impl windows_core::TypeKind for NCRYPT_SSL_FUNCTION_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_SSL_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_SSL_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_SUPPORTED_LENGTHS {
     pub dwMinLength: u32,
     pub dwMaxLength: u32,
     pub dwIncrement: u32,
     pub dwDefaultLength: u32,
 }
+impl windows_core::TypeKind for NCRYPT_SUPPORTED_LENGTHS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_SUPPORTED_LENGTHS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_SUPPORTED_LENGTHS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
     pub magic: u32,
     pub cbHeader: u32,
@@ -16635,16 +17198,16 @@ pub struct NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
     pub cbPrivate: u32,
     pub cbName: u32,
 }
+impl windows_core::TypeKind for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
     pub Magic: u32,
     pub Version: u32,
@@ -16653,16 +17216,16 @@ pub struct NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
     pub cbQuote: u32,
     pub cbPcrs: u32,
 }
+impl windows_core::TypeKind for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_UI_POLICY {
     pub dwVersion: u32,
     pub dwFlags: u32,
@@ -16670,16 +17233,16 @@ pub struct NCRYPT_UI_POLICY {
     pub pszFriendlyName: windows_core::PCWSTR,
     pub pszDescription: windows_core::PCWSTR,
 }
+impl windows_core::TypeKind for NCRYPT_UI_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_UI_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_UI_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_UI_POLICY_BLOB {
     pub dwVersion: u32,
     pub dwFlags: u32,
@@ -16687,16 +17250,16 @@ pub struct NCRYPT_UI_POLICY_BLOB {
     pub cbFriendlyName: u32,
     pub cbDescription: u32,
 }
+impl windows_core::TypeKind for NCRYPT_UI_POLICY_BLOB {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_UI_POLICY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_UI_POLICY_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
     pub Version: u32,
     pub TrustletId: u64,
@@ -16705,16 +17268,16 @@ pub struct NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
     pub FlagsExpected: u32,
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
     pub Magic: u32,
     pub Version: u32,
@@ -16722,62 +17285,62 @@ pub struct NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
     pub cbReport: u32,
     pub cbAttributes: u32,
 }
+impl windows_core::TypeKind for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCryptAlgorithmName {
     pub pszName: windows_core::PWSTR,
     pub dwClass: NCRYPT_ALGORITHM_NAME_CLASS,
     pub dwAlgOperations: NCRYPT_OPERATION,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for NCryptAlgorithmName {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCryptAlgorithmName {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCryptAlgorithmName {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCryptKeyName {
     pub pszName: windows_core::PWSTR,
     pub pszAlgid: windows_core::PWSTR,
     pub dwLegacyKeySpec: CERT_KEY_SPEC,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for NCryptKeyName {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NCryptKeyName {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCryptKeyName {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCryptProviderName {
     pub pszName: windows_core::PWSTR,
     pub pszComment: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for NCryptProviderName {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NCryptProviderName {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NCryptProviderName {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OCSP_BASIC_RESPONSE_ENTRY {
     pub CertId: OCSP_CERT_ID,
     pub dwCertStatus: u32,
@@ -16787,29 +17350,29 @@ pub struct OCSP_BASIC_RESPONSE_ENTRY {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
+impl windows_core::TypeKind for OCSP_BASIC_RESPONSE_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OCSP_BASIC_RESPONSE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OCSP_BASIC_RESPONSE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union OCSP_BASIC_RESPONSE_ENTRY_0 {
     pub pRevokedInfo: *mut OCSP_BASIC_REVOKED_INFO,
+}
+impl windows_core::TypeKind for OCSP_BASIC_RESPONSE_ENTRY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OCSP_BASIC_RESPONSE_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OCSP_BASIC_RESPONSE_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OCSP_BASIC_RESPONSE_INFO {
     pub dwVersion: u32,
     pub dwResponderIdChoice: u32,
@@ -16820,89 +17383,89 @@ pub struct OCSP_BASIC_RESPONSE_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
+impl windows_core::TypeKind for OCSP_BASIC_RESPONSE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OCSP_BASIC_RESPONSE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OCSP_BASIC_RESPONSE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union OCSP_BASIC_RESPONSE_INFO_0 {
     pub ByNameResponderId: CRYPT_INTEGER_BLOB,
     pub ByKeyResponderId: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for OCSP_BASIC_RESPONSE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OCSP_BASIC_RESPONSE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OCSP_BASIC_RESPONSE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_BASIC_REVOKED_INFO {
     pub RevocationDate: super::super::Foundation::FILETIME,
     pub dwCrlReasonCode: CERT_REVOCATION_STATUS_REASON,
+}
+impl windows_core::TypeKind for OCSP_BASIC_REVOKED_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OCSP_BASIC_REVOKED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OCSP_BASIC_REVOKED_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_BASIC_SIGNED_RESPONSE_INFO {
     pub ToBeSigned: CRYPT_INTEGER_BLOB,
     pub SignatureInfo: OCSP_SIGNATURE_INFO,
+}
+impl windows_core::TypeKind for OCSP_BASIC_SIGNED_RESPONSE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OCSP_BASIC_SIGNED_RESPONSE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OCSP_BASIC_SIGNED_RESPONSE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_CERT_ID {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub IssuerNameHash: CRYPT_INTEGER_BLOB,
     pub IssuerKeyHash: CRYPT_INTEGER_BLOB,
     pub SerialNumber: CRYPT_INTEGER_BLOB,
 }
+impl windows_core::TypeKind for OCSP_CERT_ID {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OCSP_CERT_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OCSP_CERT_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_REQUEST_ENTRY {
     pub CertId: OCSP_CERT_ID,
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
+}
+impl windows_core::TypeKind for OCSP_REQUEST_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OCSP_REQUEST_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OCSP_REQUEST_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_REQUEST_INFO {
     pub dwVersion: u32,
     pub pRequestorName: *mut CERT_ALT_NAME_ENTRY,
@@ -16911,61 +17474,61 @@ pub struct OCSP_REQUEST_INFO {
     pub cExtension: u32,
     pub rgExtension: *mut CERT_EXTENSION,
 }
+impl windows_core::TypeKind for OCSP_REQUEST_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OCSP_REQUEST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OCSP_REQUEST_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_RESPONSE_INFO {
     pub dwStatus: u32,
     pub pszObjId: windows_core::PSTR,
     pub Value: CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for OCSP_RESPONSE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OCSP_RESPONSE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OCSP_RESPONSE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_SIGNATURE_INFO {
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Signature: CRYPT_BIT_BLOB,
     pub cCertEncoded: u32,
     pub rgCertEncoded: *mut CRYPT_INTEGER_BLOB,
 }
+impl windows_core::TypeKind for OCSP_SIGNATURE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OCSP_SIGNATURE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OCSP_SIGNATURE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_SIGNED_REQUEST_INFO {
     pub ToBeSigned: CRYPT_INTEGER_BLOB,
     pub pOptionalSignatureInfo: *mut OCSP_SIGNATURE_INFO,
+}
+impl windows_core::TypeKind for OCSP_SIGNED_REQUEST_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OCSP_SIGNED_REQUEST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OCSP_SIGNED_REQUEST_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_PRIVATE_KEY {
     pub dwVersion: u32,
     pub cbPrime1: u32,
@@ -16973,31 +17536,31 @@ pub struct OFFLOAD_PRIVATE_KEY {
     pub pbPrime1: *mut u8,
     pub pbPrime2: *mut u8,
 }
+impl windows_core::TypeKind for OFFLOAD_PRIVATE_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OFFLOAD_PRIVATE_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OFFLOAD_PRIVATE_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PIN_CACHE_POLICY {
     pub dwVersion: u32,
     pub PinCachePolicyType: PIN_CACHE_POLICY_TYPE,
     pub dwPinCachePolicyInfo: u32,
+}
+impl windows_core::TypeKind for PIN_CACHE_POLICY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PIN_CACHE_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PIN_CACHE_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PIN_INFO {
     pub dwVersion: u32,
     pub PinType: SECRET_TYPE,
@@ -17007,31 +17570,31 @@ pub struct PIN_INFO {
     pub PinCachePolicy: PIN_CACHE_POLICY,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for PIN_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PIN_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PKCS12_PBES2_EXPORT_PARAMS {
     pub dwSize: u32,
     pub hNcryptDescriptor: *mut core::ffi::c_void,
     pub pwszPbes2Alg: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for PKCS12_PBES2_EXPORT_PARAMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PKCS12_PBES2_EXPORT_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PKCS12_PBES2_EXPORT_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POLICY_ELEMENT {
     pub targetEndpointAddress: windows_core::PCWSTR,
     pub issuerEndpointAddress: windows_core::PCWSTR,
@@ -17040,16 +17603,16 @@ pub struct POLICY_ELEMENT {
     pub privacyNoticeVersion: u32,
     pub useManagedPresentation: super::super::Foundation::BOOL,
 }
+impl windows_core::TypeKind for POLICY_ELEMENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for POLICY_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POLICY_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRIVKEYVER3 {
     pub magic: u32,
     pub bitlenP: u32,
@@ -17058,32 +17621,32 @@ pub struct PRIVKEYVER3 {
     pub bitlenX: u32,
     pub DSSSeed: DSSSEED,
 }
+impl windows_core::TypeKind for PRIVKEYVER3 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PRIVKEYVER3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PRIVKEYVER3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROV_ENUMALGS {
     pub aiAlgid: ALG_ID,
     pub dwBitLen: u32,
     pub dwNameLen: u32,
     pub szName: [i8; 20],
 }
+impl windows_core::TypeKind for PROV_ENUMALGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PROV_ENUMALGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROV_ENUMALGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROV_ENUMALGS_EX {
     pub aiAlgid: ALG_ID,
     pub dwDefaultLen: u32,
@@ -17095,30 +17658,30 @@ pub struct PROV_ENUMALGS_EX {
     pub dwLongNameLen: u32,
     pub szLongName: [i8; 40],
 }
+impl windows_core::TypeKind for PROV_ENUMALGS_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PROV_ENUMALGS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROV_ENUMALGS_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PUBKEY {
     pub magic: u32,
     pub bitlen: u32,
+}
+impl windows_core::TypeKind for PUBKEY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PUBKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PUBKEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PUBKEYVER3 {
     pub magic: u32,
     pub bitlenP: u32,
@@ -17126,32 +17689,32 @@ pub struct PUBKEYVER3 {
     pub bitlenJ: u32,
     pub DSSSeed: DSSSEED,
 }
+impl windows_core::TypeKind for PUBKEYVER3 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PUBKEYVER3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PUBKEYVER3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PUBLICKEYSTRUC {
     pub bType: u8,
     pub bVersion: u8,
     pub reserved: u16,
     pub aiKeyAlg: ALG_ID,
 }
+impl windows_core::TypeKind for PUBLICKEYSTRUC {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PUBLICKEYSTRUC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PUBLICKEYSTRUC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECIPIENTPOLICY {
     pub recipient: ENDPOINTADDRESS,
     pub issuer: ENDPOINTADDRESS,
@@ -17161,16 +17724,16 @@ pub struct RECIPIENTPOLICY {
     pub privacyUrl: windows_core::PCWSTR,
     pub privacyVersion: u32,
 }
+impl windows_core::TypeKind for RECIPIENTPOLICY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RECIPIENTPOLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RECIPIENTPOLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECIPIENTPOLICY2 {
     pub recipient: ENDPOINTADDRESS2,
     pub issuer: ENDPOINTADDRESS2,
@@ -17180,45 +17743,45 @@ pub struct RECIPIENTPOLICY2 {
     pub privacyUrl: windows_core::PCWSTR,
     pub privacyVersion: u32,
 }
+impl windows_core::TypeKind for RECIPIENTPOLICY2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RECIPIENTPOLICY2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RECIPIENTPOLICY2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ROOT_INFO_LUID {
     pub LowPart: u32,
     pub HighPart: i32,
+}
+impl windows_core::TypeKind for ROOT_INFO_LUID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ROOT_INFO_LUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ROOT_INFO_LUID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RSAPUBKEY {
     pub magic: u32,
     pub bitlen: u32,
     pub pubexp: u32,
+}
+impl windows_core::TypeKind for RSAPUBKEY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for RSAPUBKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RSAPUBKEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCHANNEL_ALG {
     pub dwUse: u32,
     pub Algid: ALG_ID,
@@ -17226,16 +17789,16 @@ pub struct SCHANNEL_ALG {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
+impl windows_core::TypeKind for SCHANNEL_ALG {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SCHANNEL_ALG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCHANNEL_ALG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_ATTR_AUTHCODE {
     pub cbSize: u32,
     pub fCommercial: super::super::Foundation::BOOL,
@@ -17243,16 +17806,16 @@ pub struct SIGNER_ATTR_AUTHCODE {
     pub pwszName: windows_core::PCWSTR,
     pub pwszInfo: windows_core::PCWSTR,
 }
+impl windows_core::TypeKind for SIGNER_ATTR_AUTHCODE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SIGNER_ATTR_AUTHCODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_ATTR_AUTHCODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_BLOB_INFO {
     pub cbSize: u32,
     pub pGuidSubject: *mut windows_core::GUID,
@@ -17260,78 +17823,78 @@ pub struct SIGNER_BLOB_INFO {
     pub pbBlob: *mut u8,
     pub pwszDisplayName: windows_core::PCWSTR,
 }
+impl windows_core::TypeKind for SIGNER_BLOB_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SIGNER_BLOB_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_BLOB_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_CERT {
     pub cbSize: u32,
     pub dwCertChoice: SIGNER_CERT_CHOICE,
     pub Anonymous: SIGNER_CERT_0,
     pub hwnd: super::super::Foundation::HWND,
 }
+impl windows_core::TypeKind for SIGNER_CERT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SIGNER_CERT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_CERT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SIGNER_CERT_0 {
     pub pwszSpcFile: windows_core::PCWSTR,
     pub pCertStoreInfo: *mut SIGNER_CERT_STORE_INFO,
     pub pSpcChainInfo: *mut SIGNER_SPC_CHAIN_INFO,
+}
+impl windows_core::TypeKind for SIGNER_CERT_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SIGNER_CERT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_CERT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_CERT_STORE_INFO {
     pub cbSize: u32,
     pub pSigningCert: *const CERT_CONTEXT,
     pub dwCertPolicy: SIGNER_CERT_POLICY,
     pub hCertStore: HCERTSTORE,
 }
+impl windows_core::TypeKind for SIGNER_CERT_STORE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SIGNER_CERT_STORE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_CERT_STORE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_CONTEXT {
     pub cbSize: u32,
     pub cbBlob: u32,
     pub pbBlob: *mut u8,
+}
+impl windows_core::TypeKind for SIGNER_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SIGNER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_DIGEST_SIGN_INFO {
     pub cbSize: u32,
     pub dwDigestSignChoice: u32,
@@ -17341,78 +17904,78 @@ pub struct SIGNER_DIGEST_SIGN_INFO {
     pub dwReserved2: u32,
     pub dwReserved3: u32,
 }
+impl windows_core::TypeKind for SIGNER_DIGEST_SIGN_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SIGNER_DIGEST_SIGN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_DIGEST_SIGN_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SIGNER_DIGEST_SIGN_INFO_0 {
     pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
     pub pfnAuthenticodeDigestSignWithFileHandle: PFN_AUTHENTICODE_DIGEST_SIGN_WITHFILEHANDLE,
     pub pfnAuthenticodeDigestSignEx: PFN_AUTHENTICODE_DIGEST_SIGN_EX,
     pub pfnAuthenticodeDigestSignExWithFileHandle: PFN_AUTHENTICODE_DIGEST_SIGN_EX_WITHFILEHANDLE,
 }
+impl windows_core::TypeKind for SIGNER_DIGEST_SIGN_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SIGNER_DIGEST_SIGN_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_DIGEST_SIGN_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_DIGEST_SIGN_INFO_V1 {
     pub cbSize: u32,
     pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
     pub pMetadataBlob: *mut CRYPT_INTEGER_BLOB,
+}
+impl windows_core::TypeKind for SIGNER_DIGEST_SIGN_INFO_V1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SIGNER_DIGEST_SIGN_INFO_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_DIGEST_SIGN_INFO_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_DIGEST_SIGN_INFO_V2 {
     pub cbSize: u32,
     pub pfnAuthenticodeDigestSign: PFN_AUTHENTICODE_DIGEST_SIGN,
     pub pfnAuthenticodeDigestSignEx: PFN_AUTHENTICODE_DIGEST_SIGN_EX,
     pub pMetadataBlob: *mut CRYPT_INTEGER_BLOB,
 }
+impl windows_core::TypeKind for SIGNER_DIGEST_SIGN_INFO_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SIGNER_DIGEST_SIGN_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_DIGEST_SIGN_INFO_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_FILE_INFO {
     pub cbSize: u32,
     pub pwszFileName: windows_core::PCWSTR,
     pub hFile: super::super::Foundation::HANDLE,
+}
+impl windows_core::TypeKind for SIGNER_FILE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SIGNER_FILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_FILE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_PROVIDER_INFO {
     pub cbSize: u32,
     pub pwszProviderName: windows_core::PCWSTR,
@@ -17421,30 +17984,30 @@ pub struct SIGNER_PROVIDER_INFO {
     pub dwPvkChoice: SIGNER_PRIVATE_KEY_CHOICE,
     pub Anonymous: SIGNER_PROVIDER_INFO_0,
 }
+impl windows_core::TypeKind for SIGNER_PROVIDER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SIGNER_PROVIDER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_PROVIDER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SIGNER_PROVIDER_INFO_0 {
     pub pwszPvkFileName: windows_core::PWSTR,
     pub pwszKeyContainer: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for SIGNER_PROVIDER_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SIGNER_PROVIDER_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_PROVIDER_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_SIGNATURE_INFO {
     pub cbSize: u32,
     pub algidHash: ALG_ID,
@@ -17453,89 +18016,89 @@ pub struct SIGNER_SIGNATURE_INFO {
     pub psAuthenticated: *mut CRYPT_ATTRIBUTES,
     pub psUnauthenticated: *mut CRYPT_ATTRIBUTES,
 }
+impl windows_core::TypeKind for SIGNER_SIGNATURE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SIGNER_SIGNATURE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_SIGNATURE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SIGNER_SIGNATURE_INFO_0 {
     pub pAttrAuthcode: *mut SIGNER_ATTR_AUTHCODE,
+}
+impl windows_core::TypeKind for SIGNER_SIGNATURE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SIGNER_SIGNATURE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_SIGNATURE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIGNER_SPC_CHAIN_INFO {
     pub cbSize: u32,
     pub pwszSpcFile: windows_core::PCWSTR,
     pub dwCertPolicy: u32,
     pub hCertStore: HCERTSTORE,
 }
+impl windows_core::TypeKind for SIGNER_SPC_CHAIN_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SIGNER_SPC_CHAIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_SPC_CHAIN_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SIGNER_SUBJECT_INFO {
     pub cbSize: u32,
     pub pdwIndex: *mut u32,
     pub dwSubjectChoice: SIGNER_SUBJECT_CHOICE,
     pub Anonymous: SIGNER_SUBJECT_INFO_0,
 }
+impl windows_core::TypeKind for SIGNER_SUBJECT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SIGNER_SUBJECT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_SUBJECT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SIGNER_SUBJECT_INFO_0 {
     pub pSignerFileInfo: *mut SIGNER_FILE_INFO,
     pub pSignerBlobInfo: *mut SIGNER_BLOB_INFO,
+}
+impl windows_core::TypeKind for SIGNER_SUBJECT_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SIGNER_SUBJECT_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNER_SUBJECT_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSL_ECCKEY_BLOB {
     pub dwCurveType: u32,
     pub cbKey: u32,
+}
+impl windows_core::TypeKind for SSL_ECCKEY_BLOB {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SSL_ECCKEY_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SSL_ECCKEY_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwErrorLevel: u32,
@@ -17543,62 +18106,62 @@ pub struct SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub dwReserved: u32,
     pub wszErrorText: [u16; 256],
 }
+impl windows_core::TypeKind for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwReserved: u32,
     pub pwszServerName: windows_core::PWSTR,
     pub rgpszHpkpValue: [windows_core::PSTR; 2],
 }
+impl windows_core::TypeKind for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwReserved: u32,
     pub pwszServerName: windows_core::PCWSTR,
+}
+impl windows_core::TypeKind for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub lError: i32,
     pub wszErrorText: [u16; 512],
+}
+impl windows_core::TypeKind for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VTableProvStruc {
     pub Version: u32,
     pub FuncVerifyImage: CRYPT_VERIFY_IMAGE_A,
@@ -17608,16 +18171,16 @@ pub struct VTableProvStruc {
     pub cbContextInfo: u32,
     pub pszProvName: windows_core::PSTR,
 }
+impl windows_core::TypeKind for VTableProvStruc {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for VTableProvStruc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VTableProvStruc {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VTableProvStrucW {
     pub Version: u32,
     pub FuncVerifyImage: CRYPT_VERIFY_IMAGE_W,
@@ -17627,13 +18190,13 @@ pub struct VTableProvStrucW {
     pub cbContextInfo: u32,
     pub pszProvName: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for VTableProvStrucW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for VTableProvStrucW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VTableProvStrucW {
-    type TypeKind = windows_core::CopyType;
 }
 pub type BCryptCloseAlgorithmProviderFn = Option<unsafe extern "system" fn(halgorithm: BCRYPT_ALG_HANDLE, dwflags: u32) -> super::super::Foundation::NTSTATUS>;
 pub type BCryptCreateHashFn = Option<unsafe extern "system" fn(halgorithm: BCRYPT_ALG_HANDLE, phhash: *mut BCRYPT_HASH_HANDLE, pbhashobject: *mut u8, cbhashobject: u32, pbsecret: *const u8, cbsecret: u32, dwflags: u32) -> super::super::Foundation::NTSTATUS>;

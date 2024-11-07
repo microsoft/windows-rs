@@ -81,7 +81,6 @@ pub struct IResourceIndexerFactory2_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IndexedResourceCandidate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IndexedResourceCandidate, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(IndexedResourceCandidate, IIndexedResourceCandidate);
 impl IndexedResourceCandidate {
     pub fn Type(&self) -> windows_core::Result<IndexedResourceType> {
         let this = self;
@@ -132,17 +131,18 @@ impl windows_core::RuntimeType for IndexedResourceCandidate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIndexedResourceCandidate>();
 }
 unsafe impl windows_core::Interface for IndexedResourceCandidate {
-    type Vtable = <IIndexedResourceCandidate as windows_core::Interface>::Vtable;
+    type Vtable = IIndexedResourceCandidate_Vtbl;
     const IID: windows_core::GUID = <IIndexedResourceCandidate as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IndexedResourceCandidate {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IndexedResourceCandidate";
 }
+unsafe impl Send for IndexedResourceCandidate {}
+unsafe impl Sync for IndexedResourceCandidate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IndexedResourceQualifier(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IndexedResourceQualifier, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(IndexedResourceQualifier, IIndexedResourceQualifier);
 impl IndexedResourceQualifier {
     pub fn QualifierName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -163,20 +163,20 @@ impl windows_core::RuntimeType for IndexedResourceQualifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIndexedResourceQualifier>();
 }
 unsafe impl windows_core::Interface for IndexedResourceQualifier {
-    type Vtable = <IIndexedResourceQualifier as windows_core::Interface>::Vtable;
+    type Vtable = IIndexedResourceQualifier_Vtbl;
     const IID: windows_core::GUID = <IIndexedResourceQualifier as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IndexedResourceQualifier {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IndexedResourceQualifier";
 }
+unsafe impl Send for IndexedResourceQualifier {}
+unsafe impl Sync for IndexedResourceQualifier {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceIndexer(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(ResourceIndexer, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(ResourceIndexer, IResourceIndexer, IResourceIndexerFactory, IResourceIndexerFactory2);
 #[cfg(feature = "deprecated")]
 impl ResourceIndexer {
     #[cfg(feature = "deprecated")]
@@ -222,10 +222,12 @@ impl ResourceIndexer {
             (windows_core::Interface::vtable(this).CreateResourceIndexerWithExtension)(windows_core::Interface::as_raw(this), projectroot.param().abi(), extensiondllpath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
+    #[cfg(feature = "deprecated")]
     fn IResourceIndexerFactory<R, F: FnOnce(&IResourceIndexerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceIndexer, IResourceIndexerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+    #[cfg(feature = "deprecated")]
     fn IResourceIndexerFactory2<R, F: FnOnce(&IResourceIndexerFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceIndexer, IResourceIndexerFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -237,15 +239,19 @@ impl windows_core::RuntimeType for ResourceIndexer {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for ResourceIndexer {
-    type Vtable = <IResourceIndexer as windows_core::Interface>::Vtable;
+    type Vtable = IResourceIndexer_Vtbl;
     const IID: windows_core::GUID = <IResourceIndexer as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for ResourceIndexer {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.ResourceIndexer";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for ResourceIndexer {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for ResourceIndexer {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IndexedResourceType(pub i32);
 impl IndexedResourceType {
     pub const String: Self = Self(0i32);
@@ -254,6 +260,11 @@ impl IndexedResourceType {
 }
 impl windows_core::TypeKind for IndexedResourceType {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for IndexedResourceType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IndexedResourceType").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for IndexedResourceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Management.IndexedResourceType;i4)");

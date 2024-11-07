@@ -16,33 +16,33 @@ pub unsafe fn CM_Add_Empty_Log_Conf_Ex(plclogconf: *mut usize, dndevinst: u32, p
     CM_Add_Empty_Log_Conf_Ex(plclogconf, dndevinst, priority, ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Add_IDA<P1>(dndevinst: u32, pszid: P1, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Add_IDA<P0>(dndevinst: u32, pszid: P0, ulflags: u32) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Add_IDA(dndevinst : u32, pszid : windows_core::PCSTR, ulflags : u32) -> CONFIGRET);
     CM_Add_IDA(dndevinst, pszid.param().abi(), ulflags)
 }
 #[inline]
-pub unsafe fn CM_Add_IDW<P1>(dndevinst: u32, pszid: P1, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Add_IDW<P0>(dndevinst: u32, pszid: P0, ulflags: u32) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Add_IDW(dndevinst : u32, pszid : windows_core::PCWSTR, ulflags : u32) -> CONFIGRET);
     CM_Add_IDW(dndevinst, pszid.param().abi(), ulflags)
 }
 #[inline]
-pub unsafe fn CM_Add_ID_ExA<P1>(dndevinst: u32, pszid: P1, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Add_ID_ExA<P0>(dndevinst: u32, pszid: P0, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Add_ID_ExA(dndevinst : u32, pszid : windows_core::PCSTR, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Add_ID_ExA(dndevinst, pszid.param().abi(), ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Add_ID_ExW<P1>(dndevinst: u32, pszid: P1, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Add_ID_ExW<P0>(dndevinst: u32, pszid: P0, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Add_ID_ExW(dndevinst : u32, pszid : windows_core::PCWSTR, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Add_ID_ExW(dndevinst, pszid.param().abi(), ulflags, hmachine)
@@ -79,33 +79,33 @@ where
     CM_Connect_MachineW(uncservername.param().abi(), phmachine)
 }
 #[inline]
-pub unsafe fn CM_Create_DevNodeA<P1>(pdndevinst: *mut u32, pdeviceid: P1, dnparent: u32, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Create_DevNodeA<P0>(pdndevinst: *mut u32, pdeviceid: P0, dnparent: u32, ulflags: u32) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Create_DevNodeA(pdndevinst : *mut u32, pdeviceid : windows_core::PCSTR, dnparent : u32, ulflags : u32) -> CONFIGRET);
     CM_Create_DevNodeA(pdndevinst, pdeviceid.param().abi(), dnparent, ulflags)
 }
 #[inline]
-pub unsafe fn CM_Create_DevNodeW<P1>(pdndevinst: *mut u32, pdeviceid: P1, dnparent: u32, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Create_DevNodeW<P0>(pdndevinst: *mut u32, pdeviceid: P0, dnparent: u32, ulflags: u32) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Create_DevNodeW(pdndevinst : *mut u32, pdeviceid : windows_core::PCWSTR, dnparent : u32, ulflags : u32) -> CONFIGRET);
     CM_Create_DevNodeW(pdndevinst, pdeviceid.param().abi(), dnparent, ulflags)
 }
 #[inline]
-pub unsafe fn CM_Create_DevNode_ExA<P1>(pdndevinst: *mut u32, pdeviceid: P1, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Create_DevNode_ExA<P0>(pdndevinst: *mut u32, pdeviceid: P0, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Create_DevNode_ExA(pdndevinst : *mut u32, pdeviceid : windows_core::PCSTR, dnparent : u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Create_DevNode_ExA(pdndevinst, pdeviceid.param().abi(), dnparent, ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Create_DevNode_ExW<P1>(pdndevinst: *mut u32, pdeviceid: P1, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Create_DevNode_ExW<P0>(pdndevinst: *mut u32, pdeviceid: P0, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Create_DevNode_ExW(pdndevinst : *mut u32, pdeviceid : windows_core::PCWSTR, dnparent : u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Create_DevNode_ExW(pdndevinst, pdeviceid.param().abi(), dnparent, ulflags, hmachine)
@@ -387,33 +387,33 @@ pub unsafe fn CM_Get_Depth_Ex(puldepth: *mut u32, dndevinst: u32, ulflags: u32, 
     CM_Get_Depth_Ex(puldepth, dndevinst, ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Get_DevNode_Custom_PropertyA<P1>(dndevinst: u32, pszcustompropertyname: P1, pulregdatatype: Option<*mut u32>, buffer: Option<*mut core::ffi::c_void>, pullength: *mut u32, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_DevNode_Custom_PropertyA<P0>(dndevinst: u32, pszcustompropertyname: P0, pulregdatatype: Option<*mut u32>, buffer: Option<*mut core::ffi::c_void>, pullength: *mut u32, ulflags: u32) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_Custom_PropertyA(dndevinst : u32, pszcustompropertyname : windows_core::PCSTR, pulregdatatype : *mut u32, buffer : *mut core::ffi::c_void, pullength : *mut u32, ulflags : u32) -> CONFIGRET);
     CM_Get_DevNode_Custom_PropertyA(dndevinst, pszcustompropertyname.param().abi(), core::mem::transmute(pulregdatatype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), pullength, ulflags)
 }
 #[inline]
-pub unsafe fn CM_Get_DevNode_Custom_PropertyW<P1>(dndevinst: u32, pszcustompropertyname: P1, pulregdatatype: Option<*mut u32>, buffer: Option<*mut core::ffi::c_void>, pullength: *mut u32, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_DevNode_Custom_PropertyW<P0>(dndevinst: u32, pszcustompropertyname: P0, pulregdatatype: Option<*mut u32>, buffer: Option<*mut core::ffi::c_void>, pullength: *mut u32, ulflags: u32) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_Custom_PropertyW(dndevinst : u32, pszcustompropertyname : windows_core::PCWSTR, pulregdatatype : *mut u32, buffer : *mut core::ffi::c_void, pullength : *mut u32, ulflags : u32) -> CONFIGRET);
     CM_Get_DevNode_Custom_PropertyW(dndevinst, pszcustompropertyname.param().abi(), core::mem::transmute(pulregdatatype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), pullength, ulflags)
 }
 #[inline]
-pub unsafe fn CM_Get_DevNode_Custom_Property_ExA<P1>(dndevinst: u32, pszcustompropertyname: P1, pulregdatatype: Option<*mut u32>, buffer: Option<*mut core::ffi::c_void>, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Get_DevNode_Custom_Property_ExA<P0>(dndevinst: u32, pszcustompropertyname: P0, pulregdatatype: Option<*mut u32>, buffer: Option<*mut core::ffi::c_void>, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_Custom_Property_ExA(dndevinst : u32, pszcustompropertyname : windows_core::PCSTR, pulregdatatype : *mut u32, buffer : *mut core::ffi::c_void, pullength : *mut u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Get_DevNode_Custom_Property_ExA(dndevinst, pszcustompropertyname.param().abi(), core::mem::transmute(pulregdatatype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), pullength, ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Get_DevNode_Custom_Property_ExW<P1>(dndevinst: u32, pszcustompropertyname: P1, pulregdatatype: Option<*mut u32>, buffer: Option<*mut core::ffi::c_void>, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Get_DevNode_Custom_Property_ExW<P0>(dndevinst: u32, pszcustompropertyname: P0, pulregdatatype: Option<*mut u32>, buffer: Option<*mut core::ffi::c_void>, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_Custom_Property_ExW(dndevinst : u32, pszcustompropertyname : windows_core::PCWSTR, pulregdatatype : *mut u32, buffer : *mut core::ffi::c_void, pullength : *mut u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Get_DevNode_Custom_Property_ExW(dndevinst, pszcustompropertyname.param().abi(), core::mem::transmute(pulregdatatype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), pullength, ulflags, hmachine)
@@ -525,33 +525,33 @@ where
     CM_Get_Device_ID_List_ExW(pszfilter.param().abi(), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_ID_List_SizeA<P1>(pullen: *mut u32, pszfilter: P1, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_List_SizeA<P0>(pullen: *mut u32, pszfilter: P0, ulflags: u32) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_ID_List_SizeA(pullen : *mut u32, pszfilter : windows_core::PCSTR, ulflags : u32) -> CONFIGRET);
     CM_Get_Device_ID_List_SizeA(pullen, pszfilter.param().abi(), ulflags)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_ID_List_SizeW<P1>(pullen: *mut u32, pszfilter: P1, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_List_SizeW<P0>(pullen: *mut u32, pszfilter: P0, ulflags: u32) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_ID_List_SizeW(pullen : *mut u32, pszfilter : windows_core::PCWSTR, ulflags : u32) -> CONFIGRET);
     CM_Get_Device_ID_List_SizeW(pullen, pszfilter.param().abi(), ulflags)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_ID_List_Size_ExA<P1>(pullen: *mut u32, pszfilter: P1, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_List_Size_ExA<P0>(pullen: *mut u32, pszfilter: P0, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_ID_List_Size_ExA(pullen : *mut u32, pszfilter : windows_core::PCSTR, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Get_Device_ID_List_Size_ExA(pullen, pszfilter.param().abi(), ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_ID_List_Size_ExW<P1>(pullen: *mut u32, pszfilter: P1, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Get_Device_ID_List_Size_ExW<P0>(pullen: *mut u32, pszfilter: P0, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_ID_List_Size_ExW(pullen : *mut u32, pszfilter : windows_core::PCWSTR, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Get_Device_ID_List_Size_ExW(pullen, pszfilter.param().abi(), ulflags, hmachine)
@@ -599,65 +599,65 @@ where
     CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface.param().abi(), aliasinterfaceguid, core::mem::transmute(pszaliasdeviceinterface), pullength, ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_ListA<P1>(interfaceclassguid: *const windows_core::GUID, pdeviceid: P1, buffer: &mut [u8], ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_ListA<P0>(interfaceclassguid: *const windows_core::GUID, pdeviceid: P0, buffer: &mut [u8], ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_ListA(interfaceclassguid : *const windows_core::GUID, pdeviceid : windows_core::PCSTR, buffer : windows_core::PSTR, bufferlen : u32, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET);
     CM_Get_Device_Interface_ListA(interfaceclassguid, pdeviceid.param().abi(), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), ulflags)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_ListW<P1>(interfaceclassguid: *const windows_core::GUID, pdeviceid: P1, buffer: &mut [u16], ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_ListW<P0>(interfaceclassguid: *const windows_core::GUID, pdeviceid: P0, buffer: &mut [u16], ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_ListW(interfaceclassguid : *const windows_core::GUID, pdeviceid : windows_core::PCWSTR, buffer : windows_core::PWSTR, bufferlen : u32, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET);
     CM_Get_Device_Interface_ListW(interfaceclassguid, pdeviceid.param().abi(), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), ulflags)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_ExA<P1>(interfaceclassguid: *const windows_core::GUID, pdeviceid: P1, buffer: &mut [u8], ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_List_ExA<P0>(interfaceclassguid: *const windows_core::GUID, pdeviceid: P0, buffer: &mut [u8], ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: isize) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_ExA(interfaceclassguid : *const windows_core::GUID, pdeviceid : windows_core::PCSTR, buffer : windows_core::PSTR, bufferlen : u32, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine : isize) -> CONFIGRET);
     CM_Get_Device_Interface_List_ExA(interfaceclassguid, pdeviceid.param().abi(), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_ExW<P1>(interfaceclassguid: *const windows_core::GUID, pdeviceid: P1, buffer: &mut [u16], ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_List_ExW<P0>(interfaceclassguid: *const windows_core::GUID, pdeviceid: P0, buffer: &mut [u16], ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: isize) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_ExW(interfaceclassguid : *const windows_core::GUID, pdeviceid : windows_core::PCWSTR, buffer : windows_core::PWSTR, bufferlen : u32, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine : isize) -> CONFIGRET);
     CM_Get_Device_Interface_List_ExW(interfaceclassguid, pdeviceid.param().abi(), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_SizeA<P2>(pullen: *mut u32, interfaceclassguid: *const windows_core::GUID, pdeviceid: P2, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_List_SizeA<P0>(pullen: *mut u32, interfaceclassguid: *const windows_core::GUID, pdeviceid: P0, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_SizeA(pullen : *mut u32, interfaceclassguid : *const windows_core::GUID, pdeviceid : windows_core::PCSTR, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET);
     CM_Get_Device_Interface_List_SizeA(pullen, interfaceclassguid, pdeviceid.param().abi(), ulflags)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_SizeW<P2>(pullen: *mut u32, interfaceclassguid: *const windows_core::GUID, pdeviceid: P2, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_List_SizeW<P0>(pullen: *mut u32, interfaceclassguid: *const windows_core::GUID, pdeviceid: P0, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_SizeW(pullen : *mut u32, interfaceclassguid : *const windows_core::GUID, pdeviceid : windows_core::PCWSTR, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET);
     CM_Get_Device_Interface_List_SizeW(pullen, interfaceclassguid, pdeviceid.param().abi(), ulflags)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_Size_ExA<P2>(pullen: *mut u32, interfaceclassguid: *const windows_core::GUID, pdeviceid: P2, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_List_Size_ExA<P0>(pullen: *mut u32, interfaceclassguid: *const windows_core::GUID, pdeviceid: P0, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: isize) -> CONFIGRET
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_Size_ExA(pullen : *mut u32, interfaceclassguid : *const windows_core::GUID, pdeviceid : windows_core::PCSTR, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine : isize) -> CONFIGRET);
     CM_Get_Device_Interface_List_Size_ExA(pullen, interfaceclassguid, pdeviceid.param().abi(), ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_Size_ExW<P2>(pullen: *mut u32, interfaceclassguid: *const windows_core::GUID, pdeviceid: P2, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_List_Size_ExW<P0>(pullen: *mut u32, interfaceclassguid: *const windows_core::GUID, pdeviceid: P0, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: isize) -> CONFIGRET
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_Size_ExW(pullen : *mut u32, interfaceclassguid : *const windows_core::GUID, pdeviceid : windows_core::PCWSTR, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine : isize) -> CONFIGRET);
     CM_Get_Device_Interface_List_Size_ExW(pullen, interfaceclassguid, pdeviceid.param().abi(), ulflags, hmachine)
@@ -896,33 +896,33 @@ pub unsafe fn CM_Is_Version_Available_Ex(wversion: u16, hmachine: isize) -> supe
     CM_Is_Version_Available_Ex(wversion, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Locate_DevNodeA<P1>(pdndevinst: *mut u32, pdeviceid: P1, ulflags: CM_LOCATE_DEVNODE_FLAGS) -> CONFIGRET
+pub unsafe fn CM_Locate_DevNodeA<P0>(pdndevinst: *mut u32, pdeviceid: P0, ulflags: CM_LOCATE_DEVNODE_FLAGS) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Locate_DevNodeA(pdndevinst : *mut u32, pdeviceid : windows_core::PCSTR, ulflags : CM_LOCATE_DEVNODE_FLAGS) -> CONFIGRET);
     CM_Locate_DevNodeA(pdndevinst, pdeviceid.param().abi(), ulflags)
 }
 #[inline]
-pub unsafe fn CM_Locate_DevNodeW<P1>(pdndevinst: *mut u32, pdeviceid: P1, ulflags: CM_LOCATE_DEVNODE_FLAGS) -> CONFIGRET
+pub unsafe fn CM_Locate_DevNodeW<P0>(pdndevinst: *mut u32, pdeviceid: P0, ulflags: CM_LOCATE_DEVNODE_FLAGS) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Locate_DevNodeW(pdndevinst : *mut u32, pdeviceid : windows_core::PCWSTR, ulflags : CM_LOCATE_DEVNODE_FLAGS) -> CONFIGRET);
     CM_Locate_DevNodeW(pdndevinst, pdeviceid.param().abi(), ulflags)
 }
 #[inline]
-pub unsafe fn CM_Locate_DevNode_ExA<P1>(pdndevinst: *mut u32, pdeviceid: P1, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Locate_DevNode_ExA<P0>(pdndevinst: *mut u32, pdeviceid: P0, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Locate_DevNode_ExA(pdndevinst : *mut u32, pdeviceid : windows_core::PCSTR, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Locate_DevNode_ExA(pdndevinst, pdeviceid.param().abi(), ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Locate_DevNode_ExW<P1>(pdndevinst: *mut u32, pdeviceid: P1, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Locate_DevNode_ExW<P0>(pdndevinst: *mut u32, pdeviceid: P0, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Locate_DevNode_ExW(pdndevinst : *mut u32, pdeviceid : windows_core::PCWSTR, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Locate_DevNode_ExW(pdndevinst, pdeviceid.param().abi(), ulflags, hmachine)
@@ -964,36 +964,36 @@ pub unsafe fn CM_Next_Range(preelement: *mut usize, pullstart: *mut u64, pullend
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn CM_Open_Class_KeyA<P1>(classguid: Option<*const windows_core::GUID>, pszclassname: P1, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Open_Class_KeyA<P0>(classguid: Option<*const windows_core::GUID>, pszclassname: P0, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Open_Class_KeyA(classguid : *const windows_core::GUID, pszclassname : windows_core::PCSTR, samdesired : u32, disposition : u32, phkclass : *mut super::super::System::Registry:: HKEY, ulflags : u32) -> CONFIGRET);
     CM_Open_Class_KeyA(core::mem::transmute(classguid.unwrap_or(core::ptr::null())), pszclassname.param().abi(), samdesired, disposition, phkclass, ulflags)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn CM_Open_Class_KeyW<P1>(classguid: Option<*const windows_core::GUID>, pszclassname: P1, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Open_Class_KeyW<P0>(classguid: Option<*const windows_core::GUID>, pszclassname: P0, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Open_Class_KeyW(classguid : *const windows_core::GUID, pszclassname : windows_core::PCWSTR, samdesired : u32, disposition : u32, phkclass : *mut super::super::System::Registry:: HKEY, ulflags : u32) -> CONFIGRET);
     CM_Open_Class_KeyW(core::mem::transmute(classguid.unwrap_or(core::ptr::null())), pszclassname.param().abi(), samdesired, disposition, phkclass, ulflags)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn CM_Open_Class_Key_ExA<P1>(classguid: Option<*const windows_core::GUID>, pszclassname: P1, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Open_Class_Key_ExA<P0>(classguid: Option<*const windows_core::GUID>, pszclassname: P0, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Open_Class_Key_ExA(classguid : *const windows_core::GUID, pszclassname : windows_core::PCSTR, samdesired : u32, disposition : u32, phkclass : *mut super::super::System::Registry:: HKEY, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Open_Class_Key_ExA(core::mem::transmute(classguid.unwrap_or(core::ptr::null())), pszclassname.param().abi(), samdesired, disposition, phkclass, ulflags, hmachine)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn CM_Open_Class_Key_ExW<P1>(classguid: Option<*const windows_core::GUID>, pszclassname: P1, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Open_Class_Key_ExW<P0>(classguid: Option<*const windows_core::GUID>, pszclassname: P0, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Open_Class_Key_ExW(classguid : *const windows_core::GUID, pszclassname : windows_core::PCWSTR, samdesired : u32, disposition : u32, phkclass : *mut super::super::System::Registry:: HKEY, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Open_Class_Key_ExW(core::mem::transmute(classguid.unwrap_or(core::ptr::null())), pszclassname.param().abi(), samdesired, disposition, phkclass, ulflags, hmachine)
@@ -1122,33 +1122,33 @@ pub unsafe fn CM_Register_Device_Driver_Ex(dndevinst: u32, ulflags: u32, hmachin
     CM_Register_Device_Driver_Ex(dndevinst, ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Register_Device_InterfaceA<P2>(dndevinst: u32, interfaceclassguid: *const windows_core::GUID, pszreference: P2, pszdeviceinterface: windows_core::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Register_Device_InterfaceA<P0>(dndevinst: u32, interfaceclassguid: *const windows_core::GUID, pszreference: P0, pszdeviceinterface: windows_core::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Register_Device_InterfaceA(dndevinst : u32, interfaceclassguid : *const windows_core::GUID, pszreference : windows_core::PCSTR, pszdeviceinterface : windows_core::PSTR, pullength : *mut u32, ulflags : u32) -> CONFIGRET);
     CM_Register_Device_InterfaceA(dndevinst, interfaceclassguid, pszreference.param().abi(), core::mem::transmute(pszdeviceinterface), pullength, ulflags)
 }
 #[inline]
-pub unsafe fn CM_Register_Device_InterfaceW<P2>(dndevinst: u32, interfaceclassguid: *const windows_core::GUID, pszreference: P2, pszdeviceinterface: windows_core::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Register_Device_InterfaceW<P0>(dndevinst: u32, interfaceclassguid: *const windows_core::GUID, pszreference: P0, pszdeviceinterface: windows_core::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Register_Device_InterfaceW(dndevinst : u32, interfaceclassguid : *const windows_core::GUID, pszreference : windows_core::PCWSTR, pszdeviceinterface : windows_core::PWSTR, pullength : *mut u32, ulflags : u32) -> CONFIGRET);
     CM_Register_Device_InterfaceW(dndevinst, interfaceclassguid, pszreference.param().abi(), core::mem::transmute(pszdeviceinterface), pullength, ulflags)
 }
 #[inline]
-pub unsafe fn CM_Register_Device_Interface_ExA<P2>(dndevinst: u32, interfaceclassguid: *const windows_core::GUID, pszreference: P2, pszdeviceinterface: windows_core::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Register_Device_Interface_ExA<P0>(dndevinst: u32, interfaceclassguid: *const windows_core::GUID, pszreference: P0, pszdeviceinterface: windows_core::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Register_Device_Interface_ExA(dndevinst : u32, interfaceclassguid : *const windows_core::GUID, pszreference : windows_core::PCSTR, pszdeviceinterface : windows_core::PSTR, pullength : *mut u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Register_Device_Interface_ExA(dndevinst, interfaceclassguid, pszreference.param().abi(), core::mem::transmute(pszdeviceinterface), pullength, ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Register_Device_Interface_ExW<P2>(dndevinst: u32, interfaceclassguid: *const windows_core::GUID, pszreference: P2, pszdeviceinterface: windows_core::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Register_Device_Interface_ExW<P0>(dndevinst: u32, interfaceclassguid: *const windows_core::GUID, pszreference: P0, pszdeviceinterface: windows_core::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cfgmgr32.dll" "system" fn CM_Register_Device_Interface_ExW(dndevinst : u32, interfaceclassguid : *const windows_core::GUID, pszreference : windows_core::PCWSTR, pszdeviceinterface : windows_core::PWSTR, pullength : *mut u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Register_Device_Interface_ExW(dndevinst, interfaceclassguid, pszreference.param().abi(), core::mem::transmute(pszdeviceinterface), pullength, ulflags, hmachine)
@@ -1425,10 +1425,10 @@ where
     DiInstallDriverW(hwndparent.param().abi(), infpath.param().abi(), flags, core::mem::transmute(needreboot.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn DiRollbackDriver<P0, P2>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, hwndparent: P2, flags: DIROLLBACKDRIVER_FLAGS, needreboot: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()>
+pub unsafe fn DiRollbackDriver<P0, P1>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, hwndparent: P1, flags: DIROLLBACKDRIVER_FLAGS, needreboot: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HDEVINFO>,
-    P2: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("newdev.dll" "system" fn DiRollbackDriver(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, hwndparent : super::super::Foundation:: HWND, flags : DIROLLBACKDRIVER_FLAGS, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     DiRollbackDriver(deviceinfoset.param().abi(), deviceinfodata, hwndparent.param().abi(), flags, core::mem::transmute(needreboot.unwrap_or(core::ptr::null_mut()))).ok()
@@ -1499,81 +1499,81 @@ where
     InstallHinfSectionW(window.param().abi(), modulehandle.param().abi(), commandline.param().abi(), showcommand)
 }
 #[inline]
-pub unsafe fn SetupAddInstallSectionToDiskSpaceListA<P3>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, layoutinfhandle: Option<*const core::ffi::c_void>, sectionname: P3, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupAddInstallSectionToDiskSpaceListA<P0>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, layoutinfhandle: Option<*const core::ffi::c_void>, sectionname: P0, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupAddInstallSectionToDiskSpaceListA(diskspace : *const core::ffi::c_void, infhandle : *const core::ffi::c_void, layoutinfhandle : *const core::ffi::c_void, sectionname : windows_core::PCSTR, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupAddInstallSectionToDiskSpaceListA(diskspace, infhandle, core::mem::transmute(layoutinfhandle.unwrap_or(core::ptr::null())), sectionname.param().abi(), core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
 }
 #[inline]
-pub unsafe fn SetupAddInstallSectionToDiskSpaceListW<P3>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, layoutinfhandle: Option<*const core::ffi::c_void>, sectionname: P3, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupAddInstallSectionToDiskSpaceListW<P0>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, layoutinfhandle: Option<*const core::ffi::c_void>, sectionname: P0, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupAddInstallSectionToDiskSpaceListW(diskspace : *const core::ffi::c_void, infhandle : *const core::ffi::c_void, layoutinfhandle : *const core::ffi::c_void, sectionname : windows_core::PCWSTR, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupAddInstallSectionToDiskSpaceListW(diskspace, infhandle, core::mem::transmute(layoutinfhandle.unwrap_or(core::ptr::null())), sectionname.param().abi(), core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
 }
 #[inline]
-pub unsafe fn SetupAddSectionToDiskSpaceListA<P3>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, sectionname: P3, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupAddSectionToDiskSpaceListA<P0>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, sectionname: P0, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupAddSectionToDiskSpaceListA(diskspace : *const core::ffi::c_void, infhandle : *const core::ffi::c_void, listinfhandle : *const core::ffi::c_void, sectionname : windows_core::PCSTR, operation : SETUP_FILE_OPERATION, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupAddSectionToDiskSpaceListA(diskspace, infhandle, core::mem::transmute(listinfhandle.unwrap_or(core::ptr::null())), sectionname.param().abi(), operation, core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
 }
 #[inline]
-pub unsafe fn SetupAddSectionToDiskSpaceListW<P3>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, sectionname: P3, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupAddSectionToDiskSpaceListW<P0>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, sectionname: P0, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupAddSectionToDiskSpaceListW(diskspace : *const core::ffi::c_void, infhandle : *const core::ffi::c_void, listinfhandle : *const core::ffi::c_void, sectionname : windows_core::PCWSTR, operation : SETUP_FILE_OPERATION, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupAddSectionToDiskSpaceListW(diskspace, infhandle, core::mem::transmute(listinfhandle.unwrap_or(core::ptr::null())), sectionname.param().abi(), operation, core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
 }
 #[inline]
-pub unsafe fn SetupAddToDiskSpaceListA<P1>(diskspace: *const core::ffi::c_void, targetfilespec: P1, filesize: i64, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupAddToDiskSpaceListA<P0>(diskspace: *const core::ffi::c_void, targetfilespec: P0, filesize: i64, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupAddToDiskSpaceListA(diskspace : *const core::ffi::c_void, targetfilespec : windows_core::PCSTR, filesize : i64, operation : SETUP_FILE_OPERATION, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupAddToDiskSpaceListA(diskspace, targetfilespec.param().abi(), filesize, operation, core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
 }
 #[inline]
-pub unsafe fn SetupAddToDiskSpaceListW<P1>(diskspace: *const core::ffi::c_void, targetfilespec: P1, filesize: i64, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupAddToDiskSpaceListW<P0>(diskspace: *const core::ffi::c_void, targetfilespec: P0, filesize: i64, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupAddToDiskSpaceListW(diskspace : *const core::ffi::c_void, targetfilespec : windows_core::PCWSTR, filesize : i64, operation : SETUP_FILE_OPERATION, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupAddToDiskSpaceListW(diskspace, targetfilespec.param().abi(), filesize, operation, core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
 }
 #[inline]
-pub unsafe fn SetupAddToSourceListA<P1>(flags: u32, source: P1) -> windows_core::Result<()>
+pub unsafe fn SetupAddToSourceListA<P0>(flags: u32, source: P0) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupAddToSourceListA(flags : u32, source : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetupAddToSourceListA(flags, source.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupAddToSourceListW<P1>(flags: u32, source: P1) -> windows_core::Result<()>
+pub unsafe fn SetupAddToSourceListW<P0>(flags: u32, source: P0) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupAddToSourceListW(flags : u32, source : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetupAddToSourceListW(flags, source.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupAdjustDiskSpaceListA<P1>(diskspace: *const core::ffi::c_void, driveroot: P1, amount: i64, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupAdjustDiskSpaceListA<P0>(diskspace: *const core::ffi::c_void, driveroot: P0, amount: i64, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupAdjustDiskSpaceListA(diskspace : *const core::ffi::c_void, driveroot : windows_core::PCSTR, amount : i64, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupAdjustDiskSpaceListA(diskspace, driveroot.param().abi(), amount, core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
 }
 #[inline]
-pub unsafe fn SetupAdjustDiskSpaceListW<P1>(diskspace: *const core::ffi::c_void, driveroot: P1, amount: i64, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupAdjustDiskSpaceListW<P0>(diskspace: *const core::ffi::c_void, driveroot: P0, amount: i64, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupAdjustDiskSpaceListW(diskspace : *const core::ffi::c_void, driveroot : windows_core::PCWSTR, amount : i64, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupAdjustDiskSpaceListW(diskspace, driveroot.param().abi(), amount, core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
@@ -1637,17 +1637,17 @@ where
     SetupCommitFileQueueW(owner.param().abi(), queuehandle, msghandler, context).ok()
 }
 #[inline]
-pub unsafe fn SetupConfigureWmiFromInfSectionA<P1>(infhandle: *const core::ffi::c_void, sectionname: P1, flags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetupConfigureWmiFromInfSectionA<P0>(infhandle: *const core::ffi::c_void, sectionname: P0, flags: u32) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupConfigureWmiFromInfSectionA(infhandle : *const core::ffi::c_void, sectionname : windows_core::PCSTR, flags : u32) -> super::super::Foundation:: BOOL);
     SetupConfigureWmiFromInfSectionA(infhandle, sectionname.param().abi(), flags)
 }
 #[inline]
-pub unsafe fn SetupConfigureWmiFromInfSectionW<P1>(infhandle: *const core::ffi::c_void, sectionname: P1, flags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetupConfigureWmiFromInfSectionW<P0>(infhandle: *const core::ffi::c_void, sectionname: P0, flags: u32) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupConfigureWmiFromInfSectionW(infhandle : *const core::ffi::c_void, sectionname : windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
     SetupConfigureWmiFromInfSectionW(infhandle, sectionname.param().abi(), flags)
@@ -1773,17 +1773,17 @@ pub unsafe fn SetupDiBuildClassInfoList(flags: u32, classguidlist: Option<&mut [
     SetupDiBuildClassInfoList(flags, core::mem::transmute(classguidlist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), classguidlist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize).ok()
 }
 #[inline]
-pub unsafe fn SetupDiBuildClassInfoListExA<P4>(flags: u32, classguidlist: Option<&mut [windows_core::GUID]>, requiredsize: *mut u32, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiBuildClassInfoListExA<P0>(flags: u32, classguidlist: Option<&mut [windows_core::GUID]>, requiredsize: *mut u32, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoListExA(flags : u32, classguidlist : *mut windows_core::GUID, classguidlistsize : u32, requiredsize : *mut u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiBuildClassInfoListExA(flags, core::mem::transmute(classguidlist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), classguidlist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize, machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiBuildClassInfoListExW<P4>(flags: u32, classguidlist: Option<&mut [windows_core::GUID]>, requiredsize: *mut u32, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiBuildClassInfoListExW<P0>(flags: u32, classguidlist: Option<&mut [windows_core::GUID]>, requiredsize: *mut u32, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoListExW(flags : u32, classguidlist : *mut windows_core::GUID, classguidlistsize : u32, requiredsize : *mut u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiBuildClassInfoListExW(flags, core::mem::transmute(classguidlist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), classguidlist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize, machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
@@ -1797,9 +1797,9 @@ where
     SetupDiBuildDriverInfoList(deviceinfoset.param().abi(), core::mem::transmute(deviceinfodata.unwrap_or(core::ptr::null_mut())), drivertype).ok()
 }
 #[inline]
-pub unsafe fn SetupDiCallClassInstaller<P1>(installfunction: DI_FUNCTION, deviceinfoset: P1, deviceinfodata: Option<*const SP_DEVINFO_DATA>) -> windows_core::Result<()>
+pub unsafe fn SetupDiCallClassInstaller<P0>(installfunction: DI_FUNCTION, deviceinfoset: P0, deviceinfodata: Option<*const SP_DEVINFO_DATA>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<HDEVINFO>,
+    P0: windows_core::Param<HDEVINFO>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCallClassInstaller(installfunction : DI_FUNCTION, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> super::super::Foundation:: BOOL);
     SetupDiCallClassInstaller(installfunction, deviceinfoset.param().abi(), core::mem::transmute(deviceinfodata.unwrap_or(core::ptr::null()))).ok()
@@ -1829,19 +1829,19 @@ where
     SetupDiClassGuidsFromNameA(classname.param().abi(), core::mem::transmute(classguidlist.as_ptr()), classguidlist.len().try_into().unwrap(), requiredsize).ok()
 }
 #[inline]
-pub unsafe fn SetupDiClassGuidsFromNameExA<P0, P4>(classname: P0, classguidlist: &mut [windows_core::GUID], requiredsize: *mut u32, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiClassGuidsFromNameExA<P0, P1>(classname: P0, classguidlist: &mut [windows_core::GUID], requiredsize: *mut u32, machinename: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameExA(classname : windows_core::PCSTR, classguidlist : *mut windows_core::GUID, classguidlistsize : u32, requiredsize : *mut u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiClassGuidsFromNameExA(classname.param().abi(), core::mem::transmute(classguidlist.as_ptr()), classguidlist.len().try_into().unwrap(), requiredsize, machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiClassGuidsFromNameExW<P0, P4>(classname: P0, classguidlist: &mut [windows_core::GUID], requiredsize: *mut u32, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiClassGuidsFromNameExW<P0, P1>(classname: P0, classguidlist: &mut [windows_core::GUID], requiredsize: *mut u32, machinename: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameExW(classname : windows_core::PCWSTR, classguidlist : *mut windows_core::GUID, classguidlistsize : u32, requiredsize : *mut u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiClassGuidsFromNameExW(classname.param().abi(), core::mem::transmute(classguidlist.as_ptr()), classguidlist.len().try_into().unwrap(), requiredsize, machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
@@ -1860,17 +1860,17 @@ pub unsafe fn SetupDiClassNameFromGuidA(classguid: *const windows_core::GUID, cl
     SetupDiClassNameFromGuidA(classguid, core::mem::transmute(classname.as_ptr()), classname.len().try_into().unwrap(), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiClassNameFromGuidExA<P4>(classguid: *const windows_core::GUID, classname: &mut [u8], requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiClassNameFromGuidExA<P0>(classguid: *const windows_core::GUID, classname: &mut [u8], requiredsize: Option<*mut u32>, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidExA(classguid : *const windows_core::GUID, classname : windows_core::PSTR, classnamesize : u32, requiredsize : *mut u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiClassNameFromGuidExA(classguid, core::mem::transmute(classname.as_ptr()), classname.len().try_into().unwrap(), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut())), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiClassNameFromGuidExW<P4>(classguid: *const windows_core::GUID, classname: &mut [u16], requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiClassNameFromGuidExW<P0>(classguid: *const windows_core::GUID, classname: &mut [u16], requiredsize: Option<*mut u32>, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidExW(classguid : *const windows_core::GUID, classname : windows_core::PWSTR, classnamesize : u32, requiredsize : *mut u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiClassNameFromGuidExW(classguid, core::mem::transmute(classname.as_ptr()), classname.len().try_into().unwrap(), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut())), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
@@ -1882,10 +1882,10 @@ pub unsafe fn SetupDiClassNameFromGuidW(classguid: *const windows_core::GUID, cl
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn SetupDiCreateDevRegKeyA<P0, P6>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: Option<*const core::ffi::c_void>, infsectionname: P6) -> windows_core::Result<super::super::System::Registry::HKEY>
+pub unsafe fn SetupDiCreateDevRegKeyA<P0, P1>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: Option<*const core::ffi::c_void>, infsectionname: P1) -> windows_core::Result<super::super::System::Registry::HKEY>
 where
     P0: windows_core::Param<HDEVINFO>,
-    P6: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDevRegKeyA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, infhandle : *const core::ffi::c_void, infsectionname : windows_core::PCSTR) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiCreateDevRegKeyA(deviceinfoset.param().abi(), deviceinfodata, scope, hwprofile, keytype, core::mem::transmute(infhandle.unwrap_or(core::ptr::null())), infsectionname.param().abi());
@@ -1893,81 +1893,81 @@ where
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn SetupDiCreateDevRegKeyW<P0, P6>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: Option<*const core::ffi::c_void>, infsectionname: P6) -> windows_core::Result<super::super::System::Registry::HKEY>
+pub unsafe fn SetupDiCreateDevRegKeyW<P0, P1>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: Option<*const core::ffi::c_void>, infsectionname: P1) -> windows_core::Result<super::super::System::Registry::HKEY>
 where
     P0: windows_core::Param<HDEVINFO>,
-    P6: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDevRegKeyW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, infhandle : *const core::ffi::c_void, infsectionname : windows_core::PCWSTR) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiCreateDevRegKeyW(deviceinfoset.param().abi(), deviceinfodata, scope, hwprofile, keytype, core::mem::transmute(infhandle.unwrap_or(core::ptr::null())), infsectionname.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInfoA<P0, P1, P3, P4>(deviceinfoset: P0, devicename: P1, classguid: *const windows_core::GUID, devicedescription: P3, hwndparent: P4, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: Option<*mut SP_DEVINFO_DATA>) -> windows_core::Result<()>
+pub unsafe fn SetupDiCreateDeviceInfoA<P0, P1, P2, P3>(deviceinfoset: P0, devicename: P1, classguid: *const windows_core::GUID, devicedescription: P2, hwndparent: P3, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: Option<*mut SP_DEVINFO_DATA>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HDEVINFO>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<super::super::Foundation::HWND>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoA(deviceinfoset : HDEVINFO, devicename : windows_core::PCSTR, classguid : *const windows_core::GUID, devicedescription : windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, creationflags : SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata : *mut SP_DEVINFO_DATA) -> super::super::Foundation:: BOOL);
     SetupDiCreateDeviceInfoA(deviceinfoset.param().abi(), devicename.param().abi(), classguid, devicedescription.param().abi(), hwndparent.param().abi(), creationflags, core::mem::transmute(deviceinfodata.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInfoList<P1>(classguid: Option<*const windows_core::GUID>, hwndparent: P1) -> windows_core::Result<HDEVINFO>
+pub unsafe fn SetupDiCreateDeviceInfoList<P0>(classguid: Option<*const windows_core::GUID>, hwndparent: P0) -> windows_core::Result<HDEVINFO>
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoList(classguid : *const windows_core::GUID, hwndparent : super::super::Foundation:: HWND) -> HDEVINFO);
     let result__ = SetupDiCreateDeviceInfoList(core::mem::transmute(classguid.unwrap_or(core::ptr::null())), hwndparent.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInfoListExA<P1, P2>(classguid: Option<*const windows_core::GUID>, hwndparent: P1, machinename: P2, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<HDEVINFO>
+pub unsafe fn SetupDiCreateDeviceInfoListExA<P0, P1>(classguid: Option<*const windows_core::GUID>, hwndparent: P0, machinename: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<HDEVINFO>
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoListExA(classguid : *const windows_core::GUID, hwndparent : super::super::Foundation:: HWND, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> HDEVINFO);
     let result__ = SetupDiCreateDeviceInfoListExA(core::mem::transmute(classguid.unwrap_or(core::ptr::null())), hwndparent.param().abi(), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInfoListExW<P1, P2>(classguid: Option<*const windows_core::GUID>, hwndparent: P1, machinename: P2, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<HDEVINFO>
+pub unsafe fn SetupDiCreateDeviceInfoListExW<P0, P1>(classguid: Option<*const windows_core::GUID>, hwndparent: P0, machinename: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<HDEVINFO>
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoListExW(classguid : *const windows_core::GUID, hwndparent : super::super::Foundation:: HWND, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> HDEVINFO);
     let result__ = SetupDiCreateDeviceInfoListExW(core::mem::transmute(classguid.unwrap_or(core::ptr::null())), hwndparent.param().abi(), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInfoW<P0, P1, P3, P4>(deviceinfoset: P0, devicename: P1, classguid: *const windows_core::GUID, devicedescription: P3, hwndparent: P4, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: Option<*mut SP_DEVINFO_DATA>) -> windows_core::Result<()>
+pub unsafe fn SetupDiCreateDeviceInfoW<P0, P1, P2, P3>(deviceinfoset: P0, devicename: P1, classguid: *const windows_core::GUID, devicedescription: P2, hwndparent: P3, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: Option<*mut SP_DEVINFO_DATA>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HDEVINFO>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<super::super::Foundation::HWND>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoW(deviceinfoset : HDEVINFO, devicename : windows_core::PCWSTR, classguid : *const windows_core::GUID, devicedescription : windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, creationflags : SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata : *mut SP_DEVINFO_DATA) -> super::super::Foundation:: BOOL);
     SetupDiCreateDeviceInfoW(deviceinfoset.param().abi(), devicename.param().abi(), classguid, devicedescription.param().abi(), hwndparent.param().abi(), creationflags, core::mem::transmute(deviceinfodata.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInterfaceA<P0, P3>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const windows_core::GUID, referencestring: P3, creationflags: u32, deviceinterfacedata: Option<*mut SP_DEVICE_INTERFACE_DATA>) -> windows_core::Result<()>
+pub unsafe fn SetupDiCreateDeviceInterfaceA<P0, P1>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const windows_core::GUID, referencestring: P1, creationflags: u32, deviceinterfacedata: Option<*mut SP_DEVICE_INTERFACE_DATA>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HDEVINFO>,
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, interfaceclassguid : *const windows_core::GUID, referencestring : windows_core::PCSTR, creationflags : u32, deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation:: BOOL);
     SetupDiCreateDeviceInterfaceA(deviceinfoset.param().abi(), deviceinfodata, interfaceclassguid, referencestring.param().abi(), creationflags, core::mem::transmute(deviceinterfacedata.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyA<P0, P5>(deviceinfoset: P0, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32, infhandle: Option<*const core::ffi::c_void>, infsectionname: P5) -> windows_core::Result<super::super::System::Registry::HKEY>
+pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyA<P0, P1>(deviceinfoset: P0, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32, infhandle: Option<*const core::ffi::c_void>, infsectionname: P1) -> windows_core::Result<super::super::System::Registry::HKEY>
 where
     P0: windows_core::Param<HDEVINFO>,
-    P5: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : u32, infhandle : *const core::ffi::c_void, infsectionname : windows_core::PCSTR) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset.param().abi(), deviceinterfacedata, reserved, samdesired, core::mem::transmute(infhandle.unwrap_or(core::ptr::null())), infsectionname.param().abi());
@@ -1975,20 +1975,20 @@ where
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyW<P0, P5>(deviceinfoset: P0, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32, infhandle: Option<*const core::ffi::c_void>, infsectionname: P5) -> windows_core::Result<super::super::System::Registry::HKEY>
+pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyW<P0, P1>(deviceinfoset: P0, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32, infhandle: Option<*const core::ffi::c_void>, infsectionname: P1) -> windows_core::Result<super::super::System::Registry::HKEY>
 where
     P0: windows_core::Param<HDEVINFO>,
-    P5: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : u32, infhandle : *const core::ffi::c_void, infsectionname : windows_core::PCWSTR) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset.param().abi(), deviceinterfacedata, reserved, samdesired, core::mem::transmute(infhandle.unwrap_or(core::ptr::null())), infsectionname.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInterfaceW<P0, P3>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const windows_core::GUID, referencestring: P3, creationflags: u32, deviceinterfacedata: Option<*mut SP_DEVICE_INTERFACE_DATA>) -> windows_core::Result<()>
+pub unsafe fn SetupDiCreateDeviceInterfaceW<P0, P1>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const windows_core::GUID, referencestring: P1, creationflags: u32, deviceinterfacedata: Option<*mut SP_DEVICE_INTERFACE_DATA>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HDEVINFO>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, interfaceclassguid : *const windows_core::GUID, referencestring : windows_core::PCWSTR, creationflags : u32, deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation:: BOOL);
     SetupDiCreateDeviceInterfaceW(deviceinfoset.param().abi(), deviceinfodata, interfaceclassguid, referencestring.param().abi(), creationflags, core::mem::transmute(deviceinterfacedata.unwrap_or(core::ptr::null_mut()))).ok()
@@ -2101,18 +2101,18 @@ pub unsafe fn SetupDiGetActualModelsSectionW(context: *const INFCONTEXT, alterna
     SetupDiGetActualModelsSectionW(context, core::mem::transmute(alternateplatforminfo.unwrap_or(core::ptr::null())), core::mem::transmute(infsectionwithext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), infsectionwithext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetActualSectionToInstallA<P1>(infhandle: *const core::ffi::c_void, infsectionname: P1, infsectionwithext: Option<&mut [u8]>, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PSTR>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetActualSectionToInstallA<P0>(infhandle: *const core::ffi::c_void, infsectionname: P0, infsectionwithext: Option<&mut [u8]>, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PSTR>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallA(infhandle : *const core::ffi::c_void, infsectionname : windows_core::PCSTR, infsectionwithext : windows_core::PSTR, infsectionwithextsize : u32, requiredsize : *mut u32, extension : *mut windows_core::PSTR) -> super::super::Foundation:: BOOL);
     SetupDiGetActualSectionToInstallA(infhandle, infsectionname.param().abi(), core::mem::transmute(infsectionwithext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), infsectionwithext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(extension.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
-pub unsafe fn SetupDiGetActualSectionToInstallExA<P1>(infhandle: *const core::ffi::c_void, infsectionname: P1, alternateplatforminfo: Option<*const SP_ALTPLATFORM_INFO_V2>, infsectionwithext: Option<&mut [u8]>, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PSTR>, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetActualSectionToInstallExA<P0>(infhandle: *const core::ffi::c_void, infsectionname: P0, alternateplatforminfo: Option<*const SP_ALTPLATFORM_INFO_V2>, infsectionwithext: Option<&mut [u8]>, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PSTR>, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallExA(infhandle : *const core::ffi::c_void, infsectionname : windows_core::PCSTR, alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2, infsectionwithext : windows_core::PSTR, infsectionwithextsize : u32, requiredsize : *mut u32, extension : *mut windows_core::PSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiGetActualSectionToInstallExA(
@@ -2129,9 +2129,9 @@ where
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
-pub unsafe fn SetupDiGetActualSectionToInstallExW<P1>(infhandle: *const core::ffi::c_void, infsectionname: P1, alternateplatforminfo: Option<*const SP_ALTPLATFORM_INFO_V2>, infsectionwithext: Option<&mut [u16]>, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PWSTR>, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetActualSectionToInstallExW<P0>(infhandle: *const core::ffi::c_void, infsectionname: P0, alternateplatforminfo: Option<*const SP_ALTPLATFORM_INFO_V2>, infsectionwithext: Option<&mut [u16]>, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PWSTR>, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallExW(infhandle : *const core::ffi::c_void, infsectionname : windows_core::PCWSTR, alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2, infsectionwithext : windows_core::PWSTR, infsectionwithextsize : u32, requiredsize : *mut u32, extension : *mut windows_core::PWSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiGetActualSectionToInstallExW(
@@ -2147,9 +2147,9 @@ where
     .ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetActualSectionToInstallW<P1>(infhandle: *const core::ffi::c_void, infsectionname: P1, infsectionwithext: Option<&mut [u16]>, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetActualSectionToInstallW<P0>(infhandle: *const core::ffi::c_void, infsectionname: P0, infsectionwithext: Option<&mut [u16]>, requiredsize: Option<*mut u32>, extension: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallW(infhandle : *const core::ffi::c_void, infsectionname : windows_core::PCWSTR, infsectionwithext : windows_core::PWSTR, infsectionwithextsize : u32, requiredsize : *mut u32, extension : *mut windows_core::PWSTR) -> super::super::Foundation:: BOOL);
     SetupDiGetActualSectionToInstallW(infhandle, infsectionname.param().abi(), core::mem::transmute(infsectionwithext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), infsectionwithext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(extension.unwrap_or(core::ptr::null_mut()))).ok()
@@ -2165,17 +2165,17 @@ pub unsafe fn SetupDiGetClassDescriptionA(classguid: *const windows_core::GUID, 
     SetupDiGetClassDescriptionA(classguid, core::mem::transmute(classdescription.as_ptr()), classdescription.len().try_into().unwrap(), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetClassDescriptionExA<P4>(classguid: *const windows_core::GUID, classdescription: &mut [u8], requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetClassDescriptionExA<P0>(classguid: *const windows_core::GUID, classdescription: &mut [u8], requiredsize: Option<*mut u32>, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionExA(classguid : *const windows_core::GUID, classdescription : windows_core::PSTR, classdescriptionsize : u32, requiredsize : *mut u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiGetClassDescriptionExA(classguid, core::mem::transmute(classdescription.as_ptr()), classdescription.len().try_into().unwrap(), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut())), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetClassDescriptionExW<P4>(classguid: *const windows_core::GUID, classdescription: &mut [u16], requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetClassDescriptionExW<P0>(classguid: *const windows_core::GUID, classdescription: &mut [u16], requiredsize: Option<*mut u32>, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionExW(classguid : *const windows_core::GUID, classdescription : windows_core::PWSTR, classdescriptionsize : u32, requiredsize : *mut u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiGetClassDescriptionExW(classguid, core::mem::transmute(classdescription.as_ptr()), classdescription.len().try_into().unwrap(), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut())), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
@@ -2204,44 +2204,44 @@ where
     SetupDiGetClassDevPropertySheetsW(deviceinfoset.param().abi(), core::mem::transmute(deviceinfodata.unwrap_or(core::ptr::null())), propertysheetheader, propertysheetheaderpagelistsize, core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut())), propertysheettype).ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetClassDevsA<P1, P2>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: P2, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS) -> windows_core::Result<HDEVINFO>
+pub unsafe fn SetupDiGetClassDevsA<P0, P1>(classguid: Option<*const windows_core::GUID>, enumerator: P0, hwndparent: P1, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS) -> windows_core::Result<HDEVINFO>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::HWND>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsA(classguid : *const windows_core::GUID, enumerator : windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, flags : SETUP_DI_GET_CLASS_DEVS_FLAGS) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsA(core::mem::transmute(classguid.unwrap_or(core::ptr::null())), enumerator.param().abi(), hwndparent.param().abi(), flags);
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetupDiGetClassDevsExA<P1, P2, P4, P5>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: P2, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: P4, machinename: P5, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<HDEVINFO>
+pub unsafe fn SetupDiGetClassDevsExA<P0, P1, P2, P3>(classguid: Option<*const windows_core::GUID>, enumerator: P0, hwndparent: P1, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: P2, machinename: P3, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<HDEVINFO>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::HWND>,
-    P4: windows_core::Param<HDEVINFO>,
-    P5: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
+    P2: windows_core::Param<HDEVINFO>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExA(classguid : *const windows_core::GUID, enumerator : windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, flags : SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset : HDEVINFO, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsExA(core::mem::transmute(classguid.unwrap_or(core::ptr::null())), enumerator.param().abi(), hwndparent.param().abi(), flags, deviceinfoset.param().abi(), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetupDiGetClassDevsExW<P1, P2, P4, P5>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: P2, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: P4, machinename: P5, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<HDEVINFO>
+pub unsafe fn SetupDiGetClassDevsExW<P0, P1, P2, P3>(classguid: Option<*const windows_core::GUID>, enumerator: P0, hwndparent: P1, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: P2, machinename: P3, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<HDEVINFO>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::HWND>,
-    P4: windows_core::Param<HDEVINFO>,
-    P5: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
+    P2: windows_core::Param<HDEVINFO>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExW(classguid : *const windows_core::GUID, enumerator : windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, flags : SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset : HDEVINFO, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsExW(core::mem::transmute(classguid.unwrap_or(core::ptr::null())), enumerator.param().abi(), hwndparent.param().abi(), flags, deviceinfoset.param().abi(), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetupDiGetClassDevsW<P1, P2>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: P2, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS) -> windows_core::Result<HDEVINFO>
+pub unsafe fn SetupDiGetClassDevsW<P0, P1>(classguid: Option<*const windows_core::GUID>, enumerator: P0, hwndparent: P1, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS) -> windows_core::Result<HDEVINFO>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::HWND>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsW(classguid : *const windows_core::GUID, enumerator : windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, flags : SETUP_DI_GET_CLASS_DEVS_FLAGS) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsW(core::mem::transmute(classguid.unwrap_or(core::ptr::null())), enumerator.param().abi(), hwndparent.param().abi(), flags);
@@ -2261,18 +2261,18 @@ pub unsafe fn SetupDiGetClassImageList(classimagelistdata: *mut SP_CLASSIMAGELIS
 }
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]
-pub unsafe fn SetupDiGetClassImageListExA<P1>(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA, machinename: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetClassImageListExA<P0>(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassImageListExA(classimagelistdata : *mut SP_CLASSIMAGELIST_DATA, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiGetClassImageListExA(classimagelistdata, machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]
-pub unsafe fn SetupDiGetClassImageListExW<P1>(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA, machinename: P1, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetClassImageListExW<P0>(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassImageListExW(classimagelistdata : *mut SP_CLASSIMAGELIST_DATA, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiGetClassImageListExW(classimagelistdata, machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
@@ -2295,9 +2295,9 @@ where
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn SetupDiGetClassPropertyExW<P7>(classguid: *const windows_core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut super::Properties::DEVPROPTYPE, propertybuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>, flags: u32, machinename: P7, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetClassPropertyExW<P0>(classguid: *const windows_core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut super::Properties::DEVPROPTYPE, propertybuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>, flags: u32, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P7: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyExW(classguid : *const windows_core::GUID, propertykey : *const super::Properties:: DEVPROPKEY, propertytype : *mut super::Properties:: DEVPROPTYPE, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32, flags : u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiGetClassPropertyExW(classguid, propertykey, propertytype, core::mem::transmute(propertybuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut())), flags, machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
@@ -2310,9 +2310,9 @@ pub unsafe fn SetupDiGetClassPropertyKeys(classguid: *const windows_core::GUID, 
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn SetupDiGetClassPropertyKeysExW<P5>(classguid: *const windows_core::GUID, propertykeyarray: Option<&mut [super::Properties::DEVPROPKEY]>, requiredpropertykeycount: Option<*mut u32>, flags: u32, machinename: P5, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetClassPropertyKeysExW<P0>(classguid: *const windows_core::GUID, propertykeyarray: Option<&mut [super::Properties::DEVPROPKEY]>, requiredpropertykeycount: Option<*mut u32>, flags: u32, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P5: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyKeysExW(classguid : *const windows_core::GUID, propertykeyarray : *mut super::Properties:: DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : *mut u32, flags : u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiGetClassPropertyKeysExW(classguid, core::mem::transmute(propertykeyarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), propertykeyarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredpropertykeycount.unwrap_or(core::ptr::null_mut())), flags, machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
@@ -2324,35 +2324,35 @@ pub unsafe fn SetupDiGetClassPropertyW(classguid: *const windows_core::GUID, pro
     SetupDiGetClassPropertyW(classguid, propertykey, propertytype, core::mem::transmute(propertybuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut())), flags).ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetClassRegistryPropertyA<P6>(classguid: *const windows_core::GUID, property: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: &mut [u8], requiredsize: Option<*mut u32>, machinename: P6, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetClassRegistryPropertyA<P0>(classguid: *const windows_core::GUID, property: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: &mut [u8], requiredsize: Option<*mut u32>, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P6: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassRegistryPropertyA(classguid : *const windows_core::GUID, property : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiGetClassRegistryPropertyA(classguid, property, core::mem::transmute(propertyregdatatype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(propertybuffer.as_ptr()), propertybuffer.len().try_into().unwrap(), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut())), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetClassRegistryPropertyW<P6>(classguid: *const windows_core::GUID, property: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: &mut [u8], requiredsize: Option<*mut u32>, machinename: P6, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetClassRegistryPropertyW<P0>(classguid: *const windows_core::GUID, property: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: &mut [u8], requiredsize: Option<*mut u32>, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P6: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassRegistryPropertyW(classguid : *const windows_core::GUID, property : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiGetClassRegistryPropertyW(classguid, property, core::mem::transmute(propertyregdatatype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(propertybuffer.as_ptr()), propertybuffer.len().try_into().unwrap(), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut())), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetCustomDevicePropertyA<P0, P2>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: P2, flags: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: &mut [u8], requiredsize: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetCustomDevicePropertyA<P0, P1>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: P1, flags: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: &mut [u8], requiredsize: Option<*mut u32>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HDEVINFO>,
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetCustomDevicePropertyA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, custompropertyname : windows_core::PCSTR, flags : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupDiGetCustomDevicePropertyA(deviceinfoset.param().abi(), deviceinfodata, custompropertyname.param().abi(), flags, core::mem::transmute(propertyregdatatype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(propertybuffer.as_ptr()), propertybuffer.len().try_into().unwrap(), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetCustomDevicePropertyW<P0, P2>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: P2, flags: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: &mut [u8], requiredsize: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetCustomDevicePropertyW<P0, P1>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: P1, flags: u32, propertyregdatatype: Option<*mut u32>, propertybuffer: &mut [u8], requiredsize: Option<*mut u32>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HDEVINFO>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetCustomDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, custompropertyname : windows_core::PCWSTR, flags : u32, propertyregdatatype : *mut u32, propertybuffer : *mut u8, propertybuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupDiGetCustomDevicePropertyW(deviceinfoset.param().abi(), deviceinfodata, custompropertyname.param().abi(), flags, core::mem::transmute(propertyregdatatype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(propertybuffer.as_ptr()), propertybuffer.len().try_into().unwrap(), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
@@ -2527,17 +2527,17 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameA(hwprofile: u32, friendlyname: &mu
     SetupDiGetHwProfileFriendlyNameA(hwprofile, core::mem::transmute(friendlyname.as_ptr()), friendlyname.len().try_into().unwrap(), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetHwProfileFriendlyNameExA<P4>(hwprofile: u32, friendlyname: &mut [u8], requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetHwProfileFriendlyNameExA<P0>(hwprofile: u32, friendlyname: &mut [u8], requiredsize: Option<*mut u32>, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameExA(hwprofile : u32, friendlyname : windows_core::PSTR, friendlynamesize : u32, requiredsize : *mut u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiGetHwProfileFriendlyNameExA(hwprofile, core::mem::transmute(friendlyname.as_ptr()), friendlyname.len().try_into().unwrap(), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut())), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetHwProfileFriendlyNameExW<P4>(hwprofile: u32, friendlyname: &mut [u16], requiredsize: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetHwProfileFriendlyNameExW<P0>(hwprofile: u32, friendlyname: &mut [u16], requiredsize: Option<*mut u32>, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameExW(hwprofile : u32, friendlyname : windows_core::PWSTR, friendlynamesize : u32, requiredsize : *mut u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiGetHwProfileFriendlyNameExW(hwprofile, core::mem::transmute(friendlyname.as_ptr()), friendlyname.len().try_into().unwrap(), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut())), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
@@ -2553,17 +2553,17 @@ pub unsafe fn SetupDiGetHwProfileList(hwprofilelist: &mut [u32], requiredsize: *
     SetupDiGetHwProfileList(core::mem::transmute(hwprofilelist.as_ptr()), hwprofilelist.len().try_into().unwrap(), requiredsize, core::mem::transmute(currentlyactiveindex.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetHwProfileListExA<P4>(hwprofilelist: &mut [u32], requiredsize: *mut u32, currentlyactiveindex: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetHwProfileListExA<P0>(hwprofilelist: &mut [u32], requiredsize: *mut u32, currentlyactiveindex: Option<*mut u32>, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetHwProfileListExA(hwprofilelist : *mut u32, hwprofilelistsize : u32, requiredsize : *mut u32, currentlyactiveindex : *mut u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiGetHwProfileListExA(core::mem::transmute(hwprofilelist.as_ptr()), hwprofilelist.len().try_into().unwrap(), requiredsize, core::mem::transmute(currentlyactiveindex.unwrap_or(core::ptr::null_mut())), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiGetHwProfileListExW<P4>(hwprofilelist: &mut [u32], requiredsize: *mut u32, currentlyactiveindex: Option<*mut u32>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiGetHwProfileListExW<P0>(hwprofilelist: &mut [u32], requiredsize: *mut u32, currentlyactiveindex: Option<*mut u32>, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiGetHwProfileListExW(hwprofilelist : *mut u32, hwprofilelistsize : u32, requiredsize : *mut u32, currentlyactiveindex : *mut u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiGetHwProfileListExW(core::mem::transmute(hwprofilelist.as_ptr()), hwprofilelist.len().try_into().unwrap(), requiredsize, core::mem::transmute(currentlyactiveindex.unwrap_or(core::ptr::null_mut())), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
@@ -2701,9 +2701,9 @@ pub unsafe fn SetupDiOpenClassRegKey(classguid: Option<*const windows_core::GUID
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn SetupDiOpenClassRegKeyExA<P3>(classguid: Option<*const windows_core::GUID>, samdesired: u32, flags: u32, machinename: P3, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::System::Registry::HKEY>
+pub unsafe fn SetupDiOpenClassRegKeyExA<P0>(classguid: Option<*const windows_core::GUID>, samdesired: u32, flags: u32, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::System::Registry::HKEY>
 where
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExA(classguid : *const windows_core::GUID, samdesired : u32, flags : u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiOpenClassRegKeyExA(core::mem::transmute(classguid.unwrap_or(core::ptr::null())), samdesired, flags, machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null())));
@@ -2711,9 +2711,9 @@ where
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn SetupDiOpenClassRegKeyExW<P3>(classguid: Option<*const windows_core::GUID>, samdesired: u32, flags: u32, machinename: P3, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::System::Registry::HKEY>
+pub unsafe fn SetupDiOpenClassRegKeyExW<P0>(classguid: Option<*const windows_core::GUID>, samdesired: u32, flags: u32, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::System::Registry::HKEY>
 where
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExW(classguid : *const windows_core::GUID, samdesired : u32, flags : u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiOpenClassRegKeyExW(core::mem::transmute(classguid.unwrap_or(core::ptr::null())), samdesired, flags, machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null())));
@@ -2860,9 +2860,9 @@ where
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn SetupDiSetClassPropertyExW<P6>(classguid: *const windows_core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, propertybuffer: Option<&[u8]>, flags: u32, machinename: P6, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiSetClassPropertyExW<P0>(classguid: *const windows_core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: super::Properties::DEVPROPTYPE, propertybuffer: Option<&[u8]>, flags: u32, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P6: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiSetClassPropertyExW(classguid : *const windows_core::GUID, propertykey : *const super::Properties:: DEVPROPKEY, propertytype : super::Properties:: DEVPROPTYPE, propertybuffer : *const u8, propertybuffersize : u32, flags : u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiSetClassPropertyExW(classguid, propertykey, propertytype, core::mem::transmute(propertybuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags, machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
@@ -2874,17 +2874,17 @@ pub unsafe fn SetupDiSetClassPropertyW(classguid: *const windows_core::GUID, pro
     SetupDiSetClassPropertyW(classguid, propertykey, propertytype, core::mem::transmute(propertybuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags).ok()
 }
 #[inline]
-pub unsafe fn SetupDiSetClassRegistryPropertyA<P4>(classguid: *const windows_core::GUID, property: u32, propertybuffer: Option<&[u8]>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiSetClassRegistryPropertyA<P0>(classguid: *const windows_core::GUID, property: u32, propertybuffer: Option<&[u8]>, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiSetClassRegistryPropertyA(classguid : *const windows_core::GUID, property : u32, propertybuffer : *const u8, propertybuffersize : u32, machinename : windows_core::PCSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiSetClassRegistryPropertyA(classguid, property, core::mem::transmute(propertybuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiSetClassRegistryPropertyW<P4>(classguid: *const windows_core::GUID, property: u32, propertybuffer: Option<&[u8]>, machinename: P4, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupDiSetClassRegistryPropertyW<P0>(classguid: *const windows_core::GUID, property: u32, propertybuffer: Option<&[u8]>, machinename: P0, reserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupDiSetClassRegistryPropertyW(classguid : *const windows_core::GUID, property : u32, propertybuffer : *const u8, propertybuffersize : u32, machinename : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupDiSetClassRegistryPropertyW(classguid, property, core::mem::transmute(propertybuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), machinename.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
@@ -3016,19 +3016,19 @@ pub unsafe fn SetupEnumInfSectionsW(infhandle: *const core::ffi::c_void, index: 
     SetupEnumInfSectionsW(infhandle, index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(sizeneeded.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupFindFirstLineA<P1, P2>(infhandle: *const core::ffi::c_void, section: P1, key: P2, context: *mut INFCONTEXT) -> windows_core::Result<()>
+pub unsafe fn SetupFindFirstLineA<P0, P1>(infhandle: *const core::ffi::c_void, section: P0, key: P1, context: *mut INFCONTEXT) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupFindFirstLineA(infhandle : *const core::ffi::c_void, section : windows_core::PCSTR, key : windows_core::PCSTR, context : *mut INFCONTEXT) -> super::super::Foundation:: BOOL);
     SetupFindFirstLineA(infhandle, section.param().abi(), key.param().abi(), context).ok()
 }
 #[inline]
-pub unsafe fn SetupFindFirstLineW<P1, P2>(infhandle: *const core::ffi::c_void, section: P1, key: P2, context: *mut INFCONTEXT) -> windows_core::Result<()>
+pub unsafe fn SetupFindFirstLineW<P0, P1>(infhandle: *const core::ffi::c_void, section: P0, key: P1, context: *mut INFCONTEXT) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupFindFirstLineW(infhandle : *const core::ffi::c_void, section : windows_core::PCWSTR, key : windows_core::PCWSTR, context : *mut INFCONTEXT) -> super::super::Foundation:: BOOL);
     SetupFindFirstLineW(infhandle, section.param().abi(), key.param().abi(), context).ok()
@@ -3039,17 +3039,17 @@ pub unsafe fn SetupFindNextLine(contextin: *const INFCONTEXT, contextout: *mut I
     SetupFindNextLine(contextin, contextout).ok()
 }
 #[inline]
-pub unsafe fn SetupFindNextMatchLineA<P1>(contextin: *const INFCONTEXT, key: P1, contextout: *mut INFCONTEXT) -> windows_core::Result<()>
+pub unsafe fn SetupFindNextMatchLineA<P0>(contextin: *const INFCONTEXT, key: P0, contextout: *mut INFCONTEXT) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupFindNextMatchLineA(contextin : *const INFCONTEXT, key : windows_core::PCSTR, contextout : *mut INFCONTEXT) -> super::super::Foundation:: BOOL);
     SetupFindNextMatchLineA(contextin, key.param().abi(), contextout).ok()
 }
 #[inline]
-pub unsafe fn SetupFindNextMatchLineW<P1>(contextin: *const INFCONTEXT, key: P1, contextout: *mut INFCONTEXT) -> windows_core::Result<()>
+pub unsafe fn SetupFindNextMatchLineW<P0>(contextin: *const INFCONTEXT, key: P0, contextout: *mut INFCONTEXT) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupFindNextMatchLineW(contextin : *const INFCONTEXT, key : windows_core::PCWSTR, contextout : *mut INFCONTEXT) -> super::super::Foundation:: BOOL);
     SetupFindNextMatchLineW(contextin, key.param().abi(), contextout).ok()
@@ -3128,20 +3128,20 @@ pub unsafe fn SetupGetFileQueueFlags(filequeue: *const core::ffi::c_void, flags:
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
-pub unsafe fn SetupGetInfDriverStoreLocationA<P0, P2>(filename: P0, alternateplatforminfo: Option<*const SP_ALTPLATFORM_INFO_V2>, localename: P2, returnbuffer: &mut [u8], requiredsize: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn SetupGetInfDriverStoreLocationA<P0, P1>(filename: P0, alternateplatforminfo: Option<*const SP_ALTPLATFORM_INFO_V2>, localename: P1, returnbuffer: &mut [u8], requiredsize: Option<*mut u32>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupGetInfDriverStoreLocationA(filename : windows_core::PCSTR, alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2, localename : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupGetInfDriverStoreLocationA(filename.param().abi(), core::mem::transmute(alternateplatforminfo.unwrap_or(core::ptr::null())), localename.param().abi(), core::mem::transmute(returnbuffer.as_ptr()), returnbuffer.len().try_into().unwrap(), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
-pub unsafe fn SetupGetInfDriverStoreLocationW<P0, P2>(filename: P0, alternateplatforminfo: Option<*const SP_ALTPLATFORM_INFO_V2>, localename: P2, returnbuffer: &mut [u16], requiredsize: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn SetupGetInfDriverStoreLocationW<P0, P1>(filename: P0, alternateplatforminfo: Option<*const SP_ALTPLATFORM_INFO_V2>, localename: P1, returnbuffer: &mut [u16], requiredsize: Option<*mut u32>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupGetInfDriverStoreLocationW(filename : windows_core::PCWSTR, alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2, localename : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupGetInfDriverStoreLocationW(filename.param().abi(), core::mem::transmute(alternateplatforminfo.unwrap_or(core::ptr::null())), localename.param().abi(), core::mem::transmute(returnbuffer.as_ptr()), returnbuffer.len().try_into().unwrap(), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
@@ -3194,51 +3194,51 @@ pub unsafe fn SetupGetIntField(context: *const INFCONTEXT, fieldindex: u32, inte
     SetupGetIntField(context, fieldindex, integervalue).ok()
 }
 #[inline]
-pub unsafe fn SetupGetLineByIndexA<P1>(infhandle: *const core::ffi::c_void, section: P1, index: u32, context: *mut INFCONTEXT) -> windows_core::Result<()>
+pub unsafe fn SetupGetLineByIndexA<P0>(infhandle: *const core::ffi::c_void, section: P0, index: u32, context: *mut INFCONTEXT) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupGetLineByIndexA(infhandle : *const core::ffi::c_void, section : windows_core::PCSTR, index : u32, context : *mut INFCONTEXT) -> super::super::Foundation:: BOOL);
     SetupGetLineByIndexA(infhandle, section.param().abi(), index, context).ok()
 }
 #[inline]
-pub unsafe fn SetupGetLineByIndexW<P1>(infhandle: *const core::ffi::c_void, section: P1, index: u32, context: *mut INFCONTEXT) -> windows_core::Result<()>
+pub unsafe fn SetupGetLineByIndexW<P0>(infhandle: *const core::ffi::c_void, section: P0, index: u32, context: *mut INFCONTEXT) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupGetLineByIndexW(infhandle : *const core::ffi::c_void, section : windows_core::PCWSTR, index : u32, context : *mut INFCONTEXT) -> super::super::Foundation:: BOOL);
     SetupGetLineByIndexW(infhandle, section.param().abi(), index, context).ok()
 }
 #[inline]
-pub unsafe fn SetupGetLineCountA<P1>(infhandle: *const core::ffi::c_void, section: P1) -> i32
+pub unsafe fn SetupGetLineCountA<P0>(infhandle: *const core::ffi::c_void, section: P0) -> i32
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupGetLineCountA(infhandle : *const core::ffi::c_void, section : windows_core::PCSTR) -> i32);
     SetupGetLineCountA(infhandle, section.param().abi())
 }
 #[inline]
-pub unsafe fn SetupGetLineCountW<P1>(infhandle: *const core::ffi::c_void, section: P1) -> i32
+pub unsafe fn SetupGetLineCountW<P0>(infhandle: *const core::ffi::c_void, section: P0) -> i32
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupGetLineCountW(infhandle : *const core::ffi::c_void, section : windows_core::PCWSTR) -> i32);
     SetupGetLineCountW(infhandle, section.param().abi())
 }
 #[inline]
-pub unsafe fn SetupGetLineTextA<P2, P3>(context: Option<*const INFCONTEXT>, infhandle: Option<*const core::ffi::c_void>, section: P2, key: P3, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn SetupGetLineTextA<P0, P1>(context: Option<*const INFCONTEXT>, infhandle: Option<*const core::ffi::c_void>, section: P0, key: P1, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupGetLineTextA(context : *const INFCONTEXT, infhandle : *const core::ffi::c_void, section : windows_core::PCSTR, key : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupGetLineTextA(core::mem::transmute(context.unwrap_or(core::ptr::null())), core::mem::transmute(infhandle.unwrap_or(core::ptr::null())), section.param().abi(), key.param().abi(), core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupGetLineTextW<P2, P3>(context: Option<*const INFCONTEXT>, infhandle: Option<*const core::ffi::c_void>, section: P2, key: P3, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn SetupGetLineTextW<P0, P1>(context: Option<*const INFCONTEXT>, infhandle: Option<*const core::ffi::c_void>, section: P0, key: P1, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupGetLineTextW(context : *const INFCONTEXT, infhandle : *const core::ffi::c_void, section : windows_core::PCWSTR, key : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupGetLineTextW(core::mem::transmute(context.unwrap_or(core::ptr::null())), core::mem::transmute(infhandle.unwrap_or(core::ptr::null())), section.param().abi(), key.param().abi(), core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
@@ -3259,35 +3259,35 @@ pub unsafe fn SetupGetNonInteractiveMode() -> super::super::Foundation::BOOL {
     SetupGetNonInteractiveMode()
 }
 #[inline]
-pub unsafe fn SetupGetSourceFileLocationA<P2>(infhandle: *const core::ffi::c_void, infcontext: Option<*const INFCONTEXT>, filename: P2, sourceid: *mut u32, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn SetupGetSourceFileLocationA<P0>(infhandle: *const core::ffi::c_void, infcontext: Option<*const INFCONTEXT>, filename: P0, sourceid: *mut u32, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupGetSourceFileLocationA(infhandle : *const core::ffi::c_void, infcontext : *const INFCONTEXT, filename : windows_core::PCSTR, sourceid : *mut u32, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupGetSourceFileLocationA(infhandle, core::mem::transmute(infcontext.unwrap_or(core::ptr::null())), filename.param().abi(), sourceid, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupGetSourceFileLocationW<P2>(infhandle: *const core::ffi::c_void, infcontext: Option<*const INFCONTEXT>, filename: P2, sourceid: *mut u32, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn SetupGetSourceFileLocationW<P0>(infhandle: *const core::ffi::c_void, infcontext: Option<*const INFCONTEXT>, filename: P0, sourceid: *mut u32, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupGetSourceFileLocationW(infhandle : *const core::ffi::c_void, infcontext : *const INFCONTEXT, filename : windows_core::PCWSTR, sourceid : *mut u32, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupGetSourceFileLocationW(infhandle, core::mem::transmute(infcontext.unwrap_or(core::ptr::null())), filename.param().abi(), sourceid, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupGetSourceFileSizeA<P2, P3>(infhandle: *const core::ffi::c_void, infcontext: Option<*const INFCONTEXT>, filename: P2, section: P3, filesize: *mut u32, roundingfactor: u32) -> windows_core::Result<()>
+pub unsafe fn SetupGetSourceFileSizeA<P0, P1>(infhandle: *const core::ffi::c_void, infcontext: Option<*const INFCONTEXT>, filename: P0, section: P1, filesize: *mut u32, roundingfactor: u32) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupGetSourceFileSizeA(infhandle : *const core::ffi::c_void, infcontext : *const INFCONTEXT, filename : windows_core::PCSTR, section : windows_core::PCSTR, filesize : *mut u32, roundingfactor : u32) -> super::super::Foundation:: BOOL);
     SetupGetSourceFileSizeA(infhandle, core::mem::transmute(infcontext.unwrap_or(core::ptr::null())), filename.param().abi(), section.param().abi(), filesize, roundingfactor).ok()
 }
 #[inline]
-pub unsafe fn SetupGetSourceFileSizeW<P2, P3>(infhandle: *const core::ffi::c_void, infcontext: Option<*const INFCONTEXT>, filename: P2, section: P3, filesize: *mut u32, roundingfactor: u32) -> windows_core::Result<()>
+pub unsafe fn SetupGetSourceFileSizeW<P0, P1>(infhandle: *const core::ffi::c_void, infcontext: Option<*const INFCONTEXT>, filename: P0, section: P1, filesize: *mut u32, roundingfactor: u32) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupGetSourceFileSizeW(infhandle : *const core::ffi::c_void, infcontext : *const INFCONTEXT, filename : windows_core::PCWSTR, section : windows_core::PCWSTR, filesize : *mut u32, roundingfactor : u32) -> super::super::Foundation:: BOOL);
     SetupGetSourceFileSizeW(infhandle, core::mem::transmute(infcontext.unwrap_or(core::ptr::null())), filename.param().abi(), section.param().abi(), filesize, roundingfactor).ok()
@@ -3313,17 +3313,17 @@ pub unsafe fn SetupGetStringFieldW(context: *const INFCONTEXT, fieldindex: u32, 
     SetupGetStringFieldW(context, fieldindex, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupGetTargetPathA<P2>(infhandle: *const core::ffi::c_void, infcontext: Option<*const INFCONTEXT>, section: P2, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn SetupGetTargetPathA<P0>(infhandle: *const core::ffi::c_void, infcontext: Option<*const INFCONTEXT>, section: P0, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupGetTargetPathA(infhandle : *const core::ffi::c_void, infcontext : *const INFCONTEXT, section : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupGetTargetPathA(infhandle, core::mem::transmute(infcontext.unwrap_or(core::ptr::null())), section.param().abi(), core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupGetTargetPathW<P2>(infhandle: *const core::ffi::c_void, infcontext: Option<*const INFCONTEXT>, section: P2, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn SetupGetTargetPathW<P0>(infhandle: *const core::ffi::c_void, infcontext: Option<*const INFCONTEXT>, section: P0, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupGetTargetPathW(infhandle : *const core::ffi::c_void, infcontext : *const INFCONTEXT, section : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupGetTargetPathW(infhandle, core::mem::transmute(infcontext.unwrap_or(core::ptr::null())), section.param().abi(), core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
@@ -3367,119 +3367,119 @@ where
     SetupInitializeFileLogW(logfilename.param().abi(), flags)
 }
 #[inline]
-pub unsafe fn SetupInstallFileA<P2, P3, P4>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupInstallFileA<P0, P1, P2>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P0, sourcepathroot: P1, destinationname: P2, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupInstallFileA(infhandle : *const core::ffi::c_void, infcontext : *const INFCONTEXT, sourcefile : windows_core::PCSTR, sourcepathroot : windows_core::PCSTR, destinationname : windows_core::PCSTR, copystyle : SP_COPY_STYLE, copymsghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupInstallFileA(core::mem::transmute(infhandle.unwrap_or(core::ptr::null())), core::mem::transmute(infcontext.unwrap_or(core::ptr::null())), sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupInstallFileExA<P2, P3, P4>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: Option<*const core::ffi::c_void>, filewasinuse: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
+pub unsafe fn SetupInstallFileExA<P0, P1, P2>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P0, sourcepathroot: P1, destinationname: P2, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: Option<*const core::ffi::c_void>, filewasinuse: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupInstallFileExA(infhandle : *const core::ffi::c_void, infcontext : *const INFCONTEXT, sourcefile : windows_core::PCSTR, sourcepathroot : windows_core::PCSTR, destinationname : windows_core::PCSTR, copystyle : SP_COPY_STYLE, copymsghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void, filewasinuse : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     SetupInstallFileExA(core::mem::transmute(infhandle.unwrap_or(core::ptr::null())), core::mem::transmute(infcontext.unwrap_or(core::ptr::null())), sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler, core::mem::transmute(context.unwrap_or(core::ptr::null())), filewasinuse).ok()
 }
 #[inline]
-pub unsafe fn SetupInstallFileExW<P2, P3, P4>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: Option<*const core::ffi::c_void>, filewasinuse: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
+pub unsafe fn SetupInstallFileExW<P0, P1, P2>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P0, sourcepathroot: P1, destinationname: P2, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: Option<*const core::ffi::c_void>, filewasinuse: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupInstallFileExW(infhandle : *const core::ffi::c_void, infcontext : *const INFCONTEXT, sourcefile : windows_core::PCWSTR, sourcepathroot : windows_core::PCWSTR, destinationname : windows_core::PCWSTR, copystyle : SP_COPY_STYLE, copymsghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void, filewasinuse : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     SetupInstallFileExW(core::mem::transmute(infhandle.unwrap_or(core::ptr::null())), core::mem::transmute(infcontext.unwrap_or(core::ptr::null())), sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler, core::mem::transmute(context.unwrap_or(core::ptr::null())), filewasinuse).ok()
 }
 #[inline]
-pub unsafe fn SetupInstallFileW<P2, P3, P4>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupInstallFileW<P0, P1, P2>(infhandle: Option<*const core::ffi::c_void>, infcontext: Option<*const INFCONTEXT>, sourcefile: P0, sourcepathroot: P1, destinationname: P2, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupInstallFileW(infhandle : *const core::ffi::c_void, infcontext : *const INFCONTEXT, sourcefile : windows_core::PCWSTR, sourcepathroot : windows_core::PCWSTR, destinationname : windows_core::PCWSTR, copystyle : SP_COPY_STYLE, copymsghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupInstallFileW(core::mem::transmute(infhandle.unwrap_or(core::ptr::null())), core::mem::transmute(infcontext.unwrap_or(core::ptr::null())), sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupInstallFilesFromInfSectionA<P3, P4>(infhandle: *const core::ffi::c_void, layoutinfhandle: Option<*const core::ffi::c_void>, filequeue: *const core::ffi::c_void, sectionname: P3, sourcerootpath: P4, copyflags: u32) -> windows_core::Result<()>
+pub unsafe fn SetupInstallFilesFromInfSectionA<P0, P1>(infhandle: *const core::ffi::c_void, layoutinfhandle: Option<*const core::ffi::c_void>, filequeue: *const core::ffi::c_void, sectionname: P0, sourcerootpath: P1, copyflags: u32) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupInstallFilesFromInfSectionA(infhandle : *const core::ffi::c_void, layoutinfhandle : *const core::ffi::c_void, filequeue : *const core::ffi::c_void, sectionname : windows_core::PCSTR, sourcerootpath : windows_core::PCSTR, copyflags : u32) -> super::super::Foundation:: BOOL);
     SetupInstallFilesFromInfSectionA(infhandle, core::mem::transmute(layoutinfhandle.unwrap_or(core::ptr::null())), filequeue, sectionname.param().abi(), sourcerootpath.param().abi(), copyflags).ok()
 }
 #[inline]
-pub unsafe fn SetupInstallFilesFromInfSectionW<P3, P4>(infhandle: *const core::ffi::c_void, layoutinfhandle: Option<*const core::ffi::c_void>, filequeue: *const core::ffi::c_void, sectionname: P3, sourcerootpath: P4, copyflags: u32) -> windows_core::Result<()>
+pub unsafe fn SetupInstallFilesFromInfSectionW<P0, P1>(infhandle: *const core::ffi::c_void, layoutinfhandle: Option<*const core::ffi::c_void>, filequeue: *const core::ffi::c_void, sectionname: P0, sourcerootpath: P1, copyflags: u32) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupInstallFilesFromInfSectionW(infhandle : *const core::ffi::c_void, layoutinfhandle : *const core::ffi::c_void, filequeue : *const core::ffi::c_void, sectionname : windows_core::PCWSTR, sourcerootpath : windows_core::PCWSTR, copyflags : u32) -> super::super::Foundation:: BOOL);
     SetupInstallFilesFromInfSectionW(infhandle, core::mem::transmute(layoutinfhandle.unwrap_or(core::ptr::null())), filequeue, sectionname.param().abi(), sourcerootpath.param().abi(), copyflags).ok()
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn SetupInstallFromInfSectionA<P0, P2, P4, P5, P9>(owner: P0, infhandle: *const core::ffi::c_void, sectionname: P2, flags: u32, relativekeyroot: P4, sourcerootpath: P5, copyflags: u32, msghandler: PSP_FILE_CALLBACK_A, context: Option<*const core::ffi::c_void>, deviceinfoset: P9, deviceinfodata: Option<*const SP_DEVINFO_DATA>) -> windows_core::Result<()>
+pub unsafe fn SetupInstallFromInfSectionA<P0, P1, P2, P3, P4>(owner: P0, infhandle: *const core::ffi::c_void, sectionname: P1, flags: u32, relativekeyroot: P2, sourcerootpath: P3, copyflags: u32, msghandler: PSP_FILE_CALLBACK_A, context: Option<*const core::ffi::c_void>, deviceinfoset: P4, deviceinfodata: Option<*const SP_DEVINFO_DATA>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<super::super::System::Registry::HKEY>,
-    P5: windows_core::Param<windows_core::PCSTR>,
-    P9: windows_core::Param<HDEVINFO>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<super::super::System::Registry::HKEY>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+    P4: windows_core::Param<HDEVINFO>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupInstallFromInfSectionA(owner : super::super::Foundation:: HWND, infhandle : *const core::ffi::c_void, sectionname : windows_core::PCSTR, flags : u32, relativekeyroot : super::super::System::Registry:: HKEY, sourcerootpath : windows_core::PCSTR, copyflags : u32, msghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> super::super::Foundation:: BOOL);
     SetupInstallFromInfSectionA(owner.param().abi(), infhandle, sectionname.param().abi(), flags, relativekeyroot.param().abi(), sourcerootpath.param().abi(), copyflags, msghandler, core::mem::transmute(context.unwrap_or(core::ptr::null())), deviceinfoset.param().abi(), core::mem::transmute(deviceinfodata.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn SetupInstallFromInfSectionW<P0, P2, P4, P5, P9>(owner: P0, infhandle: *const core::ffi::c_void, sectionname: P2, flags: u32, relativekeyroot: P4, sourcerootpath: P5, copyflags: u32, msghandler: PSP_FILE_CALLBACK_W, context: Option<*const core::ffi::c_void>, deviceinfoset: P9, deviceinfodata: Option<*const SP_DEVINFO_DATA>) -> windows_core::Result<()>
+pub unsafe fn SetupInstallFromInfSectionW<P0, P1, P2, P3, P4>(owner: P0, infhandle: *const core::ffi::c_void, sectionname: P1, flags: u32, relativekeyroot: P2, sourcerootpath: P3, copyflags: u32, msghandler: PSP_FILE_CALLBACK_W, context: Option<*const core::ffi::c_void>, deviceinfoset: P4, deviceinfodata: Option<*const SP_DEVINFO_DATA>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<super::super::System::Registry::HKEY>,
-    P5: windows_core::Param<windows_core::PCWSTR>,
-    P9: windows_core::Param<HDEVINFO>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<super::super::System::Registry::HKEY>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<HDEVINFO>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupInstallFromInfSectionW(owner : super::super::Foundation:: HWND, infhandle : *const core::ffi::c_void, sectionname : windows_core::PCWSTR, flags : u32, relativekeyroot : super::super::System::Registry:: HKEY, sourcerootpath : windows_core::PCWSTR, copyflags : u32, msghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> super::super::Foundation:: BOOL);
     SetupInstallFromInfSectionW(owner.param().abi(), infhandle, sectionname.param().abi(), flags, relativekeyroot.param().abi(), sourcerootpath.param().abi(), copyflags, msghandler, core::mem::transmute(context.unwrap_or(core::ptr::null())), deviceinfoset.param().abi(), core::mem::transmute(deviceinfodata.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupInstallServicesFromInfSectionA<P1>(infhandle: *const core::ffi::c_void, sectionname: P1, flags: SPSVCINST_FLAGS) -> windows_core::Result<()>
+pub unsafe fn SetupInstallServicesFromInfSectionA<P0>(infhandle: *const core::ffi::c_void, sectionname: P0, flags: SPSVCINST_FLAGS) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionA(infhandle : *const core::ffi::c_void, sectionname : windows_core::PCSTR, flags : SPSVCINST_FLAGS) -> super::super::Foundation:: BOOL);
     SetupInstallServicesFromInfSectionA(infhandle, sectionname.param().abi(), flags).ok()
 }
 #[inline]
-pub unsafe fn SetupInstallServicesFromInfSectionExA<P1, P3>(infhandle: *const core::ffi::c_void, sectionname: P1, flags: SPSVCINST_FLAGS, deviceinfoset: P3, deviceinfodata: Option<*const SP_DEVINFO_DATA>, reserved1: Option<*const core::ffi::c_void>, reserved2: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupInstallServicesFromInfSectionExA<P0, P1>(infhandle: *const core::ffi::c_void, sectionname: P0, flags: SPSVCINST_FLAGS, deviceinfoset: P1, deviceinfodata: Option<*const SP_DEVINFO_DATA>, reserved1: Option<*const core::ffi::c_void>, reserved2: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<HDEVINFO>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<HDEVINFO>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionExA(infhandle : *const core::ffi::c_void, sectionname : windows_core::PCSTR, flags : SPSVCINST_FLAGS, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, reserved1 : *const core::ffi::c_void, reserved2 : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupInstallServicesFromInfSectionExA(infhandle, sectionname.param().abi(), flags, deviceinfoset.param().abi(), core::mem::transmute(deviceinfodata.unwrap_or(core::ptr::null())), core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), core::mem::transmute(reserved2.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupInstallServicesFromInfSectionExW<P1, P3>(infhandle: *const core::ffi::c_void, sectionname: P1, flags: SPSVCINST_FLAGS, deviceinfoset: P3, deviceinfodata: Option<*const SP_DEVINFO_DATA>, reserved1: Option<*const core::ffi::c_void>, reserved2: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupInstallServicesFromInfSectionExW<P0, P1>(infhandle: *const core::ffi::c_void, sectionname: P0, flags: SPSVCINST_FLAGS, deviceinfoset: P1, deviceinfodata: Option<*const SP_DEVINFO_DATA>, reserved1: Option<*const core::ffi::c_void>, reserved2: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<HDEVINFO>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<HDEVINFO>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionExW(infhandle : *const core::ffi::c_void, sectionname : windows_core::PCWSTR, flags : SPSVCINST_FLAGS, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, reserved1 : *const core::ffi::c_void, reserved2 : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupInstallServicesFromInfSectionExW(infhandle, sectionname.param().abi(), flags, deviceinfoset.param().abi(), core::mem::transmute(deviceinfodata.unwrap_or(core::ptr::null())), core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), core::mem::transmute(reserved2.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupInstallServicesFromInfSectionW<P1>(infhandle: *const core::ffi::c_void, sectionname: P1, flags: SPSVCINST_FLAGS) -> windows_core::Result<()>
+pub unsafe fn SetupInstallServicesFromInfSectionW<P0>(infhandle: *const core::ffi::c_void, sectionname: P0, flags: SPSVCINST_FLAGS) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionW(infhandle : *const core::ffi::c_void, sectionname : windows_core::PCWSTR, flags : SPSVCINST_FLAGS) -> super::super::Foundation:: BOOL);
     SetupInstallServicesFromInfSectionW(infhandle, sectionname.param().abi(), flags).ok()
@@ -3517,27 +3517,27 @@ where
     SetupLogErrorW(messagestring.param().abi(), severity).ok()
 }
 #[inline]
-pub unsafe fn SetupLogFileA<P1, P2, P3, P5, P6, P7>(fileloghandle: *const core::ffi::c_void, logsectionname: P1, sourcefilename: P2, targetfilename: P3, checksum: u32, disktagfile: P5, diskdescription: P6, otherinfo: P7, flags: u32) -> windows_core::Result<()>
+pub unsafe fn SetupLogFileA<P0, P1, P2, P3, P4, P5>(fileloghandle: *const core::ffi::c_void, logsectionname: P0, sourcefilename: P1, targetfilename: P2, checksum: u32, disktagfile: P3, diskdescription: P4, otherinfo: P5, flags: u32) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
+    P4: windows_core::Param<windows_core::PCSTR>,
     P5: windows_core::Param<windows_core::PCSTR>,
-    P6: windows_core::Param<windows_core::PCSTR>,
-    P7: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupLogFileA(fileloghandle : *const core::ffi::c_void, logsectionname : windows_core::PCSTR, sourcefilename : windows_core::PCSTR, targetfilename : windows_core::PCSTR, checksum : u32, disktagfile : windows_core::PCSTR, diskdescription : windows_core::PCSTR, otherinfo : windows_core::PCSTR, flags : u32) -> super::super::Foundation:: BOOL);
     SetupLogFileA(fileloghandle, logsectionname.param().abi(), sourcefilename.param().abi(), targetfilename.param().abi(), checksum, disktagfile.param().abi(), diskdescription.param().abi(), otherinfo.param().abi(), flags).ok()
 }
 #[inline]
-pub unsafe fn SetupLogFileW<P1, P2, P3, P5, P6, P7>(fileloghandle: *const core::ffi::c_void, logsectionname: P1, sourcefilename: P2, targetfilename: P3, checksum: u32, disktagfile: P5, diskdescription: P6, otherinfo: P7, flags: u32) -> windows_core::Result<()>
+pub unsafe fn SetupLogFileW<P0, P1, P2, P3, P4, P5>(fileloghandle: *const core::ffi::c_void, logsectionname: P0, sourcefilename: P1, targetfilename: P2, checksum: u32, disktagfile: P3, diskdescription: P4, otherinfo: P5, flags: u32) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
-    P6: windows_core::Param<windows_core::PCWSTR>,
-    P7: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupLogFileW(fileloghandle : *const core::ffi::c_void, logsectionname : windows_core::PCWSTR, sourcefilename : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR, checksum : u32, disktagfile : windows_core::PCWSTR, diskdescription : windows_core::PCWSTR, otherinfo : windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
     SetupLogFileW(fileloghandle, logsectionname.param().abi(), sourcefilename.param().abi(), targetfilename.param().abi(), checksum, disktagfile.param().abi(), diskdescription.param().abi(), otherinfo.param().abi(), flags).ok()
@@ -3595,17 +3595,17 @@ pub unsafe fn SetupOpenMasterInf() -> *mut core::ffi::c_void {
     SetupOpenMasterInf()
 }
 #[inline]
-pub unsafe fn SetupPrepareQueueForRestoreA<P1>(queuehandle: *const core::ffi::c_void, backuppath: P1, restoreflags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetupPrepareQueueForRestoreA<P0>(queuehandle: *const core::ffi::c_void, backuppath: P0, restoreflags: u32) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupPrepareQueueForRestoreA(queuehandle : *const core::ffi::c_void, backuppath : windows_core::PCSTR, restoreflags : u32) -> super::super::Foundation:: BOOL);
     SetupPrepareQueueForRestoreA(queuehandle, backuppath.param().abi(), restoreflags)
 }
 #[inline]
-pub unsafe fn SetupPrepareQueueForRestoreW<P1>(queuehandle: *const core::ffi::c_void, backuppath: P1, restoreflags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetupPrepareQueueForRestoreW<P0>(queuehandle: *const core::ffi::c_void, backuppath: P0, restoreflags: u32) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupPrepareQueueForRestoreW(queuehandle : *const core::ffi::c_void, backuppath : windows_core::PCWSTR, restoreflags : u32) -> super::super::Foundation:: BOOL);
     SetupPrepareQueueForRestoreW(queuehandle, backuppath.param().abi(), restoreflags)
@@ -3637,10 +3637,10 @@ where
     SetupPromptForDiskW(hwndparent.param().abi(), dialogtitle.param().abi(), diskname.param().abi(), pathtosource.param().abi(), filesought.param().abi(), tagfile.param().abi(), diskpromptstyle, core::mem::transmute(pathbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pathbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pathrequiredsize.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn SetupPromptReboot<P1, P2>(filequeue: Option<*const core::ffi::c_void>, owner: P1, scanonly: P2) -> i32
+pub unsafe fn SetupPromptReboot<P0, P1>(filequeue: Option<*const core::ffi::c_void>, owner: P0, scanonly: P1) -> i32
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupPromptReboot(filequeue : *const core::ffi::c_void, owner : super::super::Foundation:: HWND, scanonly : super::super::Foundation:: BOOL) -> i32);
     SetupPromptReboot(core::mem::transmute(filequeue.unwrap_or(core::ptr::null())), owner.param().abi(), scanonly.param().abi())
@@ -3656,19 +3656,19 @@ pub unsafe fn SetupQueryDrivesInDiskSpaceListW(diskspace: *const core::ffi::c_vo
     SetupQueryDrivesInDiskSpaceListW(diskspace, core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupQueryFileLogA<P1, P2>(fileloghandle: *const core::ffi::c_void, logsectionname: P1, targetfilename: P2, desiredinfo: SetupFileLogInfo, dataout: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn SetupQueryFileLogA<P0, P1>(fileloghandle: *const core::ffi::c_void, logsectionname: P0, targetfilename: P1, desiredinfo: SetupFileLogInfo, dataout: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueryFileLogA(fileloghandle : *const core::ffi::c_void, logsectionname : windows_core::PCSTR, targetfilename : windows_core::PCSTR, desiredinfo : SetupFileLogInfo, dataout : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupQueryFileLogA(fileloghandle, logsectionname.param().abi(), targetfilename.param().abi(), desiredinfo, core::mem::transmute(dataout.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dataout.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupQueryFileLogW<P1, P2>(fileloghandle: *const core::ffi::c_void, logsectionname: P1, targetfilename: P2, desiredinfo: SetupFileLogInfo, dataout: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn SetupQueryFileLogW<P0, P1>(fileloghandle: *const core::ffi::c_void, logsectionname: P0, targetfilename: P1, desiredinfo: SetupFileLogInfo, dataout: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueryFileLogW(fileloghandle : *const core::ffi::c_void, logsectionname : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR, desiredinfo : SetupFileLogInfo, dataout : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupQueryFileLogW(fileloghandle, logsectionname.param().abi(), targetfilename.param().abi(), desiredinfo, core::mem::transmute(dataout.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dataout.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
@@ -3696,17 +3696,17 @@ pub unsafe fn SetupQueryInfOriginalFileInformationW(infinformation: *const SP_IN
     SetupQueryInfOriginalFileInformationW(infinformation, infindex, core::mem::transmute(alternateplatforminfo.unwrap_or(core::ptr::null())), originalfileinfo).ok()
 }
 #[inline]
-pub unsafe fn SetupQueryInfVersionInformationA<P2>(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: P2, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn SetupQueryInfVersionInformationA<P0>(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: P0, returnbuffer: Option<&mut [u8]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueryInfVersionInformationA(infinformation : *const SP_INF_INFORMATION, infindex : u32, key : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupQueryInfVersionInformationA(infinformation, infindex, key.param().abi(), core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn SetupQueryInfVersionInformationW<P2>(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: P2, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn SetupQueryInfVersionInformationW<P0>(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: P0, returnbuffer: Option<&mut [u16]>, requiredsize: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueryInfVersionInformationW(infinformation : *const SP_INF_INFORMATION, infindex : u32, key : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupQueryInfVersionInformationW(infinformation, infindex, key.param().abi(), core::mem::transmute(returnbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), returnbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(requiredsize.unwrap_or(core::ptr::null_mut()))).ok()
@@ -3722,31 +3722,31 @@ pub unsafe fn SetupQuerySourceListW(flags: u32, list: *mut *mut windows_core::PC
     SetupQuerySourceListW(flags, list, count).ok()
 }
 #[inline]
-pub unsafe fn SetupQuerySpaceRequiredOnDriveA<P1>(diskspace: *const core::ffi::c_void, drivespec: P1, spacerequired: *mut i64, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupQuerySpaceRequiredOnDriveA<P0>(diskspace: *const core::ffi::c_void, drivespec: P0, spacerequired: *mut i64, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQuerySpaceRequiredOnDriveA(diskspace : *const core::ffi::c_void, drivespec : windows_core::PCSTR, spacerequired : *mut i64, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupQuerySpaceRequiredOnDriveA(diskspace, drivespec.param().abi(), spacerequired, core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
 }
 #[inline]
-pub unsafe fn SetupQuerySpaceRequiredOnDriveW<P1>(diskspace: *const core::ffi::c_void, drivespec: P1, spacerequired: *mut i64, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupQuerySpaceRequiredOnDriveW<P0>(diskspace: *const core::ffi::c_void, drivespec: P0, spacerequired: *mut i64, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQuerySpaceRequiredOnDriveW(diskspace : *const core::ffi::c_void, drivespec : windows_core::PCWSTR, spacerequired : *mut i64, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupQuerySpaceRequiredOnDriveW(diskspace, drivespec.param().abi(), spacerequired, core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
 }
 #[inline]
-pub unsafe fn SetupQueueCopyA<P1, P2, P3, P4, P5, P6, P7>(queuehandle: *const core::ffi::c_void, sourcerootpath: P1, sourcepath: P2, sourcefilename: P3, sourcedescription: P4, sourcetagfile: P5, targetdirectory: P6, targetfilename: P7, copystyle: u32) -> windows_core::Result<()>
+pub unsafe fn SetupQueueCopyA<P0, P1, P2, P3, P4, P5, P6>(queuehandle: *const core::ffi::c_void, sourcerootpath: P0, sourcepath: P1, sourcefilename: P2, sourcedescription: P3, sourcetagfile: P4, targetdirectory: P5, targetfilename: P6, copystyle: u32) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
     P5: windows_core::Param<windows_core::PCSTR>,
     P6: windows_core::Param<windows_core::PCSTR>,
-    P7: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueueCopyA(queuehandle : *const core::ffi::c_void, sourcerootpath : windows_core::PCSTR, sourcepath : windows_core::PCSTR, sourcefilename : windows_core::PCSTR, sourcedescription : windows_core::PCSTR, sourcetagfile : windows_core::PCSTR, targetdirectory : windows_core::PCSTR, targetfilename : windows_core::PCSTR, copystyle : u32) -> super::super::Foundation:: BOOL);
     SetupQueueCopyA(queuehandle, sourcerootpath.param().abi(), sourcepath.param().abi(), sourcefilename.param().abi(), sourcedescription.param().abi(), sourcetagfile.param().abi(), targetdirectory.param().abi(), targetfilename.param().abi(), copystyle).ok()
@@ -3762,207 +3762,207 @@ pub unsafe fn SetupQueueCopyIndirectW(copyparams: *const SP_FILE_COPY_PARAMS_W) 
     SetupQueueCopyIndirectW(copyparams).ok()
 }
 #[inline]
-pub unsafe fn SetupQueueCopySectionA<P1, P4>(queuehandle: *const core::ffi::c_void, sourcerootpath: P1, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, section: P4, copystyle: u32) -> windows_core::Result<()>
+pub unsafe fn SetupQueueCopySectionA<P0, P1>(queuehandle: *const core::ffi::c_void, sourcerootpath: P0, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, section: P1, copystyle: u32) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueueCopySectionA(queuehandle : *const core::ffi::c_void, sourcerootpath : windows_core::PCSTR, infhandle : *const core::ffi::c_void, listinfhandle : *const core::ffi::c_void, section : windows_core::PCSTR, copystyle : u32) -> super::super::Foundation:: BOOL);
     SetupQueueCopySectionA(queuehandle, sourcerootpath.param().abi(), infhandle, core::mem::transmute(listinfhandle.unwrap_or(core::ptr::null())), section.param().abi(), copystyle).ok()
 }
 #[inline]
-pub unsafe fn SetupQueueCopySectionW<P1, P4>(queuehandle: *const core::ffi::c_void, sourcerootpath: P1, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, section: P4, copystyle: u32) -> windows_core::Result<()>
+pub unsafe fn SetupQueueCopySectionW<P0, P1>(queuehandle: *const core::ffi::c_void, sourcerootpath: P0, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, section: P1, copystyle: u32) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueueCopySectionW(queuehandle : *const core::ffi::c_void, sourcerootpath : windows_core::PCWSTR, infhandle : *const core::ffi::c_void, listinfhandle : *const core::ffi::c_void, section : windows_core::PCWSTR, copystyle : u32) -> super::super::Foundation:: BOOL);
     SetupQueueCopySectionW(queuehandle, sourcerootpath.param().abi(), infhandle, core::mem::transmute(listinfhandle.unwrap_or(core::ptr::null())), section.param().abi(), copystyle).ok()
 }
 #[inline]
-pub unsafe fn SetupQueueCopyW<P1, P2, P3, P4, P5, P6, P7>(queuehandle: *const core::ffi::c_void, sourcerootpath: P1, sourcepath: P2, sourcefilename: P3, sourcedescription: P4, sourcetagfile: P5, targetdirectory: P6, targetfilename: P7, copystyle: u32) -> windows_core::Result<()>
+pub unsafe fn SetupQueueCopyW<P0, P1, P2, P3, P4, P5, P6>(queuehandle: *const core::ffi::c_void, sourcerootpath: P0, sourcepath: P1, sourcefilename: P2, sourcedescription: P3, sourcetagfile: P4, targetdirectory: P5, targetfilename: P6, copystyle: u32) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
     P6: windows_core::Param<windows_core::PCWSTR>,
-    P7: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueueCopyW(queuehandle : *const core::ffi::c_void, sourcerootpath : windows_core::PCWSTR, sourcepath : windows_core::PCWSTR, sourcefilename : windows_core::PCWSTR, sourcedescription : windows_core::PCWSTR, sourcetagfile : windows_core::PCWSTR, targetdirectory : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR, copystyle : u32) -> super::super::Foundation:: BOOL);
     SetupQueueCopyW(queuehandle, sourcerootpath.param().abi(), sourcepath.param().abi(), sourcefilename.param().abi(), sourcedescription.param().abi(), sourcetagfile.param().abi(), targetdirectory.param().abi(), targetfilename.param().abi(), copystyle).ok()
 }
 #[inline]
-pub unsafe fn SetupQueueDefaultCopyA<P2, P3, P4>(queuehandle: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, sourcerootpath: P2, sourcefilename: P3, targetfilename: P4, copystyle: u32) -> windows_core::Result<()>
+pub unsafe fn SetupQueueDefaultCopyA<P0, P1, P2>(queuehandle: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, sourcerootpath: P0, sourcefilename: P1, targetfilename: P2, copystyle: u32) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueueDefaultCopyA(queuehandle : *const core::ffi::c_void, infhandle : *const core::ffi::c_void, sourcerootpath : windows_core::PCSTR, sourcefilename : windows_core::PCSTR, targetfilename : windows_core::PCSTR, copystyle : u32) -> super::super::Foundation:: BOOL);
     SetupQueueDefaultCopyA(queuehandle, infhandle, sourcerootpath.param().abi(), sourcefilename.param().abi(), targetfilename.param().abi(), copystyle).ok()
 }
 #[inline]
-pub unsafe fn SetupQueueDefaultCopyW<P2, P3, P4>(queuehandle: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, sourcerootpath: P2, sourcefilename: P3, targetfilename: P4, copystyle: u32) -> windows_core::Result<()>
+pub unsafe fn SetupQueueDefaultCopyW<P0, P1, P2>(queuehandle: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, sourcerootpath: P0, sourcefilename: P1, targetfilename: P2, copystyle: u32) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueueDefaultCopyW(queuehandle : *const core::ffi::c_void, infhandle : *const core::ffi::c_void, sourcerootpath : windows_core::PCWSTR, sourcefilename : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR, copystyle : u32) -> super::super::Foundation:: BOOL);
     SetupQueueDefaultCopyW(queuehandle, infhandle, sourcerootpath.param().abi(), sourcefilename.param().abi(), targetfilename.param().abi(), copystyle).ok()
 }
 #[inline]
-pub unsafe fn SetupQueueDeleteA<P1, P2>(queuehandle: *const core::ffi::c_void, pathpart1: P1, pathpart2: P2) -> windows_core::Result<()>
+pub unsafe fn SetupQueueDeleteA<P0, P1>(queuehandle: *const core::ffi::c_void, pathpart1: P0, pathpart2: P1) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueueDeleteA(queuehandle : *const core::ffi::c_void, pathpart1 : windows_core::PCSTR, pathpart2 : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetupQueueDeleteA(queuehandle, pathpart1.param().abi(), pathpart2.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupQueueDeleteSectionA<P3>(queuehandle: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, section: P3) -> windows_core::Result<()>
+pub unsafe fn SetupQueueDeleteSectionA<P0>(queuehandle: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, section: P0) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueueDeleteSectionA(queuehandle : *const core::ffi::c_void, infhandle : *const core::ffi::c_void, listinfhandle : *const core::ffi::c_void, section : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetupQueueDeleteSectionA(queuehandle, infhandle, core::mem::transmute(listinfhandle.unwrap_or(core::ptr::null())), section.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupQueueDeleteSectionW<P3>(queuehandle: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, section: P3) -> windows_core::Result<()>
+pub unsafe fn SetupQueueDeleteSectionW<P0>(queuehandle: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, section: P0) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueueDeleteSectionW(queuehandle : *const core::ffi::c_void, infhandle : *const core::ffi::c_void, listinfhandle : *const core::ffi::c_void, section : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetupQueueDeleteSectionW(queuehandle, infhandle, core::mem::transmute(listinfhandle.unwrap_or(core::ptr::null())), section.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupQueueDeleteW<P1, P2>(queuehandle: *const core::ffi::c_void, pathpart1: P1, pathpart2: P2) -> windows_core::Result<()>
+pub unsafe fn SetupQueueDeleteW<P0, P1>(queuehandle: *const core::ffi::c_void, pathpart1: P0, pathpart2: P1) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueueDeleteW(queuehandle : *const core::ffi::c_void, pathpart1 : windows_core::PCWSTR, pathpart2 : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetupQueueDeleteW(queuehandle, pathpart1.param().abi(), pathpart2.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupQueueRenameA<P1, P2, P3, P4>(queuehandle: *const core::ffi::c_void, sourcepath: P1, sourcefilename: P2, targetpath: P3, targetfilename: P4) -> windows_core::Result<()>
+pub unsafe fn SetupQueueRenameA<P0, P1, P2, P3>(queuehandle: *const core::ffi::c_void, sourcepath: P0, sourcefilename: P1, targetpath: P2, targetfilename: P3) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueueRenameA(queuehandle : *const core::ffi::c_void, sourcepath : windows_core::PCSTR, sourcefilename : windows_core::PCSTR, targetpath : windows_core::PCSTR, targetfilename : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetupQueueRenameA(queuehandle, sourcepath.param().abi(), sourcefilename.param().abi(), targetpath.param().abi(), targetfilename.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupQueueRenameSectionA<P3>(queuehandle: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, section: P3) -> windows_core::Result<()>
+pub unsafe fn SetupQueueRenameSectionA<P0>(queuehandle: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, section: P0) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueueRenameSectionA(queuehandle : *const core::ffi::c_void, infhandle : *const core::ffi::c_void, listinfhandle : *const core::ffi::c_void, section : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetupQueueRenameSectionA(queuehandle, infhandle, core::mem::transmute(listinfhandle.unwrap_or(core::ptr::null())), section.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupQueueRenameSectionW<P3>(queuehandle: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, section: P3) -> windows_core::Result<()>
+pub unsafe fn SetupQueueRenameSectionW<P0>(queuehandle: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, section: P0) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueueRenameSectionW(queuehandle : *const core::ffi::c_void, infhandle : *const core::ffi::c_void, listinfhandle : *const core::ffi::c_void, section : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetupQueueRenameSectionW(queuehandle, infhandle, core::mem::transmute(listinfhandle.unwrap_or(core::ptr::null())), section.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupQueueRenameW<P1, P2, P3, P4>(queuehandle: *const core::ffi::c_void, sourcepath: P1, sourcefilename: P2, targetpath: P3, targetfilename: P4) -> windows_core::Result<()>
+pub unsafe fn SetupQueueRenameW<P0, P1, P2, P3>(queuehandle: *const core::ffi::c_void, sourcepath: P0, sourcefilename: P1, targetpath: P2, targetfilename: P3) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupQueueRenameW(queuehandle : *const core::ffi::c_void, sourcepath : windows_core::PCWSTR, sourcefilename : windows_core::PCWSTR, targetpath : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetupQueueRenameW(queuehandle, sourcepath.param().abi(), sourcefilename.param().abi(), targetpath.param().abi(), targetfilename.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupRemoveFileLogEntryA<P1, P2>(fileloghandle: *const core::ffi::c_void, logsectionname: P1, targetfilename: P2) -> windows_core::Result<()>
+pub unsafe fn SetupRemoveFileLogEntryA<P0, P1>(fileloghandle: *const core::ffi::c_void, logsectionname: P0, targetfilename: P1) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupRemoveFileLogEntryA(fileloghandle : *const core::ffi::c_void, logsectionname : windows_core::PCSTR, targetfilename : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetupRemoveFileLogEntryA(fileloghandle, logsectionname.param().abi(), targetfilename.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupRemoveFileLogEntryW<P1, P2>(fileloghandle: *const core::ffi::c_void, logsectionname: P1, targetfilename: P2) -> windows_core::Result<()>
+pub unsafe fn SetupRemoveFileLogEntryW<P0, P1>(fileloghandle: *const core::ffi::c_void, logsectionname: P0, targetfilename: P1) -> windows_core::Result<()>
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupRemoveFileLogEntryW(fileloghandle : *const core::ffi::c_void, logsectionname : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetupRemoveFileLogEntryW(fileloghandle, logsectionname.param().abi(), targetfilename.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupRemoveFromDiskSpaceListA<P1>(diskspace: *const core::ffi::c_void, targetfilespec: P1, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupRemoveFromDiskSpaceListA<P0>(diskspace: *const core::ffi::c_void, targetfilespec: P0, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupRemoveFromDiskSpaceListA(diskspace : *const core::ffi::c_void, targetfilespec : windows_core::PCSTR, operation : SETUP_FILE_OPERATION, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupRemoveFromDiskSpaceListA(diskspace, targetfilespec.param().abi(), operation, core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
 }
 #[inline]
-pub unsafe fn SetupRemoveFromDiskSpaceListW<P1>(diskspace: *const core::ffi::c_void, targetfilespec: P1, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupRemoveFromDiskSpaceListW<P0>(diskspace: *const core::ffi::c_void, targetfilespec: P0, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupRemoveFromDiskSpaceListW(diskspace : *const core::ffi::c_void, targetfilespec : windows_core::PCWSTR, operation : SETUP_FILE_OPERATION, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupRemoveFromDiskSpaceListW(diskspace, targetfilespec.param().abi(), operation, core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
 }
 #[inline]
-pub unsafe fn SetupRemoveFromSourceListA<P1>(flags: u32, source: P1) -> windows_core::Result<()>
+pub unsafe fn SetupRemoveFromSourceListA<P0>(flags: u32, source: P0) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupRemoveFromSourceListA(flags : u32, source : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetupRemoveFromSourceListA(flags, source.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupRemoveFromSourceListW<P1>(flags: u32, source: P1) -> windows_core::Result<()>
+pub unsafe fn SetupRemoveFromSourceListW<P0>(flags: u32, source: P0) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupRemoveFromSourceListW(flags : u32, source : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetupRemoveFromSourceListW(flags, source.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListA<P3>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, layoutinfhandle: Option<*const core::ffi::c_void>, sectionname: P3, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListA<P0>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, layoutinfhandle: Option<*const core::ffi::c_void>, sectionname: P0, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupRemoveInstallSectionFromDiskSpaceListA(diskspace : *const core::ffi::c_void, infhandle : *const core::ffi::c_void, layoutinfhandle : *const core::ffi::c_void, sectionname : windows_core::PCSTR, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupRemoveInstallSectionFromDiskSpaceListA(diskspace, infhandle, core::mem::transmute(layoutinfhandle.unwrap_or(core::ptr::null())), sectionname.param().abi(), core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
 }
 #[inline]
-pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListW<P3>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, layoutinfhandle: Option<*const core::ffi::c_void>, sectionname: P3, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListW<P0>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, layoutinfhandle: Option<*const core::ffi::c_void>, sectionname: P0, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupRemoveInstallSectionFromDiskSpaceListW(diskspace : *const core::ffi::c_void, infhandle : *const core::ffi::c_void, layoutinfhandle : *const core::ffi::c_void, sectionname : windows_core::PCWSTR, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupRemoveInstallSectionFromDiskSpaceListW(diskspace, infhandle, core::mem::transmute(layoutinfhandle.unwrap_or(core::ptr::null())), sectionname.param().abi(), core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
 }
 #[inline]
-pub unsafe fn SetupRemoveSectionFromDiskSpaceListA<P3>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, sectionname: P3, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupRemoveSectionFromDiskSpaceListA<P0>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, sectionname: P0, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupRemoveSectionFromDiskSpaceListA(diskspace : *const core::ffi::c_void, infhandle : *const core::ffi::c_void, listinfhandle : *const core::ffi::c_void, sectionname : windows_core::PCSTR, operation : SETUP_FILE_OPERATION, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupRemoveSectionFromDiskSpaceListA(diskspace, infhandle, core::mem::transmute(listinfhandle.unwrap_or(core::ptr::null())), sectionname.param().abi(), operation, core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
 }
 #[inline]
-pub unsafe fn SetupRemoveSectionFromDiskSpaceListW<P3>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, sectionname: P3, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
+pub unsafe fn SetupRemoveSectionFromDiskSpaceListW<P0>(diskspace: *const core::ffi::c_void, infhandle: *const core::ffi::c_void, listinfhandle: Option<*const core::ffi::c_void>, sectionname: P0, operation: SETUP_FILE_OPERATION, reserved1: Option<*const core::ffi::c_void>, reserved2: u32) -> windows_core::Result<()>
 where
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupRemoveSectionFromDiskSpaceListW(diskspace : *const core::ffi::c_void, infhandle : *const core::ffi::c_void, listinfhandle : *const core::ffi::c_void, sectionname : windows_core::PCWSTR, operation : SETUP_FILE_OPERATION, reserved1 : *const core::ffi::c_void, reserved2 : u32) -> super::super::Foundation:: BOOL);
     SetupRemoveSectionFromDiskSpaceListW(diskspace, infhandle, core::mem::transmute(listinfhandle.unwrap_or(core::ptr::null())), sectionname.param().abi(), operation, core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2).ok()
@@ -3990,67 +3990,67 @@ where
     SetupRenameErrorW(hwndparent.param().abi(), dialogtitle.param().abi(), sourcefile.param().abi(), targetfile.param().abi(), win32errorcode, style)
 }
 #[inline]
-pub unsafe fn SetupScanFileQueueA<P2>(filequeue: *const core::ffi::c_void, flags: SETUPSCANFILEQUEUE_FLAGS, window: P2, callbackroutine: PSP_FILE_CALLBACK_A, callbackcontext: Option<*const core::ffi::c_void>, result: *mut u32) -> windows_core::Result<()>
+pub unsafe fn SetupScanFileQueueA<P0>(filequeue: *const core::ffi::c_void, flags: SETUPSCANFILEQUEUE_FLAGS, window: P0, callbackroutine: PSP_FILE_CALLBACK_A, callbackcontext: Option<*const core::ffi::c_void>, result: *mut u32) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupScanFileQueueA(filequeue : *const core::ffi::c_void, flags : SETUPSCANFILEQUEUE_FLAGS, window : super::super::Foundation:: HWND, callbackroutine : PSP_FILE_CALLBACK_A, callbackcontext : *const core::ffi::c_void, result : *mut u32) -> super::super::Foundation:: BOOL);
     SetupScanFileQueueA(filequeue, flags, window.param().abi(), callbackroutine, core::mem::transmute(callbackcontext.unwrap_or(core::ptr::null())), result).ok()
 }
 #[inline]
-pub unsafe fn SetupScanFileQueueW<P2>(filequeue: *const core::ffi::c_void, flags: SETUPSCANFILEQUEUE_FLAGS, window: P2, callbackroutine: PSP_FILE_CALLBACK_W, callbackcontext: Option<*const core::ffi::c_void>, result: *mut u32) -> windows_core::Result<()>
+pub unsafe fn SetupScanFileQueueW<P0>(filequeue: *const core::ffi::c_void, flags: SETUPSCANFILEQUEUE_FLAGS, window: P0, callbackroutine: PSP_FILE_CALLBACK_W, callbackcontext: Option<*const core::ffi::c_void>, result: *mut u32) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupScanFileQueueW(filequeue : *const core::ffi::c_void, flags : SETUPSCANFILEQUEUE_FLAGS, window : super::super::Foundation:: HWND, callbackroutine : PSP_FILE_CALLBACK_W, callbackcontext : *const core::ffi::c_void, result : *mut u32) -> super::super::Foundation:: BOOL);
     SetupScanFileQueueW(filequeue, flags, window.param().abi(), callbackroutine, core::mem::transmute(callbackcontext.unwrap_or(core::ptr::null())), result).ok()
 }
 #[inline]
-pub unsafe fn SetupSetDirectoryIdA<P2>(infhandle: *const core::ffi::c_void, id: u32, directory: P2) -> windows_core::Result<()>
+pub unsafe fn SetupSetDirectoryIdA<P0>(infhandle: *const core::ffi::c_void, id: u32, directory: P0) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupSetDirectoryIdA(infhandle : *const core::ffi::c_void, id : u32, directory : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetupSetDirectoryIdA(infhandle, id, directory.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupSetDirectoryIdExA<P2>(infhandle: *const core::ffi::c_void, id: u32, directory: P2, flags: u32, reserved1: u32, reserved2: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupSetDirectoryIdExA<P0>(infhandle: *const core::ffi::c_void, id: u32, directory: P0, flags: u32, reserved1: u32, reserved2: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupSetDirectoryIdExA(infhandle : *const core::ffi::c_void, id : u32, directory : windows_core::PCSTR, flags : u32, reserved1 : u32, reserved2 : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupSetDirectoryIdExA(infhandle, id, directory.param().abi(), flags, reserved1, core::mem::transmute(reserved2.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupSetDirectoryIdExW<P2>(infhandle: *const core::ffi::c_void, id: u32, directory: P2, flags: u32, reserved1: u32, reserved2: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SetupSetDirectoryIdExW<P0>(infhandle: *const core::ffi::c_void, id: u32, directory: P0, flags: u32, reserved1: u32, reserved2: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupSetDirectoryIdExW(infhandle : *const core::ffi::c_void, id : u32, directory : windows_core::PCWSTR, flags : u32, reserved1 : u32, reserved2 : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupSetDirectoryIdExW(infhandle, id, directory.param().abi(), flags, reserved1, core::mem::transmute(reserved2.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupSetDirectoryIdW<P2>(infhandle: *const core::ffi::c_void, id: u32, directory: P2) -> windows_core::Result<()>
+pub unsafe fn SetupSetDirectoryIdW<P0>(infhandle: *const core::ffi::c_void, id: u32, directory: P0) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupSetDirectoryIdW(infhandle : *const core::ffi::c_void, id : u32, directory : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetupSetDirectoryIdW(infhandle, id, directory.param().abi()).ok()
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
-pub unsafe fn SetupSetFileQueueAlternatePlatformA<P2>(queuehandle: *const core::ffi::c_void, alternateplatforminfo: Option<*const SP_ALTPLATFORM_INFO_V2>, alternatedefaultcatalogfile: P2) -> windows_core::Result<()>
+pub unsafe fn SetupSetFileQueueAlternatePlatformA<P0>(queuehandle: *const core::ffi::c_void, alternateplatforminfo: Option<*const SP_ALTPLATFORM_INFO_V2>, alternatedefaultcatalogfile: P0) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupSetFileQueueAlternatePlatformA(queuehandle : *const core::ffi::c_void, alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2, alternatedefaultcatalogfile : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     SetupSetFileQueueAlternatePlatformA(queuehandle, core::mem::transmute(alternateplatforminfo.unwrap_or(core::ptr::null())), alternatedefaultcatalogfile.param().abi()).ok()
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 #[inline]
-pub unsafe fn SetupSetFileQueueAlternatePlatformW<P2>(queuehandle: *const core::ffi::c_void, alternateplatforminfo: Option<*const SP_ALTPLATFORM_INFO_V2>, alternatedefaultcatalogfile: P2) -> windows_core::Result<()>
+pub unsafe fn SetupSetFileQueueAlternatePlatformW<P0>(queuehandle: *const core::ffi::c_void, alternateplatforminfo: Option<*const SP_ALTPLATFORM_INFO_V2>, alternatedefaultcatalogfile: P0) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("setupapi.dll" "system" fn SetupSetFileQueueAlternatePlatformW(queuehandle : *const core::ffi::c_void, alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2, alternatedefaultcatalogfile : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetupSetFileQueueAlternatePlatformW(queuehandle, core::mem::transmute(alternateplatforminfo.unwrap_or(core::ptr::null())), alternatedefaultcatalogfile.param().abi()).ok()
@@ -4149,17 +4149,17 @@ where
     SetupVerifyInfFileW(infname.param().abi(), core::mem::transmute(altplatforminfo.unwrap_or(core::ptr::null())), infsignerinfo)
 }
 #[inline]
-pub unsafe fn SetupWriteTextLog<P3>(logtoken: u64, category: u32, flags: u32, messagestr: P3)
+pub unsafe fn SetupWriteTextLog<P0>(logtoken: u64, category: u32, flags: u32, messagestr: P0)
 where
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "cdecl" fn SetupWriteTextLog(logtoken : u64, category : u32, flags : u32, messagestr : windows_core::PCSTR));
     SetupWriteTextLog(logtoken, category, flags, messagestr.param().abi())
 }
 #[inline]
-pub unsafe fn SetupWriteTextLogError<P4>(logtoken: u64, category: u32, logflags: u32, error: u32, messagestr: P4)
+pub unsafe fn SetupWriteTextLogError<P0>(logtoken: u64, category: u32, logflags: u32, error: u32, messagestr: P0)
 where
-    P4: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("setupapi.dll" "cdecl" fn SetupWriteTextLogError(logtoken : u64, category : u32, logflags : u32, error : u32, messagestr : windows_core::PCSTR));
     SetupWriteTextLogError(logtoken, category, logflags, error, messagestr.param().abi())
@@ -5861,10 +5861,15 @@ pub const mPCD_MEM_A_C: PCD_FLAGS = PCD_FLAGS(12u32);
 pub const mPCD_MEM_WS: PCD_FLAGS = PCD_FLAGS(768u32);
 pub const mPMF_AUDIO_ENABLE: u32 = 8u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_CDFLAGS(pub u32);
 impl windows_core::TypeKind for CM_CDFLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CM_CDFLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_CDFLAGS").field(&self.0).finish()
+    }
 }
 impl CM_CDFLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5900,10 +5905,15 @@ impl core::ops::Not for CM_CDFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_CDMASK(pub u32);
 impl windows_core::TypeKind for CM_CDMASK {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CM_CDMASK {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_CDMASK").field(&self.0).finish()
+    }
 }
 impl CM_CDMASK {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5939,10 +5949,15 @@ impl core::ops::Not for CM_CDMASK {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_DEVCAP(pub u32);
 impl windows_core::TypeKind for CM_DEVCAP {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CM_DEVCAP {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_DEVCAP").field(&self.0).finish()
+    }
 }
 impl CM_DEVCAP {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5978,10 +5993,15 @@ impl core::ops::Not for CM_DEVCAP {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_DEVNODE_STATUS_FLAGS(pub u32);
 impl windows_core::TypeKind for CM_DEVNODE_STATUS_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CM_DEVNODE_STATUS_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_DEVNODE_STATUS_FLAGS").field(&self.0).finish()
+    }
 }
 impl CM_DEVNODE_STATUS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6017,10 +6037,15 @@ impl core::ops::Not for CM_DEVNODE_STATUS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_ENUMERATE_FLAGS(pub u32);
 impl windows_core::TypeKind for CM_ENUMERATE_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CM_ENUMERATE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_ENUMERATE_FLAGS").field(&self.0).finish()
+    }
 }
 impl CM_ENUMERATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6056,52 +6081,92 @@ impl core::ops::Not for CM_ENUMERATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_GET_DEVICE_INTERFACE_LIST_FLAGS(pub u32);
 impl windows_core::TypeKind for CM_GET_DEVICE_INTERFACE_LIST_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CM_GET_DEVICE_INTERFACE_LIST_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_GET_DEVICE_INTERFACE_LIST_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_INSTALL_STATE(pub u32);
 impl windows_core::TypeKind for CM_INSTALL_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CM_INSTALL_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_INSTALL_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_LOCATE_DEVNODE_FLAGS(pub u32);
 impl windows_core::TypeKind for CM_LOCATE_DEVNODE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CM_LOCATE_DEVNODE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_LOCATE_DEVNODE_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_LOG_CONF(pub u32);
 impl windows_core::TypeKind for CM_LOG_CONF {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CM_LOG_CONF {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_LOG_CONF").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_NOTIFY_ACTION(pub i32);
 impl windows_core::TypeKind for CM_NOTIFY_ACTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CM_NOTIFY_ACTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_NOTIFY_ACTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_NOTIFY_FILTER_TYPE(pub i32);
 impl windows_core::TypeKind for CM_NOTIFY_FILTER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CM_NOTIFY_FILTER_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_NOTIFY_FILTER_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_PROB(pub u32);
 impl windows_core::TypeKind for CM_PROB {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CM_PROB {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_PROB").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_REENUMERATE_FLAGS(pub u32);
 impl windows_core::TypeKind for CM_REENUMERATE_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CM_REENUMERATE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_REENUMERATE_FLAGS").field(&self.0).finish()
+    }
 }
 impl CM_REENUMERATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6137,28 +6202,48 @@ impl core::ops::Not for CM_REENUMERATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_REMOVAL_POLICY(pub u32);
 impl windows_core::TypeKind for CM_REMOVAL_POLICY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CM_REMOVAL_POLICY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_REMOVAL_POLICY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_RESTYPE(pub u32);
 impl windows_core::TypeKind for CM_RESTYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CM_RESTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_RESTYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CONFIGRET(pub u32);
 impl windows_core::TypeKind for CONFIGRET {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CONFIGRET {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CONFIGRET").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DD_FLAGS(pub u32);
 impl windows_core::TypeKind for DD_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DD_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DD_FLAGS").field(&self.0).finish()
+    }
 }
 impl DD_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6194,10 +6279,15 @@ impl core::ops::Not for DD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DIINSTALLDEVICE_FLAGS(pub u32);
 impl windows_core::TypeKind for DIINSTALLDEVICE_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DIINSTALLDEVICE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DIINSTALLDEVICE_FLAGS").field(&self.0).finish()
+    }
 }
 impl DIINSTALLDEVICE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6233,10 +6323,15 @@ impl core::ops::Not for DIINSTALLDEVICE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DIINSTALLDRIVER_FLAGS(pub u32);
 impl windows_core::TypeKind for DIINSTALLDRIVER_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DIINSTALLDRIVER_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DIINSTALLDRIVER_FLAGS").field(&self.0).finish()
+    }
 }
 impl DIINSTALLDRIVER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6272,10 +6367,15 @@ impl core::ops::Not for DIINSTALLDRIVER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DIROLLBACKDRIVER_FLAGS(pub u32);
 impl windows_core::TypeKind for DIROLLBACKDRIVER_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DIROLLBACKDRIVER_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DIROLLBACKDRIVER_FLAGS").field(&self.0).finish()
+    }
 }
 impl DIROLLBACKDRIVER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6311,10 +6411,15 @@ impl core::ops::Not for DIROLLBACKDRIVER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DIUNINSTALLDRIVER_FLAGS(pub u32);
 impl windows_core::TypeKind for DIUNINSTALLDRIVER_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DIUNINSTALLDRIVER_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DIUNINSTALLDRIVER_FLAGS").field(&self.0).finish()
+    }
 }
 impl DIUNINSTALLDRIVER_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6350,16 +6455,26 @@ impl core::ops::Not for DIUNINSTALLDRIVER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DI_FUNCTION(pub u32);
 impl windows_core::TypeKind for DI_FUNCTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DI_FUNCTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DI_FUNCTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FILE_COMPRESSION_TYPE(pub u32);
 impl windows_core::TypeKind for FILE_COMPRESSION_TYPE {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for FILE_COMPRESSION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FILE_COMPRESSION_TYPE").field(&self.0).finish()
+    }
 }
 impl FILE_COMPRESSION_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6395,10 +6510,15 @@ impl core::ops::Not for FILE_COMPRESSION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct INF_STYLE(pub u32);
 impl windows_core::TypeKind for INF_STYLE {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for INF_STYLE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("INF_STYLE").field(&self.0).finish()
+    }
 }
 impl INF_STYLE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6434,10 +6554,15 @@ impl core::ops::Not for INF_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IOD_DESFLAGS(pub u32);
 impl windows_core::TypeKind for IOD_DESFLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for IOD_DESFLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IOD_DESFLAGS").field(&self.0).finish()
+    }
 }
 impl IOD_DESFLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6473,10 +6598,15 @@ impl core::ops::Not for IOD_DESFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IRQD_FLAGS(pub u32);
 impl windows_core::TypeKind for IRQD_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for IRQD_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IRQD_FLAGS").field(&self.0).finish()
+    }
 }
 impl IRQD_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6512,10 +6642,15 @@ impl core::ops::Not for IRQD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MD_FLAGS(pub u32);
 impl windows_core::TypeKind for MD_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for MD_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MD_FLAGS").field(&self.0).finish()
+    }
 }
 impl MD_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6551,16 +6686,26 @@ impl core::ops::Not for MD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OEM_SOURCE_MEDIA_TYPE(pub u32);
 impl windows_core::TypeKind for OEM_SOURCE_MEDIA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OEM_SOURCE_MEDIA_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OEM_SOURCE_MEDIA_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCD_FLAGS(pub u32);
 impl windows_core::TypeKind for PCD_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PCD_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCD_FLAGS").field(&self.0).finish()
+    }
 }
 impl PCD_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6596,10 +6741,15 @@ impl core::ops::Not for PCD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PMF_FLAGS(pub u32);
 impl windows_core::TypeKind for PMF_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PMF_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PMF_FLAGS").field(&self.0).finish()
+    }
 }
 impl PMF_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6635,16 +6785,26 @@ impl core::ops::Not for PMF_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PNP_VETO_TYPE(pub i32);
 impl windows_core::TypeKind for PNP_VETO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PNP_VETO_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PNP_VETO_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SETUPSCANFILEQUEUE_FLAGS(pub u32);
 impl windows_core::TypeKind for SETUPSCANFILEQUEUE_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for SETUPSCANFILEQUEUE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SETUPSCANFILEQUEUE_FLAGS").field(&self.0).finish()
+    }
 }
 impl SETUPSCANFILEQUEUE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6680,10 +6840,15 @@ impl core::ops::Not for SETUPSCANFILEQUEUE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SETUP_DI_DEVICE_CONFIGURATION_FLAGS(pub u32);
 impl windows_core::TypeKind for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SETUP_DI_DEVICE_CONFIGURATION_FLAGS").field(&self.0).finish()
+    }
 }
 impl SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6719,10 +6884,15 @@ impl core::ops::Not for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SETUP_DI_DEVICE_CREATION_FLAGS(pub u32);
 impl windows_core::TypeKind for SETUP_DI_DEVICE_CREATION_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for SETUP_DI_DEVICE_CREATION_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SETUP_DI_DEVICE_CREATION_FLAGS").field(&self.0).finish()
+    }
 }
 impl SETUP_DI_DEVICE_CREATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6758,10 +6928,15 @@ impl core::ops::Not for SETUP_DI_DEVICE_CREATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SETUP_DI_DEVICE_INSTALL_FLAGS(pub u32);
 impl windows_core::TypeKind for SETUP_DI_DEVICE_INSTALL_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for SETUP_DI_DEVICE_INSTALL_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SETUP_DI_DEVICE_INSTALL_FLAGS").field(&self.0).finish()
+    }
 }
 impl SETUP_DI_DEVICE_INSTALL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6797,10 +6972,15 @@ impl core::ops::Not for SETUP_DI_DEVICE_INSTALL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SETUP_DI_DEVICE_INSTALL_FLAGS_EX(pub u32);
 impl windows_core::TypeKind for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SETUP_DI_DEVICE_INSTALL_FLAGS_EX").field(&self.0).finish()
+    }
 }
 impl SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6836,10 +7016,15 @@ impl core::ops::Not for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SETUP_DI_DRIVER_INSTALL_FLAGS(pub u32);
 impl windows_core::TypeKind for SETUP_DI_DRIVER_INSTALL_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for SETUP_DI_DRIVER_INSTALL_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SETUP_DI_DRIVER_INSTALL_FLAGS").field(&self.0).finish()
+    }
 }
 impl SETUP_DI_DRIVER_INSTALL_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6875,16 +7060,26 @@ impl core::ops::Not for SETUP_DI_DRIVER_INSTALL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SETUP_DI_DRIVER_TYPE(pub u32);
 impl windows_core::TypeKind for SETUP_DI_DRIVER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SETUP_DI_DRIVER_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SETUP_DI_DRIVER_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SETUP_DI_GET_CLASS_DEVS_FLAGS(pub u32);
 impl windows_core::TypeKind for SETUP_DI_GET_CLASS_DEVS_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for SETUP_DI_GET_CLASS_DEVS_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SETUP_DI_GET_CLASS_DEVS_FLAGS").field(&self.0).finish()
+    }
 }
 impl SETUP_DI_GET_CLASS_DEVS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6920,40 +7115,70 @@ impl core::ops::Not for SETUP_DI_GET_CLASS_DEVS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SETUP_DI_PROPERTY_CHANGE_SCOPE(pub u32);
 impl windows_core::TypeKind for SETUP_DI_PROPERTY_CHANGE_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SETUP_DI_PROPERTY_CHANGE_SCOPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SETUP_DI_PROPERTY_CHANGE_SCOPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SETUP_DI_REGISTRY_PROPERTY(pub u32);
 impl windows_core::TypeKind for SETUP_DI_REGISTRY_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SETUP_DI_REGISTRY_PROPERTY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SETUP_DI_REGISTRY_PROPERTY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SETUP_DI_REMOVE_DEVICE_SCOPE(pub u32);
 impl windows_core::TypeKind for SETUP_DI_REMOVE_DEVICE_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SETUP_DI_REMOVE_DEVICE_SCOPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SETUP_DI_REMOVE_DEVICE_SCOPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SETUP_DI_STATE_CHANGE(pub u32);
 impl windows_core::TypeKind for SETUP_DI_STATE_CHANGE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SETUP_DI_STATE_CHANGE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SETUP_DI_STATE_CHANGE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SETUP_FILE_OPERATION(pub u32);
 impl windows_core::TypeKind for SETUP_FILE_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SETUP_FILE_OPERATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SETUP_FILE_OPERATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SPSVCINST_FLAGS(pub u32);
 impl windows_core::TypeKind for SPSVCINST_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for SPSVCINST_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SPSVCINST_FLAGS").field(&self.0).finish()
+    }
 }
 impl SPSVCINST_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6989,10 +7214,15 @@ impl core::ops::Not for SPSVCINST_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SP_COPY_STYLE(pub u32);
 impl windows_core::TypeKind for SP_COPY_STYLE {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for SP_COPY_STYLE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SP_COPY_STYLE").field(&self.0).finish()
+    }
 }
 impl SP_COPY_STYLE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -7028,16 +7258,26 @@ impl core::ops::Not for SP_COPY_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SetupFileLogInfo(pub i32);
 impl windows_core::TypeKind for SetupFileLogInfo {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SetupFileLogInfo {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SetupFileLogInfo").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(pub u32);
 impl windows_core::TypeKind for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS").field(&self.0).finish()
+    }
 }
 impl UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -7073,7 +7313,7 @@ impl core::ops::Not for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BUSNUMBER_DES {
     pub BUSD_Count: u32,
     pub BUSD_Type: u32,
@@ -7081,47 +7321,47 @@ pub struct BUSNUMBER_DES {
     pub BUSD_Alloc_Base: u32,
     pub BUSD_Alloc_End: u32,
 }
+impl windows_core::TypeKind for BUSNUMBER_DES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BUSNUMBER_DES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BUSNUMBER_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BUSNUMBER_RANGE {
     pub BUSR_Min: u32,
     pub BUSR_Max: u32,
     pub BUSR_nBusNumbers: u32,
     pub BUSR_Flags: u32,
 }
+impl windows_core::TypeKind for BUSNUMBER_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BUSNUMBER_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BUSNUMBER_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BUSNUMBER_RESOURCE {
     pub BusNumber_Header: BUSNUMBER_DES,
     pub BusNumber_Data: [BUSNUMBER_RANGE; 1],
+}
+impl windows_core::TypeKind for BUSNUMBER_RESOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BUSNUMBER_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BUSNUMBER_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct CABINET_INFO_A {
     pub CabinetPath: windows_core::PCSTR,
     pub CabinetFile: windows_core::PCSTR,
@@ -7130,18 +7370,18 @@ pub struct CABINET_INFO_A {
     pub CabinetNumber: u16,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for CABINET_INFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for CABINET_INFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for CABINET_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CABINET_INFO_A {
     pub CabinetPath: windows_core::PCSTR,
     pub CabinetFile: windows_core::PCSTR,
@@ -7150,18 +7390,18 @@ pub struct CABINET_INFO_A {
     pub CabinetNumber: u16,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for CABINET_INFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for CABINET_INFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for CABINET_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct CABINET_INFO_W {
     pub CabinetPath: windows_core::PCWSTR,
     pub CabinetFile: windows_core::PCWSTR,
@@ -7170,18 +7410,18 @@ pub struct CABINET_INFO_W {
     pub CabinetNumber: u16,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for CABINET_INFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for CABINET_INFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for CABINET_INFO_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CABINET_INFO_W {
     pub CabinetPath: windows_core::PCWSTR,
     pub CabinetFile: windows_core::PCWSTR,
@@ -7190,90 +7430,90 @@ pub struct CABINET_INFO_W {
     pub CabinetNumber: u16,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for CABINET_INFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for CABINET_INFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for CABINET_INFO_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_NOTIFY_EVENT_DATA {
     pub FilterType: CM_NOTIFY_FILTER_TYPE,
     pub Reserved: u32,
     pub u: CM_NOTIFY_EVENT_DATA_0,
+}
+impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_NOTIFY_EVENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CM_NOTIFY_EVENT_DATA_0 {
     pub DeviceInterface: CM_NOTIFY_EVENT_DATA_0_0,
     pub DeviceHandle: CM_NOTIFY_EVENT_DATA_0_1,
     pub DeviceInstance: CM_NOTIFY_EVENT_DATA_0_2,
+}
+impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_NOTIFY_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_EVENT_DATA_0_1 {
     pub EventGuid: windows_core::GUID,
     pub NameOffset: i32,
     pub DataSize: u32,
     pub Data: [u8; 1],
 }
+impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_NOTIFY_EVENT_DATA_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_EVENT_DATA_0_2 {
     pub InstanceId: [u16; 1],
+}
+impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_NOTIFY_EVENT_DATA_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_EVENT_DATA_0_0 {
     pub ClassGuid: windows_core::GUID,
     pub SymbolicLink: [u16; 1],
+}
+impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_NOTIFY_EVENT_DATA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_NOTIFY_FILTER {
     pub cbSize: u32,
     pub Flags: u32,
@@ -7281,93 +7521,97 @@ pub struct CM_NOTIFY_FILTER {
     pub Reserved: u32,
     pub u: CM_NOTIFY_FILTER_0,
 }
+impl windows_core::TypeKind for CM_NOTIFY_FILTER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_NOTIFY_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_NOTIFY_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CM_NOTIFY_FILTER_0 {
     pub DeviceInterface: CM_NOTIFY_FILTER_0_0,
     pub DeviceHandle: CM_NOTIFY_FILTER_0_1,
     pub DeviceInstance: CM_NOTIFY_FILTER_0_2,
+}
+impl windows_core::TypeKind for CM_NOTIFY_FILTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_NOTIFY_FILTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_NOTIFY_FILTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_1 {
     pub hTarget: super::super::Foundation::HANDLE,
+}
+impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_NOTIFY_FILTER_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_2 {
     pub InstanceId: [u16; 200],
+}
+impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_NOTIFY_FILTER_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_0 {
     pub ClassGuid: windows_core::GUID,
+}
+impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_NOTIFY_FILTER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct COINSTALLER_CONTEXT_DATA {
     pub PostProcessing: super::super::Foundation::BOOL,
     pub InstallResult: u32,
     pub PrivateData: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for COINSTALLER_CONTEXT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for COINSTALLER_CONTEXT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for COINSTALLER_CONTEXT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct COINSTALLER_CONTEXT_DATA {
     pub PostProcessing: super::super::Foundation::BOOL,
     pub InstallResult: u32,
     pub PrivateData: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for COINSTALLER_CONTEXT_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for COINSTALLER_CONTEXT_DATA {
@@ -7375,12 +7619,8 @@ impl Default for COINSTALLER_CONTEXT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for COINSTALLER_CONTEXT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONFLICT_DETAILS_A {
     pub CD_ulSize: u32,
     pub CD_ulMask: CM_CDMASK,
@@ -7389,16 +7629,16 @@ pub struct CONFLICT_DETAILS_A {
     pub CD_ulFlags: CM_CDFLAGS,
     pub CD_szDescription: [i8; 260],
 }
+impl windows_core::TypeKind for CONFLICT_DETAILS_A {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CONFLICT_DETAILS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONFLICT_DETAILS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONFLICT_DETAILS_W {
     pub CD_ulSize: u32,
     pub CD_ulMask: CM_CDMASK,
@@ -7407,16 +7647,16 @@ pub struct CONFLICT_DETAILS_W {
     pub CD_ulFlags: CM_CDFLAGS,
     pub CD_szDescription: [u16; 260],
 }
+impl windows_core::TypeKind for CONFLICT_DETAILS_W {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CONFLICT_DETAILS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONFLICT_DETAILS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CONNECTION_DES {
     pub COND_Type: u32,
     pub COND_Flags: u32,
@@ -7426,29 +7666,29 @@ pub struct CONNECTION_DES {
     pub COND_Reserved2: u8,
     pub COND_Id: i64,
 }
+impl windows_core::TypeKind for CONNECTION_DES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CONNECTION_DES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONNECTION_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CONNECTION_RESOURCE {
     pub Connection_Header: CONNECTION_DES,
+}
+impl windows_core::TypeKind for CONNECTION_RESOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CONNECTION_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONNECTION_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CS_DES {
     pub CSD_SignatureLength: u32,
     pub CSD_LegacyDataOffset: u32,
@@ -7457,29 +7697,29 @@ pub struct CS_DES {
     pub CSD_ClassGuid: windows_core::GUID,
     pub CSD_Signature: [u8; 1],
 }
+impl windows_core::TypeKind for CS_DES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CS_DES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CS_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CS_RESOURCE {
     pub CS_Header: CS_DES,
+}
+impl windows_core::TypeKind for CS_RESOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CS_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CS_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEVPRIVATE_DES {
     pub PD_Count: u32,
     pub PD_Type: u32,
@@ -7488,91 +7728,91 @@ pub struct DEVPRIVATE_DES {
     pub PD_Data3: u32,
     pub PD_Flags: u32,
 }
+impl windows_core::TypeKind for DEVPRIVATE_DES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DEVPRIVATE_DES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVPRIVATE_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEVPRIVATE_RANGE {
     pub PR_Data1: u32,
     pub PR_Data2: u32,
     pub PR_Data3: u32,
+}
+impl windows_core::TypeKind for DEVPRIVATE_RANGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEVPRIVATE_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVPRIVATE_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEVPRIVATE_RESOURCE {
     pub PRV_Header: DEVPRIVATE_DES,
     pub PRV_Data: [DEVPRIVATE_RANGE; 1],
+}
+impl windows_core::TypeKind for DEVPRIVATE_RESOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEVPRIVATE_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVPRIVATE_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DMA_DES {
     pub DD_Count: u32,
     pub DD_Type: u32,
     pub DD_Flags: DD_FLAGS,
     pub DD_Alloc_Chan: u32,
 }
+impl windows_core::TypeKind for DMA_DES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DMA_DES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DMA_RANGE {
     pub DR_Min: u32,
     pub DR_Max: u32,
     pub DR_Flags: DD_FLAGS,
+}
+impl windows_core::TypeKind for DMA_RANGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMA_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DMA_RESOURCE {
     pub DMA_Header: DMA_DES,
     pub DMA_Data: [DMA_RANGE; 1],
+}
+impl windows_core::TypeKind for DMA_RESOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMA_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
@@ -7580,18 +7820,18 @@ pub struct FILEPATHS_A {
     pub Flags: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FILEPATHS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for FILEPATHS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILEPATHS_A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
@@ -7599,18 +7839,18 @@ pub struct FILEPATHS_A {
     pub Flags: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FILEPATHS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for FILEPATHS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILEPATHS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_SIGNERINFO_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
@@ -7621,18 +7861,18 @@ pub struct FILEPATHS_SIGNERINFO_A {
     pub CatalogFile: windows_core::PCSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for FILEPATHS_SIGNERINFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_SIGNERINFO_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
@@ -7643,18 +7883,18 @@ pub struct FILEPATHS_SIGNERINFO_A {
     pub CatalogFile: windows_core::PCSTR,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for FILEPATHS_SIGNERINFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_SIGNERINFO_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
@@ -7665,18 +7905,18 @@ pub struct FILEPATHS_SIGNERINFO_W {
     pub CatalogFile: windows_core::PCWSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for FILEPATHS_SIGNERINFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_SIGNERINFO_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
@@ -7687,18 +7927,18 @@ pub struct FILEPATHS_SIGNERINFO_W {
     pub CatalogFile: windows_core::PCWSTR,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for FILEPATHS_SIGNERINFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
@@ -7706,18 +7946,18 @@ pub struct FILEPATHS_W {
     pub Flags: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FILEPATHS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for FILEPATHS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILEPATHS_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
@@ -7725,18 +7965,18 @@ pub struct FILEPATHS_W {
     pub Flags: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FILEPATHS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for FILEPATHS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILEPATHS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct FILE_IN_CABINET_INFO_A {
     pub NameInCabinet: windows_core::PCSTR,
     pub FileSize: u32,
@@ -7747,18 +7987,18 @@ pub struct FILE_IN_CABINET_INFO_A {
     pub FullTargetName: [i8; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FILE_IN_CABINET_INFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for FILE_IN_CABINET_INFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILE_IN_CABINET_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILE_IN_CABINET_INFO_A {
     pub NameInCabinet: windows_core::PCSTR,
     pub FileSize: u32,
@@ -7769,18 +8009,18 @@ pub struct FILE_IN_CABINET_INFO_A {
     pub FullTargetName: [i8; 260],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FILE_IN_CABINET_INFO_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for FILE_IN_CABINET_INFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILE_IN_CABINET_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct FILE_IN_CABINET_INFO_W {
     pub NameInCabinet: windows_core::PCWSTR,
     pub FileSize: u32,
@@ -7791,18 +8031,18 @@ pub struct FILE_IN_CABINET_INFO_W {
     pub FullTargetName: [u16; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for FILE_IN_CABINET_INFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for FILE_IN_CABINET_INFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for FILE_IN_CABINET_INFO_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILE_IN_CABINET_INFO_W {
     pub NameInCabinet: windows_core::PCWSTR,
     pub FileSize: u32,
@@ -7813,21 +8053,18 @@ pub struct FILE_IN_CABINET_INFO_W {
     pub FullTargetName: [u16; 260],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for FILE_IN_CABINET_INFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for FILE_IN_CABINET_INFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for FILE_IN_CABINET_INFO_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCMNOTIFICATION(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HCMNOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl HCMNOTIFICATION {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -7837,8 +8074,7 @@ impl windows_core::Free for HCMNOTIFICATION {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("cfgmgr32.dll" "system" fn CM_Unregister_Notification(notifycontext : *mut core::ffi::c_void) -> u32);
-            CM_Unregister_Notification(self.0);
+            _ = CM_Unregister_Notification(*self);
         }
     }
 }
@@ -7847,12 +8083,12 @@ impl Default for HCMNOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HDEVINFO(pub isize);
-impl windows_core::TypeKind for HDEVINFO {
+impl windows_core::TypeKind for HCMNOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HDEVINFO(pub isize);
 impl HDEVINFO {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -7862,44 +8098,51 @@ impl windows_core::Free for HDEVINFO {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("setupapi.dll" "system" fn SetupDiDestroyDeviceInfoList(deviceinfoset : isize) -> i32);
-            SetupDiDestroyDeviceInfoList(self.0);
+            _ = SetupDiDestroyDeviceInfoList(*self);
         }
     }
 }
+impl Default for HDEVINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HDEVINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HWPROFILEINFO_A {
     pub HWPI_ulHWProfile: u32,
     pub HWPI_szFriendlyName: [i8; 80],
     pub HWPI_dwFlags: u32,
+}
+impl windows_core::TypeKind for HWPROFILEINFO_A {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for HWPROFILEINFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HWPROFILEINFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HWPROFILEINFO_W {
     pub HWPI_ulHWProfile: u32,
     pub HWPI_szFriendlyName: [u16; 80],
     pub HWPI_dwFlags: u32,
+}
+impl windows_core::TypeKind for HWPROFILEINFO_W {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for HWPROFILEINFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HWPROFILEINFO_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct INFCONTEXT {
     pub Inf: *mut core::ffi::c_void,
     pub CurrentInf: *mut core::ffi::c_void,
@@ -7907,18 +8150,18 @@ pub struct INFCONTEXT {
     pub Line: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for INFCONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for INFCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for INFCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INFCONTEXT {
     pub Inf: *mut core::ffi::c_void,
     pub CurrentInf: *mut core::ffi::c_void,
@@ -7926,17 +8169,17 @@ pub struct INFCONTEXT {
     pub Line: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for INFCONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for INFCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for INFCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_DES {
     pub IOD_Count: u32,
     pub IOD_Type: u32,
@@ -7944,16 +8187,16 @@ pub struct IO_DES {
     pub IOD_Alloc_End: u64,
     pub IOD_DesFlags: IOD_DESFLAGS,
 }
+impl windows_core::TypeKind for IO_DES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_DES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_RANGE {
     pub IOR_Align: u64,
     pub IOR_nPorts: u32,
@@ -7962,30 +8205,30 @@ pub struct IO_RANGE {
     pub IOR_RangeFlags: IOD_DESFLAGS,
     pub IOR_Alias: u64,
 }
+impl windows_core::TypeKind for IO_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE {
     pub IO_Header: IO_DES,
     pub IO_Data: [IO_RANGE; 1],
+}
+impl windows_core::TypeKind for IO_RESOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IO_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IRQ_DES_32 {
     pub IRQD_Count: u32,
     pub IRQD_Type: u32,
@@ -7993,16 +8236,16 @@ pub struct IRQ_DES_32 {
     pub IRQD_Alloc_Num: u32,
     pub IRQD_Affinity: u32,
 }
+impl windows_core::TypeKind for IRQ_DES_32 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IRQ_DES_32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IRQ_DES_32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IRQ_DES_64 {
     pub IRQD_Count: u32,
     pub IRQD_Type: u32,
@@ -8010,59 +8253,59 @@ pub struct IRQ_DES_64 {
     pub IRQD_Alloc_Num: u32,
     pub IRQD_Affinity: u64,
 }
+impl windows_core::TypeKind for IRQ_DES_64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IRQ_DES_64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IRQ_DES_64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IRQ_RANGE {
     pub IRQR_Min: u32,
     pub IRQR_Max: u32,
     pub IRQR_Flags: IRQD_FLAGS,
+}
+impl windows_core::TypeKind for IRQ_RANGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IRQ_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IRQ_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IRQ_RESOURCE_32 {
     pub IRQ_Header: IRQ_DES_32,
     pub IRQ_Data: [IRQ_RANGE; 1],
+}
+impl windows_core::TypeKind for IRQ_RESOURCE_32 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IRQ_RESOURCE_32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IRQ_RESOURCE_32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IRQ_RESOURCE_64 {
     pub IRQ_Header: IRQ_DES_64,
     pub IRQ_Data: [IRQ_RANGE; 1],
+}
+impl windows_core::TypeKind for IRQ_RESOURCE_64 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IRQ_RESOURCE_64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IRQ_RESOURCE_64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MEM_DES {
     pub MD_Count: u32,
     pub MD_Type: u32,
@@ -8071,16 +8314,16 @@ pub struct MEM_DES {
     pub MD_Flags: MD_FLAGS,
     pub MD_Reserved: u32,
 }
+impl windows_core::TypeKind for MEM_DES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MEM_DES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEM_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MEM_LARGE_DES {
     pub MLD_Count: u32,
     pub MLD_Type: u32,
@@ -8089,16 +8332,16 @@ pub struct MEM_LARGE_DES {
     pub MLD_Flags: u32,
     pub MLD_Reserved: u32,
 }
+impl windows_core::TypeKind for MEM_LARGE_DES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MEM_LARGE_DES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEM_LARGE_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MEM_LARGE_RANGE {
     pub MLR_Align: u64,
     pub MLR_nBytes: u64,
@@ -8107,30 +8350,30 @@ pub struct MEM_LARGE_RANGE {
     pub MLR_Flags: u32,
     pub MLR_Reserved: u32,
 }
+impl windows_core::TypeKind for MEM_LARGE_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MEM_LARGE_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEM_LARGE_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MEM_LARGE_RESOURCE {
     pub MEM_LARGE_Header: MEM_LARGE_DES,
     pub MEM_LARGE_Data: [MEM_LARGE_RANGE; 1],
+}
+impl windows_core::TypeKind for MEM_LARGE_RESOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MEM_LARGE_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEM_LARGE_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MEM_RANGE {
     pub MR_Align: u64,
     pub MR_nBytes: u32,
@@ -8139,30 +8382,30 @@ pub struct MEM_RANGE {
     pub MR_Flags: MD_FLAGS,
     pub MR_Reserved: u32,
 }
+impl windows_core::TypeKind for MEM_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MEM_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEM_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MEM_RESOURCE {
     pub MEM_Header: MEM_DES,
     pub MEM_Data: [MEM_RANGE; 1],
+}
+impl windows_core::TypeKind for MEM_RESOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MEM_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEM_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MFCARD_DES {
     pub PMF_Count: u32,
     pub PMF_Type: u32,
@@ -8172,29 +8415,29 @@ pub struct MFCARD_DES {
     pub PMF_Reserved: [u8; 2],
     pub PMF_ConfigRegisterBase: u32,
 }
+impl windows_core::TypeKind for MFCARD_DES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MFCARD_DES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MFCARD_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MFCARD_RESOURCE {
     pub MfCard_Header: MFCARD_DES,
+}
+impl windows_core::TypeKind for MFCARD_RESOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MFCARD_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MFCARD_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCCARD_DES {
     pub PCD_Count: u32,
     pub PCD_Type: u32,
@@ -8207,30 +8450,30 @@ pub struct PCCARD_DES {
     pub PCD_MemoryFlags: [u16; 2],
     pub PCD_IoFlags: [u8; 2],
 }
+impl windows_core::TypeKind for PCCARD_DES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCCARD_DES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCCARD_DES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCCARD_RESOURCE {
     pub PcCard_Header: PCCARD_DES,
+}
+impl windows_core::TypeKind for PCCARD_RESOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCCARD_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCCARD_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SOURCE_MEDIA_A {
     pub Reserved: windows_core::PCSTR,
     pub Tagfile: windows_core::PCSTR,
@@ -8240,18 +8483,18 @@ pub struct SOURCE_MEDIA_A {
     pub Flags: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SOURCE_MEDIA_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SOURCE_MEDIA_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SOURCE_MEDIA_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SOURCE_MEDIA_A {
     pub Reserved: windows_core::PCSTR,
     pub Tagfile: windows_core::PCSTR,
@@ -8261,18 +8504,18 @@ pub struct SOURCE_MEDIA_A {
     pub Flags: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SOURCE_MEDIA_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SOURCE_MEDIA_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SOURCE_MEDIA_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SOURCE_MEDIA_W {
     pub Reserved: windows_core::PCWSTR,
     pub Tagfile: windows_core::PCWSTR,
@@ -8282,18 +8525,18 @@ pub struct SOURCE_MEDIA_W {
     pub Flags: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SOURCE_MEDIA_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SOURCE_MEDIA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SOURCE_MEDIA_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SOURCE_MEDIA_W {
     pub Reserved: windows_core::PCWSTR,
     pub Tagfile: windows_core::PCWSTR,
@@ -8303,19 +8546,19 @@ pub struct SOURCE_MEDIA_W {
     pub Flags: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SOURCE_MEDIA_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SOURCE_MEDIA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SOURCE_MEDIA_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V1 {
     pub cbSize: u32,
     pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
@@ -8326,20 +8569,20 @@ pub struct SP_ALTPLATFORM_INFO_V1 {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for SP_ALTPLATFORM_INFO_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V1 {
     pub cbSize: u32,
     pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
@@ -8350,20 +8593,20 @@ pub struct SP_ALTPLATFORM_INFO_V1 {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for SP_ALTPLATFORM_INFO_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V2 {
     pub cbSize: u32,
     pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
@@ -8376,23 +8619,28 @@ pub struct SP_ALTPLATFORM_INFO_V2 {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl Default for SP_ALTPLATFORM_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V2_0 {
     pub Reserved: u16,
     pub Flags: u16,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
@@ -8401,15 +8649,10 @@ impl Default for SP_ALTPLATFORM_INFO_V2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V2 {
     pub cbSize: u32,
     pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
@@ -8422,23 +8665,28 @@ pub struct SP_ALTPLATFORM_INFO_V2 {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
 impl Default for SP_ALTPLATFORM_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V2_0 {
     pub Reserved: u16,
     pub Flags: u16,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
@@ -8447,14 +8695,9 @@ impl Default for SP_ALTPLATFORM_INFO_V2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V3 {
     pub cbSize: u32,
     pub Platform: u32,
@@ -8469,21 +8712,25 @@ pub struct SP_ALTPLATFORM_INFO_V3 {
     pub BuildNumber: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_ALTPLATFORM_INFO_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V3_0 {
     pub Reserved: u16,
     pub Flags: u16,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_ALTPLATFORM_INFO_V3_0 {
@@ -8491,13 +8738,9 @@ impl Default for SP_ALTPLATFORM_INFO_V3_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V3 {
     pub cbSize: u32,
     pub Platform: u32,
@@ -8512,21 +8755,25 @@ pub struct SP_ALTPLATFORM_INFO_V3 {
     pub BuildNumber: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_ALTPLATFORM_INFO_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V3_0 {
     pub Reserved: u16,
     pub Flags: u16,
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for SP_ALTPLATFORM_INFO_V3_0 {
@@ -8534,17 +8781,17 @@ impl Default for SP_ALTPLATFORM_INFO_V3_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
     pub cbSize: u32,
     pub FullInfPath: [i8; 260],
     pub FilenameOffset: i32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
@@ -8552,17 +8799,17 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
     pub cbSize: u32,
     pub FullInfPath: [i8; 260],
     pub FilenameOffset: i32,
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
@@ -8570,17 +8817,17 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
     pub cbSize: u32,
     pub FullInfPath: [u16; 260],
     pub FilenameOffset: i32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
@@ -8588,17 +8835,17 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
     pub cbSize: u32,
     pub FullInfPath: [u16; 260],
     pub FilenameOffset: i32,
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
@@ -8606,13 +8853,9 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
     pub cbSize: u32,
     pub FullInfPath: [i8; 260],
@@ -8620,18 +8863,18 @@ pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
     pub ReinstallInstance: [i8; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
     pub cbSize: u32,
     pub FullInfPath: [i8; 260],
@@ -8639,18 +8882,18 @@ pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
     pub ReinstallInstance: [i8; 260],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
     pub cbSize: u32,
     pub FullInfPath: [u16; 260],
@@ -8658,18 +8901,18 @@ pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
     pub ReinstallInstance: [u16; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
     pub cbSize: u32,
     pub FullInfPath: [u16; 260],
@@ -8677,23 +8920,28 @@ pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
     pub ReinstallInstance: [u16; 260],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_CLASSIMAGELIST_DATA {
     pub cbSize: u32,
     pub ImageList: super::super::UI::Controls::HIMAGELIST,
     pub Reserved: usize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_Controls")]
+impl windows_core::TypeKind for SP_CLASSIMAGELIST_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
@@ -8702,19 +8950,19 @@ impl Default for SP_CLASSIMAGELIST_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_CLASSIMAGELIST_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_CLASSIMAGELIST_DATA {
     pub cbSize: u32,
     pub ImageList: super::super::UI::Controls::HIMAGELIST,
     pub Reserved: usize,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_Controls")]
+impl windows_core::TypeKind for SP_CLASSIMAGELIST_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_Controls")]
@@ -8723,17 +8971,16 @@ impl Default for SP_CLASSIMAGELIST_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_CLASSIMAGELIST_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_CLASSINSTALL_HEADER {
     pub cbSize: u32,
     pub InstallFunction: DI_FUNCTION,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_CLASSINSTALL_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_CLASSINSTALL_HEADER {
@@ -8741,16 +8988,16 @@ impl Default for SP_CLASSINSTALL_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_CLASSINSTALL_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_CLASSINSTALL_HEADER {
     pub cbSize: u32,
     pub InstallFunction: DI_FUNCTION,
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_CLASSINSTALL_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for SP_CLASSINSTALL_HEADER {
@@ -8758,17 +9005,17 @@ impl Default for SP_CLASSINSTALL_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_CLASSINSTALL_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
     pub ProgressNotifyParam: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DETECTDEVICE_PARAMS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DETECTDEVICE_PARAMS {
@@ -8776,17 +9023,17 @@ impl Default for SP_DETECTDEVICE_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DETECTDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
     pub ProgressNotifyParam: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DETECTDEVICE_PARAMS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for SP_DETECTDEVICE_PARAMS {
@@ -8794,13 +9041,9 @@ impl Default for SP_DETECTDEVICE_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DETECTDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DATA {
     pub cbSize: u32,
     pub InterfaceClassGuid: windows_core::GUID,
@@ -8808,18 +9051,18 @@ pub struct SP_DEVICE_INTERFACE_DATA {
     pub Reserved: usize,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DEVICE_INTERFACE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DATA {
     pub cbSize: u32,
     pub InterfaceClassGuid: windows_core::GUID,
@@ -8827,21 +9070,25 @@ pub struct SP_DEVICE_INTERFACE_DATA {
     pub Reserved: usize,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_DEVICE_INTERFACE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     pub cbSize: u32,
     pub DevicePath: [i8; 1],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
@@ -8849,16 +9096,16 @@ impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     pub cbSize: u32,
     pub DevicePath: [i8; 1],
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
@@ -8866,16 +9113,16 @@ impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     pub cbSize: u32,
     pub DevicePath: [u16; 1],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
@@ -8883,16 +9130,16 @@ impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     pub cbSize: u32,
     pub DevicePath: [u16; 1],
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
@@ -8900,13 +9147,9 @@ impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_DATA {
     pub cbSize: u32,
     pub ClassGuid: windows_core::GUID,
@@ -8914,18 +9157,18 @@ pub struct SP_DEVINFO_DATA {
     pub Reserved: usize,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVINFO_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DEVINFO_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVINFO_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_DATA {
     pub cbSize: u32,
     pub ClassGuid: windows_core::GUID,
@@ -8933,18 +9176,18 @@ pub struct SP_DEVINFO_DATA {
     pub Reserved: usize,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVINFO_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_DEVINFO_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVINFO_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
     pub cbSize: u32,
     pub ClassGuid: windows_core::GUID,
@@ -8952,18 +9195,18 @@ pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
     pub RemoteMachineName: [i8; 263],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
     pub cbSize: u32,
     pub ClassGuid: windows_core::GUID,
@@ -8971,18 +9214,18 @@ pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
     pub RemoteMachineName: [i8; 263],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
     pub cbSize: u32,
     pub ClassGuid: windows_core::GUID,
@@ -8990,18 +9233,18 @@ pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
     pub RemoteMachineName: [u16; 263],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
     pub cbSize: u32,
     pub ClassGuid: windows_core::GUID,
@@ -9009,18 +9252,18 @@ pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
     pub RemoteMachineName: [u16; 263],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINSTALL_PARAMS_A {
     pub cbSize: u32,
     pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
@@ -9034,18 +9277,18 @@ pub struct SP_DEVINSTALL_PARAMS_A {
     pub DriverPath: [i8; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DEVINSTALL_PARAMS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINSTALL_PARAMS_A {
     pub cbSize: u32,
     pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
@@ -9059,18 +9302,18 @@ pub struct SP_DEVINSTALL_PARAMS_A {
     pub DriverPath: [i8; 260],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_DEVINSTALL_PARAMS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINSTALL_PARAMS_W {
     pub cbSize: u32,
     pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
@@ -9084,18 +9327,18 @@ pub struct SP_DEVINSTALL_PARAMS_W {
     pub DriverPath: [u16; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DEVINSTALL_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINSTALL_PARAMS_W {
     pub cbSize: u32,
     pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
@@ -9109,18 +9352,18 @@ pub struct SP_DEVINSTALL_PARAMS_W {
     pub DriverPath: [u16; 260],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_DEVINSTALL_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V1_A {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9130,18 +9373,18 @@ pub struct SP_DRVINFO_DATA_V1_A {
     pub ProviderName: [i8; 256],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DRVINFO_DATA_V1_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V1_A {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9151,18 +9394,18 @@ pub struct SP_DRVINFO_DATA_V1_A {
     pub ProviderName: [i8; 256],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_DRVINFO_DATA_V1_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V1_W {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9172,18 +9415,18 @@ pub struct SP_DRVINFO_DATA_V1_W {
     pub ProviderName: [u16; 256],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DRVINFO_DATA_V1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V1_W {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9193,18 +9436,18 @@ pub struct SP_DRVINFO_DATA_V1_W {
     pub ProviderName: [u16; 256],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_DRVINFO_DATA_V1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V2_A {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9216,18 +9459,18 @@ pub struct SP_DRVINFO_DATA_V2_A {
     pub DriverVersion: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DRVINFO_DATA_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V2_A {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9239,18 +9482,18 @@ pub struct SP_DRVINFO_DATA_V2_A {
     pub DriverVersion: u64,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_DRVINFO_DATA_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V2_W {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9262,18 +9505,18 @@ pub struct SP_DRVINFO_DATA_V2_W {
     pub DriverVersion: u64,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DRVINFO_DATA_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V2_W {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9285,18 +9528,18 @@ pub struct SP_DRVINFO_DATA_V2_W {
     pub DriverVersion: u64,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_DRVINFO_DATA_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub cbSize: u32,
     pub InfDate: super::super::Foundation::FILETIME,
@@ -9309,18 +9552,18 @@ pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub HardwareID: [i8; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DRVINFO_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub cbSize: u32,
     pub InfDate: super::super::Foundation::FILETIME,
@@ -9333,18 +9576,18 @@ pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub HardwareID: [i8; 1],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_DRVINFO_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DETAIL_DATA_W {
     pub cbSize: u32,
     pub InfDate: super::super::Foundation::FILETIME,
@@ -9357,18 +9600,18 @@ pub struct SP_DRVINFO_DETAIL_DATA_W {
     pub HardwareID: [u16; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DRVINFO_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DETAIL_DATA_W {
     pub cbSize: u32,
     pub InfDate: super::super::Foundation::FILETIME,
@@ -9381,18 +9624,18 @@ pub struct SP_DRVINFO_DETAIL_DATA_W {
     pub HardwareID: [u16; 1],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_DRVINFO_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINSTALL_PARAMS {
     pub cbSize: u32,
     pub Rank: u32,
@@ -9401,18 +9644,18 @@ pub struct SP_DRVINSTALL_PARAMS {
     pub Reserved: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_DRVINSTALL_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_DRVINSTALL_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_DRVINSTALL_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINSTALL_PARAMS {
     pub cbSize: u32,
     pub Rank: u32,
@@ -9421,40 +9664,44 @@ pub struct SP_DRVINSTALL_PARAMS {
     pub Reserved: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_DRVINSTALL_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_DRVINSTALL_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_DRVINSTALL_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_ENABLECLASS_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ClassGuid: windows_core::GUID,
     pub EnableMessage: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_ENABLECLASS_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_ENABLECLASS_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_ENABLECLASS_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ENABLECLASS_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ClassGuid: windows_core::GUID,
     pub EnableMessage: u32,
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_ENABLECLASS_PARAMS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for SP_ENABLECLASS_PARAMS {
@@ -9462,13 +9709,9 @@ impl Default for SP_ENABLECLASS_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_ENABLECLASS_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_FILE_COPY_PARAMS_A {
     pub cbSize: u32,
     pub QueueHandle: *mut core::ffi::c_void,
@@ -9484,18 +9727,18 @@ pub struct SP_FILE_COPY_PARAMS_A {
     pub SecurityDescriptor: windows_core::PCSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_FILE_COPY_PARAMS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_FILE_COPY_PARAMS_A {
     pub cbSize: u32,
     pub QueueHandle: *mut core::ffi::c_void,
@@ -9511,18 +9754,18 @@ pub struct SP_FILE_COPY_PARAMS_A {
     pub SecurityDescriptor: windows_core::PCSTR,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_FILE_COPY_PARAMS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_FILE_COPY_PARAMS_W {
     pub cbSize: u32,
     pub QueueHandle: *mut core::ffi::c_void,
@@ -9538,18 +9781,18 @@ pub struct SP_FILE_COPY_PARAMS_W {
     pub SecurityDescriptor: windows_core::PCWSTR,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_FILE_COPY_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_FILE_COPY_PARAMS_W {
     pub cbSize: u32,
     pub QueueHandle: *mut core::ffi::c_void,
@@ -9565,22 +9808,26 @@ pub struct SP_FILE_COPY_PARAMS_W {
     pub SecurityDescriptor: windows_core::PCWSTR,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_FILE_COPY_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_INF_INFORMATION {
     pub InfStyle: INF_STYLE,
     pub InfCount: u32,
     pub VersionData: [u8; 1],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_INF_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_INF_INFORMATION {
@@ -9588,17 +9835,17 @@ impl Default for SP_INF_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_INF_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_INF_INFORMATION {
     pub InfStyle: INF_STYLE,
     pub InfCount: u32,
     pub VersionData: [u8; 1],
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_INF_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for SP_INF_INFORMATION {
@@ -9606,13 +9853,9 @@ impl Default for SP_INF_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_INF_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V1_A {
     pub cbSize: u32,
     pub CatalogFile: [i8; 260],
@@ -9620,18 +9863,18 @@ pub struct SP_INF_SIGNER_INFO_V1_A {
     pub DigitalSignerVersion: [i8; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_INF_SIGNER_INFO_V1_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V1_A {
     pub cbSize: u32,
     pub CatalogFile: [i8; 260],
@@ -9639,18 +9882,18 @@ pub struct SP_INF_SIGNER_INFO_V1_A {
     pub DigitalSignerVersion: [i8; 260],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_INF_SIGNER_INFO_V1_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V1_W {
     pub cbSize: u32,
     pub CatalogFile: [u16; 260],
@@ -9658,18 +9901,18 @@ pub struct SP_INF_SIGNER_INFO_V1_W {
     pub DigitalSignerVersion: [u16; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_INF_SIGNER_INFO_V1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V1_W {
     pub cbSize: u32,
     pub CatalogFile: [u16; 260],
@@ -9677,18 +9920,18 @@ pub struct SP_INF_SIGNER_INFO_V1_W {
     pub DigitalSignerVersion: [u16; 260],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_INF_SIGNER_INFO_V1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V2_A {
     pub cbSize: u32,
     pub CatalogFile: [i8; 260],
@@ -9697,18 +9940,18 @@ pub struct SP_INF_SIGNER_INFO_V2_A {
     pub SignerScore: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_INF_SIGNER_INFO_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V2_A {
     pub cbSize: u32,
     pub CatalogFile: [i8; 260],
@@ -9717,18 +9960,18 @@ pub struct SP_INF_SIGNER_INFO_V2_A {
     pub SignerScore: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_A {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_INF_SIGNER_INFO_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V2_W {
     pub cbSize: u32,
     pub CatalogFile: [u16; 260],
@@ -9737,18 +9980,18 @@ pub struct SP_INF_SIGNER_INFO_V2_W {
     pub SignerScore: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_INF_SIGNER_INFO_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V2_W {
     pub cbSize: u32,
     pub CatalogFile: [u16; 260],
@@ -9757,19 +10000,19 @@ pub struct SP_INF_SIGNER_INFO_V2_W {
     pub SignerScore: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_INF_SIGNER_INFO_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_INSTALLWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: u32,
@@ -9782,20 +10025,20 @@ pub struct SP_INSTALLWIZARD_DATA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
+impl windows_core::TypeKind for SP_INSTALLWIZARD_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_Controls")]
 impl Default for SP_INSTALLWIZARD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_INSTALLWIZARD_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_INSTALLWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: u32,
@@ -9808,20 +10051,20 @@ pub struct SP_INSTALLWIZARD_DATA {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_Controls")]
+impl windows_core::TypeKind for SP_INSTALLWIZARD_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_Controls")]
 impl Default for SP_INSTALLWIZARD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_INSTALLWIZARD_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_NEWDEVICEWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: u32,
@@ -9831,20 +10074,20 @@ pub struct SP_NEWDEVICEWIZARD_DATA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
+impl windows_core::TypeKind for SP_NEWDEVICEWIZARD_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_Controls")]
 impl Default for SP_NEWDEVICEWIZARD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_NEWDEVICEWIZARD_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_NEWDEVICEWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: u32,
@@ -9854,23 +10097,27 @@ pub struct SP_NEWDEVICEWIZARD_DATA {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_Controls")]
+impl windows_core::TypeKind for SP_NEWDEVICEWIZARD_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_Controls")]
 impl Default for SP_NEWDEVICEWIZARD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl windows_core::TypeKind for SP_NEWDEVICEWIZARD_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_ORIGINAL_FILE_INFO_A {
     pub cbSize: u32,
     pub OriginalInfName: [i8; 260],
     pub OriginalCatalogName: [i8; 260],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_A {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_ORIGINAL_FILE_INFO_A {
@@ -9878,17 +10125,17 @@ impl Default for SP_ORIGINAL_FILE_INFO_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ORIGINAL_FILE_INFO_A {
     pub cbSize: u32,
     pub OriginalInfName: [i8; 260],
     pub OriginalCatalogName: [i8; 260],
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_A {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for SP_ORIGINAL_FILE_INFO_A {
@@ -9896,35 +10143,35 @@ impl Default for SP_ORIGINAL_FILE_INFO_A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_ORIGINAL_FILE_INFO_W {
     pub cbSize: u32,
     pub OriginalInfName: [u16; 260],
     pub OriginalCatalogName: [u16; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_ORIGINAL_FILE_INFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ORIGINAL_FILE_INFO_W {
     pub cbSize: u32,
     pub OriginalInfName: [u16; 260],
     pub OriginalCatalogName: [u16; 260],
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_W {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for SP_ORIGINAL_FILE_INFO_W {
@@ -9932,30 +10179,30 @@ impl Default for SP_ORIGINAL_FILE_INFO_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub PowerMessageWake: [i8; 512],
+}
+impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_A {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SP_POWERMESSAGEWAKE_PARAMS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub PowerMessageWake: [u16; 512],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_POWERMESSAGEWAKE_PARAMS_W {
@@ -9963,16 +10210,16 @@ impl Default for SP_POWERMESSAGEWAKE_PARAMS_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub PowerMessageWake: [u16; 512],
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for SP_POWERMESSAGEWAKE_PARAMS_W {
@@ -9980,13 +10227,9 @@ impl Default for SP_POWERMESSAGEWAKE_PARAMS_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_PROPCHANGE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub StateChange: SETUP_DI_STATE_CHANGE,
@@ -9994,18 +10237,18 @@ pub struct SP_PROPCHANGE_PARAMS {
     pub HwProfile: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_PROPCHANGE_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_PROPCHANGE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_PROPCHANGE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_PROPCHANGE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub StateChange: SETUP_DI_STATE_CHANGE,
@@ -10013,18 +10256,18 @@ pub struct SP_PROPCHANGE_PARAMS {
     pub HwProfile: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_PROPCHANGE_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_PROPCHANGE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_PROPCHANGE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_PROPSHEETPAGE_REQUEST {
     pub cbSize: u32,
     pub PageRequested: u32,
@@ -10032,18 +10275,18 @@ pub struct SP_PROPSHEETPAGE_REQUEST {
     pub DeviceInfoData: *mut SP_DEVINFO_DATA,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_PROPSHEETPAGE_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_PROPSHEETPAGE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_PROPSHEETPAGE_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_PROPSHEETPAGE_REQUEST {
     pub cbSize: u32,
     pub PageRequested: u32,
@@ -10051,18 +10294,18 @@ pub struct SP_PROPSHEETPAGE_REQUEST {
     pub DeviceInfoData: *mut SP_DEVINFO_DATA,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_PROPSHEETPAGE_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_PROPSHEETPAGE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_PROPSHEETPAGE_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_REGISTER_CONTROL_STATUSA {
     pub cbSize: u32,
     pub FileName: windows_core::PCSTR,
@@ -10070,18 +10313,18 @@ pub struct SP_REGISTER_CONTROL_STATUSA {
     pub FailureCode: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_REGISTER_CONTROL_STATUSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_REGISTER_CONTROL_STATUSA {
     pub cbSize: u32,
     pub FileName: windows_core::PCSTR,
@@ -10089,18 +10332,18 @@ pub struct SP_REGISTER_CONTROL_STATUSA {
     pub FailureCode: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_REGISTER_CONTROL_STATUSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_REGISTER_CONTROL_STATUSW {
     pub cbSize: u32,
     pub FileName: windows_core::PCWSTR,
@@ -10108,18 +10351,18 @@ pub struct SP_REGISTER_CONTROL_STATUSW {
     pub FailureCode: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_REGISTER_CONTROL_STATUSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_REGISTER_CONTROL_STATUSW {
     pub cbSize: u32,
     pub FileName: windows_core::PCWSTR,
@@ -10127,40 +10370,44 @@ pub struct SP_REGISTER_CONTROL_STATUSW {
     pub FailureCode: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_REGISTER_CONTROL_STATUSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_REMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: SETUP_DI_REMOVE_DEVICE_SCOPE,
     pub HwProfile: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_REMOVEDEVICE_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_REMOVEDEVICE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_REMOVEDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_REMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: SETUP_DI_REMOVE_DEVICE_SCOPE,
     pub HwProfile: u32,
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_REMOVEDEVICE_PARAMS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for SP_REMOVEDEVICE_PARAMS {
@@ -10168,12 +10415,8 @@ impl Default for SP_REMOVEDEVICE_PARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_REMOVEDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_SELECTDEVICE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Title: [i8; 60],
@@ -10182,17 +10425,17 @@ pub struct SP_SELECTDEVICE_PARAMS_A {
     pub SubTitle: [i8; 256],
     pub Reserved: [u8; 2],
 }
+impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_A {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SP_SELECTDEVICE_PARAMS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_SELECTDEVICE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Title: [u16; 60],
@@ -10201,18 +10444,18 @@ pub struct SP_SELECTDEVICE_PARAMS_W {
     pub SubTitle: [u16; 256],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_SELECTDEVICE_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_SELECTDEVICE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Title: [u16; 60],
@@ -10221,37 +10464,41 @@ pub struct SP_SELECTDEVICE_PARAMS_W {
     pub SubTitle: [u16; 256],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_SELECTDEVICE_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_TROUBLESHOOTER_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ChmFile: [i8; 260],
     pub HtmlTroubleShooter: [i8; 260],
+}
+impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_A {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SP_TROUBLESHOOTER_PARAMS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_TROUBLESHOOTER_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ChmFile: [u16; 260],
     pub HtmlTroubleShooter: [u16; 260],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_TROUBLESHOOTER_PARAMS_W {
@@ -10259,17 +10506,17 @@ impl Default for SP_TROUBLESHOOTER_PARAMS_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_TROUBLESHOOTER_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ChmFile: [u16; 260],
     pub HtmlTroubleShooter: [u16; 260],
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_W {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for SP_TROUBLESHOOTER_PARAMS_W {
@@ -10277,45 +10524,41 @@ impl Default for SP_TROUBLESHOOTER_PARAMS_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SP_UNREMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: u32,
     pub HwProfile: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for SP_UNREMOVEDEVICE_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SP_UNREMOVEDEVICE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for SP_UNREMOVEDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_UNREMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: u32,
     pub HwProfile: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for SP_UNREMOVEDEVICE_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for SP_UNREMOVEDEVICE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for SP_UNREMOVEDEVICE_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PCM_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(hnotify: HCMNOTIFICATION, context: *const core::ffi::c_void, action: CM_NOTIFY_ACTION, eventdata: *const CM_NOTIFY_EVENT_DATA, eventdatasize: u32) -> u32>;
 pub type PDETECT_PROGRESS_NOTIFY = Option<unsafe extern "system" fn(progressnotifyparam: *const core::ffi::c_void, detectcomplete: u32) -> super::super::Foundation::BOOL>;

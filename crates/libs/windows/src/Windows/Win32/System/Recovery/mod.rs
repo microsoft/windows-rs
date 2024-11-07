@@ -58,10 +58,15 @@ pub const RESTART_NO_HANG: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLICA
 pub const RESTART_NO_PATCH: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLICATION_RESTART_FLAGS(4u32);
 pub const RESTART_NO_REBOOT: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLICATION_RESTART_FLAGS(8u32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct REGISTER_APPLICATION_RESTART_FLAGS(pub u32);
 impl windows_core::TypeKind for REGISTER_APPLICATION_RESTART_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for REGISTER_APPLICATION_RESTART_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("REGISTER_APPLICATION_RESTART_FLAGS").field(&self.0).finish()
+    }
 }
 impl REGISTER_APPLICATION_RESTART_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {

@@ -58,6 +58,12 @@ where
     FhServiceUnblockBackup(pipe.param().abi()).ok()
 }
 windows_core::imp::define_interface!(IFhConfigMgr, IFhConfigMgr_Vtbl, 0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c);
+impl core::ops::Deref for IFhConfigMgr {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFhConfigMgr, windows_core::IUnknown);
 impl IFhConfigMgr {
     pub unsafe fn LoadConfiguration(&self) -> windows_core::Result<()> {
@@ -72,10 +78,10 @@ impl IFhConfigMgr {
     pub unsafe fn SaveConfiguration(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SaveConfiguration)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn AddRemoveExcludeRule<P0, P2>(&self, add: P0, category: FH_PROTECTED_ITEM_CATEGORY, item: P2) -> windows_core::Result<()>
+    pub unsafe fn AddRemoveExcludeRule<P0, P1>(&self, add: P0, category: FH_PROTECTED_ITEM_CATEGORY, item: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::BOOL>,
-        P2: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).AddRemoveExcludeRule)(windows_core::Interface::as_raw(self), add.param().abi(), category, item.param().abi()).ok()
     }
@@ -146,7 +152,7 @@ pub struct IFhConfigMgr_Vtbl {
     pub ChangeDefaultTargetRecommendation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub QueryProtectionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-pub trait IFhConfigMgr_Impl: windows_core::IUnknownImpl {
+pub trait IFhConfigMgr_Impl: Sized + windows_core::IUnknownImpl {
     fn LoadConfiguration(&self) -> windows_core::Result<()>;
     fn CreateDefaultConfiguration(&self, overwriteifexists: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn SaveConfiguration(&self) -> windows_core::Result<()>;
@@ -162,8 +168,9 @@ pub trait IFhConfigMgr_Impl: windows_core::IUnknownImpl {
     fn ChangeDefaultTargetRecommendation(&self, recommend: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn QueryProtectionStatus(&self, protectionstate: *mut u32, protecteduntiltime: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IFhConfigMgr {}
 impl IFhConfigMgr_Vtbl {
-    pub const fn new<Identity: IFhConfigMgr_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IFhConfigMgr_Impl, const OFFSET: isize>() -> IFhConfigMgr_Vtbl {
         unsafe extern "system" fn LoadConfiguration<Identity: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFhConfigMgr_Impl::LoadConfiguration(this).into()
@@ -272,8 +279,13 @@ impl IFhConfigMgr_Vtbl {
         iid == &<IFhConfigMgr as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IFhConfigMgr {}
 windows_core::imp::define_interface!(IFhReassociation, IFhReassociation_Vtbl, 0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
+impl core::ops::Deref for IFhReassociation {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFhReassociation, windows_core::IUnknown);
 impl IFhReassociation {
     pub unsafe fn ValidateTarget<P0>(&self, targeturl: P0) -> windows_core::Result<FH_DEVICE_VALIDATION_RESULT>
@@ -311,15 +323,16 @@ pub struct IFhReassociation_Vtbl {
     pub SelectConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub PerformReassociation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IFhReassociation_Impl: windows_core::IUnknownImpl {
+pub trait IFhReassociation_Impl: Sized + windows_core::IUnknownImpl {
     fn ValidateTarget(&self, targeturl: &windows_core::BSTR) -> windows_core::Result<FH_DEVICE_VALIDATION_RESULT>;
     fn ScanTargetForConfigurations(&self, targeturl: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetConfigurationDetails(&self, index: u32, username: *mut windows_core::BSTR, pcname: *mut windows_core::BSTR, backuptime: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()>;
     fn SelectConfiguration(&self, index: u32) -> windows_core::Result<()>;
     fn PerformReassociation(&self, overwriteifexists: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IFhReassociation {}
 impl IFhReassociation_Vtbl {
-    pub const fn new<Identity: IFhReassociation_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IFhReassociation_Impl, const OFFSET: isize>() -> IFhReassociation_Vtbl {
         unsafe extern "system" fn ValidateTarget<Identity: IFhReassociation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targeturl: core::mem::MaybeUninit<windows_core::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFhReassociation_Impl::ValidateTarget(this, core::mem::transmute(&targeturl)) {
@@ -359,8 +372,13 @@ impl IFhReassociation_Vtbl {
         iid == &<IFhReassociation as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IFhReassociation {}
 windows_core::imp::define_interface!(IFhScopeIterator, IFhScopeIterator_Vtbl, 0x3197abce_532a_44c6_8615_f3666566a720);
+impl core::ops::Deref for IFhScopeIterator {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFhScopeIterator, windows_core::IUnknown);
 impl IFhScopeIterator {
     pub unsafe fn MoveToNextItem(&self) -> windows_core::Result<()> {
@@ -368,7 +386,7 @@ impl IFhScopeIterator {
     }
     pub unsafe fn GetItem(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -377,12 +395,13 @@ pub struct IFhScopeIterator_Vtbl {
     pub MoveToNextItem: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-pub trait IFhScopeIterator_Impl: windows_core::IUnknownImpl {
+pub trait IFhScopeIterator_Impl: Sized + windows_core::IUnknownImpl {
     fn MoveToNextItem(&self) -> windows_core::Result<()>;
     fn GetItem(&self) -> windows_core::Result<windows_core::BSTR>;
 }
+impl windows_core::RuntimeName for IFhScopeIterator {}
 impl IFhScopeIterator_Vtbl {
-    pub const fn new<Identity: IFhScopeIterator_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IFhScopeIterator_Impl, const OFFSET: isize>() -> IFhScopeIterator_Vtbl {
         unsafe extern "system" fn MoveToNextItem<Identity: IFhScopeIterator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFhScopeIterator_Impl::MoveToNextItem(this).into()
@@ -407,13 +426,18 @@ impl IFhScopeIterator_Vtbl {
         iid == &<IFhScopeIterator as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IFhScopeIterator {}
 windows_core::imp::define_interface!(IFhTarget, IFhTarget_Vtbl, 0xd87965fd_2bad_4657_bd3b_9567eb300ced);
+impl core::ops::Deref for IFhTarget {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFhTarget, windows_core::IUnknown);
 impl IFhTarget {
     pub unsafe fn GetStringProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetStringProperty)(windows_core::Interface::as_raw(self), propertytype, &mut result__).map(|| core::mem::transmute(result__))
+        (windows_core::Interface::vtable(self).GetStringProperty)(windows_core::Interface::as_raw(self), propertytype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetNumericalProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> windows_core::Result<u64> {
         let mut result__ = core::mem::zeroed();
@@ -426,12 +450,13 @@ pub struct IFhTarget_Vtbl {
     pub GetStringProperty: unsafe extern "system" fn(*mut core::ffi::c_void, FH_TARGET_PROPERTY_TYPE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetNumericalProperty: unsafe extern "system" fn(*mut core::ffi::c_void, FH_TARGET_PROPERTY_TYPE, *mut u64) -> windows_core::HRESULT,
 }
-pub trait IFhTarget_Impl: windows_core::IUnknownImpl {
+pub trait IFhTarget_Impl: Sized + windows_core::IUnknownImpl {
     fn GetStringProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> windows_core::Result<windows_core::BSTR>;
     fn GetNumericalProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> windows_core::Result<u64>;
 }
+impl windows_core::RuntimeName for IFhTarget {}
 impl IFhTarget_Vtbl {
-    pub const fn new<Identity: IFhTarget_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IFhTarget_Impl, const OFFSET: isize>() -> IFhTarget_Vtbl {
         unsafe extern "system" fn GetStringProperty<Identity: IFhTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IFhTarget_Impl::GetStringProperty(this, core::mem::transmute_copy(&propertytype)) {
@@ -462,7 +487,6 @@ impl IFhTarget_Vtbl {
         iid == &<IFhTarget as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IFhTarget {}
 pub const BackupCancelled: FhBackupStopReason = FhBackupStopReason(4i32);
 pub const BackupInvalidStopReason: FhBackupStopReason = FhBackupStopReason(0i32);
 pub const BackupLimitUserBusyMachineOnAC: FhBackupStopReason = FhBackupStopReason(1i32);
@@ -543,59 +567,96 @@ pub const MAX_RETENTION_TYPE: FH_RETENTION_TYPES = FH_RETENTION_TYPES(3i32);
 pub const MAX_TARGET_PROPERTY: FH_TARGET_PROPERTY_TYPE = FH_TARGET_PROPERTY_TYPE(3i32);
 pub const MAX_VALIDATION_RESULT: FH_DEVICE_VALIDATION_RESULT = FH_DEVICE_VALIDATION_RESULT(7i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FH_BACKUP_STATUS(pub i32);
 impl windows_core::TypeKind for FH_BACKUP_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FH_BACKUP_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FH_BACKUP_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FH_DEVICE_VALIDATION_RESULT(pub i32);
 impl windows_core::TypeKind for FH_DEVICE_VALIDATION_RESULT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FH_DEVICE_VALIDATION_RESULT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FH_DEVICE_VALIDATION_RESULT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FH_LOCAL_POLICY_TYPE(pub i32);
 impl windows_core::TypeKind for FH_LOCAL_POLICY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FH_LOCAL_POLICY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FH_LOCAL_POLICY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FH_PROTECTED_ITEM_CATEGORY(pub i32);
 impl windows_core::TypeKind for FH_PROTECTED_ITEM_CATEGORY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FH_PROTECTED_ITEM_CATEGORY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FH_PROTECTED_ITEM_CATEGORY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FH_RETENTION_TYPES(pub i32);
 impl windows_core::TypeKind for FH_RETENTION_TYPES {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FH_RETENTION_TYPES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FH_RETENTION_TYPES").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FH_TARGET_DRIVE_TYPES(pub i32);
 impl windows_core::TypeKind for FH_TARGET_DRIVE_TYPES {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FH_TARGET_DRIVE_TYPES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FH_TARGET_DRIVE_TYPES").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FH_TARGET_PROPERTY_TYPE(pub i32);
 impl windows_core::TypeKind for FH_TARGET_PROPERTY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FH_TARGET_PROPERTY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FH_TARGET_PROPERTY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FhBackupStopReason(pub i32);
 impl windows_core::TypeKind for FhBackupStopReason {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FhBackupStopReason {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FhBackupStopReason").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct FH_SERVICE_PIPE_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for FH_SERVICE_PIPE_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl FH_SERVICE_PIPE_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -605,8 +666,7 @@ impl windows_core::Free for FH_SERVICE_PIPE_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceClosePipe(pipe : *mut core::ffi::c_void) -> i32);
-            FhServiceClosePipe(self.0);
+            _ = FhServiceClosePipe(*self);
         }
     }
 }
@@ -614,6 +674,9 @@ impl Default for FH_SERVICE_PIPE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for FH_SERVICE_PIPE_HANDLE {
+    type TypeKind = windows_core::CopyType;
 }
 pub const FhConfigMgr: windows_core::GUID = windows_core::GUID::from_u128(0xed43bb3c_09e9_498a_9df6_2177244c6db4);
 pub const FhReassociation: windows_core::GUID = windows_core::GUID::from_u128(0x4d728e35_16fa_4320_9e8b_bfd7100a8846);

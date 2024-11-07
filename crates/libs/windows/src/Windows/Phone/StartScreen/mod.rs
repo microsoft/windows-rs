@@ -47,8 +47,11 @@ pub struct IDualSimTileStatics_Vtbl {
     CreateToastNotifierForSim2: usize,
 }
 windows_core::imp::define_interface!(IToastNotificationManagerStatics3, IToastNotificationManagerStatics3_Vtbl, 0x2717f54b_50df_4455_8e6e_41e0fc8e13ce);
-impl windows_core::RuntimeType for IToastNotificationManagerStatics3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IToastNotificationManagerStatics3 {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IToastNotificationManagerStatics3, windows_core::IUnknown, windows_core::IInspectable);
 impl IToastNotificationManagerStatics3 {
@@ -61,6 +64,9 @@ impl IToastNotificationManagerStatics3 {
         }
     }
 }
+impl windows_core::RuntimeType for IToastNotificationManagerStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IToastNotificationManagerStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -70,16 +76,16 @@ pub struct IToastNotificationManagerStatics3_Vtbl {
     CreateToastNotifierForSecondaryTile: usize,
 }
 #[cfg(feature = "UI_Notifications")]
+pub trait IToastNotificationManagerStatics3_Impl: Sized + windows_core::IUnknownImpl {
+    fn CreateToastNotifierForSecondaryTile(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::UI::Notifications::ToastNotifier>;
+}
+#[cfg(feature = "UI_Notifications")]
 impl windows_core::RuntimeName for IToastNotificationManagerStatics3 {
     const NAME: &'static str = "Windows.Phone.StartScreen.IToastNotificationManagerStatics3";
 }
 #[cfg(feature = "UI_Notifications")]
-pub trait IToastNotificationManagerStatics3_Impl: Sized + windows_core::IUnknownImpl {
-    fn CreateToastNotifierForSecondaryTile(&self, tileId: &windows_core::HSTRING) -> windows_core::Result<super::super::UI::Notifications::ToastNotifier>;
-}
-#[cfg(feature = "UI_Notifications")]
 impl IToastNotificationManagerStatics3_Vtbl {
-    pub const fn new<Identity: IToastNotificationManagerStatics3_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IToastNotificationManagerStatics3_Impl, const OFFSET: isize>() -> IToastNotificationManagerStatics3_Vtbl {
         unsafe extern "system" fn CreateToastNotifierForSecondaryTile<Identity: IToastNotificationManagerStatics3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tileid: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IToastNotificationManagerStatics3_Impl::CreateToastNotifierForSecondaryTile(this, core::mem::transmute(&tileid)) {
@@ -104,7 +110,6 @@ impl IToastNotificationManagerStatics3_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DualSimTile(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DualSimTile, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DualSimTile, IDualSimTile, IDualSimTileStatics);
 impl DualSimTile {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -215,7 +220,7 @@ impl windows_core::RuntimeType for DualSimTile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDualSimTile>();
 }
 unsafe impl windows_core::Interface for DualSimTile {
-    type Vtable = <IDualSimTile as windows_core::Interface>::Vtable;
+    type Vtable = IDualSimTile_Vtbl;
     const IID: windows_core::GUID = <IDualSimTile as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DualSimTile {

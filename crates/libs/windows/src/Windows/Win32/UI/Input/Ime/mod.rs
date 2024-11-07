@@ -47,9 +47,9 @@ pub unsafe fn ImmCreateIMCC(param0: u32) -> HIMCC {
     ImmCreateIMCC(param0)
 }
 #[inline]
-pub unsafe fn ImmCreateSoftKeyboard<P1>(param0: u32, param1: P1, param2: i32, param3: i32) -> super::super::super::Foundation::HWND
+pub unsafe fn ImmCreateSoftKeyboard<P0>(param0: u32, param1: P0, param2: i32, param3: i32) -> super::super::super::Foundation::HWND
 where
-    P1: windows_core::Param<super::super::super::Foundation::HWND>,
+    P0: windows_core::Param<super::super::super::Foundation::HWND>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmCreateSoftKeyboard(param0 : u32, param1 : super::super::super::Foundation:: HWND, param2 : i32, param3 : i32) -> super::super::super::Foundation:: HWND);
     ImmCreateSoftKeyboard(param0, param1.param().abi(), param2, param3)
@@ -94,31 +94,31 @@ pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::
     ImmDisableTextFrameService(idthread)
 }
 #[inline]
-pub unsafe fn ImmEnumInputContext<P2>(idthread: u32, lpfn: IMCENUMPROC, lparam: P2) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmEnumInputContext<P0>(idthread: u32, lpfn: IMCENUMPROC, lparam: P0) -> super::super::super::Foundation::BOOL
 where
-    P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
+    P0: windows_core::Param<super::super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmEnumInputContext(idthread : u32, lpfn : IMCENUMPROC, lparam : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: BOOL);
     ImmEnumInputContext(idthread, lpfn, lparam.param().abi())
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmEnumRegisterWordA<P0, P2, P4>(param0: P0, param1: REGISTERWORDENUMPROCA, lpszreading: P2, param3: u32, lpszregister: P4, param5: *mut core::ffi::c_void) -> u32
+pub unsafe fn ImmEnumRegisterWordA<P0, P1, P2>(param0: P0, param1: REGISTERWORDENUMPROCA, lpszreading: P1, param3: u32, lpszregister: P2, param5: *mut core::ffi::c_void) -> u32
 where
     P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
+    P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmEnumRegisterWordA(param0 : super::KeyboardAndMouse:: HKL, param1 : REGISTERWORDENUMPROCA, lpszreading : windows_core::PCSTR, param3 : u32, lpszregister : windows_core::PCSTR, param5 : *mut core::ffi::c_void) -> u32);
     ImmEnumRegisterWordA(param0.param().abi(), param1, lpszreading.param().abi(), param3, lpszregister.param().abi(), param5)
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmEnumRegisterWordW<P0, P2, P4>(param0: P0, param1: REGISTERWORDENUMPROCW, lpszreading: P2, param3: u32, lpszregister: P4, param5: *mut core::ffi::c_void) -> u32
+pub unsafe fn ImmEnumRegisterWordW<P0, P1, P2>(param0: P0, param1: REGISTERWORDENUMPROCW, lpszreading: P1, param3: u32, lpszregister: P2, param5: *mut core::ffi::c_void) -> u32
 where
     P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmEnumRegisterWordW(param0 : super::KeyboardAndMouse:: HKL, param1 : REGISTERWORDENUMPROCW, lpszreading : windows_core::PCWSTR, param3 : u32, lpszregister : windows_core::PCWSTR, param5 : *mut core::ffi::c_void) -> u32);
     ImmEnumRegisterWordW(param0.param().abi(), param1, lpszreading.param().abi(), param3, lpszregister.param().abi(), param5)
@@ -460,21 +460,21 @@ where
     ImmIsIME(param0.param().abi())
 }
 #[inline]
-pub unsafe fn ImmIsUIMessageA<P0, P2, P3>(param0: P0, param1: u32, param2: P2, param3: P3) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmIsUIMessageA<P0, P1, P2>(param0: P0, param1: u32, param2: P1, param3: P2) -> super::super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::super::super::Foundation::HWND>,
-    P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
-    P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
+    P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
+    P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmIsUIMessageA(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: BOOL);
     ImmIsUIMessageA(param0.param().abi(), param1, param2.param().abi(), param3.param().abi())
 }
 #[inline]
-pub unsafe fn ImmIsUIMessageW<P0, P2, P3>(param0: P0, param1: u32, param2: P2, param3: P3) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmIsUIMessageW<P0, P1, P2>(param0: P0, param1: u32, param2: P1, param3: P2) -> super::super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::super::super::Foundation::HWND>,
-    P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
-    P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
+    P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
+    P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmIsUIMessageW(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: BOOL);
     ImmIsUIMessageW(param0.param().abi(), param1, param2.param().abi(), param3.param().abi())
@@ -514,22 +514,22 @@ where
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmRegisterWordA<P0, P1, P3>(param0: P0, lpszreading: P1, param2: u32, lpszregister: P3) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmRegisterWordA<P0, P1, P2>(param0: P0, lpszreading: P1, param2: u32, lpszregister: P2) -> super::super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmRegisterWordA(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszregister : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
     ImmRegisterWordA(param0.param().abi(), lpszreading.param().abi(), param2, lpszregister.param().abi())
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmRegisterWordW<P0, P1, P3>(param0: P0, lpszreading: P1, param2: u32, lpszregister: P3) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmRegisterWordW<P0, P1, P2>(param0: P0, lpszreading: P1, param2: u32, lpszregister: P2) -> super::super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmRegisterWordW(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszregister : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
     ImmRegisterWordW(param0.param().abi(), lpszreading.param().abi(), param2, lpszregister.param().abi())
@@ -623,9 +623,9 @@ where
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmSetHotKey<P3>(param0: u32, param1: u32, param2: u32, param3: P3) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmSetHotKey<P0>(param0: u32, param1: u32, param2: u32, param3: P0) -> super::super::super::Foundation::BOOL
 where
-    P3: windows_core::Param<super::KeyboardAndMouse::HKL>,
+    P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmSetHotKey(param0 : u32, param1 : u32, param2 : u32, param3 : super::KeyboardAndMouse:: HKL) -> super::super::super::Foundation:: BOOL);
     ImmSetHotKey(param0, param1, param2, param3.param().abi())
@@ -681,27 +681,33 @@ where
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmUnregisterWordA<P0, P1, P3>(param0: P0, lpszreading: P1, param2: u32, lpszunregister: P3) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmUnregisterWordA<P0, P1, P2>(param0: P0, lpszreading: P1, param2: u32, lpszunregister: P2) -> super::super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmUnregisterWordA(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszunregister : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
     ImmUnregisterWordA(param0.param().abi(), lpszreading.param().abi(), param2, lpszunregister.param().abi())
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmUnregisterWordW<P0, P1, P3>(param0: P0, lpszreading: P1, param2: u32, lpszunregister: P3) -> super::super::super::Foundation::BOOL
+pub unsafe fn ImmUnregisterWordW<P0, P1, P2>(param0: P0, lpszreading: P1, param2: u32, lpszunregister: P2) -> super::super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmUnregisterWordW(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszunregister : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
     ImmUnregisterWordW(param0.param().abi(), lpszreading.param().abi(), param2, lpszunregister.param().abi())
 }
 windows_core::imp::define_interface!(IActiveIME, IActiveIME_Vtbl, 0x6fe20962_d077_11d0_8fe7_00aa006bcc59);
+impl core::ops::Deref for IActiveIME {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActiveIME, windows_core::IUnknown);
 impl IActiveIME {
     pub unsafe fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: windows_core::PWSTR, pdwprivate: *mut u32) -> windows_core::Result<()> {
@@ -763,33 +769,33 @@ impl IActiveIME {
     {
         (windows_core::Interface::vtable(self).SetCompositionString)(windows_core::Interface::as_raw(self), himc.param().abi(), dwindex, pcomp, dwcomplen, pread, dwreadlen).ok()
     }
-    pub unsafe fn ToAsciiEx<P4>(&self, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: P4, pdwtransbuf: *mut u32, pusize: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn ToAsciiEx<P0>(&self, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: P0, pdwtransbuf: *mut u32, pusize: *mut u32) -> windows_core::Result<()>
     where
-        P4: windows_core::Param<HIMC>,
+        P0: windows_core::Param<HIMC>,
     {
         (windows_core::Interface::vtable(self).ToAsciiEx)(windows_core::Interface::as_raw(self), uvirkey, uscancode, pbkeystate, fustate, himc.param().abi(), pdwtransbuf, pusize).ok()
     }
-    pub unsafe fn RegisterWord<P0, P2>(&self, szreading: P0, dwstyle: u32, szstring: P2) -> windows_core::Result<()>
+    pub unsafe fn RegisterWord<P0, P1>(&self, szreading: P0, dwstyle: u32, szstring: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).RegisterWord)(windows_core::Interface::as_raw(self), szreading.param().abi(), dwstyle, szstring.param().abi()).ok()
     }
-    pub unsafe fn UnregisterWord<P0, P2>(&self, szreading: P0, dwstyle: u32, szstring: P2) -> windows_core::Result<()>
+    pub unsafe fn UnregisterWord<P0, P1>(&self, szreading: P0, dwstyle: u32, szstring: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).UnregisterWord)(windows_core::Interface::as_raw(self), szreading.param().abi(), dwstyle, szstring.param().abi()).ok()
     }
     pub unsafe fn GetRegisterWordStyle(&self, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetRegisterWordStyle)(windows_core::Interface::as_raw(self), nitem, pstylebuf, pubufsize).ok()
     }
-    pub unsafe fn EnumRegisterWord<P0, P2>(&self, szreading: P0, dwstyle: u32, szregister: P2, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordW>
+    pub unsafe fn EnumRegisterWord<P0, P1>(&self, szreading: P0, dwstyle: u32, szregister: P1, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordW>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumRegisterWord)(windows_core::Interface::as_raw(self), szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -828,7 +834,7 @@ pub struct IActiveIME_Vtbl {
     pub GetLangId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-pub trait IActiveIME_Impl: windows_core::IUnknownImpl {
+pub trait IActiveIME_Impl: Sized + windows_core::IUnknownImpl {
     fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: windows_core::PWSTR, pdwprivate: *mut u32) -> windows_core::Result<()>;
     fn ConversionList(&self, himc: HIMC, szsource: &windows_core::PCWSTR, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> windows_core::Result<()>;
     fn Configure(&self, hkl: super::KeyboardAndMouse::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pregisterword: *const REGISTERWORDW) -> windows_core::Result<()>;
@@ -848,8 +854,10 @@ pub trait IActiveIME_Impl: windows_core::IUnknownImpl {
     fn GetLangId(&self) -> windows_core::Result<u16>;
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+impl windows_core::RuntimeName for IActiveIME {}
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 impl IActiveIME_Vtbl {
-    pub const fn new<Identity: IActiveIME_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IActiveIME_Impl, const OFFSET: isize>() -> IActiveIME_Vtbl {
         unsafe extern "system" fn Inquire<Identity: IActiveIME_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: windows_core::PWSTR, pdwprivate: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IActiveIME_Impl::Inquire(this, core::mem::transmute_copy(&dwsysteminfoflags), core::mem::transmute_copy(&pimeinfo), core::mem::transmute_copy(&szwndclass), core::mem::transmute_copy(&pdwprivate)).into()
@@ -961,8 +969,6 @@ impl IActiveIME_Vtbl {
         iid == &<IActiveIME as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-impl windows_core::RuntimeName for IActiveIME {}
 windows_core::imp::define_interface!(IActiveIME2, IActiveIME2_Vtbl, 0xe1c4bf0e_2d53_11d2_93e1_0060b067b86e);
 impl core::ops::Deref for IActiveIME2 {
     type Target = IActiveIME;
@@ -989,13 +995,15 @@ pub struct IActiveIME2_Vtbl {
     pub Unsleep: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-pub trait IActiveIME2_Impl: IActiveIME_Impl {
+pub trait IActiveIME2_Impl: Sized + IActiveIME_Impl {
     fn Sleep(&self) -> windows_core::Result<()>;
     fn Unsleep(&self, fdead: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
+impl windows_core::RuntimeName for IActiveIME2 {}
+#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 impl IActiveIME2_Vtbl {
-    pub const fn new<Identity: IActiveIME2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IActiveIME2_Impl, const OFFSET: isize>() -> IActiveIME2_Vtbl {
         unsafe extern "system" fn Sleep<Identity: IActiveIME2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IActiveIME2_Impl::Sleep(this).into()
@@ -1007,12 +1015,16 @@ impl IActiveIME2_Vtbl {
         Self { base__: IActiveIME_Vtbl::new::<Identity, OFFSET>(), Sleep: Sleep::<Identity, OFFSET>, Unsleep: Unsleep::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IActiveIME2 as windows_core::Interface>::IID
+        iid == &<IActiveIME2 as windows_core::Interface>::IID || iid == &<IActiveIME as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-impl windows_core::RuntimeName for IActiveIME2 {}
 windows_core::imp::define_interface!(IActiveIMMApp, IActiveIMMApp_Vtbl, 0x08c0e040_62d1_11d1_9326_0060b067b86e);
+impl core::ops::Deref for IActiveIMMApp {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActiveIMMApp, windows_core::IUnknown);
 impl IActiveIMMApp {
     pub unsafe fn AssociateContext<P0, P1>(&self, hwnd: P0, hime: P1) -> windows_core::Result<HIMC>
@@ -1050,21 +1062,21 @@ impl IActiveIMMApp {
         (windows_core::Interface::vtable(self).DestroyContext)(windows_core::Interface::as_raw(self), hime.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn EnumRegisterWordA<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordA>
+    pub unsafe fn EnumRegisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordA>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCSTR>,
-        P3: windows_core::Param<windows_core::PCSTR>,
+        P2: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumRegisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn EnumRegisterWordW<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordW>
+    pub unsafe fn EnumRegisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordW>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumRegisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1292,19 +1304,19 @@ impl IActiveIMMApp {
     {
         (windows_core::Interface::vtable(self).IsIME)(windows_core::Interface::as_raw(self), hkl.param().abi()).ok()
     }
-    pub unsafe fn IsUIMessageA<P0, P2, P3>(&self, hwndime: P0, msg: u32, wparam: P2, lparam: P3) -> windows_core::Result<()>
+    pub unsafe fn IsUIMessageA<P0, P1, P2>(&self, hwndime: P0, msg: u32, wparam: P1, lparam: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
-        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
         (windows_core::Interface::vtable(self).IsUIMessageA)(windows_core::Interface::as_raw(self), hwndime.param().abi(), msg, wparam.param().abi(), lparam.param().abi()).ok()
     }
-    pub unsafe fn IsUIMessageW<P0, P2, P3>(&self, hwndime: P0, msg: u32, wparam: P2, lparam: P3) -> windows_core::Result<()>
+    pub unsafe fn IsUIMessageW<P0, P1, P2>(&self, hwndime: P0, msg: u32, wparam: P1, lparam: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
-        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
         (windows_core::Interface::vtable(self).IsUIMessageW)(windows_core::Interface::as_raw(self), hwndime.param().abi(), msg, wparam.param().abi(), lparam.param().abi()).ok()
     }
@@ -1315,20 +1327,20 @@ impl IActiveIMMApp {
         (windows_core::Interface::vtable(self).NotifyIME)(windows_core::Interface::as_raw(self), himc.param().abi(), dwaction, dwindex, dwvalue).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn RegisterWordA<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3) -> windows_core::Result<()>
+    pub unsafe fn RegisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCSTR>,
-        P3: windows_core::Param<windows_core::PCSTR>,
+        P2: windows_core::Param<windows_core::PCSTR>,
     {
         (windows_core::Interface::vtable(self).RegisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn RegisterWordW<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3) -> windows_core::Result<()>
+    pub unsafe fn RegisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).RegisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi()).ok()
     }
@@ -1403,20 +1415,20 @@ impl IActiveIMMApp {
         (windows_core::Interface::vtable(self).SimulateHotKey)(windows_core::Interface::as_raw(self), hwnd.param().abi(), dwhotkeyid).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn UnregisterWordA<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P3) -> windows_core::Result<()>
+    pub unsafe fn UnregisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCSTR>,
-        P3: windows_core::Param<windows_core::PCSTR>,
+        P2: windows_core::Param<windows_core::PCSTR>,
     {
         (windows_core::Interface::vtable(self).UnregisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szunregister.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn UnregisterWordW<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P3) -> windows_core::Result<()>
+    pub unsafe fn UnregisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).UnregisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szunregister.param().abi()).ok()
     }
@@ -1429,11 +1441,11 @@ impl IActiveIMMApp {
     pub unsafe fn Deactivate(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Deactivate)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn OnDefWindowProc<P0, P2, P3>(&self, hwnd: P0, msg: u32, wparam: P2, lparam: P3) -> windows_core::Result<super::super::super::Foundation::LRESULT>
+    pub unsafe fn OnDefWindowProc<P0, P1, P2>(&self, hwnd: P0, msg: u32, wparam: P1, lparam: P2) -> windows_core::Result<super::super::super::Foundation::LRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
-        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OnDefWindowProc)(windows_core::Interface::as_raw(self), hwnd.param().abi(), msg, wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
@@ -1649,7 +1661,7 @@ pub struct IActiveIMMApp_Vtbl {
     pub EnumInputContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
-pub trait IActiveIMMApp_Impl: windows_core::IUnknownImpl {
+pub trait IActiveIMMApp_Impl: Sized + windows_core::IUnknownImpl {
     fn AssociateContext(&self, hwnd: super::super::super::Foundation::HWND, hime: HIMC) -> windows_core::Result<HIMC>;
     fn ConfigureIMEA(&self, hkl: super::KeyboardAndMouse::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDA) -> windows_core::Result<()>;
     fn ConfigureIMEW(&self, hkl: super::KeyboardAndMouse::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDW) -> windows_core::Result<()>;
@@ -1720,8 +1732,10 @@ pub trait IActiveIMMApp_Impl: windows_core::IUnknownImpl {
     fn EnumInputContext(&self, idthread: u32) -> windows_core::Result<IEnumInputContext>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
+impl windows_core::RuntimeName for IActiveIMMApp {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
 impl IActiveIMMApp_Vtbl {
-    pub const fn new<Identity: IActiveIMMApp_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IActiveIMMApp_Impl, const OFFSET: isize>() -> IActiveIMMApp_Vtbl {
         unsafe extern "system" fn AssociateContext<Identity: IActiveIMMApp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, hime: HIMC, phprev: *mut HIMC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IActiveIMMApp_Impl::AssociateContext(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&hime)) {
@@ -2160,9 +2174,13 @@ impl IActiveIMMApp_Vtbl {
         iid == &<IActiveIMMApp as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
-impl windows_core::RuntimeName for IActiveIMMApp {}
 windows_core::imp::define_interface!(IActiveIMMIME, IActiveIMMIME_Vtbl, 0x08c03411_f96b_11d0_a475_00aa006bcc59);
+impl core::ops::Deref for IActiveIMMIME {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActiveIMMIME, windows_core::IUnknown);
 impl IActiveIMMIME {
     pub unsafe fn AssociateContext<P0, P1>(&self, hwnd: P0, hime: P1) -> windows_core::Result<HIMC>
@@ -2200,21 +2218,21 @@ impl IActiveIMMIME {
         (windows_core::Interface::vtable(self).DestroyContext)(windows_core::Interface::as_raw(self), hime.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn EnumRegisterWordA<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordA>
+    pub unsafe fn EnumRegisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordA>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCSTR>,
-        P3: windows_core::Param<windows_core::PCSTR>,
+        P2: windows_core::Param<windows_core::PCSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumRegisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn EnumRegisterWordW<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordW>
+    pub unsafe fn EnumRegisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2, pdata: *const core::ffi::c_void) -> windows_core::Result<IEnumRegisterWordW>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).EnumRegisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2442,19 +2460,19 @@ impl IActiveIMMIME {
     {
         (windows_core::Interface::vtable(self).IsIME)(windows_core::Interface::as_raw(self), hkl.param().abi()).ok()
     }
-    pub unsafe fn IsUIMessageA<P0, P2, P3>(&self, hwndime: P0, msg: u32, wparam: P2, lparam: P3) -> windows_core::Result<()>
+    pub unsafe fn IsUIMessageA<P0, P1, P2>(&self, hwndime: P0, msg: u32, wparam: P1, lparam: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
-        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
         (windows_core::Interface::vtable(self).IsUIMessageA)(windows_core::Interface::as_raw(self), hwndime.param().abi(), msg, wparam.param().abi(), lparam.param().abi()).ok()
     }
-    pub unsafe fn IsUIMessageW<P0, P2, P3>(&self, hwndime: P0, msg: u32, wparam: P2, lparam: P3) -> windows_core::Result<()>
+    pub unsafe fn IsUIMessageW<P0, P1, P2>(&self, hwndime: P0, msg: u32, wparam: P1, lparam: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
-        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
         (windows_core::Interface::vtable(self).IsUIMessageW)(windows_core::Interface::as_raw(self), hwndime.param().abi(), msg, wparam.param().abi(), lparam.param().abi()).ok()
     }
@@ -2465,20 +2483,20 @@ impl IActiveIMMIME {
         (windows_core::Interface::vtable(self).NotifyIME)(windows_core::Interface::as_raw(self), himc.param().abi(), dwaction, dwindex, dwvalue).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn RegisterWordA<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3) -> windows_core::Result<()>
+    pub unsafe fn RegisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCSTR>,
-        P3: windows_core::Param<windows_core::PCSTR>,
+        P2: windows_core::Param<windows_core::PCSTR>,
     {
         (windows_core::Interface::vtable(self).RegisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn RegisterWordW<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P3) -> windows_core::Result<()>
+    pub unsafe fn RegisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szregister: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).RegisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szregister.param().abi()).ok()
     }
@@ -2553,20 +2571,20 @@ impl IActiveIMMIME {
         (windows_core::Interface::vtable(self).SimulateHotKey)(windows_core::Interface::as_raw(self), hwnd.param().abi(), dwhotkeyid).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn UnregisterWordA<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P3) -> windows_core::Result<()>
+    pub unsafe fn UnregisterWordA<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCSTR>,
-        P3: windows_core::Param<windows_core::PCSTR>,
+        P2: windows_core::Param<windows_core::PCSTR>,
     {
         (windows_core::Interface::vtable(self).UnregisterWordA)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szunregister.param().abi()).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn UnregisterWordW<P0, P1, P3>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P3) -> windows_core::Result<()>
+    pub unsafe fn UnregisterWordW<P0, P1, P2>(&self, hkl: P0, szreading: P1, dwstyle: u32, szunregister: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).UnregisterWordW)(windows_core::Interface::as_raw(self), hkl.param().abi(), szreading.param().abi(), dwstyle, szunregister.param().abi()).ok()
     }
@@ -2645,15 +2663,15 @@ impl IActiveIMMIME {
         (windows_core::Interface::vtable(self).GetHotKey)(windows_core::Interface::as_raw(self), dwhotkeyid, pumodifiers, puvkey, phkl).ok()
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-    pub unsafe fn SetHotKey<P3>(&self, dwhotkeyid: u32, umodifiers: u32, uvkey: u32, hkl: P3) -> windows_core::Result<()>
+    pub unsafe fn SetHotKey<P0>(&self, dwhotkeyid: u32, umodifiers: u32, uvkey: u32, hkl: P0) -> windows_core::Result<()>
     where
-        P3: windows_core::Param<super::KeyboardAndMouse::HKL>,
+        P0: windows_core::Param<super::KeyboardAndMouse::HKL>,
     {
         (windows_core::Interface::vtable(self).SetHotKey)(windows_core::Interface::as_raw(self), dwhotkeyid, umodifiers, uvkey, hkl.param().abi()).ok()
     }
-    pub unsafe fn CreateSoftKeyboard<P1>(&self, utype: u32, howner: P1, x: i32, y: i32) -> windows_core::Result<super::super::super::Foundation::HWND>
+    pub unsafe fn CreateSoftKeyboard<P0>(&self, utype: u32, howner: P0, x: i32, y: i32) -> windows_core::Result<super::super::super::Foundation::HWND>
     where
-        P1: windows_core::Param<super::super::super::Foundation::HWND>,
+        P0: windows_core::Param<super::super::super::Foundation::HWND>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateSoftKeyboard)(windows_core::Interface::as_raw(self), utype, howner.param().abi(), x, y, &mut result__).map(|| result__)
@@ -2741,20 +2759,20 @@ impl IActiveIMMIME {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RequestMessageW)(windows_core::Interface::as_raw(self), himc.param().abi(), wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn SendIMCA<P0, P2, P3>(&self, hwnd: P0, umsg: u32, wparam: P2, lparam: P3) -> windows_core::Result<super::super::super::Foundation::LRESULT>
+    pub unsafe fn SendIMCA<P0, P1, P2>(&self, hwnd: P0, umsg: u32, wparam: P1, lparam: P2) -> windows_core::Result<super::super::super::Foundation::LRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
-        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SendIMCA)(windows_core::Interface::as_raw(self), hwnd.param().abi(), umsg, wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn SendIMCW<P0, P2, P3>(&self, hwnd: P0, umsg: u32, wparam: P2, lparam: P3) -> windows_core::Result<super::super::super::Foundation::LRESULT>
+    pub unsafe fn SendIMCW<P0, P1, P2>(&self, hwnd: P0, umsg: u32, wparam: P1, lparam: P2) -> windows_core::Result<super::super::super::Foundation::LRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::HWND>,
-        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).SendIMCW)(windows_core::Interface::as_raw(self), hwnd.param().abi(), umsg, wparam.param().abi(), lparam.param().abi(), &mut result__).map(|| result__)
@@ -2955,7 +2973,7 @@ pub struct IActiveIMMIME_Vtbl {
     pub IsSleeping: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
-pub trait IActiveIMMIME_Impl: windows_core::IUnknownImpl {
+pub trait IActiveIMMIME_Impl: Sized + windows_core::IUnknownImpl {
     fn AssociateContext(&self, hwnd: super::super::super::Foundation::HWND, hime: HIMC) -> windows_core::Result<HIMC>;
     fn ConfigureIMEA(&self, hkl: super::KeyboardAndMouse::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDA) -> windows_core::Result<()>;
     fn ConfigureIMEW(&self, hkl: super::KeyboardAndMouse::HKL, hwnd: super::super::super::Foundation::HWND, dwmode: u32, pdata: *const REGISTERWORDW) -> windows_core::Result<()>;
@@ -3046,8 +3064,10 @@ pub trait IActiveIMMIME_Impl: windows_core::IUnknownImpl {
     fn IsSleeping(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
+impl windows_core::RuntimeName for IActiveIMMIME {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
 impl IActiveIMMIME_Vtbl {
-    pub const fn new<Identity: IActiveIMMIME_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IActiveIMMIME_Impl, const OFFSET: isize>() -> IActiveIMMIME_Vtbl {
         unsafe extern "system" fn AssociateContext<Identity: IActiveIMMIME_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, hime: HIMC, phprev: *mut HIMC) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IActiveIMMIME_Impl::AssociateContext(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&hime)) {
@@ -3646,9 +3666,13 @@ impl IActiveIMMIME_Vtbl {
         iid == &<IActiveIMMIME as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_KeyboardAndMouse"))]
-impl windows_core::RuntimeName for IActiveIMMIME {}
 windows_core::imp::define_interface!(IActiveIMMMessagePumpOwner, IActiveIMMMessagePumpOwner_Vtbl, 0xb5cf2cfa_8aeb_11d1_9364_0060b067b86e);
+impl core::ops::Deref for IActiveIMMMessagePumpOwner {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActiveIMMMessagePumpOwner, windows_core::IUnknown);
 impl IActiveIMMMessagePumpOwner {
     pub unsafe fn Start(&self) -> windows_core::Result<()> {
@@ -3682,7 +3706,7 @@ pub struct IActiveIMMMessagePumpOwner_Vtbl {
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub trait IActiveIMMMessagePumpOwner_Impl: windows_core::IUnknownImpl {
+pub trait IActiveIMMMessagePumpOwner_Impl: Sized + windows_core::IUnknownImpl {
     fn Start(&self) -> windows_core::Result<()>;
     fn End(&self) -> windows_core::Result<()>;
     fn OnTranslateMessage(&self, pmsg: *const super::super::WindowsAndMessaging::MSG) -> windows_core::Result<()>;
@@ -3690,8 +3714,10 @@ pub trait IActiveIMMMessagePumpOwner_Impl: windows_core::IUnknownImpl {
     fn Resume(&self, dwcookie: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::RuntimeName for IActiveIMMMessagePumpOwner {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IActiveIMMMessagePumpOwner_Vtbl {
-    pub const fn new<Identity: IActiveIMMMessagePumpOwner_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IActiveIMMMessagePumpOwner_Impl, const OFFSET: isize>() -> IActiveIMMMessagePumpOwner_Vtbl {
         unsafe extern "system" fn Start<Identity: IActiveIMMMessagePumpOwner_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IActiveIMMMessagePumpOwner_Impl::Start(this).into()
@@ -3731,15 +3757,19 @@ impl IActiveIMMMessagePumpOwner_Vtbl {
         iid == &<IActiveIMMMessagePumpOwner as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::RuntimeName for IActiveIMMMessagePumpOwner {}
 windows_core::imp::define_interface!(IActiveIMMRegistrar, IActiveIMMRegistrar_Vtbl, 0xb3458082_bd00_11d1_939b_0060b067b86e);
+impl core::ops::Deref for IActiveIMMRegistrar {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IActiveIMMRegistrar, windows_core::IUnknown);
 impl IActiveIMMRegistrar {
-    pub unsafe fn RegisterIME<P2, P3>(&self, rclsid: *const windows_core::GUID, lgid: u16, psziconfile: P2, pszdesc: P3) -> windows_core::Result<()>
+    pub unsafe fn RegisterIME<P0, P1>(&self, rclsid: *const windows_core::GUID, lgid: u16, psziconfile: P0, pszdesc: P1) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).RegisterIME)(windows_core::Interface::as_raw(self), rclsid, lgid, psziconfile.param().abi(), pszdesc.param().abi()).ok()
     }
@@ -3753,12 +3783,13 @@ pub struct IActiveIMMRegistrar_Vtbl {
     pub RegisterIME: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u16, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub UnregisterIME: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
-pub trait IActiveIMMRegistrar_Impl: windows_core::IUnknownImpl {
+pub trait IActiveIMMRegistrar_Impl: Sized + windows_core::IUnknownImpl {
     fn RegisterIME(&self, rclsid: *const windows_core::GUID, lgid: u16, psziconfile: &windows_core::PCWSTR, pszdesc: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn UnregisterIME(&self, rclsid: *const windows_core::GUID) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IActiveIMMRegistrar {}
 impl IActiveIMMRegistrar_Vtbl {
-    pub const fn new<Identity: IActiveIMMRegistrar_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IActiveIMMRegistrar_Impl, const OFFSET: isize>() -> IActiveIMMRegistrar_Vtbl {
         unsafe extern "system" fn RegisterIME<Identity: IActiveIMMRegistrar_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const windows_core::GUID, lgid: u16, psziconfile: windows_core::PCWSTR, pszdesc: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IActiveIMMRegistrar_Impl::RegisterIME(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&lgid), core::mem::transmute(&psziconfile), core::mem::transmute(&pszdesc)).into()
@@ -3777,8 +3808,13 @@ impl IActiveIMMRegistrar_Vtbl {
         iid == &<IActiveIMMRegistrar as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IActiveIMMRegistrar {}
 windows_core::imp::define_interface!(IEnumInputContext, IEnumInputContext_Vtbl, 0x09b5eab0_f997_11d1_93d4_0060b067b86e);
+impl core::ops::Deref for IEnumInputContext {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumInputContext, windows_core::IUnknown);
 impl IEnumInputContext {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumInputContext> {
@@ -3803,14 +3839,15 @@ pub struct IEnumInputContext_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IEnumInputContext_Impl: windows_core::IUnknownImpl {
+pub trait IEnumInputContext_Impl: Sized + windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumInputContext>;
     fn Next(&self, ulcount: u32, rginputcontext: *mut HIMC, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IEnumInputContext {}
 impl IEnumInputContext_Vtbl {
-    pub const fn new<Identity: IEnumInputContext_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEnumInputContext_Impl, const OFFSET: isize>() -> IEnumInputContext_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumInputContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEnumInputContext_Impl::Clone(this) {
@@ -3845,8 +3882,13 @@ impl IEnumInputContext_Vtbl {
         iid == &<IEnumInputContext as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IEnumInputContext {}
 windows_core::imp::define_interface!(IEnumRegisterWordA, IEnumRegisterWordA_Vtbl, 0x08c03412_f96b_11d0_a475_00aa006bcc59);
+impl core::ops::Deref for IEnumRegisterWordA {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumRegisterWordA, windows_core::IUnknown);
 impl IEnumRegisterWordA {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumRegisterWordA> {
@@ -3871,14 +3913,15 @@ pub struct IEnumRegisterWordA_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IEnumRegisterWordA_Impl: windows_core::IUnknownImpl {
+pub trait IEnumRegisterWordA_Impl: Sized + windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumRegisterWordA>;
     fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDA, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IEnumRegisterWordA {}
 impl IEnumRegisterWordA_Vtbl {
-    pub const fn new<Identity: IEnumRegisterWordA_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEnumRegisterWordA_Impl, const OFFSET: isize>() -> IEnumRegisterWordA_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumRegisterWordA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEnumRegisterWordA_Impl::Clone(this) {
@@ -3913,8 +3956,13 @@ impl IEnumRegisterWordA_Vtbl {
         iid == &<IEnumRegisterWordA as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IEnumRegisterWordA {}
 windows_core::imp::define_interface!(IEnumRegisterWordW, IEnumRegisterWordW_Vtbl, 0x4955dd31_b159_11d0_8fcf_00aa006bcc59);
+impl core::ops::Deref for IEnumRegisterWordW {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IEnumRegisterWordW, windows_core::IUnknown);
 impl IEnumRegisterWordW {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumRegisterWordW> {
@@ -3939,14 +3987,15 @@ pub struct IEnumRegisterWordW_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IEnumRegisterWordW_Impl: windows_core::IUnknownImpl {
+pub trait IEnumRegisterWordW_Impl: Sized + windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IEnumRegisterWordW>;
     fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDW, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, ulcount: u32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IEnumRegisterWordW {}
 impl IEnumRegisterWordW_Vtbl {
-    pub const fn new<Identity: IEnumRegisterWordW_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEnumRegisterWordW_Impl, const OFFSET: isize>() -> IEnumRegisterWordW_Vtbl {
         unsafe extern "system" fn Clone<Identity: IEnumRegisterWordW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEnumRegisterWordW_Impl::Clone(this) {
@@ -3981,7 +4030,6 @@ impl IEnumRegisterWordW_Vtbl {
         iid == &<IEnumRegisterWordW as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IEnumRegisterWordW {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IFEClassFactory, IFEClassFactory_Vtbl, 0);
 #[cfg(feature = "Win32_System_Com")]
@@ -3994,24 +4042,32 @@ impl core::ops::Deref for IFEClassFactory {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IFEClassFactory, windows_core::IUnknown, super::super::super::System::Com::IClassFactory);
 #[cfg(feature = "Win32_System_Com")]
+impl IFEClassFactory {}
+#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct IFEClassFactory_Vtbl {
     pub base__: super::super::super::System::Com::IClassFactory_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IFEClassFactory_Impl: super::super::super::System::Com::IClassFactory_Impl {}
+pub trait IFEClassFactory_Impl: Sized + super::super::super::System::Com::IClassFactory_Impl {}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IFEClassFactory {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFEClassFactory_Vtbl {
-    pub const fn new<Identity: IFEClassFactory_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IFEClassFactory_Impl, const OFFSET: isize>() -> IFEClassFactory_Vtbl {
         Self { base__: super::super::super::System::Com::IClassFactory_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFEClassFactory as windows_core::Interface>::IID
+        iid == &<IFEClassFactory as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IClassFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IFEClassFactory {}
 windows_core::imp::define_interface!(IFECommon, IFECommon_Vtbl, 0x019f7151_e6db_11d0_83c3_00c04fddb82e);
+impl core::ops::Deref for IFECommon {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFECommon, windows_core::IUnknown);
 impl IFECommon {
     pub unsafe fn IsDefaultIME(&self, szname: &[u8]) -> windows_core::Result<()> {
@@ -4035,14 +4091,15 @@ pub struct IFECommon_Vtbl {
     pub InvokeWordRegDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IMEDLG) -> windows_core::HRESULT,
     pub InvokeDictToolDialog: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IMEDLG) -> windows_core::HRESULT,
 }
-pub trait IFECommon_Impl: windows_core::IUnknownImpl {
+pub trait IFECommon_Impl: Sized + windows_core::IUnknownImpl {
     fn IsDefaultIME(&self, szname: &windows_core::PCSTR, cszname: i32) -> windows_core::Result<()>;
     fn SetDefaultIME(&self) -> windows_core::Result<()>;
     fn InvokeWordRegDialog(&self, pimedlg: *mut IMEDLG) -> windows_core::Result<()>;
     fn InvokeDictToolDialog(&self, pimedlg: *mut IMEDLG) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IFECommon {}
 impl IFECommon_Vtbl {
-    pub const fn new<Identity: IFECommon_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IFECommon_Impl, const OFFSET: isize>() -> IFECommon_Vtbl {
         unsafe extern "system" fn IsDefaultIME<Identity: IFECommon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szname: windows_core::PCSTR, cszname: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFECommon_Impl::IsDefaultIME(this, core::mem::transmute(&szname), core::mem::transmute_copy(&cszname)).into()
@@ -4071,8 +4128,13 @@ impl IFECommon_Vtbl {
         iid == &<IFECommon as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IFECommon {}
 windows_core::imp::define_interface!(IFEDictionary, IFEDictionary_Vtbl, 0x019f7153_e6db_11d0_83c3_00c04fddb82e);
+impl core::ops::Deref for IFEDictionary {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFEDictionary, windows_core::IUnknown);
 impl IFEDictionary {
     pub unsafe fn Open(&self, pchdictpath: Option<&mut [u8; 260]>, pshf: *mut IMESHF) -> windows_core::Result<()> {
@@ -4125,12 +4187,12 @@ impl IFEDictionary {
     pub unsafe fn RegisterDependency(&self, reg: IMEREG, pdp: *mut IMEDP) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RegisterDependency)(windows_core::Interface::as_raw(self), reg, pdp).ok()
     }
-    pub unsafe fn GetDependencies<P0, P1, P3, P4>(&self, pwchkakarireading: P0, pwchkakaridisplay: P1, ulkakaripos: u32, pwchukereading: P3, pwchukedisplay: P4, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetDependencies<P0, P1, P2, P3>(&self, pwchkakarireading: P0, pwchkakaridisplay: P1, ulkakaripos: u32, pwchukereading: P2, pwchukedisplay: P3, ulukepos: u32, jrel: IMEREL, ulwordsrc: u32, pchbuffer: *mut u8, cbbuffer: u32, pcdp: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
-        P4: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).GetDependencies)(windows_core::Interface::as_raw(self), pwchkakarireading.param().abi(), pwchkakaridisplay.param().abi(), ulkakaripos, pwchukereading.param().abi(), pwchukedisplay.param().abi(), ulukepos, jrel, ulwordsrc, pchbuffer, cbbuffer, pcdp).ok()
     }
@@ -4168,7 +4230,7 @@ pub struct IFEDictionary_Vtbl {
     pub ConvertFromOldMSIME: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, PFNLOG, IMEREG) -> windows_core::HRESULT,
     pub ConvertFromUserToSys: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IFEDictionary_Impl: windows_core::IUnknownImpl {
+pub trait IFEDictionary_Impl: Sized + windows_core::IUnknownImpl {
     fn Open(&self, pchdictpath: &windows_core::PSTR, pshf: *mut IMESHF) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
     fn GetHeader(&self, pchdictpath: &windows_core::PSTR, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> windows_core::Result<()>;
@@ -4187,8 +4249,9 @@ pub trait IFEDictionary_Impl: windows_core::IUnknownImpl {
     fn ConvertFromOldMSIME(&self, pchdic: &windows_core::PCSTR, pfnlog: PFNLOG, reg: IMEREG) -> windows_core::Result<()>;
     fn ConvertFromUserToSys(&self) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IFEDictionary {}
 impl IFEDictionary_Vtbl {
-    pub const fn new<Identity: IFEDictionary_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IFEDictionary_Impl, const OFFSET: isize>() -> IFEDictionary_Vtbl {
         unsafe extern "system" fn Open<Identity: IFEDictionary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchdictpath: windows_core::PSTR, pshf: *mut IMESHF) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFEDictionary_Impl::Open(this, core::mem::transmute(&pchdictpath), core::mem::transmute_copy(&pshf)).into()
@@ -4282,8 +4345,13 @@ impl IFEDictionary_Vtbl {
         iid == &<IFEDictionary as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IFEDictionary {}
 windows_core::imp::define_interface!(IFELanguage, IFELanguage_Vtbl, 0x019f7152_e6db_11d0_83c3_00c04fddb82e);
+impl core::ops::Deref for IFELanguage {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFELanguage, windows_core::IUnknown);
 impl IFELanguage {
     pub unsafe fn Open(&self) -> windows_core::Result<()> {
@@ -4292,9 +4360,9 @@ impl IFELanguage {
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetJMorphResult<P3>(&self, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: P3, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> windows_core::Result<()>
+    pub unsafe fn GetJMorphResult<P0>(&self, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: P0, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> windows_core::Result<()>
     where
-        P3: windows_core::Param<windows_core::PCWSTR>,
+        P0: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).GetJMorphResult)(windows_core::Interface::as_raw(self), dwrequest, dwcmode, cwchinput, pwchinput.param().abi(), pfcinfo, ppresult).ok()
     }
@@ -4324,7 +4392,7 @@ pub struct IFELanguage_Vtbl {
     pub GetPhonetic: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, i32, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetConversion: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, i32, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-pub trait IFELanguage_Impl: windows_core::IUnknownImpl {
+pub trait IFELanguage_Impl: Sized + windows_core::IUnknownImpl {
     fn Open(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
     fn GetJMorphResult(&self, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: &windows_core::PCWSTR, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> windows_core::Result<()>;
@@ -4332,8 +4400,9 @@ pub trait IFELanguage_Impl: windows_core::IUnknownImpl {
     fn GetPhonetic(&self, string: &windows_core::BSTR, start: i32, length: i32, phonetic: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetConversion(&self, string: &windows_core::BSTR, start: i32, length: i32, result: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IFELanguage {}
 impl IFELanguage_Vtbl {
-    pub const fn new<Identity: IFELanguage_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IFELanguage_Impl, const OFFSET: isize>() -> IFELanguage_Vtbl {
         unsafe extern "system" fn Open<Identity: IFELanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFELanguage_Impl::Open(this).into()
@@ -4372,15 +4441,20 @@ impl IFELanguage_Vtbl {
         iid == &<IFELanguage as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IFELanguage {}
 windows_core::imp::define_interface!(IImePad, IImePad_Vtbl, 0x5d8e643a_c3a9_11d1_afef_00805f0c8b6d);
+impl core::ops::Deref for IImePad {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IImePad, windows_core::IUnknown);
 impl IImePad {
-    pub unsafe fn Request<P0, P2, P3>(&self, piimepadapplet: P0, reqid: IME_PAD_REQUEST_FLAGS, wparam: P2, lparam: P3) -> windows_core::Result<()>
+    pub unsafe fn Request<P0, P1, P2>(&self, piimepadapplet: P0, reqid: IME_PAD_REQUEST_FLAGS, wparam: P1, lparam: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IImePadApplet>,
-        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
         (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), piimepadapplet.param().abi(), reqid.0 as _, wparam.param().abi(), lparam.param().abi()).ok()
     }
@@ -4390,11 +4464,12 @@ pub struct IImePad_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM) -> windows_core::HRESULT,
 }
-pub trait IImePad_Impl: windows_core::IUnknownImpl {
+pub trait IImePad_Impl: Sized + windows_core::IUnknownImpl {
     fn Request(&self, piimepadapplet: Option<&IImePadApplet>, reqid: &IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IImePad {}
 impl IImePad_Vtbl {
-    pub const fn new<Identity: IImePad_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IImePad_Impl, const OFFSET: isize>() -> IImePad_Vtbl {
         unsafe extern "system" fn Request<Identity: IImePad_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piimepadapplet: *mut core::ffi::c_void, reqid: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IImePad_Impl::Request(this, windows_core::from_raw_borrowed(&piimepadapplet), core::mem::transmute(&reqid), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
@@ -4405,8 +4480,13 @@ impl IImePad_Vtbl {
         iid == &<IImePad as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IImePad {}
 windows_core::imp::define_interface!(IImePadApplet, IImePadApplet_Vtbl, 0x5d8e643b_c3a9_11d1_afef_00805f0c8b6d);
+impl core::ops::Deref for IImePadApplet {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IImePadApplet, windows_core::IUnknown);
 impl IImePadApplet {
     pub unsafe fn Initialize<P0>(&self, lpiimepad: P0) -> windows_core::Result<()>
@@ -4428,11 +4508,11 @@ impl IImePadApplet {
     {
         (windows_core::Interface::vtable(self).CreateUI)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), lpimeappletui).ok()
     }
-    pub unsafe fn Notify<P0, P2, P3>(&self, lpimepad: P0, notify: i32, wparam: P2, lparam: P3) -> windows_core::Result<()>
+    pub unsafe fn Notify<P0, P1, P2>(&self, lpimepad: P0, notify: i32, wparam: P1, lparam: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
-        P2: windows_core::Param<super::super::super::Foundation::WPARAM>,
-        P3: windows_core::Param<super::super::super::Foundation::LPARAM>,
+        P1: windows_core::Param<super::super::super::Foundation::WPARAM>,
+        P2: windows_core::Param<super::super::super::Foundation::LPARAM>,
     {
         (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), lpimepad.param().abi(), notify, wparam.param().abi(), lparam.param().abi()).ok()
     }
@@ -4450,7 +4530,7 @@ pub struct IImePadApplet_Vtbl {
     pub Notify: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub trait IImePadApplet_Impl: windows_core::IUnknownImpl {
+pub trait IImePadApplet_Impl: Sized + windows_core::IUnknownImpl {
     fn Initialize(&self, lpiimepad: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Terminate(&self) -> windows_core::Result<()>;
     fn GetAppletConfig(&self, lpappletcfg: *mut IMEAPPLETCFG) -> windows_core::Result<()>;
@@ -4458,8 +4538,10 @@ pub trait IImePadApplet_Impl: windows_core::IUnknownImpl {
     fn Notify(&self, lpimepad: Option<&windows_core::IUnknown>, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::RuntimeName for IImePadApplet {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl IImePadApplet_Vtbl {
-    pub const fn new<Identity: IImePadApplet_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IImePadApplet_Impl, const OFFSET: isize>() -> IImePadApplet_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IImePadApplet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpiimepad: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IImePadApplet_Impl::Initialize(this, windows_core::from_raw_borrowed(&lpiimepad)).into()
@@ -4493,9 +4575,13 @@ impl IImePadApplet_Vtbl {
         iid == &<IImePadApplet as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::RuntimeName for IImePadApplet {}
 windows_core::imp::define_interface!(IImePlugInDictDictionaryList, IImePlugInDictDictionaryList_Vtbl, 0x98752974_b0a6_489b_8f6f_bff3769c8eeb);
+impl core::ops::Deref for IImePlugInDictDictionaryList {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IImePlugInDictDictionaryList, windows_core::IUnknown);
 impl IImePlugInDictDictionaryList {
     #[cfg(feature = "Win32_System_Com")]
@@ -4519,13 +4605,15 @@ pub struct IImePlugInDictDictionaryList_Vtbl {
     pub DeleteDictionary: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IImePlugInDictDictionaryList_Impl: windows_core::IUnknownImpl {
+pub trait IImePlugInDictDictionaryList_Impl: Sized + windows_core::IUnknownImpl {
     fn GetDictionariesInUse(&self, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn DeleteDictionary(&self, bstrdictionaryguid: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IImePlugInDictDictionaryList {}
+#[cfg(feature = "Win32_System_Com")]
 impl IImePlugInDictDictionaryList_Vtbl {
-    pub const fn new<Identity: IImePlugInDictDictionaryList_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IImePlugInDictDictionaryList_Impl, const OFFSET: isize>() -> IImePlugInDictDictionaryList_Vtbl {
         unsafe extern "system" fn GetDictionariesInUse<Identity: IImePlugInDictDictionaryList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IImePlugInDictDictionaryList_Impl::GetDictionariesInUse(this, core::mem::transmute_copy(&prgdictionaryguid), core::mem::transmute_copy(&prgdatecreated), core::mem::transmute_copy(&prgfencrypted)).into()
@@ -4544,9 +4632,13 @@ impl IImePlugInDictDictionaryList_Vtbl {
         iid == &<IImePlugInDictDictionaryList as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IImePlugInDictDictionaryList {}
 windows_core::imp::define_interface!(IImeSpecifyApplets, IImeSpecifyApplets_Vtbl, 0x5d8e643c_c3a9_11d1_afef_00805f0c8b6d);
+impl core::ops::Deref for IImeSpecifyApplets {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IImeSpecifyApplets, windows_core::IUnknown);
 impl IImeSpecifyApplets {
     pub unsafe fn GetAppletIIDList(&self, refiid: *const windows_core::GUID, lpiidlist: *mut APPLETIDLIST) -> windows_core::Result<()> {
@@ -4558,11 +4650,12 @@ pub struct IImeSpecifyApplets_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAppletIIDList: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut APPLETIDLIST) -> windows_core::HRESULT,
 }
-pub trait IImeSpecifyApplets_Impl: windows_core::IUnknownImpl {
+pub trait IImeSpecifyApplets_Impl: Sized + windows_core::IUnknownImpl {
     fn GetAppletIIDList(&self, refiid: *const windows_core::GUID, lpiidlist: *mut APPLETIDLIST) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IImeSpecifyApplets {}
 impl IImeSpecifyApplets_Vtbl {
-    pub const fn new<Identity: IImeSpecifyApplets_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IImeSpecifyApplets_Impl, const OFFSET: isize>() -> IImeSpecifyApplets_Vtbl {
         unsafe extern "system" fn GetAppletIIDList<Identity: IImeSpecifyApplets_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, refiid: *const windows_core::GUID, lpiidlist: *mut APPLETIDLIST) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IImeSpecifyApplets_Impl::GetAppletIIDList(this, core::mem::transmute_copy(&refiid), core::mem::transmute_copy(&lpiidlist)).into()
@@ -4573,7 +4666,6 @@ impl IImeSpecifyApplets_Vtbl {
         iid == &<IImeSpecifyApplets as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IImeSpecifyApplets {}
 pub const ATTR_CONVERTED: u32 = 2u32;
 pub const ATTR_FIXEDCONVERTED: u32 = 5u32;
 pub const ATTR_INPUT: u32 = 0u32;
@@ -5344,46 +5436,81 @@ pub const szImeKorea: windows_core::PCWSTR = windows_core::w!("MSIME.Korea");
 pub const szImeTaiwan: windows_core::PCWSTR = windows_core::w!("MSIME.Taiwan");
 pub const wchPrivate1: u32 = 57344u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GET_CONVERSION_LIST_FLAG(pub u32);
 impl windows_core::TypeKind for GET_CONVERSION_LIST_FLAG {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for GET_CONVERSION_LIST_FLAG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GET_CONVERSION_LIST_FLAG").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GET_GUIDE_LINE_TYPE(pub u32);
 impl windows_core::TypeKind for GET_GUIDE_LINE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for GET_GUIDE_LINE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GET_GUIDE_LINE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMEFMT(pub i32);
 impl windows_core::TypeKind for IMEFMT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMEFMT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMEFMT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMEREG(pub i32);
 impl windows_core::TypeKind for IMEREG {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMEREG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMEREG").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMEREL(pub i32);
 impl windows_core::TypeKind for IMEREL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMEREL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMEREL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMEUCT(pub i32);
 impl windows_core::TypeKind for IMEUCT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMEUCT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMEUCT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IME_COMPOSITION_STRING(pub u32);
 impl windows_core::TypeKind for IME_COMPOSITION_STRING {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for IME_COMPOSITION_STRING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IME_COMPOSITION_STRING").field(&self.0).finish()
+    }
 }
 impl IME_COMPOSITION_STRING {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5419,10 +5546,15 @@ impl core::ops::Not for IME_COMPOSITION_STRING {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IME_CONVERSION_MODE(pub u32);
 impl windows_core::TypeKind for IME_CONVERSION_MODE {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for IME_CONVERSION_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IME_CONVERSION_MODE").field(&self.0).finish()
+    }
 }
 impl IME_CONVERSION_MODE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5458,28 +5590,48 @@ impl core::ops::Not for IME_CONVERSION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IME_ESCAPE(pub u32);
 impl windows_core::TypeKind for IME_ESCAPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IME_ESCAPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IME_ESCAPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IME_HOTKEY_IDENTIFIER(pub u32);
 impl windows_core::TypeKind for IME_HOTKEY_IDENTIFIER {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IME_HOTKEY_IDENTIFIER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IME_HOTKEY_IDENTIFIER").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IME_PAD_REQUEST_FLAGS(pub u32);
 impl windows_core::TypeKind for IME_PAD_REQUEST_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IME_PAD_REQUEST_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IME_PAD_REQUEST_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IME_SENTENCE_MODE(pub u32);
 impl windows_core::TypeKind for IME_SENTENCE_MODE {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for IME_SENTENCE_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IME_SENTENCE_MODE").field(&self.0).finish()
+    }
 }
 impl IME_SENTENCE_MODE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5515,71 +5667,86 @@ impl core::ops::Not for IME_SENTENCE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NOTIFY_IME_ACTION(pub u32);
 impl windows_core::TypeKind for NOTIFY_IME_ACTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NOTIFY_IME_ACTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NOTIFY_IME_ACTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NOTIFY_IME_INDEX(pub u32);
 impl windows_core::TypeKind for NOTIFY_IME_INDEX {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NOTIFY_IME_INDEX {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NOTIFY_IME_INDEX").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SET_COMPOSITION_STRING_TYPE(pub u32);
 impl windows_core::TypeKind for SET_COMPOSITION_STRING_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SET_COMPOSITION_STRING_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SET_COMPOSITION_STRING_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPLETIDLIST {
     pub count: i32,
     pub pIIDList: *mut windows_core::GUID,
+}
+impl windows_core::TypeKind for APPLETIDLIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for APPLETIDLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APPLETIDLIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPLYCANDEXPARAM {
     pub dwSize: u32,
     pub lpwstrDisplay: windows_core::PWSTR,
     pub lpwstrReading: windows_core::PWSTR,
     pub dwReserved: u32,
 }
+impl windows_core::TypeKind for APPLYCANDEXPARAM {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for APPLYCANDEXPARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APPLYCANDEXPARAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CANDIDATEFORM {
     pub dwIndex: u32,
     pub dwStyle: u32,
     pub ptCurrentPos: super::super::super::Foundation::POINT,
     pub rcArea: super::super::super::Foundation::RECT,
 }
+impl windows_core::TypeKind for CANDIDATEFORM {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CANDIDATEFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CANDIDATEFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CANDIDATEINFO {
     pub dwSize: u32,
     pub dwCount: u32,
@@ -5587,16 +5754,16 @@ pub struct CANDIDATEINFO {
     pub dwPrivateSize: u32,
     pub dwPrivateOffset: u32,
 }
+impl windows_core::TypeKind for CANDIDATEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CANDIDATEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CANDIDATEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CANDIDATELIST {
     pub dwSize: u32,
     pub dwStyle: u32,
@@ -5606,32 +5773,32 @@ pub struct CANDIDATELIST {
     pub dwPageSize: u32,
     pub dwOffset: [u32; 1],
 }
+impl windows_core::TypeKind for CANDIDATELIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CANDIDATELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CANDIDATELIST {
-    type TypeKind = windows_core::CopyType;
-}
 pub const CActiveIMM: windows_core::GUID = windows_core::GUID::from_u128(0x4955dd33_b159_11d0_8fcf_00aa006bcc59);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPOSITIONFORM {
     pub dwStyle: u32,
     pub ptCurrentPos: super::super::super::Foundation::POINT,
     pub rcArea: super::super::super::Foundation::RECT,
+}
+impl windows_core::TypeKind for COMPOSITIONFORM {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for COMPOSITIONFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMPOSITIONFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPOSITIONSTRING {
     pub dwSize: u32,
     pub dwCompReadAttrLen: u32,
@@ -5659,16 +5826,16 @@ pub struct COMPOSITIONSTRING {
     pub dwPrivateSize: u32,
     pub dwPrivateOffset: u32,
 }
+impl windows_core::TypeKind for COMPOSITIONSTRING {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for COMPOSITIONSTRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMPOSITIONSTRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GUIDELINE {
     pub dwSize: u32,
     pub dwLevel: u32,
@@ -5678,20 +5845,17 @@ pub struct GUIDELINE {
     pub dwPrivateSize: u32,
     pub dwPrivateOffset: u32,
 }
+impl windows_core::TypeKind for GUIDELINE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for GUIDELINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GUIDELINE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIMC(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HIMC {
-    type TypeKind = windows_core::CopyType;
-}
 impl HIMC {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5701,8 +5865,7 @@ impl windows_core::Free for HIMC {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("imm32.dll" "system" fn ImmDestroyContext(param0 : *mut core::ffi::c_void) -> i32);
-            ImmDestroyContext(self.0);
+            _ = ImmDestroyContext(*self);
         }
     }
 }
@@ -5711,12 +5874,12 @@ impl Default for HIMC {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HIMC {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIMCC(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HIMCC {
-    type TypeKind = windows_core::CopyType;
-}
 impl HIMCC {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -5727,9 +5890,12 @@ impl Default for HIMCC {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HIMCC {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEAPPLETCFG {
     pub dwConfig: u32,
     pub wchTitle: [u16; 64],
@@ -5742,17 +5908,17 @@ pub struct IMEAPPLETCFG {
     pub lReserved1: super::super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for IMEAPPLETCFG {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for IMEAPPLETCFG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for IMEAPPLETCFG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEAPPLETUI {
     pub hwnd: super::super::super::Foundation::HWND,
     pub dwStyle: u32,
@@ -5765,30 +5931,30 @@ pub struct IMEAPPLETUI {
     pub lReserved1: super::super::super::Foundation::LPARAM,
     pub lReserved2: super::super::super::Foundation::LPARAM,
 }
+impl windows_core::TypeKind for IMEAPPLETUI {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMEAPPLETUI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEAPPLETUI {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMECHARINFO {
     pub wch: u16,
     pub dwCharInfo: u32,
+}
+impl windows_core::TypeKind for IMECHARINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMECHARINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMECHARINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMECHARPOSITION {
     pub dwSize: u32,
     pub dwCharPos: u32,
@@ -5796,16 +5962,16 @@ pub struct IMECHARPOSITION {
     pub cLineHeight: u32,
     pub rcDocument: super::super::super::Foundation::RECT,
 }
+impl windows_core::TypeKind for IMECHARPOSITION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMECHARPOSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMECHARPOSITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMECOMPOSITIONSTRINGINFO {
     pub iCompStrLen: i32,
     pub iCaretPos: i32,
@@ -5814,62 +5980,62 @@ pub struct IMECOMPOSITIONSTRINGINFO {
     pub iTargetStart: i32,
     pub iTargetLen: i32,
 }
+impl windows_core::TypeKind for IMECOMPOSITIONSTRINGINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMECOMPOSITIONSTRINGINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMECOMPOSITIONSTRINGINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEDLG {
     pub cbIMEDLG: i32,
     pub hwnd: super::super::super::Foundation::HWND,
     pub lpwstrWord: windows_core::PWSTR,
     pub nTabId: i32,
 }
+impl windows_core::TypeKind for IMEDLG {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMEDLG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEDLG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEDP {
     pub wrdModifier: IMEWRD,
     pub wrdModifiee: IMEWRD,
     pub relID: IMEREL,
+}
+impl windows_core::TypeKind for IMEDP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMEDP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEDP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEFAREASTINFO {
     pub dwSize: u32,
     pub dwType: u32,
     pub dwData: [u32; 1],
+}
+impl windows_core::TypeKind for IMEFAREASTINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMEFAREASTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEFAREASTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEINFO {
     pub dwPrivateDataSize: u32,
     pub fdwProperty: u32,
@@ -5879,106 +6045,106 @@ pub struct IMEINFO {
     pub fdwSCSCaps: u32,
     pub fdwSelectCaps: u32,
 }
+impl windows_core::TypeKind for IMEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEITEM {
     pub cbSize: i32,
     pub iType: i32,
     pub lpItemData: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for IMEITEM {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMEITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEITEMCANDIDATE {
     pub uCount: u32,
     pub imeItem: [IMEITEM; 1],
+}
+impl windows_core::TypeKind for IMEITEMCANDIDATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMEITEMCANDIDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEITEMCANDIDATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEKMS {
     pub cbSize: i32,
     pub hIMC: HIMC,
     pub cKeyList: u32,
     pub pKeyList: *mut IMEKMSKEY,
 }
+impl windows_core::TypeKind for IMEKMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMEKMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEKMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEKMSFUNCDESC {
     pub cbSize: i32,
     pub idLang: u16,
     pub dwControl: u32,
     pub pwszDescription: [u16; 128],
 }
+impl windows_core::TypeKind for IMEKMSFUNCDESC {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMEKMSFUNCDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEKMSFUNCDESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEKMSINIT {
     pub cbSize: i32,
     pub hWnd: super::super::super::Foundation::HWND,
+}
+impl windows_core::TypeKind for IMEKMSINIT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMEKMSINIT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEKMSINIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEKMSINVK {
     pub cbSize: i32,
     pub hIMC: HIMC,
     pub dwControl: u32,
+}
+impl windows_core::TypeKind for IMEKMSINVK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMEKMSINVK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEKMSINVK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEKMSKEY {
     pub dwStatus: u32,
     pub dwCompStatus: u32,
@@ -5986,44 +6152,44 @@ pub struct IMEKMSKEY {
     pub Anonymous1: IMEKMSKEY_0,
     pub Anonymous2: IMEKMSKEY_1,
 }
+impl windows_core::TypeKind for IMEKMSKEY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMEKMSKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEKMSKEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IMEKMSKEY_0 {
     pub dwControl: u32,
     pub dwNotUsed: u32,
+}
+impl windows_core::TypeKind for IMEKMSKEY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMEKMSKEY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEKMSKEY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IMEKMSKEY_1 {
     pub pwszDscr: [u16; 31],
     pub pwszNoUse: [u16; 31],
+}
+impl windows_core::TypeKind for IMEKMSKEY_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMEKMSKEY_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEKMSKEY_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEKMSKMP {
     pub cbSize: i32,
     pub hIMC: HIMC,
@@ -6033,32 +6199,32 @@ pub struct IMEKMSKMP {
     pub cKeyList: i32,
     pub pKeyList: *mut IMEKMSKEY,
 }
+impl windows_core::TypeKind for IMEKMSKMP {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMEKMSKMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEKMSKMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEKMSNTFY {
     pub cbSize: i32,
     pub hIMC: HIMC,
     pub fSelect: super::super::super::Foundation::BOOL,
+}
+impl windows_core::TypeKind for IMEKMSNTFY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMEKMSNTFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEKMSNTFY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEMENUITEMINFOA {
     pub cbSize: u32,
     pub fType: u32,
@@ -6071,18 +6237,18 @@ pub struct IMEMENUITEMINFOA {
     pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for IMEMENUITEMINFOA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for IMEMENUITEMINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for IMEMENUITEMINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEMENUITEMINFOW {
     pub cbSize: u32,
     pub fType: u32,
@@ -6095,17 +6261,17 @@ pub struct IMEMENUITEMINFOW {
     pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for IMEMENUITEMINFOW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for IMEMENUITEMINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for IMEMENUITEMINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMESHF {
     pub cbShf: u16,
     pub verDic: u16,
@@ -6113,30 +6279,30 @@ pub struct IMESHF {
     pub szDescription: [i8; 256],
     pub szCopyright: [i8; 128],
 }
+impl windows_core::TypeKind for IMESHF {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMESHF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMESHF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMESTRINGCANDIDATE {
     pub uCount: u32,
     pub lpwstr: [windows_core::PWSTR; 1],
+}
+impl windows_core::TypeKind for IMESTRINGCANDIDATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMESTRINGCANDIDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMESTRINGCANDIDATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMESTRINGCANDIDATEINFO {
     pub dwFarEastId: u32,
     pub lpFarEastInfo: *mut IMEFAREASTINFO,
@@ -6145,30 +6311,30 @@ pub struct IMESTRINGCANDIDATEINFO {
     pub uCount: u32,
     pub lpwstr: [windows_core::PWSTR; 1],
 }
+impl windows_core::TypeKind for IMESTRINGCANDIDATEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMESTRINGCANDIDATEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMESTRINGCANDIDATEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMESTRINGINFO {
     pub dwFarEastId: u32,
     pub lpwstr: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for IMESTRINGINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMESTRINGINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMESTRINGINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEWRD {
     pub pwchReading: windows_core::PWSTR,
     pub pwchDisplay: windows_core::PWSTR,
@@ -6178,45 +6344,45 @@ pub struct IMEWRD {
     pub uct: IMEUCT,
     pub pvComment: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for IMEWRD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMEWRD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEWRD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IMEWRD_0 {
     pub ulPos: u32,
     pub Anonymous: IMEWRD_0_0,
+}
+impl windows_core::TypeKind for IMEWRD_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMEWRD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEWRD_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEWRD_0_0 {
     pub nPos1: u16,
     pub nPos2: u16,
+}
+impl windows_core::TypeKind for IMEWRD_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMEWRD_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMEWRD_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INPUTCONTEXT {
     pub hWnd: super::super::super::Foundation::HWND,
     pub fOpen: super::super::super::Foundation::BOOL,
@@ -6237,21 +6403,25 @@ pub struct INPUTCONTEXT {
     pub dwReserve: [u32; 3],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for INPUTCONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for INPUTCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for INPUTCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INPUTCONTEXT_0 {
     pub A: super::super::super::Graphics::Gdi::LOGFONTA,
     pub W: super::super::super::Graphics::Gdi::LOGFONTW,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for INPUTCONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for INPUTCONTEXT_0 {
@@ -6259,12 +6429,8 @@ impl Default for INPUTCONTEXT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for INPUTCONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MORRSLT {
     pub dwSize: u32,
     pub pwchOutput: windows_core::PWSTR,
@@ -6280,72 +6446,72 @@ pub struct MORRSLT {
     pub pPrivate: *mut core::ffi::c_void,
     pub BLKBuff: [u16; 1],
 }
+impl windows_core::TypeKind for MORRSLT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MORRSLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MORRSLT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MORRSLT_0 {
     pub pwchRead: windows_core::PWSTR,
     pub pwchComp: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for MORRSLT_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MORRSLT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MORRSLT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MORRSLT_1 {
     pub cchRead: u16,
     pub cchComp: u16,
+}
+impl windows_core::TypeKind for MORRSLT_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MORRSLT_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MORRSLT_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MORRSLT_2 {
     pub pchReadIdxWDD: *mut u16,
     pub pchCompIdxWDD: *mut u16,
+}
+impl windows_core::TypeKind for MORRSLT_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MORRSLT_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MORRSLT_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct POSTBL {
     pub nPos: u16,
     pub szName: *mut u8,
+}
+impl windows_core::TypeKind for POSTBL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POSTBL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POSTBL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RECONVERTSTRING {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -6356,115 +6522,115 @@ pub struct RECONVERTSTRING {
     pub dwTargetStrLen: u32,
     pub dwTargetStrOffset: u32,
 }
+impl windows_core::TypeKind for RECONVERTSTRING {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RECONVERTSTRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RECONVERTSTRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGISTERWORDA {
     pub lpReading: windows_core::PSTR,
     pub lpWord: windows_core::PSTR,
+}
+impl windows_core::TypeKind for REGISTERWORDA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REGISTERWORDA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REGISTERWORDA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGISTERWORDW {
     pub lpReading: windows_core::PWSTR,
     pub lpWord: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for REGISTERWORDW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REGISTERWORDW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REGISTERWORDW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOFTKBDDATA {
     pub uCount: u32,
     pub wCode: [u16; 256],
+}
+impl windows_core::TypeKind for SOFTKBDDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SOFTKBDDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SOFTKBDDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STYLEBUFA {
     pub dwStyle: u32,
     pub szDescription: [i8; 32],
+}
+impl windows_core::TypeKind for STYLEBUFA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for STYLEBUFA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STYLEBUFA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STYLEBUFW {
     pub dwStyle: u32,
     pub szDescription: [u16; 32],
+}
+impl windows_core::TypeKind for STYLEBUFW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for STYLEBUFW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STYLEBUFW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSMSG {
     pub message: u32,
     pub wParam: super::super::super::Foundation::WPARAM,
     pub lParam: super::super::super::Foundation::LPARAM,
+}
+impl windows_core::TypeKind for TRANSMSG {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRANSMSG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRANSMSG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSMSGLIST {
     pub uMsgCount: u32,
     pub TransMsg: [TRANSMSG; 1],
+}
+impl windows_core::TypeKind for TRANSMSGLIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRANSMSGLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRANSMSGLIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WDD {
     pub wDispPos: u16,
     pub Anonymous1: WDD_0,
@@ -6475,41 +6641,41 @@ pub struct WDD {
     pub _bitfield: u16,
     pub pReserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for WDD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WDD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WDD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WDD_0 {
     pub wReadPos: u16,
     pub wCompPos: u16,
+}
+impl windows_core::TypeKind for WDD_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WDD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WDD_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WDD_1 {
     pub cchRead: u16,
     pub cchComp: u16,
+}
+impl windows_core::TypeKind for WDD_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WDD_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WDD_1 {
-    type TypeKind = windows_core::CopyType;
 }
 pub type IMCENUMPROC = Option<unsafe extern "system" fn(param0: HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL>;
 pub type PFNLOG = Option<unsafe extern "system" fn(param0: *mut IMEDP, param1: windows_core::HRESULT) -> super::super::super::Foundation::BOOL>;

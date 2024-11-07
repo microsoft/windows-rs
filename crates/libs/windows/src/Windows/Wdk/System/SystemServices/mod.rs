@@ -40,9 +40,9 @@ pub unsafe fn ClfsCloseLogFileObject(plfolog: *const super::super::Foundation::F
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn ClfsCreateLogFile<P4>(pplfolog: *mut *mut super::super::Foundation::FILE_OBJECT, puszlogfilename: *const super::super::super::Win32::Foundation::UNICODE_STRING, fdesiredaccess: u32, dwsharemode: u32, psdlogfile: P4, fcreatedisposition: u32, fcreateoptions: u32, fflagsandattributes: u32, flogoptionflag: u32, pvcontext: Option<*const core::ffi::c_void>, cbcontext: u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ClfsCreateLogFile<P0>(pplfolog: *mut *mut super::super::Foundation::FILE_OBJECT, puszlogfilename: *const super::super::super::Win32::Foundation::UNICODE_STRING, fdesiredaccess: u32, dwsharemode: u32, psdlogfile: P0, fcreatedisposition: u32, fcreateoptions: u32, fflagsandattributes: u32, flogoptionflag: u32, pvcontext: Option<*const core::ffi::c_void>, cbcontext: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("clfs.sys" "system" fn ClfsCreateLogFile(pplfolog : *mut *mut super::super::Foundation:: FILE_OBJECT, puszlogfilename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, fdesiredaccess : u32, dwsharemode : u32, psdlogfile : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, fcreatedisposition : u32, fcreateoptions : u32, fflagsandattributes : u32, flogoptionflag : u32, pvcontext : *const core::ffi::c_void, cbcontext : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ClfsCreateLogFile(pplfolog, puszlogfilename, fdesiredaccess, dwsharemode, psdlogfile.param().abi(), fcreatedisposition, fcreateoptions, fflagsandattributes, flogoptionflag, core::mem::transmute(pvcontext.unwrap_or(core::ptr::null())), cbcontext)
@@ -244,9 +244,9 @@ pub unsafe fn ClfsMgmtSetLogFileSizeAsClient(logfile: *const super::super::Found
     ClfsMgmtSetLogFileSizeAsClient(logfile, core::mem::transmute(clientcookie.unwrap_or(core::ptr::null())), newsizeincontainers, core::mem::transmute(resultingsizeincontainers.unwrap_or(core::ptr::null_mut())), completionroutine, core::mem::transmute(completionroutinedata.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn ClfsMgmtTailAdvanceFailure<P1>(client: *const core::ffi::c_void, reason: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ClfsMgmtTailAdvanceFailure<P0>(client: *const core::ffi::c_void, reason: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
 {
     windows_targets::link!("clfs.sys" "system" fn ClfsMgmtTailAdvanceFailure(client : *const core::ffi::c_void, reason : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ClfsMgmtTailAdvanceFailure(client, reason.param().abi())
@@ -283,18 +283,18 @@ pub unsafe fn ClfsReadRestartArea(pvmarshalcontext: *mut core::ffi::c_void, ppvr
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn ClfsRemoveLogContainer<P2>(plfolog: *const super::super::Foundation::FILE_OBJECT, puszcontainerpath: *const super::super::super::Win32::Foundation::UNICODE_STRING, fforce: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ClfsRemoveLogContainer<P0>(plfolog: *const super::super::Foundation::FILE_OBJECT, puszcontainerpath: *const super::super::super::Win32::Foundation::UNICODE_STRING, fforce: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("clfs.sys" "system" fn ClfsRemoveLogContainer(plfolog : *const super::super::Foundation:: FILE_OBJECT, puszcontainerpath : *const super::super::super::Win32::Foundation:: UNICODE_STRING, fforce : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ClfsRemoveLogContainer(plfolog, puszcontainerpath, fforce.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn ClfsRemoveLogContainerSet<P3>(plfolog: *const super::super::Foundation::FILE_OBJECT, rgwszcontainerpath: &[super::super::super::Win32::Foundation::UNICODE_STRING], fforce: P3) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ClfsRemoveLogContainerSet<P0>(plfolog: *const super::super::Foundation::FILE_OBJECT, rgwszcontainerpath: &[super::super::super::Win32::Foundation::UNICODE_STRING], fforce: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("clfs.sys" "system" fn ClfsRemoveLogContainerSet(plfolog : *const super::super::Foundation:: FILE_OBJECT, ccontainers : u16, rgwszcontainerpath : *const super::super::super::Win32::Foundation:: UNICODE_STRING, fforce : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ClfsRemoveLogContainerSet(plfolog, rgwszcontainerpath.len().try_into().unwrap(), core::mem::transmute(rgwszcontainerpath.as_ptr()), fforce.param().abi())
@@ -426,9 +426,9 @@ where
     DbgPrint(format.param().abi())
 }
 #[inline]
-pub unsafe fn DbgPrintEx<P2>(componentid: u32, level: u32, format: P2) -> u32
+pub unsafe fn DbgPrintEx<P0>(componentid: u32, level: u32, format: P0) -> u32
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("ntdll.dll" "cdecl" fn DbgPrintEx(componentid : u32, level : u32, format : windows_core::PCSTR) -> u32);
     DbgPrintEx(componentid, level, format.param().abi())
@@ -455,18 +455,18 @@ pub unsafe fn DbgQueryDebugFilterState(componentid: u32, level: u32) -> super::s
     DbgQueryDebugFilterState(componentid, level)
 }
 #[inline]
-pub unsafe fn DbgSetDebugFilterState<P2>(componentid: u32, level: u32, state: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn DbgSetDebugFilterState<P0>(componentid: u32, level: u32, state: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn DbgSetDebugFilterState(componentid : u32, level : u32, state : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     DbgSetDebugFilterState(componentid, level, state.param().abi())
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn DbgSetDebugPrintCallback<P1>(debugprintcallback: PDEBUG_PRINT_CALLBACK, enable: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn DbgSetDebugPrintCallback<P0>(debugprintcallback: PDEBUG_PRINT_CALLBACK, enable: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn DbgSetDebugPrintCallback(debugprintcallback : PDEBUG_PRINT_CALLBACK, enable : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     DbgSetDebugPrintCallback(debugprintcallback, enable.param().abi())
@@ -537,10 +537,10 @@ where
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 #[inline]
-pub unsafe fn EtwWriteString<P0, P4>(reghandle: P0, level: u8, keyword: u64, activityid: Option<*const windows_core::GUID>, string: P4) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn EtwWriteString<P0, P1>(reghandle: P0, level: u8, keyword: u64, activityid: Option<*const windows_core::GUID>, string: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn EtwWriteString(reghandle : super::super::super::Win32::System::Diagnostics::Etw:: REGHANDLE, level : u8, keyword : u64, activityid : *const windows_core::GUID, string : windows_core::PCWSTR) -> super::super::super::Win32::Foundation:: NTSTATUS);
     EtwWriteString(reghandle.param().abi(), level, keyword, core::mem::transmute(activityid.unwrap_or(core::ptr::null())), string.param().abi())
@@ -578,18 +578,18 @@ pub unsafe fn ExAcquirePushLockSharedEx(pushlock: *mut usize, flags: u32) {
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn ExAcquireResourceExclusiveLite<P1>(resource: *mut super::super::Foundation::ERESOURCE, wait: P1) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn ExAcquireResourceExclusiveLite<P0>(resource: *mut super::super::Foundation::ERESOURCE, wait: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquireResourceExclusiveLite(resource : *mut super::super::Foundation:: ERESOURCE, wait : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     ExAcquireResourceExclusiveLite(resource, wait.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn ExAcquireResourceSharedLite<P1>(resource: *mut super::super::Foundation::ERESOURCE, wait: P1) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn ExAcquireResourceSharedLite<P0>(resource: *mut super::super::Foundation::ERESOURCE, wait: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquireResourceSharedLite(resource : *mut super::super::Foundation:: ERESOURCE, wait : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     ExAcquireResourceSharedLite(resource, wait.param().abi())
@@ -624,18 +624,18 @@ pub unsafe fn ExAcquireRundownProtectionEx(runref: *mut EX_RUNDOWN_REF, count: u
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn ExAcquireSharedStarveExclusive<P1>(resource: *mut super::super::Foundation::ERESOURCE, wait: P1) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn ExAcquireSharedStarveExclusive<P0>(resource: *mut super::super::Foundation::ERESOURCE, wait: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquireSharedStarveExclusive(resource : *mut super::super::Foundation:: ERESOURCE, wait : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     ExAcquireSharedStarveExclusive(resource, wait.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn ExAcquireSharedWaitForExclusive<P1>(resource: *mut super::super::Foundation::ERESOURCE, wait: P1) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn ExAcquireSharedWaitForExclusive<P0>(resource: *mut super::super::Foundation::ERESOURCE, wait: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn ExAcquireSharedWaitForExclusive(resource : *mut super::super::Foundation:: ERESOURCE, wait : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     ExAcquireSharedWaitForExclusive(resource, wait.param().abi())
@@ -738,10 +738,10 @@ pub unsafe fn ExConvertExclusiveToSharedLite(resource: *mut super::super::Founda
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn ExCreateCallback<P2, P3>(callbackobject: *mut super::super::Foundation::PCALLBACK_OBJECT, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, create: P2, allowmultiplecallbacks: P3) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ExCreateCallback<P0, P1>(callbackobject: *mut super::super::Foundation::PCALLBACK_OBJECT, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, create: P0, allowmultiplecallbacks: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn ExCreateCallback(callbackobject : *mut super::super::Foundation:: PCALLBACK_OBJECT, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, create : super::super::super::Win32::Foundation:: BOOLEAN, allowmultiplecallbacks : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ExCreateCallback(callbackobject, objectattributes, create.param().abi(), allowmultiplecallbacks.param().abi())
@@ -1161,9 +1161,9 @@ where
     ExSetTimer(timer.param().abi(), duetime, period, core::mem::transmute(parameters.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn ExSetTimerResolution<P1>(desiredtime: u32, setresolution: P1) -> u32
+pub unsafe fn ExSetTimerResolution<P0>(desiredtime: u32, setresolution: P0) -> u32
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn ExSetTimerResolution(desiredtime : u32, setresolution : super::super::super::Win32::Foundation:: BOOLEAN) -> u32);
     ExSetTimerResolution(desiredtime, setresolution.param().abi())
@@ -1252,9 +1252,9 @@ pub unsafe fn HalAllocateAdapterChannel(adapterobject: *const super::super::supe
 }
 #[cfg(feature = "Win32_Storage_IscsiDisc")]
 #[inline]
-pub unsafe fn HalAllocateCommonBuffer<P3>(adapterobject: *const super::super::super::Win32::Storage::IscsiDisc::_ADAPTER_OBJECT, length: u32, logicaladdress: *mut i64, cacheenabled: P3) -> *mut core::ffi::c_void
+pub unsafe fn HalAllocateCommonBuffer<P0>(adapterobject: *const super::super::super::Win32::Storage::IscsiDisc::_ADAPTER_OBJECT, length: u32, logicaladdress: *mut i64, cacheenabled: P0) -> *mut core::ffi::c_void
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("hal.dll" "system" fn HalAllocateCommonBuffer(adapterobject : *const super::super::super::Win32::Storage::IscsiDisc:: _ADAPTER_OBJECT, length : u32, logicaladdress : *mut i64, cacheenabled : super::super::super::Win32::Foundation:: BOOLEAN) -> *mut core::ffi::c_void);
     HalAllocateCommonBuffer(adapterobject, length, logicaladdress, cacheenabled.param().abi())
@@ -1303,9 +1303,9 @@ pub unsafe fn HalExamineMBR(deviceobject: *const super::super::Foundation::DEVIC
 }
 #[cfg(feature = "Win32_Storage_IscsiDisc")]
 #[inline]
-pub unsafe fn HalFreeCommonBuffer<P4>(adapterobject: *const super::super::super::Win32::Storage::IscsiDisc::_ADAPTER_OBJECT, length: u32, logicaladdress: i64, virtualaddress: *const core::ffi::c_void, cacheenabled: P4)
+pub unsafe fn HalFreeCommonBuffer<P0>(adapterobject: *const super::super::super::Win32::Storage::IscsiDisc::_ADAPTER_OBJECT, length: u32, logicaladdress: i64, virtualaddress: *const core::ffi::c_void, cacheenabled: P0)
 where
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("hal.dll" "system" fn HalFreeCommonBuffer(adapterobject : *const super::super::super::Win32::Storage::IscsiDisc:: _ADAPTER_OBJECT, length : u32, logicaladdress : i64, virtualaddress : *const core::ffi::c_void, cacheenabled : super::super::super::Win32::Foundation:: BOOLEAN));
     HalFreeCommonBuffer(adapterobject, length, logicaladdress, virtualaddress, cacheenabled.param().abi())
@@ -1396,9 +1396,9 @@ pub unsafe fn IoAcquireKsrPersistentMemoryEx(driverobject: *const super::super::
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn IoAcquireRemoveLockEx<P2>(removelock: *mut IO_REMOVE_LOCK, tag: Option<*const core::ffi::c_void>, file: P2, line: u32, remlocksize: u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoAcquireRemoveLockEx<P0>(removelock: *mut IO_REMOVE_LOCK, tag: Option<*const core::ffi::c_void>, file: P0, line: u32, remlocksize: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoAcquireRemoveLockEx(removelock : *mut IO_REMOVE_LOCK, tag : *const core::ffi::c_void, file : windows_core::PCSTR, line : u32, remlocksize : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoAcquireRemoveLockEx(removelock, core::mem::transmute(tag.unwrap_or(core::ptr::null())), file.param().abi(), line, remlocksize)
@@ -1428,28 +1428,28 @@ pub unsafe fn IoAllocateErrorLogEntry(ioobject: *const core::ffi::c_void, entrys
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoAllocateIrp<P1>(stacksize: i8, chargequota: P1) -> *mut super::super::Foundation::IRP
+pub unsafe fn IoAllocateIrp<P0>(stacksize: i8, chargequota: P0) -> *mut super::super::Foundation::IRP
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoAllocateIrp(stacksize : i8, chargequota : super::super::super::Win32::Foundation:: BOOLEAN) -> *mut super::super::Foundation:: IRP);
     IoAllocateIrp(stacksize, chargequota.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoAllocateIrpEx<P2>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, stacksize: i8, chargequota: P2) -> *mut super::super::Foundation::IRP
+pub unsafe fn IoAllocateIrpEx<P0>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, stacksize: i8, chargequota: P0) -> *mut super::super::Foundation::IRP
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoAllocateIrpEx(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, stacksize : i8, chargequota : super::super::super::Win32::Foundation:: BOOLEAN) -> *mut super::super::Foundation:: IRP);
     IoAllocateIrpEx(deviceobject, stacksize, chargequota.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoAllocateMdl<P2, P3>(virtualaddress: Option<*const core::ffi::c_void>, length: u32, secondarybuffer: P2, chargequota: P3, irp: Option<*mut super::super::Foundation::IRP>) -> *mut super::super::Foundation::MDL
+pub unsafe fn IoAllocateMdl<P0, P1>(virtualaddress: Option<*const core::ffi::c_void>, length: u32, secondarybuffer: P0, chargequota: P1, irp: Option<*mut super::super::Foundation::IRP>) -> *mut super::super::Foundation::MDL
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoAllocateMdl(virtualaddress : *const core::ffi::c_void, length : u32, secondarybuffer : super::super::super::Win32::Foundation:: BOOLEAN, chargequota : super::super::super::Win32::Foundation:: BOOLEAN, irp : *mut super::super::Foundation:: IRP) -> *mut super::super::Foundation:: MDL);
     IoAllocateMdl(core::mem::transmute(virtualaddress.unwrap_or(core::ptr::null())), length, secondarybuffer.param().abi(), chargequota.param().abi(), core::mem::transmute(irp.unwrap_or(core::ptr::null_mut())))
@@ -1504,9 +1504,9 @@ pub unsafe fn IoBuildAsynchronousFsdRequest(majorfunction: u32, deviceobject: *c
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoBuildDeviceIoControlRequest<P6>(iocontrolcode: u32, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, inputbuffer: Option<*const core::ffi::c_void>, inputbufferlength: u32, outputbuffer: Option<*mut core::ffi::c_void>, outputbufferlength: u32, internaldeviceiocontrol: P6, event: Option<*const super::super::Foundation::KEVENT>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK) -> *mut super::super::Foundation::IRP
+pub unsafe fn IoBuildDeviceIoControlRequest<P0>(iocontrolcode: u32, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, inputbuffer: Option<*const core::ffi::c_void>, inputbufferlength: u32, outputbuffer: Option<*mut core::ffi::c_void>, outputbufferlength: u32, internaldeviceiocontrol: P0, event: Option<*const super::super::Foundation::KEVENT>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK) -> *mut super::super::Foundation::IRP
 where
-    P6: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoBuildDeviceIoControlRequest(iocontrolcode : u32, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32, internaldeviceiocontrol : super::super::super::Win32::Foundation:: BOOLEAN, event : *const super::super::Foundation:: KEVENT, iostatusblock : *mut super::super::super::Win32::System::IO:: IO_STATUS_BLOCK) -> *mut super::super::Foundation:: IRP);
     IoBuildDeviceIoControlRequest(iocontrolcode, deviceobject, core::mem::transmute(inputbuffer.unwrap_or(core::ptr::null())), inputbufferlength, core::mem::transmute(outputbuffer.unwrap_or(core::ptr::null_mut())), outputbufferlength, internaldeviceiocontrol.param().abi(), core::mem::transmute(event.unwrap_or(core::ptr::null())), iostatusblock)
@@ -1543,18 +1543,18 @@ pub unsafe fn IoCheckLinkShareAccess(desiredaccess: u32, desiredshareaccess: u32
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoCheckShareAccess<P4>(desiredaccess: u32, desiredshareaccess: u32, fileobject: *mut super::super::Foundation::FILE_OBJECT, shareaccess: *mut SHARE_ACCESS, update: P4) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoCheckShareAccess<P0>(desiredaccess: u32, desiredshareaccess: u32, fileobject: *mut super::super::Foundation::FILE_OBJECT, shareaccess: *mut SHARE_ACCESS, update: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoCheckShareAccess(desiredaccess : u32, desiredshareaccess : u32, fileobject : *mut super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS, update : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoCheckShareAccess(desiredaccess, desiredshareaccess, fileobject, shareaccess, update.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoCheckShareAccessEx<P4>(desiredaccess: u32, desiredshareaccess: u32, fileobject: *mut super::super::Foundation::FILE_OBJECT, shareaccess: *mut SHARE_ACCESS, update: P4, writepermission: Option<*const super::super::super::Win32::Foundation::BOOLEAN>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoCheckShareAccessEx<P0>(desiredaccess: u32, desiredshareaccess: u32, fileobject: *mut super::super::Foundation::FILE_OBJECT, shareaccess: *mut SHARE_ACCESS, update: P0, writepermission: Option<*const super::super::super::Win32::Foundation::BOOLEAN>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoCheckShareAccessEx(desiredaccess : u32, desiredshareaccess : u32, fileobject : *mut super::super::Foundation:: FILE_OBJECT, shareaccess : *mut SHARE_ACCESS, update : super::super::super::Win32::Foundation:: BOOLEAN, writepermission : *const super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoCheckShareAccessEx(desiredaccess, desiredshareaccess, fileobject, shareaccess, update.param().abi(), core::mem::transmute(writepermission.unwrap_or(core::ptr::null())))
@@ -1578,10 +1578,10 @@ pub unsafe fn IoClearIrpExtraCreateParameter(irp: *mut super::super::Foundation:
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn IoConnectInterrupt<P8, P10>(interruptobject: *mut super::super::Foundation::PKINTERRUPT, serviceroutine: PKSERVICE_ROUTINE, servicecontext: Option<*const core::ffi::c_void>, spinlock: Option<*const usize>, vector: u32, irql: u8, synchronizeirql: u8, interruptmode: KINTERRUPT_MODE, sharevector: P8, processorenablemask: usize, floatingsave: P10) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoConnectInterrupt<P0, P1>(interruptobject: *mut super::super::Foundation::PKINTERRUPT, serviceroutine: PKSERVICE_ROUTINE, servicecontext: Option<*const core::ffi::c_void>, spinlock: Option<*const usize>, vector: u32, irql: u8, synchronizeirql: u8, interruptmode: KINTERRUPT_MODE, sharevector: P0, processorenablemask: usize, floatingsave: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P8: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P10: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoConnectInterrupt(interruptobject : *mut super::super::Foundation:: PKINTERRUPT, serviceroutine : PKSERVICE_ROUTINE, servicecontext : *const core::ffi::c_void, spinlock : *const usize, vector : u32, irql : u8, synchronizeirql : u8, interruptmode : KINTERRUPT_MODE, sharevector : super::super::super::Win32::Foundation:: BOOLEAN, processorenablemask : usize, floatingsave : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoConnectInterrupt(interruptobject, serviceroutine, core::mem::transmute(servicecontext.unwrap_or(core::ptr::null())), core::mem::transmute(spinlock.unwrap_or(core::ptr::null())), vector, irql, synchronizeirql, interruptmode, sharevector.param().abi(), processorenablemask, floatingsave.param().abi())
@@ -1600,9 +1600,9 @@ pub unsafe fn IoCreateController(size: u32) -> *mut CONTROLLER_OBJECT {
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoCreateDevice<P5>(driverobject: *const super::super::Foundation::DRIVER_OBJECT, deviceextensionsize: u32, devicename: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, devicetype: u32, devicecharacteristics: u32, exclusive: P5, deviceobject: *mut *mut super::super::Foundation::DEVICE_OBJECT) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoCreateDevice<P0>(driverobject: *const super::super::Foundation::DRIVER_OBJECT, deviceextensionsize: u32, devicename: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, devicetype: u32, devicecharacteristics: u32, exclusive: P0, deviceobject: *mut *mut super::super::Foundation::DEVICE_OBJECT) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoCreateDevice(driverobject : *const super::super::Foundation:: DRIVER_OBJECT, deviceextensionsize : u32, devicename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, devicetype : u32, devicecharacteristics : u32, exclusive : super::super::super::Win32::Foundation:: BOOLEAN, deviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoCreateDevice(driverobject, deviceextensionsize, core::mem::transmute(devicename.unwrap_or(core::ptr::null())), devicetype, devicecharacteristics, exclusive.param().abi(), deviceobject)
@@ -1650,9 +1650,9 @@ pub unsafe fn IoCreateSynchronizationEvent(eventname: *const super::super::super
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn IoCreateSystemThread<P4>(ioobject: *mut core::ffi::c_void, threadhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, processhandle: P4, clientid: Option<*mut super::super::super::Win32::System::WindowsProgramming::CLIENT_ID>, startroutine: PKSTART_ROUTINE, startcontext: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoCreateSystemThread<P0>(ioobject: *mut core::ffi::c_void, threadhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, processhandle: P0, clientid: Option<*mut super::super::super::Win32::System::WindowsProgramming::CLIENT_ID>, startroutine: PKSTART_ROUTINE, startcontext: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoCreateSystemThread(ioobject : *mut core::ffi::c_void, threadhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, processhandle : super::super::super::Win32::Foundation:: HANDLE, clientid : *mut super::super::super::Win32::System::WindowsProgramming:: CLIENT_ID, startroutine : PKSTART_ROUTINE, startcontext : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoCreateSystemThread(ioobject, threadhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), processhandle.param().abi(), core::mem::transmute(clientid.unwrap_or(core::ptr::null_mut())), startroutine, core::mem::transmute(startcontext.unwrap_or(core::ptr::null())))
@@ -1700,9 +1700,9 @@ pub unsafe fn IoCsqRemoveNextIrp(csq: *mut IO_CSQ, peekcontext: Option<*const co
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoDecrementKeepAliveCount<P1>(fileobject: *mut super::super::Foundation::FILE_OBJECT, process: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoDecrementKeepAliveCount<P0>(fileobject: *mut super::super::Foundation::FILE_OBJECT, process: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::Foundation::PEPROCESS>,
+    P0: windows_core::Param<super::super::Foundation::PEPROCESS>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoDecrementKeepAliveCount(fileobject : *mut super::super::Foundation:: FILE_OBJECT, process : super::super::Foundation:: PEPROCESS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoDecrementKeepAliveCount(fileobject, process.param().abi())
@@ -1753,9 +1753,9 @@ pub unsafe fn IoEnumerateKsrPersistentMemoryEx(driverobject: *const super::super
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Storage_IscsiDisc"))]
 #[inline]
-pub unsafe fn IoFlushAdapterBuffers<P5>(adapterobject: *const super::super::super::Win32::Storage::IscsiDisc::_ADAPTER_OBJECT, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: u32, writetodevice: P5) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn IoFlushAdapterBuffers<P0>(adapterobject: *const super::super::super::Win32::Storage::IscsiDisc::_ADAPTER_OBJECT, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: u32, writetodevice: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("hal.dll" "system" fn IoFlushAdapterBuffers(adapterobject : *const super::super::super::Win32::Storage::IscsiDisc:: _ADAPTER_OBJECT, mdl : *const super::super::Foundation:: MDL, mapregisterbase : *const core::ffi::c_void, currentva : *const core::ffi::c_void, length : u32, writetodevice : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     IoFlushAdapterBuffers(adapterobject, mdl, mapregisterbase, currentva, length, writetodevice.param().abi())
@@ -2038,9 +2038,9 @@ pub unsafe fn IoGetTransactionParameterBlock(fileobject: *const super::super::Fo
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoIncrementKeepAliveCount<P1>(fileobject: *mut super::super::Foundation::FILE_OBJECT, process: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoIncrementKeepAliveCount<P0>(fileobject: *mut super::super::Foundation::FILE_OBJECT, process: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::Foundation::PEPROCESS>,
+    P0: windows_core::Param<super::super::Foundation::PEPROCESS>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoIncrementKeepAliveCount(fileobject : *mut super::super::Foundation:: FILE_OBJECT, process : super::super::Foundation:: PEPROCESS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoIncrementKeepAliveCount(fileobject, process.param().abi())
@@ -2071,9 +2071,9 @@ pub unsafe fn IoInitializeTimer(deviceobject: *const super::super::Foundation::D
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn IoInitializeWorkItem<P1>(ioobject: *const core::ffi::c_void, ioworkitem: P1)
+pub unsafe fn IoInitializeWorkItem<P0>(ioobject: *const core::ffi::c_void, ioworkitem: P0)
 where
-    P1: windows_core::Param<super::super::Foundation::PIO_WORKITEM>,
+    P0: windows_core::Param<super::super::Foundation::PIO_WORKITEM>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoInitializeWorkItem(ioobject : *const core::ffi::c_void, ioworkitem : super::super::Foundation:: PIO_WORKITEM));
     IoInitializeWorkItem(ioobject, ioworkitem.param().abi())
@@ -2141,9 +2141,9 @@ pub unsafe fn IoMakeAssociatedIrpEx(irp: *const super::super::Foundation::IRP, d
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Storage_IscsiDisc"))]
 #[inline]
-pub unsafe fn IoMapTransfer<P5>(adapterobject: *const super::super::super::Win32::Storage::IscsiDisc::_ADAPTER_OBJECT, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: *mut u32, writetodevice: P5) -> i64
+pub unsafe fn IoMapTransfer<P0>(adapterobject: *const super::super::super::Win32::Storage::IscsiDisc::_ADAPTER_OBJECT, mdl: *const super::super::Foundation::MDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: *mut u32, writetodevice: P0) -> i64
 where
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("hal.dll" "system" fn IoMapTransfer(adapterobject : *const super::super::super::Win32::Storage::IscsiDisc:: _ADAPTER_OBJECT, mdl : *const super::super::Foundation:: MDL, mapregisterbase : *const core::ffi::c_void, currentva : *const core::ffi::c_void, length : *mut u32, writetodevice : super::super::super::Win32::Foundation:: BOOLEAN) -> i64);
     IoMapTransfer(adapterobject, mdl, mapregisterbase, currentva, length, writetodevice.param().abi())
@@ -2226,10 +2226,10 @@ pub unsafe fn IoRaiseHardError(irp: *const super::super::Foundation::IRP, vpb: O
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn IoRaiseInformationalHardError<P0, P2>(errorstatus: P0, string: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, thread: P2) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn IoRaiseInformationalHardError<P0, P1>(errorstatus: P0, string: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, thread: P1) -> super::super::super::Win32::Foundation::BOOLEAN
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
-    P2: windows_core::Param<super::super::Foundation::PKTHREAD>,
+    P1: windows_core::Param<super::super::Foundation::PKTHREAD>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoRaiseInformationalHardError(errorstatus : super::super::super::Win32::Foundation:: NTSTATUS, string : *const super::super::super::Win32::Foundation:: UNICODE_STRING, thread : super::super::Foundation:: PKTHREAD) -> super::super::super::Win32::Foundation:: BOOLEAN);
     IoRaiseInformationalHardError(errorstatus.param().abi(), core::mem::transmute(string.unwrap_or(core::ptr::null())), thread.param().abi())
@@ -2242,9 +2242,9 @@ pub unsafe fn IoReadDiskSignature(deviceobject: *const super::super::Foundation:
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Ioctl", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoReadPartitionTable<P2>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, sectorsize: u32, returnrecognizedpartitions: P2, partitionbuffer: *mut *mut super::super::super::Win32::System::Ioctl::DRIVE_LAYOUT_INFORMATION) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoReadPartitionTable<P0>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, sectorsize: u32, returnrecognizedpartitions: P0, partitionbuffer: *mut *mut super::super::super::Win32::System::Ioctl::DRIVE_LAYOUT_INFORMATION) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoReadPartitionTable(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, sectorsize : u32, returnrecognizedpartitions : super::super::super::Win32::Foundation:: BOOLEAN, partitionbuffer : *mut *mut super::super::super::Win32::System::Ioctl:: DRIVE_LAYOUT_INFORMATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoReadPartitionTable(deviceobject, sectorsize, returnrecognizedpartitions.param().abi(), partitionbuffer)
@@ -2349,9 +2349,9 @@ pub unsafe fn IoReplacePartitionUnit(targetpdo: *const super::super::Foundation:
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoReportDetectedDevice<P6>(driverobject: *const super::super::Foundation::DRIVER_OBJECT, legacybustype: INTERFACE_TYPE, busnumber: u32, slotnumber: u32, resourcelist: Option<*const CM_RESOURCE_LIST>, resourcerequirements: Option<*const IO_RESOURCE_REQUIREMENTS_LIST>, resourceassigned: P6, deviceobject: *mut *mut super::super::Foundation::DEVICE_OBJECT) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoReportDetectedDevice<P0>(driverobject: *const super::super::Foundation::DRIVER_OBJECT, legacybustype: INTERFACE_TYPE, busnumber: u32, slotnumber: u32, resourcelist: Option<*const CM_RESOURCE_LIST>, resourcerequirements: Option<*const IO_RESOURCE_REQUIREMENTS_LIST>, resourceassigned: P0, deviceobject: *mut *mut super::super::Foundation::DEVICE_OBJECT) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P6: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoReportDetectedDevice(driverobject : *const super::super::Foundation:: DRIVER_OBJECT, legacybustype : INTERFACE_TYPE, busnumber : u32, slotnumber : u32, resourcelist : *const CM_RESOURCE_LIST, resourcerequirements : *const IO_RESOURCE_REQUIREMENTS_LIST, resourceassigned : super::super::super::Win32::Foundation:: BOOLEAN, deviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoReportDetectedDevice(driverobject, legacybustype, busnumber, slotnumber, core::mem::transmute(resourcelist.unwrap_or(core::ptr::null())), core::mem::transmute(resourcerequirements.unwrap_or(core::ptr::null())), resourceassigned.param().abi(), deviceobject)
@@ -2376,9 +2376,9 @@ pub unsafe fn IoReportResourceForDetection(driverobject: *const super::super::Fo
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoReportResourceUsage<P7>(driverclassname: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, driverobject: *const super::super::Foundation::DRIVER_OBJECT, driverlist: Option<*const CM_RESOURCE_LIST>, driverlistsize: u32, deviceobject: Option<*const super::super::Foundation::DEVICE_OBJECT>, devicelist: Option<*const CM_RESOURCE_LIST>, devicelistsize: u32, overrideconflict: P7, conflictdetected: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoReportResourceUsage<P0>(driverclassname: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, driverobject: *const super::super::Foundation::DRIVER_OBJECT, driverlist: Option<*const CM_RESOURCE_LIST>, driverlistsize: u32, deviceobject: Option<*const super::super::Foundation::DEVICE_OBJECT>, devicelist: Option<*const CM_RESOURCE_LIST>, devicelistsize: u32, overrideconflict: P0, conflictdetected: *mut super::super::super::Win32::Foundation::BOOLEAN) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P7: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoReportResourceUsage(driverclassname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, driverobject : *const super::super::Foundation:: DRIVER_OBJECT, driverlist : *const CM_RESOURCE_LIST, driverlistsize : u32, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, devicelist : *const CM_RESOURCE_LIST, devicelistsize : u32, overrideconflict : super::super::super::Win32::Foundation:: BOOLEAN, conflictdetected : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoReportResourceUsage(core::mem::transmute(driverclassname.unwrap_or(core::ptr::null())), driverobject, core::mem::transmute(driverlist.unwrap_or(core::ptr::null())), driverlistsize, core::mem::transmute(deviceobject.unwrap_or(core::ptr::null())), core::mem::transmute(devicelist.unwrap_or(core::ptr::null())), devicelistsize, overrideconflict.param().abi(), conflictdetected)
@@ -2427,9 +2427,9 @@ pub unsafe fn IoReserveKsrPersistentMemoryEx(driverobject: *const super::super::
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoReuseIrp<P1>(irp: *mut super::super::Foundation::IRP, iostatus: P1)
+pub unsafe fn IoReuseIrp<P0>(irp: *mut super::super::Foundation::IRP, iostatus: P0)
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoReuseIrp(irp : *mut super::super::Foundation:: IRP, iostatus : super::super::super::Win32::Foundation:: NTSTATUS));
     IoReuseIrp(irp, iostatus.param().abi())
@@ -2447,11 +2447,11 @@ pub unsafe fn IoSetActivityIdThread(activityid: *const windows_core::GUID) -> *m
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoSetCompletionRoutineEx<P4, P5, P6>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *const super::super::Foundation::IRP, completionroutine: super::super::Foundation::PIO_COMPLETION_ROUTINE, context: Option<*const core::ffi::c_void>, invokeonsuccess: P4, invokeonerror: P5, invokeoncancel: P6) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoSetCompletionRoutineEx<P0, P1, P2>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, irp: *const super::super::Foundation::IRP, completionroutine: super::super::Foundation::PIO_COMPLETION_ROUTINE, context: Option<*const core::ffi::c_void>, invokeonsuccess: P0, invokeonerror: P1, invokeoncancel: P2) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P6: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoSetCompletionRoutineEx(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, irp : *const super::super::Foundation:: IRP, completionroutine : super::super::Foundation:: PIO_COMPLETION_ROUTINE, context : *const core::ffi::c_void, invokeonsuccess : super::super::super::Win32::Foundation:: BOOLEAN, invokeonerror : super::super::super::Win32::Foundation:: BOOLEAN, invokeoncancel : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoSetCompletionRoutineEx(deviceobject, irp, completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null())), invokeonsuccess.param().abi(), invokeonerror.param().abi(), invokeoncancel.param().abi())
@@ -2463,9 +2463,9 @@ pub unsafe fn IoSetDeviceInterfacePropertyData(symboliclinkname: *const super::s
     IoSetDeviceInterfacePropertyData(symboliclinkname, propertykey, lcid, flags, r#type, size, core::mem::transmute(data.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn IoSetDeviceInterfaceState<P1>(symboliclinkname: *const super::super::super::Win32::Foundation::UNICODE_STRING, enable: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoSetDeviceInterfaceState<P0>(symboliclinkname: *const super::super::super::Win32::Foundation::UNICODE_STRING, enable: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoSetDeviceInterfaceState(symboliclinkname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, enable : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoSetDeviceInterfaceState(symboliclinkname, enable.param().abi())
@@ -2484,9 +2484,9 @@ pub unsafe fn IoSetFileObjectIgnoreSharing(fileobject: *const super::super::Foun
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoSetFileOrigin<P1>(fileobject: *const super::super::Foundation::FILE_OBJECT, remote: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoSetFileOrigin<P0>(fileobject: *const super::super::Foundation::FILE_OBJECT, remote: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoSetFileOrigin(fileobject : *const super::super::Foundation:: FILE_OBJECT, remote : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoSetFileOrigin(fileobject, remote.param().abi())
@@ -2535,9 +2535,9 @@ pub unsafe fn IoSetLinkShareAccess(desiredaccess: u32, desiredshareaccess: u32, 
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoSetMasterIrpStatus<P1>(masterirp: *mut super::super::Foundation::IRP, status: P1)
+pub unsafe fn IoSetMasterIrpStatus<P0>(masterirp: *mut super::super::Foundation::IRP, status: P0)
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoSetMasterIrpStatus(masterirp : *mut super::super::Foundation:: IRP, status : super::super::super::Win32::Foundation:: NTSTATUS));
     IoSetMasterIrpStatus(masterirp, status.param().abi())
@@ -2568,10 +2568,10 @@ pub unsafe fn IoSetShareAccessEx(desiredaccess: u32, desiredshareaccess: u32, fi
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoSetStartIoAttributes<P1, P2>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, deferredstartio: P1, noncancelable: P2)
+pub unsafe fn IoSetStartIoAttributes<P0, P1>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, deferredstartio: P0, noncancelable: P1)
 where
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
     P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoSetStartIoAttributes(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, deferredstartio : super::super::super::Win32::Foundation:: BOOLEAN, noncancelable : super::super::super::Win32::Foundation:: BOOLEAN));
     IoSetStartIoAttributes(deviceobject, deferredstartio.param().abi(), noncancelable.param().abi())
@@ -2608,18 +2608,18 @@ pub unsafe fn IoSizeofWorkItem() -> u32 {
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoStartNextPacket<P1>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, cancelable: P1)
+pub unsafe fn IoStartNextPacket<P0>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, cancelable: P0)
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoStartNextPacket(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, cancelable : super::super::super::Win32::Foundation:: BOOLEAN));
     IoStartNextPacket(deviceobject, cancelable.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoStartNextPacketByKey<P1>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, cancelable: P1, key: u32)
+pub unsafe fn IoStartNextPacketByKey<P0>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, cancelable: P0, key: u32)
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoStartNextPacketByKey(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, cancelable : super::super::super::Win32::Foundation:: BOOLEAN, key : u32));
     IoStartNextPacketByKey(deviceobject, cancelable.param().abi(), key)
@@ -2728,9 +2728,9 @@ pub unsafe fn IoValidateDeviceIoControlAccess(irp: *const super::super::Foundati
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoVerifyPartitionTable<P1>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, fixerrors: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoVerifyPartitionTable<P0>(deviceobject: *const super::super::Foundation::DEVICE_OBJECT, fixerrors: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoVerifyPartitionTable(deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, fixerrors : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoVerifyPartitionTable(deviceobject, fixerrors.param().abi())
@@ -2777,9 +2777,9 @@ pub unsafe fn IoWMIExecuteMethod(datablockobject: *const core::ffi::c_void, inst
     IoWMIExecuteMethod(datablockobject, instancename, methodid, inbuffersize, outbuffersize, core::mem::transmute(inoutbuffer.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn IoWMIHandleToInstanceName<P1>(datablockobject: *const core::ffi::c_void, filehandle: P1, instancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoWMIHandleToInstanceName<P0>(datablockobject: *const core::ffi::c_void, filehandle: P0, instancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoWMIHandleToInstanceName(datablockobject : *const core::ffi::c_void, filehandle : super::super::super::Win32::Foundation:: HANDLE, instancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoWMIHandleToInstanceName(datablockobject, filehandle.param().abi(), instancename)
@@ -2832,9 +2832,9 @@ pub unsafe fn IoWMISetSingleItem(datablockobject: *const core::ffi::c_void, inst
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn IoWMISuggestInstanceName<P2>(physicaldeviceobject: Option<*const super::super::Foundation::DEVICE_OBJECT>, symboliclinkname: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, combinenames: P2, suggestedinstancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn IoWMISuggestInstanceName<P0>(physicaldeviceobject: Option<*const super::super::Foundation::DEVICE_OBJECT>, symboliclinkname: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, combinenames: P0, suggestedinstancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn IoWMISuggestInstanceName(physicaldeviceobject : *const super::super::Foundation:: DEVICE_OBJECT, symboliclinkname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, combinenames : super::super::super::Win32::Foundation:: BOOLEAN, suggestedinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
     IoWMISuggestInstanceName(core::mem::transmute(physicaldeviceobject.unwrap_or(core::ptr::null())), core::mem::transmute(symboliclinkname.unwrap_or(core::ptr::null())), combinenames.param().abi(), suggestedinstancename)
@@ -2995,9 +2995,9 @@ pub unsafe fn KeConvertPerformanceCounterToAuxiliaryCounter(performancecounterva
     KeConvertPerformanceCounterToAuxiliaryCounter(performancecountervalue, auxiliarycountervalue, core::mem::transmute(conversionerror.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn KeDelayExecutionThread<P1>(waitmode: i8, alertable: P1, interval: *const i64) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn KeDelayExecutionThread<P0>(waitmode: i8, alertable: P0, interval: *const i64) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn KeDelayExecutionThread(waitmode : i8, alertable : super::super::super::Win32::Foundation:: BOOLEAN, interval : *const i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
     KeDelayExecutionThread(waitmode, alertable.param().abi(), interval)
@@ -3045,19 +3045,19 @@ pub unsafe fn KeExpandKernelStackAndCallout(callout: PEXPAND_STACK_CALLOUT, para
     KeExpandKernelStackAndCallout(callout, core::mem::transmute(parameter.unwrap_or(core::ptr::null())), size)
 }
 #[inline]
-pub unsafe fn KeExpandKernelStackAndCalloutEx<P3>(callout: PEXPAND_STACK_CALLOUT, parameter: Option<*const core::ffi::c_void>, size: usize, wait: P3, context: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn KeExpandKernelStackAndCalloutEx<P0>(callout: PEXPAND_STACK_CALLOUT, parameter: Option<*const core::ffi::c_void>, size: usize, wait: P0, context: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn KeExpandKernelStackAndCalloutEx(callout : PEXPAND_STACK_CALLOUT, parameter : *const core::ffi::c_void, size : usize, wait : super::super::super::Win32::Foundation:: BOOLEAN, context : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
     KeExpandKernelStackAndCalloutEx(callout, core::mem::transmute(parameter.unwrap_or(core::ptr::null())), size, wait.param().abi(), core::mem::transmute(context.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn KeFlushIoBuffers<P1, P2>(mdl: *const super::super::Foundation::MDL, readoperation: P1, dmaoperation: P2)
+pub unsafe fn KeFlushIoBuffers<P0, P1>(mdl: *const super::super::Foundation::MDL, readoperation: P0, dmaoperation: P1)
 where
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
     P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn KeFlushIoBuffers(mdl : *const super::super::Foundation:: MDL, readoperation : super::super::super::Win32::Foundation:: BOOLEAN, dmaoperation : super::super::super::Win32::Foundation:: BOOLEAN));
     KeFlushIoBuffers(mdl, readoperation.param().abi(), dmaoperation.param().abi())
@@ -3124,9 +3124,9 @@ pub unsafe fn KeInitializeDpc(dpc: *mut super::super::Foundation::KDPC, deferred
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn KeInitializeEvent<P2>(event: *mut super::super::Foundation::KEVENT, r#type: super::super::super::Win32::System::Kernel::EVENT_TYPE, state: P2)
+pub unsafe fn KeInitializeEvent<P0>(event: *mut super::super::Foundation::KEVENT, r#type: super::super::super::Win32::System::Kernel::EVENT_TYPE, state: P0)
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeEvent(event : *mut super::super::Foundation:: KEVENT, r#type : super::super::super::Win32::System::Kernel:: EVENT_TYPE, state : super::super::super::Win32::Foundation:: BOOLEAN));
     KeInitializeEvent(event, r#type, state.param().abi())
@@ -3230,9 +3230,9 @@ pub unsafe fn KeLeaveGuardedRegion() {
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn KePulseEvent<P2>(event: *mut super::super::Foundation::KEVENT, increment: i32, wait: P2) -> i32
+pub unsafe fn KePulseEvent<P0>(event: *mut super::super::Foundation::KEVENT, increment: i32, wait: P0) -> i32
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn KePulseEvent(event : *mut super::super::Foundation:: KEVENT, increment : i32, wait : super::super::super::Win32::Foundation:: BOOLEAN) -> i32);
     KePulseEvent(event, increment, wait.param().abi())
@@ -3473,18 +3473,18 @@ where
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn KeReleaseMutex<P1>(mutex: *mut super::super::Foundation::KMUTANT, wait: P1) -> i32
+pub unsafe fn KeReleaseMutex<P0>(mutex: *mut super::super::Foundation::KMUTANT, wait: P0) -> i32
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseMutex(mutex : *mut super::super::Foundation:: KMUTANT, wait : super::super::super::Win32::Foundation:: BOOLEAN) -> i32);
     KeReleaseMutex(mutex, wait.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn KeReleaseSemaphore<P3>(semaphore: *mut KSEMAPHORE, increment: i32, adjustment: i32, wait: P3) -> i32
+pub unsafe fn KeReleaseSemaphore<P0>(semaphore: *mut KSEMAPHORE, increment: i32, adjustment: i32, wait: P0) -> i32
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn KeReleaseSemaphore(semaphore : *mut KSEMAPHORE, increment : i32, adjustment : i32, wait : super::super::super::Win32::Foundation:: BOOLEAN) -> i32);
     KeReleaseSemaphore(semaphore, increment, adjustment, wait.param().abi())
@@ -3526,9 +3526,9 @@ pub unsafe fn KeRemoveQueueDpc(dpc: *mut super::super::Foundation::KDPC) -> supe
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn KeRemoveQueueDpcEx<P1>(dpc: *mut super::super::Foundation::KDPC, waitifactive: P1) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn KeRemoveQueueDpcEx<P0>(dpc: *mut super::super::Foundation::KDPC, waitifactive: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn KeRemoveQueueDpcEx(dpc : *mut super::super::Foundation:: KDPC, waitifactive : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     KeRemoveQueueDpcEx(dpc, waitifactive.param().abi())
@@ -3584,9 +3584,9 @@ pub unsafe fn KeSetCoalescableTimer(timer: *mut KTIMER, duetime: i64, period: u3
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn KeSetEvent<P2>(event: *mut super::super::Foundation::KEVENT, increment: i32, wait: P2) -> i32
+pub unsafe fn KeSetEvent<P0>(event: *mut super::super::Foundation::KEVENT, increment: i32, wait: P0) -> i32
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn KeSetEvent(event : *mut super::super::Foundation:: KEVENT, increment : i32, wait : super::super::super::Win32::Foundation:: BOOLEAN) -> i32);
     KeSetEvent(event, increment, wait.param().abi())
@@ -3688,17 +3688,17 @@ pub unsafe fn KeTryToAcquireSpinLockAtDpcLevel(spinlock: *mut usize) -> super::s
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn KeWaitForMultipleObjects<P5>(object: &[*const core::ffi::c_void], waittype: super::super::super::Win32::System::Kernel::WAIT_TYPE, waitreason: KWAIT_REASON, waitmode: i8, alertable: P5, timeout: Option<*const i64>, waitblockarray: Option<*mut super::super::Foundation::KWAIT_BLOCK>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn KeWaitForMultipleObjects<P0>(object: &[*const core::ffi::c_void], waittype: super::super::super::Win32::System::Kernel::WAIT_TYPE, waitreason: KWAIT_REASON, waitmode: i8, alertable: P0, timeout: Option<*const i64>, waitblockarray: Option<*mut super::super::Foundation::KWAIT_BLOCK>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn KeWaitForMultipleObjects(count : u32, object : *const *const core::ffi::c_void, waittype : super::super::super::Win32::System::Kernel:: WAIT_TYPE, waitreason : KWAIT_REASON, waitmode : i8, alertable : super::super::super::Win32::Foundation:: BOOLEAN, timeout : *const i64, waitblockarray : *mut super::super::Foundation:: KWAIT_BLOCK) -> super::super::super::Win32::Foundation:: NTSTATUS);
     KeWaitForMultipleObjects(object.len().try_into().unwrap(), core::mem::transmute(object.as_ptr()), waittype, waitreason, waitmode, alertable.param().abi(), core::mem::transmute(timeout.unwrap_or(core::ptr::null())), core::mem::transmute(waitblockarray.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn KeWaitForSingleObject<P3>(object: *const core::ffi::c_void, waitreason: KWAIT_REASON, waitmode: i8, alertable: P3, timeout: Option<*const i64>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn KeWaitForSingleObject<P0>(object: *const core::ffi::c_void, waitreason: KWAIT_REASON, waitmode: i8, alertable: P0, timeout: Option<*const i64>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn KeWaitForSingleObject(object : *const core::ffi::c_void, waitreason : KWAIT_REASON, waitmode : i8, alertable : super::super::super::Win32::Foundation:: BOOLEAN, timeout : *const i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
     KeWaitForSingleObject(object, waitreason, waitmode, alertable.param().abi(), core::mem::transmute(timeout.unwrap_or(core::ptr::null())))
@@ -4040,9 +4040,9 @@ pub unsafe fn MmProbeAndLockPages(memorydescriptorlist: *mut super::super::Found
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn MmProbeAndLockProcessPages<P1>(memorydescriptorlist: *mut super::super::Foundation::MDL, process: P1, accessmode: i8, operation: LOCK_OPERATION)
+pub unsafe fn MmProbeAndLockProcessPages<P0>(memorydescriptorlist: *mut super::super::Foundation::MDL, process: P0, accessmode: i8, operation: LOCK_OPERATION)
 where
-    P1: windows_core::Param<super::super::Foundation::PEPROCESS>,
+    P0: windows_core::Param<super::super::Foundation::PEPROCESS>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn MmProbeAndLockProcessPages(memorydescriptorlist : *mut super::super::Foundation:: MDL, process : super::super::Foundation:: PEPROCESS, accessmode : i8, operation : LOCK_OPERATION));
     MmProbeAndLockProcessPages(memorydescriptorlist, process.param().abi(), accessmode, operation)
@@ -4188,28 +4188,28 @@ where
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn NtCreateEnlistment<P2, P3>(enlistmenthandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, resourcemanagerhandle: P2, transactionhandle: P3, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, createoptions: u32, notificationmask: u32, enlistmentkey: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtCreateEnlistment<P0, P1>(enlistmenthandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, resourcemanagerhandle: P0, transactionhandle: P1, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, createoptions: u32, notificationmask: u32, enlistmentkey: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtCreateEnlistment(enlistmenthandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, resourcemanagerhandle : super::super::super::Win32::Foundation:: HANDLE, transactionhandle : super::super::super::Win32::Foundation:: HANDLE, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, createoptions : u32, notificationmask : u32, enlistmentkey : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtCreateEnlistment(enlistmenthandle, desiredaccess, resourcemanagerhandle.param().abi(), transactionhandle.param().abi(), core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), createoptions, notificationmask, core::mem::transmute(enlistmentkey.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn NtCreateResourceManager<P2>(resourcemanagerhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, tmhandle: P2, rmguid: *const windows_core::GUID, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, createoptions: u32, description: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtCreateResourceManager<P0>(resourcemanagerhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, tmhandle: P0, rmguid: *const windows_core::GUID, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, createoptions: u32, description: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtCreateResourceManager(resourcemanagerhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, tmhandle : super::super::super::Win32::Foundation:: HANDLE, rmguid : *const windows_core::GUID, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, createoptions : u32, description : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtCreateResourceManager(resourcemanagerhandle, desiredaccess, tmhandle.param().abi(), rmguid, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), createoptions, core::mem::transmute(description.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn NtCreateTransaction<P4>(transactionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, uow: Option<*const windows_core::GUID>, tmhandle: P4, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: Option<*const i64>, description: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtCreateTransaction<P0>(transactionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, uow: Option<*const windows_core::GUID>, tmhandle: P0, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: Option<*const i64>, description: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtCreateTransaction(transactionhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, uow : *const windows_core::GUID, tmhandle : super::super::super::Win32::Foundation:: HANDLE, createoptions : u32, isolationlevel : u32, isolationflags : u32, timeout : *const i64, description : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtCreateTransaction(transactionhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), core::mem::transmute(uow.unwrap_or(core::ptr::null())), tmhandle.param().abi(), createoptions, isolationlevel, isolationflags, core::mem::transmute(timeout.unwrap_or(core::ptr::null())), core::mem::transmute(description.unwrap_or(core::ptr::null())))
@@ -4267,27 +4267,27 @@ where
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn NtOpenEnlistment<P2>(enlistmenthandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, resourcemanagerhandle: P2, enlistmentguid: *const windows_core::GUID, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtOpenEnlistment<P0>(enlistmenthandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, resourcemanagerhandle: P0, enlistmentguid: *const windows_core::GUID, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtOpenEnlistment(enlistmenthandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, resourcemanagerhandle : super::super::super::Win32::Foundation:: HANDLE, enlistmentguid : *const windows_core::GUID, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtOpenEnlistment(enlistmenthandle, desiredaccess, resourcemanagerhandle.param().abi(), enlistmentguid, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn NtOpenResourceManager<P2>(resourcemanagerhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, tmhandle: P2, resourcemanagerguid: Option<*const windows_core::GUID>, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtOpenResourceManager<P0>(resourcemanagerhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, tmhandle: P0, resourcemanagerguid: Option<*const windows_core::GUID>, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtOpenResourceManager(resourcemanagerhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, tmhandle : super::super::super::Win32::Foundation:: HANDLE, resourcemanagerguid : *const windows_core::GUID, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtOpenResourceManager(resourcemanagerhandle, desiredaccess, tmhandle.param().abi(), core::mem::transmute(resourcemanagerguid.unwrap_or(core::ptr::null())), core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn NtOpenTransaction<P4>(transactionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, uow: *const windows_core::GUID, tmhandle: P4) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtOpenTransaction<P0>(transactionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, uow: *const windows_core::GUID, tmhandle: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtOpenTransaction(transactionhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, uow : *const windows_core::GUID, tmhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtOpenTransaction(transactionhandle, desiredaccess, objectattributes, uow, tmhandle.param().abi())
@@ -4345,10 +4345,10 @@ where
     NtPropagationComplete(resourcemanagerhandle.param().abi(), requestcookie, bufferlength, buffer)
 }
 #[inline]
-pub unsafe fn NtPropagationFailed<P0, P2>(resourcemanagerhandle: P0, requestcookie: u32, propstatus: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtPropagationFailed<P0, P1>(resourcemanagerhandle: P0, requestcookie: u32, propstatus: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtPropagationFailed(resourcemanagerhandle : super::super::super::Win32::Foundation:: HANDLE, requestcookie : u32, propstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtPropagationFailed(resourcemanagerhandle.param().abi(), requestcookie, propstatus.param().abi())
@@ -4547,38 +4547,38 @@ pub unsafe fn ObGetObjectSecurity(object: *const core::ffi::c_void, securitydesc
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn ObReferenceObjectByHandle<P0, P2>(handle: P0, desiredaccess: u32, objecttype: P2, accessmode: i8, object: *mut *mut core::ffi::c_void, handleinformation: Option<*mut OBJECT_HANDLE_INFORMATION>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ObReferenceObjectByHandle<P0, P1>(handle: P0, desiredaccess: u32, objecttype: P1, accessmode: i8, object: *mut *mut core::ffi::c_void, handleinformation: Option<*mut OBJECT_HANDLE_INFORMATION>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P2: windows_core::Param<super::super::Foundation::POBJECT_TYPE>,
+    P1: windows_core::Param<super::super::Foundation::POBJECT_TYPE>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn ObReferenceObjectByHandle(handle : super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objecttype : super::super::Foundation:: POBJECT_TYPE, accessmode : i8, object : *mut *mut core::ffi::c_void, handleinformation : *mut OBJECT_HANDLE_INFORMATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ObReferenceObjectByHandle(handle.param().abi(), desiredaccess, objecttype.param().abi(), accessmode, object, core::mem::transmute(handleinformation.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn ObReferenceObjectByHandleWithTag<P0, P2>(handle: P0, desiredaccess: u32, objecttype: P2, accessmode: i8, tag: u32, object: *mut *mut core::ffi::c_void, handleinformation: Option<*mut OBJECT_HANDLE_INFORMATION>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ObReferenceObjectByHandleWithTag<P0, P1>(handle: P0, desiredaccess: u32, objecttype: P1, accessmode: i8, tag: u32, object: *mut *mut core::ffi::c_void, handleinformation: Option<*mut OBJECT_HANDLE_INFORMATION>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P2: windows_core::Param<super::super::Foundation::POBJECT_TYPE>,
+    P1: windows_core::Param<super::super::Foundation::POBJECT_TYPE>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn ObReferenceObjectByHandleWithTag(handle : super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objecttype : super::super::Foundation:: POBJECT_TYPE, accessmode : i8, tag : u32, object : *mut *mut core::ffi::c_void, handleinformation : *mut OBJECT_HANDLE_INFORMATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ObReferenceObjectByHandleWithTag(handle.param().abi(), desiredaccess, objecttype.param().abi(), accessmode, tag, object, core::mem::transmute(handleinformation.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn ObReferenceObjectByPointer<P2>(object: *const core::ffi::c_void, desiredaccess: u32, objecttype: P2, accessmode: i8) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ObReferenceObjectByPointer<P0>(object: *const core::ffi::c_void, desiredaccess: u32, objecttype: P0, accessmode: i8) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::Foundation::POBJECT_TYPE>,
+    P0: windows_core::Param<super::super::Foundation::POBJECT_TYPE>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn ObReferenceObjectByPointer(object : *const core::ffi::c_void, desiredaccess : u32, objecttype : super::super::Foundation:: POBJECT_TYPE, accessmode : i8) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ObReferenceObjectByPointer(object, desiredaccess, objecttype.param().abi(), accessmode)
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn ObReferenceObjectByPointerWithTag<P2>(object: *const core::ffi::c_void, desiredaccess: u32, objecttype: P2, accessmode: i8, tag: u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ObReferenceObjectByPointerWithTag<P0>(object: *const core::ffi::c_void, desiredaccess: u32, objecttype: P0, accessmode: i8, tag: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::Foundation::POBJECT_TYPE>,
+    P0: windows_core::Param<super::super::Foundation::POBJECT_TYPE>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn ObReferenceObjectByPointerWithTag(object : *const core::ffi::c_void, desiredaccess : u32, objecttype : super::super::Foundation:: POBJECT_TYPE, accessmode : i8, tag : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ObReferenceObjectByPointerWithTag(object, desiredaccess, objecttype.param().abi(), accessmode, tag)
@@ -4654,9 +4654,9 @@ where
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn PcwCreateInstance<P1>(instance: *mut super::super::Foundation::PPCW_INSTANCE, registration: P1, name: *const super::super::super::Win32::Foundation::UNICODE_STRING, data: &[PCW_DATA]) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn PcwCreateInstance<P0>(instance: *mut super::super::Foundation::PPCW_INSTANCE, registration: P0, name: *const super::super::super::Win32::Foundation::UNICODE_STRING, data: &[PCW_DATA]) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::Foundation::PPCW_REGISTRATION>,
+    P0: windows_core::Param<super::super::Foundation::PPCW_REGISTRATION>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn PcwCreateInstance(instance : *mut super::super::Foundation:: PPCW_INSTANCE, registration : super::super::Foundation:: PPCW_REGISTRATION, name : *const super::super::super::Win32::Foundation:: UNICODE_STRING, count : u32, data : *const PCW_DATA) -> super::super::super::Win32::Foundation:: NTSTATUS);
     PcwCreateInstance(instance, registration.param().abi(), name, data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()))
@@ -4846,10 +4846,10 @@ pub unsafe fn PoFxRegisterDevice(pdo: *const super::super::Foundation::DEVICE_OB
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn PoFxRegisterDripsWatchdogCallback<P0, P2>(handle: P0, callback: PPO_FX_DRIPS_WATCHDOG_CALLBACK, includechilddevices: P2, matchingdriverobject: Option<*const super::super::Foundation::DRIVER_OBJECT>)
+pub unsafe fn PoFxRegisterDripsWatchdogCallback<P0, P1>(handle: P0, callback: PPO_FX_DRIPS_WATCHDOG_CALLBACK, includechilddevices: P1, matchingdriverobject: Option<*const super::super::Foundation::DRIVER_OBJECT>)
 where
     P0: windows_core::Param<super::super::Foundation::POHANDLE>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn PoFxRegisterDripsWatchdogCallback(handle : super::super::Foundation:: POHANDLE, callback : PPO_FX_DRIPS_WATCHDOG_CALLBACK, includechilddevices : super::super::super::Win32::Foundation:: BOOLEAN, matchingdriverobject : *const super::super::Foundation:: DRIVER_OBJECT));
     PoFxRegisterDripsWatchdogCallback(handle.param().abi(), callback, includechilddevices.param().abi(), core::mem::transmute(matchingdriverobject.unwrap_or(core::ptr::null())))
@@ -4883,10 +4883,10 @@ where
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn PoFxSetComponentWake<P0, P2>(handle: P0, component: u32, wakehint: P2)
+pub unsafe fn PoFxSetComponentWake<P0, P1>(handle: P0, component: u32, wakehint: P1)
 where
     P0: windows_core::Param<super::super::Foundation::POHANDLE>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn PoFxSetComponentWake(handle : super::super::Foundation:: POHANDLE, component : u32, wakehint : super::super::super::Win32::Foundation:: BOOLEAN));
     PoFxSetComponentWake(handle.param().abi(), component, wakehint.param().abi())
@@ -5007,9 +5007,9 @@ pub unsafe fn PoSetSystemWakeDevice(deviceobject: *const super::super::Foundatio
     PoSetSystemWakeDevice(deviceobject)
 }
 #[inline]
-pub unsafe fn PoSetThermalActiveCooling<P1>(thermalrequest: *mut core::ffi::c_void, engaged: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn PoSetThermalActiveCooling<P0>(thermalrequest: *mut core::ffi::c_void, engaged: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn PoSetThermalActiveCooling(thermalrequest : *mut core::ffi::c_void, engaged : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     PoSetThermalActiveCooling(thermalrequest, engaged.param().abi())
@@ -5090,9 +5090,9 @@ where
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn PsCreateSystemThread<P3>(threadhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, processhandle: P3, clientid: Option<*mut super::super::super::Win32::System::WindowsProgramming::CLIENT_ID>, startroutine: PKSTART_ROUTINE, startcontext: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn PsCreateSystemThread<P0>(threadhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, processhandle: P0, clientid: Option<*mut super::super::super::Win32::System::WindowsProgramming::CLIENT_ID>, startroutine: PKSTART_ROUTINE, startcontext: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn PsCreateSystemThread(threadhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, processhandle : super::super::super::Win32::Foundation:: HANDLE, clientid : *mut super::super::super::Win32::System::WindowsProgramming:: CLIENT_ID, startroutine : PKSTART_ROUTINE, startcontext : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
     PsCreateSystemThread(threadhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), processhandle.param().abi(), core::mem::transmute(clientid.unwrap_or(core::ptr::null_mut())), startroutine, core::mem::transmute(startcontext.unwrap_or(core::ptr::null())))
@@ -5452,26 +5452,26 @@ where
     PsRevertToUserMultipleGroupAffinityThread(affinitytoken.param().abi())
 }
 #[inline]
-pub unsafe fn PsSetCreateProcessNotifyRoutine<P1>(notifyroutine: PCREATE_PROCESS_NOTIFY_ROUTINE, remove: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn PsSetCreateProcessNotifyRoutine<P0>(notifyroutine: PCREATE_PROCESS_NOTIFY_ROUTINE, remove: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn PsSetCreateProcessNotifyRoutine(notifyroutine : PCREATE_PROCESS_NOTIFY_ROUTINE, remove : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     PsSetCreateProcessNotifyRoutine(notifyroutine, remove.param().abi())
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn PsSetCreateProcessNotifyRoutineEx<P1>(notifyroutine: PCREATE_PROCESS_NOTIFY_ROUTINE_EX, remove: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn PsSetCreateProcessNotifyRoutineEx<P0>(notifyroutine: PCREATE_PROCESS_NOTIFY_ROUTINE_EX, remove: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn PsSetCreateProcessNotifyRoutineEx(notifyroutine : PCREATE_PROCESS_NOTIFY_ROUTINE_EX, remove : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     PsSetCreateProcessNotifyRoutineEx(notifyroutine, remove.param().abi())
 }
 #[inline]
-pub unsafe fn PsSetCreateProcessNotifyRoutineEx2<P2>(notifytype: PSCREATEPROCESSNOTIFYTYPE, notifyinformation: *const core::ffi::c_void, remove: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn PsSetCreateProcessNotifyRoutineEx2<P0>(notifytype: PSCREATEPROCESSNOTIFYTYPE, notifyinformation: *const core::ffi::c_void, remove: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn PsSetCreateProcessNotifyRoutineEx2(notifytype : PSCREATEPROCESSNOTIFYTYPE, notifyinformation : *const core::ffi::c_void, remove : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     PsSetCreateProcessNotifyRoutineEx2(notifytype, notifyinformation, remove.param().abi())
@@ -5506,9 +5506,9 @@ pub unsafe fn PsSetLoadImageNotifyRoutineEx(notifyroutine: PLOAD_IMAGE_NOTIFY_RO
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_SystemInformation"))]
 #[inline]
-pub unsafe fn PsSetSystemMultipleGroupAffinityThread<P2>(groupaffinities: &[super::super::super::Win32::System::SystemInformation::GROUP_AFFINITY], affinitytoken: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn PsSetSystemMultipleGroupAffinityThread<P0>(groupaffinities: &[super::super::super::Win32::System::SystemInformation::GROUP_AFFINITY], affinitytoken: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::Foundation::PAFFINITY_TOKEN>,
+    P0: windows_core::Param<super::super::Foundation::PAFFINITY_TOKEN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn PsSetSystemMultipleGroupAffinityThread(groupaffinities : *const super::super::super::Win32::System::SystemInformation:: GROUP_AFFINITY, groupcount : u16, affinitytoken : super::super::Foundation:: PAFFINITY_TOKEN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     PsSetSystemMultipleGroupAffinityThread(core::mem::transmute(groupaffinities.as_ptr()), groupaffinities.len().try_into().unwrap(), affinitytoken.param().abi())
@@ -5592,9 +5592,9 @@ pub unsafe fn RtlAppendUnicodeStringToString(destination: *mut super::super::sup
     RtlAppendUnicodeStringToString(destination, source)
 }
 #[inline]
-pub unsafe fn RtlAppendUnicodeToString<P1>(destination: *mut super::super::super::Win32::Foundation::UNICODE_STRING, source: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlAppendUnicodeToString<P0>(destination: *mut super::super::super::Win32::Foundation::UNICODE_STRING, source: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlAppendUnicodeToString(destination : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, source : windows_core::PCWSTR) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlAppendUnicodeToString(destination, source.param().abi())
@@ -5610,17 +5610,17 @@ pub unsafe fn RtlAreBitsSet(bitmapheader: *const RTL_BITMAP, startingindex: u32,
     RtlAreBitsSet(bitmapheader, startingindex, length)
 }
 #[inline]
-pub unsafe fn RtlAssert<P3>(voidfailedassertion: *const core::ffi::c_void, voidfilename: *const core::ffi::c_void, linenumber: u32, mutablemessage: P3)
+pub unsafe fn RtlAssert<P0>(voidfailedassertion: *const core::ffi::c_void, voidfilename: *const core::ffi::c_void, linenumber: u32, mutablemessage: P0)
 where
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlAssert(voidfailedassertion : *const core::ffi::c_void, voidfilename : *const core::ffi::c_void, linenumber : u32, mutablemessage : windows_core::PCSTR));
     RtlAssert(voidfailedassertion, voidfilename, linenumber, mutablemessage.param().abi())
 }
 #[inline]
-pub unsafe fn RtlCheckRegistryKey<P1>(relativeto: u32, path: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlCheckRegistryKey<P0>(relativeto: u32, path: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlCheckRegistryKey(relativeto : u32, path : windows_core::PCWSTR) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlCheckRegistryKey(relativeto, path.param().abi())
@@ -5652,25 +5652,25 @@ pub unsafe fn RtlCmEncodeMemIoResource(descriptor: *const CM_PARTIAL_RESOURCE_DE
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlCompareString<P2>(string1: *const super::super::super::Win32::System::Kernel::STRING, string2: *const super::super::super::Win32::System::Kernel::STRING, caseinsensitive: P2) -> i32
+pub unsafe fn RtlCompareString<P0>(string1: *const super::super::super::Win32::System::Kernel::STRING, string2: *const super::super::super::Win32::System::Kernel::STRING, caseinsensitive: P0) -> i32
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlCompareString(string1 : *const super::super::super::Win32::System::Kernel:: STRING, string2 : *const super::super::super::Win32::System::Kernel:: STRING, caseinsensitive : super::super::super::Win32::Foundation:: BOOLEAN) -> i32);
     RtlCompareString(string1, string2, caseinsensitive.param().abi())
 }
 #[inline]
-pub unsafe fn RtlCompareUnicodeString<P2>(string1: *const super::super::super::Win32::Foundation::UNICODE_STRING, string2: *const super::super::super::Win32::Foundation::UNICODE_STRING, caseinsensitive: P2) -> i32
+pub unsafe fn RtlCompareUnicodeString<P0>(string1: *const super::super::super::Win32::Foundation::UNICODE_STRING, string2: *const super::super::super::Win32::Foundation::UNICODE_STRING, caseinsensitive: P0) -> i32
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlCompareUnicodeString(string1 : *const super::super::super::Win32::Foundation:: UNICODE_STRING, string2 : *const super::super::super::Win32::Foundation:: UNICODE_STRING, caseinsensitive : super::super::super::Win32::Foundation:: BOOLEAN) -> i32);
     RtlCompareUnicodeString(string1, string2, caseinsensitive.param().abi())
 }
 #[inline]
-pub unsafe fn RtlCompareUnicodeStrings<P4>(string1: &[u16], string2: &[u16], caseinsensitive: P4) -> i32
+pub unsafe fn RtlCompareUnicodeStrings<P0>(string1: &[u16], string2: &[u16], caseinsensitive: P0) -> i32
 where
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlCompareUnicodeStrings(string1 : *const u16, string1length : usize, string2 : *const u16, string2length : usize, caseinsensitive : super::super::super::Win32::Foundation:: BOOLEAN) -> i32);
     RtlCompareUnicodeStrings(core::mem::transmute(string1.as_ptr()), string1.len().try_into().unwrap(), core::mem::transmute(string2.as_ptr()), string2.len().try_into().unwrap(), caseinsensitive.param().abi())
@@ -5707,9 +5707,9 @@ pub unsafe fn RtlCreateHashTableEx(hashtable: *mut *mut RTL_DYNAMIC_HASH_TABLE, 
     RtlCreateHashTableEx(hashtable, initialsize, shift, flags)
 }
 #[inline]
-pub unsafe fn RtlCreateRegistryKey<P1>(relativeto: u32, path: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlCreateRegistryKey<P0>(relativeto: u32, path: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlCreateRegistryKey(relativeto : u32, path : windows_core::PCWSTR) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlCreateRegistryKey(relativeto, path.param().abi())
@@ -5754,10 +5754,10 @@ pub unsafe fn RtlDeleteNoSplay(links: *const super::super::Foundation::RTL_SPLAY
     RtlDeleteNoSplay(links, root)
 }
 #[inline]
-pub unsafe fn RtlDeleteRegistryValue<P1, P2>(relativeto: u32, path: P1, valuename: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlDeleteRegistryValue<P0, P1>(relativeto: u32, path: P0, valuename: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlDeleteRegistryValue(relativeto : u32, path : windows_core::PCWSTR, valuename : windows_core::PCWSTR) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlDeleteRegistryValue(relativeto, path.param().abi(), valuename.param().abi())
@@ -5793,17 +5793,17 @@ pub unsafe fn RtlEnumerateEntryHashTable(hashtable: *const RTL_DYNAMIC_HASH_TABL
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn RtlEnumerateGenericTable<P1>(table: *const RTL_GENERIC_TABLE, restart: P1) -> *mut core::ffi::c_void
+pub unsafe fn RtlEnumerateGenericTable<P0>(table: *const RTL_GENERIC_TABLE, restart: P0) -> *mut core::ffi::c_void
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlEnumerateGenericTable(table : *const RTL_GENERIC_TABLE, restart : super::super::super::Win32::Foundation:: BOOLEAN) -> *mut core::ffi::c_void);
     RtlEnumerateGenericTable(table, restart.param().abi())
 }
 #[inline]
-pub unsafe fn RtlEnumerateGenericTableAvl<P1>(table: *const RTL_AVL_TABLE, restart: P1) -> *mut core::ffi::c_void
+pub unsafe fn RtlEnumerateGenericTableAvl<P0>(table: *const RTL_AVL_TABLE, restart: P0) -> *mut core::ffi::c_void
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlEnumerateGenericTableAvl(table : *const RTL_AVL_TABLE, restart : super::super::super::Win32::Foundation:: BOOLEAN) -> *mut core::ffi::c_void);
     RtlEnumerateGenericTableAvl(table, restart.param().abi())
@@ -5826,17 +5826,17 @@ pub unsafe fn RtlEnumerateGenericTableWithoutSplayingAvl(table: *const RTL_AVL_T
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlEqualString<P2>(string1: *const super::super::super::Win32::System::Kernel::STRING, string2: *const super::super::super::Win32::System::Kernel::STRING, caseinsensitive: P2) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn RtlEqualString<P0>(string1: *const super::super::super::Win32::System::Kernel::STRING, string2: *const super::super::super::Win32::System::Kernel::STRING, caseinsensitive: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlEqualString(string1 : *const super::super::super::Win32::System::Kernel:: STRING, string2 : *const super::super::super::Win32::System::Kernel:: STRING, caseinsensitive : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     RtlEqualString(string1, string2, caseinsensitive.param().abi())
 }
 #[inline]
-pub unsafe fn RtlEqualUnicodeString<P2>(string1: *const super::super::super::Win32::Foundation::UNICODE_STRING, string2: *const super::super::super::Win32::Foundation::UNICODE_STRING, caseinsensitive: P2) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn RtlEqualUnicodeString<P0>(string1: *const super::super::super::Win32::Foundation::UNICODE_STRING, string2: *const super::super::super::Win32::Foundation::UNICODE_STRING, caseinsensitive: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlEqualUnicodeString(string1 : *const super::super::super::Win32::Foundation:: UNICODE_STRING, string2 : *const super::super::super::Win32::Foundation:: UNICODE_STRING, caseinsensitive : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     RtlEqualUnicodeString(string1, string2, caseinsensitive.param().abi())
@@ -5862,9 +5862,9 @@ pub unsafe fn RtlFindClearBitsAndSet(bitmapheader: *const RTL_BITMAP, numbertofi
     RtlFindClearBitsAndSet(bitmapheader, numbertofind, hintindex)
 }
 #[inline]
-pub unsafe fn RtlFindClearRuns<P3>(bitmapheader: *const RTL_BITMAP, runarray: &mut [RTL_BITMAP_RUN], locatelongestruns: P3) -> u32
+pub unsafe fn RtlFindClearRuns<P0>(bitmapheader: *const RTL_BITMAP, runarray: &mut [RTL_BITMAP_RUN], locatelongestruns: P0) -> u32
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlFindClearRuns(bitmapheader : *const RTL_BITMAP, runarray : *mut RTL_BITMAP_RUN, sizeofrunarray : u32, locatelongestruns : super::super::super::Win32::Foundation:: BOOLEAN) -> u32);
     RtlFindClearRuns(bitmapheader, core::mem::transmute(runarray.as_ptr()), runarray.len().try_into().unwrap(), locatelongestruns.param().abi())
@@ -6000,9 +6000,9 @@ pub unsafe fn RtlGetVersion(lpversioninformation: *mut super::super::super::Win3
     RtlGetVersion(lpversioninformation)
 }
 #[inline]
-pub unsafe fn RtlHashUnicodeString<P1>(string: *const super::super::super::Win32::Foundation::UNICODE_STRING, caseinsensitive: P1, hashalgorithm: u32, hashvalue: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlHashUnicodeString<P0>(string: *const super::super::super::Win32::Foundation::UNICODE_STRING, caseinsensitive: P0, hashalgorithm: u32, hashvalue: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlHashUnicodeString(string : *const super::super::super::Win32::Foundation:: UNICODE_STRING, caseinsensitive : super::super::super::Win32::Foundation:: BOOLEAN, hashalgorithm : u32, hashvalue : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlHashUnicodeString(string, caseinsensitive.param().abi(), hashalgorithm, hashvalue)
@@ -6203,9 +6203,9 @@ pub unsafe fn RtlMapGenericMask(accessmask: *mut u32, genericmapping: *const sup
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlNormalizeSecurityDescriptor<P4>(securitydescriptor: *mut super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: Option<*mut super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>, newsecuritydescriptorlength: Option<*mut u32>, checkonly: P4) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn RtlNormalizeSecurityDescriptor<P0>(securitydescriptor: *mut super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: Option<*mut super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>, newsecuritydescriptorlength: Option<*mut u32>, checkonly: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlNormalizeSecurityDescriptor(securitydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, securitydescriptorlength : u32, newsecuritydescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, newsecuritydescriptorlength : *mut u32, checkonly : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     RtlNormalizeSecurityDescriptor(securitydescriptor, securitydescriptorlength, core::mem::transmute(newsecuritydescriptor.unwrap_or(core::ptr::null_mut())), core::mem::transmute(newsecuritydescriptorlength.unwrap_or(core::ptr::null_mut())), checkonly.param().abi())
@@ -6252,9 +6252,9 @@ pub unsafe fn RtlPrefetchMemoryNonTemporal(source: *const core::ffi::c_void, len
     RtlPrefetchMemoryNonTemporal(source, length)
 }
 #[inline]
-pub unsafe fn RtlPrefixUnicodeString<P2>(string1: *const super::super::super::Win32::Foundation::UNICODE_STRING, string2: *const super::super::super::Win32::Foundation::UNICODE_STRING, caseinsensitive: P2) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn RtlPrefixUnicodeString<P0>(string1: *const super::super::super::Win32::Foundation::UNICODE_STRING, string2: *const super::super::super::Win32::Foundation::UNICODE_STRING, caseinsensitive: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlPrefixUnicodeString(string1 : *const super::super::super::Win32::Foundation:: UNICODE_STRING, string2 : *const super::super::super::Win32::Foundation:: UNICODE_STRING, caseinsensitive : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     RtlPrefixUnicodeString(string1, string2, caseinsensitive.param().abi())
@@ -6269,9 +6269,9 @@ where
     RtlQueryRegistryValueWithFallback(primaryhandle.param().abi(), fallbackhandle.param().abi(), valuename, valuelength, core::mem::transmute(valuetype.unwrap_or(core::ptr::null_mut())), valuedata, resultlength)
 }
 #[inline]
-pub unsafe fn RtlQueryRegistryValues<P1>(relativeto: u32, path: P1, querytable: *mut RTL_QUERY_REGISTRY_TABLE, context: Option<*const core::ffi::c_void>, environment: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlQueryRegistryValues<P0>(relativeto: u32, path: P0, querytable: *mut RTL_QUERY_REGISTRY_TABLE, context: Option<*const core::ffi::c_void>, environment: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlQueryRegistryValues(relativeto : u32, path : windows_core::PCWSTR, querytable : *mut RTL_QUERY_REGISTRY_TABLE, context : *const core::ffi::c_void, environment : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlQueryRegistryValues(relativeto, path.param().abi(), querytable, core::mem::transmute(context.unwrap_or(core::ptr::null())), core::mem::transmute(environment.unwrap_or(core::ptr::null())))
@@ -6342,10 +6342,10 @@ pub unsafe fn RtlSetBits(bitmapheader: *const RTL_BITMAP, startingindex: u32, nu
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RtlSetDaclSecurityDescriptor<P1, P3>(securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, daclpresent: P1, dacl: Option<*const super::super::super::Win32::Security::ACL>, dacldefaulted: P3) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlSetDaclSecurityDescriptor<P0, P1>(securitydescriptor: super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, daclpresent: P0, dacl: Option<*const super::super::super::Win32::Security::ACL>, dacldefaulted: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
     P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlSetDaclSecurityDescriptor(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, daclpresent : super::super::super::Win32::Foundation:: BOOLEAN, dacl : *const super::super::super::Win32::Security:: ACL, dacldefaulted : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlSetDaclSecurityDescriptor(securitydescriptor, daclpresent.param().abi(), core::mem::transmute(dacl.unwrap_or(core::ptr::null())), dacldefaulted.param().abi())
@@ -6386,9 +6386,9 @@ pub unsafe fn RtlSubtreeSuccessor(links: *const super::super::Foundation::RTL_SP
     RtlSubtreeSuccessor(links)
 }
 #[inline]
-pub unsafe fn RtlSuffixUnicodeString<P2>(string1: *const super::super::super::Win32::Foundation::UNICODE_STRING, string2: *const super::super::super::Win32::Foundation::UNICODE_STRING, caseinsensitive: P2) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn RtlSuffixUnicodeString<P0>(string1: *const super::super::super::Win32::Foundation::UNICODE_STRING, string2: *const super::super::super::Win32::Foundation::UNICODE_STRING, caseinsensitive: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn RtlSuffixUnicodeString(string1 : *const super::super::super::Win32::Foundation:: UNICODE_STRING, string2 : *const super::super::super::Win32::Foundation:: UNICODE_STRING, caseinsensitive : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: BOOLEAN);
     RtlSuffixUnicodeString(string1, string2, caseinsensitive.param().abi())
@@ -6412,9 +6412,9 @@ pub unsafe fn RtlTimeToTimeFields(time: *const i64) -> TIME_FIELDS {
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlUTF8StringToUnicodeString<P2>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: *const super::super::super::Win32::System::Kernel::STRING, allocatedestinationstring: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlUTF8StringToUnicodeString<P0>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: *const super::super::super::Win32::System::Kernel::STRING, allocatedestinationstring: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlUTF8StringToUnicodeString(destinationstring : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, sourcestring : *const super::super::super::Win32::System::Kernel:: STRING, allocatedestinationstring : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlUTF8StringToUnicodeString(destinationstring, sourcestring, allocatedestinationstring.param().abi())
@@ -6436,9 +6436,9 @@ pub unsafe fn RtlUnicodeStringToInteger(string: *const super::super::super::Win3
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlUnicodeStringToUTF8String<P2>(destinationstring: *mut super::super::super::Win32::System::Kernel::STRING, sourcestring: *const super::super::super::Win32::Foundation::UNICODE_STRING, allocatedestinationstring: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlUnicodeStringToUTF8String<P0>(destinationstring: *mut super::super::super::Win32::System::Kernel::STRING, sourcestring: *const super::super::super::Win32::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlUnicodeStringToUTF8String(destinationstring : *mut super::super::super::Win32::System::Kernel:: STRING, sourcestring : *const super::super::super::Win32::Foundation:: UNICODE_STRING, allocatedestinationstring : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlUnicodeStringToUTF8String(destinationstring, sourcestring, allocatedestinationstring.param().abi())
@@ -6454,9 +6454,9 @@ pub unsafe fn RtlUpcaseUnicodeChar(sourcecharacter: u16) -> u16 {
     RtlUpcaseUnicodeChar(sourcecharacter)
 }
 #[inline]
-pub unsafe fn RtlUpcaseUnicodeString<P2>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: *const super::super::super::Win32::Foundation::UNICODE_STRING, allocatedestinationstring: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlUpcaseUnicodeString<P0>(destinationstring: *mut super::super::super::Win32::Foundation::UNICODE_STRING, sourcestring: *const super::super::super::Win32::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeString(destinationstring : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, sourcestring : *const super::super::super::Win32::Foundation:: UNICODE_STRING, allocatedestinationstring : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlUpcaseUnicodeString(destinationstring, sourcestring, allocatedestinationstring.param().abi())
@@ -6513,10 +6513,10 @@ pub unsafe fn RtlWeaklyEnumerateEntryHashTable(hashtable: *const RTL_DYNAMIC_HAS
     RtlWeaklyEnumerateEntryHashTable(hashtable, enumerator)
 }
 #[inline]
-pub unsafe fn RtlWriteRegistryValue<P1, P2>(relativeto: u32, path: P1, valuename: P2, valuetype: u32, valuedata: Option<*const core::ffi::c_void>, valuelength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn RtlWriteRegistryValue<P0, P1>(relativeto: u32, path: P0, valuename: P1, valuetype: u32, valuedata: Option<*const core::ffi::c_void>, valuelength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn RtlWriteRegistryValue(relativeto : u32, path : windows_core::PCWSTR, valuename : windows_core::PCWSTR, valuetype : u32, valuedata : *const core::ffi::c_void, valuelength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     RtlWriteRegistryValue(relativeto, path.param().abi(), valuename.param().abi(), valuetype, core::mem::transmute(valuedata.unwrap_or(core::ptr::null())), valuelength)
@@ -6534,32 +6534,32 @@ pub unsafe fn RtlxUnicodeStringToAnsiSize(unicodestring: *const super::super::su
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeAccessCheck<P0, P2>(securitydescriptor: P0, subjectsecuritycontext: *const super::super::Foundation::SECURITY_SUBJECT_CONTEXT, subjectcontextlocked: P2, desiredaccess: u32, previouslygrantedaccess: u32, privileges: Option<*mut *mut super::super::super::Win32::Security::PRIVILEGE_SET>, genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING, accessmode: i8, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn SeAccessCheck<P0, P1>(securitydescriptor: P0, subjectsecuritycontext: *const super::super::Foundation::SECURITY_SUBJECT_CONTEXT, subjectcontextlocked: P1, desiredaccess: u32, previouslygrantedaccess: u32, privileges: Option<*mut *mut super::super::super::Win32::Security::PRIVILEGE_SET>, genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING, accessmode: i8, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::super::super::Win32::Foundation::BOOLEAN
 where
     P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeAccessCheck(securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, subjectsecuritycontext : *const super::super::Foundation:: SECURITY_SUBJECT_CONTEXT, subjectcontextlocked : super::super::super::Win32::Foundation:: BOOLEAN, desiredaccess : u32, previouslygrantedaccess : u32, privileges : *mut *mut super::super::super::Win32::Security:: PRIVILEGE_SET, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, accessmode : i8, grantedaccess : *mut u32, accessstatus : *mut i32) -> super::super::super::Win32::Foundation:: BOOLEAN);
     SeAccessCheck(securitydescriptor.param().abi(), subjectsecuritycontext, subjectcontextlocked.param().abi(), desiredaccess, previouslygrantedaccess, core::mem::transmute(privileges.unwrap_or(core::ptr::null_mut())), genericmapping, accessmode, grantedaccess, accessstatus)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeAssignSecurity<P0, P1, P3>(parentdescriptor: P0, explicitdescriptor: P1, newdescriptor: *mut super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, isdirectoryobject: P3, subjectcontext: *const super::super::Foundation::SECURITY_SUBJECT_CONTEXT, genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING, pooltype: super::super::Foundation::POOL_TYPE) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn SeAssignSecurity<P0, P1, P2>(parentdescriptor: P0, explicitdescriptor: P1, newdescriptor: *mut super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, isdirectoryobject: P2, subjectcontext: *const super::super::Foundation::SECURITY_SUBJECT_CONTEXT, genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING, pooltype: super::super::Foundation::POOL_TYPE) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
     P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeAssignSecurity(parentdescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, explicitdescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, newdescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, isdirectoryobject : super::super::super::Win32::Foundation:: BOOLEAN, subjectcontext : *const super::super::Foundation:: SECURITY_SUBJECT_CONTEXT, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, pooltype : super::super::Foundation:: POOL_TYPE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     SeAssignSecurity(parentdescriptor.param().abi(), explicitdescriptor.param().abi(), newdescriptor, isdirectoryobject.param().abi(), subjectcontext, genericmapping, pooltype)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SeAssignSecurityEx<P0, P1, P4>(parentdescriptor: P0, explicitdescriptor: P1, newdescriptor: *mut super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, objecttype: Option<*const windows_core::GUID>, isdirectoryobject: P4, autoinheritflags: u32, subjectcontext: *const super::super::Foundation::SECURITY_SUBJECT_CONTEXT, genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING, pooltype: super::super::Foundation::POOL_TYPE) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn SeAssignSecurityEx<P0, P1, P2>(parentdescriptor: P0, explicitdescriptor: P1, newdescriptor: *mut super::super::super::Win32::Security::PSECURITY_DESCRIPTOR, objecttype: Option<*const windows_core::GUID>, isdirectoryobject: P2, autoinheritflags: u32, subjectcontext: *const super::super::Foundation::SECURITY_SUBJECT_CONTEXT, genericmapping: *const super::super::super::Win32::Security::GENERIC_MAPPING, pooltype: super::super::Foundation::POOL_TYPE) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
     P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeAssignSecurityEx(parentdescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, explicitdescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, newdescriptor : *mut super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, objecttype : *const windows_core::GUID, isdirectoryobject : super::super::super::Win32::Foundation:: BOOLEAN, autoinheritflags : u32, subjectcontext : *const super::super::Foundation:: SECURITY_SUBJECT_CONTEXT, genericmapping : *const super::super::super::Win32::Security:: GENERIC_MAPPING, pooltype : super::super::Foundation:: POOL_TYPE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     SeAssignSecurityEx(parentdescriptor.param().abi(), explicitdescriptor.param().abi(), newdescriptor, core::mem::transmute(objecttype.unwrap_or(core::ptr::null())), isdirectoryobject.param().abi(), autoinheritflags, subjectcontext, genericmapping, pooltype)
@@ -6574,10 +6574,10 @@ pub unsafe fn SeCaptureSubjectContext() -> super::super::Foundation::SECURITY_SU
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn SeComputeAutoInheritByObjectType<P1, P2>(objecttype: *const core::ffi::c_void, securitydescriptor: P1, parentsecuritydescriptor: P2) -> u32
+pub unsafe fn SeComputeAutoInheritByObjectType<P0, P1>(objecttype: *const core::ffi::c_void, securitydescriptor: P0, parentsecuritydescriptor: P1) -> u32
 where
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
     P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
-    P2: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeComputeAutoInheritByObjectType(objecttype : *const core::ffi::c_void, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, parentsecuritydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> u32);
     SeComputeAutoInheritByObjectType(objecttype, securitydescriptor.param().abi(), parentsecuritydescriptor.param().abi())
@@ -6612,9 +6612,9 @@ pub unsafe fn SeReleaseSubjectContext(subjectcontext: *mut super::super::Foundat
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 #[inline]
-pub unsafe fn SeReportSecurityEvent<P2>(flags: u32, sourcename: *const super::super::super::Win32::Foundation::UNICODE_STRING, usersid: P2, auditparameters: *const super::super::super::Win32::Security::Authentication::Identity::SE_ADT_PARAMETER_ARRAY) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn SeReportSecurityEvent<P0>(flags: u32, sourcename: *const super::super::super::Win32::Foundation::UNICODE_STRING, usersid: P0, auditparameters: *const super::super::super::Win32::Security::Authentication::Identity::SE_ADT_PARAMETER_ARRAY) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Security::PSID>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSID>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeReportSecurityEvent(flags : u32, sourcename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, usersid : super::super::super::Win32::Security:: PSID, auditparameters : *const super::super::super::Win32::Security::Authentication::Identity:: SE_ADT_PARAMETER_ARRAY) -> super::super::super::Win32::Foundation:: NTSTATUS);
     SeReportSecurityEvent(flags, sourcename, usersid.param().abi(), auditparameters)
@@ -6643,9 +6643,9 @@ pub unsafe fn SeUnregisterImageVerificationCallback(callbackhandle: *const core:
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn SeValidSecurityDescriptor<P1>(length: u32, securitydescriptor: P1) -> super::super::super::Win32::Foundation::BOOLEAN
+pub unsafe fn SeValidSecurityDescriptor<P0>(length: u32, securitydescriptor: P0) -> super::super::super::Win32::Foundation::BOOLEAN
 where
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P0: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn SeValidSecurityDescriptor(length : u32, securitydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: BOOLEAN);
     SeValidSecurityDescriptor(length, securitydescriptor.param().abi())
@@ -6664,9 +6664,9 @@ pub unsafe fn TmCommitEnlistment(enlistment: *const super::super::Foundation::KE
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn TmCommitTransaction<P1>(transaction: *const super::super::Foundation::KTRANSACTION, wait: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn TmCommitTransaction<P0>(transaction: *const super::super::Foundation::KTRANSACTION, wait: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn TmCommitTransaction(transaction : *const super::super::Foundation:: KTRANSACTION, wait : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     TmCommitTransaction(transaction, wait.param().abi())
@@ -6740,9 +6740,9 @@ pub unsafe fn TmPropagationComplete(resourcemanager: *const super::super::Founda
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn TmPropagationFailed<P2>(resourcemanager: *const super::super::Foundation::KRESOURCEMANAGER, requestcookie: u32, status: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn TmPropagationFailed<P0>(resourcemanager: *const super::super::Foundation::KRESOURCEMANAGER, requestcookie: u32, status: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn TmPropagationFailed(resourcemanager : *const super::super::Foundation:: KRESOURCEMANAGER, requestcookie : u32, status : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     TmPropagationFailed(resourcemanager, requestcookie, status.param().abi())
@@ -6802,9 +6802,9 @@ pub unsafe fn TmRollbackEnlistment(enlistment: *const super::super::Foundation::
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn TmRollbackTransaction<P1>(transaction: *const super::super::Foundation::KTRANSACTION, wait: P1) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn TmRollbackTransaction<P0>(transaction: *const super::super::Foundation::KTRANSACTION, wait: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn TmRollbackTransaction(transaction : *const super::super::Foundation:: KTRANSACTION, wait : super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     TmRollbackTransaction(transaction, wait.param().abi())
@@ -6817,9 +6817,9 @@ pub unsafe fn TmSinglePhaseReject(enlistment: *const super::super::Foundation::K
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn VslCreateSecureSection<P1>(handle: *mut super::super::super::Win32::Foundation::HANDLE, targetprocess: P1, mdl: *const super::super::Foundation::MDL, devicepageprotection: u32, attributes: u32) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn VslCreateSecureSection<P0>(handle: *mut super::super::super::Win32::Foundation::HANDLE, targetprocess: P0, mdl: *const super::super::Foundation::MDL, devicepageprotection: u32, attributes: u32) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P1: windows_core::Param<super::super::Foundation::PEPROCESS>,
+    P0: windows_core::Param<super::super::Foundation::PEPROCESS>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn VslCreateSecureSection(handle : *mut super::super::super::Win32::Foundation:: HANDLE, targetprocess : super::super::Foundation:: PEPROCESS, mdl : *const super::super::Foundation:: MDL, devicepageprotection : u32, attributes : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
     VslCreateSecureSection(handle, targetprocess.param().abi(), mdl, devicepageprotection, attributes)
@@ -6949,9 +6949,9 @@ pub unsafe fn WheaReportHwError(errorpacket: *mut WHEA_ERROR_PACKET_V2) -> super
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn WheaReportHwErrorDeviceDriver<P6>(errorsourceid: u32, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, errordata: &[u8], sectiontypeguid: *const windows_core::GUID, errorseverity: WHEA_ERROR_SEVERITY, devicefriendlyname: P6) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn WheaReportHwErrorDeviceDriver<P0>(errorsourceid: u32, deviceobject: *const super::super::Foundation::DEVICE_OBJECT, errordata: &[u8], sectiontypeguid: *const windows_core::GUID, errorseverity: WHEA_ERROR_SEVERITY, devicefriendlyname: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P6: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("ntoskrnl.exe" "system" fn WheaReportHwErrorDeviceDriver(errorsourceid : u32, deviceobject : *const super::super::Foundation:: DEVICE_OBJECT, errordata : *const u8, errordatalength : u32, sectiontypeguid : *const windows_core::GUID, errorseverity : WHEA_ERROR_SEVERITY, devicefriendlyname : windows_core::PCSTR) -> super::super::super::Win32::Foundation:: NTSTATUS);
     WheaReportHwErrorDeviceDriver(errorsourceid, deviceobject, core::mem::transmute(errordata.as_ptr()), errordata.len().try_into().unwrap(), sectiontypeguid, errorseverity, devicefriendlyname.param().abi())
@@ -7012,10 +7012,10 @@ where
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn ZwCreateEnlistment<P2, P3>(enlistmenthandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, resourcemanagerhandle: P2, transactionhandle: P3, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, createoptions: u32, notificationmask: u32, enlistmentkey: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwCreateEnlistment<P0, P1>(enlistmenthandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, resourcemanagerhandle: P0, transactionhandle: P1, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, createoptions: u32, notificationmask: u32, enlistmentkey: Option<*const core::ffi::c_void>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P3: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwCreateEnlistment(enlistmenthandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, resourcemanagerhandle : super::super::super::Win32::Foundation:: HANDLE, transactionhandle : super::super::super::Win32::Foundation:: HANDLE, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, createoptions : u32, notificationmask : u32, enlistmentkey : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwCreateEnlistment(enlistmenthandle, desiredaccess, resourcemanagerhandle.param().abi(), transactionhandle.param().abi(), core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), createoptions, notificationmask, core::mem::transmute(enlistmentkey.unwrap_or(core::ptr::null())))
@@ -7028,27 +7028,27 @@ pub unsafe fn ZwCreateFile(filehandle: *mut super::super::super::Win32::Foundati
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn ZwCreateResourceManager<P2>(resourcemanagerhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, tmhandle: P2, resourcemanagerguid: Option<*const windows_core::GUID>, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, createoptions: u32, description: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwCreateResourceManager<P0>(resourcemanagerhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, tmhandle: P0, resourcemanagerguid: Option<*const windows_core::GUID>, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, createoptions: u32, description: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwCreateResourceManager(resourcemanagerhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, tmhandle : super::super::super::Win32::Foundation:: HANDLE, resourcemanagerguid : *const windows_core::GUID, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, createoptions : u32, description : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwCreateResourceManager(resourcemanagerhandle, desiredaccess, tmhandle.param().abi(), core::mem::transmute(resourcemanagerguid.unwrap_or(core::ptr::null())), core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), createoptions, core::mem::transmute(description.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn ZwCreateSection<P6>(sectionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, maximumsize: Option<*const i64>, sectionpageprotection: u32, allocationattributes: u32, filehandle: P6) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwCreateSection<P0>(sectionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, maximumsize: Option<*const i64>, sectionpageprotection: u32, allocationattributes: u32, filehandle: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P6: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwCreateSection(sectionhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, maximumsize : *const i64, sectionpageprotection : u32, allocationattributes : u32, filehandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwCreateSection(sectionhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), core::mem::transmute(maximumsize.unwrap_or(core::ptr::null())), sectionpageprotection, allocationattributes, filehandle.param().abi())
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn ZwCreateTransaction<P4>(transactionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, uow: Option<*const windows_core::GUID>, tmhandle: P4, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: Option<*const i64>, description: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwCreateTransaction<P0>(transactionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, uow: Option<*const windows_core::GUID>, tmhandle: P0, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: Option<*const i64>, description: Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwCreateTransaction(transactionhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, uow : *const windows_core::GUID, tmhandle : super::super::super::Win32::Foundation:: HANDLE, createoptions : u32, isolationlevel : u32, isolationflags : u32, timeout : *const i64, description : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwCreateTransaction(transactionhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), core::mem::transmute(uow.unwrap_or(core::ptr::null())), tmhandle.param().abi(), createoptions, isolationlevel, isolationflags, core::mem::transmute(timeout.unwrap_or(core::ptr::null())), core::mem::transmute(description.unwrap_or(core::ptr::null())))
@@ -7116,9 +7116,9 @@ where
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn ZwOpenEnlistment<P2>(enlistmenthandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, rmhandle: P2, enlistmentguid: *const windows_core::GUID, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwOpenEnlistment<P0>(enlistmenthandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, rmhandle: P0, enlistmentguid: *const windows_core::GUID, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwOpenEnlistment(enlistmenthandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, rmhandle : super::super::super::Win32::Foundation:: HANDLE, enlistmentguid : *const windows_core::GUID, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwOpenEnlistment(enlistmenthandle, desiredaccess, rmhandle.param().abi(), enlistmentguid, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())))
@@ -7131,9 +7131,9 @@ pub unsafe fn ZwOpenFile(filehandle: *mut super::super::super::Win32::Foundation
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn ZwOpenResourceManager<P2>(resourcemanagerhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, tmhandle: P2, resourcemanagerguid: *const windows_core::GUID, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwOpenResourceManager<P0>(resourcemanagerhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, tmhandle: P0, resourcemanagerguid: *const windows_core::GUID, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwOpenResourceManager(resourcemanagerhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, tmhandle : super::super::super::Win32::Foundation:: HANDLE, resourcemanagerguid : *const windows_core::GUID, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwOpenResourceManager(resourcemanagerhandle, desiredaccess, tmhandle.param().abi(), resourcemanagerguid, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())))
@@ -7146,9 +7146,9 @@ pub unsafe fn ZwOpenSymbolicLinkObject(linkhandle: *mut super::super::super::Win
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn ZwOpenTransaction<P4>(transactionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, uow: *const windows_core::GUID, tmhandle: P4) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwOpenTransaction<P0>(transactionhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, uow: *const windows_core::GUID, tmhandle: P0) -> super::super::super::Win32::Foundation::NTSTATUS
 where
-    P4: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwOpenTransaction(transactionhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, uow : *const windows_core::GUID, tmhandle : super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwOpenTransaction(transactionhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), uow, tmhandle.param().abi())
@@ -7206,10 +7206,10 @@ where
     ZwPropagationComplete(resourcemanagerhandle.param().abi(), requestcookie, bufferlength, buffer)
 }
 #[inline]
-pub unsafe fn ZwPropagationFailed<P0, P2>(resourcemanagerhandle: P0, requestcookie: u32, propstatus: P2) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwPropagationFailed<P0, P1>(resourcemanagerhandle: P0, requestcookie: u32, propstatus: P1) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P2: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::NTSTATUS>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwPropagationFailed(resourcemanagerhandle : super::super::super::Win32::Foundation:: HANDLE, requestcookie : u32, propstatus : super::super::super::Win32::Foundation:: NTSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwPropagationFailed(resourcemanagerhandle.param().abi(), requestcookie, propstatus.param().abi())
@@ -7430,18 +7430,18 @@ where
     ZwWriteFile(filehandle.param().abi(), event.param().abi(), apcroutine, core::mem::transmute(apccontext.unwrap_or(core::ptr::null())), iostatusblock, buffer, length, core::mem::transmute(byteoffset.unwrap_or(core::ptr::null())), core::mem::transmute(key.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn vDbgPrintEx<P2>(componentid: u32, level: u32, format: P2, arglist: *const i8) -> u32
+pub unsafe fn vDbgPrintEx<P0>(componentid: u32, level: u32, format: P0, arglist: *const i8) -> u32
 where
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn vDbgPrintEx(componentid : u32, level : u32, format : windows_core::PCSTR, arglist : *const i8) -> u32);
     vDbgPrintEx(componentid, level, format.param().abi(), arglist)
 }
 #[inline]
-pub unsafe fn vDbgPrintExWithPrefix<P0, P3>(prefix: P0, componentid: u32, level: u32, format: P3, arglist: *const i8) -> u32
+pub unsafe fn vDbgPrintExWithPrefix<P0, P1>(prefix: P0, componentid: u32, level: u32, format: P1, arglist: *const i8) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("ntdll.dll" "system" fn vDbgPrintExWithPrefix(prefix : windows_core::PCSTR, componentid : u32, level : u32, format : windows_core::PCSTR, arglist : *const i8) -> u32);
     vDbgPrintExWithPrefix(prefix.param().abi(), componentid, level, format.param().abi(), arglist)
@@ -10038,946 +10038,1716 @@ pub const __guid_type: u32 = 8192u32;
 pub const __multiString_type: u32 = 16384u32;
 pub const __string_type: u32 = 4096u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ALTERNATIVE_ARCHITECTURE_TYPE(pub i32);
 impl windows_core::TypeKind for ALTERNATIVE_ARCHITECTURE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ALTERNATIVE_ARCHITECTURE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ALTERNATIVE_ARCHITECTURE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ARBITER_ACTION(pub i32);
 impl windows_core::TypeKind for ARBITER_ACTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ARBITER_ACTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ARBITER_ACTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ARBITER_REQUEST_SOURCE(pub i32);
 impl windows_core::TypeKind for ARBITER_REQUEST_SOURCE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ARBITER_REQUEST_SOURCE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ARBITER_REQUEST_SOURCE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ARBITER_RESULT(pub i32);
 impl windows_core::TypeKind for ARBITER_RESULT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ARBITER_RESULT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ARBITER_RESULT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BDCB_CALLBACK_TYPE(pub i32);
 impl windows_core::TypeKind for BDCB_CALLBACK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BDCB_CALLBACK_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BDCB_CALLBACK_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BDCB_CLASSIFICATION(pub i32);
 impl windows_core::TypeKind for BDCB_CLASSIFICATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BDCB_CLASSIFICATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BDCB_CLASSIFICATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BDCB_STATUS_UPDATE_TYPE(pub i32);
 impl windows_core::TypeKind for BDCB_STATUS_UPDATE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BDCB_STATUS_UPDATE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BDCB_STATUS_UPDATE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BOUND_CALLBACK_STATUS(pub i32);
 impl windows_core::TypeKind for BOUND_CALLBACK_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BOUND_CALLBACK_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BOUND_CALLBACK_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BUS_DATA_TYPE(pub i32);
 impl windows_core::TypeKind for BUS_DATA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BUS_DATA_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BUS_DATA_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BUS_QUERY_ID_TYPE(pub i32);
 impl windows_core::TypeKind for BUS_QUERY_ID_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BUS_QUERY_ID_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BUS_QUERY_ID_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CM_SHARE_DISPOSITION(pub i32);
 impl windows_core::TypeKind for CM_SHARE_DISPOSITION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CM_SHARE_DISPOSITION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CM_SHARE_DISPOSITION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CONFIGURATION_TYPE(pub i32);
 impl windows_core::TypeKind for CONFIGURATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CONFIGURATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CONFIGURATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CREATE_FILE_TYPE(pub i32);
 impl windows_core::TypeKind for CREATE_FILE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CREATE_FILE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CREATE_FILE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3COLD_LAST_TRANSITION_STATUS(pub i32);
 impl windows_core::TypeKind for D3COLD_LAST_TRANSITION_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3COLD_LAST_TRANSITION_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3COLD_LAST_TRANSITION_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DEVICE_DIRECTORY_TYPE(pub i32);
 impl windows_core::TypeKind for DEVICE_DIRECTORY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DEVICE_DIRECTORY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DEVICE_DIRECTORY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DEVICE_INSTALL_STATE(pub i32);
 impl windows_core::TypeKind for DEVICE_INSTALL_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DEVICE_INSTALL_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DEVICE_INSTALL_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DEVICE_REGISTRY_PROPERTY(pub i32);
 impl windows_core::TypeKind for DEVICE_REGISTRY_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DEVICE_REGISTRY_PROPERTY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DEVICE_REGISTRY_PROPERTY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DEVICE_RELATION_TYPE(pub i32);
 impl windows_core::TypeKind for DEVICE_RELATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DEVICE_RELATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DEVICE_RELATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DEVICE_REMOVAL_POLICY(pub i32);
 impl windows_core::TypeKind for DEVICE_REMOVAL_POLICY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DEVICE_REMOVAL_POLICY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DEVICE_REMOVAL_POLICY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DEVICE_RESET_TYPE(pub i32);
 impl windows_core::TypeKind for DEVICE_RESET_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DEVICE_RESET_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DEVICE_RESET_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DEVICE_TEXT_TYPE(pub i32);
 impl windows_core::TypeKind for DEVICE_TEXT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DEVICE_TEXT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DEVICE_TEXT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DEVICE_USAGE_NOTIFICATION_TYPE(pub i32);
 impl windows_core::TypeKind for DEVICE_USAGE_NOTIFICATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DEVICE_USAGE_NOTIFICATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DEVICE_USAGE_NOTIFICATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DEVICE_WAKE_DEPTH(pub i32);
 impl windows_core::TypeKind for DEVICE_WAKE_DEPTH {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DEVICE_WAKE_DEPTH {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DEVICE_WAKE_DEPTH").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DIRECTORY_NOTIFY_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for DIRECTORY_NOTIFY_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DIRECTORY_NOTIFY_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DIRECTORY_NOTIFY_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(pub i32);
 impl windows_core::TypeKind for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(pub i32);
 impl windows_core::TypeKind for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DMA_COMPLETION_STATUS(pub i32);
 impl windows_core::TypeKind for DMA_COMPLETION_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DMA_COMPLETION_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DMA_COMPLETION_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DMA_SPEED(pub i32);
 impl windows_core::TypeKind for DMA_SPEED {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DMA_SPEED {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DMA_SPEED").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DMA_WIDTH(pub i32);
 impl windows_core::TypeKind for DMA_WIDTH {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DMA_WIDTH {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DMA_WIDTH").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DOMAIN_CONFIGURATION_ARCH(pub i32);
 impl windows_core::TypeKind for DOMAIN_CONFIGURATION_ARCH {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DOMAIN_CONFIGURATION_ARCH {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DOMAIN_CONFIGURATION_ARCH").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DRIVER_DIRECTORY_TYPE(pub i32);
 impl windows_core::TypeKind for DRIVER_DIRECTORY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DRIVER_DIRECTORY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DRIVER_DIRECTORY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DRIVER_REGKEY_TYPE(pub i32);
 impl windows_core::TypeKind for DRIVER_REGKEY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DRIVER_REGKEY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DRIVER_REGKEY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DRIVER_RUNTIME_INIT_FLAGS(pub i32);
 impl windows_core::TypeKind for DRIVER_RUNTIME_INIT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DRIVER_RUNTIME_INIT_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DRIVER_RUNTIME_INIT_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EXTENDED_AGP_REGISTER(pub i32);
 impl windows_core::TypeKind for EXTENDED_AGP_REGISTER {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EXTENDED_AGP_REGISTER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EXTENDED_AGP_REGISTER").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EX_POOL_PRIORITY(pub i32);
 impl windows_core::TypeKind for EX_POOL_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EX_POOL_PRIORITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EX_POOL_PRIORITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FAULT_INFORMATION_ARCH(pub i32);
 impl windows_core::TypeKind for FAULT_INFORMATION_ARCH {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FAULT_INFORMATION_ARCH {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FAULT_INFORMATION_ARCH").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FAULT_INFORMATION_ARM64_TYPE(pub i32);
 impl windows_core::TypeKind for FAULT_INFORMATION_ARM64_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FAULT_INFORMATION_ARM64_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FAULT_INFORMATION_ARM64_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HAL_APIC_DESTINATION_MODE(pub i32);
 impl windows_core::TypeKind for HAL_APIC_DESTINATION_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HAL_APIC_DESTINATION_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HAL_APIC_DESTINATION_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HAL_DISPLAY_BIOS_INFORMATION(pub i32);
 impl windows_core::TypeKind for HAL_DISPLAY_BIOS_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HAL_DISPLAY_BIOS_INFORMATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HAL_DISPLAY_BIOS_INFORMATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HAL_DMA_CRASH_DUMP_REGISTER_TYPE(pub i32);
 impl windows_core::TypeKind for HAL_DMA_CRASH_DUMP_REGISTER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HAL_DMA_CRASH_DUMP_REGISTER_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HAL_DMA_CRASH_DUMP_REGISTER_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HAL_QUERY_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for HAL_QUERY_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HAL_QUERY_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HAL_QUERY_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HAL_SET_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for HAL_SET_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HAL_SET_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HAL_SET_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HARDWARE_COUNTER_TYPE(pub i32);
 impl windows_core::TypeKind for HARDWARE_COUNTER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HARDWARE_COUNTER_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HARDWARE_COUNTER_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct INTEL_CACHE_TYPE(pub i32);
 impl windows_core::TypeKind for INTEL_CACHE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for INTEL_CACHE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("INTEL_CACHE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct INTERFACE_TYPE(pub i32);
 impl windows_core::TypeKind for INTERFACE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for INTERFACE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("INTERFACE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct INTERLOCKED_RESULT(pub i32);
 impl windows_core::TypeKind for INTERLOCKED_RESULT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for INTERLOCKED_RESULT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("INTERLOCKED_RESULT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(pub i32);
 impl windows_core::TypeKind for IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IOMMU_DMA_DOMAIN_TYPE(pub i32);
 impl windows_core::TypeKind for IOMMU_DMA_DOMAIN_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IOMMU_DMA_DOMAIN_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IOMMU_DMA_DOMAIN_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(pub i32);
 impl windows_core::TypeKind for IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(pub i32);
 impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IOMMU_MAP_PHYSICAL_ADDRESS_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IOMMU_MAP_PHYSICAL_ADDRESS_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IO_ACCESS_MODE(pub i32);
 impl windows_core::TypeKind for IO_ACCESS_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IO_ACCESS_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IO_ACCESS_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IO_ACCESS_TYPE(pub i32);
 impl windows_core::TypeKind for IO_ACCESS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IO_ACCESS_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IO_ACCESS_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IO_ALLOCATION_ACTION(pub i32);
 impl windows_core::TypeKind for IO_ALLOCATION_ACTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IO_ALLOCATION_ACTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IO_ALLOCATION_ACTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IO_COMPLETION_ROUTINE_RESULT(pub i32);
 impl windows_core::TypeKind for IO_COMPLETION_ROUTINE_RESULT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IO_COMPLETION_ROUTINE_RESULT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IO_COMPLETION_ROUTINE_RESULT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IO_CONTAINER_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for IO_CONTAINER_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IO_CONTAINER_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IO_CONTAINER_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IO_CONTAINER_NOTIFICATION_CLASS(pub i32);
 impl windows_core::TypeKind for IO_CONTAINER_NOTIFICATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IO_CONTAINER_NOTIFICATION_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IO_CONTAINER_NOTIFICATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IO_NOTIFICATION_EVENT_CATEGORY(pub i32);
 impl windows_core::TypeKind for IO_NOTIFICATION_EVENT_CATEGORY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IO_NOTIFICATION_EVENT_CATEGORY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IO_NOTIFICATION_EVENT_CATEGORY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IO_PAGING_PRIORITY(pub i32);
 impl windows_core::TypeKind for IO_PAGING_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IO_PAGING_PRIORITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IO_PAGING_PRIORITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IO_QUERY_DEVICE_DATA_FORMAT(pub i32);
 impl windows_core::TypeKind for IO_QUERY_DEVICE_DATA_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IO_QUERY_DEVICE_DATA_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IO_QUERY_DEVICE_DATA_FORMAT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IO_SESSION_EVENT(pub i32);
 impl windows_core::TypeKind for IO_SESSION_EVENT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IO_SESSION_EVENT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IO_SESSION_EVENT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IO_SESSION_STATE(pub i32);
 impl windows_core::TypeKind for IO_SESSION_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IO_SESSION_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IO_SESSION_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IRQ_DEVICE_POLICY(pub i32);
 impl windows_core::TypeKind for IRQ_DEVICE_POLICY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IRQ_DEVICE_POLICY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IRQ_DEVICE_POLICY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IRQ_GROUP_POLICY(pub i32);
 impl windows_core::TypeKind for IRQ_GROUP_POLICY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IRQ_GROUP_POLICY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IRQ_GROUP_POLICY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IRQ_PRIORITY(pub i32);
 impl windows_core::TypeKind for IRQ_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IRQ_PRIORITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IRQ_PRIORITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KBUGCHECK_BUFFER_DUMP_STATE(pub i32);
 impl windows_core::TypeKind for KBUGCHECK_BUFFER_DUMP_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KBUGCHECK_BUFFER_DUMP_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KBUGCHECK_BUFFER_DUMP_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KBUGCHECK_CALLBACK_REASON(pub i32);
 impl windows_core::TypeKind for KBUGCHECK_CALLBACK_REASON {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KBUGCHECK_CALLBACK_REASON {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KBUGCHECK_CALLBACK_REASON").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KBUGCHECK_DUMP_IO_TYPE(pub i32);
 impl windows_core::TypeKind for KBUGCHECK_DUMP_IO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KBUGCHECK_DUMP_IO_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KBUGCHECK_DUMP_IO_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KDPC_IMPORTANCE(pub i32);
 impl windows_core::TypeKind for KDPC_IMPORTANCE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KDPC_IMPORTANCE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KDPC_IMPORTANCE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KD_CALLBACK_ACTION(pub i32);
 impl windows_core::TypeKind for KD_CALLBACK_ACTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KD_CALLBACK_ACTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KD_CALLBACK_ACTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KD_NAMESPACE_ENUM(pub i32);
 impl windows_core::TypeKind for KD_NAMESPACE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KD_NAMESPACE_ENUM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KD_NAMESPACE_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KD_OPTION(pub i32);
 impl windows_core::TypeKind for KD_OPTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KD_OPTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KD_OPTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KE_PROCESSOR_CHANGE_NOTIFY_STATE(pub i32);
 impl windows_core::TypeKind for KE_PROCESSOR_CHANGE_NOTIFY_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KE_PROCESSOR_CHANGE_NOTIFY_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KE_PROCESSOR_CHANGE_NOTIFY_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KINTERRUPT_MODE(pub i32);
 impl windows_core::TypeKind for KINTERRUPT_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KINTERRUPT_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KINTERRUPT_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KINTERRUPT_POLARITY(pub i32);
 impl windows_core::TypeKind for KINTERRUPT_POLARITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KINTERRUPT_POLARITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KINTERRUPT_POLARITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KPROFILE_SOURCE(pub i32);
 impl windows_core::TypeKind for KPROFILE_SOURCE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KPROFILE_SOURCE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KPROFILE_SOURCE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KWAIT_REASON(pub i32);
 impl windows_core::TypeKind for KWAIT_REASON {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KWAIT_REASON {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KWAIT_REASON").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct LOCK_OPERATION(pub i32);
 impl windows_core::TypeKind for LOCK_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for LOCK_OPERATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("LOCK_OPERATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MCA_EXCEPTION_TYPE(pub i32);
 impl windows_core::TypeKind for MCA_EXCEPTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MCA_EXCEPTION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MCA_EXCEPTION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MEMORY_CACHING_TYPE(pub i32);
 impl windows_core::TypeKind for MEMORY_CACHING_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MEMORY_CACHING_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MEMORY_CACHING_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MEMORY_CACHING_TYPE_ORIG(pub i32);
 impl windows_core::TypeKind for MEMORY_CACHING_TYPE_ORIG {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MEMORY_CACHING_TYPE_ORIG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MEMORY_CACHING_TYPE_ORIG").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MEM_DEDICATED_ATTRIBUTE_TYPE(pub i32);
 impl windows_core::TypeKind for MEM_DEDICATED_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MEM_DEDICATED_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MEM_DEDICATED_ATTRIBUTE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MEM_SECTION_EXTENDED_PARAMETER_TYPE(pub i32);
 impl windows_core::TypeKind for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MEM_SECTION_EXTENDED_PARAMETER_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MM_MDL_PAGE_CONTENTS_STATE(pub i32);
 impl windows_core::TypeKind for MM_MDL_PAGE_CONTENTS_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MM_MDL_PAGE_CONTENTS_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MM_MDL_PAGE_CONTENTS_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MM_PAGE_PRIORITY(pub i32);
 impl windows_core::TypeKind for MM_PAGE_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MM_PAGE_PRIORITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MM_PAGE_PRIORITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MM_ROTATE_DIRECTION(pub i32);
 impl windows_core::TypeKind for MM_ROTATE_DIRECTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MM_ROTATE_DIRECTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MM_ROTATE_DIRECTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MM_SYSTEMSIZE(pub i32);
 impl windows_core::TypeKind for MM_SYSTEMSIZE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MM_SYSTEMSIZE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MM_SYSTEMSIZE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MODE(pub i32);
 impl windows_core::TypeKind for MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NPEM_CONTROL_STANDARD_CONTROL_BIT(pub i32);
 impl windows_core::TypeKind for NPEM_CONTROL_STANDARD_CONTROL_BIT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NPEM_CONTROL_STANDARD_CONTROL_BIT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NPEM_CONTROL_STANDARD_CONTROL_BIT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OB_PREOP_CALLBACK_STATUS(pub i32);
 impl windows_core::TypeKind for OB_PREOP_CALLBACK_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OB_PREOP_CALLBACK_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OB_PREOP_CALLBACK_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PARTITION_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for PARTITION_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PARTITION_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PARTITION_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_ACS_BIT(pub i32);
 impl windows_core::TypeKind for PCI_ACS_BIT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_ACS_BIT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_ACS_BIT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_BUS_WIDTH(pub i32);
 impl windows_core::TypeKind for PCI_BUS_WIDTH {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_BUS_WIDTH {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_BUS_WIDTH").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_DEVICE_D3COLD_STATE_REASON(pub i32);
 impl windows_core::TypeKind for PCI_DEVICE_D3COLD_STATE_REASON {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_DEVICE_D3COLD_STATE_REASON {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_DEVICE_D3COLD_STATE_REASON").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_EXPRESS_ASPM_CONTROL(pub i32);
 impl windows_core::TypeKind for PCI_EXPRESS_ASPM_CONTROL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_EXPRESS_ASPM_CONTROL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_EXPRESS_ASPM_CONTROL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_EXPRESS_ASPM_SUPPORT(pub i32);
 impl windows_core::TypeKind for PCI_EXPRESS_ASPM_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_EXPRESS_ASPM_SUPPORT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_EXPRESS_ASPM_SUPPORT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_EXPRESS_CARD_PRESENCE(pub i32);
 impl windows_core::TypeKind for PCI_EXPRESS_CARD_PRESENCE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_EXPRESS_CARD_PRESENCE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_EXPRESS_CARD_PRESENCE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_EXPRESS_DEVICE_TYPE(pub i32);
 impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_EXPRESS_DEVICE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_EXPRESS_DEVICE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_EXPRESS_INDICATOR_STATE(pub i32);
 impl windows_core::TypeKind for PCI_EXPRESS_INDICATOR_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_EXPRESS_INDICATOR_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_EXPRESS_INDICATOR_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_EXPRESS_L0s_EXIT_LATENCY(pub i32);
 impl windows_core::TypeKind for PCI_EXPRESS_L0s_EXIT_LATENCY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_EXPRESS_L0s_EXIT_LATENCY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_EXPRESS_L0s_EXIT_LATENCY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_EXPRESS_L1_EXIT_LATENCY(pub i32);
 impl windows_core::TypeKind for PCI_EXPRESS_L1_EXIT_LATENCY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_EXPRESS_L1_EXIT_LATENCY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_EXPRESS_L1_EXIT_LATENCY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_EXPRESS_LINK_SUBSTATE(pub i32);
 impl windows_core::TypeKind for PCI_EXPRESS_LINK_SUBSTATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_EXPRESS_LINK_SUBSTATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_EXPRESS_LINK_SUBSTATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_EXPRESS_MAX_PAYLOAD_SIZE(pub i32);
 impl windows_core::TypeKind for PCI_EXPRESS_MAX_PAYLOAD_SIZE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_EXPRESS_MAX_PAYLOAD_SIZE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_EXPRESS_MAX_PAYLOAD_SIZE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_EXPRESS_MRL_STATE(pub i32);
 impl windows_core::TypeKind for PCI_EXPRESS_MRL_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_EXPRESS_MRL_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_EXPRESS_MRL_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_EXPRESS_POWER_STATE(pub i32);
 impl windows_core::TypeKind for PCI_EXPRESS_POWER_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_EXPRESS_POWER_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_EXPRESS_POWER_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_EXPRESS_RCB(pub i32);
 impl windows_core::TypeKind for PCI_EXPRESS_RCB {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_EXPRESS_RCB {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_EXPRESS_RCB").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCI_HARDWARE_INTERFACE(pub i32);
 impl windows_core::TypeKind for PCI_HARDWARE_INTERFACE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCI_HARDWARE_INTERFACE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCI_HARDWARE_INTERFACE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCW_CALLBACK_TYPE(pub i32);
 impl windows_core::TypeKind for PCW_CALLBACK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCW_CALLBACK_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCW_CALLBACK_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PCW_REGISTRATION_FLAGS(pub i32);
 impl windows_core::TypeKind for PCW_REGISTRATION_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PCW_REGISTRATION_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PCW_REGISTRATION_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(pub i32);
 impl windows_core::TypeKind for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POOL_EXTENDED_PARAMETER_TYPE(pub i32);
 impl windows_core::TypeKind for POOL_EXTENDED_PARAMETER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POOL_EXTENDED_PARAMETER_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POOL_EXTENDED_PARAMETER_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_MONITOR_REQUEST_REASON(pub i32);
 impl windows_core::TypeKind for POWER_MONITOR_REQUEST_REASON {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_MONITOR_REQUEST_REASON {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_MONITOR_REQUEST_REASON").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
 impl windows_core::TypeKind for POWER_MONITOR_REQUEST_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_MONITOR_REQUEST_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_MONITOR_REQUEST_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_PLATFORM_ROLE(pub i32);
 impl windows_core::TypeKind for POWER_PLATFORM_ROLE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_PLATFORM_ROLE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_PLATFORM_ROLE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_STATE_TYPE(pub i32);
 impl windows_core::TypeKind for POWER_STATE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_STATE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_STATE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct POWER_USER_PRESENCE_TYPE(pub i32);
 impl windows_core::TypeKind for POWER_USER_PRESENCE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for POWER_USER_PRESENCE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("POWER_USER_PRESENCE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PO_FX_PERF_STATE_TYPE(pub i32);
 impl windows_core::TypeKind for PO_FX_PERF_STATE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PO_FX_PERF_STATE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PO_FX_PERF_STATE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PO_FX_PERF_STATE_UNIT(pub i32);
 impl windows_core::TypeKind for PO_FX_PERF_STATE_UNIT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PO_FX_PERF_STATE_UNIT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PO_FX_PERF_STATE_UNIT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PO_THERMAL_REQUEST_TYPE(pub i32);
 impl windows_core::TypeKind for PO_THERMAL_REQUEST_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PO_THERMAL_REQUEST_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PO_THERMAL_REQUEST_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PSCREATEPROCESSNOTIFYTYPE(pub i32);
 impl windows_core::TypeKind for PSCREATEPROCESSNOTIFYTYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PSCREATEPROCESSNOTIFYTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PSCREATEPROCESSNOTIFYTYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PSCREATETHREADNOTIFYTYPE(pub i32);
 impl windows_core::TypeKind for PSCREATETHREADNOTIFYTYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PSCREATETHREADNOTIFYTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PSCREATETHREADNOTIFYTYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PSHED_PI_ERR_READING_PCIE_OVERRIDES(pub i32);
 impl windows_core::TypeKind for PSHED_PI_ERR_READING_PCIE_OVERRIDES {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PSHED_PI_ERR_READING_PCIE_OVERRIDES {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PSHED_PI_ERR_READING_PCIE_OVERRIDES").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct REG_NOTIFY_CLASS(pub i32);
 impl windows_core::TypeKind for REG_NOTIFY_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for REG_NOTIFY_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("REG_NOTIFY_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RESOURCE_TRANSLATION_DIRECTION(pub i32);
 impl windows_core::TypeKind for RESOURCE_TRANSLATION_DIRECTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RESOURCE_TRANSLATION_DIRECTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RESOURCE_TRANSLATION_DIRECTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RTL_GENERIC_COMPARE_RESULTS(pub i32);
 impl windows_core::TypeKind for RTL_GENERIC_COMPARE_RESULTS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RTL_GENERIC_COMPARE_RESULTS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RTL_GENERIC_COMPARE_RESULTS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SECURITY_OPERATION_CODE(pub i32);
 impl windows_core::TypeKind for SECURITY_OPERATION_CODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SECURITY_OPERATION_CODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SECURITY_OPERATION_CODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SE_IMAGE_TYPE(pub i32);
 impl windows_core::TypeKind for SE_IMAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SE_IMAGE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SE_IMAGE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SE_IMAGE_VERIFICATION_CALLBACK_TYPE(pub i32);
 impl windows_core::TypeKind for SE_IMAGE_VERIFICATION_CALLBACK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SE_IMAGE_VERIFICATION_CALLBACK_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SE_IMAGE_VERIFICATION_CALLBACK_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SOC_SUBSYSTEM_TYPE(pub i32);
 impl windows_core::TypeKind for SOC_SUBSYSTEM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SOC_SUBSYSTEM_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SOC_SUBSYSTEM_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct STATE_LOCATION_TYPE(pub i32);
 impl windows_core::TypeKind for STATE_LOCATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for STATE_LOCATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("STATE_LOCATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SUBSYSTEM_INFORMATION_TYPE(pub i32);
 impl windows_core::TypeKind for SUBSYSTEM_INFORMATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SUBSYSTEM_INFORMATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SUBSYSTEM_INFORMATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SYSTEM_FIRMWARE_TABLE_ACTION(pub i32);
 impl windows_core::TypeKind for SYSTEM_FIRMWARE_TABLE_ACTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SYSTEM_FIRMWARE_TABLE_ACTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SYSTEM_FIRMWARE_TABLE_ACTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SYSTEM_POWER_CONDITION(pub i32);
 impl windows_core::TypeKind for SYSTEM_POWER_CONDITION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SYSTEM_POWER_CONDITION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SYSTEM_POWER_CONDITION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TABLE_SEARCH_RESULT(pub i32);
 impl windows_core::TypeKind for TABLE_SEARCH_RESULT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for TABLE_SEARCH_RESULT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TABLE_SEARCH_RESULT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TRACE_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for TRACE_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for TRACE_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TRACE_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEAP_DPC_ERROR_EVENT_TYPE(pub i32);
 impl windows_core::TypeKind for WHEAP_DPC_ERROR_EVENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEAP_DPC_ERROR_EVENT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEAP_DPC_ERROR_EVENT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEAP_PFA_OFFLINE_DECISION_TYPE(pub i32);
 impl windows_core::TypeKind for WHEAP_PFA_OFFLINE_DECISION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEAP_PFA_OFFLINE_DECISION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEAP_PFA_OFFLINE_DECISION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_BUGCHECK_RECOVERY_LOG_TYPE(pub i32);
 impl windows_core::TypeKind for WHEA_BUGCHECK_RECOVERY_LOG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_BUGCHECK_RECOVERY_LOG_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_BUGCHECK_RECOVERY_LOG_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_CPU_VENDOR(pub i32);
 impl windows_core::TypeKind for WHEA_CPU_VENDOR {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_CPU_VENDOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_CPU_VENDOR").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_ERROR_PACKET_DATA_FORMAT(pub i32);
 impl windows_core::TypeKind for WHEA_ERROR_PACKET_DATA_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_ERROR_PACKET_DATA_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_ERROR_PACKET_DATA_FORMAT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_ERROR_SEVERITY(pub i32);
 impl windows_core::TypeKind for WHEA_ERROR_SEVERITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_ERROR_SEVERITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_ERROR_SEVERITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_ERROR_TYPE(pub i32);
 impl windows_core::TypeKind for WHEA_ERROR_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_ERROR_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_ERROR_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_EVENT_LOG_ENTRY_ID(pub i32);
 impl windows_core::TypeKind for WHEA_EVENT_LOG_ENTRY_ID {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_EVENT_LOG_ENTRY_ID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_EVENT_LOG_ENTRY_ID").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_EVENT_LOG_ENTRY_TYPE(pub i32);
 impl windows_core::TypeKind for WHEA_EVENT_LOG_ENTRY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_EVENT_LOG_ENTRY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_EVENT_LOG_ENTRY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_PCIEXPRESS_DEVICE_TYPE(pub i32);
 impl windows_core::TypeKind for WHEA_PCIEXPRESS_DEVICE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_PCIEXPRESS_DEVICE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_PCIEXPRESS_DEVICE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_PCI_RECOVERY_SIGNAL(pub i32);
 impl windows_core::TypeKind for WHEA_PCI_RECOVERY_SIGNAL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_PCI_RECOVERY_SIGNAL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_PCI_RECOVERY_SIGNAL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_PCI_RECOVERY_STATUS(pub i32);
 impl windows_core::TypeKind for WHEA_PCI_RECOVERY_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_PCI_RECOVERY_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_PCI_RECOVERY_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_PFA_REMOVE_TRIGGER(pub i32);
 impl windows_core::TypeKind for WHEA_PFA_REMOVE_TRIGGER {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_PFA_REMOVE_TRIGGER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_PFA_REMOVE_TRIGGER").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS(pub i32);
 impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_RAW_DATA_FORMAT(pub i32);
 impl windows_core::TypeKind for WHEA_RAW_DATA_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_RAW_DATA_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_RAW_DATA_FORMAT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_RECOVERY_CONTEXT_ERROR_TYPE(pub i32);
 impl windows_core::TypeKind for WHEA_RECOVERY_CONTEXT_ERROR_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_RECOVERY_CONTEXT_ERROR_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_RECOVERY_CONTEXT_ERROR_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_RECOVERY_FAILURE_REASON(pub i32);
 impl windows_core::TypeKind for WHEA_RECOVERY_FAILURE_REASON {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_RECOVERY_FAILURE_REASON {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_RECOVERY_FAILURE_REASON").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_RECOVERY_TYPE(pub i32);
 impl windows_core::TypeKind for WHEA_RECOVERY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_RECOVERY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_RECOVERY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_THROTTLE_TYPE(pub i32);
 impl windows_core::TypeKind for WHEA_THROTTLE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_THROTTLE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_THROTTLE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WORK_QUEUE_TYPE(pub i32);
 impl windows_core::TypeKind for WORK_QUEUE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WORK_QUEUE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WORK_QUEUE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACPI_DEBUGGING_DEVICE_IN_USE {
     pub NameSpacePathLength: u32,
     pub NameSpacePath: [u16; 1],
+}
+impl windows_core::TypeKind for ACPI_DEBUGGING_DEVICE_IN_USE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ACPI_DEBUGGING_DEVICE_IN_USE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACPI_DEBUGGING_DEVICE_IN_USE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACPI_INTERFACE_STANDARD {
     pub Size: u16,
     pub Version: u16,
@@ -10993,17 +11763,17 @@ pub struct ACPI_INTERFACE_STANDARD {
     pub UnregisterForDeviceNotifications: PUNREGISTER_FOR_DEVICE_NOTIFICATIONS,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for ACPI_INTERFACE_STANDARD {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for ACPI_INTERFACE_STANDARD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for ACPI_INTERFACE_STANDARD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACPI_INTERFACE_STANDARD2 {
     pub Size: u16,
     pub Version: u16,
@@ -11018,16 +11788,16 @@ pub struct ACPI_INTERFACE_STANDARD2 {
     pub RegisterForDeviceNotifications: PREGISTER_FOR_DEVICE_NOTIFICATIONS2,
     pub UnregisterForDeviceNotifications: PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2,
 }
+impl windows_core::TypeKind for ACPI_INTERFACE_STANDARD2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ACPI_INTERFACE_STANDARD2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ACPI_INTERFACE_STANDARD2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AGP_TARGET_BUS_INTERFACE_STANDARD {
     pub Size: u16,
     pub Version: u16,
@@ -11038,107 +11808,111 @@ pub struct AGP_TARGET_BUS_INTERFACE_STANDARD {
     pub GetBusData: PGET_SET_DEVICE_DATA,
     pub CapabilityID: u8,
 }
+impl windows_core::TypeKind for AGP_TARGET_BUS_INTERFACE_STANDARD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for AGP_TARGET_BUS_INTERFACE_STANDARD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AGP_TARGET_BUS_INTERFACE_STANDARD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union AMD_L1_CACHE_INFO {
     pub Ulong: u32,
     pub Anonymous: AMD_L1_CACHE_INFO_0,
+}
+impl windows_core::TypeKind for AMD_L1_CACHE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for AMD_L1_CACHE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AMD_L1_CACHE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMD_L1_CACHE_INFO_0 {
     pub LineSize: u8,
     pub LinesPerTag: u8,
     pub Associativity: u8,
     pub Size: u8,
 }
+impl windows_core::TypeKind for AMD_L1_CACHE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for AMD_L1_CACHE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AMD_L1_CACHE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union AMD_L2_CACHE_INFO {
     pub Ulong: u32,
     pub Anonymous: AMD_L2_CACHE_INFO_0,
+}
+impl windows_core::TypeKind for AMD_L2_CACHE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for AMD_L2_CACHE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AMD_L2_CACHE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMD_L2_CACHE_INFO_0 {
     pub LineSize: u8,
     pub _bitfield: u8,
     pub Size: u16,
+}
+impl windows_core::TypeKind for AMD_L2_CACHE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for AMD_L2_CACHE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AMD_L2_CACHE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union AMD_L3_CACHE_INFO {
     pub Ulong: u32,
     pub Anonymous: AMD_L3_CACHE_INFO_0,
+}
+impl windows_core::TypeKind for AMD_L3_CACHE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for AMD_L3_CACHE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AMD_L3_CACHE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMD_L3_CACHE_INFO_0 {
     pub LineSize: u8,
     pub _bitfield1: u8,
     pub _bitfield2: u16,
+}
+impl windows_core::TypeKind for AMD_L3_CACHE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for AMD_L3_CACHE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AMD_L3_CACHE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARBITER_ADD_RESERVED_PARAMETERS {
     pub ReserveDevice: *mut super::super::Foundation::DEVICE_OBJECT,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for ARBITER_ADD_RESERVED_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for ARBITER_ADD_RESERVED_PARAMETERS {
@@ -11146,15 +11920,15 @@ impl Default for ARBITER_ADD_RESERVED_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for ARBITER_ADD_RESERVED_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARBITER_BOOT_ALLOCATION_PARAMETERS {
     pub ArbitrationList: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for ARBITER_BOOT_ALLOCATION_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for ARBITER_BOOT_ALLOCATION_PARAMETERS {
@@ -11162,17 +11936,17 @@ impl Default for ARBITER_BOOT_ALLOCATION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for ARBITER_BOOT_ALLOCATION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARBITER_CONFLICT_INFO {
     pub OwningObject: *mut super::super::Foundation::DEVICE_OBJECT,
     pub Start: u64,
     pub End: u64,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for ARBITER_CONFLICT_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for ARBITER_CONFLICT_INFO {
@@ -11180,13 +11954,9 @@ impl Default for ARBITER_CONFLICT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for ARBITER_CONFLICT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARBITER_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -11197,18 +11967,18 @@ pub struct ARBITER_INTERFACE {
     pub Flags: u32,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for ARBITER_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for ARBITER_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for ARBITER_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARBITER_LIST_ENTRY {
     pub ListEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub AlternativeCount: u32,
@@ -11225,20 +11995,24 @@ pub struct ARBITER_LIST_ENTRY {
     pub Result: ARBITER_RESULT,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for ARBITER_LIST_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for ARBITER_LIST_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for ARBITER_LIST_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ARBITER_PARAMETERS {
     pub Parameters: ARBITER_PARAMETERS_0,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for ARBITER_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for ARBITER_PARAMETERS {
@@ -11246,13 +12020,9 @@ impl Default for ARBITER_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for ARBITER_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union ARBITER_PARAMETERS_0 {
     pub TestAllocation: ARBITER_TEST_ALLOCATION_PARAMETERS,
     pub RetestAllocation: ARBITER_RETEST_ALLOCATION_PARAMETERS,
@@ -11263,33 +12033,37 @@ pub union ARBITER_PARAMETERS_0 {
     pub AddReserved: ARBITER_ADD_RESERVED_PARAMETERS,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for ARBITER_PARAMETERS_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for ARBITER_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for ARBITER_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARBITER_QUERY_ALLOCATED_RESOURCES_PARAMETERS {
     pub AllocatedResources: *mut *mut CM_PARTIAL_RESOURCE_LIST,
+}
+impl windows_core::TypeKind for ARBITER_QUERY_ALLOCATED_RESOURCES_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ARBITER_QUERY_ALLOCATED_RESOURCES_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ARBITER_QUERY_ALLOCATED_RESOURCES_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARBITER_QUERY_ARBITRATE_PARAMETERS {
     pub ArbitrationList: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for ARBITER_QUERY_ARBITRATE_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for ARBITER_QUERY_ARBITRATE_PARAMETERS {
@@ -11297,13 +12071,9 @@ impl Default for ARBITER_QUERY_ARBITRATE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for ARBITER_QUERY_ARBITRATE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARBITER_QUERY_CONFLICT_PARAMETERS {
     pub PhysicalDeviceObject: *mut super::super::Foundation::DEVICE_OBJECT,
     pub ConflictingResource: *mut IO_RESOURCE_DESCRIPTOR,
@@ -11311,22 +12081,26 @@ pub struct ARBITER_QUERY_CONFLICT_PARAMETERS {
     pub Conflicts: *mut *mut ARBITER_CONFLICT_INFO,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for ARBITER_QUERY_CONFLICT_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for ARBITER_QUERY_CONFLICT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for ARBITER_QUERY_CONFLICT_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARBITER_RETEST_ALLOCATION_PARAMETERS {
     pub ArbitrationList: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub AllocateFromCount: u32,
     pub AllocateFrom: *mut CM_PARTIAL_RESOURCE_DESCRIPTOR,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for ARBITER_RETEST_ALLOCATION_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for ARBITER_RETEST_ALLOCATION_PARAMETERS {
@@ -11334,17 +12108,17 @@ impl Default for ARBITER_RETEST_ALLOCATION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for ARBITER_RETEST_ALLOCATION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARBITER_TEST_ALLOCATION_PARAMETERS {
     pub ArbitrationList: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub AllocateFromCount: u32,
     pub AllocateFrom: *mut CM_PARTIAL_RESOURCE_DESCRIPTOR,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for ARBITER_TEST_ALLOCATION_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for ARBITER_TEST_ALLOCATION_PARAMETERS {
@@ -11352,13 +12126,9 @@ impl Default for ARBITER_TEST_ALLOCATION_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for ARBITER_TEST_ALLOCATION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ARM64_NT_CONTEXT {
     pub ContextFlags: u32,
     pub Cpsr: u32,
@@ -11374,21 +12144,25 @@ pub struct ARM64_NT_CONTEXT {
     pub Wvr: [u64; 2],
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for ARM64_NT_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for ARM64_NT_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for ARM64_NT_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union ARM64_NT_CONTEXT_0 {
     pub Anonymous: ARM64_NT_CONTEXT_0_0,
     pub X: [u64; 31],
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for ARM64_NT_CONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for ARM64_NT_CONTEXT_0 {
@@ -11396,13 +12170,9 @@ impl Default for ARM64_NT_CONTEXT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for ARM64_NT_CONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARM64_NT_CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -11437,17 +12207,17 @@ pub struct ARM64_NT_CONTEXT_0_0 {
     pub Lr: u64,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for ARM64_NT_CONTEXT_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for ARM64_NT_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for ARM64_NT_CONTEXT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDCB_IMAGE_INFORMATION {
     pub Classification: BDCB_CLASSIFICATION,
     pub ImageFlags: u32,
@@ -11462,45 +12232,45 @@ pub struct BDCB_IMAGE_INFORMATION {
     pub ImageHashLength: u32,
     pub CertificateThumbprintLength: u32,
 }
+impl windows_core::TypeKind for BDCB_IMAGE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BDCB_IMAGE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDCB_IMAGE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDCB_STATUS_UPDATE_CONTEXT {
     pub StatusType: BDCB_STATUS_UPDATE_TYPE,
+}
+impl windows_core::TypeKind for BDCB_STATUS_UPDATE_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BDCB_STATUS_UPDATE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BDCB_STATUS_UPDATE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BOOTDISK_INFORMATION {
     pub BootPartitionOffset: i64,
     pub SystemPartitionOffset: i64,
     pub BootDeviceSignature: u32,
     pub SystemDeviceSignature: u32,
 }
+impl windows_core::TypeKind for BOOTDISK_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BOOTDISK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BOOTDISK_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BOOTDISK_INFORMATION_EX {
     pub BootPartitionOffset: i64,
     pub SystemPartitionOffset: i64,
@@ -11511,31 +12281,31 @@ pub struct BOOTDISK_INFORMATION_EX {
     pub BootDeviceIsGpt: super::super::super::Win32::Foundation::BOOLEAN,
     pub SystemDeviceIsGpt: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for BOOTDISK_INFORMATION_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BOOTDISK_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BOOTDISK_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BOOTDISK_INFORMATION_LITE {
     pub NumberEntries: u32,
     pub Entries: [LOADER_PARTITION_INFORMATION_EX; 1],
+}
+impl windows_core::TypeKind for BOOTDISK_INFORMATION_LITE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BOOTDISK_INFORMATION_LITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BOOTDISK_INFORMATION_LITE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BUS_INTERFACE_STANDARD {
     pub Size: u16,
     pub Version: u16,
@@ -11548,17 +12318,17 @@ pub struct BUS_INTERFACE_STANDARD {
     pub GetBusData: PGET_SET_DEVICE_DATA,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for BUS_INTERFACE_STANDARD {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for BUS_INTERFACE_STANDARD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for BUS_INTERFACE_STANDARD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BUS_RESOURCE_UPDATE_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -11567,44 +12337,44 @@ pub struct BUS_RESOURCE_UPDATE_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub GetUpdatedBusResource: PGET_UPDATED_BUS_RESOURCE,
 }
+impl windows_core::TypeKind for BUS_RESOURCE_UPDATE_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BUS_RESOURCE_UPDATE_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BUS_RESOURCE_UPDATE_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union BUS_SPECIFIC_RESET_FLAGS {
     pub u: BUS_SPECIFIC_RESET_FLAGS_0,
     pub AsUlonglong: u64,
+}
+impl windows_core::TypeKind for BUS_SPECIFIC_RESET_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BUS_SPECIFIC_RESET_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BUS_SPECIFIC_RESET_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BUS_SPECIFIC_RESET_FLAGS_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for BUS_SPECIFIC_RESET_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BUS_SPECIFIC_RESET_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BUS_SPECIFIC_RESET_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLFS_MGMT_CLIENT_REGISTRATION {
     pub Version: u32,
     pub AdvanceTailCallback: PCLFS_CLIENT_ADVANCE_TAIL_CALLBACK,
@@ -11615,22 +12385,26 @@ pub struct CLFS_MGMT_CLIENT_REGISTRATION {
     pub LogUnpinnedCallbackData: *mut core::ffi::c_void,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for CLFS_MGMT_CLIENT_REGISTRATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for CLFS_MGMT_CLIENT_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for CLFS_MGMT_CLIENT_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_DRIVER_INFO {
     pub ExceptionCallback: PDRIVER_CMC_EXCEPTION_CALLBACK,
     pub DpcCallback: super::super::Foundation::PKDEFERRED_ROUTINE,
     pub DeviceContext: *mut core::ffi::c_void,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for CMC_DRIVER_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for CMC_DRIVER_INFO {
@@ -11638,44 +12412,40 @@ impl Default for CMC_DRIVER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for CMC_DRIVER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_COMPONENT_INFORMATION {
     pub Flags: DEVICE_FLAGS,
     pub Version: u32,
     pub Key: u32,
     pub AffinityMask: usize,
 }
+impl windows_core::TypeKind for CM_COMPONENT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_COMPONENT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_COMPONENT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_DISK_GEOMETRY_DEVICE_DATA {
     pub BytesPerSector: u32,
     pub NumberOfCylinders: u32,
     pub SectorsPerTrack: u32,
     pub NumberOfHeads: u32,
 }
+impl windows_core::TypeKind for CM_DISK_GEOMETRY_DEVICE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_DISK_GEOMETRY_DEVICE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_DISK_GEOMETRY_DEVICE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_EISA_FUNCTION_INFORMATION {
     pub CompressedId: u32,
     pub IdSlotFlags1: u8,
@@ -11691,16 +12461,16 @@ pub struct CM_EISA_FUNCTION_INFORMATION {
     pub EisaPort: [EISA_PORT_CONFIGURATION; 20],
     pub InitializationData: [u8; 60],
 }
+impl windows_core::TypeKind for CM_EISA_FUNCTION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_EISA_FUNCTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_EISA_FUNCTION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_EISA_SLOT_INFORMATION {
     pub ReturnCode: u8,
     pub ReturnFlags: u8,
@@ -11711,16 +12481,16 @@ pub struct CM_EISA_SLOT_INFORMATION {
     pub FunctionInformation: u8,
     pub CompressedId: u32,
 }
+impl windows_core::TypeKind for CM_EISA_SLOT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_EISA_SLOT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_EISA_SLOT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_FLOPPY_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
@@ -11741,31 +12511,31 @@ pub struct CM_FLOPPY_DEVICE_DATA {
     pub MaximumTrackValue: u8,
     pub DataTransferRate: u8,
 }
+impl windows_core::TypeKind for CM_FLOPPY_DEVICE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_FLOPPY_DEVICE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_FLOPPY_DEVICE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_FULL_RESOURCE_DESCRIPTOR {
     pub InterfaceType: INTERFACE_TYPE,
     pub BusNumber: u32,
     pub PartialResourceList: CM_PARTIAL_RESOURCE_LIST,
+}
+impl windows_core::TypeKind for CM_FULL_RESOURCE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_FULL_RESOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_FULL_RESOURCE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_INT13_DRIVE_PARAMETER {
     pub DriveSelect: u16,
     pub MaxCylinders: u32,
@@ -11773,16 +12543,16 @@ pub struct CM_INT13_DRIVE_PARAMETER {
     pub MaxHeads: u16,
     pub NumberDrives: u16,
 }
+impl windows_core::TypeKind for CM_INT13_DRIVE_PARAMETER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_INT13_DRIVE_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_INT13_DRIVE_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_KEYBOARD_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
@@ -11790,16 +12560,16 @@ pub struct CM_KEYBOARD_DEVICE_DATA {
     pub Subtype: u8,
     pub KeyboardFlags: u16,
 }
+impl windows_core::TypeKind for CM_KEYBOARD_DEVICE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_KEYBOARD_DEVICE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_KEYBOARD_DEVICE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_MCA_POS_DATA {
     pub AdapterId: u16,
     pub PosData1: u8,
@@ -11807,16 +12577,16 @@ pub struct CM_MCA_POS_DATA {
     pub PosData3: u8,
     pub PosData4: u8,
 }
+impl windows_core::TypeKind for CM_MCA_POS_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_MCA_POS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_MCA_POS_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_MONITOR_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
@@ -11846,32 +12616,32 @@ pub struct CM_MONITOR_DEVICE_DATA {
     pub VerticalSync: u16,
     pub VerticalSyncHigh: u16,
 }
+impl windows_core::TypeKind for CM_MONITOR_DEVICE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_MONITOR_DEVICE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_MONITOR_DEVICE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR {
     pub Type: u8,
     pub ShareDisposition: u8,
     pub Flags: u16,
     pub u: CM_PARTIAL_RESOURCE_DESCRIPTOR_0,
 }
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     pub Generic: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0,
     pub Port: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1,
@@ -11888,31 +12658,31 @@ pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     pub Memory64: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12,
     pub Connection: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13,
 }
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
     pub Start: u32,
     pub Length: u32,
     pub Reserved: u32,
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     pub Class: u8,
     pub Type: u8,
@@ -11921,44 +12691,44 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     pub IdLowPart: u32,
     pub IdHighPart: u32,
 }
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     pub Data: [u32; 3],
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
     pub DataSize: u32,
     pub Reserved1: u32,
     pub Reserved2: u32,
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
     pub Channel: u32,
     pub RequestLine: u32,
@@ -11967,204 +12737,204 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
     pub Reserved2: u8,
     pub Reserved3: u8,
 }
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
     pub Channel: u32,
     pub Port: u32,
     pub Reserved1: u32,
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
     pub Start: i64,
     pub Length: u32,
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
     pub Level: u32,
     pub Vector: u32,
     pub Affinity: usize,
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
     pub Start: i64,
     pub Length40: u32,
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
     pub Start: i64,
     pub Length48: u32,
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
     pub Start: i64,
     pub Length64: u32,
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
     pub Start: i64,
     pub Length: u32,
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
     pub Anonymous: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0,
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
     pub Raw: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0,
     pub Translated: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1,
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
     pub Reserved: u16,
     pub MessageCount: u16,
     pub Vector: u32,
     pub Affinity: usize,
 }
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
     pub Level: u32,
     pub Vector: u32,
     pub Affinity: usize,
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
     pub Start: i64,
     pub Length: u32,
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_LIST {
     pub Version: u16,
     pub Revision: u16,
     pub Count: u32,
     pub PartialDescriptors: [CM_PARTIAL_RESOURCE_DESCRIPTOR; 1],
 }
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_PARTIAL_RESOURCE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PCCARD_DEVICE_DATA {
     pub Flags: u8,
     pub ErrorCode: u8,
@@ -12174,16 +12944,16 @@ pub struct CM_PCCARD_DEVICE_DATA {
     pub LegacyBaseAddress: u32,
     pub IRQMap: [u8; 16],
 }
+impl windows_core::TypeKind for CM_PCCARD_DEVICE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_PCCARD_DEVICE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PCCARD_DEVICE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_PNP_BIOS_DEVICE_NODE {
     pub Size: u16,
     pub Node: u8,
@@ -12191,16 +12961,16 @@ pub struct CM_PNP_BIOS_DEVICE_NODE {
     pub DeviceType: [u8; 3],
     pub DeviceAttributes: u16,
 }
+impl windows_core::TypeKind for CM_PNP_BIOS_DEVICE_NODE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_PNP_BIOS_DEVICE_NODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PNP_BIOS_DEVICE_NODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_PNP_BIOS_INSTALLATION_CHECK {
     pub Signature: [u8; 4],
     pub Revision: u8,
@@ -12216,17 +12986,17 @@ pub struct CM_PNP_BIOS_INSTALLATION_CHECK {
     pub RealModeDataBaseAddress: u16,
     pub ProtectedModeDataBaseAddress: u32,
 }
+impl windows_core::TypeKind for CM_PNP_BIOS_INSTALLATION_CHECK {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_PNP_BIOS_INSTALLATION_CHECK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_PNP_BIOS_INSTALLATION_CHECK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_POWER_DATA {
     pub PD_Size: u32,
     pub PD_MostRecentPowerState: super::super::super::Win32::System::Power::DEVICE_POWER_STATE,
@@ -12238,106 +13008,106 @@ pub struct CM_POWER_DATA {
     pub PD_DeepestSystemWake: super::super::super::Win32::System::Power::SYSTEM_POWER_STATE,
 }
 #[cfg(feature = "Win32_System_Power")]
+impl windows_core::TypeKind for CM_POWER_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Power")]
 impl Default for CM_POWER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Power")]
-impl windows_core::TypeKind for CM_POWER_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_RESOURCE_LIST {
     pub Count: u32,
     pub List: [CM_FULL_RESOURCE_DESCRIPTOR; 1],
+}
+impl windows_core::TypeKind for CM_RESOURCE_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_RESOURCE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_RESOURCE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_ROM_BLOCK {
     pub Address: u32,
     pub Size: u32,
+}
+impl windows_core::TypeKind for CM_ROM_BLOCK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_ROM_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_ROM_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_SCSI_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
     pub HostIdentifier: u8,
+}
+impl windows_core::TypeKind for CM_SCSI_DEVICE_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_SCSI_DEVICE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_SCSI_DEVICE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_SERIAL_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
     pub BaudClock: u32,
+}
+impl windows_core::TypeKind for CM_SERIAL_DEVICE_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_SERIAL_DEVICE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_SERIAL_DEVICE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_SONIC_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
     pub DataConfigurationRegister: u16,
     pub EthernetAddress: [u8; 8],
 }
+impl windows_core::TypeKind for CM_SONIC_DEVICE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CM_SONIC_DEVICE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_SONIC_DEVICE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_VIDEO_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
     pub VideoClock: u32,
+}
+impl windows_core::TypeKind for CM_VIDEO_DEVICE_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_VIDEO_DEVICE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CM_VIDEO_DEVICE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONFIGURATION_INFORMATION {
     pub DiskCount: u32,
     pub FloppyCount: u32,
@@ -12351,17 +13121,17 @@ pub struct CONFIGURATION_INFORMATION {
     pub Version: u32,
     pub MediumChangerCount: u32,
 }
+impl windows_core::TypeKind for CONFIGURATION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CONFIGURATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CONFIGURATION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTROLLER_OBJECT {
     pub Type: i16,
     pub Size: i16,
@@ -12371,67 +13141,71 @@ pub struct CONTROLLER_OBJECT {
     pub Spare2: i64,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for CONTROLLER_OBJECT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for CONTROLLER_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for CONTROLLER_OBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct COUNTED_REASON_CONTEXT {
     pub Version: u32,
     pub Flags: u32,
     pub Anonymous: COUNTED_REASON_CONTEXT_0,
+}
+impl windows_core::TypeKind for COUNTED_REASON_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for COUNTED_REASON_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COUNTED_REASON_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union COUNTED_REASON_CONTEXT_0 {
     pub Anonymous: COUNTED_REASON_CONTEXT_0_0,
     pub SimpleString: super::super::super::Win32::Foundation::UNICODE_STRING,
+}
+impl windows_core::TypeKind for COUNTED_REASON_CONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for COUNTED_REASON_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COUNTED_REASON_CONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COUNTED_REASON_CONTEXT_0_0 {
     pub ResourceFileName: super::super::super::Win32::Foundation::UNICODE_STRING,
     pub ResourceReasonId: u16,
     pub StringCount: u32,
     pub ReasonStrings: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
 }
+impl windows_core::TypeKind for COUNTED_REASON_CONTEXT_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for COUNTED_REASON_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COUNTED_REASON_CONTEXT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CPE_DRIVER_INFO {
     pub ExceptionCallback: PDRIVER_CPE_EXCEPTION_CALLBACK,
     pub DpcCallback: super::super::Foundation::PKDEFERRED_ROUTINE,
     pub DeviceContext: *mut core::ffi::c_void,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for CPE_DRIVER_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for CPE_DRIVER_INFO {
@@ -12439,12 +13213,8 @@ impl Default for CPE_DRIVER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for CPE_DRIVER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRASHDUMP_FUNCTIONS_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -12453,31 +13223,31 @@ pub struct CRASHDUMP_FUNCTIONS_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub PowerOn: PCRASHDUMP_POWER_ON,
 }
+impl windows_core::TypeKind for CRASHDUMP_FUNCTIONS_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CRASHDUMP_FUNCTIONS_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CRASHDUMP_FUNCTIONS_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATE_USER_PROCESS_ECP_CONTEXT {
     pub Size: u16,
     pub Reserved: u16,
     pub AccessToken: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for CREATE_USER_PROCESS_ECP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CREATE_USER_PROCESS_ECP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CREATE_USER_PROCESS_ECP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -12488,16 +13258,16 @@ pub struct D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
     pub RequestAuxPower: PD3COLD_REQUEST_AUX_POWER,
     pub RequestPerstDelay: PD3COLD_REQUEST_PERST_DELAY,
 }
+impl windows_core::TypeKind for D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3COLD_AUX_POWER_AND_TIMING_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3COLD_SUPPORT_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -12510,59 +13280,59 @@ pub struct D3COLD_SUPPORT_INTERFACE {
     pub GetBusDriverD3ColdSupport: PGET_D3COLD_CAPABILITY,
     pub GetLastTransitionStatus: PGET_D3COLD_LAST_TRANSITION_STATUS,
 }
+impl windows_core::TypeKind for D3COLD_SUPPORT_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3COLD_SUPPORT_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3COLD_SUPPORT_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEBUGGING_DEVICE_IN_USE {
     pub NameSpace: KD_NAMESPACE_ENUM,
     pub StructureLength: u32,
     pub Anonymous: DEBUGGING_DEVICE_IN_USE_0,
+}
+impl windows_core::TypeKind for DEBUGGING_DEVICE_IN_USE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEBUGGING_DEVICE_IN_USE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUGGING_DEVICE_IN_USE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DEBUGGING_DEVICE_IN_USE_0 {
     pub AcpiDevice: ACPI_DEBUGGING_DEVICE_IN_USE,
     pub PciDevice: PCI_DEBUGGING_DEVICE_IN_USE,
+}
+impl windows_core::TypeKind for DEBUGGING_DEVICE_IN_USE_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEBUGGING_DEVICE_IN_USE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUGGING_DEVICE_IN_USE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEBUGGING_DEVICE_IN_USE_INFORMATION {
     pub DeviceCount: u32,
     pub Device: [DEBUGGING_DEVICE_IN_USE; 1],
+}
+impl windows_core::TypeKind for DEBUGGING_DEVICE_IN_USE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEBUGGING_DEVICE_IN_USE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUGGING_DEVICE_IN_USE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_DEVICE_ADDRESS {
     pub Type: u8,
     pub Valid: super::super::super::Win32::Foundation::BOOLEAN,
@@ -12570,44 +13340,44 @@ pub struct DEBUG_DEVICE_ADDRESS {
     pub TranslatedAddress: *mut u8,
     pub Length: u32,
 }
+impl windows_core::TypeKind for DEBUG_DEVICE_ADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DEBUG_DEVICE_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_DEVICE_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DEBUG_DEVICE_ADDRESS_0 {
     pub Reserved: [u8; 2],
     pub Anonymous: DEBUG_DEVICE_ADDRESS_0_0,
+}
+impl windows_core::TypeKind for DEBUG_DEVICE_ADDRESS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEBUG_DEVICE_ADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_DEVICE_ADDRESS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_DEVICE_ADDRESS_0_0 {
     pub BitWidth: u8,
     pub AccessSize: u8,
+}
+impl windows_core::TypeKind for DEBUG_DEVICE_ADDRESS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEBUG_DEVICE_ADDRESS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_DEVICE_ADDRESS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_DEVICE_DESCRIPTOR {
     pub Bus: u32,
     pub Slot: u32,
@@ -12634,57 +13404,57 @@ pub struct DEBUG_DEVICE_DESCRIPTOR {
     pub TransportData: DEBUG_TRANSPORT_DATA,
     pub EfiIoMmuData: DEBUG_EFI_IOMMU_DATA,
 }
+impl windows_core::TypeKind for DEBUG_DEVICE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DEBUG_DEVICE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_DEVICE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DEBUG_DEVICE_DESCRIPTOR_0 {
     pub Flags: u8,
     pub Anonymous: DEBUG_DEVICE_DESCRIPTOR_0_0,
+}
+impl windows_core::TypeKind for DEBUG_DEVICE_DESCRIPTOR_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEBUG_DEVICE_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_DEVICE_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_DEVICE_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
+}
+impl windows_core::TypeKind for DEBUG_DEVICE_DESCRIPTOR_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEBUG_DEVICE_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_DEVICE_DESCRIPTOR_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_EFI_IOMMU_DATA {
     pub PciIoProtocolHandle: *mut core::ffi::c_void,
     pub Mapping: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for DEBUG_EFI_IOMMU_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEBUG_EFI_IOMMU_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_EFI_IOMMU_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_MEMORY_REQUIREMENTS {
     pub Start: i64,
     pub MaxEnd: i64,
@@ -12693,16 +13463,16 @@ pub struct DEBUG_MEMORY_REQUIREMENTS {
     pub Cached: super::super::super::Win32::Foundation::BOOLEAN,
     pub Aligned: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for DEBUG_MEMORY_REQUIREMENTS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DEBUG_MEMORY_REQUIREMENTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_MEMORY_REQUIREMENTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_TRANSPORT_DATA {
     pub HwContextSize: u32,
     pub SharedVisibleDataSize: u32,
@@ -12710,72 +13480,72 @@ pub struct DEBUG_TRANSPORT_DATA {
     pub ValidUSBCoreId: super::super::super::Win32::Foundation::BOOLEAN,
     pub USBCoreId: u8,
 }
+impl windows_core::TypeKind for DEBUG_TRANSPORT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DEBUG_TRANSPORT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEBUG_TRANSPORT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_BUS_SPECIFIC_RESET_INFO {
     pub BusTypeGuid: windows_core::GUID,
     pub ResetTypeSupported: DEVICE_BUS_SPECIFIC_RESET_TYPE,
+}
+impl windows_core::TypeKind for DEVICE_BUS_SPECIFIC_RESET_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEVICE_BUS_SPECIFIC_RESET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_BUS_SPECIFIC_RESET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DEVICE_BUS_SPECIFIC_RESET_TYPE {
     pub Pci: DEVICE_BUS_SPECIFIC_RESET_TYPE_0,
     pub Acpi: DEVICE_BUS_SPECIFIC_RESET_TYPE_1,
     pub AsULONGLONG: u64,
+}
+impl windows_core::TypeKind for DEVICE_BUS_SPECIFIC_RESET_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEVICE_BUS_SPECIFIC_RESET_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_BUS_SPECIFIC_RESET_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_CAPABILITIES {
     pub Size: u16,
     pub Version: u16,
@@ -12790,17 +13560,17 @@ pub struct DEVICE_CAPABILITIES {
     pub D3Latency: u32,
 }
 #[cfg(feature = "Win32_System_Power")]
+impl windows_core::TypeKind for DEVICE_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Power")]
 impl Default for DEVICE_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Power")]
-impl windows_core::TypeKind for DEVICE_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_DESCRIPTION {
     pub Version: u32,
     pub Master: super::super::super::Win32::Foundation::BOOLEAN,
@@ -12823,43 +13593,43 @@ pub struct DEVICE_DESCRIPTION {
     pub DmaRequestLine: u32,
     pub DeviceAddress: i64,
 }
+impl windows_core::TypeKind for DEVICE_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DEVICE_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_FAULT_CONFIGURATION {
     pub FaultHandler: PIOMMU_DEVICE_FAULT_HANDLER,
     pub FaultContext: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for DEVICE_FAULT_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEVICE_FAULT_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_FAULT_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_FLAGS {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for DEVICE_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEVICE_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_INTERFACE_CHANGE_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
@@ -12867,20 +13637,24 @@ pub struct DEVICE_INTERFACE_CHANGE_NOTIFICATION {
     pub InterfaceClassGuid: windows_core::GUID,
     pub SymbolicLinkName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
 }
+impl windows_core::TypeKind for DEVICE_INTERFACE_CHANGE_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DEVICE_INTERFACE_CHANGE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_INTERFACE_CHANGE_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_RELATIONS {
     pub Count: u32,
     pub Objects: [*mut super::super::Foundation::DEVICE_OBJECT; 1],
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for DEVICE_RELATIONS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for DEVICE_RELATIONS {
@@ -12888,12 +13662,8 @@ impl Default for DEVICE_RELATIONS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for DEVICE_RELATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_RESET_INTERFACE_STANDARD {
     pub Size: u16,
     pub Version: u16,
@@ -12907,103 +13677,107 @@ pub struct DEVICE_RESET_INTERFACE_STANDARD {
     pub DeviceBusSpecificReset: PDEVICE_BUS_SPECIFIC_RESET_HANDLER,
     pub GetDeviceResetStatus: PGET_DEVICE_RESET_STATUS,
 }
+impl windows_core::TypeKind for DEVICE_RESET_INTERFACE_STANDARD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DEVICE_RESET_INTERFACE_STANDARD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_RESET_INTERFACE_STANDARD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DEVICE_RESET_STATUS_FLAGS {
     pub u: DEVICE_RESET_STATUS_FLAGS_0,
     pub AsUlonglong: u64,
+}
+impl windows_core::TypeKind for DEVICE_RESET_STATUS_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEVICE_RESET_STATUS_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_RESET_STATUS_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_RESET_STATUS_FLAGS_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for DEVICE_RESET_STATUS_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEVICE_RESET_STATUS_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVICE_RESET_STATUS_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DISK_SIGNATURE {
     pub PartitionStyle: u32,
     pub Anonymous: DISK_SIGNATURE_0,
+}
+impl windows_core::TypeKind for DISK_SIGNATURE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DISK_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_SIGNATURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DISK_SIGNATURE_0 {
     pub Mbr: DISK_SIGNATURE_0_0,
     pub Gpt: DISK_SIGNATURE_0_1,
+}
+impl windows_core::TypeKind for DISK_SIGNATURE_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DISK_SIGNATURE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_SIGNATURE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISK_SIGNATURE_0_1 {
     pub DiskId: windows_core::GUID,
+}
+impl windows_core::TypeKind for DISK_SIGNATURE_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DISK_SIGNATURE_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_SIGNATURE_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISK_SIGNATURE_0_0 {
     pub Signature: u32,
     pub CheckSum: u32,
+}
+impl windows_core::TypeKind for DISK_SIGNATURE_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DISK_SIGNATURE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISK_SIGNATURE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMA_ADAPTER {
     pub Version: u16,
     pub Size: u16,
     pub DmaOperations: *mut DMA_OPERATIONS,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for DMA_ADAPTER {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for DMA_ADAPTER {
@@ -13011,55 +13785,51 @@ impl Default for DMA_ADAPTER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for DMA_ADAPTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DMA_ADAPTER_INFO {
     pub Version: u32,
     pub Anonymous: DMA_ADAPTER_INFO_0,
+}
+impl windows_core::TypeKind for DMA_ADAPTER_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMA_ADAPTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_ADAPTER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DMA_ADAPTER_INFO_0 {
     pub V1: DMA_ADAPTER_INFO_V1,
     pub Crashdump: DMA_ADAPTER_INFO_CRASHDUMP,
+}
+impl windows_core::TypeKind for DMA_ADAPTER_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMA_ADAPTER_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_ADAPTER_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMA_ADAPTER_INFO_CRASHDUMP {
     pub DeviceDescription: DEVICE_DESCRIPTION,
     pub DeviceIdSize: usize,
     pub DeviceId: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for DMA_ADAPTER_INFO_CRASHDUMP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMA_ADAPTER_INFO_CRASHDUMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_ADAPTER_INFO_CRASHDUMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMA_ADAPTER_INFO_V1 {
     pub ReadDmaCounterAvailable: u32,
     pub ScatterGatherLimit: u32,
@@ -13067,100 +13837,100 @@ pub struct DMA_ADAPTER_INFO_V1 {
     pub Flags: u32,
     pub MinimumTransferUnit: u32,
 }
+impl windows_core::TypeKind for DMA_ADAPTER_INFO_V1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DMA_ADAPTER_INFO_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_ADAPTER_INFO_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION {
     pub ConfigType: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE,
     pub Anonymous: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0,
+}
+impl windows_core::TypeKind for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0 {
     pub LogicalAddressLimits: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_0,
     pub SubSection: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1,
     pub HardwareAccessType: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE,
     pub Reserved: [u64; 4],
 }
+impl windows_core::TypeKind for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_0 {
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
+}
+impl windows_core::TypeKind for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1 {
     pub Offset: u64,
     pub Length: u32,
+}
+impl windows_core::TypeKind for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMA_CONFIGURATION_BYTE0 {
     pub _bitfield: u8,
+}
+impl windows_core::TypeKind for DMA_CONFIGURATION_BYTE0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMA_CONFIGURATION_BYTE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_CONFIGURATION_BYTE0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMA_CONFIGURATION_BYTE1 {
     pub _bitfield: u8,
+}
+impl windows_core::TypeKind for DMA_CONFIGURATION_BYTE1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMA_CONFIGURATION_BYTE1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_CONFIGURATION_BYTE1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMA_IOMMU_INTERFACE {
     pub Version: u32,
     pub CreateDomain: PIOMMU_DOMAIN_CREATE,
@@ -13177,45 +13947,45 @@ pub struct DMA_IOMMU_INTERFACE {
     pub SetDeviceFaultReporting: PIOMMU_SET_DEVICE_FAULT_REPORTING,
     pub ConfigureDomain: PIOMMU_DOMAIN_CONFIGURE,
 }
+impl windows_core::TypeKind for DMA_IOMMU_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DMA_IOMMU_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_IOMMU_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DMA_IOMMU_INTERFACE_EX {
     pub Size: usize,
     pub Version: u32,
     pub Anonymous: DMA_IOMMU_INTERFACE_EX_0,
+}
+impl windows_core::TypeKind for DMA_IOMMU_INTERFACE_EX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMA_IOMMU_INTERFACE_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_IOMMU_INTERFACE_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DMA_IOMMU_INTERFACE_EX_0 {
     pub V1: DMA_IOMMU_INTERFACE_V1,
     pub V2: DMA_IOMMU_INTERFACE_V2,
+}
+impl windows_core::TypeKind for DMA_IOMMU_INTERFACE_EX_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMA_IOMMU_INTERFACE_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_IOMMU_INTERFACE_EX_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMA_IOMMU_INTERFACE_V1 {
     pub CreateDomain: PIOMMU_DOMAIN_CREATE,
     pub DeleteDomain: PIOMMU_DOMAIN_DELETE,
@@ -13231,16 +14001,16 @@ pub struct DMA_IOMMU_INTERFACE_V1 {
     pub SetDeviceFaultReporting: PIOMMU_SET_DEVICE_FAULT_REPORTING,
     pub ConfigureDomain: PIOMMU_DOMAIN_CONFIGURE,
 }
+impl windows_core::TypeKind for DMA_IOMMU_INTERFACE_V1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DMA_IOMMU_INTERFACE_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_IOMMU_INTERFACE_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMA_IOMMU_INTERFACE_V2 {
     pub CreateDomainEx: PIOMMU_DOMAIN_CREATE_EX,
     pub DeleteDomain: PIOMMU_DOMAIN_DELETE,
@@ -13265,17 +14035,17 @@ pub struct DMA_IOMMU_INTERFACE_V2 {
     pub CreateDevice: PIOMMU_DEVICE_CREATE,
     pub DeleteDevice: PIOMMU_DEVICE_DELETE,
 }
+impl windows_core::TypeKind for DMA_IOMMU_INTERFACE_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DMA_IOMMU_INTERFACE_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_IOMMU_INTERFACE_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMA_OPERATIONS {
     pub Size: u32,
     pub PutDmaAdapter: PPUT_DMA_ADAPTER,
@@ -13319,104 +14089,104 @@ pub struct DMA_OPERATIONS {
     pub CreateCommonBufferFromMdl: PCREATE_COMMON_BUFFER_FROM_MDL,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for DMA_OPERATIONS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for DMA_OPERATIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for DMA_OPERATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DMA_TRANSFER_INFO {
     pub Version: u32,
     pub Anonymous: DMA_TRANSFER_INFO_0,
+}
+impl windows_core::TypeKind for DMA_TRANSFER_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMA_TRANSFER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_TRANSFER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DMA_TRANSFER_INFO_0 {
     pub V1: DMA_TRANSFER_INFO_V1,
     pub V2: DMA_TRANSFER_INFO_V2,
+}
+impl windows_core::TypeKind for DMA_TRANSFER_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMA_TRANSFER_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_TRANSFER_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMA_TRANSFER_INFO_V1 {
     pub MapRegisterCount: u32,
     pub ScatterGatherElementCount: u32,
     pub ScatterGatherListSize: u32,
+}
+impl windows_core::TypeKind for DMA_TRANSFER_INFO_V1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMA_TRANSFER_INFO_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_TRANSFER_INFO_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMA_TRANSFER_INFO_V2 {
     pub MapRegisterCount: u32,
     pub ScatterGatherElementCount: u32,
     pub ScatterGatherListSize: u32,
     pub LogicalPageCount: u32,
 }
+impl windows_core::TypeKind for DMA_TRANSFER_INFO_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DMA_TRANSFER_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DMA_TRANSFER_INFO_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DOMAIN_CONFIGURATION {
     pub Type: DOMAIN_CONFIGURATION_ARCH,
     pub Anonymous: DOMAIN_CONFIGURATION_0,
+}
+impl windows_core::TypeKind for DOMAIN_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DOMAIN_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOMAIN_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DOMAIN_CONFIGURATION_0 {
     pub Arm64: DOMAIN_CONFIGURATION_ARM64,
     pub X64: DOMAIN_CONFIGURATION_X64,
+}
+impl windows_core::TypeKind for DOMAIN_CONFIGURATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DOMAIN_CONFIGURATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOMAIN_CONFIGURATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOMAIN_CONFIGURATION_ARM64 {
     pub Ttbr0: i64,
     pub Ttbr1: i64,
@@ -13427,30 +14197,30 @@ pub struct DOMAIN_CONFIGURATION_ARM64 {
     pub CoherentTableWalks: super::super::super::Win32::Foundation::BOOLEAN,
     pub TranslationEnabled: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for DOMAIN_CONFIGURATION_ARM64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DOMAIN_CONFIGURATION_ARM64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOMAIN_CONFIGURATION_ARM64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOMAIN_CONFIGURATION_X64 {
     pub FirstLevelPageTableRoot: i64,
     pub TranslationEnabled: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for DOMAIN_CONFIGURATION_X64 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DOMAIN_CONFIGURATION_X64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DOMAIN_CONFIGURATION_X64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
     pub Signature: u32,
     pub Revision: u16,
@@ -13458,86 +14228,86 @@ pub struct DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
     pub DpcWatchdogProfileOffset: u16,
     pub DpcWatchdogProfileLength: u32,
 }
+impl windows_core::TypeKind for DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_VERIFIER_THUNK_PAIRS {
     pub PristineRoutine: PDRIVER_VERIFIER_THUNK_ROUTINE,
     pub NewRoutine: PDRIVER_VERIFIER_THUNK_ROUTINE,
+}
+impl windows_core::TypeKind for DRIVER_VERIFIER_THUNK_PAIRS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DRIVER_VERIFIER_THUNK_PAIRS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRIVER_VERIFIER_THUNK_PAIRS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EFI_ACPI_RAS_SIGNAL_TABLE {
     pub Header: WHEA_ACPI_HEADER,
     pub NumberRecord: u32,
     pub Entries: [SIGNAL_REG_VALUE; 1],
+}
+impl windows_core::TypeKind for EFI_ACPI_RAS_SIGNAL_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EFI_ACPI_RAS_SIGNAL_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EFI_ACPI_RAS_SIGNAL_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EISA_DMA_CONFIGURATION {
     pub ConfigurationByte0: DMA_CONFIGURATION_BYTE0,
     pub ConfigurationByte1: DMA_CONFIGURATION_BYTE1,
+}
+impl windows_core::TypeKind for EISA_DMA_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EISA_DMA_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EISA_DMA_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EISA_IRQ_CONFIGURATION {
     pub ConfigurationByte: EISA_IRQ_DESCRIPTOR,
     pub Reserved: u8,
+}
+impl windows_core::TypeKind for EISA_IRQ_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EISA_IRQ_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EISA_IRQ_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EISA_IRQ_DESCRIPTOR {
     pub _bitfield: u8,
+}
+impl windows_core::TypeKind for EISA_IRQ_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EISA_IRQ_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EISA_IRQ_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EISA_MEMORY_CONFIGURATION {
     pub ConfigurationByte: EISA_MEMORY_TYPE,
     pub DataSize: u8,
@@ -13545,56 +14315,56 @@ pub struct EISA_MEMORY_CONFIGURATION {
     pub AddressHighByte: u8,
     pub MemorySize: u16,
 }
+impl windows_core::TypeKind for EISA_MEMORY_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EISA_MEMORY_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EISA_MEMORY_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EISA_MEMORY_TYPE {
     pub _bitfield: u8,
+}
+impl windows_core::TypeKind for EISA_MEMORY_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EISA_MEMORY_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EISA_MEMORY_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EISA_PORT_CONFIGURATION {
     pub Configuration: EISA_PORT_DESCRIPTOR,
     pub PortAddress: u16,
+}
+impl windows_core::TypeKind for EISA_PORT_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EISA_PORT_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EISA_PORT_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EISA_PORT_DESCRIPTOR {
     pub _bitfield: u8,
+}
+impl windows_core::TypeKind for EISA_PORT_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EISA_PORT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EISA_PORT_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ETW_TRACE_SESSION_SETTINGS {
     pub Version: u32,
     pub BufferSize: u32,
@@ -13605,94 +14375,98 @@ pub struct ETW_TRACE_SESSION_SETTINGS {
     pub FlushThreshold: u32,
     pub ClockType: u32,
 }
+impl windows_core::TypeKind for ETW_TRACE_SESSION_SETTINGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ETW_TRACE_SESSION_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ETW_TRACE_SESSION_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTENDED_CREATE_INFORMATION {
     pub ExtendedCreateFlags: i64,
     pub EaBuffer: *mut core::ffi::c_void,
     pub EaLength: u32,
+}
+impl windows_core::TypeKind for EXTENDED_CREATE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EXTENDED_CREATE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXTENDED_CREATE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTENDED_CREATE_INFORMATION_32 {
     pub ExtendedCreateFlags: i64,
     pub EaBuffer: *mut core::ffi::c_void,
     pub EaLength: u32,
+}
+impl windows_core::TypeKind for EXTENDED_CREATE_INFORMATION_32 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EXTENDED_CREATE_INFORMATION_32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXTENDED_CREATE_INFORMATION_32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXT_DELETE_PARAMETERS {
     pub Version: u32,
     pub Reserved: u32,
     pub DeleteCallback: PEXT_DELETE_CALLBACK,
     pub DeleteContext: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for EXT_DELETE_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EXT_DELETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXT_DELETE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EX_RUNDOWN_REF {
     pub Anonymous: EX_RUNDOWN_REF_0,
+}
+impl windows_core::TypeKind for EX_RUNDOWN_REF {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EX_RUNDOWN_REF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EX_RUNDOWN_REF {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EX_RUNDOWN_REF_0 {
     pub Count: usize,
     pub Ptr: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for EX_RUNDOWN_REF_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EX_RUNDOWN_REF_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EX_RUNDOWN_REF_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAULT_INFORMATION {
     pub Type: FAULT_INFORMATION_ARCH,
     pub IsStage1: super::super::super::Win32::Foundation::BOOLEAN,
     pub Anonymous: FAULT_INFORMATION_0,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for FAULT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FAULT_INFORMATION {
@@ -13700,16 +14474,16 @@ impl Default for FAULT_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FAULT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FAULT_INFORMATION_0 {
     pub Arm64: FAULT_INFORMATION_ARM64,
     pub X64: FAULT_INFORMATION_X64,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for FAULT_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FAULT_INFORMATION_0 {
@@ -13717,13 +14491,9 @@ impl Default for FAULT_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FAULT_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAULT_INFORMATION_ARM64 {
     pub DomainHandle: *mut core::ffi::c_void,
     pub FaultAddress: *mut core::ffi::c_void,
@@ -13734,30 +14504,30 @@ pub struct FAULT_INFORMATION_ARM64 {
     pub IommuBaseAddress: u64,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for FAULT_INFORMATION_ARM64 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FAULT_INFORMATION_ARM64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FAULT_INFORMATION_ARM64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAULT_INFORMATION_ARM64_FLAGS {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for FAULT_INFORMATION_ARM64_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FAULT_INFORMATION_ARM64_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAULT_INFORMATION_ARM64_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAULT_INFORMATION_X64 {
     pub DomainHandle: *mut core::ffi::c_void,
     pub FaultAddress: *mut core::ffi::c_void,
@@ -13766,70 +14536,70 @@ pub struct FAULT_INFORMATION_X64 {
     pub IommuBaseAddress: u64,
     pub PciSegment: u32,
 }
+impl windows_core::TypeKind for FAULT_INFORMATION_X64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FAULT_INFORMATION_X64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAULT_INFORMATION_X64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAULT_INFORMATION_X64_FLAGS {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for FAULT_INFORMATION_X64_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FAULT_INFORMATION_X64_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FAULT_INFORMATION_X64_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ATTRIBUTE_TAG_INFORMATION {
     pub FileAttributes: u32,
     pub ReparseTag: u32,
+}
+impl windows_core::TypeKind for FILE_ATTRIBUTE_TAG_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_ATTRIBUTE_TAG_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_ATTRIBUTE_TAG_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_END_OF_FILE_INFORMATION {
     pub EndOfFile: i64,
+}
+impl windows_core::TypeKind for FILE_END_OF_FILE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_END_OF_FILE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_END_OF_FILE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_DEVICE_INFORMATION {
     pub DeviceType: u32,
     pub Characteristics: u32,
+}
+impl windows_core::TypeKind for FILE_FS_DEVICE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_FS_DEVICE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FS_DEVICE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_FULL_SIZE_INFORMATION {
     pub TotalAllocationUnits: i64,
     pub CallerAvailableAllocationUnits: i64,
@@ -13837,16 +14607,16 @@ pub struct FILE_FS_FULL_SIZE_INFORMATION {
     pub SectorsPerAllocationUnit: u32,
     pub BytesPerSector: u32,
 }
+impl windows_core::TypeKind for FILE_FS_FULL_SIZE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_FS_FULL_SIZE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FS_FULL_SIZE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_FULL_SIZE_INFORMATION_EX {
     pub ActualTotalAllocationUnits: u64,
     pub ActualAvailableAllocationUnits: u64,
@@ -13862,75 +14632,75 @@ pub struct FILE_FS_FULL_SIZE_INFORMATION_EX {
     pub SectorsPerAllocationUnit: u32,
     pub BytesPerSector: u32,
 }
+impl windows_core::TypeKind for FILE_FS_FULL_SIZE_INFORMATION_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_FS_FULL_SIZE_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FS_FULL_SIZE_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_LABEL_INFORMATION {
     pub VolumeLabelLength: u32,
     pub VolumeLabel: [u16; 1],
+}
+impl windows_core::TypeKind for FILE_FS_LABEL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_FS_LABEL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FS_LABEL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_METADATA_SIZE_INFORMATION {
     pub TotalMetadataAllocationUnits: i64,
     pub SectorsPerAllocationUnit: u32,
     pub BytesPerSector: u32,
+}
+impl windows_core::TypeKind for FILE_FS_METADATA_SIZE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_FS_METADATA_SIZE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FS_METADATA_SIZE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_OBJECTID_INFORMATION {
     pub ObjectId: [u8; 16],
     pub ExtendedInfo: [u8; 48],
+}
+impl windows_core::TypeKind for FILE_FS_OBJECTID_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_FS_OBJECTID_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FS_OBJECTID_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_SIZE_INFORMATION {
     pub TotalAllocationUnits: i64,
     pub AvailableAllocationUnits: i64,
     pub SectorsPerAllocationUnit: u32,
     pub BytesPerSector: u32,
 }
+impl windows_core::TypeKind for FILE_FS_SIZE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_FS_SIZE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FS_SIZE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_VOLUME_INFORMATION {
     pub VolumeCreationTime: i64,
     pub VolumeSerialNumber: u32,
@@ -13938,46 +14708,50 @@ pub struct FILE_FS_VOLUME_INFORMATION {
     pub SupportsObjects: super::super::super::Win32::Foundation::BOOLEAN,
     pub VolumeLabel: [u16; 1],
 }
+impl windows_core::TypeKind for FILE_FS_VOLUME_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_FS_VOLUME_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_FS_VOLUME_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_IOSTATUSBLOCK_RANGE_INFORMATION {
     pub IoStatusBlockRange: *mut u8,
     pub Length: u32,
+}
+impl windows_core::TypeKind for FILE_IOSTATUSBLOCK_RANGE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_IOSTATUSBLOCK_RANGE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_IOSTATUSBLOCK_RANGE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_IO_COMPLETION_NOTIFICATION_INFORMATION {
     pub Flags: u32,
+}
+impl windows_core::TypeKind for FILE_IO_COMPLETION_NOTIFICATION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_IO_COMPLETION_NOTIFICATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_IO_COMPLETION_NOTIFICATION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_IO_PRIORITY_HINT_INFORMATION {
     pub PriorityHint: super::super::Foundation::IO_PRIORITY_HINT,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for FILE_IO_PRIORITY_HINT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for FILE_IO_PRIORITY_HINT_INFORMATION {
@@ -13985,16 +14759,16 @@ impl Default for FILE_IO_PRIORITY_HINT_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for FILE_IO_PRIORITY_HINT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_IO_PRIORITY_HINT_INFORMATION_EX {
     pub PriorityHint: super::super::Foundation::IO_PRIORITY_HINT,
     pub BoostOutstanding: super::super::super::Win32::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for FILE_IO_PRIORITY_HINT_INFORMATION_EX {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for FILE_IO_PRIORITY_HINT_INFORMATION_EX {
@@ -14002,94 +14776,90 @@ impl Default for FILE_IO_PRIORITY_HINT_INFORMATION_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for FILE_IO_PRIORITY_HINT_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_IS_REMOTE_DEVICE_INFORMATION {
     pub IsRemote: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for FILE_IS_REMOTE_DEVICE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_IS_REMOTE_DEVICE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_IS_REMOTE_DEVICE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILE_MEMORY_PARTITION_INFORMATION {
     pub OwnerPartitionHandle: usize,
     pub Flags: FILE_MEMORY_PARTITION_INFORMATION_0,
+}
+impl windows_core::TypeKind for FILE_MEMORY_PARTITION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_MEMORY_PARTITION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_MEMORY_PARTITION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FILE_MEMORY_PARTITION_INFORMATION_0 {
     pub Anonymous: FILE_MEMORY_PARTITION_INFORMATION_0_0,
     pub AllFlags: u32,
+}
+impl windows_core::TypeKind for FILE_MEMORY_PARTITION_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_MEMORY_PARTITION_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_MEMORY_PARTITION_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_MEMORY_PARTITION_INFORMATION_0_0 {
     pub NoCrossPartitionAccess: u8,
     pub Spare: [u8; 3],
+}
+impl windows_core::TypeKind for FILE_MEMORY_PARTITION_INFORMATION_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_MEMORY_PARTITION_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_MEMORY_PARTITION_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_NUMA_NODE_INFORMATION {
     pub NodeNumber: u16,
+}
+impl windows_core::TypeKind for FILE_NUMA_NODE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_NUMA_NODE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_NUMA_NODE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PROCESS_IDS_USING_FILE_INFORMATION {
     pub NumberOfProcessIdsInList: u32,
     pub ProcessIdList: [usize; 1],
+}
+impl windows_core::TypeKind for FILE_PROCESS_IDS_USING_FILE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_PROCESS_IDS_USING_FILE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_PROCESS_IDS_USING_FILE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_SFIO_RESERVE_INFORMATION {
     pub RequestsPerPeriod: u32,
     pub Period: u32,
@@ -14098,31 +14868,31 @@ pub struct FILE_SFIO_RESERVE_INFORMATION {
     pub RequestSize: u32,
     pub NumOutstandingRequests: u32,
 }
+impl windows_core::TypeKind for FILE_SFIO_RESERVE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_SFIO_RESERVE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_SFIO_RESERVE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_SFIO_VOLUME_INFORMATION {
     pub MaximumRequestsPerPeriod: u32,
     pub MinimumPeriod: u32,
     pub MinimumTransferSize: u32,
+}
+impl windows_core::TypeKind for FILE_SFIO_VOLUME_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_SFIO_VOLUME_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_SFIO_VOLUME_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_STANDARD_INFORMATION_EX {
     pub AllocationSize: i64,
     pub EndOfFile: i64,
@@ -14132,29 +14902,29 @@ pub struct FILE_STANDARD_INFORMATION_EX {
     pub AlternateStream: super::super::super::Win32::Foundation::BOOLEAN,
     pub MetadataAttribute: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for FILE_STANDARD_INFORMATION_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILE_STANDARD_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_STANDARD_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_VALID_DATA_LENGTH_INFORMATION {
     pub ValidDataLength: i64,
+}
+impl windows_core::TypeKind for FILE_VALID_DATA_LENGTH_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_VALID_DATA_LENGTH_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILE_VALID_DATA_LENGTH_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -14166,16 +14936,16 @@ pub struct FLOATING_SAVE_AREA {
     pub RegisterArea: [u8; 80],
     pub Spare0: u32,
 }
+impl windows_core::TypeKind for FLOATING_SAVE_AREA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FLOATING_SAVE_AREA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FLOATING_SAVE_AREA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FPGA_CONTROL_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -14187,67 +14957,71 @@ pub struct FPGA_CONTROL_INTERFACE {
     pub ControlConfigSpace: PFPGA_CONTROL_CONFIG_SPACE,
     pub ControlErrorReporting: PFPGA_CONTROL_ERROR_REPORTING,
 }
+impl windows_core::TypeKind for FPGA_CONTROL_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FPGA_CONTROL_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FPGA_CONTROL_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
     pub Size: u32,
     pub DeviceResetCompletion: PDEVICE_RESET_COMPLETION,
     pub CompletionContext: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HAL_AMLI_BAD_IO_ADDRESS_LIST {
     pub BadAddrBegin: u32,
     pub BadAddrSize: u32,
     pub OSVersionTrigger: u32,
     pub IOHandler: PHALIOREADWRITEHANDLER,
 }
+impl windows_core::TypeKind for HAL_AMLI_BAD_IO_ADDRESS_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for HAL_AMLI_BAD_IO_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HAL_AMLI_BAD_IO_ADDRESS_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HAL_BUS_INFORMATION {
     pub BusType: INTERFACE_TYPE,
     pub ConfigurationType: BUS_DATA_TYPE,
     pub BusNumber: u32,
     pub Reserved: u32,
 }
+impl windows_core::TypeKind for HAL_BUS_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for HAL_BUS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HAL_BUS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HAL_CALLBACKS {
     pub SetSystemInformation: super::super::Foundation::PCALLBACK_OBJECT,
     pub BusCheck: super::super::Foundation::PCALLBACK_OBJECT,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for HAL_CALLBACKS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for HAL_CALLBACKS {
@@ -14255,13 +15029,9 @@ impl Default for HAL_CALLBACKS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for HAL_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Ioctl", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HAL_DISPATCH {
     pub Version: u32,
     pub HalQuerySystemInformation: pHalQuerySystemInformation,
@@ -14289,17 +15059,17 @@ pub struct HAL_DISPATCH {
     pub HalGetPrmCache: pHalGetPrmCache,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Ioctl", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for HAL_DISPATCH {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Ioctl", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for HAL_DISPATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Ioctl", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for HAL_DISPATCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HAL_ERROR_INFO {
     pub Version: u32,
     pub InitMaxSize: u32,
@@ -14329,113 +15099,113 @@ pub struct HAL_ERROR_INFO {
     pub CpeLogId: u64,
     pub KernelReserved: [u64; 4],
 }
+impl windows_core::TypeKind for HAL_ERROR_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for HAL_ERROR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HAL_ERROR_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HAL_MCA_INTERFACE {
     pub Lock: PHALMCAINTERFACELOCK,
     pub Unlock: PHALMCAINTERFACEUNLOCK,
     pub ReadRegister: PHALMCAINTERFACEREADREGISTER,
+}
+impl windows_core::TypeKind for HAL_MCA_INTERFACE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for HAL_MCA_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HAL_MCA_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HAL_PLATFORM_INFORMATION {
     pub PlatformFlags: u32,
+}
+impl windows_core::TypeKind for HAL_PLATFORM_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for HAL_PLATFORM_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HAL_PLATFORM_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HAL_POWER_INFORMATION {
     pub TBD: u32,
+}
+impl windows_core::TypeKind for HAL_POWER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for HAL_POWER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HAL_POWER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HAL_PROCESSOR_FEATURE {
     pub UsableFeatureBits: u32,
+}
+impl windows_core::TypeKind for HAL_PROCESSOR_FEATURE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for HAL_PROCESSOR_FEATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HAL_PROCESSOR_FEATURE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HAL_PROCESSOR_SPEED_INFORMATION {
     pub ProcessorSpeed: u32,
+}
+impl windows_core::TypeKind for HAL_PROCESSOR_SPEED_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for HAL_PROCESSOR_SPEED_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HAL_PROCESSOR_SPEED_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HARDWARE_COUNTER {
     pub Type: HARDWARE_COUNTER_TYPE,
     pub Reserved: u32,
     pub Index: u64,
+}
+impl windows_core::TypeKind for HARDWARE_COUNTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for HARDWARE_COUNTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HARDWARE_COUNTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HWPROFILE_CHANGE_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
     pub Event: windows_core::GUID,
+}
+impl windows_core::TypeKind for HWPROFILE_CHANGE_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for HWPROFILE_CHANGE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HWPROFILE_CHANGE_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_INFO {
     pub Anonymous: IMAGE_INFO_0,
     pub ImageBase: *mut core::ffi::c_void,
@@ -14443,48 +15213,52 @@ pub struct IMAGE_INFO {
     pub ImageSize: usize,
     pub ImageSectionNumber: u32,
 }
+impl windows_core::TypeKind for IMAGE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IMAGE_INFO_0 {
     pub Properties: u32,
     pub Anonymous: IMAGE_INFO_0_0,
+}
+impl windows_core::TypeKind for IMAGE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_INFO_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for IMAGE_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_INFO_EX {
     pub Size: usize,
     pub ImageInfo: IMAGE_INFO,
     pub FileObject: *mut super::super::Foundation::FILE_OBJECT,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for IMAGE_INFO_EX {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for IMAGE_INFO_EX {
@@ -14492,17 +15266,17 @@ impl Default for IMAGE_INFO_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for IMAGE_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INITIAL_PRIVILEGE_SET {
     pub PrivilegeCount: u32,
     pub Control: u32,
     pub Privilege: [super::super::super::Win32::Security::LUID_AND_ATTRIBUTES; 3],
+}
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for INITIAL_PRIVILEGE_SET {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl Default for INITIAL_PRIVILEGE_SET {
@@ -14510,79 +15284,75 @@ impl Default for INITIAL_PRIVILEGE_SET {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for INITIAL_PRIVILEGE_SET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INPUT_MAPPING_ELEMENT {
     pub InputMappingId: u32,
+}
+impl windows_core::TypeKind for INPUT_MAPPING_ELEMENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for INPUT_MAPPING_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INPUT_MAPPING_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INTEL_CACHE_INFO_EAX {
     pub Ulong: u32,
     pub Anonymous: INTEL_CACHE_INFO_EAX_0,
+}
+impl windows_core::TypeKind for INTEL_CACHE_INFO_EAX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTEL_CACHE_INFO_EAX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTEL_CACHE_INFO_EAX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTEL_CACHE_INFO_EAX_0 {
     pub _bitfield: i32,
+}
+impl windows_core::TypeKind for INTEL_CACHE_INFO_EAX_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTEL_CACHE_INFO_EAX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTEL_CACHE_INFO_EAX_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INTEL_CACHE_INFO_EBX {
     pub Ulong: u32,
     pub Anonymous: INTEL_CACHE_INFO_EBX_0,
+}
+impl windows_core::TypeKind for INTEL_CACHE_INFO_EBX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTEL_CACHE_INFO_EBX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTEL_CACHE_INFO_EBX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTEL_CACHE_INFO_EBX_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for INTEL_CACHE_INFO_EBX_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTEL_CACHE_INFO_EBX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTEL_CACHE_INFO_EBX_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -14590,21 +15360,25 @@ pub struct INTERFACE {
     pub InterfaceReference: PINTERFACE_REFERENCE,
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
 }
+impl windows_core::TypeKind for INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_DEVICE_CREATION_CONFIGURATION {
     pub NextConfiguration: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub ConfigType: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE,
     pub Anonymous: IOMMU_DEVICE_CREATION_CONFIGURATION_0,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for IOMMU_DEVICE_CREATION_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for IOMMU_DEVICE_CREATION_CONFIGURATION {
@@ -14612,16 +15386,16 @@ impl Default for IOMMU_DEVICE_CREATION_CONFIGURATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for IOMMU_DEVICE_CREATION_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IOMMU_DEVICE_CREATION_CONFIGURATION_0 {
     pub Acpi: IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI,
     pub DeviceId: *mut core::ffi::c_void,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for IOMMU_DEVICE_CREATION_CONFIGURATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for IOMMU_DEVICE_CREATION_CONFIGURATION_0 {
@@ -14629,183 +15403,183 @@ impl Default for IOMMU_DEVICE_CREATION_CONFIGURATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for IOMMU_DEVICE_CREATION_CONFIGURATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI {
     pub InputMappingBase: u32,
     pub MappingsCount: u32,
+}
+impl windows_core::TypeKind for IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IOMMU_DMA_DOMAIN_CREATION_FLAGS {
     pub Anonymous: IOMMU_DMA_DOMAIN_CREATION_FLAGS_0,
     pub AsUlonglong: u64,
+}
+impl windows_core::TypeKind for IOMMU_DMA_DOMAIN_CREATION_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IOMMU_DMA_DOMAIN_CREATION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOMMU_DMA_DOMAIN_CREATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IOMMU_DMA_DOMAIN_CREATION_FLAGS_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for IOMMU_DMA_DOMAIN_CREATION_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IOMMU_DMA_DOMAIN_CREATION_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOMMU_DMA_DOMAIN_CREATION_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IOMMU_DMA_LOGICAL_ADDRESS_TOKEN {
     pub LogicalAddressBase: u64,
     pub Size: usize,
+}
+impl windows_core::TypeKind for IOMMU_DMA_LOGICAL_ADDRESS_TOKEN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IOMMU_DMA_LOGICAL_ADDRESS_TOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOMMU_DMA_LOGICAL_ADDRESS_TOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT {
     pub OwningToken: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN,
     pub Offset: usize,
     pub Size: usize,
+}
+impl windows_core::TypeKind for IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG {
     pub LogicalAllocatorType: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE,
     pub Anonymous: IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0,
+}
+impl windows_core::TypeKind for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0 {
     pub BuddyAllocatorConfig: IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0_0,
+}
+impl windows_core::TypeKind for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0_0 {
     pub AddressWidth: u32,
+}
+impl windows_core::TypeKind for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IOMMU_DMA_RESERVED_REGION {
     pub RegionNext: *mut IOMMU_DMA_RESERVED_REGION,
     pub Base: u64,
     pub NumberOfPages: usize,
     pub ShouldMap: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for IOMMU_DMA_RESERVED_REGION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IOMMU_DMA_RESERVED_REGION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOMMU_DMA_RESERVED_REGION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_INTERFACE_STATE_CHANGE {
     pub PresentFields: IOMMU_INTERFACE_STATE_CHANGE_FIELDS,
     pub AvailableDomainTypes: u32,
+}
+impl windows_core::TypeKind for IOMMU_INTERFACE_STATE_CHANGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IOMMU_INTERFACE_STATE_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOMMU_INTERFACE_STATE_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IOMMU_INTERFACE_STATE_CHANGE_FIELDS {
     pub Anonymous: IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for IOMMU_INTERFACE_STATE_CHANGE_FIELDS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IOMMU_INTERFACE_STATE_CHANGE_FIELDS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOMMU_INTERFACE_STATE_CHANGE_FIELDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS {
     pub MapType: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE,
     pub Anonymous: IOMMU_MAP_PHYSICAL_ADDRESS_0,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for IOMMU_MAP_PHYSICAL_ADDRESS {
@@ -14813,17 +15587,17 @@ impl Default for IOMMU_MAP_PHYSICAL_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IOMMU_MAP_PHYSICAL_ADDRESS_0 {
     pub Mdl: IOMMU_MAP_PHYSICAL_ADDRESS_0_0,
     pub ContiguousRange: IOMMU_MAP_PHYSICAL_ADDRESS_0_1,
     pub PfnArray: IOMMU_MAP_PHYSICAL_ADDRESS_0_2,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0 {
@@ -14831,16 +15605,16 @@ impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
     pub Base: i64,
     pub Size: usize,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
@@ -14848,15 +15622,15 @@ impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
     pub Mdl: *mut super::super::Foundation::MDL,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
@@ -14864,16 +15638,16 @@ impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {
     pub PageFrame: *mut u32,
     pub NumberOfPages: usize,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {
@@ -14881,12 +15655,8 @@ impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_ATTRIBUTION_INFORMATION {
     pub Version: u32,
     pub Flags: IO_ATTRIBUTION_INFORMATION_0,
@@ -14894,44 +15664,44 @@ pub struct IO_ATTRIBUTION_INFORMATION {
     pub ServiceStartTime: u64,
     pub CurrentTime: u64,
 }
+impl windows_core::TypeKind for IO_ATTRIBUTION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_ATTRIBUTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_ATTRIBUTION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IO_ATTRIBUTION_INFORMATION_0 {
     pub Anonymous: IO_ATTRIBUTION_INFORMATION_0_0,
     pub AllFlags: u32,
+}
+impl windows_core::TypeKind for IO_ATTRIBUTION_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IO_ATTRIBUTION_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_ATTRIBUTION_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_ATTRIBUTION_INFORMATION_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for IO_ATTRIBUTION_INFORMATION_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IO_ATTRIBUTION_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_ATTRIBUTION_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
     pub PhysicalDeviceObject: *mut super::super::Foundation::DEVICE_OBJECT,
     pub InterruptObject: *mut super::super::Foundation::PKINTERRUPT,
@@ -14948,18 +15718,18 @@ pub struct IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
     pub Group: u16,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
     pub PhysicalDeviceObject: *mut super::super::Foundation::DEVICE_OBJECT,
     pub InterruptObject: *mut super::super::Foundation::PKINTERRUPT,
@@ -14970,18 +15740,18 @@ pub struct IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
     pub FloatingSave: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS {
     pub PhysicalDeviceObject: *mut super::super::Foundation::DEVICE_OBJECT,
     pub ConnectionContext: IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS_0,
@@ -14993,22 +15763,26 @@ pub struct IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS {
     pub FallBackServiceRoutine: PKSERVICE_ROUTINE,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS_0 {
     pub Generic: *mut *mut core::ffi::c_void,
     pub InterruptMessageTable: *mut *mut IO_INTERRUPT_MESSAGE_INFO,
     pub InterruptObject: *mut super::super::Foundation::PKINTERRUPT,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS_0 {
@@ -15016,16 +15790,16 @@ impl Default for IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_CONNECT_INTERRUPT_PARAMETERS {
     pub Version: u32,
     pub Anonymous: IO_CONNECT_INTERRUPT_PARAMETERS_0,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for IO_CONNECT_INTERRUPT_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for IO_CONNECT_INTERRUPT_PARAMETERS {
@@ -15033,17 +15807,17 @@ impl Default for IO_CONNECT_INTERRUPT_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for IO_CONNECT_INTERRUPT_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IO_CONNECT_INTERRUPT_PARAMETERS_0 {
     pub FullySpecified: IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS,
     pub LineBased: IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS,
     pub MessageBased: IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for IO_CONNECT_INTERRUPT_PARAMETERS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for IO_CONNECT_INTERRUPT_PARAMETERS_0 {
@@ -15051,13 +15825,9 @@ impl Default for IO_CONNECT_INTERRUPT_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for IO_CONNECT_INTERRUPT_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_CSQ {
     pub Type: u32,
     pub CsqInsertIrp: PIO_CSQ_INSERT_IRP,
@@ -15069,22 +15839,26 @@ pub struct IO_CSQ {
     pub ReservePointer: *mut core::ffi::c_void,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for IO_CSQ {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for IO_CSQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for IO_CSQ {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_CSQ_IRP_CONTEXT {
     pub Type: u32,
     pub Irp: *mut super::super::Foundation::IRP,
     pub Csq: *mut IO_CSQ,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for IO_CSQ_IRP_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for IO_CSQ_IRP_CONTEXT {
@@ -15092,16 +15866,16 @@ impl Default for IO_CSQ_IRP_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for IO_CSQ_IRP_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_DISCONNECT_INTERRUPT_PARAMETERS {
     pub Version: u32,
     pub ConnectionContext: IO_DISCONNECT_INTERRUPT_PARAMETERS_0,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IO_DISCONNECT_INTERRUPT_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for IO_DISCONNECT_INTERRUPT_PARAMETERS {
@@ -15109,17 +15883,17 @@ impl Default for IO_DISCONNECT_INTERRUPT_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IO_DISCONNECT_INTERRUPT_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IO_DISCONNECT_INTERRUPT_PARAMETERS_0 {
     pub Generic: *mut core::ffi::c_void,
     pub InterruptObject: super::super::Foundation::PKINTERRUPT,
     pub InterruptMessageTable: *mut IO_INTERRUPT_MESSAGE_INFO,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IO_DISCONNECT_INTERRUPT_PARAMETERS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for IO_DISCONNECT_INTERRUPT_PARAMETERS_0 {
@@ -15127,13 +15901,9 @@ impl Default for IO_DISCONNECT_INTERRUPT_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IO_DISCONNECT_INTERRUPT_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_DRIVER_CREATE_CONTEXT {
     pub Size: i16,
     pub ExtraCreateParameter: *mut isize,
@@ -15142,17 +15912,17 @@ pub struct IO_DRIVER_CREATE_CONTEXT {
     pub SiloContext: super::super::Foundation::PESILO,
 }
 #[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IO_DRIVER_CREATE_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for IO_DRIVER_CREATE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IO_DRIVER_CREATE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_ERROR_LOG_MESSAGE {
     pub Type: u16,
     pub Size: u16,
@@ -15161,16 +15931,16 @@ pub struct IO_ERROR_LOG_MESSAGE {
     pub DriverNameOffset: u32,
     pub EntryData: IO_ERROR_LOG_PACKET,
 }
+impl windows_core::TypeKind for IO_ERROR_LOG_MESSAGE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_ERROR_LOG_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_ERROR_LOG_MESSAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_ERROR_LOG_PACKET {
     pub MajorFunctionCode: u8,
     pub RetryCount: u8,
@@ -15186,20 +15956,24 @@ pub struct IO_ERROR_LOG_PACKET {
     pub DeviceOffset: i64,
     pub DumpData: [u32; 1],
 }
+impl windows_core::TypeKind for IO_ERROR_LOG_PACKET {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_ERROR_LOG_PACKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_ERROR_LOG_PACKET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_FOEXT_SHADOW_FILE {
     pub BackingFileObject: *mut super::super::Foundation::FILE_OBJECT,
     pub BackingFltInstance: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for IO_FOEXT_SHADOW_FILE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for IO_FOEXT_SHADOW_FILE {
@@ -15207,17 +15981,17 @@ impl Default for IO_FOEXT_SHADOW_FILE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for IO_FOEXT_SHADOW_FILE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_FOEXT_SILO_PARAMETERS {
     pub Length: u32,
     pub Anonymous: IO_FOEXT_SILO_PARAMETERS_0,
     pub SiloContext: super::super::Foundation::PESILO,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IO_FOEXT_SILO_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for IO_FOEXT_SILO_PARAMETERS {
@@ -15225,16 +15999,16 @@ impl Default for IO_FOEXT_SILO_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IO_FOEXT_SILO_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IO_FOEXT_SILO_PARAMETERS_0 {
     pub Anonymous: IO_FOEXT_SILO_PARAMETERS_0_0,
     pub Flags: u32,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IO_FOEXT_SILO_PARAMETERS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for IO_FOEXT_SILO_PARAMETERS_0 {
@@ -15242,15 +16016,15 @@ impl Default for IO_FOEXT_SILO_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IO_FOEXT_SILO_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_FOEXT_SILO_PARAMETERS_0_0 {
     pub _bitfield: u32,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IO_FOEXT_SILO_PARAMETERS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for IO_FOEXT_SILO_PARAMETERS_0_0 {
@@ -15258,17 +16032,17 @@ impl Default for IO_FOEXT_SILO_PARAMETERS_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IO_FOEXT_SILO_PARAMETERS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_INTERRUPT_MESSAGE_INFO {
     pub UnifiedIrql: u8,
     pub MessageCount: u32,
     pub MessageInfo: [IO_INTERRUPT_MESSAGE_INFO_ENTRY; 1],
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IO_INTERRUPT_MESSAGE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for IO_INTERRUPT_MESSAGE_INFO {
@@ -15276,13 +16050,9 @@ impl Default for IO_INTERRUPT_MESSAGE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IO_INTERRUPT_MESSAGE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_INTERRUPT_MESSAGE_INFO_ENTRY {
     pub MessageAddress: i64,
     pub TargetProcessorSet: usize,
@@ -15294,20 +16064,24 @@ pub struct IO_INTERRUPT_MESSAGE_INFO_ENTRY {
     pub Polarity: KINTERRUPT_POLARITY,
 }
 #[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IO_INTERRUPT_MESSAGE_INFO_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for IO_INTERRUPT_MESSAGE_INFO_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IO_INTERRUPT_MESSAGE_INFO_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_REMOVE_LOCK {
     pub Common: IO_REMOVE_LOCK_COMMON_BLOCK,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for IO_REMOVE_LOCK {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for IO_REMOVE_LOCK {
@@ -15315,13 +16089,9 @@ impl Default for IO_REMOVE_LOCK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for IO_REMOVE_LOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_REMOVE_LOCK_COMMON_BLOCK {
     pub Removed: super::super::super::Win32::Foundation::BOOLEAN,
     pub Reserved: [super::super::super::Win32::Foundation::BOOLEAN; 3],
@@ -15329,18 +16099,18 @@ pub struct IO_REMOVE_LOCK_COMMON_BLOCK {
     pub RemoveEvent: super::super::Foundation::KEVENT,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for IO_REMOVE_LOCK_COMMON_BLOCK {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for IO_REMOVE_LOCK_COMMON_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for IO_REMOVE_LOCK_COMMON_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_REMOVE_LOCK_DBG_BLOCK {
     pub Signature: i32,
     pub HighWatermark: u32,
@@ -15354,21 +16124,25 @@ pub struct IO_REMOVE_LOCK_DBG_BLOCK {
     pub Blocks: super::super::Foundation::PIO_REMOVE_LOCK_TRACKING_BLOCK,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for IO_REMOVE_LOCK_DBG_BLOCK {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for IO_REMOVE_LOCK_DBG_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for IO_REMOVE_LOCK_DBG_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS {
     pub Version: u32,
     pub ConnectionContext: IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS {
@@ -15376,17 +16150,17 @@ impl Default for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0 {
     pub Generic: *mut core::ffi::c_void,
     pub InterruptObject: super::super::Foundation::PKINTERRUPT,
     pub InterruptMessageTable: *mut IO_INTERRUPT_MESSAGE_INFO,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0 {
@@ -15394,12 +16168,8 @@ impl Default for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_DESCRIPTOR {
     pub Option: u8,
     pub Type: u8,
@@ -15409,16 +16179,16 @@ pub struct IO_RESOURCE_DESCRIPTOR {
     pub Spare2: u16,
     pub u: IO_RESOURCE_DESCRIPTOR_0,
 }
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_RESOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IO_RESOURCE_DESCRIPTOR_0 {
     pub Port: IO_RESOURCE_DESCRIPTOR_0_0,
     pub Memory: IO_RESOURCE_DESCRIPTOR_0_1,
@@ -15434,47 +16204,47 @@ pub union IO_RESOURCE_DESCRIPTOR_0 {
     pub Memory64: IO_RESOURCE_DESCRIPTOR_0_11,
     pub Connection: IO_RESOURCE_DESCRIPTOR_0_12,
 }
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_RESOURCE_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_7 {
     pub Length: u32,
     pub MinBusNumber: u32,
     pub MaxBusNumber: u32,
     pub Reserved: u32,
 }
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_7 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_RESOURCE_DESCRIPTOR_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_8 {
     pub Priority: u32,
     pub Reserved1: u32,
     pub Reserved2: u32,
+}
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_8 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IO_RESOURCE_DESCRIPTOR_0_8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_8 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_12 {
     pub Class: u8,
     pub Type: u8,
@@ -15483,75 +16253,75 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_12 {
     pub IdLowPart: u32,
     pub IdHighPart: u32,
 }
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_12 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_RESOURCE_DESCRIPTOR_0_12 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_12 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_6 {
     pub Data: [u32; 3],
+}
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_6 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IO_RESOURCE_DESCRIPTOR_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_4 {
     pub RequestLine: u32,
     pub Reserved: u32,
     pub Channel: u32,
     pub TransferWidth: u32,
 }
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_4 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_RESOURCE_DESCRIPTOR_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_3 {
     pub MinimumChannel: u32,
     pub MaximumChannel: u32,
+}
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_3 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IO_RESOURCE_DESCRIPTOR_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_5 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_5 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_RESOURCE_DESCRIPTOR_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
     pub MinimumVector: u32,
     pub MaximumVector: u32,
@@ -15559,112 +16329,112 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
     pub PriorityPolicy: IRQ_PRIORITY,
     pub TargetedProcessors: usize,
 }
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_RESOURCE_DESCRIPTOR_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_9 {
     pub Length40: u32,
     pub Alignment40: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_9 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_RESOURCE_DESCRIPTOR_0_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_9 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_10 {
     pub Length48: u32,
     pub Alignment48: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_10 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_RESOURCE_DESCRIPTOR_0_10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_10 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_11 {
     pub Length64: u32,
     pub Alignment64: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_11 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_RESOURCE_DESCRIPTOR_0_11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_11 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_1 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_RESOURCE_DESCRIPTOR_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_0 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_RESOURCE_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_LIST {
     pub Version: u16,
     pub Revision: u16,
     pub Count: u32,
     pub Descriptors: [IO_RESOURCE_DESCRIPTOR; 1],
 }
+impl windows_core::TypeKind for IO_RESOURCE_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_RESOURCE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE_REQUIREMENTS_LIST {
     pub ListSize: u32,
     pub InterfaceType: INTERFACE_TYPE,
@@ -15674,45 +16444,45 @@ pub struct IO_RESOURCE_REQUIREMENTS_LIST {
     pub AlternativeLists: u32,
     pub List: [IO_RESOURCE_LIST; 1],
 }
+impl windows_core::TypeKind for IO_RESOURCE_REQUIREMENTS_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_RESOURCE_REQUIREMENTS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_RESOURCE_REQUIREMENTS_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_SESSION_CONNECT_INFO {
     pub SessionId: u32,
     pub LocalSession: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for IO_SESSION_CONNECT_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IO_SESSION_CONNECT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_SESSION_CONNECT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_SESSION_STATE_INFORMATION {
     pub SessionId: u32,
     pub SessionState: IO_SESSION_STATE,
     pub LocalSession: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for IO_SESSION_STATE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IO_SESSION_STATE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_SESSION_STATE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_SESSION_STATE_NOTIFICATION {
     pub Size: u32,
     pub Flags: u32,
@@ -15720,87 +16490,87 @@ pub struct IO_SESSION_STATE_NOTIFICATION {
     pub EventMask: u32,
     pub Context: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for IO_SESSION_STATE_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IO_SESSION_STATE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_SESSION_STATE_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STATUS_BLOCK32 {
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
     pub Information: u32,
+}
+impl windows_core::TypeKind for IO_STATUS_BLOCK32 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IO_STATUS_BLOCK32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_STATUS_BLOCK32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_STATUS_BLOCK64 {
     pub Anonymous: IO_STATUS_BLOCK64_0,
     pub Information: u64,
+}
+impl windows_core::TypeKind for IO_STATUS_BLOCK64 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IO_STATUS_BLOCK64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_STATUS_BLOCK64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IO_STATUS_BLOCK64_0 {
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
     pub Pointer: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for IO_STATUS_BLOCK64_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IO_STATUS_BLOCK64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IO_STATUS_BLOCK64_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KADDRESS_RANGE {
     pub Address: *mut core::ffi::c_void,
     pub Size: usize,
+}
+impl windows_core::TypeKind for KADDRESS_RANGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KADDRESS_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KADDRESS_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KADDRESS_RANGE_DESCRIPTOR {
     pub AddressRanges: *const KADDRESS_RANGE,
     pub AddressRangeCount: usize,
+}
+impl windows_core::TypeKind for KADDRESS_RANGE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KADDRESS_RANGE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KADDRESS_RANGE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KAPC {
     pub Type: u8,
     pub AllFlags: u8,
@@ -15818,17 +16588,17 @@ pub struct KAPC {
     pub Inserted: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for KAPC {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for KAPC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KAPC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBUGCHECK_ADD_PAGES {
     pub Context: *mut core::ffi::c_void,
     pub Flags: u32,
@@ -15836,17 +16606,17 @@ pub struct KBUGCHECK_ADD_PAGES {
     pub Address: usize,
     pub Count: usize,
 }
+impl windows_core::TypeKind for KBUGCHECK_ADD_PAGES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KBUGCHECK_ADD_PAGES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KBUGCHECK_ADD_PAGES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBUGCHECK_CALLBACK_RECORD {
     pub Entry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub CallbackRoutine: PKBUGCHECK_CALLBACK_ROUTINE,
@@ -15857,34 +16627,34 @@ pub struct KBUGCHECK_CALLBACK_RECORD {
     pub State: u8,
 }
 #[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for KBUGCHECK_CALLBACK_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for KBUGCHECK_CALLBACK_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KBUGCHECK_CALLBACK_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBUGCHECK_DUMP_IO {
     pub Offset: u64,
     pub Buffer: *mut core::ffi::c_void,
     pub BufferLength: u32,
     pub Type: KBUGCHECK_DUMP_IO_TYPE,
 }
+impl windows_core::TypeKind for KBUGCHECK_DUMP_IO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KBUGCHECK_DUMP_IO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KBUGCHECK_DUMP_IO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBUGCHECK_REASON_CALLBACK_RECORD {
     pub Entry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub CallbackRoutine: PKBUGCHECK_REASON_CALLBACK_ROUTINE,
@@ -15894,17 +16664,17 @@ pub struct KBUGCHECK_REASON_CALLBACK_RECORD {
     pub State: u8,
 }
 #[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for KBUGCHECK_REASON_CALLBACK_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for KBUGCHECK_REASON_CALLBACK_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KBUGCHECK_REASON_CALLBACK_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBUGCHECK_REMOVE_PAGES {
     pub Context: *mut core::ffi::c_void,
     pub Flags: u32,
@@ -15912,16 +16682,16 @@ pub struct KBUGCHECK_REMOVE_PAGES {
     pub Address: usize,
     pub Count: usize,
 }
+impl windows_core::TypeKind for KBUGCHECK_REMOVE_PAGES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KBUGCHECK_REMOVE_PAGES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KBUGCHECK_REMOVE_PAGES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBUGCHECK_SECONDARY_DUMP_DATA {
     pub InBuffer: *mut core::ffi::c_void,
     pub InBufferLength: u32,
@@ -15930,16 +16700,16 @@ pub struct KBUGCHECK_SECONDARY_DUMP_DATA {
     pub OutBuffer: *mut core::ffi::c_void,
     pub OutBufferLength: u32,
 }
+impl windows_core::TypeKind for KBUGCHECK_SECONDARY_DUMP_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KBUGCHECK_SECONDARY_DUMP_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KBUGCHECK_SECONDARY_DUMP_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBUGCHECK_SECONDARY_DUMP_DATA_EX {
     pub InBuffer: *mut core::ffi::c_void,
     pub InBufferLength: u32,
@@ -15956,17 +16726,17 @@ pub struct KBUGCHECK_SECONDARY_DUMP_DATA_EX {
     pub BugCheckParameter3: usize,
     pub BugCheckParameter4: usize,
 }
+impl windows_core::TypeKind for KBUGCHECK_SECONDARY_DUMP_DATA_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KBUGCHECK_SECONDARY_DUMP_DATA_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KBUGCHECK_SECONDARY_DUMP_DATA_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBUGCHECK_TRIAGE_DUMP_DATA {
     pub DataArray: *mut KTRIAGE_DUMP_DATA_ARRAY,
     pub Flags: u32,
@@ -15978,22 +16748,26 @@ pub struct KBUGCHECK_TRIAGE_DUMP_DATA {
     pub BugCheckParameter4: usize,
 }
 #[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for KBUGCHECK_TRIAGE_DUMP_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for KBUGCHECK_TRIAGE_DUMP_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KBUGCHECK_TRIAGE_DUMP_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KDEVICE_QUEUE_ENTRY {
     pub DeviceListEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub SortKey: u32,
     pub Inserted: super::super::super::Win32::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for KDEVICE_QUEUE_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for KDEVICE_QUEUE_ENTRY {
@@ -16001,12 +16775,8 @@ impl Default for KDEVICE_QUEUE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KDEVICE_QUEUE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KDPC_WATCHDOG_INFORMATION {
     pub DpcTimeLimit: u32,
     pub DpcTimeCount: u32,
@@ -16014,63 +16784,63 @@ pub struct KDPC_WATCHDOG_INFORMATION {
     pub DpcWatchdogCount: u32,
     pub Reserved: u32,
 }
+impl windows_core::TypeKind for KDPC_WATCHDOG_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KDPC_WATCHDOG_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KDPC_WATCHDOG_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KERNEL_SOFT_RESTART_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
     pub Event: windows_core::GUID,
+}
+impl windows_core::TypeKind for KERNEL_SOFT_RESTART_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KERNEL_SOFT_RESTART_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERNEL_SOFT_RESTART_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KERNEL_USER_TIMES {
     pub CreateTime: i64,
     pub ExitTime: i64,
     pub KernelTime: i64,
     pub UserTime: i64,
 }
+impl windows_core::TypeKind for KERNEL_USER_TIMES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KERNEL_USER_TIMES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KERNEL_USER_TIMES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_BASIC_INFORMATION {
     pub LastWriteTime: i64,
     pub TitleIndex: u32,
     pub NameLength: u32,
     pub Name: [u16; 1],
 }
+impl windows_core::TypeKind for KEY_BASIC_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KEY_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_CACHED_INFORMATION {
     pub LastWriteTime: i64,
     pub TitleIndex: u32,
@@ -16081,29 +16851,29 @@ pub struct KEY_CACHED_INFORMATION {
     pub MaxValueDataLen: u32,
     pub NameLength: u32,
 }
+impl windows_core::TypeKind for KEY_CACHED_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KEY_CACHED_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_CACHED_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_CONTROL_FLAGS_INFORMATION {
     pub ControlFlags: u32,
+}
+impl windows_core::TypeKind for KEY_CONTROL_FLAGS_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KEY_CONTROL_FLAGS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_CONTROL_FLAGS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_FULL_INFORMATION {
     pub LastWriteTime: i64,
     pub TitleIndex: u32,
@@ -16117,43 +16887,43 @@ pub struct KEY_FULL_INFORMATION {
     pub MaxValueDataLen: u32,
     pub Class: [u16; 1],
 }
+impl windows_core::TypeKind for KEY_FULL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KEY_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_FULL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_LAYER_INFORMATION {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for KEY_LAYER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KEY_LAYER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_LAYER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_NAME_INFORMATION {
     pub NameLength: u32,
     pub Name: [u16; 1],
+}
+impl windows_core::TypeKind for KEY_NAME_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KEY_NAME_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_NAME_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_NODE_INFORMATION {
     pub LastWriteTime: i64,
     pub TitleIndex: u32,
@@ -16162,58 +16932,58 @@ pub struct KEY_NODE_INFORMATION {
     pub NameLength: u32,
     pub Name: [u16; 1],
 }
+impl windows_core::TypeKind for KEY_NODE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KEY_NODE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_NODE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_SET_VIRTUALIZATION_INFORMATION {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for KEY_SET_VIRTUALIZATION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KEY_SET_VIRTUALIZATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_SET_VIRTUALIZATION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_TRUST_INFORMATION {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for KEY_TRUST_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KEY_TRUST_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_TRUST_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_VALUE_BASIC_INFORMATION {
     pub TitleIndex: u32,
     pub Type: u32,
     pub NameLength: u32,
     pub Name: [u16; 1],
 }
+impl windows_core::TypeKind for KEY_VALUE_BASIC_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KEY_VALUE_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_VALUE_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_VALUE_FULL_INFORMATION {
     pub TitleIndex: u32,
     pub Type: u32,
@@ -16222,100 +16992,100 @@ pub struct KEY_VALUE_FULL_INFORMATION {
     pub NameLength: u32,
     pub Name: [u16; 1],
 }
+impl windows_core::TypeKind for KEY_VALUE_FULL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KEY_VALUE_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_VALUE_FULL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_VALUE_LAYER_INFORMATION {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for KEY_VALUE_LAYER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KEY_VALUE_LAYER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_VALUE_LAYER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_VALUE_PARTIAL_INFORMATION {
     pub TitleIndex: u32,
     pub Type: u32,
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
+impl windows_core::TypeKind for KEY_VALUE_PARTIAL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KEY_VALUE_PARTIAL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_VALUE_PARTIAL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_VALUE_PARTIAL_INFORMATION_ALIGN64 {
     pub Type: u32,
     pub DataLength: u32,
     pub Data: [u8; 1],
+}
+impl windows_core::TypeKind for KEY_VALUE_PARTIAL_INFORMATION_ALIGN64 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KEY_VALUE_PARTIAL_INFORMATION_ALIGN64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_VALUE_PARTIAL_INFORMATION_ALIGN64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_VIRTUALIZATION_INFORMATION {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for KEY_VIRTUALIZATION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KEY_VIRTUALIZATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_VIRTUALIZATION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_WOW64_FLAGS_INFORMATION {
     pub UserFlags: u32,
+}
+impl windows_core::TypeKind for KEY_WOW64_FLAGS_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KEY_WOW64_FLAGS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_WOW64_FLAGS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_WRITE_TIME_INFORMATION {
     pub LastWriteTime: i64,
+}
+impl windows_core::TypeKind for KEY_WRITE_TIME_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KEY_WRITE_TIME_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KEY_WRITE_TIME_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {
     pub State: KE_PROCESSOR_CHANGE_NOTIFY_STATE,
     pub NtNumber: u32,
@@ -16323,17 +17093,17 @@ pub struct KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {
     pub ProcNumber: super::super::super::Win32::System::Kernel::PROCESSOR_NUMBER,
 }
 #[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KFLOATING_SAVE {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -16344,19 +17114,23 @@ pub struct KFLOATING_SAVE {
     pub Spare0: u32,
     pub Spare1: u32,
 }
+impl windows_core::TypeKind for KFLOATING_SAVE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KFLOATING_SAVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KFLOATING_SAVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KGATE {
     pub Header: super::super::Foundation::DISPATCHER_HEADER,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for KGATE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for KGATE {
@@ -16364,30 +17138,30 @@ impl Default for KGATE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for KGATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KLOCK_QUEUE_HANDLE {
     pub LockQueue: KSPIN_LOCK_QUEUE,
     pub OldIrql: u8,
+}
+impl windows_core::TypeKind for KLOCK_QUEUE_HANDLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KLOCK_QUEUE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KLOCK_QUEUE_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSEMAPHORE {
     pub Header: super::super::Foundation::DISPATCHER_HEADER,
     pub Limit: i32,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for KSEMAPHORE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for KSEMAPHORE {
@@ -16395,42 +17169,38 @@ impl Default for KSEMAPHORE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for KSEMAPHORE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSPIN_LOCK_QUEUE {
     pub Next: *mut KSPIN_LOCK_QUEUE,
     pub Lock: *mut usize,
+}
+impl windows_core::TypeKind for KSPIN_LOCK_QUEUE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KSPIN_LOCK_QUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSPIN_LOCK_QUEUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSYSTEM_TIME {
     pub LowPart: u32,
     pub High1Time: i32,
     pub High2Time: i32,
+}
+impl windows_core::TypeKind for KSYSTEM_TIME {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KSYSTEM_TIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KSYSTEM_TIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KTIMER {
     pub Header: super::super::Foundation::DISPATCHER_HEADER,
     pub DueTime: u64,
@@ -16439,18 +17209,18 @@ pub struct KTIMER {
     pub Period: u32,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for KTIMER {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for KTIMER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for KTIMER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KTRIAGE_DUMP_DATA_ARRAY {
     pub List: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub NumBlocksUsed: u32,
@@ -16462,18 +17232,18 @@ pub struct KTRIAGE_DUMP_DATA_ARRAY {
     pub Blocks: [KADDRESS_RANGE; 1],
 }
 #[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for KTRIAGE_DUMP_DATA_ARRAY {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for KTRIAGE_DUMP_DATA_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for KTRIAGE_DUMP_DATA_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KUSER_SHARED_DATA {
     pub TickCountLowDeprecated: u32,
     pub TickCountMultiplier: u32,
@@ -16557,21 +17327,25 @@ pub struct KUSER_SHARED_DATA {
     pub UserPointerAuthMask: u64,
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for KUSER_SHARED_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for KUSER_SHARED_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_0 {
     pub MitigationPolicies: u8,
     pub Anonymous: KUSER_SHARED_DATA_0_0,
+}
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for KUSER_SHARED_DATA_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA_0 {
@@ -16579,15 +17353,15 @@ impl Default for KUSER_SHARED_DATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for KUSER_SHARED_DATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KUSER_SHARED_DATA_0_0 {
     pub _bitfield: u8,
+}
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for KUSER_SHARED_DATA_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA_0_0 {
@@ -16595,15 +17369,15 @@ impl Default for KUSER_SHARED_DATA_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for KUSER_SHARED_DATA_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_1 {
     pub VirtualizationFlags: u8,
+}
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for KUSER_SHARED_DATA_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA_1 {
@@ -16611,16 +17385,16 @@ impl Default for KUSER_SHARED_DATA_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for KUSER_SHARED_DATA_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_2 {
     pub SharedDataFlags: u32,
     pub Anonymous: KUSER_SHARED_DATA_2_0,
+}
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for KUSER_SHARED_DATA_2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA_2 {
@@ -16628,15 +17402,15 @@ impl Default for KUSER_SHARED_DATA_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for KUSER_SHARED_DATA_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KUSER_SHARED_DATA_2_0 {
     pub _bitfield: u32,
+}
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for KUSER_SHARED_DATA_2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA_2_0 {
@@ -16644,17 +17418,17 @@ impl Default for KUSER_SHARED_DATA_2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for KUSER_SHARED_DATA_2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_3 {
     pub TickCount: KSYSTEM_TIME,
     pub TickCountQuad: u64,
     pub Anonymous: KUSER_SHARED_DATA_3_0,
+}
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for KUSER_SHARED_DATA_3 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA_3 {
@@ -16662,16 +17436,16 @@ impl Default for KUSER_SHARED_DATA_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for KUSER_SHARED_DATA_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KUSER_SHARED_DATA_3_0 {
     pub ReservedTickCountOverlay: [u32; 3],
     pub TickCountPad: [u32; 1],
+}
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for KUSER_SHARED_DATA_3_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA_3_0 {
@@ -16679,16 +17453,16 @@ impl Default for KUSER_SHARED_DATA_3_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for KUSER_SHARED_DATA_3_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_4 {
     pub QpcData: u16,
     pub Anonymous: KUSER_SHARED_DATA_4_0,
+}
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for KUSER_SHARED_DATA_4 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA_4 {
@@ -16696,16 +17470,16 @@ impl Default for KUSER_SHARED_DATA_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for KUSER_SHARED_DATA_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KUSER_SHARED_DATA_4_0 {
     pub QpcBypassEnabled: u8,
     pub QpcShift: u8,
+}
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for KUSER_SHARED_DATA_4_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA_4_0 {
@@ -16713,120 +17487,120 @@ impl Default for KUSER_SHARED_DATA_4_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for KUSER_SHARED_DATA_4_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KWAIT_CHAIN {
     pub Head: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for KWAIT_CHAIN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for KWAIT_CHAIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KWAIT_CHAIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LEGACY_BUS_INFORMATION {
     pub BusTypeGuid: windows_core::GUID,
     pub LegacyBusType: INTERFACE_TYPE,
     pub BusNumber: u32,
+}
+impl windows_core::TypeKind for LEGACY_BUS_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for LEGACY_BUS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LEGACY_BUS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LINK_SHARE_ACCESS {
     pub OpenCount: u32,
     pub Deleters: u32,
     pub SharedDelete: u32,
+}
+impl windows_core::TypeKind for LINK_SHARE_ACCESS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for LINK_SHARE_ACCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LINK_SHARE_ACCESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LOADER_PARTITION_INFORMATION_EX {
     pub PartitionStyle: u32,
     pub PartitionNumber: u32,
     pub Anonymous: LOADER_PARTITION_INFORMATION_EX_0,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for LOADER_PARTITION_INFORMATION_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for LOADER_PARTITION_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LOADER_PARTITION_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union LOADER_PARTITION_INFORMATION_EX_0 {
     pub Signature: u32,
     pub DeviceId: windows_core::GUID,
+}
+impl windows_core::TypeKind for LOADER_PARTITION_INFORMATION_EX_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for LOADER_PARTITION_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LOADER_PARTITION_INFORMATION_EX_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MAILSLOT_CREATE_PARAMETERS {
     pub MailslotQuota: u32,
     pub MaximumMessageSize: u32,
     pub ReadTimeout: i64,
     pub TimeoutSpecified: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for MAILSLOT_CREATE_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MAILSLOT_CREATE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MAILSLOT_CREATE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MAP_REGISTER_ENTRY {
     pub MapRegister: *mut core::ffi::c_void,
     pub WriteToDevice: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for MAP_REGISTER_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MAP_REGISTER_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MAP_REGISTER_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MCA_DRIVER_INFO {
     pub ExceptionCallback: isize,
     pub DpcCallback: super::super::Foundation::PKDEFERRED_ROUTINE,
     pub DeviceContext: *mut core::ffi::c_void,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for MCA_DRIVER_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for MCA_DRIVER_INFO {
@@ -16834,12 +17608,8 @@ impl Default for MCA_DRIVER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for MCA_DRIVER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MCA_EXCEPTION {
     pub VersionNumber: u32,
     pub ExceptionType: MCA_EXCEPTION_TYPE,
@@ -16851,30 +17621,30 @@ pub struct MCA_EXCEPTION {
     pub Reserved3: u32,
     pub ExtReg: [u64; 24],
 }
+impl windows_core::TypeKind for MCA_EXCEPTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCA_EXCEPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCA_EXCEPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MCA_EXCEPTION_0 {
     pub Mca: MCA_EXCEPTION_0_0,
     pub Mce: MCA_EXCEPTION_0_1,
+}
+impl windows_core::TypeKind for MCA_EXCEPTION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCA_EXCEPTION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCA_EXCEPTION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MCA_EXCEPTION_0_0 {
     pub BankNumber: u8,
     pub Reserved2: [u8; 7],
@@ -16882,254 +17652,254 @@ pub struct MCA_EXCEPTION_0_0 {
     pub Address: MCI_ADDR,
     pub Misc: u64,
 }
+impl windows_core::TypeKind for MCA_EXCEPTION_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCA_EXCEPTION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCA_EXCEPTION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MCA_EXCEPTION_0_1 {
     pub Address: u64,
     pub Type: u64,
+}
+impl windows_core::TypeKind for MCA_EXCEPTION_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCA_EXCEPTION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCA_EXCEPTION_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MCG_CAP {
     pub Anonymous: MCG_CAP_0,
     pub QuadPart: u64,
+}
+impl windows_core::TypeKind for MCG_CAP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCG_CAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCG_CAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MCG_CAP_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for MCG_CAP_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCG_CAP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCG_CAP_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MCG_STATUS {
     pub Anonymous: MCG_STATUS_0,
     pub QuadPart: u64,
+}
+impl windows_core::TypeKind for MCG_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCG_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCG_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MCG_STATUS_0 {
     pub _bitfield: u32,
     pub Reserved2: u32,
+}
+impl windows_core::TypeKind for MCG_STATUS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCG_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCG_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MCI_ADDR {
     pub Anonymous: MCI_ADDR_0,
     pub QuadPart: u64,
+}
+impl windows_core::TypeKind for MCI_ADDR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_ADDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_ADDR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MCI_ADDR_0 {
     pub Address: u32,
     pub Reserved: u32,
+}
+impl windows_core::TypeKind for MCI_ADDR_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_ADDR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_ADDR_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MCI_STATS {
     pub MciStats: MCI_STATS_0,
     pub QuadPart: u64,
+}
+impl windows_core::TypeKind for MCI_STATS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MCI_STATS_0 {
     pub McaCod: u16,
     pub MsCod: u16,
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for MCI_STATS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_STATS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_STATS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MCI_STATUS {
     pub CommonBits: MCI_STATUS_BITS_COMMON,
     pub AmdBits: MCI_STATUS_AMD_BITS,
     pub IntelBits: MCI_STATUS_INTEL_BITS,
     pub QuadPart: u64,
 }
+impl windows_core::TypeKind for MCI_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MCI_STATUS_AMD_BITS {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for MCI_STATUS_AMD_BITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_STATUS_AMD_BITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_STATUS_AMD_BITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MCI_STATUS_BITS_COMMON {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for MCI_STATUS_BITS_COMMON {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_STATUS_BITS_COMMON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_STATUS_BITS_COMMON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MCI_STATUS_INTEL_BITS {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for MCI_STATUS_INTEL_BITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_STATUS_INTEL_BITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_STATUS_INTEL_BITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
     pub DedicatedMemoryTypeId: u64,
     pub HandleAttributes: u32,
     pub DesiredAccess: u32,
     pub DedicatedMemoryPartitionHandle: super::super::super::Win32::Foundation::HANDLE,
 }
+impl windows_core::TypeKind for MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MM_COPY_ADDRESS {
     pub Anonymous: MM_COPY_ADDRESS_0,
+}
+impl windows_core::TypeKind for MM_COPY_ADDRESS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MM_COPY_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MM_COPY_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MM_COPY_ADDRESS_0 {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub PhysicalAddress: i64,
+}
+impl windows_core::TypeKind for MM_COPY_ADDRESS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MM_COPY_ADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MM_COPY_ADDRESS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MM_PHYSICAL_ADDRESS_LIST {
     pub PhysicalAddress: i64,
     pub NumberOfBytes: usize,
+}
+impl windows_core::TypeKind for MM_PHYSICAL_ADDRESS_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MM_PHYSICAL_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MM_PHYSICAL_ADDRESS_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MU_TELEMETRY_SECTION {
     pub ComponentID: windows_core::GUID,
     pub SubComponentID: windows_core::GUID,
@@ -17138,16 +17908,16 @@ pub struct MU_TELEMETRY_SECTION {
     pub AdditionalInfo1: u64,
     pub AdditionalInfo2: u64,
 }
+impl windows_core::TypeKind for MU_TELEMETRY_SECTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MU_TELEMETRY_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MU_TELEMETRY_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NAMED_PIPE_CREATE_PARAMETERS {
     pub NamedPipeType: u32,
     pub ReadMode: u32,
@@ -17158,43 +17928,43 @@ pub struct NAMED_PIPE_CREATE_PARAMETERS {
     pub DefaultTimeout: i64,
     pub TimeoutSpecified: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for NAMED_PIPE_CREATE_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NAMED_PIPE_CREATE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NAMED_PIPE_CREATE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NPEM_CAPABILITY_STANDARD {
     pub Anonymous: NPEM_CAPABILITY_STANDARD_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for NPEM_CAPABILITY_STANDARD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NPEM_CAPABILITY_STANDARD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NPEM_CAPABILITY_STANDARD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NPEM_CAPABILITY_STANDARD_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for NPEM_CAPABILITY_STANDARD_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NPEM_CAPABILITY_STANDARD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NPEM_CAPABILITY_STANDARD_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NPEM_CONTROL_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -17206,16 +17976,16 @@ pub struct NPEM_CONTROL_INTERFACE {
     pub SetStandardControl: PNPEM_CONTROL_SET_STANDARD_CONTROL,
     pub QueryNpemControl: PNPEM_CONTROL_QUERY_CONTROL,
 }
+impl windows_core::TypeKind for NPEM_CONTROL_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NPEM_CONTROL_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NPEM_CONTROL_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NT_TIB32 {
     pub ExceptionList: u32,
     pub StackBase: u32,
@@ -17225,45 +17995,45 @@ pub struct NT_TIB32 {
     pub ArbitraryUserPointer: u32,
     pub Self_: u32,
 }
+impl windows_core::TypeKind for NT_TIB32 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NT_TIB32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NT_TIB32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NT_TIB32_0 {
     pub FiberData: u32,
     pub Version: u32,
+}
+impl windows_core::TypeKind for NT_TIB32_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NT_TIB32_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NT_TIB32_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OBJECT_HANDLE_INFORMATION {
     pub HandleAttributes: u32,
     pub GrantedAccess: u32,
+}
+impl windows_core::TypeKind for OBJECT_HANDLE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OBJECT_HANDLE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OBJECT_HANDLE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OB_CALLBACK_REGISTRATION {
     pub Version: u16,
     pub OperationRegistrationCount: u16,
@@ -17272,18 +18042,18 @@ pub struct OB_CALLBACK_REGISTRATION {
     pub OperationRegistration: *mut OB_OPERATION_REGISTRATION,
 }
 #[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for OB_CALLBACK_REGISTRATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for OB_CALLBACK_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for OB_CALLBACK_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OB_OPERATION_REGISTRATION {
     pub ObjectType: *mut super::super::Foundation::POBJECT_TYPE,
     pub Operations: u32,
@@ -17291,44 +18061,44 @@ pub struct OB_OPERATION_REGISTRATION {
     pub PostOperation: POB_POST_OPERATION_CALLBACK,
 }
 #[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for OB_OPERATION_REGISTRATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for OB_OPERATION_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for OB_OPERATION_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OB_POST_CREATE_HANDLE_INFORMATION {
     pub GrantedAccess: u32,
+}
+impl windows_core::TypeKind for OB_POST_CREATE_HANDLE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OB_POST_CREATE_HANDLE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OB_POST_CREATE_HANDLE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OB_POST_DUPLICATE_HANDLE_INFORMATION {
     pub GrantedAccess: u32,
+}
+impl windows_core::TypeKind for OB_POST_DUPLICATE_HANDLE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OB_POST_DUPLICATE_HANDLE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OB_POST_DUPLICATE_HANDLE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OB_POST_OPERATION_INFORMATION {
     pub Operation: u32,
     pub Anonymous: OB_POST_OPERATION_INFORMATION_0,
@@ -17339,21 +18109,25 @@ pub struct OB_POST_OPERATION_INFORMATION {
     pub Parameters: *mut OB_POST_OPERATION_PARAMETERS,
 }
 #[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for OB_POST_OPERATION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for OB_POST_OPERATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for OB_POST_OPERATION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union OB_POST_OPERATION_INFORMATION_0 {
     pub Flags: u32,
     pub Anonymous: OB_POST_OPERATION_INFORMATION_0_0,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for OB_POST_OPERATION_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for OB_POST_OPERATION_INFORMATION_0 {
@@ -17361,15 +18135,15 @@ impl Default for OB_POST_OPERATION_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for OB_POST_OPERATION_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OB_POST_OPERATION_INFORMATION_0_0 {
     pub _bitfield: u32,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for OB_POST_OPERATION_INFORMATION_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for OB_POST_OPERATION_INFORMATION_0_0 {
@@ -17377,57 +18151,53 @@ impl Default for OB_POST_OPERATION_INFORMATION_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for OB_POST_OPERATION_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union OB_POST_OPERATION_PARAMETERS {
     pub CreateHandleInformation: OB_POST_CREATE_HANDLE_INFORMATION,
     pub DuplicateHandleInformation: OB_POST_DUPLICATE_HANDLE_INFORMATION,
+}
+impl windows_core::TypeKind for OB_POST_OPERATION_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OB_POST_OPERATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OB_POST_OPERATION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OB_PRE_CREATE_HANDLE_INFORMATION {
     pub DesiredAccess: u32,
     pub OriginalDesiredAccess: u32,
+}
+impl windows_core::TypeKind for OB_PRE_CREATE_HANDLE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OB_PRE_CREATE_HANDLE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OB_PRE_CREATE_HANDLE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OB_PRE_DUPLICATE_HANDLE_INFORMATION {
     pub DesiredAccess: u32,
     pub OriginalDesiredAccess: u32,
     pub SourceProcess: *mut core::ffi::c_void,
     pub TargetProcess: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for OB_PRE_DUPLICATE_HANDLE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OB_PRE_DUPLICATE_HANDLE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OB_PRE_DUPLICATE_HANDLE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OB_PRE_OPERATION_INFORMATION {
     pub Operation: u32,
     pub Anonymous: OB_PRE_OPERATION_INFORMATION_0,
@@ -17437,21 +18207,25 @@ pub struct OB_PRE_OPERATION_INFORMATION {
     pub Parameters: *mut OB_PRE_OPERATION_PARAMETERS,
 }
 #[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for OB_PRE_OPERATION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for OB_PRE_OPERATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for OB_PRE_OPERATION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union OB_PRE_OPERATION_INFORMATION_0 {
     pub Flags: u32,
     pub Anonymous: OB_PRE_OPERATION_INFORMATION_0_0,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for OB_PRE_OPERATION_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for OB_PRE_OPERATION_INFORMATION_0 {
@@ -17459,15 +18233,15 @@ impl Default for OB_PRE_OPERATION_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for OB_PRE_OPERATION_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OB_PRE_OPERATION_INFORMATION_0_0 {
     pub _bitfield: u32,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for OB_PRE_OPERATION_INFORMATION_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for OB_PRE_OPERATION_INFORMATION_0_0 {
@@ -17475,39 +18249,35 @@ impl Default for OB_PRE_OPERATION_INFORMATION_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for OB_PRE_OPERATION_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union OB_PRE_OPERATION_PARAMETERS {
     pub CreateHandleInformation: OB_PRE_CREATE_HANDLE_INFORMATION,
     pub DuplicateHandleInformation: OB_PRE_DUPLICATE_HANDLE_INFORMATION,
+}
+impl windows_core::TypeKind for OB_PRE_OPERATION_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OB_PRE_OPERATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OB_PRE_OPERATION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PAGE_PRIORITY_INFORMATION {
     pub PagePriority: u32,
+}
+impl windows_core::TypeKind for PAGE_PRIORITY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PAGE_PRIORITY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PAGE_PRIORITY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCIBUSDATA {
     pub Tag: u32,
     pub Version: u32,
@@ -17518,16 +18288,16 @@ pub struct PCIBUSDATA {
     pub ParentSlot: PCI_SLOT_NUMBER,
     pub Reserved: [*mut core::ffi::c_void; 4],
 }
+impl windows_core::TypeKind for PCIBUSDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCIBUSDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCIBUSDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCIX_BRIDGE_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub SecondaryStatus: PCIX_BRIDGE_CAPABILITY_0,
@@ -17541,97 +18311,97 @@ pub struct PCIX_BRIDGE_CAPABILITY {
     pub EccSecondAddress: u32,
     pub EccAttribute: u32,
 }
+impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCIX_BRIDGE_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCIX_BRIDGE_CAPABILITY_1 {
     pub Anonymous: PCIX_BRIDGE_CAPABILITY_1_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCIX_BRIDGE_CAPABILITY_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCIX_BRIDGE_CAPABILITY_1_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_1_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCIX_BRIDGE_CAPABILITY_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCIX_BRIDGE_CAPABILITY_2 {
     pub Anonymous: PCIX_BRIDGE_CAPABILITY_2_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCIX_BRIDGE_CAPABILITY_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCIX_BRIDGE_CAPABILITY_2_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCIX_BRIDGE_CAPABILITY_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCIX_BRIDGE_CAPABILITY_0 {
     pub Anonymous: PCIX_BRIDGE_CAPABILITY_0_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCIX_BRIDGE_CAPABILITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCIX_BRIDGE_CAPABILITY_0_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCIX_BRIDGE_CAPABILITY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_ADVANCED_FEATURES_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub Length: u8,
@@ -17639,165 +18409,165 @@ pub struct PCI_ADVANCED_FEATURES_CAPABILITY {
     pub Control: PCI_ADVANCED_FEATURES_CAPABILITY_1,
     pub Status: PCI_ADVANCED_FEATURES_CAPABILITY_2,
 }
+impl windows_core::TypeKind for PCI_ADVANCED_FEATURES_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_ADVANCED_FEATURES_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ADVANCED_FEATURES_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_ADVANCED_FEATURES_CAPABILITY_0 {
     pub Anonymous: PCI_ADVANCED_FEATURES_CAPABILITY_0_0,
     pub AsUCHAR: u8,
+}
+impl windows_core::TypeKind for PCI_ADVANCED_FEATURES_CAPABILITY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_ADVANCED_FEATURES_CAPABILITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ADVANCED_FEATURES_CAPABILITY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_ADVANCED_FEATURES_CAPABILITY_0_0 {
     pub _bitfield: u8,
+}
+impl windows_core::TypeKind for PCI_ADVANCED_FEATURES_CAPABILITY_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_ADVANCED_FEATURES_CAPABILITY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ADVANCED_FEATURES_CAPABILITY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_ADVANCED_FEATURES_CAPABILITY_1 {
     pub Anonymous: PCI_ADVANCED_FEATURES_CAPABILITY_1_0,
     pub AsUCHAR: u8,
+}
+impl windows_core::TypeKind for PCI_ADVANCED_FEATURES_CAPABILITY_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_ADVANCED_FEATURES_CAPABILITY_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ADVANCED_FEATURES_CAPABILITY_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_ADVANCED_FEATURES_CAPABILITY_1_0 {
     pub _bitfield: u8,
+}
+impl windows_core::TypeKind for PCI_ADVANCED_FEATURES_CAPABILITY_1_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_ADVANCED_FEATURES_CAPABILITY_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ADVANCED_FEATURES_CAPABILITY_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_ADVANCED_FEATURES_CAPABILITY_2 {
     pub Anonymous: PCI_ADVANCED_FEATURES_CAPABILITY_2_0,
     pub AsUCHAR: u8,
+}
+impl windows_core::TypeKind for PCI_ADVANCED_FEATURES_CAPABILITY_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_ADVANCED_FEATURES_CAPABILITY_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ADVANCED_FEATURES_CAPABILITY_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_ADVANCED_FEATURES_CAPABILITY_2_0 {
     pub _bitfield: u8,
+}
+impl windows_core::TypeKind for PCI_ADVANCED_FEATURES_CAPABILITY_2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_ADVANCED_FEATURES_CAPABILITY_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ADVANCED_FEATURES_CAPABILITY_2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_AGP_APERTURE_PAGE_SIZE {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_AGP_APERTURE_PAGE_SIZE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_AGP_APERTURE_PAGE_SIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_AGP_APERTURE_PAGE_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_AGP_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub _bitfield: u16,
     pub AGPStatus: PCI_AGP_CAPABILITY_0,
     pub AGPCommand: PCI_AGP_CAPABILITY_1,
 }
+impl windows_core::TypeKind for PCI_AGP_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_AGP_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_AGP_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_AGP_CAPABILITY_1 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_AGP_CAPABILITY_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_AGP_CAPABILITY_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_AGP_CAPABILITY_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_AGP_CAPABILITY_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_AGP_CAPABILITY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_AGP_CAPABILITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_AGP_CAPABILITY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_AGP_CONTROL {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_AGP_CONTROL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_AGP_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_AGP_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_AGP_EXTENDED_CAPABILITY {
     pub IsochStatus: PCI_AGP_ISOCH_STATUS,
     pub AgpControl: PCI_AGP_CONTROL,
@@ -17807,42 +18577,42 @@ pub struct PCI_AGP_EXTENDED_CAPABILITY {
     pub GartHigh: u32,
     pub IsochCommand: PCI_AGP_ISOCH_COMMAND,
 }
+impl windows_core::TypeKind for PCI_AGP_EXTENDED_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_AGP_EXTENDED_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_AGP_EXTENDED_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_AGP_ISOCH_COMMAND {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_AGP_ISOCH_COMMAND {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_AGP_ISOCH_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_AGP_ISOCH_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_AGP_ISOCH_STATUS {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_AGP_ISOCH_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_AGP_ISOCH_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_AGP_ISOCH_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_ATS_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -17852,16 +18622,16 @@ pub struct PCI_ATS_INTERFACE {
     pub SetAddressTranslationServices: PPCI_SET_ATS,
     pub InvalidateQueueDepth: u8,
 }
+impl windows_core::TypeKind for PCI_ATS_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_ATS_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ATS_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_BUS_INTERFACE_STANDARD {
     pub Size: u16,
     pub Version: u16,
@@ -17876,44 +18646,44 @@ pub struct PCI_BUS_INTERFACE_STANDARD {
     pub ExpressWakeControl: PPCI_EXPRESS_WAKE_CONTROL,
     pub PrepareMultistageResume: PPCI_PREPARE_MULTISTAGE_RESUME,
 }
+impl windows_core::TypeKind for PCI_BUS_INTERFACE_STANDARD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_BUS_INTERFACE_STANDARD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_BUS_INTERFACE_STANDARD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_CAPABILITIES_HEADER {
     pub CapabilityID: u8,
     pub Next: u8,
+}
+impl windows_core::TypeKind for PCI_CAPABILITIES_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_CAPABILITIES_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_CAPABILITIES_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_COMMON_CONFIG {
     pub Base: PCI_COMMON_HEADER,
     pub DeviceSpecific: [u8; 192],
+}
+impl windows_core::TypeKind for PCI_COMMON_CONFIG {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_COMMON_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_COMMON_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_COMMON_HEADER {
     pub VendorID: u16,
     pub DeviceID: u16,
@@ -17929,31 +18699,31 @@ pub struct PCI_COMMON_HEADER {
     pub BIST: u8,
     pub u: PCI_COMMON_HEADER_0,
 }
+impl windows_core::TypeKind for PCI_COMMON_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_COMMON_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_COMMON_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_COMMON_HEADER_0 {
     pub type0: PCI_COMMON_HEADER_0_0,
     pub type1: PCI_COMMON_HEADER_0_1,
     pub type2: PCI_COMMON_HEADER_0_2,
+}
+impl windows_core::TypeKind for PCI_COMMON_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_COMMON_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_COMMON_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_COMMON_HEADER_0_0 {
     pub BaseAddresses: [u32; 6],
     pub CIS: u32,
@@ -17968,16 +18738,16 @@ pub struct PCI_COMMON_HEADER_0_0 {
     pub MinimumGrant: u8,
     pub MaximumLatency: u8,
 }
+impl windows_core::TypeKind for PCI_COMMON_HEADER_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_COMMON_HEADER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_COMMON_HEADER_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_COMMON_HEADER_0_1 {
     pub BaseAddresses: [u32; 2],
     pub PrimaryBus: u8,
@@ -18002,16 +18772,16 @@ pub struct PCI_COMMON_HEADER_0_1 {
     pub InterruptPin: u8,
     pub BridgeControl: u16,
 }
+impl windows_core::TypeKind for PCI_COMMON_HEADER_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_COMMON_HEADER_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_COMMON_HEADER_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_COMMON_HEADER_0_2 {
     pub SocketRegistersBaseAddress: u32,
     pub CapabilitiesPtr: u8,
@@ -18026,45 +18796,45 @@ pub struct PCI_COMMON_HEADER_0_2 {
     pub InterruptPin: u8,
     pub BridgeControl: u16,
 }
+impl windows_core::TypeKind for PCI_COMMON_HEADER_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_COMMON_HEADER_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_COMMON_HEADER_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_COMMON_HEADER_0_2_0 {
     pub Base: u32,
     pub Limit: u32,
+}
+impl windows_core::TypeKind for PCI_COMMON_HEADER_0_2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_COMMON_HEADER_0_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_COMMON_HEADER_0_2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_DEBUGGING_DEVICE_IN_USE {
     pub Segment: u16,
     pub Bus: u32,
     pub Slot: u32,
+}
+impl windows_core::TypeKind for PCI_DEBUGGING_DEVICE_IN_USE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_DEBUGGING_DEVICE_IN_USE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_DEBUGGING_DEVICE_IN_USE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_DEVICE_PRESENCE_PARAMETERS {
     pub Size: u32,
     pub Flags: u32,
@@ -18077,16 +18847,16 @@ pub struct PCI_DEVICE_PRESENCE_PARAMETERS {
     pub SubClass: u8,
     pub ProgIf: u8,
 }
+impl windows_core::TypeKind for PCI_DEVICE_PRESENCE_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_DEVICE_PRESENCE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_DEVICE_PRESENCE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_DEVICE_PRESENT_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -18096,113 +18866,113 @@ pub struct PCI_DEVICE_PRESENT_INTERFACE {
     pub IsDevicePresent: PPCI_IS_DEVICE_PRESENT,
     pub IsDevicePresentEx: PPCI_IS_DEVICE_PRESENT_EX,
 }
+impl windows_core::TypeKind for PCI_DEVICE_PRESENT_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_DEVICE_PRESENT_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_DEVICE_PRESENT_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ACS_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Capability: PCI_EXPRESS_ACS_CAPABILITY_REGISTER,
     pub Control: PCI_EXPRESS_ACS_CONTROL,
     pub EgressControl: [u32; 1],
 }
+impl windows_core::TypeKind for PCI_EXPRESS_ACS_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_ACS_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ACS_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ACS_CAPABILITY_REGISTER {
     pub Anonymous: PCI_EXPRESS_ACS_CAPABILITY_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ACS_CAPABILITY_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ACS_CAPABILITY_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ACS_CAPABILITY_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ACS_CAPABILITY_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ACS_CAPABILITY_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ACS_CAPABILITY_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ACS_CAPABILITY_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ACS_CONTROL {
     pub Anonymous: PCI_EXPRESS_ACS_CONTROL_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ACS_CONTROL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ACS_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ACS_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ACS_CONTROL_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ACS_CONTROL_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ACS_CONTROL_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ACS_CONTROL_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_AER_CAPABILITIES {
     pub Anonymous: PCI_EXPRESS_AER_CAPABILITIES_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_AER_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_AER_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_AER_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_AER_CAPABILITIES_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_AER_CAPABILITIES_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_AER_CAPABILITIES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_AER_CAPABILITIES_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_AER_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub UncorrectableErrorStatus: PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS,
@@ -18218,112 +18988,112 @@ pub struct PCI_EXPRESS_AER_CAPABILITY {
     pub SecCapabilitiesAndControl: PCI_EXPRESS_SEC_AER_CAPABILITIES,
     pub SecHeaderLog: [u32; 4],
 }
+impl windows_core::TypeKind for PCI_EXPRESS_AER_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_AER_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_AER_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ARI_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Capability: PCI_EXPRESS_ARI_CAPABILITY_REGISTER,
     pub Control: PCI_EXPRESS_ARI_CONTROL_REGISTER,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ARI_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ARI_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ARI_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ARI_CAPABILITY_REGISTER {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ARI_CAPABILITY_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ARI_CAPABILITY_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ARI_CAPABILITY_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ARI_CONTROL_REGISTER {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ARI_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ARI_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ARI_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ATS_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Capability: PCI_EXPRESS_ATS_CAPABILITY_REGISTER,
     pub Control: PCI_EXPRESS_ATS_CONTROL_REGISTER,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ATS_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ATS_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ATS_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ATS_CAPABILITY_REGISTER {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ATS_CAPABILITY_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ATS_CAPABILITY_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ATS_CAPABILITY_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ATS_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_ATS_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ATS_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ATS_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ATS_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ATS_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ATS_CONTROL_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ATS_CONTROL_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ATS_CONTROL_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_BRIDGE_AER_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub UncorrectableErrorStatus: PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS,
@@ -18339,43 +19109,43 @@ pub struct PCI_EXPRESS_BRIDGE_AER_CAPABILITY {
     pub SecCapabilitiesAndControl: PCI_EXPRESS_SEC_AER_CAPABILITIES,
     pub SecHeaderLog: [u32; 4],
 }
+impl windows_core::TypeKind for PCI_EXPRESS_BRIDGE_AER_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_BRIDGE_AER_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_BRIDGE_AER_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CAPABILITIES_REGISTER {
     pub Anonymous: PCI_EXPRESS_CAPABILITIES_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CAPABILITIES_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CAPABILITIES_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CAPABILITIES_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CAPABILITIES_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CAPABILITIES_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CAPABILITIES_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub ExpressCapabilities: PCI_EXPRESS_CAPABILITIES_REGISTER,
@@ -18398,113 +19168,113 @@ pub struct PCI_EXPRESS_CAPABILITY {
     pub LinkControl2: PCI_EXPRESS_LINK_CONTROL_2_REGISTER,
     pub LinkStatus2: PCI_EXPRESS_LINK_STATUS_2_REGISTER,
 }
+impl windows_core::TypeKind for PCI_EXPRESS_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CORRECTABLE_ERROR_MASK {
     pub Anonymous: PCI_EXPRESS_CORRECTABLE_ERROR_MASK_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CORRECTABLE_ERROR_MASK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CORRECTABLE_ERROR_MASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CORRECTABLE_ERROR_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CORRECTABLE_ERROR_MASK_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CORRECTABLE_ERROR_MASK_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CORRECTABLE_ERROR_MASK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CORRECTABLE_ERROR_MASK_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CORRECTABLE_ERROR_STATUS {
     pub Anonymous: PCI_EXPRESS_CORRECTABLE_ERROR_STATUS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CORRECTABLE_ERROR_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CORRECTABLE_ERROR_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CORRECTABLE_ERROR_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CORRECTABLE_ERROR_STATUS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CORRECTABLE_ERROR_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CORRECTABLE_ERROR_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CXL_DVSEC_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub DvsecHeader1: PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1,
     pub DvsecHeader2: PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2,
     pub Reserved: [u8; 46],
 }
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_CXL_DVSEC_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11 {
     pub Anonymous: PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_CXL_DVSEC_CAPABILITY_V11 {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub DvsecHeader1: PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1,
@@ -18525,423 +19295,423 @@ pub struct PCI_EXPRESS_CXL_DVSEC_CAPABILITY_V11 {
     pub Range2BaseHigh: PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_HIGH_REGISTER,
     pub Range2BaseLow: PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER,
 }
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_V11 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_V11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_CAPABILITY_V11 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER {
     pub Anonymous: PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_HIGH_REGISTER {
     pub MemBaseHigh: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_HIGH_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_HIGH_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_HIGH_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER {
     pub Anonymous: PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_HIGH_REGISTER {
     pub MemSizeHigh: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_HIGH_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_HIGH_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_HIGH_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11 {
     pub Anonymous: PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub DvsecHeader1: PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1,
     pub DvsecHeader2: PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2,
     pub DvsecRegisters: [u16; 1],
 }
+impl windows_core::TypeKind for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1 {
     pub Anonymous: PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2 {
     pub Anonymous: PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER {
     pub Anonymous: PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER {
     pub Anonymous: PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER {
     pub Anonymous: PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DEVICE_CONTROL_REGISTER {
     pub Anonymous1: PCI_EXPRESS_DEVICE_CONTROL_REGISTER_0,
     pub Anonymous2: PCI_EXPRESS_DEVICE_CONTROL_REGISTER_1,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DEVICE_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CONTROL_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DEVICE_CONTROL_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CONTROL_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_CONTROL_REGISTER_1 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CONTROL_REGISTER_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DEVICE_CONTROL_REGISTER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_CONTROL_REGISTER_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DEVICE_STATUS_2_REGISTER {
     pub Anonymous: PCI_EXPRESS_DEVICE_STATUS_2_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_STATUS_2_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DEVICE_STATUS_2_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_STATUS_2_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_STATUS_2_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_STATUS_2_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DEVICE_STATUS_2_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_STATUS_2_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DEVICE_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_DEVICE_STATUS_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_STATUS_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DEVICE_STATUS_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_STATUS_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_STATUS_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_STATUS_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DEVICE_STATUS_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DEVICE_STATUS_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_DPC_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub DpcCapabilities: PCI_EXPRESS_DPC_CAPS_REGISTER,
@@ -18957,612 +19727,612 @@ pub struct PCI_EXPRESS_DPC_CAPABILITY {
     pub RpPioImpSpecLog: PCI_EXPRESS_DPC_RP_PIO_IMPSPECLOG_REGISTER,
     pub RpPioPrefixLog: PCI_EXPRESS_DPC_RP_PIO_TLPPREFIXLOG_REGISTER,
 }
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_DPC_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_CAPS_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_CAPS_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_CAPS_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_CAPS_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_CAPS_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DPC_CAPS_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_CAPS_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_CAPS_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_CAPS_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DPC_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_CONTROL_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_CONTROL_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_CONTROL_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_ERROR_SOURCE_ID {
     pub Anonymous: PCI_EXPRESS_DPC_ERROR_SOURCE_ID_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_ERROR_SOURCE_ID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_ERROR_SOURCE_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_ERROR_SOURCE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DPC_ERROR_SOURCE_ID_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_ERROR_SOURCE_ID_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_ERROR_SOURCE_ID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_ERROR_SOURCE_ID_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_HEADERLOG_REGISTER {
     pub PioHeaderLogRegister: [u32; 4],
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_HEADERLOG_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_RP_PIO_HEADERLOG_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_HEADERLOG_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_RP_PIO_IMPSPECLOG_REGISTER {
     pub PioImpSpecLog: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_IMPSPECLOG_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_RP_PIO_IMPSPECLOG_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_IMPSPECLOG_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DPC_RP_PIO_TLPPREFIXLOG_REGISTER {
     pub PioTlpPrefixLogRegister: [u32; 4],
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_TLPPREFIXLOG_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_RP_PIO_TLPPREFIXLOG_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_RP_PIO_TLPPREFIXLOG_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DPC_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_DPC_STATUS_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_STATUS_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_STATUS_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_STATUS_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DPC_STATUS_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_DPC_STATUS_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_DPC_STATUS_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_DPC_STATUS_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
     pub CapabilityID: u16,
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ERROR_SOURCE_ID {
     pub Anonymous: PCI_EXPRESS_ERROR_SOURCE_ID_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ERROR_SOURCE_ID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ERROR_SOURCE_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ERROR_SOURCE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ERROR_SOURCE_ID_0 {
     pub _bitfield1: u16,
     pub _bitfield2: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ERROR_SOURCE_ID_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ERROR_SOURCE_ID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ERROR_SOURCE_ID_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub AssociationBitmap: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER {
     pub Anonymous: PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_L1_PM_SS_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub L1PmSsCapabilities: PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER,
     pub L1PmSsControl1: PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER,
     pub L1PmSsControl2: PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER,
 }
+impl windows_core::TypeKind for PCI_EXPRESS_L1_PM_SS_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_L1_PM_SS_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_L1_PM_SS_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER {
     pub Anonymous: PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER {
     pub Anonymous: PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_LANE_ERROR_STATUS {
     pub LaneBitmap: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LANE_ERROR_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LANE_ERROR_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LANE_ERROR_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER {
     pub Anonymous: PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_CAPABILITIES_REGISTER {
     pub Anonymous: PCI_EXPRESS_LINK_CAPABILITIES_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_CAPABILITIES_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LINK_CAPABILITIES_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_CAPABILITIES_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_LINK_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_CAPABILITIES_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LINK_CAPABILITIES_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_CAPABILITIES_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LINK_CONTROL3 {
     pub Anonymous: PCI_EXPRESS_LINK_CONTROL3_0,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_CONTROL3 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LINK_CONTROL3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_CONTROL3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_CONTROL3_0 {
     pub Anonymous: PCI_EXPRESS_LINK_CONTROL3_0_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_CONTROL3_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LINK_CONTROL3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_CONTROL3_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_LINK_CONTROL3_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_CONTROL3_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LINK_CONTROL3_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_CONTROL3_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_CONTROL_2_REGISTER {
     pub Anonymous: PCI_EXPRESS_LINK_CONTROL_2_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_CONTROL_2_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LINK_CONTROL_2_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_CONTROL_2_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_LINK_CONTROL_2_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_CONTROL_2_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LINK_CONTROL_2_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_CONTROL_2_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_LINK_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LINK_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_LINK_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_CONTROL_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LINK_CONTROL_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_CONTROL_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_LINK_QUIESCENT_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -19572,304 +20342,304 @@ pub struct PCI_EXPRESS_LINK_QUIESCENT_INTERFACE {
     pub PciExpressEnterLinkQuiescentMode: PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE,
     pub PciExpressExitLinkQuiescentMode: PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE,
 }
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_QUIESCENT_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_LINK_QUIESCENT_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_QUIESCENT_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_STATUS_2_REGISTER {
     pub Anonymous: PCI_EXPRESS_LINK_STATUS_2_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_STATUS_2_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LINK_STATUS_2_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_STATUS_2_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_LINK_STATUS_2_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_STATUS_2_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LINK_STATUS_2_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_STATUS_2_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LINK_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_LINK_STATUS_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_STATUS_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LINK_STATUS_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_STATUS_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_LINK_STATUS_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LINK_STATUS_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LINK_STATUS_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LINK_STATUS_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_LTR_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Latency: PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LTR_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LTR_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LTR_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER {
     pub Anonymous: PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_NPEM_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Capability: PCI_EXPRESS_NPEM_CAPABILITY_REGISTER,
     pub Control: PCI_EXPRESS_NPEM_CONTROL_REGISTER,
     pub Status: PCI_EXPRESS_NPEM_STATUS_REGISTER,
 }
+impl windows_core::TypeKind for PCI_EXPRESS_NPEM_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_NPEM_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_NPEM_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_NPEM_CAPABILITY_REGISTER {
     pub Anonymous: PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_NPEM_CAPABILITY_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_NPEM_CAPABILITY_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_NPEM_CAPABILITY_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_NPEM_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_NPEM_CONTROL_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_NPEM_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_NPEM_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_NPEM_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_NPEM_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_NPEM_CONTROL_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_NPEM_CONTROL_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_NPEM_CONTROL_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_NPEM_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_NPEM_STATUS_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_NPEM_STATUS_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_NPEM_STATUS_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_NPEM_STATUS_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_NPEM_STATUS_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_NPEM_STATUS_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_NPEM_STATUS_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_NPEM_STATUS_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PASID_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Capability: PCI_EXPRESS_PASID_CAPABILITY_REGISTER,
     pub Control: PCI_EXPRESS_PASID_CONTROL_REGISTER,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PASID_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PASID_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PASID_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PASID_CAPABILITY_REGISTER {
     pub Anonymous: PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PASID_CAPABILITY_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PASID_CAPABILITY_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PASID_CAPABILITY_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PASID_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_PASID_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PASID_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PASID_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PASID_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PASID_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PASID_CONTROL_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PASID_CONTROL_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PASID_CONTROL_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PME_REQUESTOR_ID {
     pub Anonymous: PCI_EXPRESS_PME_REQUESTOR_ID_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PME_REQUESTOR_ID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PME_REQUESTOR_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PME_REQUESTOR_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PME_REQUESTOR_ID_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PME_REQUESTOR_ID_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PME_REQUESTOR_ID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PME_REQUESTOR_ID_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PRI_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Control: PCI_EXPRESS_PRI_CONTROL_REGISTER,
@@ -19877,221 +20647,221 @@ pub struct PCI_EXPRESS_PRI_CAPABILITY {
     pub PRCapacity: u32,
     pub PRAllocation: u32,
 }
+impl windows_core::TypeKind for PCI_EXPRESS_PRI_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_PRI_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PRI_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PRI_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_PRI_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PRI_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PRI_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PRI_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PRI_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PRI_CONTROL_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PRI_CONTROL_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PRI_CONTROL_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PRI_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_PRI_STATUS_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PRI_STATUS_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PRI_STATUS_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PRI_STATUS_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PRI_STATUS_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PRI_STATUS_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PRI_STATUS_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PRI_STATUS_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_PTM_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub PtmCapability: PCI_EXPRESS_PTM_CAPABILITY_REGISTER,
     pub PtmControl: PCI_EXPRESS_PTM_CONTROL_REGISTER,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PTM_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PTM_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PTM_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PTM_CAPABILITY_REGISTER {
     pub Anonymous: PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PTM_CAPABILITY_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PTM_CAPABILITY_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PTM_CAPABILITY_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PTM_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_PTM_CONTROL_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PTM_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PTM_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PTM_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PTM_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_PTM_CONTROL_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_PTM_CONTROL_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_PTM_CONTROL_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Entry: [PCI_EXPRESS_RESIZABLE_BAR_ENTRY; 6],
+}
+impl windows_core::TypeKind for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER {
     pub Anonymous: PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_RESIZABLE_BAR_ENTRY {
     pub Capability: PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER,
     pub Control: PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_RESIZABLE_BAR_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_RESIZABLE_BAR_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_RESIZABLE_BAR_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_ROOTPORT_AER_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub UncorrectableErrorStatus: PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS,
@@ -20105,124 +20875,124 @@ pub struct PCI_EXPRESS_ROOTPORT_AER_CAPABILITY {
     pub RootErrorStatus: PCI_EXPRESS_ROOT_ERROR_STATUS,
     pub ErrorSourceId: PCI_EXPRESS_ERROR_SOURCE_ID,
 }
+impl windows_core::TypeKind for PCI_EXPRESS_ROOTPORT_AER_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_ROOTPORT_AER_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ROOTPORT_AER_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER {
     pub Anonymous: PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ROOT_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_ROOT_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ROOT_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ROOT_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ROOT_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ROOT_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ROOT_CONTROL_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ROOT_CONTROL_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ROOT_CONTROL_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ROOT_ERROR_COMMAND {
     pub Anonymous: PCI_EXPRESS_ROOT_ERROR_COMMAND_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ROOT_ERROR_COMMAND {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ROOT_ERROR_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ROOT_ERROR_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ROOT_ERROR_COMMAND_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ROOT_ERROR_COMMAND_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ROOT_ERROR_COMMAND_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ROOT_ERROR_COMMAND_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ROOT_ERROR_STATUS {
     pub Anonymous: PCI_EXPRESS_ROOT_ERROR_STATUS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ROOT_ERROR_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ROOT_ERROR_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ROOT_ERROR_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ROOT_ERROR_STATUS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ROOT_ERROR_STATUS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ROOT_ERROR_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ROOT_ERROR_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ROOT_PORT_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -20232,262 +21002,262 @@ pub struct PCI_EXPRESS_ROOT_PORT_INTERFACE {
     pub ReadConfigSpace: PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE,
     pub WriteConfigSpace: PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE,
 }
+impl windows_core::TypeKind for PCI_EXPRESS_ROOT_PORT_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_ROOT_PORT_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ROOT_PORT_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ROOT_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_ROOT_STATUS_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ROOT_STATUS_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ROOT_STATUS_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ROOT_STATUS_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ROOT_STATUS_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_ROOT_STATUS_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_ROOT_STATUS_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_ROOT_STATUS_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SECONDARY_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub LinkControl3: PCI_EXPRESS_LINK_CONTROL3,
     pub LaneErrorStatus: PCI_EXPRESS_LANE_ERROR_STATUS,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SECONDARY_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SECONDARY_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SECONDARY_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SEC_AER_CAPABILITIES {
     pub Anonymous: PCI_EXPRESS_SEC_AER_CAPABILITIES_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SEC_AER_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SEC_AER_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SEC_AER_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SEC_AER_CAPABILITIES_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SEC_AER_CAPABILITIES_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SEC_AER_CAPABILITIES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SEC_AER_CAPABILITIES_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK {
     pub Anonymous: PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY {
     pub Anonymous: PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS {
     pub Anonymous: PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SERIAL_NUMBER_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub LowSerialNumber: u32,
     pub HighSerialNumber: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SERIAL_NUMBER_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SERIAL_NUMBER_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SERIAL_NUMBER_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER {
     pub Anonymous: PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SLOT_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_SLOT_CONTROL_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SLOT_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SLOT_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SLOT_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SLOT_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SLOT_CONTROL_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SLOT_CONTROL_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SLOT_CONTROL_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SLOT_STATUS_REGISTER {
     pub Anonymous: PCI_EXPRESS_SLOT_STATUS_REGISTER_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SLOT_STATUS_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SLOT_STATUS_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SLOT_STATUS_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SLOT_STATUS_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SLOT_STATUS_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SLOT_STATUS_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SLOT_STATUS_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_SRIOV_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub SRIOVCapabilities: PCI_EXPRESS_SRIOV_CAPS,
@@ -20507,316 +21277,316 @@ pub struct PCI_EXPRESS_SRIOV_CAPABILITY {
     pub BaseAddresses: [u32; 6],
     pub VFMigrationStateArrayOffset: PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY,
 }
+impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_SRIOV_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SRIOV_CAPS {
     pub Anonymous: PCI_EXPRESS_SRIOV_CAPS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_CAPS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SRIOV_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SRIOV_CAPS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_CAPS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SRIOV_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SRIOV_CONTROL {
     pub Anonymous: PCI_EXPRESS_SRIOV_CONTROL_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_CONTROL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SRIOV_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SRIOV_CONTROL_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_CONTROL_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SRIOV_CONTROL_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_CONTROL_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY {
     pub Anonymous: PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SRIOV_STATUS {
     pub Anonymous: PCI_EXPRESS_SRIOV_STATUS_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SRIOV_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SRIOV_STATUS_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_STATUS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_SRIOV_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_SRIOV_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_TPH_REQUESTER_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub RequesterCapability: PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER,
     pub RequesterControl: PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER {
     pub Anonymous: PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER {
     pub Anonymous: PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_TPH_ST_TABLE_ENTRY {
     pub Anonymous: PCI_EXPRESS_TPH_ST_TABLE_ENTRY_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_TPH_ST_TABLE_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_TPH_ST_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_TPH_ST_TABLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_TPH_ST_TABLE_ENTRY_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_TPH_ST_TABLE_ENTRY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_TPH_ST_TABLE_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_TPH_ST_TABLE_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK {
     pub Anonymous: PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY {
     pub Anonymous: PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS {
     pub Anonymous: PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub VsecId: u16,
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Capabilities1: VIRTUAL_CHANNEL_CAPABILITIES1,
@@ -20825,16 +21595,16 @@ pub struct PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {
     pub Status: VIRTUAL_CHANNEL_STATUS,
     pub Resource: [VIRTUAL_RESOURCE; 8],
 }
+impl windows_core::TypeKind for PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_FIRMWARE_BUS_CAPS {
     pub Type: u16,
     pub Length: u16,
@@ -20845,72 +21615,72 @@ pub struct PCI_FIRMWARE_BUS_CAPS {
     pub Voltage: u8,
     pub Reserved2: [u8; 7],
 }
+impl windows_core::TypeKind for PCI_FIRMWARE_BUS_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_FIRMWARE_BUS_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FIRMWARE_BUS_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_FIRMWARE_BUS_CAPS_0 {
     pub _bitfield: u8,
+}
+impl windows_core::TypeKind for PCI_FIRMWARE_BUS_CAPS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FIRMWARE_BUS_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FIRMWARE_BUS_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_FIRMWARE_BUS_CAPS_RETURN_BUFFER {
     pub Version: u16,
     pub Status: u16,
     pub Length: u32,
     pub Caps: PCI_FIRMWARE_BUS_CAPS,
 }
+impl windows_core::TypeKind for PCI_FIRMWARE_BUS_CAPS_RETURN_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_FIRMWARE_BUS_CAPS_RETURN_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FIRMWARE_BUS_CAPS_RETURN_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_FPB_CAPABILITIES_REGISTER {
     pub Anonymous: PCI_FPB_CAPABILITIES_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_FPB_CAPABILITIES_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FPB_CAPABILITIES_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_CAPABILITIES_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_FPB_CAPABILITIES_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_FPB_CAPABILITIES_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FPB_CAPABILITIES_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_CAPABILITIES_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_FPB_CAPABILITY {
     pub Header: PCI_FPB_CAPABILITY_HEADER,
     pub CapabilitiesRegister: PCI_FPB_CAPABILITIES_REGISTER,
@@ -20922,191 +21692,191 @@ pub struct PCI_FPB_CAPABILITY {
     pub VectorAccessControlRegister: PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER,
     pub VectorAccessDataRegister: PCI_FPB_VECTOR_ACCESS_DATA_REGISTER,
 }
+impl windows_core::TypeKind for PCI_FPB_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_FPB_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_FPB_CAPABILITY_HEADER {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub Reserved: u16,
+}
+impl windows_core::TypeKind for PCI_FPB_CAPABILITY_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FPB_CAPABILITY_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_CAPABILITY_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER {
     pub Anonymous: PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_FPB_MEM_HIGH_VECTOR_CONTROL2_REGISTER {
     pub MemHighVectorStartUpper: u32,
+}
+impl windows_core::TypeKind for PCI_FPB_MEM_HIGH_VECTOR_CONTROL2_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FPB_MEM_HIGH_VECTOR_CONTROL2_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_MEM_HIGH_VECTOR_CONTROL2_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER {
     pub Anonymous: PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_FPB_RID_VECTOR_CONTROL1_REGISTER {
     pub Anonymous: PCI_FPB_RID_VECTOR_CONTROL1_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_FPB_RID_VECTOR_CONTROL1_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FPB_RID_VECTOR_CONTROL1_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_RID_VECTOR_CONTROL1_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_FPB_RID_VECTOR_CONTROL1_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_FPB_RID_VECTOR_CONTROL1_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FPB_RID_VECTOR_CONTROL1_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_RID_VECTOR_CONTROL1_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_FPB_RID_VECTOR_CONTROL2_REGISTER {
     pub Anonymous: PCI_FPB_RID_VECTOR_CONTROL2_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_FPB_RID_VECTOR_CONTROL2_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FPB_RID_VECTOR_CONTROL2_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_RID_VECTOR_CONTROL2_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_FPB_RID_VECTOR_CONTROL2_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_FPB_RID_VECTOR_CONTROL2_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FPB_RID_VECTOR_CONTROL2_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_RID_VECTOR_CONTROL2_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER {
     pub Anonymous: PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_FPB_VECTOR_ACCESS_DATA_REGISTER {
     pub VectorAccessData: u32,
+}
+impl windows_core::TypeKind for PCI_FPB_VECTOR_ACCESS_DATA_REGISTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_FPB_VECTOR_ACCESS_DATA_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_FPB_VECTOR_ACCESS_DATA_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_MSIX_TABLE_CONFIG_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -21119,69 +21889,69 @@ pub struct PCI_MSIX_TABLE_CONFIG_INTERFACE {
     pub GetTableEntry: PPCI_MSIX_GET_ENTRY,
     pub GetTableSize: PPCI_MSIX_GET_TABLE_SIZE,
 }
+impl windows_core::TypeKind for PCI_MSIX_TABLE_CONFIG_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_MSIX_TABLE_CONFIG_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_MSIX_TABLE_CONFIG_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_PMC {
     pub _bitfield: u8,
     pub Support: PCI_PMC_0,
+}
+impl windows_core::TypeKind for PCI_PMC {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_PMC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_PMC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_PMC_0 {
     pub _bitfield: u8,
+}
+impl windows_core::TypeKind for PCI_PMC_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_PMC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_PMC_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_PMCSR {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_PMCSR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_PMCSR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_PMCSR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_PMCSR_BSE {
     pub _bitfield: u8,
+}
+impl windows_core::TypeKind for PCI_PMCSR_BSE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_PMCSR_BSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_PMCSR_BSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_PM_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub PMC: PCI_PM_CAPABILITY_0,
@@ -21189,58 +21959,58 @@ pub struct PCI_PM_CAPABILITY {
     pub PMCSR_BSE: PCI_PM_CAPABILITY_2,
     pub Data: u8,
 }
+impl windows_core::TypeKind for PCI_PM_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_PM_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_PM_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_PM_CAPABILITY_2 {
     pub BridgeSupport: PCI_PMCSR_BSE,
     pub AsUCHAR: u8,
+}
+impl windows_core::TypeKind for PCI_PM_CAPABILITY_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_PM_CAPABILITY_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_PM_CAPABILITY_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_PM_CAPABILITY_1 {
     pub ControlStatus: PCI_PMCSR,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_PM_CAPABILITY_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_PM_CAPABILITY_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_PM_CAPABILITY_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_PM_CAPABILITY_0 {
     pub Capabilities: PCI_PMC,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_PM_CAPABILITY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_PM_CAPABILITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_PM_CAPABILITY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_ROOT_BUS_HARDWARE_CAPABILITY {
     pub SecondaryInterface: PCI_HARDWARE_INTERFACE,
     pub Anonymous: PCI_ROOT_BUS_HARDWARE_CAPABILITY_0,
@@ -21248,16 +22018,16 @@ pub struct PCI_ROOT_BUS_HARDWARE_CAPABILITY {
     pub OscControlRequest: PCI_ROOT_BUS_OSC_CONTROL_FIELD,
     pub OscControlGranted: PCI_ROOT_BUS_OSC_CONTROL_FIELD,
 }
+impl windows_core::TypeKind for PCI_ROOT_BUS_HARDWARE_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_ROOT_BUS_HARDWARE_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ROOT_BUS_HARDWARE_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_ROOT_BUS_HARDWARE_CAPABILITY_0 {
     pub BusCapabilitiesFound: super::super::super::Win32::Foundation::BOOLEAN,
     pub CurrentSpeedAndMode: u32,
@@ -21265,96 +22035,96 @@ pub struct PCI_ROOT_BUS_HARDWARE_CAPABILITY_0 {
     pub DeviceIDMessagingCapable: super::super::super::Win32::Foundation::BOOLEAN,
     pub SecondaryBusWidth: PCI_BUS_WIDTH,
 }
+impl windows_core::TypeKind for PCI_ROOT_BUS_HARDWARE_CAPABILITY_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_ROOT_BUS_HARDWARE_CAPABILITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ROOT_BUS_HARDWARE_CAPABILITY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_ROOT_BUS_OSC_CONTROL_FIELD {
     pub u: PCI_ROOT_BUS_OSC_CONTROL_FIELD_0,
+}
+impl windows_core::TypeKind for PCI_ROOT_BUS_OSC_CONTROL_FIELD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_ROOT_BUS_OSC_CONTROL_FIELD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ROOT_BUS_OSC_CONTROL_FIELD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_ROOT_BUS_OSC_CONTROL_FIELD_0 {
     pub Anonymous: PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_ROOT_BUS_OSC_CONTROL_FIELD_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_ROOT_BUS_OSC_CONTROL_FIELD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ROOT_BUS_OSC_CONTROL_FIELD_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_ROOT_BUS_OSC_SUPPORT_FIELD {
     pub u: PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0,
+}
+impl windows_core::TypeKind for PCI_ROOT_BUS_OSC_SUPPORT_FIELD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_ROOT_BUS_OSC_SUPPORT_FIELD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ROOT_BUS_OSC_SUPPORT_FIELD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0 {
     pub Anonymous: PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_SECURITY_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -21363,16 +22133,16 @@ pub struct PCI_SECURITY_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub SetAccessControlServices: PPCI_SET_ACS,
 }
+impl windows_core::TypeKind for PCI_SECURITY_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_SECURITY_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_SECURITY_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_SECURITY_INTERFACE2 {
     pub Size: u16,
     pub Version: u16,
@@ -21383,127 +22153,127 @@ pub struct PCI_SECURITY_INTERFACE2 {
     pub SupportedScenarios: u32,
     pub SetAccessControlServices: PPCI_SET_ACS2,
 }
+impl windows_core::TypeKind for PCI_SECURITY_INTERFACE2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_SECURITY_INTERFACE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_SECURITY_INTERFACE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_SEGMENT_BUS_NUMBER {
     pub u: PCI_SEGMENT_BUS_NUMBER_0,
+}
+impl windows_core::TypeKind for PCI_SEGMENT_BUS_NUMBER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_SEGMENT_BUS_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_SEGMENT_BUS_NUMBER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_SEGMENT_BUS_NUMBER_0 {
     pub bits: PCI_SEGMENT_BUS_NUMBER_0_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_SEGMENT_BUS_NUMBER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_SEGMENT_BUS_NUMBER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_SEGMENT_BUS_NUMBER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_SEGMENT_BUS_NUMBER_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_SEGMENT_BUS_NUMBER_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_SEGMENT_BUS_NUMBER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_SEGMENT_BUS_NUMBER_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_SLOT_NUMBER {
     pub u: PCI_SLOT_NUMBER_0,
+}
+impl windows_core::TypeKind for PCI_SLOT_NUMBER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_SLOT_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_SLOT_NUMBER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_SLOT_NUMBER_0 {
     pub bits: PCI_SLOT_NUMBER_0_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_SLOT_NUMBER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_SLOT_NUMBER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_SLOT_NUMBER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_SLOT_NUMBER_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_SLOT_NUMBER_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_SLOT_NUMBER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_SLOT_NUMBER_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_SUBSYSTEM_IDS_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub Reserved: u16,
     pub SubVendorID: u16,
     pub SubSystemID: u16,
 }
+impl windows_core::TypeKind for PCI_SUBSYSTEM_IDS_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_SUBSYSTEM_IDS_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_SUBSYSTEM_IDS_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_VENDOR_SPECIFIC_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub VscLength: u8,
     pub VendorSpecific: u8,
+}
+impl windows_core::TypeKind for PCI_VENDOR_SPECIFIC_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_VENDOR_SPECIFIC_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_VENDOR_SPECIFIC_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_VIRTUALIZATION_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -21517,86 +22287,86 @@ pub struct PCI_VIRTUALIZATION_INTERFACE {
     pub EnableVirtualization: PENABLE_VIRTUALIZATION,
     pub GetVirtualFunctionProbedBars: PGET_VIRTUAL_FUNCTION_PROBED_BARS,
 }
+impl windows_core::TypeKind for PCI_VIRTUALIZATION_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCI_VIRTUALIZATION_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_VIRTUALIZATION_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCI_X_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub Command: PCI_X_CAPABILITY_0,
     pub Status: PCI_X_CAPABILITY_1,
+}
+impl windows_core::TypeKind for PCI_X_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_X_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_X_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_X_CAPABILITY_0 {
     pub bits: PCI_X_CAPABILITY_0_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCI_X_CAPABILITY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_X_CAPABILITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_X_CAPABILITY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_X_CAPABILITY_0_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCI_X_CAPABILITY_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_X_CAPABILITY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_X_CAPABILITY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCI_X_CAPABILITY_1 {
     pub bits: PCI_X_CAPABILITY_1_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for PCI_X_CAPABILITY_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_X_CAPABILITY_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_X_CAPABILITY_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_X_CAPABILITY_1_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_X_CAPABILITY_1_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_X_CAPABILITY_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCI_X_CAPABILITY_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PCW_CALLBACK_INFORMATION {
     pub AddCounter: PCW_COUNTER_INFORMATION,
     pub RemoveCounter: PCW_COUNTER_INFORMATION,
@@ -21604,62 +22374,62 @@ pub union PCW_CALLBACK_INFORMATION {
     pub CollectData: PCW_MASK_INFORMATION,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for PCW_CALLBACK_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for PCW_CALLBACK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for PCW_CALLBACK_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCW_COUNTER_DESCRIPTOR {
     pub Id: u16,
     pub StructIndex: u16,
     pub Offset: u16,
     pub Size: u16,
 }
+impl windows_core::TypeKind for PCW_COUNTER_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCW_COUNTER_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCW_COUNTER_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCW_COUNTER_INFORMATION {
     pub CounterMask: u64,
     pub InstanceMask: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
+}
+impl windows_core::TypeKind for PCW_COUNTER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCW_COUNTER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCW_COUNTER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCW_DATA {
     pub Data: *const core::ffi::c_void,
     pub Size: u32,
+}
+impl windows_core::TypeKind for PCW_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PCW_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCW_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCW_MASK_INFORMATION {
     pub CounterMask: u64,
     pub InstanceMask: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -21669,17 +22439,17 @@ pub struct PCW_MASK_INFORMATION {
     pub CancelEvent: *mut super::super::Foundation::KEVENT,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for PCW_MASK_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for PCW_MASK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for PCW_MASK_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCW_REGISTRATION_INFORMATION {
     pub Version: u32,
     pub Name: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -21689,46 +22459,46 @@ pub struct PCW_REGISTRATION_INFORMATION {
     pub CallbackContext: *mut core::ffi::c_void,
     pub Flags: PCW_REGISTRATION_FLAGS,
 }
+impl windows_core::TypeKind for PCW_REGISTRATION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PCW_REGISTRATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PCW_REGISTRATION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION {
     pub OverflowHandler: PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER,
     pub CustomEventBufferEntrySize: u32,
     pub EventThreshold: u32,
+}
+impl windows_core::TypeKind for PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR {
     pub Type: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE,
     pub Flags: u32,
     pub u: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0,
+}
+impl windows_core::TypeKind for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0 {
     pub CounterIndex: u32,
     pub Range: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0_0,
@@ -21736,103 +22506,103 @@ pub union PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0 {
     pub EventBufferConfiguration: PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION,
     pub IdentificationTag: u32,
 }
+impl windows_core::TypeKind for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0_0 {
     pub Begin: u32,
     pub End: u32,
+}
+impl windows_core::TypeKind for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PHYSICAL_COUNTER_RESOURCE_LIST {
     pub Count: u32,
     pub Descriptors: [PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR; 1],
+}
+impl windows_core::TypeKind for PHYSICAL_COUNTER_RESOURCE_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_COUNTER_RESOURCE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_COUNTER_RESOURCE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_MEMORY_RANGE {
     pub BaseAddress: i64,
     pub NumberOfBytes: i64,
+}
+impl windows_core::TypeKind for PHYSICAL_MEMORY_RANGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_MEMORY_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_MEMORY_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PLUGPLAY_NOTIFICATION_HEADER {
     pub Version: u16,
     pub Size: u16,
     pub Event: windows_core::GUID,
+}
+impl windows_core::TypeKind for PLUGPLAY_NOTIFICATION_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PLUGPLAY_NOTIFICATION_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PLUGPLAY_NOTIFICATION_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PM_DISPATCH_TABLE {
     pub Signature: u32,
     pub Version: u32,
     pub Function: [*mut core::ffi::c_void; 1],
+}
+impl windows_core::TypeKind for PM_DISPATCH_TABLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PM_DISPATCH_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PM_DISPATCH_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PNP_BUS_INFORMATION {
     pub BusTypeGuid: windows_core::GUID,
     pub LegacyBusType: INTERFACE_TYPE,
     pub BusNumber: u32,
+}
+impl windows_core::TypeKind for PNP_BUS_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PNP_BUS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PNP_BUS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PNP_EXTENDED_ADDRESS_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -21841,16 +22611,16 @@ pub struct PNP_EXTENDED_ADDRESS_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub QueryExtendedAddress: PQUERYEXTENDEDADDRESS,
 }
+impl windows_core::TypeKind for PNP_EXTENDED_ADDRESS_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PNP_EXTENDED_ADDRESS_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PNP_EXTENDED_ADDRESS_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PNP_LOCATION_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -21859,16 +22629,16 @@ pub struct PNP_LOCATION_INTERFACE {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub GetLocationString: PGET_LOCATION_STRING,
 }
+impl windows_core::TypeKind for PNP_LOCATION_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PNP_LOCATION_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PNP_LOCATION_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PNP_REPLACE_DRIVER_INTERFACE {
     pub Size: u32,
     pub Version: u32,
@@ -21884,46 +22654,46 @@ pub struct PNP_REPLACE_DRIVER_INTERFACE {
     pub GetMemoryDestination: PREPLACE_GET_MEMORY_DESTINATION,
     pub EnableDisableHardwareQuiesce: PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE,
 }
+impl windows_core::TypeKind for PNP_REPLACE_DRIVER_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PNP_REPLACE_DRIVER_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PNP_REPLACE_DRIVER_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PNP_REPLACE_MEMORY_LIST {
     pub AllocatedCount: u32,
     pub Count: u32,
     pub TotalLength: u64,
     pub Ranges: [PNP_REPLACE_MEMORY_LIST_0; 1],
 }
+impl windows_core::TypeKind for PNP_REPLACE_MEMORY_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PNP_REPLACE_MEMORY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PNP_REPLACE_MEMORY_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PNP_REPLACE_MEMORY_LIST_0 {
     pub Address: i64,
     pub Length: u64,
+}
+impl windows_core::TypeKind for PNP_REPLACE_MEMORY_LIST_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PNP_REPLACE_MEMORY_LIST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PNP_REPLACE_MEMORY_LIST_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PNP_REPLACE_PARAMETERS {
     pub Size: u32,
     pub Version: u32,
@@ -21935,16 +22705,16 @@ pub struct PNP_REPLACE_PARAMETERS {
     pub SpareMemory: *mut PNP_REPLACE_MEMORY_LIST,
     pub MapMemory: PREPLACE_MAP_MEMORY,
 }
+impl windows_core::TypeKind for PNP_REPLACE_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PNP_REPLACE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PNP_REPLACE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PNP_REPLACE_PROCESSOR_LIST {
     pub Affinity: *mut usize,
     pub GroupCount: u32,
@@ -21952,32 +22722,32 @@ pub struct PNP_REPLACE_PROCESSOR_LIST {
     pub Count: u32,
     pub ApicIds: [u32; 1],
 }
+impl windows_core::TypeKind for PNP_REPLACE_PROCESSOR_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PNP_REPLACE_PROCESSOR_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PNP_REPLACE_PROCESSOR_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PNP_REPLACE_PROCESSOR_LIST_V1 {
     pub AffinityMask: usize,
     pub AllocatedCount: u32,
     pub Count: u32,
     pub ApicIds: [u32; 1],
 }
+impl windows_core::TypeKind for PNP_REPLACE_PROCESSOR_LIST_V1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PNP_REPLACE_PROCESSOR_LIST_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PNP_REPLACE_PROCESSOR_LIST_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POOLED_USAGE_AND_LIMITS {
     pub PeakPagedPoolUsage: usize,
     pub PagedPoolUsage: usize,
@@ -21989,56 +22759,56 @@ pub struct POOLED_USAGE_AND_LIMITS {
     pub PagefileUsage: usize,
     pub PagefileLimit: usize,
 }
+impl windows_core::TypeKind for POOLED_USAGE_AND_LIMITS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for POOLED_USAGE_AND_LIMITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POOLED_USAGE_AND_LIMITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POOL_CREATE_EXTENDED_PARAMS {
     pub Version: u32,
+}
+impl windows_core::TypeKind for POOL_CREATE_EXTENDED_PARAMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POOL_CREATE_EXTENDED_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POOL_CREATE_EXTENDED_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct POOL_EXTENDED_PARAMETER {
     pub Anonymous1: POOL_EXTENDED_PARAMETER_0,
     pub Anonymous2: POOL_EXTENDED_PARAMETER_1,
+}
+impl windows_core::TypeKind for POOL_EXTENDED_PARAMETER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POOL_EXTENDED_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POOL_EXTENDED_PARAMETER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POOL_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for POOL_EXTENDED_PARAMETER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POOL_EXTENDED_PARAMETER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POOL_EXTENDED_PARAMETER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union POOL_EXTENDED_PARAMETER_1 {
     pub Reserved2: u64,
     pub Reserved3: *mut core::ffi::c_void,
@@ -22046,135 +22816,139 @@ pub union POOL_EXTENDED_PARAMETER_1 {
     pub SecurePoolParams: *mut POOL_EXTENDED_PARAMS_SECURE_POOL,
     pub PreferredNode: u32,
 }
+impl windows_core::TypeKind for POOL_EXTENDED_PARAMETER_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for POOL_EXTENDED_PARAMETER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POOL_EXTENDED_PARAMETER_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POOL_EXTENDED_PARAMS_SECURE_POOL {
     pub SecurePoolHandle: super::super::super::Win32::Foundation::HANDLE,
     pub Buffer: *mut core::ffi::c_void,
     pub Cookie: usize,
     pub SecurePoolFlags: u32,
 }
+impl windows_core::TypeKind for POOL_EXTENDED_PARAMS_SECURE_POOL {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for POOL_EXTENDED_PARAMS_SECURE_POOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POOL_EXTENDED_PARAMS_SECURE_POOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_MONITOR_INVOCATION {
     pub Console: super::super::super::Win32::Foundation::BOOLEAN,
     pub RequestReason: POWER_MONITOR_REQUEST_REASON,
+}
+impl windows_core::TypeKind for POWER_MONITOR_INVOCATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_MONITOR_INVOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_MONITOR_INVOCATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_PLATFORM_INFORMATION {
     pub AoAc: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for POWER_PLATFORM_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_PLATFORM_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_PLATFORM_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_SEQUENCE {
     pub SequenceD1: u32,
     pub SequenceD2: u32,
     pub SequenceD3: u32,
+}
+impl windows_core::TypeKind for POWER_SEQUENCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_SEQUENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_SEQUENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_SESSION_CONNECT {
     pub Connected: super::super::super::Win32::Foundation::BOOLEAN,
     pub Console: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for POWER_SESSION_CONNECT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_SESSION_CONNECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_SESSION_CONNECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_SESSION_RIT_STATE {
     pub Active: super::super::super::Win32::Foundation::BOOLEAN,
     pub LastInputTime: u64,
+}
+impl windows_core::TypeKind for POWER_SESSION_RIT_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_SESSION_RIT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_SESSION_RIT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_SESSION_TIMEOUTS {
     pub InputTimeout: u32,
     pub DisplayTimeout: u32,
+}
+impl windows_core::TypeKind for POWER_SESSION_TIMEOUTS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_SESSION_TIMEOUTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_SESSION_TIMEOUTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_SESSION_WINLOGON {
     pub SessionId: u32,
     pub Console: super::super::super::Win32::Foundation::BOOLEAN,
     pub Locked: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for POWER_SESSION_WINLOGON {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_SESSION_WINLOGON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_SESSION_WINLOGON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union POWER_STATE {
     pub SystemState: super::super::super::Win32::System::Power::SYSTEM_POWER_STATE,
     pub DeviceState: super::super::super::Win32::System::Power::DEVICE_POWER_STATE,
+}
+#[cfg(feature = "Win32_System_Power")]
+impl windows_core::TypeKind for POWER_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Power")]
 impl Default for POWER_STATE {
@@ -22182,71 +22956,67 @@ impl Default for POWER_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Power")]
-impl windows_core::TypeKind for POWER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_THROTTLING_PROCESS_STATE {
     pub Version: u32,
     pub ControlMask: u32,
     pub StateMask: u32,
+}
+impl windows_core::TypeKind for POWER_THROTTLING_PROCESS_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_THROTTLING_PROCESS_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_THROTTLING_PROCESS_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_THROTTLING_THREAD_STATE {
     pub Version: u32,
     pub ControlMask: u32,
     pub StateMask: u32,
+}
+impl windows_core::TypeKind for POWER_THROTTLING_THREAD_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for POWER_THROTTLING_THREAD_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for POWER_THROTTLING_THREAD_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PO_FX_COMPONENT_IDLE_STATE {
     pub TransitionLatency: u64,
     pub ResidencyRequirement: u64,
     pub NominalPower: u32,
+}
+impl windows_core::TypeKind for PO_FX_COMPONENT_IDLE_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PO_FX_COMPONENT_IDLE_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PO_FX_COMPONENT_IDLE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_PERF_INFO {
     pub PerfStateSetsCount: u32,
     pub PerfStateSets: [PO_FX_COMPONENT_PERF_SET; 1],
+}
+impl windows_core::TypeKind for PO_FX_COMPONENT_PERF_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PO_FX_COMPONENT_PERF_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PO_FX_COMPONENT_PERF_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_COMPONENT_PERF_SET {
     pub Name: super::super::super::Win32::Foundation::UNICODE_STRING,
     pub Flags: u64,
@@ -22254,74 +23024,74 @@ pub struct PO_FX_COMPONENT_PERF_SET {
     pub Type: PO_FX_PERF_STATE_TYPE,
     pub Anonymous: PO_FX_COMPONENT_PERF_SET_0,
 }
+impl windows_core::TypeKind for PO_FX_COMPONENT_PERF_SET {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PO_FX_COMPONENT_PERF_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PO_FX_COMPONENT_PERF_SET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PO_FX_COMPONENT_PERF_SET_0 {
     pub Discrete: PO_FX_COMPONENT_PERF_SET_0_0,
     pub Range: PO_FX_COMPONENT_PERF_SET_0_1,
+}
+impl windows_core::TypeKind for PO_FX_COMPONENT_PERF_SET_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PO_FX_COMPONENT_PERF_SET_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PO_FX_COMPONENT_PERF_SET_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PO_FX_COMPONENT_PERF_SET_0_0 {
     pub Count: u32,
     pub States: *mut PO_FX_PERF_STATE,
+}
+impl windows_core::TypeKind for PO_FX_COMPONENT_PERF_SET_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PO_FX_COMPONENT_PERF_SET_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PO_FX_COMPONENT_PERF_SET_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PO_FX_COMPONENT_PERF_SET_0_1 {
     pub Minimum: u64,
     pub Maximum: u64,
+}
+impl windows_core::TypeKind for PO_FX_COMPONENT_PERF_SET_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PO_FX_COMPONENT_PERF_SET_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PO_FX_COMPONENT_PERF_SET_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PO_FX_COMPONENT_V1 {
     pub Id: windows_core::GUID,
     pub IdleStateCount: u32,
     pub DeepestWakeableIdleState: u32,
     pub IdleStates: *mut PO_FX_COMPONENT_IDLE_STATE,
 }
+impl windows_core::TypeKind for PO_FX_COMPONENT_V1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PO_FX_COMPONENT_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PO_FX_COMPONENT_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PO_FX_COMPONENT_V2 {
     pub Id: windows_core::GUID,
     pub Flags: u64,
@@ -22331,16 +23101,16 @@ pub struct PO_FX_COMPONENT_V2 {
     pub ProviderCount: u32,
     pub Providers: *mut u32,
 }
+impl windows_core::TypeKind for PO_FX_COMPONENT_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PO_FX_COMPONENT_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PO_FX_COMPONENT_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PO_FX_DEVICE_V1 {
     pub Version: u32,
     pub ComponentCount: u32,
@@ -22353,16 +23123,16 @@ pub struct PO_FX_DEVICE_V1 {
     pub DeviceContext: *mut core::ffi::c_void,
     pub Components: [PO_FX_COMPONENT_V1; 1],
 }
+impl windows_core::TypeKind for PO_FX_DEVICE_V1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PO_FX_DEVICE_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PO_FX_DEVICE_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PO_FX_DEVICE_V2 {
     pub Version: u32,
     pub Flags: u64,
@@ -22376,16 +23146,16 @@ pub struct PO_FX_DEVICE_V2 {
     pub ComponentCount: u32,
     pub Components: [PO_FX_COMPONENT_V2; 1],
 }
+impl windows_core::TypeKind for PO_FX_DEVICE_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PO_FX_DEVICE_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PO_FX_DEVICE_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PO_FX_DEVICE_V3 {
     pub Version: u32,
     pub Flags: u64,
@@ -22402,200 +23172,204 @@ pub struct PO_FX_DEVICE_V3 {
     pub ComponentCount: u32,
     pub Components: [PO_FX_COMPONENT_V2; 1],
 }
+impl windows_core::TypeKind for PO_FX_DEVICE_V3 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PO_FX_DEVICE_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PO_FX_DEVICE_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PO_FX_PERF_STATE {
     pub Value: u64,
     pub Context: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for PO_FX_PERF_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PO_FX_PERF_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PO_FX_PERF_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PO_FX_PERF_STATE_CHANGE {
     pub Set: u32,
     pub Anonymous: PO_FX_PERF_STATE_CHANGE_0,
+}
+impl windows_core::TypeKind for PO_FX_PERF_STATE_CHANGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PO_FX_PERF_STATE_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PO_FX_PERF_STATE_CHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PO_FX_PERF_STATE_CHANGE_0 {
     pub StateIndex: u32,
     pub StateValue: u64,
+}
+impl windows_core::TypeKind for PO_FX_PERF_STATE_CHANGE_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PO_FX_PERF_STATE_CHANGE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PO_FX_PERF_STATE_CHANGE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_ACCESS_TOKEN {
     pub Token: super::super::super::Win32::Foundation::HANDLE,
     pub Thread: super::super::super::Win32::Foundation::HANDLE,
+}
+impl windows_core::TypeKind for PROCESS_ACCESS_TOKEN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_ACCESS_TOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_ACCESS_TOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_DEVICEMAP_INFORMATION {
     pub Anonymous: PROCESS_DEVICEMAP_INFORMATION_0,
+}
+impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_DEVICEMAP_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PROCESS_DEVICEMAP_INFORMATION_0 {
     pub Set: PROCESS_DEVICEMAP_INFORMATION_0_0,
     pub Query: PROCESS_DEVICEMAP_INFORMATION_0_1,
+}
+impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_DEVICEMAP_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_0_1 {
     pub DriveMap: u32,
     pub DriveType: [u8; 32],
+}
+impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_DEVICEMAP_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_0_0 {
     pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
+}
+impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_DEVICEMAP_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_EX {
     pub Anonymous: PROCESS_DEVICEMAP_INFORMATION_EX_0,
     pub Flags: u32,
+}
+impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_EX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_DEVICEMAP_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PROCESS_DEVICEMAP_INFORMATION_EX_0 {
     pub Set: PROCESS_DEVICEMAP_INFORMATION_EX_0_0,
     pub Query: PROCESS_DEVICEMAP_INFORMATION_EX_0_1,
+}
+impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_EX_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_EX_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
     pub DriveMap: u32,
     pub DriveType: [u8; 32],
+}
+impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
     pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
+}
+impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_EXCEPTION_PORT {
     pub ExceptionPortHandle: super::super::super::Win32::Foundation::HANDLE,
     pub StateFlags: u32,
+}
+impl windows_core::TypeKind for PROCESS_EXCEPTION_PORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_EXCEPTION_PORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_EXCEPTION_PORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_EXTENDED_BASIC_INFORMATION {
     pub Size: usize,
     pub BasicInfo: super::super::super::Win32::System::Threading::PROCESS_BASIC_INFORMATION,
     pub Anonymous: PROCESS_EXTENDED_BASIC_INFORMATION_0,
+}
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
+impl windows_core::TypeKind for PROCESS_EXTENDED_BASIC_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl Default for PROCESS_EXTENDED_BASIC_INFORMATION {
@@ -22603,16 +23377,16 @@ impl Default for PROCESS_EXTENDED_BASIC_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-impl windows_core::TypeKind for PROCESS_EXTENDED_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PROCESS_EXTENDED_BASIC_INFORMATION_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_EXTENDED_BASIC_INFORMATION_0_0,
+}
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
+impl windows_core::TypeKind for PROCESS_EXTENDED_BASIC_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl Default for PROCESS_EXTENDED_BASIC_INFORMATION_0 {
@@ -22620,15 +23394,15 @@ impl Default for PROCESS_EXTENDED_BASIC_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-impl windows_core::TypeKind for PROCESS_EXTENDED_BASIC_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_EXTENDED_BASIC_INFORMATION_0_0 {
     pub _bitfield: u32,
+}
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
+impl windows_core::TypeKind for PROCESS_EXTENDED_BASIC_INFORMATION_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl Default for PROCESS_EXTENDED_BASIC_INFORMATION_0_0 {
@@ -22636,40 +23410,36 @@ impl Default for PROCESS_EXTENDED_BASIC_INFORMATION_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-impl windows_core::TypeKind for PROCESS_EXTENDED_BASIC_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_HANDLE_TRACING_ENABLE {
     pub Flags: u32,
+}
+impl windows_core::TypeKind for PROCESS_HANDLE_TRACING_ENABLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_HANDLE_TRACING_ENABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_HANDLE_TRACING_ENABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_HANDLE_TRACING_ENABLE_EX {
     pub Flags: u32,
     pub TotalSlots: u32,
+}
+impl windows_core::TypeKind for PROCESS_HANDLE_TRACING_ENABLE_EX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_HANDLE_TRACING_ENABLE_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_HANDLE_TRACING_ENABLE_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_HANDLE_TRACING_ENTRY {
     pub Handle: super::super::super::Win32::Foundation::HANDLE,
     pub ClientId: super::super::super::Win32::System::WindowsProgramming::CLIENT_ID,
@@ -22677,22 +23447,26 @@ pub struct PROCESS_HANDLE_TRACING_ENTRY {
     pub Stacks: [*mut core::ffi::c_void; 16],
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
+impl windows_core::TypeKind for PROCESS_HANDLE_TRACING_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_WindowsProgramming")]
 impl Default for PROCESS_HANDLE_TRACING_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-impl windows_core::TypeKind for PROCESS_HANDLE_TRACING_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_HANDLE_TRACING_QUERY {
     pub Handle: super::super::super::Win32::Foundation::HANDLE,
     pub TotalTraces: u32,
     pub HandleTrace: [PROCESS_HANDLE_TRACING_ENTRY; 1],
+}
+#[cfg(feature = "Win32_System_WindowsProgramming")]
+impl windows_core::TypeKind for PROCESS_HANDLE_TRACING_QUERY {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 impl Default for PROCESS_HANDLE_TRACING_QUERY {
@@ -22700,94 +23474,90 @@ impl Default for PROCESS_HANDLE_TRACING_QUERY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_WindowsProgramming")]
-impl windows_core::TypeKind for PROCESS_HANDLE_TRACING_QUERY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_KEEPALIVE_COUNT_INFORMATION {
     pub WakeCount: u32,
     pub NoWakeCount: u32,
+}
+impl windows_core::TypeKind for PROCESS_KEEPALIVE_COUNT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_KEEPALIVE_COUNT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_KEEPALIVE_COUNT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_MEMBERSHIP_INFORMATION {
     pub ServerSiloId: u32,
+}
+impl windows_core::TypeKind for PROCESS_MEMBERSHIP_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_MEMBERSHIP_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_MEMBERSHIP_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_REVOKE_FILE_HANDLES_INFORMATION {
     pub TargetDevicePath: super::super::super::Win32::Foundation::UNICODE_STRING,
+}
+impl windows_core::TypeKind for PROCESS_REVOKE_FILE_HANDLES_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_REVOKE_FILE_HANDLES_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_REVOKE_FILE_HANDLES_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_SESSION_INFORMATION {
     pub SessionId: u32,
+}
+impl windows_core::TypeKind for PROCESS_SESSION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_SESSION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_SESSION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_SYSCALL_PROVIDER_INFORMATION {
     pub ProviderId: windows_core::GUID,
     pub Level: u8,
+}
+impl windows_core::TypeKind for PROCESS_SYSCALL_PROVIDER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_SYSCALL_PROVIDER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_SYSCALL_PROVIDER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_WS_WATCH_INFORMATION {
     pub FaultingPc: *mut core::ffi::c_void,
     pub FaultingVa: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for PROCESS_WS_WATCH_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PROCESS_WS_WATCH_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PROCESS_WS_WATCH_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PS_CREATE_NOTIFY_INFO {
     pub Size: usize,
     pub Anonymous: PS_CREATE_NOTIFY_INFO_0,
@@ -22799,21 +23569,25 @@ pub struct PS_CREATE_NOTIFY_INFO {
     pub CreationStatus: super::super::super::Win32::Foundation::NTSTATUS,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+impl windows_core::TypeKind for PS_CREATE_NOTIFY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl Default for PS_CREATE_NOTIFY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl windows_core::TypeKind for PS_CREATE_NOTIFY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PS_CREATE_NOTIFY_INFO_0 {
     pub Flags: u32,
     pub Anonymous: PS_CREATE_NOTIFY_INFO_0_0,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+impl windows_core::TypeKind for PS_CREATE_NOTIFY_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl Default for PS_CREATE_NOTIFY_INFO_0 {
@@ -22821,15 +23595,15 @@ impl Default for PS_CREATE_NOTIFY_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl windows_core::TypeKind for PS_CREATE_NOTIFY_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PS_CREATE_NOTIFY_INFO_0_0 {
     pub _bitfield: u32,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
+impl windows_core::TypeKind for PS_CREATE_NOTIFY_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl Default for PS_CREATE_NOTIFY_INFO_0_0 {
@@ -22837,12 +23611,8 @@ impl Default for PS_CREATE_NOTIFY_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
-impl windows_core::TypeKind for PS_CREATE_NOTIFY_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PTM_CONTROL_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -22854,16 +23624,16 @@ pub struct PTM_CONTROL_INTERFACE {
     pub Enable: PPTM_DEVICE_ENABLE,
     pub Disable: PPTM_DEVICE_DISABLE,
 }
+impl windows_core::TypeKind for PTM_CONTROL_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for PTM_CONTROL_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PTM_CONTROL_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REENUMERATE_SELF_INTERFACE_STANDARD {
     pub Size: u16,
     pub Version: u16,
@@ -22872,31 +23642,31 @@ pub struct REENUMERATE_SELF_INTERFACE_STANDARD {
     pub InterfaceDereference: PINTERFACE_DEREFERENCE,
     pub SurpriseRemoveAndReenumerateSelf: PREENUMERATE_SELF,
 }
+impl windows_core::TypeKind for REENUMERATE_SELF_INTERFACE_STANDARD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REENUMERATE_SELF_INTERFACE_STANDARD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REENUMERATE_SELF_INTERFACE_STANDARD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_CREATE_KEY_INFORMATION {
     pub CompleteName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub RootObject: *mut core::ffi::c_void,
@@ -22914,16 +23684,16 @@ pub struct REG_CREATE_KEY_INFORMATION {
     pub Transaction: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for REG_CREATE_KEY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_CREATE_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_CREATE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_CREATE_KEY_INFORMATION_V1 {
     pub CompleteName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub RootObject: *mut core::ffi::c_void,
@@ -22945,32 +23715,32 @@ pub struct REG_CREATE_KEY_INFORMATION_V1 {
     pub Attributes: u32,
     pub CheckAccessMode: i8,
 }
+impl windows_core::TypeKind for REG_CREATE_KEY_INFORMATION_V1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_CREATE_KEY_INFORMATION_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_CREATE_KEY_INFORMATION_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_DELETE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub CallContext: *mut core::ffi::c_void,
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for REG_DELETE_KEY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_DELETE_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_DELETE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_DELETE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -22978,32 +23748,32 @@ pub struct REG_DELETE_VALUE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for REG_DELETE_VALUE_KEY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_DELETE_VALUE_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_DELETE_VALUE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_KEY_HANDLE_CLOSE_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub CallContext: *mut core::ffi::c_void,
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for REG_KEY_HANDLE_CLOSE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_KEY_HANDLE_CLOSE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_KEY_HANDLE_CLOSE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_LOAD_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub KeyName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -23017,16 +23787,16 @@ pub struct REG_LOAD_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for REG_LOAD_KEY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_LOAD_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_LOAD_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_LOAD_KEY_INFORMATION_V2 {
     pub Object: *mut core::ffi::c_void,
     pub KeyName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -23041,31 +23811,31 @@ pub struct REG_LOAD_KEY_INFORMATION_V2 {
     pub Version: usize,
     pub FileAccessToken: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for REG_LOAD_KEY_INFORMATION_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_LOAD_KEY_INFORMATION_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_LOAD_KEY_INFORMATION_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_POST_CREATE_KEY_INFORMATION {
     pub CompleteName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub Object: *mut core::ffi::c_void,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
+}
+impl windows_core::TypeKind for REG_POST_CREATE_KEY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REG_POST_CREATE_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_POST_CREATE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_POST_OPERATION_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
@@ -23075,30 +23845,30 @@ pub struct REG_POST_OPERATION_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for REG_POST_OPERATION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_POST_OPERATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_POST_OPERATION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_PRE_CREATE_KEY_INFORMATION {
     pub CompleteName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
+}
+impl windows_core::TypeKind for REG_PRE_CREATE_KEY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REG_PRE_CREATE_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_PRE_CREATE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_QUERY_KEY_NAME {
     pub Object: *mut core::ffi::c_void,
     pub ObjectNameInfo: *mut super::super::Foundation::OBJECT_NAME_INFORMATION,
@@ -23109,18 +23879,18 @@ pub struct REG_QUERY_KEY_NAME {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for REG_QUERY_KEY_NAME {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for REG_QUERY_KEY_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for REG_QUERY_KEY_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_QUERY_KEY_SECURITY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub SecurityInformation: *mut u32,
@@ -23131,17 +23901,17 @@ pub struct REG_QUERY_KEY_SECURITY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for REG_QUERY_KEY_SECURITY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security")]
 impl Default for REG_QUERY_KEY_SECURITY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for REG_QUERY_KEY_SECURITY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_RENAME_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub NewName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -23149,16 +23919,16 @@ pub struct REG_RENAME_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for REG_RENAME_KEY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_RENAME_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_RENAME_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_REPLACE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub OldFileName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -23167,16 +23937,16 @@ pub struct REG_REPLACE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for REG_REPLACE_KEY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_REPLACE_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_REPLACE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_RESTORE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub FileHandle: super::super::super::Win32::Foundation::HANDLE,
@@ -23185,16 +23955,16 @@ pub struct REG_RESTORE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for REG_RESTORE_KEY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_RESTORE_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_RESTORE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_SAVE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub FileHandle: super::super::super::Win32::Foundation::HANDLE,
@@ -23203,16 +23973,16 @@ pub struct REG_SAVE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for REG_SAVE_KEY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_SAVE_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_SAVE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_SAVE_MERGED_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub FileHandle: super::super::super::Win32::Foundation::HANDLE,
@@ -23222,17 +23992,17 @@ pub struct REG_SAVE_MERGED_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for REG_SAVE_MERGED_KEY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_SAVE_MERGED_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_SAVE_MERGED_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_SET_KEY_SECURITY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub SecurityInformation: *mut u32,
@@ -23242,17 +24012,17 @@ pub struct REG_SET_KEY_SECURITY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for REG_SET_KEY_SECURITY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Security")]
 impl Default for REG_SET_KEY_SECURITY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for REG_SET_KEY_SECURITY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_SET_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -23264,16 +24034,16 @@ pub struct REG_SET_VALUE_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for REG_SET_VALUE_KEY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_SET_VALUE_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_SET_VALUE_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_UNLOAD_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub UserEvent: *mut core::ffi::c_void,
@@ -23281,17 +24051,17 @@ pub struct REG_UNLOAD_KEY_INFORMATION {
     pub ObjectContext: *mut core::ffi::c_void,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for REG_UNLOAD_KEY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for REG_UNLOAD_KEY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REG_UNLOAD_KEY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESOURCE_HASH_ENTRY {
     pub ListEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub Address: *mut core::ffi::c_void,
@@ -23299,18 +24069,18 @@ pub struct RESOURCE_HASH_ENTRY {
     pub Number: u32,
 }
 #[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for RESOURCE_HASH_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for RESOURCE_HASH_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for RESOURCE_HASH_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESOURCE_PERFORMANCE_DATA {
     pub ActiveResourceCount: u32,
     pub TotalResourceCount: u32,
@@ -23325,17 +24095,17 @@ pub struct RESOURCE_PERFORMANCE_DATA {
     pub HashTable: [super::super::super::Win32::System::Kernel::LIST_ENTRY; 64],
 }
 #[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for RESOURCE_PERFORMANCE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for RESOURCE_PERFORMANCE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for RESOURCE_PERFORMANCE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_AVL_TABLE {
     pub BalancedRoot: RTL_BALANCED_LINKS,
     pub OrderedPointer: *mut core::ffi::c_void,
@@ -23349,16 +24119,16 @@ pub struct RTL_AVL_TABLE {
     pub FreeRoutine: PRTL_AVL_FREE_ROUTINE,
     pub TableContext: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for RTL_AVL_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RTL_AVL_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_AVL_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_BALANCED_LINKS {
     pub Parent: *mut RTL_BALANCED_LINKS,
     pub LeftChild: *mut RTL_BALANCED_LINKS,
@@ -23366,44 +24136,44 @@ pub struct RTL_BALANCED_LINKS {
     pub Balance: i8,
     pub Reserved: [u8; 3],
 }
+impl windows_core::TypeKind for RTL_BALANCED_LINKS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RTL_BALANCED_LINKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_BALANCED_LINKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_BITMAP {
     pub SizeOfBitMap: u32,
     pub Buffer: *mut u32,
+}
+impl windows_core::TypeKind for RTL_BITMAP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for RTL_BITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_BITMAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_BITMAP_RUN {
     pub StartingIndex: u32,
     pub NumberOfBits: u32,
+}
+impl windows_core::TypeKind for RTL_BITMAP_RUN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for RTL_BITMAP_RUN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_BITMAP_RUN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_DYNAMIC_HASH_TABLE {
     pub Flags: u32,
     pub Shift: u32,
@@ -23415,21 +24185,25 @@ pub struct RTL_DYNAMIC_HASH_TABLE {
     pub NumEnumerators: u32,
     pub Directory: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for RTL_DYNAMIC_HASH_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RTL_DYNAMIC_HASH_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_DYNAMIC_HASH_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_DYNAMIC_HASH_TABLE_CONTEXT {
     pub ChainHead: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub PrevLinkage: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub Signature: usize,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for RTL_DYNAMIC_HASH_TABLE_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for RTL_DYNAMIC_HASH_TABLE_CONTEXT {
@@ -23437,16 +24211,16 @@ impl Default for RTL_DYNAMIC_HASH_TABLE_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for RTL_DYNAMIC_HASH_TABLE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_DYNAMIC_HASH_TABLE_ENTRY {
     pub Linkage: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub Signature: usize,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for RTL_DYNAMIC_HASH_TABLE_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for RTL_DYNAMIC_HASH_TABLE_ENTRY {
@@ -23454,17 +24228,17 @@ impl Default for RTL_DYNAMIC_HASH_TABLE_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for RTL_DYNAMIC_HASH_TABLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RTL_DYNAMIC_HASH_TABLE_ENUMERATOR {
     pub Anonymous: RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0,
     pub ChainHead: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub BucketIndex: u32,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for RTL_DYNAMIC_HASH_TABLE_ENUMERATOR {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for RTL_DYNAMIC_HASH_TABLE_ENUMERATOR {
@@ -23472,16 +24246,16 @@ impl Default for RTL_DYNAMIC_HASH_TABLE_ENUMERATOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for RTL_DYNAMIC_HASH_TABLE_ENUMERATOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0 {
     pub HashEntry: RTL_DYNAMIC_HASH_TABLE_ENTRY,
     pub CurEntry: *mut super::super::super::Win32::System::Kernel::LIST_ENTRY,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0 {
@@ -23489,13 +24263,9 @@ impl Default for RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_GENERIC_TABLE {
     pub TableRoot: *mut super::super::Foundation::RTL_SPLAY_LINKS,
     pub InsertOrderList: super::super::super::Win32::System::Kernel::LIST_ENTRY,
@@ -23508,17 +24278,17 @@ pub struct RTL_GENERIC_TABLE {
     pub TableContext: *mut core::ffi::c_void,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for RTL_GENERIC_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for RTL_GENERIC_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for RTL_GENERIC_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_QUERY_REGISTRY_TABLE {
     pub QueryRoutine: PRTL_QUERY_REGISTRY_ROUTINE,
     pub Flags: u32,
@@ -23528,61 +24298,61 @@ pub struct RTL_QUERY_REGISTRY_TABLE {
     pub DefaultData: *mut core::ffi::c_void,
     pub DefaultLength: u32,
 }
+impl windows_core::TypeKind for RTL_QUERY_REGISTRY_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RTL_QUERY_REGISTRY_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RTL_QUERY_REGISTRY_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCATTER_GATHER_ELEMENT {
     pub Address: i64,
     pub Length: u32,
     pub Reserved: usize,
+}
+impl windows_core::TypeKind for SCATTER_GATHER_ELEMENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SCATTER_GATHER_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCATTER_GATHER_ELEMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCATTER_GATHER_LIST {
     pub NumberOfElements: u32,
     pub Reserved: usize,
     pub Elements: [SCATTER_GATHER_ELEMENT; 1],
+}
+impl windows_core::TypeKind for SCATTER_GATHER_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SCATTER_GATHER_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SCATTER_GATHER_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SDEV_IDENTIFIER_INTERFACE {
     pub InterfaceHeader: INTERFACE,
     pub GetIdentifier: PGET_SDEV_IDENTIFIER,
+}
+impl windows_core::TypeKind for SDEV_IDENTIFIER_INTERFACE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SDEV_IDENTIFIER_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SDEV_IDENTIFIER_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURE_DRIVER_INTERFACE {
     pub InterfaceHeader: INTERFACE,
     pub ProcessReference: PSECURE_DRIVER_PROCESS_REFERENCE,
@@ -23590,23 +24360,28 @@ pub struct SECURE_DRIVER_INTERFACE {
     pub Reserved: u32,
 }
 #[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for SECURE_DRIVER_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for SECURE_DRIVER_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for SECURE_DRIVER_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SECURITY_CONTEXT_TRACKING_MODE(pub u8);
+impl Default for SECURITY_CONTEXT_TRACKING_MODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for SECURITY_CONTEXT_TRACKING_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHARE_ACCESS {
     pub OpenCount: u32,
     pub Readers: u32,
@@ -23616,32 +24391,32 @@ pub struct SHARE_ACCESS {
     pub SharedWrite: u32,
     pub SharedDelete: u32,
 }
+impl windows_core::TypeKind for SHARE_ACCESS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SHARE_ACCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SHARE_ACCESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SIGNAL_REG_VALUE {
     pub RegName: [u8; 32],
     pub MsrAddr: u32,
     pub Value: u64,
+}
+impl windows_core::TypeKind for SIGNAL_REG_VALUE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SIGNAL_REG_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SIGNAL_REG_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SILO_MONITOR_REGISTRATION {
     pub Version: u8,
     pub MonitorHost: super::super::super::Win32::Foundation::BOOLEAN,
@@ -23652,21 +24427,25 @@ pub struct SILO_MONITOR_REGISTRATION {
     pub TerminateCallback: SILO_MONITOR_TERMINATE_CALLBACK,
 }
 #[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for SILO_MONITOR_REGISTRATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for SILO_MONITOR_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for SILO_MONITOR_REGISTRATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SILO_MONITOR_REGISTRATION_0 {
     pub DriverObjectName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub ComponentName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for SILO_MONITOR_REGISTRATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for SILO_MONITOR_REGISTRATION_0 {
@@ -23674,12 +24453,8 @@ impl Default for SILO_MONITOR_REGISTRATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for SILO_MONITOR_REGISTRATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOC_SUBSYSTEM_FAILURE_DETAILS {
     pub SubsysType: SOC_SUBSYSTEM_TYPE,
     pub FirmwareVersion: u64,
@@ -23687,32 +24462,32 @@ pub struct SOC_SUBSYSTEM_FAILURE_DETAILS {
     pub UnifiedFailureRegionSize: u32,
     pub UnifiedFailureRegion: [i8; 1],
 }
+impl windows_core::TypeKind for SOC_SUBSYSTEM_FAILURE_DETAILS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SOC_SUBSYSTEM_FAILURE_DETAILS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SOC_SUBSYSTEM_FAILURE_DETAILS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_FIRMWARE_TABLE_HANDLER {
     pub ProviderSignature: u32,
     pub Register: super::super::super::Win32::Foundation::BOOLEAN,
     pub FirmwareTableHandler: PFNFTH,
     pub DriverObject: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for SYSTEM_FIRMWARE_TABLE_HANDLER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SYSTEM_FIRMWARE_TABLE_HANDLER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_FIRMWARE_TABLE_HANDLER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_FIRMWARE_TABLE_INFORMATION {
     pub ProviderSignature: u32,
     pub Action: SYSTEM_FIRMWARE_TABLE_ACTION,
@@ -23720,57 +24495,57 @@ pub struct SYSTEM_FIRMWARE_TABLE_INFORMATION {
     pub TableBufferLength: u32,
     pub TableBuffer: [u8; 1],
 }
+impl windows_core::TypeKind for SYSTEM_FIRMWARE_TABLE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SYSTEM_FIRMWARE_TABLE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_FIRMWARE_TABLE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SYSTEM_POWER_STATE_CONTEXT {
     pub Anonymous: SYSTEM_POWER_STATE_CONTEXT_0,
+}
+impl windows_core::TypeKind for SYSTEM_POWER_STATE_CONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SYSTEM_POWER_STATE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_POWER_STATE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SYSTEM_POWER_STATE_CONTEXT_0 {
     pub Anonymous: SYSTEM_POWER_STATE_CONTEXT_0_0,
     pub ContextAsUlong: u32,
+}
+impl windows_core::TypeKind for SYSTEM_POWER_STATE_CONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SYSTEM_POWER_STATE_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_POWER_STATE_CONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_STATE_CONTEXT_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for SYSTEM_POWER_STATE_CONTEXT_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SYSTEM_POWER_STATE_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYSTEM_POWER_STATE_CONTEXT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TARGET_DEVICE_REMOVAL_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
@@ -23778,17 +24553,17 @@ pub struct TARGET_DEVICE_REMOVAL_NOTIFICATION {
     pub FileObject: *mut super::super::Foundation::FILE_OBJECT,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for TARGET_DEVICE_REMOVAL_NOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for TARGET_DEVICE_REMOVAL_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for TARGET_DEVICE_REMOVAL_NOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TIMER_SET_COALESCABLE_TIMER_INFO {
     pub DueTime: i64,
     pub TimerApcRoutine: PTIMER_APC_ROUTINE,
@@ -23798,16 +24573,16 @@ pub struct TIMER_SET_COALESCABLE_TIMER_INFO {
     pub TolerableDelay: u32,
     pub PreviousState: *mut super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for TIMER_SET_COALESCABLE_TIMER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for TIMER_SET_COALESCABLE_TIMER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TIMER_SET_COALESCABLE_TIMER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TIME_FIELDS {
     pub Year: i16,
     pub Month: i16,
@@ -23818,17 +24593,17 @@ pub struct TIME_FIELDS {
     pub Milliseconds: i16,
     pub Weekday: i16,
 }
+impl windows_core::TypeKind for TIME_FIELDS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for TIME_FIELDS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TIME_FIELDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSLATOR_INTERFACE {
     pub Size: u16,
     pub Version: u16,
@@ -23839,237 +24614,237 @@ pub struct TRANSLATOR_INTERFACE {
     pub TranslateResourceRequirements: PTRANSLATE_RESOURCE_REQUIREMENTS_HANDLER,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for TRANSLATOR_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for TRANSLATOR_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for TRANSLATOR_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TXN_PARAMETER_BLOCK {
     pub Length: u16,
     pub TxFsContext: u16,
     pub TransactionObject: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for TXN_PARAMETER_BLOCK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TXN_PARAMETER_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TXN_PARAMETER_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_CHANNEL_CAPABILITIES1 {
     pub Anonymous: VIRTUAL_CHANNEL_CAPABILITIES1_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for VIRTUAL_CHANNEL_CAPABILITIES1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VIRTUAL_CHANNEL_CAPABILITIES1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_CHANNEL_CAPABILITIES1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_CHANNEL_CAPABILITIES1_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for VIRTUAL_CHANNEL_CAPABILITIES1_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VIRTUAL_CHANNEL_CAPABILITIES1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_CHANNEL_CAPABILITIES1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_CHANNEL_CAPABILITIES2 {
     pub Anonymous: VIRTUAL_CHANNEL_CAPABILITIES2_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for VIRTUAL_CHANNEL_CAPABILITIES2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VIRTUAL_CHANNEL_CAPABILITIES2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_CHANNEL_CAPABILITIES2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_CHANNEL_CAPABILITIES2_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for VIRTUAL_CHANNEL_CAPABILITIES2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VIRTUAL_CHANNEL_CAPABILITIES2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_CHANNEL_CAPABILITIES2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_CHANNEL_CONTROL {
     pub Anonymous: VIRTUAL_CHANNEL_CONTROL_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for VIRTUAL_CHANNEL_CONTROL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VIRTUAL_CHANNEL_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_CHANNEL_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_CHANNEL_CONTROL_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for VIRTUAL_CHANNEL_CONTROL_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VIRTUAL_CHANNEL_CONTROL_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_CHANNEL_CONTROL_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_CHANNEL_STATUS {
     pub Anonymous: VIRTUAL_CHANNEL_STATUS_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for VIRTUAL_CHANNEL_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VIRTUAL_CHANNEL_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_CHANNEL_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_CHANNEL_STATUS_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for VIRTUAL_CHANNEL_STATUS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VIRTUAL_CHANNEL_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_CHANNEL_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_RESOURCE {
     pub Capability: VIRTUAL_RESOURCE_CAPABILITY,
     pub Control: VIRTUAL_RESOURCE_CONTROL,
     pub RsvdP: u16,
     pub Status: VIRTUAL_RESOURCE_STATUS,
 }
+impl windows_core::TypeKind for VIRTUAL_RESOURCE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for VIRTUAL_RESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_RESOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_RESOURCE_CAPABILITY {
     pub Anonymous: VIRTUAL_RESOURCE_CAPABILITY_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for VIRTUAL_RESOURCE_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VIRTUAL_RESOURCE_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_RESOURCE_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_RESOURCE_CAPABILITY_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for VIRTUAL_RESOURCE_CAPABILITY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VIRTUAL_RESOURCE_CAPABILITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_RESOURCE_CAPABILITY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_RESOURCE_CONTROL {
     pub Anonymous: VIRTUAL_RESOURCE_CONTROL_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for VIRTUAL_RESOURCE_CONTROL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VIRTUAL_RESOURCE_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_RESOURCE_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_RESOURCE_CONTROL_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for VIRTUAL_RESOURCE_CONTROL_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VIRTUAL_RESOURCE_CONTROL_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_RESOURCE_CONTROL_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VIRTUAL_RESOURCE_STATUS {
     pub Anonymous: VIRTUAL_RESOURCE_STATUS_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for VIRTUAL_RESOURCE_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VIRTUAL_RESOURCE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_RESOURCE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_RESOURCE_STATUS_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for VIRTUAL_RESOURCE_STATUS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VIRTUAL_RESOURCE_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIRTUAL_RESOURCE_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VM_COUNTERS {
     pub PeakVirtualSize: usize,
     pub VirtualSize: usize,
@@ -24083,16 +24858,16 @@ pub struct VM_COUNTERS {
     pub PagefileUsage: usize,
     pub PeakPagefileUsage: usize,
 }
+impl windows_core::TypeKind for VM_COUNTERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for VM_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VM_COUNTERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VM_COUNTERS_EX {
     pub PeakVirtualSize: usize,
     pub VirtualSize: usize,
@@ -24107,32 +24882,32 @@ pub struct VM_COUNTERS_EX {
     pub PeakPagefileUsage: usize,
     pub PrivateUsage: usize,
 }
+impl windows_core::TypeKind for VM_COUNTERS_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for VM_COUNTERS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VM_COUNTERS_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VM_COUNTERS_EX2 {
     pub CountersEx: VM_COUNTERS_EX,
     pub PrivateWorkingSetSize: usize,
     pub SharedCommitUsage: u64,
+}
+impl windows_core::TypeKind for VM_COUNTERS_EX2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for VM_COUNTERS_EX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VM_COUNTERS_EX2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAIT_CONTEXT_BLOCK {
     pub Anonymous: WAIT_CONTEXT_BLOCK_0,
     pub DeviceRoutine: super::super::Foundation::DRIVER_CONTROL,
@@ -24143,21 +24918,25 @@ pub struct WAIT_CONTEXT_BLOCK {
     pub BufferChainingDpc: *mut super::super::Foundation::KDPC,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for WAIT_CONTEXT_BLOCK {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for WAIT_CONTEXT_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for WAIT_CONTEXT_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WAIT_CONTEXT_BLOCK_0 {
     pub WaitQueueEntry: KDEVICE_QUEUE_ENTRY,
     pub Anonymous: WAIT_CONTEXT_BLOCK_0_0,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for WAIT_CONTEXT_BLOCK_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for WAIT_CONTEXT_BLOCK_0 {
@@ -24165,17 +24944,17 @@ impl Default for WAIT_CONTEXT_BLOCK_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for WAIT_CONTEXT_BLOCK_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WAIT_CONTEXT_BLOCK_0_0 {
     pub DmaWaitEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub NumberOfChannels: u32,
     pub _bitfield: u32,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl windows_core::TypeKind for WAIT_CONTEXT_BLOCK_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for WAIT_CONTEXT_BLOCK_0_0 {
@@ -24183,42 +24962,38 @@ impl Default for WAIT_CONTEXT_BLOCK_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for WAIT_CONTEXT_BLOCK_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA128A {
     pub Low: u64,
     pub High: i64,
+}
+impl windows_core::TypeKind for WHEA128A {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA128A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA128A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ACPI_TIMEOUT_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub TableType: [i8; 32],
     pub TableRequest: [i8; 32],
+}
+impl windows_core::TypeKind for WHEAP_ACPI_TIMEOUT_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEAP_ACPI_TIMEOUT_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_ACPI_TIMEOUT_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ADD_REMOVE_ERROR_SOURCE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Descriptor: super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR,
@@ -24226,17 +25001,17 @@ pub struct WHEAP_ADD_REMOVE_ERROR_SOURCE_EVENT {
     pub IsRemove: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for WHEAP_ADD_REMOVE_ERROR_SOURCE_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for WHEAP_ADD_REMOVE_ERROR_SOURCE_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for WHEAP_ADD_REMOVE_ERROR_SOURCE_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ATTEMPT_RECOVERY_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrorHeader: WHEA_ERROR_RECORD_HEADER,
@@ -24244,17 +25019,17 @@ pub struct WHEAP_ATTEMPT_RECOVERY_EVENT {
     pub PshedRecovery: super::super::super::Win32::Foundation::BOOLEAN,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
+impl windows_core::TypeKind for WHEAP_ATTEMPT_RECOVERY_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_ATTEMPT_RECOVERY_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_ATTEMPT_RECOVERY_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_BAD_HEST_NOTIFY_DATA_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub SourceId: u16,
@@ -24262,45 +25037,45 @@ pub struct WHEAP_BAD_HEST_NOTIFY_DATA_EVENT {
     pub NotifyDesc: super::super::super::Win32::System::Diagnostics::Debug::WHEA_NOTIFICATION_DESCRIPTOR,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for WHEAP_BAD_HEST_NOTIFY_DATA_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for WHEAP_BAD_HEST_NOTIFY_DATA_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for WHEAP_BAD_HEST_NOTIFY_DATA_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_CLEARED_POISON_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub PhysicalAddress: u64,
+}
+impl windows_core::TypeKind for WHEAP_CLEARED_POISON_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEAP_CLEARED_POISON_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_CLEARED_POISON_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_CMCI_IMPLEMENTED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub CmciAvailable: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for WHEAP_CMCI_IMPLEMENTED_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEAP_CMCI_IMPLEMENTED_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_CMCI_IMPLEMENTED_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_CMCI_INITERR_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Msr: u64,
@@ -24308,16 +25083,16 @@ pub struct WHEAP_CMCI_INITERR_EVENT {
     pub Bank: u32,
     pub EpIndex: u32,
 }
+impl windows_core::TypeKind for WHEAP_CMCI_INITERR_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_CMCI_INITERR_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_CMCI_INITERR_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_CMCI_RESTART_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub CmciRestoreAttempts: u32,
@@ -24325,36 +25100,40 @@ pub struct WHEAP_CMCI_RESTART_EVENT {
     pub MaxCorrectedErrorsFound: u32,
     pub MaxCorrectedErrorLimit: u32,
 }
+impl windows_core::TypeKind for WHEAP_CMCI_RESTART_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_CMCI_RESTART_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_CMCI_RESTART_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_CREATE_GENERIC_RECORD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Error: [i8; 32],
     pub EntryCount: u32,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
+impl windows_core::TypeKind for WHEAP_CREATE_GENERIC_RECORD_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_CREATE_GENERIC_RECORD_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_CREATE_GENERIC_RECORD_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_DEFERRED_EVENT {
     pub ListEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for WHEAP_DEFERRED_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for WHEAP_DEFERRED_EVENT {
@@ -24362,26 +25141,22 @@ impl Default for WHEAP_DEFERRED_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for WHEAP_DEFERRED_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_DEVICE_DRV_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Function: [i8; 32],
+}
+impl windows_core::TypeKind for WHEAP_DEVICE_DRV_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEAP_DEVICE_DRV_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_DEVICE_DRV_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_DPC_ERROR_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrType: WHEAP_DPC_ERROR_EVENT_TYPE,
@@ -24391,21 +25166,25 @@ pub struct WHEAP_DPC_ERROR_EVENT {
     pub DeviceId: u16,
     pub VendorId: u16,
 }
+impl windows_core::TypeKind for WHEAP_DPC_ERROR_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_DPC_ERROR_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_DPC_ERROR_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_DROPPED_CORRECTED_ERROR_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrorSourceType: super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_TYPE,
     pub ErrorSourceId: u32,
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for WHEAP_DROPPED_CORRECTED_ERROR_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for WHEAP_DROPPED_CORRECTED_ERROR_EVENT {
@@ -24413,77 +25192,77 @@ impl Default for WHEAP_DROPPED_CORRECTED_ERROR_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for WHEAP_DROPPED_CORRECTED_ERROR_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_EDPC_ENABLED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub eDPCEnabled: super::super::super::Win32::Foundation::BOOLEAN,
     pub eDPCRecovEnabled: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for WHEAP_EDPC_ENABLED_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEAP_EDPC_ENABLED_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_EDPC_ENABLED_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ERROR_CLEARED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub EpIndex: u32,
     pub Bank: u32,
+}
+impl windows_core::TypeKind for WHEAP_ERROR_CLEARED_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEAP_ERROR_CLEARED_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_ERROR_CLEARED_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ERROR_RECORD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Record: *mut WHEA_ERROR_RECORD,
+}
+impl windows_core::TypeKind for WHEAP_ERROR_RECORD_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEAP_ERROR_RECORD_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_ERROR_RECORD_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ERR_SRC_ARRAY_INVALID_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrorSourceCount: u32,
     pub ReportedLength: u32,
     pub ExpectedLength: u32,
 }
+impl windows_core::TypeKind for WHEAP_ERR_SRC_ARRAY_INVALID_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_ERR_SRC_ARRAY_INVALID_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_ERR_SRC_ARRAY_INVALID_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ERR_SRC_INVALID_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrDescriptor: super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_DESCRIPTOR,
     pub Error: [i8; 32],
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for WHEAP_ERR_SRC_INVALID_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for WHEAP_ERR_SRC_INVALID_EVENT {
@@ -24491,12 +25270,8 @@ impl Default for WHEAP_ERR_SRC_INVALID_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for WHEAP_ERR_SRC_INVALID_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_FOUND_ERROR_IN_BANK_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub EpIndex: u32,
@@ -24504,47 +25279,47 @@ pub struct WHEAP_FOUND_ERROR_IN_BANK_EVENT {
     pub MciStatus: u64,
     pub ErrorType: u32,
 }
+impl windows_core::TypeKind for WHEAP_FOUND_ERROR_IN_BANK_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_FOUND_ERROR_IN_BANK_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_FOUND_ERROR_IN_BANK_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_GENERIC_ERR_MEM_MAP_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub MapReason: [i8; 32],
     pub PhysicalAddress: u64,
     pub Length: u64,
 }
+impl windows_core::TypeKind for WHEAP_GENERIC_ERR_MEM_MAP_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_GENERIC_ERR_MEM_MAP_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_GENERIC_ERR_MEM_MAP_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_OSC_IMPLEMENTED {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub OscImplemented: super::super::super::Win32::Foundation::BOOLEAN,
     pub DebugChecked: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for WHEAP_OSC_IMPLEMENTED {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEAP_OSC_IMPLEMENTED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_OSC_IMPLEMENTED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PCIE_CONFIG_INFO {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Segment: u32,
@@ -24557,16 +25332,16 @@ pub struct WHEAP_PCIE_CONFIG_INFO {
     pub Succeeded: u8,
     pub Reserved: [u8; 3],
 }
+impl windows_core::TypeKind for WHEAP_PCIE_CONFIG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_PCIE_CONFIG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_PCIE_CONFIG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PCIE_OVERRIDE_INFO {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Segment: u32,
@@ -24580,47 +25355,47 @@ pub struct WHEAP_PCIE_OVERRIDE_INFO {
     pub CorrectableErrorMask: u32,
     pub CapAndControl: u32,
 }
+impl windows_core::TypeKind for WHEAP_PCIE_OVERRIDE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_PCIE_OVERRIDE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_PCIE_OVERRIDE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PCIE_READ_OVERRIDES_ERR {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub FailureReason: u32,
     pub FailureStatus: super::super::super::Win32::Foundation::NTSTATUS,
+}
+impl windows_core::TypeKind for WHEAP_PCIE_READ_OVERRIDES_ERR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEAP_PCIE_READ_OVERRIDES_ERR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_PCIE_READ_OVERRIDES_ERR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PFA_MEMORY_OFFLINED {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub DecisionType: WHEAP_PFA_OFFLINE_DECISION_TYPE,
     pub ImmediateSuccess: super::super::super::Win32::Foundation::BOOLEAN,
     pub Page: u32,
 }
+impl windows_core::TypeKind for WHEAP_PFA_MEMORY_OFFLINED {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_PFA_MEMORY_OFFLINED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_PFA_MEMORY_OFFLINED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PFA_MEMORY_POLICY {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub RegistryKeysPresent: u32,
@@ -24631,16 +25406,16 @@ pub struct WHEAP_PFA_MEMORY_POLICY {
     pub ErrorThreshold: u32,
     pub TimeOut: u32,
 }
+impl windows_core::TypeKind for WHEAP_PFA_MEMORY_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_PFA_MEMORY_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_PFA_MEMORY_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PFA_MEMORY_REMOVE_MONITOR {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub RemoveTrigger: WHEA_PFA_REMOVE_TRIGGER,
@@ -24648,69 +25423,69 @@ pub struct WHEAP_PFA_MEMORY_REMOVE_MONITOR {
     pub ErrorCount: u32,
     pub Page: u32,
 }
+impl windows_core::TypeKind for WHEAP_PFA_MEMORY_REMOVE_MONITOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_PFA_MEMORY_REMOVE_MONITOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_PFA_MEMORY_REMOVE_MONITOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PLUGIN_DEFECT_LIST_CORRUPT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
+}
+impl windows_core::TypeKind for WHEAP_PLUGIN_DEFECT_LIST_CORRUPT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEAP_PLUGIN_DEFECT_LIST_CORRUPT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_PLUGIN_DEFECT_LIST_CORRUPT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PLUGIN_DEFECT_LIST_FULL_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
+}
+impl windows_core::TypeKind for WHEAP_PLUGIN_DEFECT_LIST_FULL_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEAP_PLUGIN_DEFECT_LIST_FULL_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_PLUGIN_DEFECT_LIST_FULL_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PLUGIN_DEFECT_LIST_UEFI_VAR_FAILED {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
+}
+impl windows_core::TypeKind for WHEAP_PLUGIN_DEFECT_LIST_UEFI_VAR_FAILED {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEAP_PLUGIN_DEFECT_LIST_UEFI_VAR_FAILED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_PLUGIN_DEFECT_LIST_UEFI_VAR_FAILED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PLUGIN_PFA_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub NoFurtherPfa: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for WHEAP_PLUGIN_PFA_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEAP_PLUGIN_PFA_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_PLUGIN_PFA_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PROCESS_EINJ_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Error: [i8; 32],
@@ -24726,16 +25501,16 @@ pub struct WHEAP_PROCESS_EINJ_EVENT {
     pub SetErrorTypeWithAddressInstructionCount: u32,
     pub GetExecuteOperationTimingsInstructionCount: u32,
 }
+impl windows_core::TypeKind for WHEAP_PROCESS_EINJ_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_PROCESS_EINJ_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_PROCESS_EINJ_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PROCESS_HEST_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Error: [i8; 32],
@@ -24751,16 +25526,16 @@ pub struct WHEAP_PROCESS_HEST_EVENT {
     pub GenericV1Count: u32,
     pub GenericV2Count: u32,
 }
+impl windows_core::TypeKind for WHEAP_PROCESS_HEST_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_PROCESS_HEST_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_PROCESS_HEST_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PSHED_INJECT_ERROR {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrorType: u32,
@@ -24772,16 +25547,16 @@ pub struct WHEAP_PSHED_INJECT_ERROR {
     pub InjectionAttempted: super::super::super::Win32::Foundation::BOOLEAN,
     pub InjectionByPlugin: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for WHEAP_PSHED_INJECT_ERROR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_PSHED_INJECT_ERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_PSHED_INJECT_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_PSHED_PLUGIN_REGISTER {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Version: u32,
@@ -24789,31 +25564,31 @@ pub struct WHEAP_PSHED_PLUGIN_REGISTER {
     pub FunctionalAreaMask: u32,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
+impl windows_core::TypeKind for WHEAP_PSHED_PLUGIN_REGISTER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_PSHED_PLUGIN_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_PSHED_PLUGIN_REGISTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_ROW_FAILURE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub LowOrderPage: u32,
     pub HighOrderPage: u32,
+}
+impl windows_core::TypeKind for WHEAP_ROW_FAILURE_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEAP_ROW_FAILURE_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_ROW_FAILURE_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_SPURIOUS_AER_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrorSeverity: WHEA_ERROR_SEVERITY,
@@ -24823,20 +25598,24 @@ pub struct WHEAP_SPURIOUS_AER_EVENT {
     pub RootErrorStatus: u32,
     pub DeviceAssociationBitmap: u32,
 }
+impl windows_core::TypeKind for WHEAP_SPURIOUS_AER_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_SPURIOUS_AER_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_SPURIOUS_AER_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_STARTED_REPORT_HW_ERROR {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ErrorPacket: *mut WHEA_ERROR_PACKET_V2,
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for WHEAP_STARTED_REPORT_HW_ERROR {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for WHEAP_STARTED_REPORT_HW_ERROR {
@@ -24844,28 +25623,24 @@ impl Default for WHEAP_STARTED_REPORT_HW_ERROR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for WHEAP_STARTED_REPORT_HW_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEAP_STUCK_ERROR_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub EpIndex: u32,
     pub Bank: u32,
     pub MciStatus: u64,
 }
+impl windows_core::TypeKind for WHEAP_STUCK_ERROR_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEAP_STUCK_ERROR_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEAP_STUCK_ERROR_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ACPI_HEADER {
     pub Signature: u32,
     pub Length: u32,
@@ -24877,16 +25652,16 @@ pub struct WHEA_ACPI_HEADER {
     pub CreatorId: u32,
     pub CreatorRevision: u32,
 }
+impl windows_core::TypeKind for WHEA_ACPI_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ACPI_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ACPI_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_AMD_EXTENDED_REGISTERS {
     pub IPID: u64,
     pub SYND: u64,
@@ -24900,16 +25675,16 @@ pub struct WHEA_AMD_EXTENDED_REGISTERS {
     pub RasCap: u64,
     pub Reserved: [u64; 14],
 }
+impl windows_core::TypeKind for WHEA_AMD_EXTENDED_REGISTERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_AMD_EXTENDED_REGISTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_AMD_EXTENDED_REGISTERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARMV8_AARCH32_GPRS {
     pub R0: u32,
     pub R1: u32,
@@ -24928,16 +25703,16 @@ pub struct WHEA_ARMV8_AARCH32_GPRS {
     pub R14: u32,
     pub R15: u32,
 }
+impl windows_core::TypeKind for WHEA_ARMV8_AARCH32_GPRS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ARMV8_AARCH32_GPRS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARMV8_AARCH32_GPRS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARMV8_AARCH64_EL3_CSR {
     pub ELR_EL3: u64,
     pub ESR_EL3: u64,
@@ -24950,16 +25725,16 @@ pub struct WHEA_ARMV8_AARCH64_EL3_CSR {
     pub TPIDR_EL3: u64,
     pub TTBR0_EL3: u64,
 }
+impl windows_core::TypeKind for WHEA_ARMV8_AARCH64_EL3_CSR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ARMV8_AARCH64_EL3_CSR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARMV8_AARCH64_EL3_CSR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARMV8_AARCH64_GPRS {
     pub X0: u64,
     pub X1: u64,
@@ -24994,16 +25769,16 @@ pub struct WHEA_ARMV8_AARCH64_GPRS {
     pub X30: u64,
     pub SP: u64,
 }
+impl windows_core::TypeKind for WHEA_ARMV8_AARCH64_GPRS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ARMV8_AARCH64_GPRS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARMV8_AARCH64_GPRS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_AARCH32_EL1_CSR {
     pub DFAR: u32,
     pub DFSR: u32,
@@ -25030,16 +25805,16 @@ pub struct WHEA_ARM_AARCH32_EL1_CSR {
     pub TTBR1: u32,
     pub DACR: u32,
 }
+impl windows_core::TypeKind for WHEA_ARM_AARCH32_EL1_CSR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ARM_AARCH32_EL1_CSR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_AARCH32_EL1_CSR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_AARCH32_EL2_CSR {
     pub ELR_hyp: u32,
     pub HAMAIR0: u32,
@@ -25058,30 +25833,30 @@ pub struct WHEA_ARM_AARCH32_EL2_CSR {
     pub VTTBR: u32,
     pub DACR32_EL2: u32,
 }
+impl windows_core::TypeKind for WHEA_ARM_AARCH32_EL2_CSR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ARM_AARCH32_EL2_CSR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_AARCH32_EL2_CSR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_AARCH32_SECURE_CSR {
     pub SCTLR: u32,
     pub SPSR_mon: u32,
+}
+impl windows_core::TypeKind for WHEA_ARM_AARCH32_SECURE_CSR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ARM_AARCH32_SECURE_CSR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_AARCH32_SECURE_CSR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_AARCH64_EL1_CSR {
     pub ELR_EL1: u64,
     pub ESR_EL2: u64,
@@ -25101,16 +25876,16 @@ pub struct WHEA_ARM_AARCH64_EL1_CSR {
     pub TTBR0_EL1: u64,
     pub TTBR1_EL1: u64,
 }
+impl windows_core::TypeKind for WHEA_ARM_AARCH64_EL1_CSR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ARM_AARCH64_EL1_CSR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_AARCH64_EL1_CSR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_AARCH64_EL2_CSR {
     pub ELR_EL2: u64,
     pub ESR_EL2: u64,
@@ -25128,16 +25903,16 @@ pub struct WHEA_ARM_AARCH64_EL2_CSR {
     pub VTCR_EL2: u64,
     pub VTTBR_EL2: u64,
 }
+impl windows_core::TypeKind for WHEA_ARM_AARCH64_EL2_CSR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ARM_AARCH64_EL2_CSR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_AARCH64_EL2_CSR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_BUS_ERROR {
     pub ValidationBit: WHEA_ARM_BUS_ERROR_VALID_BITS,
     pub _bitfield1: u8,
@@ -25147,159 +25922,159 @@ pub struct WHEA_ARM_BUS_ERROR {
     pub _bitfield5: u8,
     pub _bitfield6: u32,
 }
+impl windows_core::TypeKind for WHEA_ARM_BUS_ERROR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ARM_BUS_ERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_BUS_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ARM_BUS_ERROR_VALID_BITS {
     pub Anonymous: WHEA_ARM_BUS_ERROR_VALID_BITS_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for WHEA_ARM_BUS_ERROR_VALID_BITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ARM_BUS_ERROR_VALID_BITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_BUS_ERROR_VALID_BITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_BUS_ERROR_VALID_BITS_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for WHEA_ARM_BUS_ERROR_VALID_BITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ARM_BUS_ERROR_VALID_BITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_BUS_ERROR_VALID_BITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_CACHE_ERROR {
     pub ValidationBit: WHEA_ARM_CACHE_ERROR_VALID_BITS,
     pub _bitfield1: u8,
     pub _bitfield2: u8,
     pub _bitfield3: u64,
 }
+impl windows_core::TypeKind for WHEA_ARM_CACHE_ERROR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ARM_CACHE_ERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_CACHE_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ARM_CACHE_ERROR_VALID_BITS {
     pub Anonymous: WHEA_ARM_CACHE_ERROR_VALID_BITS_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for WHEA_ARM_CACHE_ERROR_VALID_BITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ARM_CACHE_ERROR_VALID_BITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_CACHE_ERROR_VALID_BITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_CACHE_ERROR_VALID_BITS_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for WHEA_ARM_CACHE_ERROR_VALID_BITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ARM_CACHE_ERROR_VALID_BITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_CACHE_ERROR_VALID_BITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_MISC_CSR {
     pub MRSEncoding: u16,
     pub Value: u64,
+}
+impl windows_core::TypeKind for WHEA_ARM_MISC_CSR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ARM_MISC_CSR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_MISC_CSR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ARM_PROCESSOR_ERROR {
     pub CacheError: WHEA_ARM_CACHE_ERROR,
     pub TlbError: WHEA_ARM_TLB_ERROR,
     pub BusError: WHEA_ARM_BUS_ERROR,
     pub AsULONGLONG: u64,
 }
+impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ARM_PROCESSOR_ERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER {
     pub Version: u16,
     pub RegisterContextType: u16,
     pub RegisterArraySize: u32,
     pub RegisterArray: [u8; 1],
 }
+impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS {
     pub Anonymous: WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_INFORMATION {
     pub Version: u8,
     pub Length: u8,
@@ -25311,43 +26086,43 @@ pub struct WHEA_ARM_PROCESSOR_ERROR_INFORMATION {
     pub VirtualFaultAddress: u64,
     pub PhysicalFaultAddress: u64,
 }
+impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ARM_PROCESSOR_ERROR_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS {
     pub Anonymous: WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_SECTION {
     pub ValidBits: WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS,
     pub ErrorInformationStructures: u16,
@@ -25361,116 +26136,116 @@ pub struct WHEA_ARM_PROCESSOR_ERROR_SECTION {
     pub PSCIState: u32,
     pub Data: [u8; 1],
 }
+impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_SECTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ARM_PROCESSOR_ERROR_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS {
     pub Anonymous: WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_TLB_ERROR {
     pub ValidationBit: WHEA_ARM_TLB_ERROR_VALID_BITS,
     pub _bitfield1: u8,
     pub _bitfield2: u8,
     pub _bitfield3: u64,
 }
+impl windows_core::TypeKind for WHEA_ARM_TLB_ERROR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ARM_TLB_ERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_TLB_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ARM_TLB_ERROR_VALID_BITS {
     pub Anonymous: WHEA_ARM_TLB_ERROR_VALID_BITS_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for WHEA_ARM_TLB_ERROR_VALID_BITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ARM_TLB_ERROR_VALID_BITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_TLB_ERROR_VALID_BITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ARM_TLB_ERROR_VALID_BITS_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for WHEA_ARM_TLB_ERROR_VALID_BITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ARM_TLB_ERROR_VALID_BITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ARM_TLB_ERROR_VALID_BITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_AZCC_ROOT_BUS_ERR_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub MaxBusCountPassed: super::super::super::Win32::Foundation::BOOLEAN,
     pub InvalidBusMSR: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for WHEA_AZCC_ROOT_BUS_ERR_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_AZCC_ROOT_BUS_ERR_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_AZCC_ROOT_BUS_ERR_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_AZCC_ROOT_BUS_LIST_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub RootBusCount: u32,
     pub RootBuses: [u32; 8],
+}
+impl windows_core::TypeKind for WHEA_AZCC_ROOT_BUS_LIST_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_AZCC_ROOT_BUS_LIST_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_AZCC_ROOT_BUS_LIST_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_AZCC_SET_POISON_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Bus: u32,
@@ -25478,71 +26253,71 @@ pub struct WHEA_AZCC_SET_POISON_EVENT {
     pub WriteSuccess: super::super::super::Win32::Foundation::BOOLEAN,
     pub IsEnable: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for WHEA_AZCC_SET_POISON_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_AZCC_SET_POISON_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_AZCC_SET_POISON_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_INJECTION_CAPABILITIES {
     pub Anonymous: WHEA_ERROR_INJECTION_CAPABILITIES_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_ERROR_INJECTION_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_INJECTION_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_INJECTION_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_ERROR_INJECTION_CAPABILITIES_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for WHEA_ERROR_INJECTION_CAPABILITIES_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_INJECTION_CAPABILITIES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_INJECTION_CAPABILITIES_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_PACKET_FLAGS {
     pub Anonymous: WHEA_ERROR_PACKET_FLAGS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_ERROR_PACKET_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_PACKET_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_PACKET_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_PACKET_FLAGS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for WHEA_ERROR_PACKET_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_PACKET_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_PACKET_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_PACKET_V1 {
     pub Signature: u32,
     pub Flags: WHEA_ERROR_PACKET_FLAGS,
@@ -25563,18 +26338,18 @@ pub struct WHEA_ERROR_PACKET_V1 {
     pub RawData: [u8; 1],
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for WHEA_ERROR_PACKET_V1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for WHEA_ERROR_PACKET_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for WHEA_ERROR_PACKET_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_PACKET_V1_0 {
     pub ProcessorError: WHEA_PROCESSOR_GENERIC_ERROR_SECTION,
     pub MemoryError: WHEA_MEMORY_ERROR_SECTION,
@@ -25585,18 +26360,18 @@ pub union WHEA_ERROR_PACKET_V1_0 {
     pub PmemError: WHEA_PMEM_ERROR_SECTION,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for WHEA_ERROR_PACKET_V1_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for WHEA_ERROR_PACKET_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for WHEA_ERROR_PACKET_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_PACKET_V2 {
     pub Signature: u32,
     pub Version: u32,
@@ -25616,31 +26391,31 @@ pub struct WHEA_ERROR_PACKET_V2 {
     pub PshedDataLength: u32,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for WHEA_ERROR_PACKET_V2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for WHEA_ERROR_PACKET_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for WHEA_ERROR_PACKET_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD {
     pub Header: WHEA_ERROR_RECORD_HEADER,
     pub SectionDescriptor: [WHEA_ERROR_RECORD_SECTION_DESCRIPTOR; 1],
+}
+impl windows_core::TypeKind for WHEA_ERROR_RECORD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_HEADER {
     pub Signature: u32,
     pub Revision: WHEA_REVISION,
@@ -25659,98 +26434,98 @@ pub struct WHEA_ERROR_RECORD_HEADER {
     pub PersistenceInfo: WHEA_PERSISTENCE_INFO,
     pub Anonymous: WHEA_ERROR_RECORD_HEADER_0,
 }
+impl windows_core::TypeKind for WHEA_ERROR_RECORD_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ERROR_RECORD_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_RECORD_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_HEADER_0 {
     pub Anonymous: WHEA_ERROR_RECORD_HEADER_0_0,
     pub Reserved: [u8; 12],
+}
+impl windows_core::TypeKind for WHEA_ERROR_RECORD_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_RECORD_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_RECORD_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_HEADER_0_0 {
     pub OsBuildNumber: u32,
     pub Reserved2: [u8; 8],
+}
+impl windows_core::TypeKind for WHEA_ERROR_RECORD_HEADER_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_RECORD_HEADER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_RECORD_HEADER_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_HEADER_FLAGS {
     pub Anonymous: WHEA_ERROR_RECORD_HEADER_FLAGS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_ERROR_RECORD_HEADER_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_RECORD_HEADER_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_RECORD_HEADER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_HEADER_FLAGS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for WHEA_ERROR_RECORD_HEADER_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_RECORD_HEADER_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_RECORD_HEADER_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_HEADER_VALIDBITS {
     pub Anonymous: WHEA_ERROR_RECORD_HEADER_VALIDBITS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_ERROR_RECORD_HEADER_VALIDBITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_RECORD_HEADER_VALIDBITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_RECORD_HEADER_VALIDBITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_HEADER_VALIDBITS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for WHEA_ERROR_RECORD_HEADER_VALIDBITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_RECORD_HEADER_VALIDBITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_RECORD_HEADER_VALIDBITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR {
     pub SectionOffset: u32,
     pub SectionLength: u32,
@@ -25763,70 +26538,70 @@ pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR {
     pub SectionSeverity: WHEA_ERROR_SEVERITY,
     pub FRUText: [i8; 20],
 }
+impl windows_core::TypeKind for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {
     pub Anonymous: WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {
     pub Anonymous: WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS_0,
     pub AsUCHAR: u8,
+}
+impl windows_core::TypeKind for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS_0 {
     pub _bitfield: u8,
+}
+impl windows_core::TypeKind for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECOVERY_INFO_SECTION {
     pub RecoveryKernel: super::super::super::Win32::Foundation::BOOLEAN,
     pub RecoveryAction: WHEA_RECOVERY_ACTION,
@@ -25836,16 +26611,16 @@ pub struct WHEA_ERROR_RECOVERY_INFO_SECTION {
     pub FailureReason: WHEA_RECOVERY_FAILURE_REASON,
     pub ProcessName: [i8; 20],
 }
+impl windows_core::TypeKind for WHEA_ERROR_RECOVERY_INFO_SECTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ERROR_RECOVERY_INFO_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_RECOVERY_INFO_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION {
     pub Flags: u32,
     pub Correct: WHEA_ERROR_SOURCE_CORRECT,
@@ -25855,17 +26630,17 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION {
     pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE,
     pub Reserved: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ERROR_SOURCE_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {
     pub Type: super::super::super::Win32::System::Diagnostics::Debug::WHEA_ERROR_SOURCE_TYPE,
     pub MaxRawDataLength: u32,
@@ -25873,98 +26648,98 @@ pub struct WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {
     pub MaxSectionsPerRecord: u32,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_STATUS {
     pub ErrorStatus: u64,
     pub Anonymous: WHEA_ERROR_STATUS_0,
+}
+impl windows_core::TypeKind for WHEA_ERROR_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_STATUS_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_ERROR_STATUS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ETW_OVERFLOW_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub RecordId: u64,
+}
+impl windows_core::TypeKind for WHEA_ETW_OVERFLOW_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ETW_OVERFLOW_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ETW_OVERFLOW_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_EVENT_LOG_ENTRY {
     pub Header: WHEA_EVENT_LOG_ENTRY_HEADER,
+}
+impl windows_core::TypeKind for WHEA_EVENT_LOG_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_EVENT_LOG_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_EVENT_LOG_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_EVENT_LOG_ENTRY_FLAGS {
     pub Anonymous: WHEA_EVENT_LOG_ENTRY_FLAGS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_EVENT_LOG_ENTRY_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_EVENT_LOG_ENTRY_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_EVENT_LOG_ENTRY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_EVENT_LOG_ENTRY_FLAGS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for WHEA_EVENT_LOG_ENTRY_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_EVENT_LOG_ENTRY_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_EVENT_LOG_ENTRY_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_EVENT_LOG_ENTRY_HEADER {
     pub Signature: u32,
     pub Version: u32,
@@ -25975,44 +26750,44 @@ pub struct WHEA_EVENT_LOG_ENTRY_HEADER {
     pub Flags: WHEA_EVENT_LOG_ENTRY_FLAGS,
     pub PayloadLength: u32,
 }
+impl windows_core::TypeKind for WHEA_EVENT_LOG_ENTRY_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_EVENT_LOG_ENTRY_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_EVENT_LOG_ENTRY_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_FAILED_ADD_DEFECT_LIST_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
+}
+impl windows_core::TypeKind for WHEA_FAILED_ADD_DEFECT_LIST_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_FAILED_ADD_DEFECT_LIST_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_FAILED_ADD_DEFECT_LIST_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_FIRMWARE_ERROR_RECORD_REFERENCE {
     pub Type: u8,
     pub Reserved: [u8; 7],
     pub FirmwareRecordId: u64,
+}
+impl windows_core::TypeKind for WHEA_FIRMWARE_ERROR_RECORD_REFERENCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_FIRMWARE_ERROR_RECORD_REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_FIRMWARE_ERROR_RECORD_REFERENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR {
     pub BlockStatus: WHEA_GENERIC_ERROR_BLOCKSTATUS,
     pub RawDataOffset: u32,
@@ -26021,43 +26796,43 @@ pub struct WHEA_GENERIC_ERROR {
     pub ErrorSeverity: WHEA_ERROR_SEVERITY,
     pub Data: [u8; 1],
 }
+impl windows_core::TypeKind for WHEA_GENERIC_ERROR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_GENERIC_ERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_GENERIC_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_GENERIC_ERROR_BLOCKSTATUS {
     pub Anonymous: WHEA_GENERIC_ERROR_BLOCKSTATUS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_GENERIC_ERROR_BLOCKSTATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_GENERIC_ERROR_BLOCKSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_GENERIC_ERROR_BLOCKSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR_BLOCKSTATUS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for WHEA_GENERIC_ERROR_BLOCKSTATUS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_GENERIC_ERROR_BLOCKSTATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_GENERIC_ERROR_BLOCKSTATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR_DATA_ENTRY_V1 {
     pub SectionType: windows_core::GUID,
     pub ErrorSeverity: WHEA_ERROR_SEVERITY,
@@ -26069,16 +26844,16 @@ pub struct WHEA_GENERIC_ERROR_DATA_ENTRY_V1 {
     pub FRUText: [u8; 20],
     pub Data: [u8; 1],
 }
+impl windows_core::TypeKind for WHEA_GENERIC_ERROR_DATA_ENTRY_V1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_GENERIC_ERROR_DATA_ENTRY_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_GENERIC_ERROR_DATA_ENTRY_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR_DATA_ENTRY_V2 {
     pub SectionType: windows_core::GUID,
     pub ErrorSeverity: WHEA_ERROR_SEVERITY,
@@ -26091,43 +26866,43 @@ pub struct WHEA_GENERIC_ERROR_DATA_ENTRY_V2 {
     pub Timestamp: WHEA_TIMESTAMP,
     pub Data: [u8; 1],
 }
+impl windows_core::TypeKind for WHEA_GENERIC_ERROR_DATA_ENTRY_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_GENERIC_ERROR_DATA_ENTRY_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_GENERIC_ERROR_DATA_ENTRY_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_IN_USE_PAGE_NOTIFY_FLAGS {
     pub Bits: WHEA_IN_USE_PAGE_NOTIFY_FLAGS_0,
     pub AsUCHAR: u8,
+}
+impl windows_core::TypeKind for WHEA_IN_USE_PAGE_NOTIFY_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_IN_USE_PAGE_NOTIFY_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_IN_USE_PAGE_NOTIFY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_IN_USE_PAGE_NOTIFY_FLAGS_0 {
     pub _bitfield: u8,
+}
+impl windows_core::TypeKind for WHEA_IN_USE_PAGE_NOTIFY_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_IN_USE_PAGE_NOTIFY_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_IN_USE_PAGE_NOTIFY_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_DATA {
     pub ValidBits: WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS,
     pub SocketId: u32,
@@ -26135,71 +26910,71 @@ pub struct WHEA_MEMORY_CORRECTABLE_ERROR_DATA {
     pub DimmSlot: u32,
     pub CorrectableErrorCount: u32,
 }
+impl windows_core::TypeKind for WHEA_MEMORY_CORRECTABLE_ERROR_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_MEMORY_CORRECTABLE_ERROR_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_MEMORY_CORRECTABLE_ERROR_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_HEADER {
     pub Version: u16,
     pub Count: u16,
+}
+impl windows_core::TypeKind for WHEA_MEMORY_CORRECTABLE_ERROR_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_MEMORY_CORRECTABLE_ERROR_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_MEMORY_CORRECTABLE_ERROR_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_SECTION {
     pub Header: WHEA_MEMORY_CORRECTABLE_ERROR_HEADER,
     pub Data: [WHEA_MEMORY_CORRECTABLE_ERROR_DATA; 1],
+}
+impl windows_core::TypeKind for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
+}
+impl windows_core::TypeKind for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_ERROR_SECTION {
     pub ValidBits: WHEA_MEMORY_ERROR_SECTION_VALIDBITS,
     pub ErrorStatus: WHEA_ERROR_STATUS,
@@ -26222,127 +26997,127 @@ pub struct WHEA_MEMORY_ERROR_SECTION {
     pub CardHandle: u16,
     pub ModuleHandle: u16,
 }
+impl windows_core::TypeKind for WHEA_MEMORY_ERROR_SECTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_MEMORY_ERROR_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_MEMORY_ERROR_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_MEMORY_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
+}
+impl windows_core::TypeKind for WHEA_MEMORY_ERROR_SECTION_VALIDBITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_MEMORY_ERROR_SECTION_VALIDBITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_MEMORY_ERROR_SECTION_VALIDBITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_THROTTLE_SUMMARY_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
+}
+impl windows_core::TypeKind for WHEA_MEMORY_THROTTLE_SUMMARY_FAILED_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_MEMORY_THROTTLE_SUMMARY_FAILED_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_MEMORY_THROTTLE_SUMMARY_FAILED_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_MSR_DUMP_SECTION {
     pub MsrDumpBuffer: u8,
     pub MsrDumpLength: u32,
     pub MsrDumpData: [u8; 1],
+}
+impl windows_core::TypeKind for WHEA_MSR_DUMP_SECTION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_MSR_DUMP_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_MSR_DUMP_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_NMI_ERROR_SECTION {
     pub Data: [u8; 8],
     pub Flags: WHEA_NMI_ERROR_SECTION_FLAGS,
+}
+impl windows_core::TypeKind for WHEA_NMI_ERROR_SECTION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_NMI_ERROR_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NMI_ERROR_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_NMI_ERROR_SECTION_FLAGS {
     pub Anonymous: WHEA_NMI_ERROR_SECTION_FLAGS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_NMI_ERROR_SECTION_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_NMI_ERROR_SECTION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NMI_ERROR_SECTION_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_NMI_ERROR_SECTION_FLAGS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for WHEA_NMI_ERROR_SECTION_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_NMI_ERROR_SECTION_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NMI_ERROR_SECTION_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_OFFLINE_DONE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Address: u64,
+}
+impl windows_core::TypeKind for WHEA_OFFLINE_DONE_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_OFFLINE_DONE_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_OFFLINE_DONE_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PACKET_LOG_DATA {
     pub LogData: [u8; 36],
     pub ExtraBytes: [u8; 36],
@@ -26353,72 +27128,72 @@ pub struct WHEA_PACKET_LOG_DATA {
     pub Reserved: u16,
     pub Flags: WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS,
 }
+impl windows_core::TypeKind for WHEA_PACKET_LOG_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_PACKET_LOG_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PACKET_LOG_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS {
     pub Anonymous: WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS_0 {
     pub BridgeSecondaryStatus: u16,
     pub BridgeControl: u16,
+}
+impl windows_core::TypeKind for WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIEXPRESS_COMMAND_STATUS {
     pub Anonymous: WHEA_PCIEXPRESS_COMMAND_STATUS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_PCIEXPRESS_COMMAND_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIEXPRESS_COMMAND_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIEXPRESS_COMMAND_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIEXPRESS_COMMAND_STATUS_0 {
     pub Command: u16,
     pub Status: u16,
+}
+impl windows_core::TypeKind for WHEA_PCIEXPRESS_COMMAND_STATUS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIEXPRESS_COMMAND_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIEXPRESS_COMMAND_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIEXPRESS_DEVICE_ID {
     pub VendorID: u16,
     pub DeviceID: u16,
@@ -26426,16 +27201,16 @@ pub struct WHEA_PCIEXPRESS_DEVICE_ID {
     pub _bitfield2: u32,
     pub _bitfield3: u32,
 }
+impl windows_core::TypeKind for WHEA_PCIEXPRESS_DEVICE_ID {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_PCIEXPRESS_DEVICE_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIEXPRESS_DEVICE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIEXPRESS_ERROR_SECTION {
     pub ValidBits: WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS,
     pub PortType: WHEA_PCIEXPRESS_DEVICE_TYPE,
@@ -26448,186 +27223,186 @@ pub struct WHEA_PCIEXPRESS_ERROR_SECTION {
     pub ExpressCapability: [u8; 60],
     pub AerInfo: [u8; 96],
 }
+impl windows_core::TypeKind for WHEA_PCIEXPRESS_ERROR_SECTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_PCIEXPRESS_ERROR_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIEXPRESS_ERROR_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
+}
+impl windows_core::TypeKind for WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIEXPRESS_VERSION {
     pub Anonymous: WHEA_PCIEXPRESS_VERSION_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_PCIEXPRESS_VERSION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIEXPRESS_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIEXPRESS_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIEXPRESS_VERSION_0 {
     pub MinorVersion: u8,
     pub MajorVersion: u8,
     pub Reserved: u16,
+}
+impl windows_core::TypeKind for WHEA_PCIEXPRESS_VERSION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIEXPRESS_VERSION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIEXPRESS_VERSION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIE_ADDRESS {
     pub Segment: u32,
     pub Bus: u32,
     pub Device: u32,
     pub Function: u32,
 }
+impl windows_core::TypeKind for WHEA_PCIE_ADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_PCIE_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIE_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_DEVICES {
     pub ValidBits: WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS,
     pub Address: WHEA_PCIE_ADDRESS,
     pub Mask: u32,
     pub CorrectableErrorCount: [u32; 32],
 }
+impl windows_core::TypeKind for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS {
     pub Anonymous: WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS_0,
     pub ValidBits: u64,
+}
+impl windows_core::TypeKind for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_SECTION {
     pub Header: WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER,
     pub Devices: [WHEA_PCIE_CORRECTABLE_ERROR_DEVICES; 1],
+}
+impl windows_core::TypeKind for WHEA_PCIE_CORRECTABLE_ERROR_SECTION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIE_CORRECTABLE_ERROR_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIE_CORRECTABLE_ERROR_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER {
     pub Version: u16,
     pub Count: u16,
+}
+impl windows_core::TypeKind for WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIXBUS_COMMAND {
     pub Anonymous: WHEA_PCIXBUS_COMMAND_0,
     pub AsULONGLONG: u64,
+}
+impl windows_core::TypeKind for WHEA_PCIXBUS_COMMAND {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIXBUS_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIXBUS_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIXBUS_COMMAND_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_PCIXBUS_COMMAND_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIXBUS_COMMAND_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIXBUS_COMMAND_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIXBUS_ERROR_SECTION {
     pub ValidBits: WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS,
     pub ErrorStatus: WHEA_ERROR_STATUS,
@@ -26641,71 +27416,71 @@ pub struct WHEA_PCIXBUS_ERROR_SECTION {
     pub CompleterId: u64,
     pub TargetId: u64,
 }
+impl windows_core::TypeKind for WHEA_PCIXBUS_ERROR_SECTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_PCIXBUS_ERROR_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIXBUS_ERROR_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
+}
+impl windows_core::TypeKind for WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIXBUS_ID {
     pub Anonymous: WHEA_PCIXBUS_ID_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for WHEA_PCIXBUS_ID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIXBUS_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIXBUS_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_PCIXBUS_ID_0 {
     pub BusNumber: u8,
     pub BusSegment: u8,
+}
+impl windows_core::TypeKind for WHEA_PCIXBUS_ID_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIXBUS_ID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIXBUS_ID_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIXDEVICE_ERROR_SECTION {
     pub ValidBits: WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS,
     pub ErrorStatus: WHEA_ERROR_STATUS,
@@ -26714,43 +27489,43 @@ pub struct WHEA_PCIXDEVICE_ERROR_SECTION {
     pub IoNumber: u32,
     pub RegisterDataPairs: [WHEA_PCIXDEVICE_REGISTER_PAIR; 1],
 }
+impl windows_core::TypeKind for WHEA_PCIXDEVICE_ERROR_SECTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_PCIXDEVICE_ERROR_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIXDEVICE_ERROR_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
+}
+impl windows_core::TypeKind for WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIXDEVICE_ID {
     pub VendorId: u16,
     pub DeviceId: u16,
@@ -26758,72 +27533,72 @@ pub struct WHEA_PCIXDEVICE_ID {
     pub _bitfield2: u32,
     pub Reserved2: u32,
 }
+impl windows_core::TypeKind for WHEA_PCIXDEVICE_ID {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_PCIXDEVICE_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIXDEVICE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCIXDEVICE_REGISTER_PAIR {
     pub Register: u64,
     pub Data: u64,
+}
+impl windows_core::TypeKind for WHEA_PCIXDEVICE_REGISTER_PAIR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCIXDEVICE_REGISTER_PAIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCIXDEVICE_REGISTER_PAIR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_PCI_RECOVERY_SECTION {
     pub SignalType: u8,
     pub RecoveryAttempted: super::super::super::Win32::Foundation::BOOLEAN,
     pub RecoveryStatus: u8,
+}
+impl windows_core::TypeKind for WHEA_PCI_RECOVERY_SECTION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCI_RECOVERY_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCI_RECOVERY_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_PERSISTENCE_INFO {
     pub Anonymous: WHEA_PERSISTENCE_INFO_0,
     pub AsULONGLONG: u64,
+}
+impl windows_core::TypeKind for WHEA_PERSISTENCE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PERSISTENCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PERSISTENCE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PERSISTENCE_INFO_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_PERSISTENCE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PERSISTENCE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PERSISTENCE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PMEM_ERROR_SECTION {
     pub ValidBits: WHEA_PMEM_ERROR_SECTION_VALIDBITS,
     pub LocationInfo: [u8; 64],
@@ -26832,86 +27607,86 @@ pub struct WHEA_PMEM_ERROR_SECTION {
     pub PageRangeCount: u32,
     pub PageRange: [WHEA_PMEM_PAGE_RANGE; 1],
 }
+impl windows_core::TypeKind for WHEA_PMEM_ERROR_SECTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_PMEM_ERROR_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PMEM_ERROR_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_PMEM_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_PMEM_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
+}
+impl windows_core::TypeKind for WHEA_PMEM_ERROR_SECTION_VALIDBITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PMEM_ERROR_SECTION_VALIDBITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PMEM_ERROR_SECTION_VALIDBITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PMEM_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_PMEM_ERROR_SECTION_VALIDBITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PMEM_ERROR_SECTION_VALIDBITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PMEM_ERROR_SECTION_VALIDBITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PMEM_PAGE_RANGE {
     pub StartingPfn: u64,
     pub PageCount: u64,
     pub MarkedBadBitmap: u64,
+}
+impl windows_core::TypeKind for WHEA_PMEM_PAGE_RANGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PMEM_PAGE_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PMEM_PAGE_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_PROCESSOR_FAMILY_INFO {
     pub Anonymous: WHEA_PROCESSOR_FAMILY_INFO_0,
     pub AsULONGLONG: u64,
+}
+impl windows_core::TypeKind for WHEA_PROCESSOR_FAMILY_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PROCESSOR_FAMILY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PROCESSOR_FAMILY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PROCESSOR_FAMILY_INFO_0 {
     pub _bitfield: u32,
     pub NativeModelId: u32,
+}
+impl windows_core::TypeKind for WHEA_PROCESSOR_FAMILY_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PROCESSOR_FAMILY_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PROCESSOR_FAMILY_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PROCESSOR_GENERIC_ERROR_SECTION {
     pub ValidBits: WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS,
     pub ProcessorType: u8,
@@ -26929,72 +27704,72 @@ pub struct WHEA_PROCESSOR_GENERIC_ERROR_SECTION {
     pub ResponderId: u64,
     pub InstructionPointer: u64,
 }
+impl windows_core::TypeKind for WHEA_PROCESSOR_GENERIC_ERROR_SECTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_PROCESSOR_GENERIC_ERROR_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PROCESSOR_GENERIC_ERROR_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
+}
+impl windows_core::TypeKind for WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PI_CPU_BUSES_INIT_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
+}
+impl windows_core::TypeKind for WHEA_PSHED_PI_CPU_BUSES_INIT_FAILED_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PSHED_PI_CPU_BUSES_INIT_FAILED_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PSHED_PI_CPU_BUSES_INIT_FAILED_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PI_TRACE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Buffer: [i8; 256],
+}
+impl windows_core::TypeKind for WHEA_PSHED_PI_TRACE_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PSHED_PI_TRACE_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PSHED_PI_TRACE_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_PSHED_PLUGIN_CALLBACKS {
     pub GetAllErrorSources: PSHED_PI_GET_ALL_ERROR_SOURCES,
     pub Reserved: *mut core::ffi::c_void,
@@ -27013,17 +27788,17 @@ pub struct WHEA_PSHED_PLUGIN_CALLBACKS {
     pub InjectError: PSHED_PI_INJECT_ERROR,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_CALLBACKS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for WHEA_PSHED_PLUGIN_CALLBACKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_DIMM_MISMATCH {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub FirmwareBank: u16,
@@ -27036,89 +27811,89 @@ pub struct WHEA_PSHED_PLUGIN_DIMM_MISMATCH {
     pub TaCol: u16,
     pub TaRow: u16,
 }
+impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_DIMM_MISMATCH {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_PSHED_PLUGIN_DIMM_MISMATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_DIMM_MISMATCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub EnableError: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS,
+}
+impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_FAILED_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_FAILED_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_FAILED_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_HEARTBEAT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
+}
+impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_HEARTBEAT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PSHED_PLUGIN_HEARTBEAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_HEARTBEAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_INIT_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
+}
+impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_INIT_FAILED_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PSHED_PLUGIN_INIT_FAILED_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_INIT_FAILED_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_LOAD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub PluginName: [u16; 32],
     pub MajorVersion: u32,
     pub MinorVersion: u32,
 }
+impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_LOAD_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_PSHED_PLUGIN_LOAD_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_LOAD_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_PLATFORM_SUPPORT_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub PluginName: [u16; 32],
     pub Supported: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_PLATFORM_SUPPORT_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PSHED_PLUGIN_PLATFORM_SUPPORT_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_PLATFORM_SUPPORT_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V1 {
     pub Length: u32,
     pub Version: u32,
@@ -27128,18 +27903,18 @@ pub struct WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V1 {
     pub Callbacks: WHEA_PSHED_PLUGIN_CALLBACKS,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V2 {
     pub Length: u32,
     pub Version: u32,
@@ -27150,89 +27925,89 @@ pub struct WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V2 {
     pub PluginHandle: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_UNLOAD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub PluginName: [u16; 32],
+}
+impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_UNLOAD_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PSHED_PLUGIN_UNLOAD_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PSHED_PLUGIN_UNLOAD_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_RECOVERY_ACTION {
     pub Anonymous: WHEA_RECOVERY_ACTION_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_RECOVERY_ACTION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_RECOVERY_ACTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_RECOVERY_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_RECOVERY_ACTION_0 {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
+}
+impl windows_core::TypeKind for WHEA_RECOVERY_ACTION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_RECOVERY_ACTION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_RECOVERY_ACTION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_RECOVERY_CONTEXT {
     pub Anonymous: WHEA_RECOVERY_CONTEXT_0,
     pub PartitionId: u64,
     pub VpIndex: u32,
     pub ErrorType: WHEA_RECOVERY_CONTEXT_ERROR_TYPE,
 }
+impl windows_core::TypeKind for WHEA_RECOVERY_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_RECOVERY_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_RECOVERY_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_RECOVERY_CONTEXT_0 {
     pub MemoryError: WHEA_RECOVERY_CONTEXT_0_0,
     pub PmemError: WHEA_RECOVERY_CONTEXT_0_1,
+}
+impl windows_core::TypeKind for WHEA_RECOVERY_CONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_RECOVERY_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_RECOVERY_CONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_RECOVERY_CONTEXT_0_0 {
     pub Address: usize,
     pub Consumed: super::super::super::Win32::Foundation::BOOLEAN,
@@ -27241,158 +28016,158 @@ pub struct WHEA_RECOVERY_CONTEXT_0_0 {
     pub RestartIpValid: super::super::super::Win32::Foundation::BOOLEAN,
     pub ClearPoison: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for WHEA_RECOVERY_CONTEXT_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_RECOVERY_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_RECOVERY_CONTEXT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_RECOVERY_CONTEXT_0_1 {
     pub PmemErrInfo: usize,
+}
+impl windows_core::TypeKind for WHEA_RECOVERY_CONTEXT_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_RECOVERY_CONTEXT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_RECOVERY_CONTEXT_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_REGISTER_KEY_NOTIFICATION_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
+}
+impl windows_core::TypeKind for WHEA_REGISTER_KEY_NOTIFICATION_FAILED_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_REGISTER_KEY_NOTIFICATION_FAILED_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_REGISTER_KEY_NOTIFICATION_FAILED_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS {
     pub Anonymous: WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_REVISION {
     pub Anonymous: WHEA_REVISION_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for WHEA_REVISION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_REVISION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_REVISION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_REVISION_0 {
     pub MinorRevision: u8,
     pub MajorRevision: u8,
+}
+impl windows_core::TypeKind for WHEA_REVISION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_REVISION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_REVISION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SEA_SECTION {
     pub Esr: u32,
     pub Far: u64,
     pub Par: u64,
     pub WasKernel: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for WHEA_SEA_SECTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_SEA_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_SEA_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SEI_SECTION {
     pub Esr: u32,
     pub Far: u64,
+}
+impl windows_core::TypeKind for WHEA_SEI_SECTION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_SEI_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_SEI_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_PROGRESS {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub BugCheckCode: u32,
     pub BugCheckProgressSummary: u32,
+}
+impl windows_core::TypeKind for WHEA_SEL_BUGCHECK_PROGRESS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_SEL_BUGCHECK_PROGRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_SEL_BUGCHECK_PROGRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_MULTIPLE_BUGCHECK_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub IsBugcheckOwner: super::super::super::Win32::Foundation::BOOLEAN,
     pub RecursionCount: u8,
     pub IsBugcheckRecoveryOwner: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_MULTIPLE_BUGCHECK_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_MULTIPLE_BUGCHECK_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_MULTIPLE_BUGCHECK_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Success: super::super::super::Win32::Foundation::BOOLEAN,
@@ -27400,59 +28175,59 @@ pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT {
     pub EntryCount: u16,
     pub Data: WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0,
 }
+impl windows_core::TypeKind for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0 {
     pub DumpPolicy: u8,
     pub Reserved: [u8; 3],
+}
+impl windows_core::TypeKind for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE2_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub BootId: u32,
     pub Success: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE2_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE2_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE2_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_START_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub StartingIrql: u8,
+}
+impl windows_core::TypeKind for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_START_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_START_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_START_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SRAR_DETAIL_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub RecoveryContextFlags: u32,
@@ -27460,87 +28235,87 @@ pub struct WHEA_SRAR_DETAIL_EVENT {
     pub PageOfflineStatus: super::super::super::Win32::Foundation::NTSTATUS,
     pub KernelConsumerError: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for WHEA_SRAR_DETAIL_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_SRAR_DETAIL_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_SRAR_DETAIL_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SRAS_TABLE_ENTRIES_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub LogNumber: u32,
     pub NumberSignals: u32,
     pub Data: [u8; 1],
 }
+impl windows_core::TypeKind for WHEA_SRAS_TABLE_ENTRIES_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_SRAS_TABLE_ENTRIES_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_SRAS_TABLE_ENTRIES_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SRAS_TABLE_ERROR {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
+}
+impl windows_core::TypeKind for WHEA_SRAS_TABLE_ERROR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_SRAS_TABLE_ERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_SRAS_TABLE_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_SRAS_TABLE_NOT_FOUND {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
+}
+impl windows_core::TypeKind for WHEA_SRAS_TABLE_NOT_FOUND {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_SRAS_TABLE_NOT_FOUND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_SRAS_TABLE_NOT_FOUND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_ADD_ERR_SRC_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
+}
+impl windows_core::TypeKind for WHEA_THROTTLE_ADD_ERR_SRC_FAILED_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_THROTTLE_ADD_ERR_SRC_FAILED_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_THROTTLE_ADD_ERR_SRC_FAILED_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_MEMORY_ADD_OR_REMOVE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub SocketId: u32,
     pub ChannelId: u32,
     pub DimmSlot: u32,
 }
+impl windows_core::TypeKind for WHEA_THROTTLE_MEMORY_ADD_OR_REMOVE_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_THROTTLE_MEMORY_ADD_OR_REMOVE_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_THROTTLE_MEMORY_ADD_OR_REMOVE_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_PCIE_ADD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Address: WHEA_PCIE_ADDRESS,
@@ -27548,86 +28323,86 @@ pub struct WHEA_THROTTLE_PCIE_ADD_EVENT {
     pub Updated: super::super::super::Win32::Foundation::BOOLEAN,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
+impl windows_core::TypeKind for WHEA_THROTTLE_PCIE_ADD_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_THROTTLE_PCIE_ADD_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_THROTTLE_PCIE_ADD_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_PCIE_REMOVE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub Address: WHEA_PCIE_ADDRESS,
     pub Mask: u32,
+}
+impl windows_core::TypeKind for WHEA_THROTTLE_PCIE_REMOVE_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_THROTTLE_PCIE_REMOVE_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_THROTTLE_PCIE_REMOVE_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_REGISTRY_CORRUPT_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ThrottleType: WHEA_THROTTLE_TYPE,
+}
+impl windows_core::TypeKind for WHEA_THROTTLE_REGISTRY_CORRUPT_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_THROTTLE_REGISTRY_CORRUPT_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_THROTTLE_REGISTRY_CORRUPT_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_REG_DATA_IGNORED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
     pub ThrottleType: WHEA_THROTTLE_TYPE,
+}
+impl windows_core::TypeKind for WHEA_THROTTLE_REG_DATA_IGNORED_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_THROTTLE_REG_DATA_IGNORED_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_THROTTLE_REG_DATA_IGNORED_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_TIMESTAMP {
     pub Anonymous: WHEA_TIMESTAMP_0,
     pub AsLARGE_INTEGER: i64,
+}
+impl windows_core::TypeKind for WHEA_TIMESTAMP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_TIMESTAMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_TIMESTAMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_TIMESTAMP_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_TIMESTAMP_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_TIMESTAMP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_TIMESTAMP_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHEA_X64_REGISTER_STATE {
     pub Rax: u64,
     pub Rbx: u64,
@@ -27665,16 +28440,16 @@ pub struct WHEA_X64_REGISTER_STATE {
     pub Ldtr: u16,
     pub Tr: u16,
 }
+impl windows_core::TypeKind for WHEA_X64_REGISTER_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_X64_REGISTER_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_X64_REGISTER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_X86_REGISTER_STATE {
     pub Eax: u32,
     pub Ebx: u32,
@@ -27702,86 +28477,86 @@ pub struct WHEA_X86_REGISTER_STATE {
     pub Ldtr: u16,
     pub Tr: u16,
 }
+impl windows_core::TypeKind for WHEA_X86_REGISTER_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_X86_REGISTER_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_X86_REGISTER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_BUS_CHECK {
     pub Anonymous: WHEA_XPF_BUS_CHECK_0,
     pub XpfBusCheck: u64,
+}
+impl windows_core::TypeKind for WHEA_XPF_BUS_CHECK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_XPF_BUS_CHECK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_BUS_CHECK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_BUS_CHECK_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_XPF_BUS_CHECK_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_XPF_BUS_CHECK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_BUS_CHECK_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_CACHE_CHECK {
     pub Anonymous: WHEA_XPF_CACHE_CHECK_0,
     pub XpfCacheCheck: u64,
+}
+impl windows_core::TypeKind for WHEA_XPF_CACHE_CHECK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_XPF_CACHE_CHECK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_CACHE_CHECK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_CACHE_CHECK_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_XPF_CACHE_CHECK_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_XPF_CACHE_CHECK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_CACHE_CHECK_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_CONTEXT_INFO {
     pub RegisterContextType: u16,
     pub RegisterDataSize: u16,
     pub MSRAddress: u32,
     pub MmRegisterAddress: u64,
 }
+impl windows_core::TypeKind for WHEA_XPF_CONTEXT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_XPF_CONTEXT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_CONTEXT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_MCA_SECTION {
     pub VersionNumber: u32,
     pub CpuVendor: WHEA_CPU_VENDOR,
@@ -27799,100 +28574,100 @@ pub struct WHEA_XPF_MCA_SECTION {
     pub GlobalCapability: MCG_CAP,
     pub RecoveryInfo: XPF_RECOVERY_INFO,
 }
+impl windows_core::TypeKind for WHEA_XPF_MCA_SECTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_XPF_MCA_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_MCA_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_MCA_SECTION_0 {
     pub ExtendedRegisters: [u64; 24],
     pub AMDExtendedRegisters: WHEA_AMD_EXTENDED_REGISTERS,
+}
+impl windows_core::TypeKind for WHEA_XPF_MCA_SECTION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_XPF_MCA_SECTION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_MCA_SECTION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_MS_CHECK {
     pub Anonymous: WHEA_XPF_MS_CHECK_0,
     pub XpfMsCheck: u64,
+}
+impl windows_core::TypeKind for WHEA_XPF_MS_CHECK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_XPF_MS_CHECK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_MS_CHECK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_MS_CHECK_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_XPF_MS_CHECK_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_XPF_MS_CHECK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_MS_CHECK_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_PROCESSOR_ERROR_SECTION {
     pub ValidBits: WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS,
     pub LocalAPICId: u64,
     pub CpuId: [u8; 48],
     pub VariableInfo: [u8; 1],
 }
+impl windows_core::TypeKind for WHEA_XPF_PROCESSOR_ERROR_SECTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_XPF_PROCESSOR_ERROR_SECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_PROCESSOR_ERROR_SECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0,
     pub ValidBits: u64,
+}
+impl windows_core::TypeKind for WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_PROCINFO {
     pub CheckInfoId: windows_core::GUID,
     pub ValidBits: WHEA_XPF_PROCINFO_VALIDBITS,
@@ -27902,16 +28677,16 @@ pub struct WHEA_XPF_PROCINFO {
     pub ResponderId: u64,
     pub InstructionPointer: u64,
 }
+impl windows_core::TypeKind for WHEA_XPF_PROCINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_XPF_PROCINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_PROCINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_PROCINFO_0 {
     pub CacheCheck: WHEA_XPF_CACHE_CHECK,
     pub TlbCheck: WHEA_XPF_TLB_CHECK,
@@ -27919,70 +28694,70 @@ pub union WHEA_XPF_PROCINFO_0 {
     pub MsCheck: WHEA_XPF_MS_CHECK,
     pub AsULONGLONG: u64,
 }
+impl windows_core::TypeKind for WHEA_XPF_PROCINFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_XPF_PROCINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_PROCINFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_PROCINFO_VALIDBITS {
     pub Anonymous: WHEA_XPF_PROCINFO_VALIDBITS_0,
     pub ValidBits: u64,
+}
+impl windows_core::TypeKind for WHEA_XPF_PROCINFO_VALIDBITS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_XPF_PROCINFO_VALIDBITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_PROCINFO_VALIDBITS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_PROCINFO_VALIDBITS_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_XPF_PROCINFO_VALIDBITS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_XPF_PROCINFO_VALIDBITS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_PROCINFO_VALIDBITS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WHEA_XPF_TLB_CHECK {
     pub Anonymous: WHEA_XPF_TLB_CHECK_0,
     pub XpfTLBCheck: u64,
+}
+impl windows_core::TypeKind for WHEA_XPF_TLB_CHECK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_XPF_TLB_CHECK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_TLB_CHECK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_TLB_CHECK_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for WHEA_XPF_TLB_CHECK_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_XPF_TLB_CHECK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_TLB_CHECK_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XPF_RECOVERY_INFO {
     pub FailureReason: XPF_RECOVERY_INFO_0,
     pub Action: XPF_RECOVERY_INFO_1,
@@ -27994,43 +28769,43 @@ pub struct XPF_RECOVERY_INFO {
     pub Reserved3: u16,
     pub Reserved4: u32,
 }
+impl windows_core::TypeKind for XPF_RECOVERY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for XPF_RECOVERY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XPF_RECOVERY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XPF_RECOVERY_INFO_1 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for XPF_RECOVERY_INFO_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for XPF_RECOVERY_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XPF_RECOVERY_INFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XPF_RECOVERY_INFO_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for XPF_RECOVERY_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for XPF_RECOVERY_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XPF_RECOVERY_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
     pub StatusWord: u16,
@@ -28050,18 +28825,18 @@ pub struct XSAVE_FORMAT {
     pub Reserved4: [u8; 224],
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for XSAVE_FORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for XSAVE_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for XSAVE_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
     pub Length: u32,
@@ -28072,20 +28847,24 @@ pub struct XSTATE_CONTEXT {
     pub Reserved3: u32,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for XSTATE_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for XSTATE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for XSTATE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XSTATE_SAVE {
     pub Anonymous: XSTATE_SAVE_0,
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for XSTATE_SAVE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for XSTATE_SAVE {
@@ -28093,16 +28872,16 @@ impl Default for XSTATE_SAVE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for XSTATE_SAVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union XSTATE_SAVE_0 {
     pub Anonymous: XSTATE_SAVE_0_0,
     pub XStateContext: XSTATE_CONTEXT,
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for XSTATE_SAVE_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for XSTATE_SAVE_0 {
@@ -28110,13 +28889,9 @@ impl Default for XSTATE_SAVE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for XSTATE_SAVE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSTATE_SAVE_0_0 {
     pub Reserved1: i64,
     pub Reserved2: u32,
@@ -28127,18 +28902,18 @@ pub struct XSTATE_SAVE_0_0 {
     pub Level: u8,
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl windows_core::TypeKind for XSTATE_SAVE_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for XSTATE_SAVE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl windows_core::TypeKind for XSTATE_SAVE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ZONE_HEADER {
     pub FreeList: super::super::super::Win32::System::Kernel::SINGLE_LIST_ENTRY,
     pub SegmentList: super::super::super::Win32::System::Kernel::SINGLE_LIST_ENTRY,
@@ -28146,21 +28921,25 @@ pub struct ZONE_HEADER {
     pub TotalSegmentSize: u32,
 }
 #[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for ZONE_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for ZONE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for ZONE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ZONE_SEGMENT_HEADER {
     pub SegmentList: super::super::super::Win32::System::Kernel::SINGLE_LIST_ENTRY,
     pub Reserved: *mut core::ffi::c_void,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for ZONE_SEGMENT_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl Default for ZONE_SEGMENT_HEADER {
@@ -28168,24 +28947,20 @@ impl Default for ZONE_SEGMENT_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for ZONE_SEGMENT_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _EXT_SET_PARAMETERS_V0 {
     pub Version: u32,
     pub Reserved: u32,
     pub NoWakeTolerance: i64,
 }
+impl windows_core::TypeKind for _EXT_SET_PARAMETERS_V0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for _EXT_SET_PARAMETERS_V0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for _EXT_SET_PARAMETERS_V0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Wdk_Foundation")]
 pub type ALLOCATE_FUNCTION = Option<unsafe extern "system" fn(pooltype: super::super::Foundation::POOL_TYPE, numberofbytes: usize, tag: u32) -> *mut core::ffi::c_void>;

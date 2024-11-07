@@ -209,7 +209,6 @@ pub struct IUserDataTaskStore_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTask(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTask, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UserDataTask, IUserDataTask);
 impl UserDataTask {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -394,17 +393,18 @@ impl windows_core::RuntimeType for UserDataTask {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTask>();
 }
 unsafe impl windows_core::Interface for UserDataTask {
-    type Vtable = <IUserDataTask as windows_core::Interface>::Vtable;
+    type Vtable = IUserDataTask_Vtbl;
     const IID: windows_core::GUID = <IUserDataTask as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserDataTask {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTask";
 }
+unsafe impl Send for UserDataTask {}
+unsafe impl Sync for UserDataTask {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskBatch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskBatch, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UserDataTaskBatch, IUserDataTaskBatch);
 impl UserDataTaskBatch {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Tasks(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UserDataTask>> {
@@ -419,17 +419,18 @@ impl windows_core::RuntimeType for UserDataTaskBatch {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskBatch>();
 }
 unsafe impl windows_core::Interface for UserDataTaskBatch {
-    type Vtable = <IUserDataTaskBatch as windows_core::Interface>::Vtable;
+    type Vtable = IUserDataTaskBatch_Vtbl;
     const IID: windows_core::GUID = <IUserDataTaskBatch as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserDataTaskBatch {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch";
 }
+unsafe impl Send for UserDataTaskBatch {}
+unsafe impl Sync for UserDataTaskBatch {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskList(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskList, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UserDataTaskList, IUserDataTaskList);
 impl UserDataTaskList {
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -566,17 +567,18 @@ impl windows_core::RuntimeType for UserDataTaskList {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskList>();
 }
 unsafe impl windows_core::Interface for UserDataTaskList {
-    type Vtable = <IUserDataTaskList as windows_core::Interface>::Vtable;
+    type Vtable = IUserDataTaskList_Vtbl;
     const IID: windows_core::GUID = <IUserDataTaskList as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserDataTaskList {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskList";
 }
+unsafe impl Send for UserDataTaskList {}
+unsafe impl Sync for UserDataTaskList {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListLimitedWriteOperations(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskListLimitedWriteOperations, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UserDataTaskListLimitedWriteOperations, IUserDataTaskListLimitedWriteOperations);
 impl UserDataTaskListLimitedWriteOperations {
     pub fn TryCompleteTaskAsync(&self, userdatataskid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
         let this = self;
@@ -614,17 +616,18 @@ impl windows_core::RuntimeType for UserDataTaskListLimitedWriteOperations {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListLimitedWriteOperations>();
 }
 unsafe impl windows_core::Interface for UserDataTaskListLimitedWriteOperations {
-    type Vtable = <IUserDataTaskListLimitedWriteOperations as windows_core::Interface>::Vtable;
+    type Vtable = IUserDataTaskListLimitedWriteOperations_Vtbl;
     const IID: windows_core::GUID = <IUserDataTaskListLimitedWriteOperations as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserDataTaskListLimitedWriteOperations {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations";
 }
+unsafe impl Send for UserDataTaskListLimitedWriteOperations {}
+unsafe impl Sync for UserDataTaskListLimitedWriteOperations {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListSyncManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskListSyncManager, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UserDataTaskListSyncManager, IUserDataTaskListSyncManager);
 impl UserDataTaskListSyncManager {
     pub fn LastAttemptedSyncTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -685,17 +688,18 @@ impl windows_core::RuntimeType for UserDataTaskListSyncManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListSyncManager>();
 }
 unsafe impl windows_core::Interface for UserDataTaskListSyncManager {
-    type Vtable = <IUserDataTaskListSyncManager as windows_core::Interface>::Vtable;
+    type Vtable = IUserDataTaskListSyncManager_Vtbl;
     const IID: windows_core::GUID = <IUserDataTaskListSyncManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserDataTaskListSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager";
 }
+unsafe impl Send for UserDataTaskListSyncManager {}
+unsafe impl Sync for UserDataTaskListSyncManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskManager, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UserDataTaskManager, IUserDataTaskManager, IUserDataTaskManagerStatics);
 impl UserDataTaskManager {
     pub fn RequestStoreAsync(&self, accesstype: UserDataTaskStoreAccessType) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskStore>> {
         let this = self;
@@ -737,17 +741,18 @@ impl windows_core::RuntimeType for UserDataTaskManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskManager>();
 }
 unsafe impl windows_core::Interface for UserDataTaskManager {
-    type Vtable = <IUserDataTaskManager as windows_core::Interface>::Vtable;
+    type Vtable = IUserDataTaskManager_Vtbl;
     const IID: windows_core::GUID = <IUserDataTaskManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserDataTaskManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskManager";
 }
+unsafe impl Send for UserDataTaskManager {}
+unsafe impl Sync for UserDataTaskManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskQueryOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskQueryOptions, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UserDataTaskQueryOptions, IUserDataTaskQueryOptions);
 impl UserDataTaskQueryOptions {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -783,17 +788,18 @@ impl windows_core::RuntimeType for UserDataTaskQueryOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskQueryOptions>();
 }
 unsafe impl windows_core::Interface for UserDataTaskQueryOptions {
-    type Vtable = <IUserDataTaskQueryOptions as windows_core::Interface>::Vtable;
+    type Vtable = IUserDataTaskQueryOptions_Vtbl;
     const IID: windows_core::GUID = <IUserDataTaskQueryOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserDataTaskQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions";
 }
+unsafe impl Send for UserDataTaskQueryOptions {}
+unsafe impl Sync for UserDataTaskQueryOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskReader, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UserDataTaskReader, IUserDataTaskReader);
 impl UserDataTaskReader {
     pub fn ReadBatchAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskBatch>> {
         let this = self;
@@ -807,17 +813,18 @@ impl windows_core::RuntimeType for UserDataTaskReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskReader>();
 }
 unsafe impl windows_core::Interface for UserDataTaskReader {
-    type Vtable = <IUserDataTaskReader as windows_core::Interface>::Vtable;
+    type Vtable = IUserDataTaskReader_Vtbl;
     const IID: windows_core::GUID = <IUserDataTaskReader as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserDataTaskReader {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskReader";
 }
+unsafe impl Send for UserDataTaskReader {}
+unsafe impl Sync for UserDataTaskReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskRecurrenceProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskRecurrenceProperties, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UserDataTaskRecurrenceProperties, IUserDataTaskRecurrenceProperties);
 impl UserDataTaskRecurrenceProperties {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -937,17 +944,18 @@ impl windows_core::RuntimeType for UserDataTaskRecurrenceProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskRecurrenceProperties>();
 }
 unsafe impl windows_core::Interface for UserDataTaskRecurrenceProperties {
-    type Vtable = <IUserDataTaskRecurrenceProperties as windows_core::Interface>::Vtable;
+    type Vtable = IUserDataTaskRecurrenceProperties_Vtbl;
     const IID: windows_core::GUID = <IUserDataTaskRecurrenceProperties as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserDataTaskRecurrenceProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties";
 }
+unsafe impl Send for UserDataTaskRecurrenceProperties {}
+unsafe impl Sync for UserDataTaskRecurrenceProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskRegenerationProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskRegenerationProperties, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UserDataTaskRegenerationProperties, IUserDataTaskRegenerationProperties);
 impl UserDataTaskRegenerationProperties {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1011,17 +1019,18 @@ impl windows_core::RuntimeType for UserDataTaskRegenerationProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskRegenerationProperties>();
 }
 unsafe impl windows_core::Interface for UserDataTaskRegenerationProperties {
-    type Vtable = <IUserDataTaskRegenerationProperties as windows_core::Interface>::Vtable;
+    type Vtable = IUserDataTaskRegenerationProperties_Vtbl;
     const IID: windows_core::GUID = <IUserDataTaskRegenerationProperties as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserDataTaskRegenerationProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties";
 }
+unsafe impl Send for UserDataTaskRegenerationProperties {}
+unsafe impl Sync for UserDataTaskRegenerationProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataTaskStore, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UserDataTaskStore, IUserDataTaskStore);
 impl UserDataTaskStore {
     pub fn CreateListAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataTaskList>> {
         let this = self;
@@ -1057,14 +1066,16 @@ impl windows_core::RuntimeType for UserDataTaskStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskStore>();
 }
 unsafe impl windows_core::Interface for UserDataTaskStore {
-    type Vtable = <IUserDataTaskStore as windows_core::Interface>::Vtable;
+    type Vtable = IUserDataTaskStore_Vtbl;
     const IID: windows_core::GUID = <IUserDataTaskStore as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserDataTaskStore {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskStore";
 }
+unsafe impl Send for UserDataTaskStore {}
+unsafe impl Sync for UserDataTaskStore {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserDataTaskDaysOfWeek(pub u32);
 impl UserDataTaskDaysOfWeek {
     pub const None: Self = Self(0u32);
@@ -1079,11 +1090,49 @@ impl UserDataTaskDaysOfWeek {
 impl windows_core::TypeKind for UserDataTaskDaysOfWeek {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UserDataTaskDaysOfWeek {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserDataTaskDaysOfWeek").field(&self.0).finish()
+    }
+}
+impl UserDataTaskDaysOfWeek {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for UserDataTaskDaysOfWeek {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for UserDataTaskDaysOfWeek {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for UserDataTaskDaysOfWeek {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for UserDataTaskDaysOfWeek {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for UserDataTaskDaysOfWeek {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 impl windows_core::RuntimeType for UserDataTaskDaysOfWeek {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDaysOfWeek;u4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserDataTaskDetailsKind(pub i32);
 impl UserDataTaskDetailsKind {
     pub const PlainText: Self = Self(0i32);
@@ -1092,11 +1141,16 @@ impl UserDataTaskDetailsKind {
 impl windows_core::TypeKind for UserDataTaskDetailsKind {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UserDataTaskDetailsKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserDataTaskDetailsKind").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for UserDataTaskDetailsKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskDetailsKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserDataTaskKind(pub i32);
 impl UserDataTaskKind {
     pub const Single: Self = Self(0i32);
@@ -1106,11 +1160,16 @@ impl UserDataTaskKind {
 impl windows_core::TypeKind for UserDataTaskKind {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UserDataTaskKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserDataTaskKind").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for UserDataTaskKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserDataTaskListOtherAppReadAccess(pub i32);
 impl UserDataTaskListOtherAppReadAccess {
     pub const Full: Self = Self(0i32);
@@ -1120,11 +1179,16 @@ impl UserDataTaskListOtherAppReadAccess {
 impl windows_core::TypeKind for UserDataTaskListOtherAppReadAccess {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UserDataTaskListOtherAppReadAccess {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserDataTaskListOtherAppReadAccess").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for UserDataTaskListOtherAppReadAccess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppReadAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserDataTaskListOtherAppWriteAccess(pub i32);
 impl UserDataTaskListOtherAppWriteAccess {
     pub const Limited: Self = Self(0i32);
@@ -1133,11 +1197,16 @@ impl UserDataTaskListOtherAppWriteAccess {
 impl windows_core::TypeKind for UserDataTaskListOtherAppWriteAccess {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UserDataTaskListOtherAppWriteAccess {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserDataTaskListOtherAppWriteAccess").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for UserDataTaskListOtherAppWriteAccess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppWriteAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserDataTaskListSyncStatus(pub i32);
 impl UserDataTaskListSyncStatus {
     pub const Idle: Self = Self(0i32);
@@ -1150,11 +1219,16 @@ impl UserDataTaskListSyncStatus {
 impl windows_core::TypeKind for UserDataTaskListSyncStatus {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UserDataTaskListSyncStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserDataTaskListSyncStatus").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for UserDataTaskListSyncStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserDataTaskPriority(pub i32);
 impl UserDataTaskPriority {
     pub const Normal: Self = Self(0i32);
@@ -1164,11 +1238,16 @@ impl UserDataTaskPriority {
 impl windows_core::TypeKind for UserDataTaskPriority {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UserDataTaskPriority {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserDataTaskPriority").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for UserDataTaskPriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskPriority;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserDataTaskQueryKind(pub i32);
 impl UserDataTaskQueryKind {
     pub const All: Self = Self(0i32);
@@ -1178,11 +1257,16 @@ impl UserDataTaskQueryKind {
 impl windows_core::TypeKind for UserDataTaskQueryKind {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UserDataTaskQueryKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserDataTaskQueryKind").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for UserDataTaskQueryKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserDataTaskQuerySortProperty(pub i32);
 impl UserDataTaskQuerySortProperty {
     pub const DueDate: Self = Self(0i32);
@@ -1190,11 +1274,16 @@ impl UserDataTaskQuerySortProperty {
 impl windows_core::TypeKind for UserDataTaskQuerySortProperty {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UserDataTaskQuerySortProperty {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserDataTaskQuerySortProperty").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for UserDataTaskQuerySortProperty {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskQuerySortProperty;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserDataTaskRecurrenceUnit(pub i32);
 impl UserDataTaskRecurrenceUnit {
     pub const Daily: Self = Self(0i32);
@@ -1207,11 +1296,16 @@ impl UserDataTaskRecurrenceUnit {
 impl windows_core::TypeKind for UserDataTaskRecurrenceUnit {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UserDataTaskRecurrenceUnit {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserDataTaskRecurrenceUnit").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for UserDataTaskRecurrenceUnit {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceUnit;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserDataTaskRegenerationUnit(pub i32);
 impl UserDataTaskRegenerationUnit {
     pub const Daily: Self = Self(0i32);
@@ -1222,11 +1316,16 @@ impl UserDataTaskRegenerationUnit {
 impl windows_core::TypeKind for UserDataTaskRegenerationUnit {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UserDataTaskRegenerationUnit {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserDataTaskRegenerationUnit").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for UserDataTaskRegenerationUnit {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationUnit;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserDataTaskSensitivity(pub i32);
 impl UserDataTaskSensitivity {
     pub const Public: Self = Self(0i32);
@@ -1235,11 +1334,16 @@ impl UserDataTaskSensitivity {
 impl windows_core::TypeKind for UserDataTaskSensitivity {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UserDataTaskSensitivity {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserDataTaskSensitivity").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for UserDataTaskSensitivity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskSensitivity;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserDataTaskStoreAccessType(pub i32);
 impl UserDataTaskStoreAccessType {
     pub const AppTasksReadWrite: Self = Self(0i32);
@@ -1248,11 +1352,16 @@ impl UserDataTaskStoreAccessType {
 impl windows_core::TypeKind for UserDataTaskStoreAccessType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UserDataTaskStoreAccessType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserDataTaskStoreAccessType").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for UserDataTaskStoreAccessType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskStoreAccessType;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UserDataTaskWeekOfMonth(pub i32);
 impl UserDataTaskWeekOfMonth {
     pub const First: Self = Self(0i32);
@@ -1263,6 +1372,11 @@ impl UserDataTaskWeekOfMonth {
 }
 impl windows_core::TypeKind for UserDataTaskWeekOfMonth {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for UserDataTaskWeekOfMonth {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UserDataTaskWeekOfMonth").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for UserDataTaskWeekOfMonth {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskWeekOfMonth;i4)");

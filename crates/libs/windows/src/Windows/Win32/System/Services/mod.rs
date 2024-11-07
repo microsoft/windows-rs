@@ -15,29 +15,29 @@ where
     ChangeServiceConfig2W(hservice.param().abi(), dwinfolevel, core::mem::transmute(lpinfo.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn ChangeServiceConfigA<P0, P4, P5, P7, P8, P9, P10>(hservice: P0, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: P4, lploadordergroup: P5, lpdwtagid: Option<*mut u32>, lpdependencies: P7, lpservicestartname: P8, lppassword: P9, lpdisplayname: P10) -> windows_core::Result<()>
+pub unsafe fn ChangeServiceConfigA<P0, P1, P2, P3, P4, P5, P6>(hservice: P0, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: P1, lploadordergroup: P2, lpdwtagid: Option<*mut u32>, lpdependencies: P3, lpservicestartname: P4, lppassword: P5, lpdisplayname: P6) -> windows_core::Result<()>
 where
     P0: windows_core::Param<SC_HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
     P5: windows_core::Param<windows_core::PCSTR>,
-    P7: windows_core::Param<windows_core::PCSTR>,
-    P8: windows_core::Param<windows_core::PCSTR>,
-    P9: windows_core::Param<windows_core::PCSTR>,
-    P10: windows_core::Param<windows_core::PCSTR>,
+    P6: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ChangeServiceConfigA(hservice : SC_HANDLE, dwservicetype : ENUM_SERVICE_TYPE, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : windows_core::PCSTR, lploadordergroup : windows_core::PCSTR, lpdwtagid : *mut u32, lpdependencies : windows_core::PCSTR, lpservicestartname : windows_core::PCSTR, lppassword : windows_core::PCSTR, lpdisplayname : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     ChangeServiceConfigA(hservice.param().abi(), dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.param().abi(), lploadordergroup.param().abi(), core::mem::transmute(lpdwtagid.unwrap_or(core::ptr::null_mut())), lpdependencies.param().abi(), lpservicestartname.param().abi(), lppassword.param().abi(), lpdisplayname.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn ChangeServiceConfigW<P0, P4, P5, P7, P8, P9, P10>(hservice: P0, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: P4, lploadordergroup: P5, lpdwtagid: Option<*mut u32>, lpdependencies: P7, lpservicestartname: P8, lppassword: P9, lpdisplayname: P10) -> windows_core::Result<()>
+pub unsafe fn ChangeServiceConfigW<P0, P1, P2, P3, P4, P5, P6>(hservice: P0, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: P1, lploadordergroup: P2, lpdwtagid: Option<*mut u32>, lpdependencies: P3, lpservicestartname: P4, lppassword: P5, lpdisplayname: P6) -> windows_core::Result<()>
 where
     P0: windows_core::Param<SC_HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
-    P7: windows_core::Param<windows_core::PCWSTR>,
-    P8: windows_core::Param<windows_core::PCWSTR>,
-    P9: windows_core::Param<windows_core::PCWSTR>,
-    P10: windows_core::Param<windows_core::PCWSTR>,
+    P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ChangeServiceConfigW(hservice : SC_HANDLE, dwservicetype : ENUM_SERVICE_TYPE, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : windows_core::PCWSTR, lploadordergroup : windows_core::PCWSTR, lpdwtagid : *mut u32, lpdependencies : windows_core::PCWSTR, lpservicestartname : windows_core::PCWSTR, lppassword : windows_core::PCWSTR, lpdisplayname : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     ChangeServiceConfigW(hservice.param().abi(), dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.param().abi(), lploadordergroup.param().abi(), core::mem::transmute(lpdwtagid.unwrap_or(core::ptr::null_mut())), lpdependencies.param().abi(), lpservicestartname.param().abi(), lppassword.param().abi(), lpdisplayname.param().abi()).ok()
@@ -75,32 +75,32 @@ where
     ControlServiceExW(hservice.param().abi(), dwcontrol, dwinfolevel, pcontrolparams).ok()
 }
 #[inline]
-pub unsafe fn CreateServiceA<P0, P1, P2, P7, P8, P10, P11, P12>(hscmanager: P0, lpservicename: P1, lpdisplayname: P2, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: P7, lploadordergroup: P8, lpdwtagid: Option<*mut u32>, lpdependencies: P10, lpservicestartname: P11, lppassword: P12) -> windows_core::Result<SC_HANDLE>
+pub unsafe fn CreateServiceA<P0, P1, P2, P3, P4, P5, P6, P7>(hscmanager: P0, lpservicename: P1, lpdisplayname: P2, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: P3, lploadordergroup: P4, lpdwtagid: Option<*mut u32>, lpdependencies: P5, lpservicestartname: P6, lppassword: P7) -> windows_core::Result<SC_HANDLE>
 where
     P0: windows_core::Param<SC_HANDLE>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+    P4: windows_core::Param<windows_core::PCSTR>,
+    P5: windows_core::Param<windows_core::PCSTR>,
+    P6: windows_core::Param<windows_core::PCSTR>,
     P7: windows_core::Param<windows_core::PCSTR>,
-    P8: windows_core::Param<windows_core::PCSTR>,
-    P10: windows_core::Param<windows_core::PCSTR>,
-    P11: windows_core::Param<windows_core::PCSTR>,
-    P12: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CreateServiceA(hscmanager : SC_HANDLE, lpservicename : windows_core::PCSTR, lpdisplayname : windows_core::PCSTR, dwdesiredaccess : u32, dwservicetype : ENUM_SERVICE_TYPE, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : windows_core::PCSTR, lploadordergroup : windows_core::PCSTR, lpdwtagid : *mut u32, lpdependencies : windows_core::PCSTR, lpservicestartname : windows_core::PCSTR, lppassword : windows_core::PCSTR) -> SC_HANDLE);
     let result__ = CreateServiceA(hscmanager.param().abi(), lpservicename.param().abi(), lpdisplayname.param().abi(), dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.param().abi(), lploadordergroup.param().abi(), core::mem::transmute(lpdwtagid.unwrap_or(core::ptr::null_mut())), lpdependencies.param().abi(), lpservicestartname.param().abi(), lppassword.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateServiceW<P0, P1, P2, P7, P8, P10, P11, P12>(hscmanager: P0, lpservicename: P1, lpdisplayname: P2, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: P7, lploadordergroup: P8, lpdwtagid: Option<*mut u32>, lpdependencies: P10, lpservicestartname: P11, lppassword: P12) -> windows_core::Result<SC_HANDLE>
+pub unsafe fn CreateServiceW<P0, P1, P2, P3, P4, P5, P6, P7>(hscmanager: P0, lpservicename: P1, lpdisplayname: P2, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: P3, lploadordergroup: P4, lpdwtagid: Option<*mut u32>, lpdependencies: P5, lpservicestartname: P6, lppassword: P7) -> windows_core::Result<SC_HANDLE>
 where
     P0: windows_core::Param<SC_HANDLE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<windows_core::PCWSTR>,
+    P6: windows_core::Param<windows_core::PCWSTR>,
     P7: windows_core::Param<windows_core::PCWSTR>,
-    P8: windows_core::Param<windows_core::PCWSTR>,
-    P10: windows_core::Param<windows_core::PCWSTR>,
-    P11: windows_core::Param<windows_core::PCWSTR>,
-    P12: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CreateServiceW(hscmanager : SC_HANDLE, lpservicename : windows_core::PCWSTR, lpdisplayname : windows_core::PCWSTR, dwdesiredaccess : u32, dwservicetype : ENUM_SERVICE_TYPE, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : windows_core::PCWSTR, lploadordergroup : windows_core::PCWSTR, lpdwtagid : *mut u32, lpdependencies : windows_core::PCWSTR, lpservicestartname : windows_core::PCWSTR, lppassword : windows_core::PCWSTR) -> SC_HANDLE);
     let result__ = CreateServiceW(hscmanager.param().abi(), lpservicename.param().abi(), lpdisplayname.param().abi(), dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.param().abi(), lploadordergroup.param().abi(), core::mem::transmute(lpdwtagid.unwrap_or(core::ptr::null_mut())), lpdependencies.param().abi(), lpservicestartname.param().abi(), lppassword.param().abi());
@@ -139,19 +139,19 @@ where
     EnumServicesStatusA(hscmanager.param().abi(), dwservicetype, dwservicestate, core::mem::transmute(lpservices.unwrap_or(core::ptr::null_mut())), cbbufsize, pcbbytesneeded, lpservicesreturned, core::mem::transmute(lpresumehandle.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn EnumServicesStatusExA<P0, P9>(hscmanager: P0, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: Option<&mut [u8]>, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: Option<*mut u32>, pszgroupname: P9) -> windows_core::Result<()>
+pub unsafe fn EnumServicesStatusExA<P0, P1>(hscmanager: P0, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: Option<&mut [u8]>, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: Option<*mut u32>, pszgroupname: P1) -> windows_core::Result<()>
 where
     P0: windows_core::Param<SC_HANDLE>,
-    P9: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn EnumServicesStatusExA(hscmanager : SC_HANDLE, infolevel : SC_ENUM_TYPE, dwservicetype : ENUM_SERVICE_TYPE, dwservicestate : ENUM_SERVICE_STATE, lpservices : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32, pszgroupname : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     EnumServicesStatusExA(hscmanager.param().abi(), infolevel, dwservicetype, dwservicestate, core::mem::transmute(lpservices.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpservices.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbbytesneeded, lpservicesreturned, core::mem::transmute(lpresumehandle.unwrap_or(core::ptr::null_mut())), pszgroupname.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn EnumServicesStatusExW<P0, P9>(hscmanager: P0, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: Option<&mut [u8]>, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: Option<*mut u32>, pszgroupname: P9) -> windows_core::Result<()>
+pub unsafe fn EnumServicesStatusExW<P0, P1>(hscmanager: P0, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: Option<&mut [u8]>, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: Option<*mut u32>, pszgroupname: P1) -> windows_core::Result<()>
 where
     P0: windows_core::Param<SC_HANDLE>,
-    P9: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn EnumServicesStatusExW(hscmanager : SC_HANDLE, infolevel : SC_ENUM_TYPE, dwservicetype : ENUM_SERVICE_TYPE, dwservicestate : ENUM_SERVICE_STATE, lpservices : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32, pszgroupname : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     EnumServicesStatusExW(hscmanager.param().abi(), infolevel, dwservicetype, dwservicestate, core::mem::transmute(lpservices.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpservices.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbbytesneeded, lpservicesreturned, core::mem::transmute(lpresumehandle.unwrap_or(core::ptr::null_mut())), pszgroupname.param().abi()).ok()
@@ -424,21 +424,21 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SetServiceBits<P0, P2, P3>(hservicestatus: P0, dwservicebits: u32, bsetbitson: P2, bupdateimmediately: P3) -> windows_core::Result<()>
+pub unsafe fn SetServiceBits<P0, P1, P2>(hservicestatus: P0, dwservicebits: u32, bsetbitson: P1, bupdateimmediately: P2) -> windows_core::Result<()>
 where
     P0: windows_core::Param<SERVICE_STATUS_HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
     P2: windows_core::Param<super::super::Foundation::BOOL>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("advapi32.dll" "system" fn SetServiceBits(hservicestatus : SERVICE_STATUS_HANDLE, dwservicebits : u32, bsetbitson : super::super::Foundation:: BOOL, bupdateimmediately : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     SetServiceBits(hservicestatus.param().abi(), dwservicebits, bsetbitson.param().abi(), bupdateimmediately.param().abi()).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn SetServiceObjectSecurity<P0, P2>(hservice: P0, dwsecurityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor: P2) -> windows_core::Result<()>
+pub unsafe fn SetServiceObjectSecurity<P0, P1>(hservice: P0, dwsecurityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor: P1) -> windows_core::Result<()>
 where
     P0: windows_core::Param<SC_HANDLE>,
-    P2: windows_core::Param<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P1: windows_core::Param<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("advapi32.dll" "system" fn SetServiceObjectSecurity(hservice : SC_HANDLE, dwsecurityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
     SetServiceObjectSecurity(hservice.param().abi(), dwsecurityinformation, lpsecuritydescriptor.param().abi()).ok()
@@ -499,10 +499,10 @@ where
     UnsubscribeServiceChangeNotifications(psubscription.param().abi())
 }
 #[inline]
-pub unsafe fn WaitServiceState<P0, P3>(hservice: P0, dwnotify: u32, dwtimeout: u32, hcancelevent: P3) -> u32
+pub unsafe fn WaitServiceState<P0, P1>(hservice: P0, dwnotify: u32, dwtimeout: u32, hcancelevent: P1) -> u32
 where
     P0: windows_core::Param<SC_HANDLE>,
-    P3: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("advapi32.dll" "system" fn WaitServiceState(hservice : SC_HANDLE, dwnotify : u32, dwtimeout : u32, hcancelevent : super::super::Foundation:: HANDLE) -> u32);
     WaitServiceState(hservice.param().abi(), dwnotify, dwtimeout, hcancelevent.param().abi())
@@ -721,16 +721,26 @@ pub const ServiceSharedDirectoryPersistentState: SERVICE_SHARED_DIRECTORY_TYPE =
 pub const ServiceSharedRegistryPersistentState: SERVICE_SHARED_REGISTRY_STATE_TYPE = SERVICE_SHARED_REGISTRY_STATE_TYPE(0i32);
 pub const USER_POLICY_PRESENT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x54fb46c8_f089_464c_b1fd_59d1b62c3b50);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ENUM_SERVICE_STATE(pub u32);
 impl windows_core::TypeKind for ENUM_SERVICE_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ENUM_SERVICE_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ENUM_SERVICE_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ENUM_SERVICE_TYPE(pub u32);
 impl windows_core::TypeKind for ENUM_SERVICE_TYPE {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for ENUM_SERVICE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ENUM_SERVICE_TYPE").field(&self.0).finish()
+    }
 }
 impl ENUM_SERVICE_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -766,52 +776,92 @@ impl core::ops::Not for ENUM_SERVICE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SC_ACTION_TYPE(pub i32);
 impl windows_core::TypeKind for SC_ACTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SC_ACTION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SC_ACTION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SC_ENUM_TYPE(pub i32);
 impl windows_core::TypeKind for SC_ENUM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SC_ENUM_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SC_ENUM_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SC_EVENT_TYPE(pub i32);
 impl windows_core::TypeKind for SC_EVENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SC_EVENT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SC_EVENT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SC_STATUS_TYPE(pub i32);
 impl windows_core::TypeKind for SC_STATUS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SC_STATUS_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SC_STATUS_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SERVICE_CONFIG(pub u32);
 impl windows_core::TypeKind for SERVICE_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SERVICE_CONFIG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SERVICE_CONFIG").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SERVICE_DIRECTORY_TYPE(pub i32);
 impl windows_core::TypeKind for SERVICE_DIRECTORY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SERVICE_DIRECTORY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SERVICE_DIRECTORY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SERVICE_ERROR(pub u32);
 impl windows_core::TypeKind for SERVICE_ERROR {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SERVICE_ERROR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SERVICE_ERROR").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SERVICE_NOTIFY(pub u32);
 impl windows_core::TypeKind for SERVICE_NOTIFY {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for SERVICE_NOTIFY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SERVICE_NOTIFY").field(&self.0).finish()
+    }
 }
 impl SERVICE_NOTIFY {
     pub const fn contains(&self, other: Self) -> bool {
@@ -847,127 +897,177 @@ impl core::ops::Not for SERVICE_NOTIFY {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SERVICE_REGISTRY_STATE_TYPE(pub i32);
 impl windows_core::TypeKind for SERVICE_REGISTRY_STATE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SERVICE_REGISTRY_STATE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SERVICE_REGISTRY_STATE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SERVICE_RUNS_IN_PROCESS(pub u32);
 impl windows_core::TypeKind for SERVICE_RUNS_IN_PROCESS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SERVICE_RUNS_IN_PROCESS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SERVICE_RUNS_IN_PROCESS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SERVICE_SHARED_DIRECTORY_TYPE(pub i32);
 impl windows_core::TypeKind for SERVICE_SHARED_DIRECTORY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SERVICE_SHARED_DIRECTORY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SERVICE_SHARED_DIRECTORY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SERVICE_SHARED_REGISTRY_STATE_TYPE(pub i32);
 impl windows_core::TypeKind for SERVICE_SHARED_REGISTRY_STATE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SERVICE_SHARED_REGISTRY_STATE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SERVICE_SHARED_REGISTRY_STATE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SERVICE_START_TYPE(pub u32);
 impl windows_core::TypeKind for SERVICE_START_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SERVICE_START_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SERVICE_START_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SERVICE_STATUS_CURRENT_STATE(pub u32);
 impl windows_core::TypeKind for SERVICE_STATUS_CURRENT_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SERVICE_STATUS_CURRENT_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SERVICE_STATUS_CURRENT_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SERVICE_TRIGGER_ACTION(pub u32);
 impl windows_core::TypeKind for SERVICE_TRIGGER_ACTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SERVICE_TRIGGER_ACTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SERVICE_TRIGGER_ACTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(pub u32);
 impl windows_core::TypeKind for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SERVICE_TRIGGER_TYPE(pub u32);
 impl windows_core::TypeKind for SERVICE_TRIGGER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SERVICE_TRIGGER_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SERVICE_TRIGGER_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUM_SERVICE_STATUSA {
     pub lpServiceName: windows_core::PSTR,
     pub lpDisplayName: windows_core::PSTR,
     pub ServiceStatus: SERVICE_STATUS,
+}
+impl windows_core::TypeKind for ENUM_SERVICE_STATUSA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ENUM_SERVICE_STATUSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENUM_SERVICE_STATUSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUM_SERVICE_STATUSW {
     pub lpServiceName: windows_core::PWSTR,
     pub lpDisplayName: windows_core::PWSTR,
     pub ServiceStatus: SERVICE_STATUS,
+}
+impl windows_core::TypeKind for ENUM_SERVICE_STATUSW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ENUM_SERVICE_STATUSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENUM_SERVICE_STATUSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUM_SERVICE_STATUS_PROCESSA {
     pub lpServiceName: windows_core::PSTR,
     pub lpDisplayName: windows_core::PSTR,
     pub ServiceStatusProcess: SERVICE_STATUS_PROCESS,
+}
+impl windows_core::TypeKind for ENUM_SERVICE_STATUS_PROCESSA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ENUM_SERVICE_STATUS_PROCESSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENUM_SERVICE_STATUS_PROCESSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUM_SERVICE_STATUS_PROCESSW {
     pub lpServiceName: windows_core::PWSTR,
     pub lpDisplayName: windows_core::PWSTR,
     pub ServiceStatusProcess: SERVICE_STATUS_PROCESS,
+}
+impl windows_core::TypeKind for ENUM_SERVICE_STATUS_PROCESSW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ENUM_SERVICE_STATUS_PROCESSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ENUM_SERVICE_STATUS_PROCESSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSC_NOTIFICATION_REGISTRATION(pub isize);
+impl Default for PSC_NOTIFICATION_REGISTRATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for PSC_NOTIFICATION_REGISTRATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_SERVICE_CONFIGA {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwStartType: SERVICE_START_TYPE,
@@ -979,16 +1079,16 @@ pub struct QUERY_SERVICE_CONFIGA {
     pub lpServiceStartName: windows_core::PSTR,
     pub lpDisplayName: windows_core::PSTR,
 }
+impl windows_core::TypeKind for QUERY_SERVICE_CONFIGA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for QUERY_SERVICE_CONFIGA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_SERVICE_CONFIGA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_SERVICE_CONFIGW {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwStartType: SERVICE_START_TYPE,
@@ -1000,64 +1100,61 @@ pub struct QUERY_SERVICE_CONFIGW {
     pub lpServiceStartName: windows_core::PWSTR,
     pub lpDisplayName: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for QUERY_SERVICE_CONFIGW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for QUERY_SERVICE_CONFIGW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_SERVICE_CONFIGW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_SERVICE_LOCK_STATUSA {
     pub fIsLocked: u32,
     pub lpLockOwner: windows_core::PSTR,
     pub dwLockDuration: u32,
+}
+impl windows_core::TypeKind for QUERY_SERVICE_LOCK_STATUSA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for QUERY_SERVICE_LOCK_STATUSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_SERVICE_LOCK_STATUSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_SERVICE_LOCK_STATUSW {
     pub fIsLocked: u32,
     pub lpLockOwner: windows_core::PWSTR,
     pub dwLockDuration: u32,
+}
+impl windows_core::TypeKind for QUERY_SERVICE_LOCK_STATUSW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for QUERY_SERVICE_LOCK_STATUSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for QUERY_SERVICE_LOCK_STATUSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SC_ACTION {
     pub Type: SC_ACTION_TYPE,
     pub Delay: u32,
+}
+impl windows_core::TypeKind for SC_ACTION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SC_ACTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SC_ACTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SC_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for SC_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl SC_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1067,8 +1164,7 @@ impl windows_core::Free for SC_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("advapi32.dll" "system" fn CloseServiceHandle(hscobject : *mut core::ffi::c_void) -> i32);
-            CloseServiceHandle(self.0);
+            _ = CloseServiceHandle(*self);
         }
     }
 }
@@ -1077,118 +1173,121 @@ impl Default for SC_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SC_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     pub dwReason: u32,
     pub pszComment: windows_core::PSTR,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
+}
+impl windows_core::TypeKind for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     pub dwReason: u32,
     pub pszComment: windows_core::PWSTR,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
+}
+impl windows_core::TypeKind for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     pub u: SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0,
+}
+impl windows_core::TypeKind for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     pub CustomStateId: SERVICE_TRIGGER_CUSTOM_STATE_ID,
     pub s: SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0,
+}
+impl windows_core::TypeKind for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     pub DataOffset: u32,
     pub Data: [u8; 1],
+}
+impl windows_core::TypeKind for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_DELAYED_AUTO_START_INFO {
     pub fDelayedAutostart: super::super::Foundation::BOOL,
+}
+impl windows_core::TypeKind for SERVICE_DELAYED_AUTO_START_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_DELAYED_AUTO_START_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_DELAYED_AUTO_START_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_DESCRIPTIONA {
     pub lpDescription: windows_core::PSTR,
+}
+impl windows_core::TypeKind for SERVICE_DESCRIPTIONA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_DESCRIPTIONA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_DESCRIPTIONA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_DESCRIPTIONW {
     pub lpDescription: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for SERVICE_DESCRIPTIONW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_DESCRIPTIONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_DESCRIPTIONW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_FAILURE_ACTIONSA {
     pub dwResetPeriod: u32,
     pub lpRebootMsg: windows_core::PSTR,
@@ -1196,16 +1295,16 @@ pub struct SERVICE_FAILURE_ACTIONSA {
     pub cActions: u32,
     pub lpsaActions: *mut SC_ACTION,
 }
+impl windows_core::TypeKind for SERVICE_FAILURE_ACTIONSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERVICE_FAILURE_ACTIONSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_FAILURE_ACTIONSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_FAILURE_ACTIONSW {
     pub dwResetPeriod: u32,
     pub lpRebootMsg: windows_core::PWSTR,
@@ -1213,42 +1312,42 @@ pub struct SERVICE_FAILURE_ACTIONSW {
     pub cActions: u32,
     pub lpsaActions: *mut SC_ACTION,
 }
+impl windows_core::TypeKind for SERVICE_FAILURE_ACTIONSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERVICE_FAILURE_ACTIONSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_FAILURE_ACTIONSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_FAILURE_ACTIONS_FLAG {
     pub fFailureActionsOnNonCrashFailures: super::super::Foundation::BOOL,
+}
+impl windows_core::TypeKind for SERVICE_FAILURE_ACTIONS_FLAG {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_FAILURE_ACTIONS_FLAG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_FAILURE_ACTIONS_FLAG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_LAUNCH_PROTECTED_INFO {
     pub dwLaunchProtected: u32,
+}
+impl windows_core::TypeKind for SERVICE_LAUNCH_PROTECTED_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_LAUNCH_PROTECTED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_LAUNCH_PROTECTED_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_NOTIFY_1 {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -1256,16 +1355,16 @@ pub struct SERVICE_NOTIFY_1 {
     pub dwNotificationStatus: u32,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
 }
+impl windows_core::TypeKind for SERVICE_NOTIFY_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERVICE_NOTIFY_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_NOTIFY_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_NOTIFY_2A {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -1275,16 +1374,16 @@ pub struct SERVICE_NOTIFY_2A {
     pub dwNotificationTriggered: u32,
     pub pszServiceNames: windows_core::PSTR,
 }
+impl windows_core::TypeKind for SERVICE_NOTIFY_2A {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERVICE_NOTIFY_2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_NOTIFY_2A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_NOTIFY_2W {
     pub dwVersion: u32,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -1294,95 +1393,95 @@ pub struct SERVICE_NOTIFY_2W {
     pub dwNotificationTriggered: u32,
     pub pszServiceNames: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for SERVICE_NOTIFY_2W {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERVICE_NOTIFY_2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_NOTIFY_2W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_PREFERRED_NODE_INFO {
     pub usPreferredNode: u16,
     pub fDelete: super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for SERVICE_PREFERRED_NODE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_PREFERRED_NODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_PREFERRED_NODE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_PRESHUTDOWN_INFO {
     pub dwPreshutdownTimeout: u32,
+}
+impl windows_core::TypeKind for SERVICE_PRESHUTDOWN_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_PRESHUTDOWN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_PRESHUTDOWN_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOA {
     pub pmszRequiredPrivileges: windows_core::PSTR,
+}
+impl windows_core::TypeKind for SERVICE_REQUIRED_PRIVILEGES_INFOA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_REQUIRED_PRIVILEGES_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_REQUIRED_PRIVILEGES_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOW {
     pub pmszRequiredPrivileges: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for SERVICE_REQUIRED_PRIVILEGES_INFOW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_REQUIRED_PRIVILEGES_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_REQUIRED_PRIVILEGES_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_SID_INFO {
     pub dwServiceSidType: u32,
+}
+impl windows_core::TypeKind for SERVICE_SID_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_SID_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_SID_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_START_REASON {
     pub dwReason: u32,
+}
+impl windows_core::TypeKind for SERVICE_START_REASON {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_START_REASON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_START_REASON {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_STATUS {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwCurrentState: SERVICE_STATUS_CURRENT_STATE,
@@ -1392,20 +1491,17 @@ pub struct SERVICE_STATUS {
     pub dwCheckPoint: u32,
     pub dwWaitHint: u32,
 }
+impl windows_core::TypeKind for SERVICE_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERVICE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SERVICE_STATUS_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for SERVICE_STATUS_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl SERVICE_STATUS_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -1416,8 +1512,11 @@ impl Default for SERVICE_STATUS_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SERVICE_STATUS_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_STATUS_PROCESS {
     pub dwServiceType: ENUM_SERVICE_TYPE,
     pub dwCurrentState: SERVICE_STATUS_CURRENT_STATE,
@@ -1429,58 +1528,58 @@ pub struct SERVICE_STATUS_PROCESS {
     pub dwProcessId: u32,
     pub dwServiceFlags: SERVICE_RUNS_IN_PROCESS,
 }
+impl windows_core::TypeKind for SERVICE_STATUS_PROCESS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERVICE_STATUS_PROCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_STATUS_PROCESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TABLE_ENTRYA {
     pub lpServiceName: windows_core::PSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONA,
+}
+impl windows_core::TypeKind for SERVICE_TABLE_ENTRYA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_TABLE_ENTRYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_TABLE_ENTRYA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TABLE_ENTRYW {
     pub lpServiceName: windows_core::PWSTR,
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONW,
+}
+impl windows_core::TypeKind for SERVICE_TABLE_ENTRYW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_TABLE_ENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_TABLE_ENTRYW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TIMECHANGE_INFO {
     pub liNewTime: i64,
     pub liOldTime: i64,
+}
+impl windows_core::TypeKind for SERVICE_TIMECHANGE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_TIMECHANGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_TIMECHANGE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER {
     pub dwTriggerType: SERVICE_TRIGGER_TYPE,
     pub dwAction: SERVICE_TRIGGER_ACTION,
@@ -1488,56 +1587,56 @@ pub struct SERVICE_TRIGGER {
     pub cDataItems: u32,
     pub pDataItems: *mut SERVICE_TRIGGER_SPECIFIC_DATA_ITEM,
 }
+impl windows_core::TypeKind for SERVICE_TRIGGER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERVICE_TRIGGER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_TRIGGER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER_CUSTOM_STATE_ID {
     pub Data: [u32; 2],
+}
+impl windows_core::TypeKind for SERVICE_TRIGGER_CUSTOM_STATE_ID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_TRIGGER_CUSTOM_STATE_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_TRIGGER_CUSTOM_STATE_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER_INFO {
     pub cTriggers: u32,
     pub pTriggers: *mut SERVICE_TRIGGER,
     pub pReserved: *mut u8,
+}
+impl windows_core::TypeKind for SERVICE_TRIGGER_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERVICE_TRIGGER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERVICE_TRIGGER_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     pub dwDataType: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE,
     pub cbData: u32,
     pub pData: *mut u8,
 }
+impl windows_core::TypeKind for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    type TypeKind = windows_core::CopyType;
 }
 pub type HANDLER_FUNCTION = Option<unsafe extern "system" fn(dwcontrol: u32)>;
 pub type HANDLER_FUNCTION_EX = Option<unsafe extern "system" fn(dwcontrol: u32, dweventtype: u32, lpeventdata: *mut core::ffi::c_void, lpcontext: *mut core::ffi::c_void) -> u32>;

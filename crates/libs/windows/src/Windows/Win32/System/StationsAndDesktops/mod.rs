@@ -1,35 +1,35 @@
 #[inline]
-pub unsafe fn BroadcastSystemMessageA<P3, P4>(flags: u32, lpinfo: Option<*mut u32>, msg: u32, wparam: P3, lparam: P4) -> i32
+pub unsafe fn BroadcastSystemMessageA<P0, P1>(flags: u32, lpinfo: Option<*mut u32>, msg: u32, wparam: P0, lparam: P1) -> i32
 where
-    P3: windows_core::Param<super::super::Foundation::WPARAM>,
-    P4: windows_core::Param<super::super::Foundation::LPARAM>,
+    P0: windows_core::Param<super::super::Foundation::WPARAM>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn BroadcastSystemMessageA(flags : u32, lpinfo : *mut u32, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> i32);
     BroadcastSystemMessageA(flags, core::mem::transmute(lpinfo.unwrap_or(core::ptr::null_mut())), msg, wparam.param().abi(), lparam.param().abi())
 }
 #[inline]
-pub unsafe fn BroadcastSystemMessageExA<P3, P4>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Option<*mut BROADCAST_SYSTEM_MESSAGE_INFO>, msg: u32, wparam: P3, lparam: P4, pbsminfo: Option<*mut BSMINFO>) -> i32
+pub unsafe fn BroadcastSystemMessageExA<P0, P1>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Option<*mut BROADCAST_SYSTEM_MESSAGE_INFO>, msg: u32, wparam: P0, lparam: P1, pbsminfo: Option<*mut BSMINFO>) -> i32
 where
-    P3: windows_core::Param<super::super::Foundation::WPARAM>,
-    P4: windows_core::Param<super::super::Foundation::LPARAM>,
+    P0: windows_core::Param<super::super::Foundation::WPARAM>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn BroadcastSystemMessageExA(flags : BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo : *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, pbsminfo : *mut BSMINFO) -> i32);
     BroadcastSystemMessageExA(flags, core::mem::transmute(lpinfo.unwrap_or(core::ptr::null_mut())), msg, wparam.param().abi(), lparam.param().abi(), core::mem::transmute(pbsminfo.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn BroadcastSystemMessageExW<P3, P4>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Option<*mut BROADCAST_SYSTEM_MESSAGE_INFO>, msg: u32, wparam: P3, lparam: P4, pbsminfo: Option<*mut BSMINFO>) -> i32
+pub unsafe fn BroadcastSystemMessageExW<P0, P1>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Option<*mut BROADCAST_SYSTEM_MESSAGE_INFO>, msg: u32, wparam: P0, lparam: P1, pbsminfo: Option<*mut BSMINFO>) -> i32
 where
-    P3: windows_core::Param<super::super::Foundation::WPARAM>,
-    P4: windows_core::Param<super::super::Foundation::LPARAM>,
+    P0: windows_core::Param<super::super::Foundation::WPARAM>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn BroadcastSystemMessageExW(flags : BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo : *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, pbsminfo : *mut BSMINFO) -> i32);
     BroadcastSystemMessageExW(flags, core::mem::transmute(lpinfo.unwrap_or(core::ptr::null_mut())), msg, wparam.param().abi(), lparam.param().abi(), core::mem::transmute(pbsminfo.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn BroadcastSystemMessageW<P3, P4>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Option<*mut BROADCAST_SYSTEM_MESSAGE_INFO>, msg: u32, wparam: P3, lparam: P4) -> i32
+pub unsafe fn BroadcastSystemMessageW<P0, P1>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Option<*mut BROADCAST_SYSTEM_MESSAGE_INFO>, msg: u32, wparam: P0, lparam: P1) -> i32
 where
-    P3: windows_core::Param<super::super::Foundation::WPARAM>,
-    P4: windows_core::Param<super::super::Foundation::LPARAM>,
+    P0: windows_core::Param<super::super::Foundation::WPARAM>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn BroadcastSystemMessageW(flags : BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo : *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> i32);
     BroadcastSystemMessageW(flags, core::mem::transmute(lpinfo.unwrap_or(core::ptr::null_mut())), msg, wparam.param().abi(), lparam.param().abi())
@@ -116,44 +116,44 @@ where
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn EnumDesktopWindows<P0, P2>(hdesktop: P0, lpfn: super::super::UI::WindowsAndMessaging::WNDENUMPROC, lparam: P2) -> windows_core::Result<()>
+pub unsafe fn EnumDesktopWindows<P0, P1>(hdesktop: P0, lpfn: super::super::UI::WindowsAndMessaging::WNDENUMPROC, lparam: P1) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HDESK>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn EnumDesktopWindows(hdesktop : HDESK, lpfn : super::super::UI::WindowsAndMessaging:: WNDENUMPROC, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     EnumDesktopWindows(hdesktop.param().abi(), lpfn, lparam.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn EnumDesktopsA<P0, P2>(hwinsta: P0, lpenumfunc: DESKTOPENUMPROCA, lparam: P2) -> windows_core::Result<()>
+pub unsafe fn EnumDesktopsA<P0, P1>(hwinsta: P0, lpenumfunc: DESKTOPENUMPROCA, lparam: P1) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HWINSTA>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn EnumDesktopsA(hwinsta : HWINSTA, lpenumfunc : DESKTOPENUMPROCA, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     EnumDesktopsA(hwinsta.param().abi(), lpenumfunc, lparam.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn EnumDesktopsW<P0, P2>(hwinsta: P0, lpenumfunc: DESKTOPENUMPROCW, lparam: P2) -> windows_core::Result<()>
+pub unsafe fn EnumDesktopsW<P0, P1>(hwinsta: P0, lpenumfunc: DESKTOPENUMPROCW, lparam: P1) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HWINSTA>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn EnumDesktopsW(hwinsta : HWINSTA, lpenumfunc : DESKTOPENUMPROCW, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     EnumDesktopsW(hwinsta.param().abi(), lpenumfunc, lparam.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn EnumWindowStationsA<P1>(lpenumfunc: WINSTAENUMPROCA, lparam: P1) -> windows_core::Result<()>
+pub unsafe fn EnumWindowStationsA<P0>(lpenumfunc: WINSTAENUMPROCA, lparam: P0) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::super::Foundation::LPARAM>,
+    P0: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn EnumWindowStationsA(lpenumfunc : WINSTAENUMPROCA, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     EnumWindowStationsA(lpenumfunc, lparam.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn EnumWindowStationsW<P1>(lpenumfunc: WINSTAENUMPROCW, lparam: P1) -> windows_core::Result<()>
+pub unsafe fn EnumWindowStationsW<P0>(lpenumfunc: WINSTAENUMPROCW, lparam: P0) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::super::Foundation::LPARAM>,
+    P0: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn EnumWindowStationsW(lpenumfunc : WINSTAENUMPROCW, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     EnumWindowStationsW(lpenumfunc, lparam.param().abi()).ok()
@@ -187,29 +187,29 @@ where
     GetUserObjectInformationW(hobj.param().abi(), nindex, core::mem::transmute(pvinfo.unwrap_or(core::ptr::null_mut())), nlength, core::mem::transmute(lpnlengthneeded.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn OpenDesktopA<P0, P2>(lpszdesktop: P0, dwflags: DESKTOP_CONTROL_FLAGS, finherit: P2, dwdesiredaccess: u32) -> windows_core::Result<HDESK>
+pub unsafe fn OpenDesktopA<P0, P1>(lpszdesktop: P0, dwflags: DESKTOP_CONTROL_FLAGS, finherit: P1, dwdesiredaccess: u32) -> windows_core::Result<HDESK>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn OpenDesktopA(lpszdesktop : windows_core::PCSTR, dwflags : DESKTOP_CONTROL_FLAGS, finherit : super::super::Foundation:: BOOL, dwdesiredaccess : u32) -> HDESK);
     let result__ = OpenDesktopA(lpszdesktop.param().abi(), dwflags, finherit.param().abi(), dwdesiredaccess);
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn OpenDesktopW<P0, P2>(lpszdesktop: P0, dwflags: DESKTOP_CONTROL_FLAGS, finherit: P2, dwdesiredaccess: u32) -> windows_core::Result<HDESK>
+pub unsafe fn OpenDesktopW<P0, P1>(lpszdesktop: P0, dwflags: DESKTOP_CONTROL_FLAGS, finherit: P1, dwdesiredaccess: u32) -> windows_core::Result<HDESK>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn OpenDesktopW(lpszdesktop : windows_core::PCWSTR, dwflags : DESKTOP_CONTROL_FLAGS, finherit : super::super::Foundation:: BOOL, dwdesiredaccess : u32) -> HDESK);
     let result__ = OpenDesktopW(lpszdesktop.param().abi(), dwflags, finherit.param().abi(), dwdesiredaccess);
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn OpenInputDesktop<P1>(dwflags: DESKTOP_CONTROL_FLAGS, finherit: P1, dwdesiredaccess: DESKTOP_ACCESS_FLAGS) -> windows_core::Result<HDESK>
+pub unsafe fn OpenInputDesktop<P0>(dwflags: DESKTOP_CONTROL_FLAGS, finherit: P0, dwdesiredaccess: DESKTOP_ACCESS_FLAGS) -> windows_core::Result<HDESK>
 where
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn OpenInputDesktop(dwflags : DESKTOP_CONTROL_FLAGS, finherit : super::super::Foundation:: BOOL, dwdesiredaccess : DESKTOP_ACCESS_FLAGS) -> HDESK);
     let result__ = OpenInputDesktop(dwflags, finherit.param().abi(), dwdesiredaccess);
@@ -311,10 +311,15 @@ pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDE
 pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(3i32);
 pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(4i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BROADCAST_SYSTEM_MESSAGE_FLAGS(pub u32);
 impl windows_core::TypeKind for BROADCAST_SYSTEM_MESSAGE_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BROADCAST_SYSTEM_MESSAGE_FLAGS").field(&self.0).finish()
+    }
 }
 impl BROADCAST_SYSTEM_MESSAGE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -350,10 +355,15 @@ impl core::ops::Not for BROADCAST_SYSTEM_MESSAGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BROADCAST_SYSTEM_MESSAGE_INFO(pub u32);
 impl windows_core::TypeKind for BROADCAST_SYSTEM_MESSAGE_INFO {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for BROADCAST_SYSTEM_MESSAGE_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BROADCAST_SYSTEM_MESSAGE_INFO").field(&self.0).finish()
+    }
 }
 impl BROADCAST_SYSTEM_MESSAGE_INFO {
     pub const fn contains(&self, other: Self) -> bool {
@@ -389,45 +399,57 @@ impl core::ops::Not for BROADCAST_SYSTEM_MESSAGE_INFO {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DESKTOP_ACCESS_FLAGS(pub u32);
 impl windows_core::TypeKind for DESKTOP_ACCESS_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DESKTOP_ACCESS_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DESKTOP_ACCESS_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DESKTOP_CONTROL_FLAGS(pub u32);
 impl windows_core::TypeKind for DESKTOP_CONTROL_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DESKTOP_CONTROL_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DESKTOP_CONTROL_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct USER_OBJECT_INFORMATION_INDEX(pub i32);
 impl windows_core::TypeKind for USER_OBJECT_INFORMATION_INDEX {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for USER_OBJECT_INFORMATION_INDEX {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("USER_OBJECT_INFORMATION_INDEX").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BSMINFO {
     pub cbSize: u32,
     pub hdesk: HDESK,
     pub hwnd: super::super::Foundation::HWND,
     pub luid: super::super::Foundation::LUID,
 }
+impl windows_core::TypeKind for BSMINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for BSMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BSMINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDESK(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDESK {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDESK {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -437,8 +459,7 @@ impl windows_core::Free for HDESK {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("user32.dll" "system" fn CloseDesktop(hdesktop : *mut core::ffi::c_void) -> i32);
-            CloseDesktop(self.0);
+            _ = CloseDesktop(*self);
         }
     }
 }
@@ -447,12 +468,12 @@ impl Default for HDESK {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HDESK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWINSTA(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HWINSTA {
-    type TypeKind = windows_core::CopyType;
-}
 impl HWINSTA {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -462,8 +483,7 @@ impl windows_core::Free for HWINSTA {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("user32.dll" "system" fn CloseWindowStation(hwinsta : *mut core::ffi::c_void) -> i32);
-            CloseWindowStation(self.0);
+            _ = CloseWindowStation(*self);
         }
     }
 }
@@ -472,20 +492,23 @@ impl Default for HWINSTA {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HWINSTA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USEROBJECTFLAGS {
     pub fInherit: super::super::Foundation::BOOL,
     pub fReserved: super::super::Foundation::BOOL,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for USEROBJECTFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for USEROBJECTFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for USEROBJECTFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 pub type DESKTOPENUMPROCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 pub type DESKTOPENUMPROCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;

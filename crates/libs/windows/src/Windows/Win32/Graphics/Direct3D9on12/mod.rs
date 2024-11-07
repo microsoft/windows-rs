@@ -2,15 +2,21 @@
 #[inline]
 pub unsafe fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> Option<super::Direct3D9::IDirect3D9> {
     windows_targets::link!("d3d9.dll" "system" fn Direct3DCreate9On12(sdkversion : u32, poverridelist : *mut D3D9ON12_ARGS, numoverrideentries : u32) -> Option < super::Direct3D9:: IDirect3D9 >);
-    Direct3DCreate9On12(sdkversion, core::mem::transmute(poverridelist), numoverrideentries)
+    Direct3DCreate9On12(sdkversion, poverridelist, numoverrideentries)
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
 pub unsafe fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: *mut Option<super::Direct3D9::IDirect3D9Ex>) -> windows_core::Result<()> {
     windows_targets::link!("d3d9.dll" "system" fn Direct3DCreate9On12Ex(sdkversion : u32, poverridelist : *mut D3D9ON12_ARGS, numoverrideentries : u32, ppoutputinterface : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    Direct3DCreate9On12Ex(sdkversion, core::mem::transmute(poverridelist), numoverrideentries, core::mem::transmute(ppoutputinterface)).ok()
+    Direct3DCreate9On12Ex(sdkversion, poverridelist, numoverrideentries, core::mem::transmute(ppoutputinterface)).ok()
 }
 windows_core::imp::define_interface!(IDirect3DDevice9On12, IDirect3DDevice9On12_Vtbl, 0xe7fda234_b589_4049_940d_8878977531c8);
+impl core::ops::Deref for IDirect3DDevice9On12 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IDirect3DDevice9On12, windows_core::IUnknown);
 impl IDirect3DDevice9On12 {
     pub unsafe fn GetD3D12Device(&self, riid: *const windows_core::GUID, ppvdevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -46,14 +52,16 @@ pub struct IDirect3DDevice9On12_Vtbl {
     ReturnUnderlyingResource: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
-pub trait IDirect3DDevice9On12_Impl: windows_core::IUnknownImpl {
+pub trait IDirect3DDevice9On12_Impl: Sized + windows_core::IUnknownImpl {
     fn GetD3D12Device(&self, riid: *const windows_core::GUID, ppvdevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn UnwrapUnderlyingResource(&self, presource: Option<&super::Direct3D9::IDirect3DResource9>, pcommandqueue: Option<&super::Direct3D12::ID3D12CommandQueue>, riid: *const windows_core::GUID, ppvresource12: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn ReturnUnderlyingResource(&self, presource: Option<&super::Direct3D9::IDirect3DResource9>, numsync: u32, psignalvalues: *mut u64, ppfences: *mut Option<super::Direct3D12::ID3D12Fence>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
+impl windows_core::RuntimeName for IDirect3DDevice9On12 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
 impl IDirect3DDevice9On12_Vtbl {
-    pub const fn new<Identity: IDirect3DDevice9On12_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IDirect3DDevice9On12_Impl, const OFFSET: isize>() -> IDirect3DDevice9On12_Vtbl {
         unsafe extern "system" fn GetD3D12Device<Identity: IDirect3DDevice9On12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirect3DDevice9On12_Impl::GetD3D12Device(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvdevice)).into()
@@ -77,25 +85,28 @@ impl IDirect3DDevice9On12_Vtbl {
         iid == &<IDirect3DDevice9On12 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
-impl windows_core::RuntimeName for IDirect3DDevice9On12 {}
 pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3D9ON12_ARGS {
     pub Enable9On12: super::super::Foundation::BOOL,
     pub pD3D12Device: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-    pub ppD3D12Queues: [core::mem::ManuallyDrop<Option<windows_core::IUnknown>>; 2],
+    pub ppD3D12Queues: [core::mem::ManuallyDrop<Option<windows_core::IUnknown>>; 2usize],
     pub NumQueues: u32,
     pub NodeMask: u32,
+}
+impl Clone for D3D9ON12_ARGS {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl windows_core::TypeKind for D3D9ON12_ARGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3D9ON12_ARGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3D9ON12_ARGS {
-    type TypeKind = windows_core::CloneType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type PFN_Direct3DCreate9On12 = Option<unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> Option<super::Direct3D9::IDirect3D9>>;

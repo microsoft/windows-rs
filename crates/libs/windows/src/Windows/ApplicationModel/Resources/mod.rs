@@ -75,7 +75,6 @@ pub struct IResourceLoaderStatics4_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceLoader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceLoader, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ResourceLoader, IResourceLoader, IResourceLoader2, IResourceLoaderFactory, IResourceLoaderStatics, IResourceLoaderStatics2, IResourceLoaderStatics3, IResourceLoaderStatics4);
 impl ResourceLoader {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -181,9 +180,11 @@ impl windows_core::RuntimeType for ResourceLoader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IResourceLoader>();
 }
 unsafe impl windows_core::Interface for ResourceLoader {
-    type Vtable = <IResourceLoader as windows_core::Interface>::Vtable;
+    type Vtable = IResourceLoader_Vtbl;
     const IID: windows_core::GUID = <IResourceLoader as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ResourceLoader {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.ResourceLoader";
 }
+unsafe impl Send for ResourceLoader {}
+unsafe impl Sync for ResourceLoader {}

@@ -167,7 +167,6 @@ impl windows_core::RuntimeName for LocalCategories {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocalLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalLocation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LocalLocation, ILocalLocation, ILocalLocation2);
 impl LocalLocation {
     pub fn Address(&self) -> windows_core::Result<super::MapAddress> {
         let this = self;
@@ -246,18 +245,20 @@ impl windows_core::RuntimeType for LocalLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocalLocation>();
 }
 unsafe impl windows_core::Interface for LocalLocation {
-    type Vtable = <ILocalLocation as windows_core::Interface>::Vtable;
+    type Vtable = ILocalLocation_Vtbl;
     const IID: windows_core::GUID = <ILocalLocation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LocalLocation {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocation";
 }
+unsafe impl Send for LocalLocation {}
+unsafe impl Sync for LocalLocation {}
 pub struct LocalLocationFinder;
 impl LocalLocationFinder {
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindLocalLocationsAsync<P1>(searchterm: &windows_core::HSTRING, searcharea: P1, localcategory: &windows_core::HSTRING, maxresults: u32) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>
+    pub fn FindLocalLocationsAsync<P0>(searchterm: &windows_core::HSTRING, searcharea: P0, localcategory: &windows_core::HSTRING, maxresults: u32) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>
     where
-        P1: windows_core::Param<super::super::super::Devices::Geolocation::Geocircle>,
+        P0: windows_core::Param<super::super::super::Devices::Geolocation::Geocircle>,
     {
         Self::ILocalLocationFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -276,7 +277,6 @@ impl windows_core::RuntimeName for LocalLocationFinder {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocalLocationFinderResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalLocationFinderResult, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LocalLocationFinderResult, ILocalLocationFinderResult);
 impl LocalLocationFinderResult {
     #[cfg(feature = "Foundation_Collections")]
     pub fn LocalLocations(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocation>> {
@@ -298,17 +298,18 @@ impl windows_core::RuntimeType for LocalLocationFinderResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocalLocationFinderResult>();
 }
 unsafe impl windows_core::Interface for LocalLocationFinderResult {
-    type Vtable = <ILocalLocationFinderResult as windows_core::Interface>::Vtable;
+    type Vtable = ILocalLocationFinderResult_Vtbl;
     const IID: windows_core::GUID = <ILocalLocationFinderResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LocalLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationFinderResult";
 }
+unsafe impl Send for LocalLocationFinderResult {}
+unsafe impl Sync for LocalLocationFinderResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocalLocationHoursOfOperationItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalLocationHoursOfOperationItem, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LocalLocationHoursOfOperationItem, ILocalLocationHoursOfOperationItem);
 impl LocalLocationHoursOfOperationItem {
     #[cfg(feature = "Globalization")]
     pub fn Day(&self) -> windows_core::Result<super::super::super::Globalization::DayOfWeek> {
@@ -337,17 +338,18 @@ impl windows_core::RuntimeType for LocalLocationHoursOfOperationItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocalLocationHoursOfOperationItem>();
 }
 unsafe impl windows_core::Interface for LocalLocationHoursOfOperationItem {
-    type Vtable = <ILocalLocationHoursOfOperationItem as windows_core::Interface>::Vtable;
+    type Vtable = ILocalLocationHoursOfOperationItem_Vtbl;
     const IID: windows_core::GUID = <ILocalLocationHoursOfOperationItem as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LocalLocationHoursOfOperationItem {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem";
 }
+unsafe impl Send for LocalLocationHoursOfOperationItem {}
+unsafe impl Sync for LocalLocationHoursOfOperationItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocalLocationRatingInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalLocationRatingInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LocalLocationRatingInfo, ILocalLocationRatingInfo);
 impl LocalLocationRatingInfo {
     pub fn AggregateRating(&self) -> windows_core::Result<super::super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -375,12 +377,14 @@ impl windows_core::RuntimeType for LocalLocationRatingInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocalLocationRatingInfo>();
 }
 unsafe impl windows_core::Interface for LocalLocationRatingInfo {
-    type Vtable = <ILocalLocationRatingInfo as windows_core::Interface>::Vtable;
+    type Vtable = ILocalLocationRatingInfo_Vtbl;
     const IID: windows_core::GUID = <ILocalLocationRatingInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LocalLocationRatingInfo {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationRatingInfo";
 }
+unsafe impl Send for LocalLocationRatingInfo {}
+unsafe impl Sync for LocalLocationRatingInfo {}
 pub struct PlaceInfoHelper;
 impl PlaceInfoHelper {
     pub fn CreateFromLocalLocation<P0>(location: P0) -> windows_core::Result<super::PlaceInfo>
@@ -401,7 +405,7 @@ impl windows_core::RuntimeName for PlaceInfoHelper {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.PlaceInfoHelper";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct LocalLocationFinderStatus(pub i32);
 impl LocalLocationFinderStatus {
     pub const Success: Self = Self(0i32);
@@ -415,6 +419,11 @@ impl LocalLocationFinderStatus {
 }
 impl windows_core::TypeKind for LocalLocationFinderStatus {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for LocalLocationFinderStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("LocalLocationFinderStatus").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for LocalLocationFinderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.LocalSearch.LocalLocationFinderStatus;i4)");

@@ -7,12 +7,12 @@ impl core::ops::Deref for IChannelCredentials {
 }
 windows_core::imp::interface_hierarchy!(IChannelCredentials, windows_core::IUnknown, super::IDispatch);
 impl IChannelCredentials {
-    pub unsafe fn SetWindowsCredential<P0, P1, P2, P4>(&self, domain: P0, username: P1, password: P2, impersonationlevel: i32, allowntlm: P4) -> windows_core::Result<()>
+    pub unsafe fn SetWindowsCredential<P0, P1, P2, P3>(&self, domain: P0, username: P1, password: P2, impersonationlevel: i32, allowntlm: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
         P2: windows_core::Param<windows_core::BSTR>,
-        P4: windows_core::Param<super::super::super::Foundation::BOOL>,
+        P3: windows_core::Param<super::super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).SetWindowsCredential)(windows_core::Interface::as_raw(self), domain.param().abi(), username.param().abi(), password.param().abi(), impersonationlevel, allowntlm.param().abi()).ok()
     }
@@ -98,13 +98,13 @@ pub struct IChannelCredentials_Vtbl {
     pub SetWindowsCredential: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, i32, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub SetUserNameCredential: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetClientCertificateFromStore: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, super::super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub SetClientCertificateFromStore: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetClientCertificateFromStore: usize,
     pub SetClientCertificateFromStoreByName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetClientCertificateFromFile: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetDefaultServiceCertificateFromStore: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, super::super::Variant::VARIANT) -> windows_core::HRESULT,
+    pub SetDefaultServiceCertificateFromStore: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetDefaultServiceCertificateFromStore: usize,
     pub SetDefaultServiceCertificateFromStoreByName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
@@ -113,7 +113,7 @@ pub struct IChannelCredentials_Vtbl {
     pub SetIssuedToken: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IChannelCredentials_Impl: super::IDispatch_Impl {
+pub trait IChannelCredentials_Impl: Sized + super::IDispatch_Impl {
     fn SetWindowsCredential(&self, domain: &windows_core::BSTR, username: &windows_core::BSTR, password: &windows_core::BSTR, impersonationlevel: i32, allowntlm: super::super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn SetUserNameCredential(&self, username: &windows_core::BSTR, password: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SetClientCertificateFromStore(&self, storelocation: &windows_core::BSTR, storename: &windows_core::BSTR, findyype: &windows_core::BSTR, findvalue: &super::super::Variant::VARIANT) -> windows_core::Result<()>;
@@ -126,8 +126,10 @@ pub trait IChannelCredentials_Impl: super::IDispatch_Impl {
     fn SetIssuedToken(&self, localissueraddres: &windows_core::BSTR, localissuerbindingtype: &windows_core::BSTR, localissuerbinding: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IChannelCredentials {}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IChannelCredentials_Vtbl {
-    pub const fn new<Identity: IChannelCredentials_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IChannelCredentials_Impl, const OFFSET: isize>() -> IChannelCredentials_Vtbl {
         unsafe extern "system" fn SetWindowsCredential<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, domain: core::mem::MaybeUninit<windows_core::BSTR>, username: core::mem::MaybeUninit<windows_core::BSTR>, password: core::mem::MaybeUninit<windows_core::BSTR>, impersonationlevel: i32, allowntlm: super::super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IChannelCredentials_Impl::SetWindowsCredential(this, core::mem::transmute(&domain), core::mem::transmute(&username), core::mem::transmute(&password), core::mem::transmute_copy(&impersonationlevel), core::mem::transmute_copy(&allowntlm)).into()
@@ -136,7 +138,7 @@ impl IChannelCredentials_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IChannelCredentials_Impl::SetUserNameCredential(this, core::mem::transmute(&username), core::mem::transmute(&password)).into()
         }
-        unsafe extern "system" fn SetClientCertificateFromStore<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storelocation: core::mem::MaybeUninit<windows_core::BSTR>, storename: core::mem::MaybeUninit<windows_core::BSTR>, findyype: core::mem::MaybeUninit<windows_core::BSTR>, findvalue: super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetClientCertificateFromStore<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storelocation: core::mem::MaybeUninit<windows_core::BSTR>, storename: core::mem::MaybeUninit<windows_core::BSTR>, findyype: core::mem::MaybeUninit<windows_core::BSTR>, findvalue: core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IChannelCredentials_Impl::SetClientCertificateFromStore(this, core::mem::transmute(&storelocation), core::mem::transmute(&storename), core::mem::transmute(&findyype), core::mem::transmute(&findvalue)).into()
         }
@@ -148,7 +150,7 @@ impl IChannelCredentials_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IChannelCredentials_Impl::SetClientCertificateFromFile(this, core::mem::transmute(&filename), core::mem::transmute(&password), core::mem::transmute(&keystorageflags)).into()
         }
-        unsafe extern "system" fn SetDefaultServiceCertificateFromStore<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storelocation: core::mem::MaybeUninit<windows_core::BSTR>, storename: core::mem::MaybeUninit<windows_core::BSTR>, findtype: core::mem::MaybeUninit<windows_core::BSTR>, findvalue: super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDefaultServiceCertificateFromStore<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storelocation: core::mem::MaybeUninit<windows_core::BSTR>, storename: core::mem::MaybeUninit<windows_core::BSTR>, findtype: core::mem::MaybeUninit<windows_core::BSTR>, findvalue: core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IChannelCredentials_Impl::SetDefaultServiceCertificateFromStore(this, core::mem::transmute(&storelocation), core::mem::transmute(&storename), core::mem::transmute(&findtype), core::mem::transmute(&findvalue)).into()
         }
@@ -183,8 +185,6 @@ impl IChannelCredentials_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IChannelCredentials as windows_core::Interface>::IID
+        iid == &<IChannelCredentials as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IChannelCredentials {}

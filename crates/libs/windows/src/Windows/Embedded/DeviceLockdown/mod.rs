@@ -61,7 +61,6 @@ impl windows_core::RuntimeName for DeviceLockdownProfile {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceLockdownProfileInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceLockdownProfileInformation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DeviceLockdownProfileInformation, IDeviceLockdownProfileInformation);
 impl DeviceLockdownProfileInformation {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -75,9 +74,11 @@ impl windows_core::RuntimeType for DeviceLockdownProfileInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceLockdownProfileInformation>();
 }
 unsafe impl windows_core::Interface for DeviceLockdownProfileInformation {
-    type Vtable = <IDeviceLockdownProfileInformation as windows_core::Interface>::Vtable;
+    type Vtable = IDeviceLockdownProfileInformation_Vtbl;
     const IID: windows_core::GUID = <IDeviceLockdownProfileInformation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DeviceLockdownProfileInformation {
     const NAME: &'static str = "Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation";
 }
+unsafe impl Send for DeviceLockdownProfileInformation {}
+unsafe impl Sync for DeviceLockdownProfileInformation {}

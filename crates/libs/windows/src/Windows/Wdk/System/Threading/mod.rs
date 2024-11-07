@@ -56,10 +56,10 @@ where
 }
 #[cfg(feature = "Wdk_System_SystemServices")]
 #[inline]
-pub unsafe fn NtSetTimer<P0, P4>(timerhandle: P0, duetime: *const i64, timerapcroutine: super::SystemServices::PTIMER_APC_ROUTINE, timercontext: Option<*const core::ffi::c_void>, resumetimer: P4, period: i32, previousstate: Option<*mut super::super::super::Win32::Foundation::BOOLEAN>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtSetTimer<P0, P1>(timerhandle: P0, duetime: *const i64, timerapcroutine: super::SystemServices::PTIMER_APC_ROUTINE, timercontext: Option<*const core::ffi::c_void>, resumetimer: P1, period: i32, previousstate: Option<*mut super::super::super::Win32::Foundation::BOOLEAN>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtSetTimer(timerhandle : super::super::super::Win32::Foundation:: HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices:: PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : super::super::super::Win32::Foundation:: BOOLEAN, period : i32, previousstate : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtSetTimer(timerhandle.param().abi(), duetime, timerapcroutine, core::mem::transmute(timercontext.unwrap_or(core::ptr::null())), resumetimer.param().abi(), period, core::mem::transmute(previousstate.unwrap_or(core::ptr::null_mut())))
@@ -148,10 +148,10 @@ where
 }
 #[cfg(feature = "Wdk_System_SystemServices")]
 #[inline]
-pub unsafe fn ZwSetTimer<P0, P4>(timerhandle: P0, duetime: *const i64, timerapcroutine: super::SystemServices::PTIMER_APC_ROUTINE, timercontext: Option<*const core::ffi::c_void>, resumetimer: P4, period: i32, previousstate: Option<*mut super::super::super::Win32::Foundation::BOOLEAN>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwSetTimer<P0, P1>(timerhandle: P0, duetime: *const i64, timerapcroutine: super::SystemServices::PTIMER_APC_ROUTINE, timercontext: Option<*const core::ffi::c_void>, resumetimer: P1, period: i32, previousstate: Option<*mut super::super::super::Win32::Foundation::BOOLEAN>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwSetTimer(timerhandle : super::super::super::Win32::Foundation:: HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices:: PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : super::super::super::Win32::Foundation:: BOOLEAN, period : i32, previousstate : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwSetTimer(timerhandle.param().abi(), duetime, timerapcroutine, core::mem::transmute(timercontext.unwrap_or(core::ptr::null())), resumetimer.param().abi(), period, core::mem::transmute(previousstate.unwrap_or(core::ptr::null_mut())))
@@ -301,20 +301,35 @@ pub const ThreadWow64Context: THREADINFOCLASS = THREADINFOCLASS(29i32);
 pub const ThreadZeroTlsCell: THREADINFOCLASS = THREADINFOCLASS(10i32);
 pub const TimerSetCoalescableTimer: TIMER_SET_INFORMATION_CLASS = TIMER_SET_INFORMATION_CLASS(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PROCESSINFOCLASS(pub i32);
 impl windows_core::TypeKind for PROCESSINFOCLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PROCESSINFOCLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PROCESSINFOCLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct THREADINFOCLASS(pub i32);
 impl windows_core::TypeKind for THREADINFOCLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for THREADINFOCLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("THREADINFOCLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TIMER_SET_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for TIMER_SET_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for TIMER_SET_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TIMER_SET_INFORMATION_CLASS").field(&self.0).finish()
+    }
 }

@@ -106,98 +106,108 @@ pub const TPM_WNF_INFO_CLEAR_SUCCESSFUL: u32 = 1u32;
 pub const TPM_WNF_INFO_NO_REBOOT_REQUIRED: u32 = 1u32;
 pub const TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL: u32 = 2u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TBS_COMMAND_LOCALITY(pub u32);
 impl windows_core::TypeKind for TBS_COMMAND_LOCALITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for TBS_COMMAND_LOCALITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TBS_COMMAND_LOCALITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TBS_COMMAND_PRIORITY(pub u32);
 impl windows_core::TypeKind for TBS_COMMAND_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for TBS_COMMAND_PRIORITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TBS_COMMAND_PRIORITY").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TBS_CONTEXT_PARAMS {
     pub version: u32,
+}
+impl windows_core::TypeKind for TBS_CONTEXT_PARAMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TBS_CONTEXT_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TBS_CONTEXT_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TBS_CONTEXT_PARAMS2 {
     pub version: u32,
     pub Anonymous: TBS_CONTEXT_PARAMS2_0,
+}
+impl windows_core::TypeKind for TBS_CONTEXT_PARAMS2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TBS_CONTEXT_PARAMS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TBS_CONTEXT_PARAMS2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TBS_CONTEXT_PARAMS2_0 {
     pub Anonymous: TBS_CONTEXT_PARAMS2_0_0,
     pub asUINT32: u32,
+}
+impl windows_core::TypeKind for TBS_CONTEXT_PARAMS2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TBS_CONTEXT_PARAMS2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TBS_CONTEXT_PARAMS2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TBS_CONTEXT_PARAMS2_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for TBS_CONTEXT_PARAMS2_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TBS_CONTEXT_PARAMS2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TBS_CONTEXT_PARAMS2_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TPM_DEVICE_INFO {
     pub structVersion: u32,
     pub tpmVersion: u32,
     pub tpmInterfaceType: u32,
     pub tpmImpRevision: u32,
 }
+impl windows_core::TypeKind for TPM_DEVICE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for TPM_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TPM_DEVICE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TPM_WNF_PROVISIONING {
     pub status: u32,
     pub message: [u8; 28],
+}
+impl windows_core::TypeKind for TPM_WNF_PROVISIONING {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TPM_WNF_PROVISIONING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TPM_WNF_PROVISIONING {
-    type TypeKind = windows_core::CopyType;
 }

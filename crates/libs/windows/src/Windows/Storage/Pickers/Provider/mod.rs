@@ -5,16 +5,10 @@ impl windows_core::RuntimeType for IFileOpenPickerUI {
 #[repr(C)]
 pub struct IFileOpenPickerUI_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
     pub AddFile: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut AddFileResult) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    AddFile: usize,
     pub RemoveFile: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub ContainsFile: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
     pub CanAddFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CanAddFile: usize,
     #[cfg(feature = "Foundation_Collections")]
     pub AllowedFileTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -23,8 +17,14 @@ pub struct IFileOpenPickerUI_Vtbl {
     pub SettingsIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    #[cfg(feature = "deprecated")]
     pub FileRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    FileRemoved: usize,
+    #[cfg(feature = "deprecated")]
     pub RemoveFileRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    RemoveFileRemoved: usize,
     pub Closing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveClosing: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
@@ -100,14 +100,8 @@ impl windows_core::RuntimeType for ITargetFileRequest {
 #[repr(C)]
 pub struct ITargetFileRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
     pub TargetFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    TargetFile: usize,
-    #[cfg(feature = "Storage_Streams")]
     pub SetTargetFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    SetTargetFile: usize,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITargetFileRequestDeferral, ITargetFileRequestDeferral_Vtbl, 0x4aee9d91_bf15_4da9_95f6_f6b7d558225b);
@@ -132,12 +126,10 @@ pub struct ITargetFileRequestedEventArgs_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileOpenPickerUI(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileOpenPickerUI, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(FileOpenPickerUI, IFileOpenPickerUI);
 impl FileOpenPickerUI {
-    #[cfg(feature = "Storage_Streams")]
-    pub fn AddFile<P1>(&self, id: &windows_core::HSTRING, file: P1) -> windows_core::Result<AddFileResult>
+    pub fn AddFile<P0>(&self, id: &windows_core::HSTRING, file: P0) -> windows_core::Result<AddFileResult>
     where
-        P1: windows_core::Param<super::super::IStorageFile>,
+        P0: windows_core::Param<super::super::IStorageFile>,
     {
         let this = self;
         unsafe {
@@ -156,7 +148,6 @@ impl FileOpenPickerUI {
             (windows_core::Interface::vtable(this).ContainsFile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Storage_Streams")]
     pub fn CanAddFile<P0>(&self, file: P0) -> windows_core::Result<bool>
     where
         P0: windows_core::Param<super::super::IStorageFile>,
@@ -200,6 +191,7 @@ impl FileOpenPickerUI {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
+    #[cfg(feature = "deprecated")]
     pub fn FileRemoved<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, FileRemovedEventArgs>>,
@@ -210,6 +202,7 @@ impl FileOpenPickerUI {
             (windows_core::Interface::vtable(this).FileRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "deprecated")]
     pub fn RemoveFileRemoved(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveFileRemoved)(windows_core::Interface::as_raw(this), token).ok() }
@@ -233,7 +226,7 @@ impl windows_core::RuntimeType for FileOpenPickerUI {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileOpenPickerUI>();
 }
 unsafe impl windows_core::Interface for FileOpenPickerUI {
-    type Vtable = <IFileOpenPickerUI as windows_core::Interface>::Vtable;
+    type Vtable = IFileOpenPickerUI_Vtbl;
     const IID: windows_core::GUID = <IFileOpenPickerUI as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FileOpenPickerUI {
@@ -245,8 +238,6 @@ impl windows_core::RuntimeName for FileOpenPickerUI {
 pub struct FileRemovedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(FileRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(FileRemovedEventArgs, IFileRemovedEventArgs);
 #[cfg(feature = "deprecated")]
 impl FileRemovedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -264,7 +255,7 @@ impl windows_core::RuntimeType for FileRemovedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for FileRemovedEventArgs {
-    type Vtable = <IFileRemovedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IFileRemovedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IFileRemovedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -275,7 +266,6 @@ impl windows_core::RuntimeName for FileRemovedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileSavePickerUI(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileSavePickerUI, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(FileSavePickerUI, IFileSavePickerUI);
 impl FileSavePickerUI {
     pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -350,7 +340,7 @@ impl windows_core::RuntimeType for FileSavePickerUI {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileSavePickerUI>();
 }
 unsafe impl windows_core::Interface for FileSavePickerUI {
-    type Vtable = <IFileSavePickerUI as windows_core::Interface>::Vtable;
+    type Vtable = IFileSavePickerUI_Vtbl;
     const IID: windows_core::GUID = <IFileSavePickerUI as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FileSavePickerUI {
@@ -360,7 +350,6 @@ impl windows_core::RuntimeName for FileSavePickerUI {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PickerClosingDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PickerClosingDeferral, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PickerClosingDeferral, IPickerClosingDeferral);
 impl PickerClosingDeferral {
     pub fn Complete(&self) -> windows_core::Result<()> {
         let this = self;
@@ -371,7 +360,7 @@ impl windows_core::RuntimeType for PickerClosingDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPickerClosingDeferral>();
 }
 unsafe impl windows_core::Interface for PickerClosingDeferral {
-    type Vtable = <IPickerClosingDeferral as windows_core::Interface>::Vtable;
+    type Vtable = IPickerClosingDeferral_Vtbl;
     const IID: windows_core::GUID = <IPickerClosingDeferral as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PickerClosingDeferral {
@@ -381,7 +370,6 @@ impl windows_core::RuntimeName for PickerClosingDeferral {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PickerClosingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PickerClosingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PickerClosingEventArgs, IPickerClosingEventArgs);
 impl PickerClosingEventArgs {
     pub fn ClosingOperation(&self) -> windows_core::Result<PickerClosingOperation> {
         let this = self;
@@ -402,7 +390,7 @@ impl windows_core::RuntimeType for PickerClosingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPickerClosingEventArgs>();
 }
 unsafe impl windows_core::Interface for PickerClosingEventArgs {
-    type Vtable = <IPickerClosingEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPickerClosingEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPickerClosingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PickerClosingEventArgs {
@@ -412,7 +400,6 @@ impl windows_core::RuntimeName for PickerClosingEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PickerClosingOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PickerClosingOperation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PickerClosingOperation, IPickerClosingOperation);
 impl PickerClosingOperation {
     pub fn GetDeferral(&self) -> windows_core::Result<PickerClosingDeferral> {
         let this = self;
@@ -433,7 +420,7 @@ impl windows_core::RuntimeType for PickerClosingOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPickerClosingOperation>();
 }
 unsafe impl windows_core::Interface for PickerClosingOperation {
-    type Vtable = <IPickerClosingOperation as windows_core::Interface>::Vtable;
+    type Vtable = IPickerClosingOperation_Vtbl;
     const IID: windows_core::GUID = <IPickerClosingOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PickerClosingOperation {
@@ -443,9 +430,7 @@ impl windows_core::RuntimeName for PickerClosingOperation {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetFileRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetFileRequest, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(TargetFileRequest, ITargetFileRequest);
 impl TargetFileRequest {
-    #[cfg(feature = "Storage_Streams")]
     pub fn TargetFile(&self) -> windows_core::Result<super::super::IStorageFile> {
         let this = self;
         unsafe {
@@ -453,7 +438,6 @@ impl TargetFileRequest {
             (windows_core::Interface::vtable(this).TargetFile)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage_Streams")]
     pub fn SetTargetFile<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::IStorageFile>,
@@ -473,7 +457,7 @@ impl windows_core::RuntimeType for TargetFileRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetFileRequest>();
 }
 unsafe impl windows_core::Interface for TargetFileRequest {
-    type Vtable = <ITargetFileRequest as windows_core::Interface>::Vtable;
+    type Vtable = ITargetFileRequest_Vtbl;
     const IID: windows_core::GUID = <ITargetFileRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TargetFileRequest {
@@ -483,7 +467,6 @@ impl windows_core::RuntimeName for TargetFileRequest {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetFileRequestDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetFileRequestDeferral, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(TargetFileRequestDeferral, ITargetFileRequestDeferral);
 impl TargetFileRequestDeferral {
     pub fn Complete(&self) -> windows_core::Result<()> {
         let this = self;
@@ -494,7 +477,7 @@ impl windows_core::RuntimeType for TargetFileRequestDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetFileRequestDeferral>();
 }
 unsafe impl windows_core::Interface for TargetFileRequestDeferral {
-    type Vtable = <ITargetFileRequestDeferral as windows_core::Interface>::Vtable;
+    type Vtable = ITargetFileRequestDeferral_Vtbl;
     const IID: windows_core::GUID = <ITargetFileRequestDeferral as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TargetFileRequestDeferral {
@@ -504,7 +487,6 @@ impl windows_core::RuntimeName for TargetFileRequestDeferral {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetFileRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetFileRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(TargetFileRequestedEventArgs, ITargetFileRequestedEventArgs);
 impl TargetFileRequestedEventArgs {
     pub fn Request(&self) -> windows_core::Result<TargetFileRequest> {
         let this = self;
@@ -518,14 +500,14 @@ impl windows_core::RuntimeType for TargetFileRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetFileRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for TargetFileRequestedEventArgs {
-    type Vtable = <ITargetFileRequestedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ITargetFileRequestedEventArgs_Vtbl;
     const IID: windows_core::GUID = <ITargetFileRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TargetFileRequestedEventArgs {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.TargetFileRequestedEventArgs";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct AddFileResult(pub i32);
 impl AddFileResult {
     pub const Added: Self = Self(0i32);
@@ -536,11 +518,16 @@ impl AddFileResult {
 impl windows_core::TypeKind for AddFileResult {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for AddFileResult {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("AddFileResult").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for AddFileResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.AddFileResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FileSelectionMode(pub i32);
 impl FileSelectionMode {
     pub const Single: Self = Self(0i32);
@@ -549,11 +536,16 @@ impl FileSelectionMode {
 impl windows_core::TypeKind for FileSelectionMode {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FileSelectionMode {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FileSelectionMode").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for FileSelectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.FileSelectionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SetFileNameResult(pub i32);
 impl SetFileNameResult {
     pub const Succeeded: Self = Self(0i32);
@@ -562,6 +554,11 @@ impl SetFileNameResult {
 }
 impl windows_core::TypeKind for SetFileNameResult {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for SetFileNameResult {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SetFileNameResult").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for SetFileNameResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.SetFileNameResult;i4)");

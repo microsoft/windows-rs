@@ -81,9 +81,9 @@ impl windows_core::RuntimeName for ContactPartnerProvisioningManager {
 pub struct MessagePartnerProvisioningManager;
 impl MessagePartnerProvisioningManager {
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ImportSmsToSystemAsync<P4>(incoming: bool, read: bool, body: &windows_core::HSTRING, sender: &windows_core::HSTRING, recipients: P4, deliverytime: super::super::super::Foundation::DateTime) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ImportSmsToSystemAsync<P0>(incoming: bool, read: bool, body: &windows_core::HSTRING, sender: &windows_core::HSTRING, recipients: P0, deliverytime: super::super::super::Foundation::DateTime) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P4: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
     {
         Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -91,10 +91,10 @@ impl MessagePartnerProvisioningManager {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ImportMmsToSystemAsync<P4, P6>(incoming: bool, read: bool, subject: &windows_core::HSTRING, sender: &windows_core::HSTRING, recipients: P4, deliverytime: super::super::super::Foundation::DateTime, attachments: P6) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ImportMmsToSystemAsync<P0, P1>(incoming: bool, read: bool, subject: &windows_core::HSTRING, sender: &windows_core::HSTRING, recipients: P0, deliverytime: super::super::super::Foundation::DateTime, attachments: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P4: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
-        P6: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>>,
+        P1: windows_core::Param<super::super::super::Foundation::Collections::IVectorView<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>>,
     {
         Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();

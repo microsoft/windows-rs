@@ -33,8 +33,11 @@ pub struct ICustomDeviceStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, DeviceAccessMode, DeviceSharingMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIOControlCode, IIOControlCode_Vtbl, 0x0e9559e7_60c8_4375_a761_7f8808066c60);
-impl windows_core::RuntimeType for IIOControlCode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IIOControlCode {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IIOControlCode, windows_core::IUnknown, windows_core::IInspectable);
 impl IIOControlCode {
@@ -74,6 +77,9 @@ impl IIOControlCode {
         }
     }
 }
+impl windows_core::RuntimeType for IIOControlCode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IIOControlCode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -83,9 +89,6 @@ pub struct IIOControlCode_Vtbl {
     pub DeviceType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub ControlCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IIOControlCode {
-    const NAME: &'static str = "Windows.Devices.Custom.IIOControlCode";
-}
 pub trait IIOControlCode_Impl: Sized + windows_core::IUnknownImpl {
     fn AccessMode(&self) -> windows_core::Result<IOControlAccessMode>;
     fn BufferingMethod(&self) -> windows_core::Result<IOControlBufferingMethod>;
@@ -93,8 +96,11 @@ pub trait IIOControlCode_Impl: Sized + windows_core::IUnknownImpl {
     fn DeviceType(&self) -> windows_core::Result<u16>;
     fn ControlCode(&self) -> windows_core::Result<u32>;
 }
+impl windows_core::RuntimeName for IIOControlCode {
+    const NAME: &'static str = "Windows.Devices.Custom.IIOControlCode";
+}
 impl IIOControlCode_Vtbl {
-    pub const fn new<Identity: IIOControlCode_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IIOControlCode_Impl, const OFFSET: isize>() -> IIOControlCode_Vtbl {
         unsafe extern "system" fn AccessMode<Identity: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut IOControlAccessMode) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IIOControlCode_Impl::AccessMode(this) {
@@ -180,7 +186,6 @@ pub struct IKnownDeviceTypesStatics_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CustomDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CustomDevice, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CustomDevice, ICustomDevice, ICustomDeviceStatics);
 impl CustomDevice {
     #[cfg(feature = "Storage_Streams")]
     pub fn InputStream(&self) -> windows_core::Result<super::super::Storage::Streams::IInputStream> {
@@ -245,17 +250,18 @@ impl windows_core::RuntimeType for CustomDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICustomDevice>();
 }
 unsafe impl windows_core::Interface for CustomDevice {
-    type Vtable = <ICustomDevice as windows_core::Interface>::Vtable;
+    type Vtable = ICustomDevice_Vtbl;
     const IID: windows_core::GUID = <ICustomDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CustomDevice {
     const NAME: &'static str = "Windows.Devices.Custom.CustomDevice";
 }
+unsafe impl Send for CustomDevice {}
+unsafe impl Sync for CustomDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IOControlCode(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(IOControlCode, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(IOControlCode, IIOControlCode, IIOControlCodeFactory);
+windows_core::imp::interface_hierarchy!(IOControlCode, windows_core::IUnknown, windows_core::IInspectable, IIOControlCode);
 impl IOControlCode {
     pub fn AccessMode(&self) -> windows_core::Result<IOControlAccessMode> {
         let this = self;
@@ -307,12 +313,14 @@ impl windows_core::RuntimeType for IOControlCode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIOControlCode>();
 }
 unsafe impl windows_core::Interface for IOControlCode {
-    type Vtable = <IIOControlCode as windows_core::Interface>::Vtable;
+    type Vtable = IIOControlCode_Vtbl;
     const IID: windows_core::GUID = <IIOControlCode as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IOControlCode";
 }
+unsafe impl Send for IOControlCode {}
+unsafe impl Sync for IOControlCode {}
 pub struct KnownDeviceTypes;
 impl KnownDeviceTypes {
     pub fn Unknown() -> windows_core::Result<u16> {
@@ -330,7 +338,7 @@ impl windows_core::RuntimeName for KnownDeviceTypes {
     const NAME: &'static str = "Windows.Devices.Custom.KnownDeviceTypes";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DeviceAccessMode(pub i32);
 impl DeviceAccessMode {
     pub const Read: Self = Self(0i32);
@@ -340,11 +348,16 @@ impl DeviceAccessMode {
 impl windows_core::TypeKind for DeviceAccessMode {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DeviceAccessMode {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DeviceAccessMode").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DeviceAccessMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceAccessMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DeviceSharingMode(pub i32);
 impl DeviceSharingMode {
     pub const Shared: Self = Self(0i32);
@@ -353,11 +366,16 @@ impl DeviceSharingMode {
 impl windows_core::TypeKind for DeviceSharingMode {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DeviceSharingMode {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DeviceSharingMode").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DeviceSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceSharingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IOControlAccessMode(pub i32);
 impl IOControlAccessMode {
     pub const Any: Self = Self(0i32);
@@ -368,11 +386,16 @@ impl IOControlAccessMode {
 impl windows_core::TypeKind for IOControlAccessMode {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IOControlAccessMode {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IOControlAccessMode").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for IOControlAccessMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlAccessMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IOControlBufferingMethod(pub i32);
 impl IOControlBufferingMethod {
     pub const Buffered: Self = Self(0i32);
@@ -382,6 +405,11 @@ impl IOControlBufferingMethod {
 }
 impl windows_core::TypeKind for IOControlBufferingMethod {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for IOControlBufferingMethod {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IOControlBufferingMethod").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for IOControlBufferingMethod {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlBufferingMethod;i4)");

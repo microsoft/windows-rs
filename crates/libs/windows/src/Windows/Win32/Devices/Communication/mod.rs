@@ -395,10 +395,15 @@ pub const STOPBITS_15: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(2u16);
 pub const STOPBITS_20: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(4u16);
 pub const TWOSTOPBITS: DCB_STOP_BITS = DCB_STOP_BITS(2u8);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CLEAR_COMM_ERROR_FLAGS(pub u32);
 impl windows_core::TypeKind for CLEAR_COMM_ERROR_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CLEAR_COMM_ERROR_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CLEAR_COMM_ERROR_FLAGS").field(&self.0).finish()
+    }
 }
 impl CLEAR_COMM_ERROR_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -434,10 +439,15 @@ impl core::ops::Not for CLEAR_COMM_ERROR_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct COMMPROP_STOP_PARITY(pub u16);
 impl windows_core::TypeKind for COMMPROP_STOP_PARITY {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for COMMPROP_STOP_PARITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("COMMPROP_STOP_PARITY").field(&self.0).finish()
+    }
 }
 impl COMMPROP_STOP_PARITY {
     pub const fn contains(&self, other: Self) -> bool {
@@ -473,10 +483,15 @@ impl core::ops::Not for COMMPROP_STOP_PARITY {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct COMM_EVENT_MASK(pub u32);
 impl windows_core::TypeKind for COMM_EVENT_MASK {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for COMM_EVENT_MASK {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("COMM_EVENT_MASK").field(&self.0).finish()
+    }
 }
 impl COMM_EVENT_MASK {
     pub const fn contains(&self, other: Self) -> bool {
@@ -512,28 +527,48 @@ impl core::ops::Not for COMM_EVENT_MASK {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DCB_PARITY(pub u8);
 impl windows_core::TypeKind for DCB_PARITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DCB_PARITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DCB_PARITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DCB_STOP_BITS(pub u8);
 impl windows_core::TypeKind for DCB_STOP_BITS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DCB_STOP_BITS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DCB_STOP_BITS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ESCAPE_COMM_FUNCTION(pub u32);
 impl windows_core::TypeKind for ESCAPE_COMM_FUNCTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ESCAPE_COMM_FUNCTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ESCAPE_COMM_FUNCTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MODEMDEVCAPS_DIAL_OPTIONS(pub u32);
 impl windows_core::TypeKind for MODEMDEVCAPS_DIAL_OPTIONS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for MODEMDEVCAPS_DIAL_OPTIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MODEMDEVCAPS_DIAL_OPTIONS").field(&self.0).finish()
+    }
 }
 impl MODEMDEVCAPS_DIAL_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -569,10 +604,15 @@ impl core::ops::Not for MODEMDEVCAPS_DIAL_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MODEMDEVCAPS_SPEAKER_MODE(pub u32);
 impl windows_core::TypeKind for MODEMDEVCAPS_SPEAKER_MODE {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for MODEMDEVCAPS_SPEAKER_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MODEMDEVCAPS_SPEAKER_MODE").field(&self.0).finish()
+    }
 }
 impl MODEMDEVCAPS_SPEAKER_MODE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -608,10 +648,15 @@ impl core::ops::Not for MODEMDEVCAPS_SPEAKER_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MODEMDEVCAPS_SPEAKER_VOLUME(pub u32);
 impl windows_core::TypeKind for MODEMDEVCAPS_SPEAKER_VOLUME {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for MODEMDEVCAPS_SPEAKER_VOLUME {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MODEMDEVCAPS_SPEAKER_VOLUME").field(&self.0).finish()
+    }
 }
 impl MODEMDEVCAPS_SPEAKER_VOLUME {
     pub const fn contains(&self, other: Self) -> bool {
@@ -647,22 +692,37 @@ impl core::ops::Not for MODEMDEVCAPS_SPEAKER_VOLUME {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MODEMSETTINGS_SPEAKER_MODE(pub u32);
 impl windows_core::TypeKind for MODEMSETTINGS_SPEAKER_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MODEMSETTINGS_SPEAKER_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MODEMSETTINGS_SPEAKER_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MODEM_SPEAKER_VOLUME(pub u32);
 impl windows_core::TypeKind for MODEM_SPEAKER_VOLUME {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MODEM_SPEAKER_VOLUME {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MODEM_SPEAKER_VOLUME").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MODEM_STATUS_FLAGS(pub u32);
 impl windows_core::TypeKind for MODEM_STATUS_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for MODEM_STATUS_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MODEM_STATUS_FLAGS").field(&self.0).finish()
+    }
 }
 impl MODEM_STATUS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -698,10 +758,15 @@ impl core::ops::Not for MODEM_STATUS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PURGE_COMM_FLAGS(pub u32);
 impl windows_core::TypeKind for PURGE_COMM_FLAGS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PURGE_COMM_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PURGE_COMM_FLAGS").field(&self.0).finish()
+    }
 }
 impl PURGE_COMM_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -737,7 +802,7 @@ impl core::ops::Not for PURGE_COMM_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMMCONFIG {
     pub dwSize: u32,
     pub wVersion: u16,
@@ -748,16 +813,16 @@ pub struct COMMCONFIG {
     pub dwProviderSize: u32,
     pub wcProviderData: [u16; 1],
 }
+impl windows_core::TypeKind for COMMCONFIG {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for COMMCONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMMCONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMMPROP {
     pub wPacketLength: u16,
     pub wPacketVersion: u16,
@@ -778,16 +843,16 @@ pub struct COMMPROP {
     pub dwProvSpec2: u32,
     pub wcProvChar: [u16; 1],
 }
+impl windows_core::TypeKind for COMMPROP {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for COMMPROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMMPROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMMTIMEOUTS {
     pub ReadIntervalTimeout: u32,
     pub ReadTotalTimeoutMultiplier: u32,
@@ -795,31 +860,31 @@ pub struct COMMTIMEOUTS {
     pub WriteTotalTimeoutMultiplier: u32,
     pub WriteTotalTimeoutConstant: u32,
 }
+impl windows_core::TypeKind for COMMTIMEOUTS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for COMMTIMEOUTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMMTIMEOUTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMSTAT {
     pub _bitfield: u32,
     pub cbInQue: u32,
     pub cbOutQue: u32,
+}
+impl windows_core::TypeKind for COMSTAT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for COMSTAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMSTAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DCB {
     pub DCBlength: u32,
     pub BaudRate: u32,
@@ -837,16 +902,16 @@ pub struct DCB {
     pub EvtChar: i8,
     pub wReserved1: u16,
 }
+impl windows_core::TypeKind for DCB {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DCB {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODEMDEVCAPS {
     pub dwActualSize: u32,
     pub dwRequiredSize: u32,
@@ -869,16 +934,16 @@ pub struct MODEMDEVCAPS {
     pub dwMaxDCERate: u32,
     pub abVariablePortion: [u8; 1],
 }
+impl windows_core::TypeKind for MODEMDEVCAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MODEMDEVCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MODEMDEVCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODEMSETTINGS {
     pub dwActualSize: u32,
     pub dwRequiredSize: u32,
@@ -893,11 +958,11 @@ pub struct MODEMSETTINGS {
     pub dwNegotiatedDCERate: u32,
     pub abVariablePortion: [u8; 1],
 }
+impl windows_core::TypeKind for MODEMSETTINGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MODEMSETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MODEMSETTINGS {
-    type TypeKind = windows_core::CopyType;
 }
