@@ -227,6 +227,7 @@ impl Item {
     pub fn size(&self) -> usize {
         match self {
             Self::CppStruct(item) => item.size(),
+            Self::Struct(item) => item.size(),
             Self::CppEnum(item) => item.size(),
             Self::CppInterface(..) => 4,
             Self::CppDelegate(..) => 4,
@@ -239,6 +240,7 @@ impl Item {
     pub fn align(&self) -> usize {
         match self {
             Self::CppStruct(item) => item.align(),
+            Self::Struct(item) => item.align(),
             Self::CppEnum(item) => item.align(),
             Self::CppInterface(..) => 4,
             Self::CppDelegate(..) => 4,

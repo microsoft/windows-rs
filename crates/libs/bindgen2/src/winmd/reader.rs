@@ -44,7 +44,7 @@ impl Reader {
 
                 let name = def.name();
 
-                if Type::remap(namespace, name).is_some() {
+                if Type::remap(namespace, name) != Remap::None {
                     continue;
                 }
 

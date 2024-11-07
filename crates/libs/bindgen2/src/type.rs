@@ -41,21 +41,32 @@ pub enum Type {
     PrimitiveOrEnum(Box<Self>, Item),
 }
 
+#[derive(PartialEq)]
+pub enum Remap {
+    Type(Type),
+    Name(TypeName<'static>),
+    None,
+}
+
 impl Type {
-    pub fn remap(namespace: &'static str, name: &'static str) -> Option<Self> {
+    pub fn remap(namespace: &'static str, name: &'static str) -> Remap {
         match TypeName(namespace, name) {
-            TypeName::GUID => Some(Self::GUID),
-            TypeName::HResult => Some(Self::HRESULT),
-            TypeName::HRESULT => Some(Self::HRESULT),
-            TypeName::PSTR => Some(Self::PSTR),
-            TypeName::PWSTR => Some(Self::PWSTR),
-            TypeName::HSTRING => Some(Self::String),
-            TypeName::BSTR => Some(Self::BSTR),
-            TypeName::IInspectable => Some(Self::Object),
-            TypeName::CHAR => Some(Self::I8),
-            TypeName::IUnknown => Some(Self::IUnknown),
-            TypeName::Type => Some(Self::Type),
-            _ => None,
+            TypeName::GUID => Remap::Type(Self::GUID),
+            TypeName::HResult => Remap::Type(Self::HRESULT),
+            TypeName::HRESULT => Remap::Type(Self::HRESULT),
+            TypeName::PSTR => Remap::Type(Self::PSTR),
+            TypeName::PWSTR => Remap::Type(Self::PWSTR),
+            TypeName::HSTRING => Remap::Type(Self::String),
+            TypeName::BSTR => Remap::Type(Self::BSTR),
+            TypeName::IInspectable => Remap::Type(Self::Object),
+            TypeName::CHAR => Remap::Type(Self::I8),
+            TypeName::IUnknown => Remap::Type(Self::IUnknown),
+            TypeName::Type => Remap::Type(Self::Type),
+
+            TypeName::D2D_MATRIX_3X2_F => Remap::Name(TypeName::Matrix3x2),
+            TypeName::D3DMATRIX => Remap::Name(TypeName::Matrix4x4),
+
+            _ => Remap::None,
         }
     }
 
@@ -88,11 +99,16 @@ impl Type {
             return Self::from_blob_impl(&mut blob, None, generics);
         }
 
-        let namespace = code.namespace();
-        let name = code.name();
+        let mut namespace = code.namespace();
+        let mut name = code.name();
 
-        if let Some(ty) = Self::remap(namespace, name) {
-            return ty;
+        match Self::remap(namespace, name) {
+            Remap::Type(ty) => return ty,
+            Remap::Name(type_name) => {
+                namespace = type_name.0;
+                name = type_name.1;
+            }
+            Remap::None => {}
         }
 
         // TODO: this needs to be deferred via a TypeName's optional nested type name?

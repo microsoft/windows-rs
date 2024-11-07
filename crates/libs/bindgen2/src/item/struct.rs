@@ -17,7 +17,13 @@ impl Struct {
 
         let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable());
 
-        let derive = quote! { Clone, Debug, Default, PartialEq };
+        // BTreeSet for auto sort?
+        let mut derive = quote! { Clone, Debug, Default, PartialEq, };
+
+        if is_copyable {
+            derive.combine(quote! { Copy, });
+        }
+
         // TODO: add any user-defined derive names
 
         let fields = fields.iter().map(|(name, ty)| {
@@ -69,5 +75,25 @@ impl Struct {
 
     pub fn is_copyable(&self) -> bool {
         self.def.fields().all(|field| field.ty(None).is_copyable())
+    }
+
+    pub fn size(&self) -> usize {
+        let mut sum = 0;
+        for field in self.def.fields() {
+            let ty = field.ty(None);
+            let size = ty.size();
+            let align = ty.align();
+            sum = (sum + (align - 1)) & !(align - 1);
+            sum += size;
+        }
+        sum
+    }
+
+    pub fn align(&self) -> usize {
+        self.def
+            .fields()
+            .map(|field| field.ty(None).align())
+            .max()
+            .unwrap_or(1)
     }
 }
