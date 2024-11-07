@@ -5738,8 +5738,8 @@ impl windows_core::TypeKind for D3DHAL_CLIPPEDTRIANGLEFAN {
 #[derive()]
 pub struct D3DHAL_CONTEXTCREATEDATA {
     pub Anonymous1: D3DHAL_CONTEXTCREATEDATA_0,
-    pub Anonymous2: core::mem::ManuallyDrop<D3DHAL_CONTEXTCREATEDATA_1>,
-    pub Anonymous3: core::mem::ManuallyDrop<D3DHAL_CONTEXTCREATEDATA_2>,
+    pub Anonymous2: D3DHAL_CONTEXTCREATEDATA_1,
+    pub Anonymous3: D3DHAL_CONTEXTCREATEDATA_2,
     pub Anonymous4: D3DHAL_CONTEXTCREATEDATA_3,
     pub dwhContext: usize,
     pub ddrval: windows_core::HRESULT,
@@ -7303,8 +7303,8 @@ impl windows_core::TypeKind for D3DHAL_SCENECAPTUREDATA {
 #[derive()]
 pub struct D3DHAL_SETRENDERTARGETDATA {
     pub dwhContext: usize,
-    pub Anonymous1: core::mem::ManuallyDrop<D3DHAL_SETRENDERTARGETDATA_0>,
-    pub Anonymous2: core::mem::ManuallyDrop<D3DHAL_SETRENDERTARGETDATA_1>,
+    pub Anonymous1: D3DHAL_SETRENDERTARGETDATA_0,
+    pub Anonymous2: D3DHAL_SETRENDERTARGETDATA_1,
     pub ddrval: windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]

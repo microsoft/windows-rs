@@ -4289,7 +4289,7 @@ impl windows_core::TypeKind for MBN_PROVIDER {
 #[repr(C)]
 #[derive(Debug, PartialEq)]
 pub struct MBN_PROVIDER2 {
-    pub provider: core::mem::ManuallyDrop<MBN_PROVIDER>,
+    pub provider: MBN_PROVIDER,
     pub cellularClass: MBN_CELLULAR_CLASS,
     pub signalStrength: u32,
     pub signalError: u32,

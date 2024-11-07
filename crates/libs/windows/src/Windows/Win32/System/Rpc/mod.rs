@@ -5328,7 +5328,7 @@ impl windows_core::TypeKind for NDR_SCONTEXT {
 #[derive()]
 pub struct NDR_USER_MARSHAL_INFO {
     pub InformationLevel: u32,
-    pub Anonymous: core::mem::ManuallyDrop<NDR_USER_MARSHAL_INFO_0>,
+    pub Anonymous: NDR_USER_MARSHAL_INFO_0,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for NDR_USER_MARSHAL_INFO {

@@ -19493,7 +19493,7 @@ pub struct MSP_EVENT_INFO {
     pub dwSize: u32,
     pub Event: MSP_EVENT,
     pub hCall: *mut i32,
-    pub Anonymous: core::mem::ManuallyDrop<MSP_EVENT_INFO_0>,
+    pub Anonymous: MSP_EVENT_INFO_0,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO {

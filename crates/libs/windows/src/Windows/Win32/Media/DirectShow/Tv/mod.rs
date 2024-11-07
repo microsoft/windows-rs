@@ -35167,7 +35167,7 @@ pub struct DVR_STREAM_DESC {
     pub Reserved: u32,
     pub guidSubMediaType: windows_core::GUID,
     pub guidFormatType: windows_core::GUID,
-    pub MediaType: core::mem::ManuallyDrop<super::super::MediaFoundation::AM_MEDIA_TYPE>,
+    pub MediaType: super::super::MediaFoundation::AM_MEDIA_TYPE,
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl Default for DVR_STREAM_DESC {

@@ -16640,7 +16640,7 @@ pub struct SPPHRASEPROPERTY {
     pub pszName: windows_core::PCWSTR,
     pub Anonymous: SPPHRASEPROPERTY_0,
     pub pszValue: windows_core::PCWSTR,
-    pub vValue: core::mem::ManuallyDrop<super::super::System::Variant::VARIANT>,
+    pub vValue: super::super::System::Variant::VARIANT,
     pub ulFirstElement: u32,
     pub ulCountOfElements: u32,
     pub pNextSibling: *const SPPHRASEPROPERTY,
@@ -16800,7 +16800,7 @@ pub struct SPPROPERTYINFO {
     pub pszName: windows_core::PCWSTR,
     pub ulId: u32,
     pub pszValue: windows_core::PCWSTR,
-    pub vValue: core::mem::ManuallyDrop<super::super::System::Variant::VARIANT>,
+    pub vValue: super::super::System::Variant::VARIANT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for SPPROPERTYINFO {
@@ -16891,7 +16891,7 @@ impl windows_core::TypeKind for SPRECORESULTINFO {
 #[repr(C)]
 #[derive(Debug, PartialEq)]
 pub struct SPRECORESULTINFOEX {
-    pub Base: core::mem::ManuallyDrop<SPRECORESULTINFO>,
+    pub Base: SPRECORESULTINFO,
     pub ullStreamTimeStart: u64,
     pub ullStreamTimeEnd: u64,
 }
@@ -17254,7 +17254,7 @@ pub struct SPTRANSITIONPROPERTY {
     pub pszName: windows_core::PCWSTR,
     pub ulId: u32,
     pub pszValue: windows_core::PCWSTR,
-    pub vValue: core::mem::ManuallyDrop<super::super::System::Variant::VARIANT>,
+    pub vValue: super::super::System::Variant::VARIANT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for SPTRANSITIONPROPERTY {

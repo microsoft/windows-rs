@@ -545,9 +545,9 @@ impl CppMethod {
                 let return_type = self.signature.return_type.0.write_abi(writer);
 
                 if named_params {
-                    params.push(quote! { result__: *mut #return_type });
+                    params.insert(0, quote! { result__: *mut #return_type });
                 } else {
-                    params.push(quote! { *mut #return_type });
+                    params.insert(0, quote! { *mut #return_type });
                 }
             }
             _ => {

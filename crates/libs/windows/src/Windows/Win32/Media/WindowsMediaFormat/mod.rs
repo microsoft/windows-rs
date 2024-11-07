@@ -10266,7 +10266,7 @@ impl windows_core::TypeKind for WMT_COLORSPACEINFO_EXTENSION_DATA {
 #[repr(C)]
 #[derive(Debug, PartialEq)]
 pub struct WMT_FILESINK_DATA_UNIT {
-    pub packetHeaderBuffer: core::mem::ManuallyDrop<WMT_BUFFER_SEGMENT>,
+    pub packetHeaderBuffer: WMT_BUFFER_SEGMENT,
     pub cPayloads: u32,
     pub pPayloadHeaderBuffers: *mut WMT_BUFFER_SEGMENT,
     pub cPayloadDataFragments: u32,
@@ -10284,7 +10284,7 @@ impl windows_core::TypeKind for WMT_FILESINK_DATA_UNIT {
 #[derive(Debug, PartialEq)]
 pub struct WMT_PAYLOAD_FRAGMENT {
     pub dwPayloadIndex: u32,
-    pub segmentData: core::mem::ManuallyDrop<WMT_BUFFER_SEGMENT>,
+    pub segmentData: WMT_BUFFER_SEGMENT,
 }
 impl Default for WMT_PAYLOAD_FRAGMENT {
     fn default() -> Self {

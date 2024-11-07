@@ -16987,7 +16987,7 @@ pub struct OPENQUERYWINDOW {
     pub pHandlerParameters: *mut core::ffi::c_void,
     pub clsidDefaultForm: windows_core::GUID,
     pub pPersistQuery: core::mem::ManuallyDrop<Option<IPersistQuery>>,
-    pub Anonymous: core::mem::ManuallyDrop<OPENQUERYWINDOW_0>,
+    pub Anonymous: OPENQUERYWINDOW_0,
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl Default for OPENQUERYWINDOW {

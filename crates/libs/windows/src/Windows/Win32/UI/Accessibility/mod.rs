@@ -18820,8 +18820,8 @@ impl windows_core::TypeKind for UiaCacheRequest {
 #[derive()]
 pub struct UiaChangeInfo {
     pub uiaId: i32,
-    pub payload: core::mem::ManuallyDrop<super::super::System::Variant::VARIANT>,
-    pub extraInfo: core::mem::ManuallyDrop<super::super::System::Variant::VARIANT>,
+    pub payload: super::super::System::Variant::VARIANT,
+    pub extraInfo: super::super::System::Variant::VARIANT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for UiaChangeInfo {
@@ -18930,8 +18930,8 @@ pub struct UiaPropertyChangedEventArgs {
     pub Type: EventArgsType,
     pub EventId: UIA_EVENT_ID,
     pub PropertyId: i32,
-    pub OldValue: core::mem::ManuallyDrop<super::super::System::Variant::VARIANT>,
-    pub NewValue: core::mem::ManuallyDrop<super::super::System::Variant::VARIANT>,
+    pub OldValue: super::super::System::Variant::VARIANT,
+    pub NewValue: super::super::System::Variant::VARIANT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for UiaPropertyChangedEventArgs {
@@ -18949,7 +18949,7 @@ impl windows_core::TypeKind for UiaPropertyChangedEventArgs {
 pub struct UiaPropertyCondition {
     pub ConditionType: ConditionType,
     pub PropertyId: UIA_PROPERTY_ID,
-    pub Value: core::mem::ManuallyDrop<super::super::System::Variant::VARIANT>,
+    pub Value: super::super::System::Variant::VARIANT,
     pub Flags: PropertyConditionFlags,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

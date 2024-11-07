@@ -31582,7 +31582,7 @@ impl windows_core::TypeKind for AM_FRAMESTEP_STEP {
 pub struct AM_MPEGSTREAMTYPE {
     pub dwStreamId: u32,
     pub dwReserved: u32,
-    pub mt: core::mem::ManuallyDrop<super::MediaFoundation::AM_MEDIA_TYPE>,
+    pub mt: super::MediaFoundation::AM_MEDIA_TYPE,
     pub bFormat: [u8; 1],
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -31601,7 +31601,7 @@ impl windows_core::TypeKind for AM_MPEGSTREAMTYPE {
 pub struct AM_MPEGSYSTEMTYPE {
     pub dwBitRate: u32,
     pub cStreams: u32,
-    pub Streams: [core::mem::ManuallyDrop<AM_MPEGSTREAMTYPE>; 1],
+    pub Streams: [AM_MPEGSTREAMTYPE; 1],
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl Default for AM_MPEGSYSTEMTYPE {

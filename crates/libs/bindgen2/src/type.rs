@@ -363,24 +363,6 @@ impl Type {
         }
     }
 
-    pub fn write_blittable(&self, writer: &Writer) -> TokenStream {
-        if self.is_copyable() {
-            self.write(writer)
-        } else {
-            match self {
-                Self::ArrayFixed(ty, len) => {
-                    let ty = ty.write_default(writer);
-                    let len = Literal::usize_unsuffixed(*len);
-                    quote! { [core::mem::ManuallyDrop<#ty>; #len] }
-                }
-                rest => {
-                    let ty = rest.write_default(writer);
-                    quote! { core::mem::ManuallyDrop<#ty> }
-                }
-            }
-        }
-    }
-
     pub fn write_impl_name(&self, writer: &Writer) -> TokenStream {
         match self {
             Self::IUnknown => {
@@ -528,6 +510,15 @@ impl Type {
             Self::ArrayFixed(ty, _) => ty.is_copyable(),
             Self::Array(ty) => ty.is_copyable(),
             _ => true,
+        }
+    }
+
+    pub fn is_dropped(&self) -> bool {
+        match self {
+            Self::Item(item) => item.is_dropped(),
+            Self::String | Self::BSTR | Self::Object | Self::IUnknown => true,
+            Self::ArrayFixed(ty, _) => ty.is_dropped(),
+            _ => false,
         }
     }
 

@@ -10164,7 +10164,7 @@ impl windows_core::TypeKind for DWRITE_COLOR_F {
 #[repr(C)]
 #[derive(Debug, PartialEq)]
 pub struct DWRITE_COLOR_GLYPH_RUN {
-    pub glyphRun: core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>,
+    pub glyphRun: DWRITE_GLYPH_RUN,
     pub glyphRunDescription: *mut DWRITE_GLYPH_RUN_DESCRIPTION,
     pub baselineOriginX: f32,
     pub baselineOriginY: f32,
@@ -10182,7 +10182,7 @@ impl windows_core::TypeKind for DWRITE_COLOR_GLYPH_RUN {
 #[repr(C)]
 #[derive(Debug, PartialEq)]
 pub struct DWRITE_COLOR_GLYPH_RUN1 {
-    pub Base: core::mem::ManuallyDrop<DWRITE_COLOR_GLYPH_RUN>,
+    pub Base: DWRITE_COLOR_GLYPH_RUN,
     pub glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS,
     pub measuringMode: DWRITE_MEASURING_MODE,
 }

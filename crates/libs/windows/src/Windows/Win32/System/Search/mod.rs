@@ -20175,7 +20175,7 @@ pub struct DBPROP {
     pub dwOptions: u32,
     pub dwStatus: u32,
     pub colid: super::super::Storage::IndexServer::DBID,
-    pub vValue: core::mem::ManuallyDrop<super::Variant::VARIANT>,
+    pub vValue: super::Variant::VARIANT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -20198,7 +20198,7 @@ pub struct DBPROP {
     pub dwOptions: u32,
     pub dwStatus: u32,
     pub colid: super::super::Storage::IndexServer::DBID,
-    pub vValue: core::mem::ManuallyDrop<super::Variant::VARIANT>,
+    pub vValue: super::Variant::VARIANT,
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -20257,7 +20257,7 @@ pub struct DBPROPINFO {
     pub dwPropertyID: u32,
     pub dwFlags: u32,
     pub vtType: super::Variant::VARENUM,
-    pub vValues: core::mem::ManuallyDrop<super::Variant::VARIANT>,
+    pub vValues: super::Variant::VARIANT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -20280,7 +20280,7 @@ pub struct DBPROPINFO {
     pub dwPropertyID: u32,
     pub dwFlags: u32,
     pub vtType: super::Variant::VARENUM,
-    pub vValues: core::mem::ManuallyDrop<super::Variant::VARIANT>,
+    pub vValues: super::Variant::VARIANT,
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -20574,7 +20574,7 @@ impl windows_core::TypeKind for DB_VARNUMERIC {
 #[derive()]
 pub struct DCINFO {
     pub eInfoType: u32,
-    pub vData: core::mem::ManuallyDrop<super::Variant::VARIANT>,
+    pub vData: super::Variant::VARIANT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for DCINFO {
@@ -20687,7 +20687,7 @@ impl windows_core::TypeKind for INCREMENTAL_ACCESS_INFO {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive()]
 pub struct ITEMPROP {
-    pub variantValue: core::mem::ManuallyDrop<super::Variant::VARIANT>,
+    pub variantValue: super::Variant::VARIANT,
     pub pwszName: windows_core::PWSTR,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -20723,7 +20723,7 @@ pub const Interval: windows_core::GUID = windows_core::GUID::from_u128(0xd957171
 #[derive()]
 pub struct KAGGETDIAG {
     pub ulSize: u32,
-    pub vDiagInfo: core::mem::ManuallyDrop<super::Variant::VARIANT>,
+    pub vDiagInfo: super::Variant::VARIANT,
     pub sDiagField: i16,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -20907,7 +20907,7 @@ pub const PDPO: windows_core::GUID = windows_core::GUID::from_u128(0xccb4ec60_b9
 pub struct PROPERTYRESTRICTION {
     pub rel: u32,
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
-    pub prval: core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
+    pub prval: super::Com::StructuredStorage::PROPVARIANT,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Default for PROPERTYRESTRICTION {
@@ -20963,7 +20963,7 @@ impl windows_core::TypeKind for RANGECATEGORIZE {
 pub struct RESTRICTION {
     pub rt: u32,
     pub weight: u32,
-    pub res: core::mem::ManuallyDrop<RESTRICTION_0>,
+    pub res: RESTRICTION_0,
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Default for RESTRICTION {
@@ -21067,7 +21067,7 @@ pub const RootBinder: windows_core::GUID = windows_core::GUID::from_u128(0xff151
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive()]
 pub struct SEARCH_COLUMN_PROPERTIES {
-    pub Value: core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
+    pub Value: super::Com::StructuredStorage::PROPVARIANT,
     pub lcid: u32,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -21392,7 +21392,7 @@ pub struct SSVARIANT {
     pub vt: u16,
     pub dwReserved1: u32,
     pub dwReserved2: u32,
-    pub Anonymous: core::mem::ManuallyDrop<SSVARIANT_0>,
+    pub Anonymous: SSVARIANT_0,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for SSVARIANT {

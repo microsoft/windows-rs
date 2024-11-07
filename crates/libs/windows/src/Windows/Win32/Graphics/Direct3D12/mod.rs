@@ -1362,10 +1362,10 @@ pub struct ID3D12Device_Vtbl {
     pub CopyDescriptors: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_CPU_DESCRIPTOR_HANDLE, *const u32, u32, *const D3D12_CPU_DESCRIPTOR_HANDLE, *const u32, D3D12_DESCRIPTOR_HEAP_TYPE),
     pub CopyDescriptorsSimple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3D12_CPU_DESCRIPTOR_HANDLE, D3D12_CPU_DESCRIPTOR_HANDLE, D3D12_DESCRIPTOR_HEAP_TYPE),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetResourceAllocationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const D3D12_RESOURCE_DESC, *mut D3D12_RESOURCE_ALLOCATION_INFO),
+    pub GetResourceAllocationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_RESOURCE_ALLOCATION_INFO, u32, u32, *const D3D12_RESOURCE_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetResourceAllocationInfo: usize,
-    pub GetCustomHeapProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3D12_HEAP_TYPE, *mut D3D12_HEAP_PROPERTIES),
+    pub GetCustomHeapProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_HEAP_PROPERTIES, u32, D3D12_HEAP_TYPE),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub CreateCommittedResource: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_HEAP_PROPERTIES, D3D12_HEAP_FLAGS, *const D3D12_RESOURCE_DESC, D3D12_RESOURCE_STATES, *const D3D12_CLEAR_VALUE, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
@@ -1514,11 +1514,11 @@ impl ID3D12Device_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID3D12Device_Impl::CopyDescriptorsSimple(this, core::mem::transmute_copy(&numdescriptors), core::mem::transmute(&destdescriptorrangestart), core::mem::transmute(&srcdescriptorrangestart), core::mem::transmute_copy(&descriptorheapstype))
         }
-        unsafe extern "system" fn GetResourceAllocationInfo<Identity: ID3D12Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO) {
+        unsafe extern "system" fn GetResourceAllocationInfo<Identity: ID3D12Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             *result__ = ID3D12Device_Impl::GetResourceAllocationInfo(this, core::mem::transmute_copy(&visiblemask), core::mem::transmute_copy(&numresourcedescs), core::mem::transmute_copy(&presourcedescs))
         }
-        unsafe extern "system" fn GetCustomHeapProperties<Identity: ID3D12Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodemask: u32, heaptype: D3D12_HEAP_TYPE, result__: *mut D3D12_HEAP_PROPERTIES) {
+        unsafe extern "system" fn GetCustomHeapProperties<Identity: ID3D12Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_HEAP_PROPERTIES, nodemask: u32, heaptype: D3D12_HEAP_TYPE) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             *result__ = ID3D12Device_Impl::GetCustomHeapProperties(this, core::mem::transmute_copy(&nodemask), core::mem::transmute_copy(&heaptype))
         }
@@ -1857,7 +1857,7 @@ impl ID3D12Device12 {
 pub struct ID3D12Device12_Vtbl {
     pub base__: ID3D12Device11_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetResourceAllocationInfo3: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const D3D12_RESOURCE_DESC1, *const u32, *const *const super::Dxgi::Common::DXGI_FORMAT, *mut D3D12_RESOURCE_ALLOCATION_INFO1, *mut D3D12_RESOURCE_ALLOCATION_INFO),
+    pub GetResourceAllocationInfo3: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_RESOURCE_ALLOCATION_INFO, u32, u32, *const D3D12_RESOURCE_DESC1, *const u32, *const *const super::Dxgi::Common::DXGI_FORMAT, *mut D3D12_RESOURCE_ALLOCATION_INFO1),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetResourceAllocationInfo3: usize,
 }
@@ -1868,7 +1868,7 @@ pub trait ID3D12Device12_Impl: ID3D12Device11_Impl {
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device12_Vtbl {
     pub const fn new<Identity: ID3D12Device12_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetResourceAllocationInfo3<Identity: ID3D12Device12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, pnumcastableformats: *const u32, ppcastableformats: *const *const super::Dxgi::Common::DXGI_FORMAT, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO) {
+        unsafe extern "system" fn GetResourceAllocationInfo3<Identity: ID3D12Device12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, pnumcastableformats: *const u32, ppcastableformats: *const *const super::Dxgi::Common::DXGI_FORMAT, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             *result__ = ID3D12Device12_Impl::GetResourceAllocationInfo3(this, core::mem::transmute_copy(&visiblemask), core::mem::transmute_copy(&numresourcedescs), core::mem::transmute_copy(&presourcedescs), core::mem::transmute_copy(&pnumcastableformats), core::mem::transmute_copy(&ppcastableformats), core::mem::transmute_copy(&presourceallocationinfo1))
         }
@@ -2147,7 +2147,7 @@ pub struct ID3D12Device4_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateReservedResource1: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetResourceAllocationInfo1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const D3D12_RESOURCE_DESC, *mut D3D12_RESOURCE_ALLOCATION_INFO1, *mut D3D12_RESOURCE_ALLOCATION_INFO),
+    pub GetResourceAllocationInfo1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_RESOURCE_ALLOCATION_INFO, u32, u32, *const D3D12_RESOURCE_DESC, *mut D3D12_RESOURCE_ALLOCATION_INFO1),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetResourceAllocationInfo1: usize,
 }
@@ -2183,7 +2183,7 @@ impl ID3D12Device4_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID3D12Device4_Impl::CreateReservedResource1(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&initialstate), core::mem::transmute_copy(&poptimizedclearvalue), windows_core::from_raw_borrowed(&pprotectedsession), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvresource)).into()
         }
-        unsafe extern "system" fn GetResourceAllocationInfo1<Identity: ID3D12Device4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO) {
+        unsafe extern "system" fn GetResourceAllocationInfo1<Identity: ID3D12Device4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             *result__ = ID3D12Device4_Impl::GetResourceAllocationInfo1(this, core::mem::transmute_copy(&visiblemask), core::mem::transmute_copy(&numresourcedescs), core::mem::transmute_copy(&presourcedescs), core::mem::transmute_copy(&presourceallocationinfo1))
         }
@@ -2476,7 +2476,7 @@ impl ID3D12Device8 {
 pub struct ID3D12Device8_Vtbl {
     pub base__: ID3D12Device7_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetResourceAllocationInfo2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const D3D12_RESOURCE_DESC1, *mut D3D12_RESOURCE_ALLOCATION_INFO1, *mut D3D12_RESOURCE_ALLOCATION_INFO),
+    pub GetResourceAllocationInfo2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_RESOURCE_ALLOCATION_INFO, u32, u32, *const D3D12_RESOURCE_DESC1, *mut D3D12_RESOURCE_ALLOCATION_INFO1),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetResourceAllocationInfo2: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2504,7 +2504,7 @@ pub trait ID3D12Device8_Impl: ID3D12Device7_Impl {
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device8_Vtbl {
     pub const fn new<Identity: ID3D12Device8_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetResourceAllocationInfo2<Identity: ID3D12Device8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO) {
+        unsafe extern "system" fn GetResourceAllocationInfo2<Identity: ID3D12Device8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             *result__ = ID3D12Device8_Impl::GetResourceAllocationInfo2(this, core::mem::transmute_copy(&visiblemask), core::mem::transmute_copy(&numresourcedescs), core::mem::transmute_copy(&presourcedescs), core::mem::transmute_copy(&presourceallocationinfo1))
         }
@@ -6916,14 +6916,14 @@ impl ID3D12StateObjectProperties1 {
 #[repr(C)]
 pub struct ID3D12StateObjectProperties1_Vtbl {
     pub base__: ID3D12StateObjectProperties_Vtbl,
-    pub GetProgramIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut D3D12_PROGRAM_IDENTIFIER),
+    pub GetProgramIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_PROGRAM_IDENTIFIER, windows_core::PCWSTR),
 }
 pub trait ID3D12StateObjectProperties1_Impl: ID3D12StateObjectProperties_Impl {
     fn GetProgramIdentifier(&self, pprogramname: &windows_core::PCWSTR) -> D3D12_PROGRAM_IDENTIFIER;
 }
 impl ID3D12StateObjectProperties1_Vtbl {
     pub const fn new<Identity: ID3D12StateObjectProperties1_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetProgramIdentifier<Identity: ID3D12StateObjectProperties1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprogramname: windows_core::PCWSTR, result__: *mut D3D12_PROGRAM_IDENTIFIER) {
+        unsafe extern "system" fn GetProgramIdentifier<Identity: ID3D12StateObjectProperties1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_PROGRAM_IDENTIFIER, pprogramname: windows_core::PCWSTR) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             *result__ = ID3D12StateObjectProperties1_Impl::GetProgramIdentifier(this, core::mem::transmute(&pprogramname))
         }
@@ -7215,11 +7215,11 @@ pub struct ID3D12WorkGraphProperties_Vtbl {
     pub GetProgramName: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::PCWSTR,
     pub GetWorkGraphIndex: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> u32,
     pub GetNumNodes: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
-    pub GetNodeID: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut D3D12_NODE_ID),
+    pub GetNodeID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_NODE_ID, u32, u32),
     pub GetNodeIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3D12_NODE_ID) -> u32,
     pub GetNodeLocalRootArgumentsTableIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> u32,
     pub GetNumEntrypoints: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
-    pub GetEntrypointID: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut D3D12_NODE_ID),
+    pub GetEntrypointID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_NODE_ID, u32, u32),
     pub GetEntrypointIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3D12_NODE_ID) -> u32,
     pub GetEntrypointRecordSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> u32,
     pub GetWorkGraphMemoryRequirements: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D12_WORK_GRAPH_MEMORY_REQUIREMENTS),
@@ -7258,7 +7258,7 @@ impl ID3D12WorkGraphProperties_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID3D12WorkGraphProperties_Impl::GetNumNodes(this, core::mem::transmute_copy(&workgraphindex))
         }
-        unsafe extern "system" fn GetNodeID<Identity: ID3D12WorkGraphProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, workgraphindex: u32, nodeindex: u32, result__: *mut D3D12_NODE_ID) {
+        unsafe extern "system" fn GetNodeID<Identity: ID3D12WorkGraphProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_NODE_ID, workgraphindex: u32, nodeindex: u32) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             *result__ = ID3D12WorkGraphProperties_Impl::GetNodeID(this, core::mem::transmute_copy(&workgraphindex), core::mem::transmute_copy(&nodeindex))
         }
@@ -7274,7 +7274,7 @@ impl ID3D12WorkGraphProperties_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ID3D12WorkGraphProperties_Impl::GetNumEntrypoints(this, core::mem::transmute_copy(&workgraphindex))
         }
-        unsafe extern "system" fn GetEntrypointID<Identity: ID3D12WorkGraphProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, workgraphindex: u32, entrypointindex: u32, result__: *mut D3D12_NODE_ID) {
+        unsafe extern "system" fn GetEntrypointID<Identity: ID3D12WorkGraphProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_NODE_ID, workgraphindex: u32, entrypointindex: u32) {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             *result__ = ID3D12WorkGraphProperties_Impl::GetEntrypointID(this, core::mem::transmute_copy(&workgraphindex), core::mem::transmute_copy(&entrypointindex))
         }
@@ -15896,8 +15896,8 @@ pub struct D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     pub cpuDescriptor: D3D12_CPU_DESCRIPTOR_HANDLE,
     pub DepthBeginningAccess: D3D12_RENDER_PASS_BEGINNING_ACCESS,
     pub StencilBeginningAccess: D3D12_RENDER_PASS_BEGINNING_ACCESS,
-    pub DepthEndingAccess: core::mem::ManuallyDrop<D3D12_RENDER_PASS_ENDING_ACCESS>,
-    pub StencilEndingAccess: core::mem::ManuallyDrop<D3D12_RENDER_PASS_ENDING_ACCESS>,
+    pub DepthEndingAccess: D3D12_RENDER_PASS_ENDING_ACCESS,
+    pub StencilEndingAccess: D3D12_RENDER_PASS_ENDING_ACCESS,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
@@ -15914,7 +15914,7 @@ impl windows_core::TypeKind for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
 #[derive()]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS {
     pub Type: D3D12_RENDER_PASS_ENDING_ACCESS_TYPE,
-    pub Anonymous: core::mem::ManuallyDrop<D3D12_RENDER_PASS_ENDING_ACCESS_0>,
+    pub Anonymous: D3D12_RENDER_PASS_ENDING_ACCESS_0,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_RENDER_PASS_ENDING_ACCESS {
@@ -16002,7 +16002,7 @@ impl windows_core::TypeKind for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOU
 pub struct D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     pub cpuDescriptor: D3D12_CPU_DESCRIPTOR_HANDLE,
     pub BeginningAccess: D3D12_RENDER_PASS_BEGINNING_ACCESS,
-    pub EndingAccess: core::mem::ManuallyDrop<D3D12_RENDER_PASS_ENDING_ACCESS>,
+    pub EndingAccess: D3D12_RENDER_PASS_ENDING_ACCESS,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
@@ -16125,7 +16125,7 @@ impl windows_core::TypeKind for D3D12_RESOURCE_ALLOCATION_INFO1 {
 pub struct D3D12_RESOURCE_BARRIER {
     pub Type: D3D12_RESOURCE_BARRIER_TYPE,
     pub Flags: D3D12_RESOURCE_BARRIER_FLAGS,
-    pub Anonymous: core::mem::ManuallyDrop<D3D12_RESOURCE_BARRIER_0>,
+    pub Anonymous: D3D12_RESOURCE_BARRIER_0,
 }
 impl Default for D3D12_RESOURCE_BARRIER {
     fn default() -> Self {

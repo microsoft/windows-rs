@@ -1697,7 +1697,7 @@ impl windows_core::TypeKind for QUATERNION {
 pub struct SENSOR_COLLECTION_LIST {
     pub AllocatedSizeInBytes: u32,
     pub Count: u32,
-    pub List: [core::mem::ManuallyDrop<SENSOR_VALUE_PAIR>; 1],
+    pub List: [SENSOR_VALUE_PAIR; 1],
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl Default for SENSOR_COLLECTION_LIST {
@@ -1732,7 +1732,7 @@ impl windows_core::TypeKind for SENSOR_PROPERTY_LIST {
 #[derive()]
 pub struct SENSOR_VALUE_PAIR {
     pub Key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
-    pub Value: core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>,
+    pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl Default for SENSOR_VALUE_PAIR {

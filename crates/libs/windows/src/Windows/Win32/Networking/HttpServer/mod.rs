@@ -1687,7 +1687,7 @@ pub struct HTTP_REQUEST_V1 {
     pub ConnectionId: u64,
     pub RequestId: u64,
     pub UrlContext: u64,
-    pub Version: core::mem::ManuallyDrop<HTTP_VERSION>,
+    pub Version: HTTP_VERSION,
     pub Verb: HTTP_VERB,
     pub UnknownVerbLength: u16,
     pub RawUrlLength: u16,
@@ -1716,7 +1716,7 @@ impl windows_core::TypeKind for HTTP_REQUEST_V1 {
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Debug, PartialEq)]
 pub struct HTTP_REQUEST_V2 {
-    pub Base: core::mem::ManuallyDrop<HTTP_REQUEST_V1>,
+    pub Base: HTTP_REQUEST_V1,
     pub RequestInfoCount: u16,
     pub pRequestInfo: *mut HTTP_REQUEST_INFO,
 }
@@ -1766,7 +1766,7 @@ impl windows_core::TypeKind for HTTP_RESPONSE_INFO {
 #[derive(Debug, PartialEq)]
 pub struct HTTP_RESPONSE_V1 {
     pub Flags: u32,
-    pub Version: core::mem::ManuallyDrop<HTTP_VERSION>,
+    pub Version: HTTP_VERSION,
     pub StatusCode: u16,
     pub ReasonLength: u16,
     pub pReason: windows_core::PCSTR,
@@ -1785,7 +1785,7 @@ impl windows_core::TypeKind for HTTP_RESPONSE_V1 {
 #[repr(C)]
 #[derive(Debug, PartialEq)]
 pub struct HTTP_RESPONSE_V2 {
-    pub Base: core::mem::ManuallyDrop<HTTP_RESPONSE_V1>,
+    pub Base: HTTP_RESPONSE_V1,
     pub ResponseInfoCount: u16,
     pub pResponseInfo: *mut HTTP_RESPONSE_INFO,
 }

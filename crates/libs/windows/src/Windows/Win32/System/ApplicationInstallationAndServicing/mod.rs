@@ -10286,7 +10286,7 @@ impl windows_core::TypeKind for PM_BWTASKID {
 #[derive()]
 pub struct PM_ENUM_FILTER {
     pub FilterType: i32,
-    pub FilterParameter: core::mem::ManuallyDrop<PM_ENUM_FILTER_0>,
+    pub FilterParameter: PM_ENUM_FILTER_0,
 }
 impl Default for PM_ENUM_FILTER {
     fn default() -> Self {
@@ -10412,7 +10412,7 @@ pub struct PM_STARTTILEBLOB {
     pub cbPropBlob: u32,
     pub IsRestoring: super::super::Foundation::BOOL,
     pub IsModern: super::super::Foundation::BOOL,
-    pub InvocationInfo: core::mem::ManuallyDrop<PM_INVOCATIONINFO>,
+    pub InvocationInfo: PM_INVOCATIONINFO,
 }
 impl Default for PM_STARTTILEBLOB {
     fn default() -> Self {

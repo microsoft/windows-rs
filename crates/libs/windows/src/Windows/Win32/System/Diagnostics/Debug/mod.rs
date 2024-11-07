@@ -6607,7 +6607,7 @@ pub struct ExtendedDebugPropertyInfo {
     pub pDebugProp: core::mem::ManuallyDrop<Option<IDebugProperty>>,
     pub nDISPID: u32,
     pub nType: u32,
-    pub varValue: core::mem::ManuallyDrop<super::super::Variant::VARIANT>,
+    pub varValue: super::super::Variant::VARIANT,
     pub plbValue: core::mem::ManuallyDrop<Option<super::super::Com::StructuredStorage::ILockBytes>>,
     pub pDebugExtProp: core::mem::ManuallyDrop<Option<IDebugExtendedProperty>>,
 }

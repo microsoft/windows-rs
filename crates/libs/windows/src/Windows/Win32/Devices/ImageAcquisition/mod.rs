@@ -4695,8 +4695,8 @@ impl windows_core::TypeKind for VAL {
 pub struct WIAS_CHANGED_VALUE_INFO {
     pub bChanged: super::super::Foundation::BOOL,
     pub vt: i32,
-    pub Old: core::mem::ManuallyDrop<WIAS_CHANGED_VALUE_INFO_0>,
-    pub Current: core::mem::ManuallyDrop<WIAS_CHANGED_VALUE_INFO_1>,
+    pub Old: WIAS_CHANGED_VALUE_INFO_0,
+    pub Current: WIAS_CHANGED_VALUE_INFO_1,
 }
 impl Default for WIAS_CHANGED_VALUE_INFO {
     fn default() -> Self {
@@ -5034,7 +5034,7 @@ impl windows_core::TypeKind for WIA_PROPERTY_CONTEXT {
 pub struct WIA_PROPERTY_INFO {
     pub lAccessFlags: u32,
     pub vt: super::super::System::Variant::VARENUM,
-    pub ValidVal: core::mem::ManuallyDrop<WIA_PROPERTY_INFO_0>,
+    pub ValidVal: WIA_PROPERTY_INFO_0,
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for WIA_PROPERTY_INFO {

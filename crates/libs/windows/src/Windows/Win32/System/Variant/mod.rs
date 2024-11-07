@@ -784,7 +784,7 @@ impl core::ops::Not for VAR_CHANGE_FLAGS {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[derive()]
 pub struct VARIANT {
-    pub Anonymous: core::mem::ManuallyDrop<VARIANT_0>,
+    pub Anonymous: VARIANT_0,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Default for VARIANT {
@@ -821,7 +821,7 @@ pub struct VARIANT_0_0 {
     pub wReserved1: u16,
     pub wReserved2: u16,
     pub wReserved3: u16,
-    pub Anonymous: core::mem::ManuallyDrop<VARIANT_0_0_0>,
+    pub Anonymous: VARIANT_0_0_0,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Default for VARIANT_0_0 {

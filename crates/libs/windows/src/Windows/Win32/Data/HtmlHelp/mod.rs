@@ -1390,7 +1390,7 @@ impl windows_core::TypeKind for HH_FTS_QUERY {
 #[derive()]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
-    pub var: core::mem::ManuallyDrop<super::super::System::Variant::VARIANT>,
+    pub var: super::super::System::Variant::VARIANT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for HH_GLOBAL_PROPERTY {

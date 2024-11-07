@@ -178,6 +178,15 @@ impl Item {
         }
     }
 
+    pub fn is_dropped(&self) -> bool {
+        match self {
+            Self::Struct(item) => !item.is_copyable(),
+            Self::CppInterface(..) => true,
+            // TODO: others
+            _ => false,
+        }
+    }
+
     pub fn is_convertible(&self) -> bool {
         match self {
             Self::CppStruct(item) => item.is_convertible(),

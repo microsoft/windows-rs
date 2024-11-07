@@ -14799,7 +14799,7 @@ impl windows_core::TypeKind for PARAMDESC {
 #[derive()]
 pub struct PARAMDESCEX {
     pub cBytes: u32,
-    pub varDefaultValue: core::mem::ManuallyDrop<super::Variant::VARIANT>,
+    pub varDefaultValue: super::Variant::VARIANT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl Default for PARAMDESCEX {
@@ -15193,7 +15193,7 @@ pub struct _wireVARIANT {
     pub wReserved1: u16,
     pub wReserved2: u16,
     pub wReserved3: u16,
-    pub Anonymous: core::mem::ManuallyDrop<_wireVARIANT_0>,
+    pub Anonymous: _wireVARIANT_0,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for _wireVARIANT {

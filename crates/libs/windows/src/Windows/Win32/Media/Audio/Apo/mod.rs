@@ -1158,7 +1158,7 @@ impl windows_core::TypeKind for APO_CONNECTION_PROPERTY_V2 {
 #[derive()]
 pub struct APO_NOTIFICATION {
     pub r#type: APO_NOTIFICATION_TYPE,
-    pub Anonymous: core::mem::ManuallyDrop<APO_NOTIFICATION_0>,
+    pub Anonymous: APO_NOTIFICATION_0,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for APO_NOTIFICATION {
@@ -1195,7 +1195,7 @@ impl windows_core::TypeKind for APO_NOTIFICATION_0 {
 #[derive()]
 pub struct APO_NOTIFICATION_DESCRIPTOR {
     pub r#type: APO_NOTIFICATION_TYPE,
-    pub Anonymous: core::mem::ManuallyDrop<APO_NOTIFICATION_DESCRIPTOR_0>,
+    pub Anonymous: APO_NOTIFICATION_DESCRIPTOR_0,
 }
 impl Default for APO_NOTIFICATION_DESCRIPTOR {
     fn default() -> Self {

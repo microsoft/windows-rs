@@ -1577,7 +1577,7 @@ impl windows_core::TypeKind for MLOperatorSetId {
 pub struct WINML_BINDING_DESC {
     pub Name: windows_core::PCWSTR,
     pub BindType: WINML_BINDING_TYPE,
-    pub Anonymous: core::mem::ManuallyDrop<WINML_BINDING_DESC_0>,
+    pub Anonymous: WINML_BINDING_DESC_0,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for WINML_BINDING_DESC {

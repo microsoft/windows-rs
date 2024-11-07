@@ -7020,7 +7020,7 @@ impl windows_core::TypeKind for VDS_ADVANCEDDISK_PROP_0 {
 #[derive()]
 pub struct VDS_ASYNC_OUTPUT {
     pub r#type: VDS_ASYNC_OUTPUT_TYPE,
-    pub Anonymous: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0>,
+    pub Anonymous: VDS_ASYNC_OUTPUT_0,
 }
 impl Default for VDS_ASYNC_OUTPUT {
     fn default() -> Self {

@@ -13570,7 +13570,7 @@ impl windows_core::TypeKind for TF_PRESERVEDKEY {
 #[derive()]
 pub struct TF_PROPERTYVAL {
     pub guidId: windows_core::GUID,
-    pub varValue: core::mem::ManuallyDrop<super::super::System::Variant::VARIANT>,
+    pub varValue: super::super::System::Variant::VARIANT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for TF_PROPERTYVAL {
@@ -13616,7 +13616,7 @@ impl windows_core::TypeKind for TF_SELECTIONSTYLE {
 pub struct TS_ATTRVAL {
     pub idAttr: windows_core::GUID,
     pub dwOverlapId: u32,
-    pub varValue: core::mem::ManuallyDrop<super::super::System::Variant::VARIANT>,
+    pub varValue: super::super::System::Variant::VARIANT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for TS_ATTRVAL {

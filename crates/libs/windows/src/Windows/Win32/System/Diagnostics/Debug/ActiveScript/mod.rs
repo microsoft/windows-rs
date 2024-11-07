@@ -9919,7 +9919,7 @@ impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP {
     pub relationshipId: u32,
     pub relationshipInfo: PROFILER_RELATIONSHIP_INFO,
-    pub Anonymous: core::mem::ManuallyDrop<PROFILER_HEAP_OBJECT_RELATIONSHIP_0>,
+    pub Anonymous: PROFILER_HEAP_OBJECT_RELATIONSHIP_0,
 }
 impl Default for PROFILER_HEAP_OBJECT_RELATIONSHIP {
     fn default() -> Self {
@@ -9951,7 +9951,7 @@ impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
 #[derive()]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     pub count: u32,
-    pub elements: [core::mem::ManuallyDrop<PROFILER_HEAP_OBJECT_RELATIONSHIP>; 1],
+    pub elements: [PROFILER_HEAP_OBJECT_RELATIONSHIP; 1],
 }
 impl Default for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     fn default() -> Self {

@@ -14831,7 +14831,7 @@ pub struct IEC_GESTUREINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub Cursor: core::mem::ManuallyDrop<Option<IInkCursor>>,
     pub Strokes: core::mem::ManuallyDrop<Option<IInkStrokes>>,
-    pub Gestures: core::mem::ManuallyDrop<super::super::System::Variant::VARIANT>,
+    pub Gestures: super::super::System::Variant::VARIANT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
 impl Default for IEC_GESTUREINFO {

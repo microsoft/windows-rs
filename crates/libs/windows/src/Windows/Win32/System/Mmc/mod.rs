@@ -7019,7 +7019,7 @@ impl windows_core::TypeKind for MMC_RESTORE_VIEW {
 #[derive()]
 pub struct MMC_SNAPIN_PROPERTY {
     pub pszPropName: windows_core::PCWSTR,
-    pub varValue: core::mem::ManuallyDrop<super::Variant::VARIANT>,
+    pub varValue: super::Variant::VARIANT,
     pub eAction: MMC_PROPERTY_ACTION,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7241,7 +7241,7 @@ pub struct RESULT_VIEW_TYPE_INFO {
     pub pstrPersistableViewDescription: windows_core::PWSTR,
     pub eViewType: MMC_VIEW_TYPE,
     pub dwMiscOptions: u32,
-    pub Anonymous: core::mem::ManuallyDrop<RESULT_VIEW_TYPE_INFO_0>,
+    pub Anonymous: RESULT_VIEW_TYPE_INFO_0,
 }
 impl Default for RESULT_VIEW_TYPE_INFO {
     fn default() -> Self {

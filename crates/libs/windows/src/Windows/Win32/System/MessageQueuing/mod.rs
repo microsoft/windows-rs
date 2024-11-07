@@ -12755,7 +12755,7 @@ impl windows_core::TypeKind for MQPRIVATEPROPS {
 pub struct MQPROPERTYRESTRICTION {
     pub rel: u32,
     pub prop: u32,
-    pub prval: core::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
+    pub prval: super::Com::StructuredStorage::PROPVARIANT,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Default for MQPROPERTYRESTRICTION {

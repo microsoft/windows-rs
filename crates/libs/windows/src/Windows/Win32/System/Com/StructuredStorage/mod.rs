@@ -2874,7 +2874,7 @@ impl windows_core::TypeKind for PROPSPEC_0 {
 #[cfg(feature = "Win32_System_Variant")]
 #[derive()]
 pub struct PROPVARIANT {
-    pub Anonymous: core::mem::ManuallyDrop<PROPVARIANT_0>,
+    pub Anonymous: PROPVARIANT_0,
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for PROPVARIANT {
@@ -2911,7 +2911,7 @@ pub struct PROPVARIANT_0_0 {
     pub wReserved1: u16,
     pub wReserved2: u16,
     pub wReserved3: u16,
-    pub Anonymous: core::mem::ManuallyDrop<PROPVARIANT_0_0_0>,
+    pub Anonymous: PROPVARIANT_0_0_0,
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for PROPVARIANT_0_0 {

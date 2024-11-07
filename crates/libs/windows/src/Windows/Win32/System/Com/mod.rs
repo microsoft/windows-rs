@@ -10582,7 +10582,7 @@ impl windows_core::TypeKind for AUTHENTICATEINFO {
 pub struct BINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: windows_core::PWSTR,
-    pub stgmedData: core::mem::ManuallyDrop<STGMEDIUM>,
+    pub stgmedData: STGMEDIUM,
     pub grfBindInfoF: u32,
     pub dwBindVerb: u32,
     pub szCustomVerb: windows_core::PWSTR,
@@ -10883,7 +10883,7 @@ impl windows_core::TypeKind for CUSTDATA {
 #[derive()]
 pub struct CUSTDATAITEM {
     pub guid: windows_core::GUID,
-    pub varValue: core::mem::ManuallyDrop<super::Variant::VARIANT>,
+    pub varValue: super::Variant::VARIANT,
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for CUSTDATAITEM {
@@ -11109,7 +11109,7 @@ impl windows_core::TypeKind for FLAGGED_WORD_BLOB {
 pub struct FLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
-    pub Stgmed: core::mem::ManuallyDrop<STGMEDIUM>,
+    pub Stgmed: STGMEDIUM,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl Default for FLAG_STGMEDIUM {
@@ -11467,7 +11467,7 @@ impl windows_core::TypeKind for STATSTG {
 #[derive()]
 pub struct STGMEDIUM {
     pub tymed: u32,
-    pub u: core::mem::ManuallyDrop<STGMEDIUM_0>,
+    pub u: STGMEDIUM_0,
     pub pUnkForRelease: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -11737,7 +11737,7 @@ impl windows_core::TypeKind for uCLSSPEC_0_1 {
 pub struct userFLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
-    pub Stgmed: core::mem::ManuallyDrop<userSTGMEDIUM>,
+    pub Stgmed: userSTGMEDIUM,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 impl Default for userFLAG_STGMEDIUM {

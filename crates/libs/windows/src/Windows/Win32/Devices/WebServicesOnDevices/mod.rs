@@ -3825,7 +3825,7 @@ pub struct WSD_EVENT {
     pub Hr: windows_core::HRESULT,
     pub EventType: u32,
     pub DispatchTag: windows_core::PWSTR,
-    pub HandlerContext: core::mem::ManuallyDrop<WSD_HANDLER_CONTEXT>,
+    pub HandlerContext: WSD_HANDLER_CONTEXT,
     pub Soap: *mut WSD_SOAP_MESSAGE,
     pub Operation: *mut WSD_OPERATION,
     pub MessageParameters: core::mem::ManuallyDrop<Option<IWSDMessageParameters>>,

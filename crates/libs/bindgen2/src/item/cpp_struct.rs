@@ -75,7 +75,23 @@ impl CppStruct {
         let fields = {
             let fields = fields.iter().map(|(name, ty)| {
                 let name = to_ident(name);
-                let ty = ty.write_blittable(writer);
+
+                let ty = if !writer.config.sys && is_union && !ty.is_copyable() {
+                    let ty = ty.write_default(writer);
+                    quote! { core::mem::ManuallyDrop<#ty> }
+                } else if !writer.config.sys && ty.is_dropped() {
+                    if let Type::ArrayFixed(ty, len) = ty {
+                        let ty = ty.write_default(writer);
+                        let len = Literal::usize_unsuffixed(*len);
+                        quote! { [core::mem::ManuallyDrop<#ty>; #len] }
+                    } else {
+                        let ty = ty.write_default(writer);
+                        quote! { core::mem::ManuallyDrop<#ty> }
+                    }
+                } else {
+                    ty.write_default(writer)
+                };
+
                 quote! { pub #name: #ty, }
             });
 
