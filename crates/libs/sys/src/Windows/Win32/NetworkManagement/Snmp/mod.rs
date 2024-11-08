@@ -58,7 +58,7 @@ windows_targets::link!("wsnmp32.dll" "system" fn SnmpStrToEntity(session : isize
 windows_targets::link!("wsnmp32.dll" "system" fn SnmpStrToOid(string : windows_sys::core::PCSTR, dstoid : *mut smiOID) -> u32);
 windows_targets::link!("snmpapi.dll" "system" fn SnmpSvcGetUptime() -> u32);
 windows_targets::link!("snmpapi.dll" "system" fn SnmpSvcSetLogLevel(nloglevel : SNMP_LOG));
-windows_targets::link!("snmpapi.dll" "system" fn SnmpSvcSetLogType(nlogtype : i32));
+windows_targets::link!("snmpapi.dll" "system" fn SnmpSvcSetLogType(nlogtype : SNMP_OUTPUT_LOG_TYPE));
 windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilAsnAnyCpy(panydst : *mut AsnAny, panysrc : *mut AsnAny) -> i32);
 windows_targets::link!("snmpapi.dll" "system" fn SnmpUtilAsnAnyFree(pany : *mut AsnAny));
 windows_targets::link!("snmpapi.dll" "cdecl" fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : windows_sys::core::PCSTR, ...));

@@ -140,14 +140,17 @@ impl CppInterface {
         if writer.config.sys {
             let mut result = quote! {};
 
-            if self.has_unknown_base() {
-                if let Some(guid) = self.def.guid_attribute() {
-                    let name: TokenStream = format!("IID_{}", self.def.name()).into();
-                    result.combine(writer.write_cpp_const_guid(name, &guid));
+            if !writer.config.package {
+                if self.has_unknown_base() {
+                    if let Some(guid) = self.def.guid_attribute() {
+                        let name: TokenStream = format!("IID_{}", self.def.name()).into();
+                        result.combine(writer.write_cpp_const_guid(name, &guid));
+                    }
                 }
+
+                result.combine(vtbl);
             }
 
-            result.combine(vtbl);
             result
         } else {
             let name = to_ident(self.def.name());
@@ -423,7 +426,14 @@ impl CppInterface {
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
-            for interface in self.base_interfaces() {
+            let base_interfaces = self.base_interfaces();
+
+            if matches!(base_interfaces.first(), Some(Type::IUnknown)) {
+                Type::IUnknown.dependencies(dependencies);
+                Type::GUID.dependencies(dependencies);
+            }
+
+            for interface in &base_interfaces {
                 if let Type::Item(Item::CppInterface(item)) = interface {
                     item.dependencies(dependencies);
                 }

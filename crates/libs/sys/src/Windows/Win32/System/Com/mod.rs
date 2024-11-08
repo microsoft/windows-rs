@@ -35,7 +35,7 @@ windows_targets::link!("ole32.dll" "system" fn CoGetApartmentType(papttype : *mu
 windows_targets::link!("ole32.dll" "system" fn CoGetCallContext(riid : *const windows_sys::core::GUID, ppinterface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoGetCallerTID(lpdwtid : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoGetCancelObject(dwthreadid : u32, iid : *const windows_sys::core::GUID, ppunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("ole32.dll" "system" fn CoGetClassObject(rclsid : *const windows_sys::core::GUID, dwclscontext : u32, pvreserved : *const core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_targets::link!("ole32.dll" "system" fn CoGetClassObject(rclsid : *const windows_sys::core::GUID, dwclscontext : CLSCTX, pvreserved : *const core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoGetContextToken(ptoken : *mut usize) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoGetCurrentLogicalThreadId(pguid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoGetCurrentProcess() -> u32);
@@ -49,9 +49,9 @@ windows_targets::link!("ole32.dll" "system" fn CoGetTreatAsClass(clsidold : *con
 windows_targets::link!("ole32.dll" "system" fn CoImpersonateClient() -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoIncrementMTAUsage(pcookie : *mut CO_MTA_USAGE_COOKIE) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoInitialize(pvreserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_sys::core::HRESULT);
+windows_targets::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : COINIT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
-windows_targets::link!("ole32.dll" "system" fn CoInitializeSecurity(psecdesc : super::super::Security:: PSECURITY_DESCRIPTOR, cauthsvc : i32, asauthsvc : *const SOLE_AUTHENTICATION_SERVICE, preserved1 : *const core::ffi::c_void, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthlist : *const core::ffi::c_void, dwcapabilities : u32, preserved3 : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_targets::link!("ole32.dll" "system" fn CoInitializeSecurity(psecdesc : super::super::Security:: PSECURITY_DESCRIPTOR, cauthsvc : i32, asauthsvc : *const SOLE_AUTHENTICATION_SERVICE, preserved1 : *const core::ffi::c_void, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthlist : *const core::ffi::c_void, dwcapabilities : EOLE_AUTHENTICATION_CAPABILITIES, preserved3 : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoInstall(pbc : * mut core::ffi::c_void, dwflags : u32, pclassspec : *const uCLSSPEC, pquery : *const QUERYCONTEXT, pszcodebase : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoInvalidateRemoteMachineBindings(pszmachinename : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoIsHandlerConnected(punk : * mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
@@ -63,7 +63,7 @@ windows_targets::link!("ole32.dll" "system" fn CoQueryClientBlanket(pauthnsvc : 
 windows_targets::link!("ole32.dll" "system" fn CoQueryProxyBlanket(pproxy : * mut core::ffi::c_void, pwauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_sys::core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pauthinfo : *mut *mut core::ffi::c_void, pcapabilites : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoRegisterActivationFilter(pactivationfilter : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoRegisterChannelHook(extensionuuid : *const windows_sys::core::GUID, pchannelhook : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("ole32.dll" "system" fn CoRegisterClassObject(rclsid : *const windows_sys::core::GUID, punk : * mut core::ffi::c_void, dwclscontext : CLSCTX, flags : u32, lpdwregister : *mut u32) -> windows_sys::core::HRESULT);
+windows_targets::link!("ole32.dll" "system" fn CoRegisterClassObject(rclsid : *const windows_sys::core::GUID, punk : * mut core::ffi::c_void, dwclscontext : CLSCTX, flags : REGCLS, lpdwregister : *mut u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoRegisterDeviceCatalog(deviceinstanceid : windows_sys::core::PCWSTR, cookie : *mut CO_DEVICE_CATALOG_COOKIE) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoRegisterInitializeSpy(pspy : * mut core::ffi::c_void, pulicookie : *mut u64) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoRegisterMallocSpy(pmallocspy : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -77,7 +77,7 @@ windows_targets::link!("ole32.dll" "system" fn CoRevokeDeviceCatalog(cookie : CO
 windows_targets::link!("ole32.dll" "system" fn CoRevokeInitializeSpy(ulicookie : u64) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoRevokeMallocSpy() -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoSetCancelObject(punk : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("ole32.dll" "system" fn CoSetProxyBlanket(pproxy : * mut core::ffi::c_void, dwauthnsvc : u32, dwauthzsvc : u32, pserverprincname : windows_sys::core::PCWSTR, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthinfo : *const core::ffi::c_void, dwcapabilities : u32) -> windows_sys::core::HRESULT);
+windows_targets::link!("ole32.dll" "system" fn CoSetProxyBlanket(pproxy : * mut core::ffi::c_void, dwauthnsvc : u32, dwauthzsvc : u32, pserverprincname : windows_sys::core::PCWSTR, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthinfo : *const core::ffi::c_void, dwcapabilities : EOLE_AUTHENTICATION_CAPABILITIES) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoSuspendClassObjects() -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoSwitchCallContext(pnewobject : * mut core::ffi::c_void, ppoldobject : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);

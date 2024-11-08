@@ -361,7 +361,7 @@ windows_targets::link!("shlwapi.dll" "system" fn PathRemoveFileSpecA(pszpath : w
 windows_targets::link!("shlwapi.dll" "system" fn PathRemoveFileSpecW(pszpath : windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
 windows_targets::link!("shlwapi.dll" "system" fn PathRenameExtensionA(pszpath : windows_sys::core::PSTR, pszext : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 windows_targets::link!("shlwapi.dll" "system" fn PathRenameExtensionW(pszpath : windows_sys::core::PWSTR, pszext : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-windows_targets::link!("shell32.dll" "system" fn PathResolve(pszpath : windows_sys::core::PWSTR, dirs : *const *const u16, fflags : u32) -> i32);
+windows_targets::link!("shell32.dll" "system" fn PathResolve(pszpath : windows_sys::core::PWSTR, dirs : *const *const u16, fflags : PRF_FLAGS) -> i32);
 windows_targets::link!("shlwapi.dll" "system" fn PathSearchAndQualifyA(pszpath : windows_sys::core::PCSTR, pszbuf : windows_sys::core::PSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("shlwapi.dll" "system" fn PathSearchAndQualifyW(pszpath : windows_sys::core::PCWSTR, pszbuf : windows_sys::core::PWSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("shlwapi.dll" "system" fn PathSetDlgItemPathA(hdlg : super::super::Foundation:: HWND, id : i32, pszpath : windows_sys::core::PCSTR));
@@ -422,7 +422,7 @@ windows_targets::link!("shell32.dll" "system" fn SHCLSIDFromString(psz : windows
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHChangeNotification_Lock(hchange : super::super::Foundation:: HANDLE, dwprocid : u32, pppidl : *mut *mut *mut Common:: ITEMIDLIST, plevent : *mut i32) -> super::super::Foundation:: HANDLE);
 windows_targets::link!("shell32.dll" "system" fn SHChangeNotification_Unlock(hlock : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-windows_targets::link!("shell32.dll" "system" fn SHChangeNotify(weventid : i32, uflags : SHCNF_FLAGS, dwitem1 : *const core::ffi::c_void, dwitem2 : *const core::ffi::c_void));
+windows_targets::link!("shell32.dll" "system" fn SHChangeNotify(weventid : SHCNE_ID, uflags : SHCNF_FLAGS, dwitem1 : *const core::ffi::c_void, dwitem2 : *const core::ffi::c_void));
 windows_targets::link!("shell32.dll" "system" fn SHChangeNotifyDeregister(ulid : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHChangeNotifyRegister(hwnd : super::super::Foundation:: HWND, fsources : SHCNRF_SOURCE, fevents : i32, wmsg : u32, centries : i32, pshcne : *const SHChangeNotifyEntry) -> u32);
@@ -453,7 +453,7 @@ windows_targets::link!("shell32.dll" "system" fn SHCreateItemFromIDList(pidl : *
 windows_targets::link!("shell32.dll" "system" fn SHCreateItemFromParsingName(pszpath : windows_sys::core::PCWSTR, pbc : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shell32.dll" "system" fn SHCreateItemFromRelativeName(psiparent : * mut core::ffi::c_void, pszname : windows_sys::core::PCWSTR, pbc : * mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("shell32.dll" "system" fn SHCreateItemInKnownFolder(kfid : *const windows_sys::core::GUID, dwkfflags : u32, pszitem : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_targets::link!("shell32.dll" "system" fn SHCreateItemInKnownFolder(kfid : *const windows_sys::core::GUID, dwkfflags : KNOWN_FOLDER_FLAG, pszitem : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHCreateItemWithParent(pidlparent : *const Common:: ITEMIDLIST, psfparent : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, riid : *const windows_sys::core::GUID, ppvitem : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
@@ -533,7 +533,7 @@ windows_targets::link!("shell32.dll" "system" fn SHFind_InitMenuPopup(hmenu : su
 windows_targets::link!("shell32.dll" "system" fn SHFlushSFCache());
 windows_targets::link!("shlwapi.dll" "system" fn SHFormatDateTimeA(pft : *const super::super::Foundation:: FILETIME, pdwflags : *mut u32, pszbuf : windows_sys::core::PSTR, cchbuf : u32) -> i32);
 windows_targets::link!("shlwapi.dll" "system" fn SHFormatDateTimeW(pft : *const super::super::Foundation:: FILETIME, pdwflags : *mut u32, pszbuf : windows_sys::core::PWSTR, cchbuf : u32) -> i32);
-windows_targets::link!("shell32.dll" "system" fn SHFormatDrive(hwnd : super::super::Foundation:: HWND, drive : u32, fmtid : SHFMT_ID, options : u32) -> u32);
+windows_targets::link!("shell32.dll" "system" fn SHFormatDrive(hwnd : super::super::Foundation:: HWND, drive : u32, fmtid : SHFMT_ID, options : SHFMT_OPT) -> u32);
 windows_targets::link!("shell32.dll" "system" fn SHFree(pv : *const core::ffi::c_void));
 windows_targets::link!("shell32.dll" "system" fn SHFreeNameMappings(hnamemappings : super::super::Foundation:: HANDLE));
 windows_targets::link!("shlwapi.dll" "system" fn SHFreeShared(hdata : super::super::Foundation:: HANDLE, dwprocessid : u32) -> super::super::Foundation:: BOOL);
@@ -570,7 +570,7 @@ windows_targets::link!("shell32.dll" "system" fn SHGetItemFromObject(punk : * mu
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHGetKnownFolderIDList(rfid : *const windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, ppidl : *mut *mut Common:: ITEMIDLIST) -> windows_sys::core::HRESULT);
 windows_targets::link!("shell32.dll" "system" fn SHGetKnownFolderItem(rfid : *const windows_sys::core::GUID, flags : KNOWN_FOLDER_FLAG, htoken : super::super::Foundation:: HANDLE, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("shell32.dll" "system" fn SHGetKnownFolderPath(rfid : *const windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, ppszpath : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+windows_targets::link!("shell32.dll" "system" fn SHGetKnownFolderPath(rfid : *const windows_sys::core::GUID, dwflags : KNOWN_FOLDER_FLAG, htoken : super::super::Foundation:: HANDLE, ppszpath : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("shell32.dll" "system" fn SHGetLocalizedName(pszpath : windows_sys::core::PCWSTR, pszresmodule : windows_sys::core::PWSTR, cch : u32, pidsres : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shell32.dll" "system" fn SHGetMalloc(ppmalloc : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -628,7 +628,7 @@ windows_targets::link!("shlwapi.dll" "system" fn SHMessageBoxCheckA(hwnd : super
 windows_targets::link!("shlwapi.dll" "system" fn SHMessageBoxCheckW(hwnd : super::super::Foundation:: HWND, psztext : windows_sys::core::PCWSTR, pszcaption : windows_sys::core::PCWSTR, utype : u32, idefault : i32, pszregval : windows_sys::core::PCWSTR) -> i32);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("shell32.dll" "system" fn SHMultiFileProperties(pdtobj : * mut core::ffi::c_void, dwflags : u32) -> windows_sys::core::HRESULT);
-windows_targets::link!("shell32.dll" "system" fn SHObjectProperties(hwnd : super::super::Foundation:: HWND, shopobjecttype : u32, pszobjectname : windows_sys::core::PCWSTR, pszpropertypage : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+windows_targets::link!("shell32.dll" "system" fn SHObjectProperties(hwnd : super::super::Foundation:: HWND, shopobjecttype : SHOP_TYPE, pszobjectname : windows_sys::core::PCWSTR, pszpropertypage : windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shell32.dll" "system" fn SHOpenFolderAndSelectItems(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, dwflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Registry"))]
@@ -738,7 +738,7 @@ windows_targets::link!("shlwapi.dll" "system" fn SHUnicodeToUnicode(pwzsrc : win
 windows_targets::link!("shlwapi.dll" "system" fn SHUnlockShared(pvdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
 windows_targets::link!("shell32.dll" "system" fn SHUpdateImageA(pszhashitem : windows_sys::core::PCSTR, iindex : i32, uflags : u32, iimageindex : i32));
 windows_targets::link!("shell32.dll" "system" fn SHUpdateImageW(pszhashitem : windows_sys::core::PCWSTR, iindex : i32, uflags : u32, iimageindex : i32));
-windows_targets::link!("shell32.dll" "system" fn SHValidateUNC(hwndowner : super::super::Foundation:: HWND, pszfile : windows_sys::core::PWSTR, fconnect : u32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("shell32.dll" "system" fn SHValidateUNC(hwndowner : super::super::Foundation:: HWND, pszfile : windows_sys::core::PWSTR, fconnect : VALIDATEUNC_OPTION) -> super::super::Foundation:: BOOL);
 windows_targets::link!("shell32.dll" "system" fn SetCurrentProcessExplicitAppUserModelID(appid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_targets::link!("user32.dll" "system" fn SetMenuContextHelpId(param0 : super::WindowsAndMessaging:: HMENU, param1 : u32) -> super::super::Foundation:: BOOL);
@@ -832,7 +832,7 @@ windows_targets::link!("shlwapi.dll" "system" fn StrRChrW(pszstart : windows_sys
 windows_targets::link!("shlwapi.dll" "system" fn StrRStrIA(pszsource : windows_sys::core::PCSTR, pszlast : windows_sys::core::PCSTR, pszsrch : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
 windows_targets::link!("shlwapi.dll" "system" fn StrRStrIW(pszsource : windows_sys::core::PCWSTR, pszlast : windows_sys::core::PCWSTR, pszsrch : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-windows_targets::link!("shlwapi.dll" "system" fn StrRetToBSTR(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pbstr : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_targets::link!("shlwapi.dll" "system" fn StrRetToBSTR(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pbstr : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
 windows_targets::link!("shlwapi.dll" "system" fn StrRetToBufA(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pszbuf : windows_sys::core::PSTR, cchbuf : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]

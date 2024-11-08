@@ -39,7 +39,7 @@ windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_Delete(propbag : 
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_ReadBOOL(propbag : * mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut super::super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_ReadBSTR(propbag : * mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_ReadBSTR(propbag : * mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_ReadDWORD(propbag : * mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -73,7 +73,7 @@ windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_ReadUnknown(propb
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_WriteBOOL(propbag : * mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : super::super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_WriteBSTR(propbag : * mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_WriteBSTR(propbag : * mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_WriteDWORD(propbag : * mut core::ffi::c_void, propname : windows_sys::core::PCWSTR, value : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]

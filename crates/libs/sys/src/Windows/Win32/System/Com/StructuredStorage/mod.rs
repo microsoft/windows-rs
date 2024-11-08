@@ -85,7 +85,7 @@ windows_targets::link!("propsys.dll" "system" fn PropVariantGetUInt32Elem(propva
 #[cfg(feature = "Win32_System_Variant")]
 windows_targets::link!("propsys.dll" "system" fn PropVariantGetUInt64Elem(propvar : *const PROPVARIANT, ielem : u32, pnval : *mut u64) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
-windows_targets::link!("propsys.dll" "system" fn PropVariantToBSTR(propvar : *const PROPVARIANT, pbstrout : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_targets::link!("propsys.dll" "system" fn PropVariantToBSTR(propvar : *const PROPVARIANT, pbstrout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
 windows_targets::link!("propsys.dll" "system" fn PropVariantToBoolean(propvarin : *const PROPVARIANT, pfret : *mut super::super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]

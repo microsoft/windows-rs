@@ -45,6 +45,7 @@ impl Writer {
                     "PCSTR" => quote! { pub type PCSTR = *const u8; },
                     "PSTR" => quote! { pub type PSTR = *mut u8; },
                     "PCWSTR" => quote! { pub type PCWSTR = *const u16; },
+                    "BSTR" => quote! { pub type BSTR = *const u16; },
                     "String" => quote! { pub type HSTRING = *mut core::ffi::c_void; },
                     "GUID" => quote! { 
                         #[repr(C)]
@@ -59,6 +60,15 @@ impl Writer {
                             pub const fn from_u128(uuid: u128) -> Self {
                                 Self { data1: (uuid >> 96) as u32, data2: (uuid >> 80 & 0xffff) as u16, data3: (uuid >> 64 & 0xffff) as u16, data4: (uuid as u64).to_be_bytes() }
                             }
+                        }
+                    },
+                    "IUnknown" => quote! {
+                        pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
+                        #[repr(C)]
+                        pub struct IUnknown_Vtbl {
+                            pub QueryInterface: unsafe extern "system" fn(this: *mut core::ffi::c_void, iid: *const GUID, interface: *mut *mut core::ffi::c_void) -> HRESULT,
+                            pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+                            pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
                         }
                     },
                     rest => panic!("windows-bindgen: {rest:?}"),

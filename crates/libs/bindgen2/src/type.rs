@@ -461,8 +461,14 @@ impl Type {
             Self::String => {
                 dependencies.insert("", "String");
             }
+            Self::BSTR => {
+                dependencies.insert("", "BSTR");
+            }
             Self::Object => {
                 dependencies.insert("", "Object");
+            }
+            Self::IUnknown => {
+                dependencies.insert("", "IUnknown");
             }
             Self::PSTR => {
                 dependencies.insert("", "PSTR");
