@@ -187,6 +187,9 @@ impl Delegate {
             dependencies.combine(&self.method().dependencies);
         }
         // TODO: collect generics here?
+        // for ty in &self.generics {
+        //     ty.dependencies(dependencies);
+        // }
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
