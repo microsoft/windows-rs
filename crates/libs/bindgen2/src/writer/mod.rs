@@ -38,6 +38,7 @@ impl Writer {
         // TODO: this is why it would be handy to have pseudo types for these in Item so we can write them more generically
         // TODO: should provide non-sys versions of these as well for no-deps builds?
         if self.config.no_deps {
+            // TODO: This items collection is a HashSet and thus the output is not stable - it needs to be sorted before tokenizing
             for dependency in &self.config.tree.items {
                 tokens.combine(match *dependency {
                     "HRESULT" => quote! { pub type HRESULT = i32; },

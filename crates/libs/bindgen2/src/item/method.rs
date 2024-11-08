@@ -4,7 +4,6 @@ use super::*;
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Method {
     pub def: MethodDef,
-    pub generics: Vec<Type>,
     pub signature: Signature,
     // TODO: this should already exclude the parent/interface dependencies?
     pub dependencies: Dependencies,
@@ -19,7 +18,6 @@ impl Method {
 
         Self {
             def,
-            generics: generics.to_vec(),
             signature,
             dependencies,
         }
