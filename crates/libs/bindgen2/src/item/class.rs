@@ -191,7 +191,6 @@ impl Class {
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        // TODO: this should succeed only if config is not excluding this item
         if dependencies.insert(self.def.namespace(), self.def.name()) {
             for interface in self.required_interfaces() {
                 interface.dependencies(dependencies);
