@@ -37,8 +37,8 @@ impl ID2D1Bitmap {
     pub unsafe fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) {
         (windows_core::Interface::vtable(self).GetDpi)(
             windows_core::Interface::as_raw(self),
-            dpix,
-            dpiy,
+            core::mem::transmute(dpix),
+            core::mem::transmute(dpiy),
         )
     }
 }

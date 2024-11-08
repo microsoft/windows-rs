@@ -9,7 +9,7 @@
 #[inline]
 pub unsafe fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS) {
     windows_targets::link!("kernel32.dll" "system" fn GlobalMemoryStatus(lpbuffer : *mut MEMORYSTATUS));
-    GlobalMemoryStatus(lpbuffer)
+    GlobalMemoryStatus(core::mem::transmute(lpbuffer))
 }
 #[repr(C)]
 #[derive(Copy, Clone, Debug, PartialEq)]

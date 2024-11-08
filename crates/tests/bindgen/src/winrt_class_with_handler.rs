@@ -97,7 +97,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(Deferral, IClosable, IDeferral, IDeferralFactory);
+windows_core::imp::required_hierarchy!(Deferral, IClosable);
 impl Deferral {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IClosable>(self)?;

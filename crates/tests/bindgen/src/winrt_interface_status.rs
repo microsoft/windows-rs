@@ -161,7 +161,7 @@ impl IAsyncInfo_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AsyncStatus(pub i32);
 impl AsyncStatus {
     pub const Canceled: Self = Self(2i32);

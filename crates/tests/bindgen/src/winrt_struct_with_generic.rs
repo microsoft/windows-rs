@@ -161,7 +161,7 @@ impl IPropertyValue {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .map(|| core::mem::transmute(result__))
         }
     }
     pub fn GetGuid(&self) -> windows_core::Result<windows_core::GUID> {
@@ -172,7 +172,7 @@ impl IPropertyValue {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .map(|| result__)
+            .map(|| core::mem::transmute(result__))
         }
     }
     pub fn GetUInt8Array(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
@@ -372,7 +372,7 @@ pub struct IPropertyValue_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetString: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+        *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     pub GetGuid: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -664,7 +664,7 @@ impl IPropertyValue_Vtbl {
         }
         unsafe extern "system" fn GetString<Identity: IPropertyValue_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+            result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPropertyValue_Impl::GetString(this) {
@@ -1184,7 +1184,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .map(|| core::mem::transmute(result__))
         }
     }
     pub fn GetGuid(&self) -> windows_core::Result<windows_core::GUID> {
@@ -1195,7 +1195,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .map(|| result__)
+            .map(|| core::mem::transmute(result__))
         }
     }
     pub fn GetUInt8Array(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
@@ -1417,7 +1417,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference_Vtbl<T> {
     }
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct HttpProgressStage(pub i32);
 impl HttpProgressStage {
     pub const None: Self = Self(0i32);

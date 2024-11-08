@@ -7,7 +7,7 @@
 )]
 
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct Rect {
     pub X: f32,
     pub Y: f32,

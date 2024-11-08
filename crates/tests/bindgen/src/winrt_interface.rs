@@ -29,7 +29,7 @@ impl IStringable {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -38,7 +38,7 @@ pub struct IStringable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToString: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+        *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for IStringable {
@@ -51,7 +51,7 @@ impl IStringable_Vtbl {
     pub const fn new<Identity: IStringable_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ToString<Identity: IStringable_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-            result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+            result__: *mut *mut core::ffi::c_void,
         ) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IStringable_Impl::ToString(this) {
