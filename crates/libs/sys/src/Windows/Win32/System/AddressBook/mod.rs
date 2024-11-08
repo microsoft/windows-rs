@@ -1,3 +1,4 @@
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("mapi32.dll" "system" fn BuildDisplayTable(lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpmalloc : * mut core::ffi::c_void, hinstance : super::super::Foundation:: HINSTANCE, cpages : u32, lppage : *mut DTPAGE, ulflags : u32, lpptable : *mut * mut core::ffi::c_void, lpptbldata : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("mapi32.dll" "system" fn ChangeIdleRoutine(ftg : *mut core::ffi::c_void, lpfnidle : PFNIDLE, lpvidleparam : *mut core::ffi::c_void, priidle : i16, csecidle : u32, iroidle : u16, ircidle : u16));
 windows_targets::link!("mapi32.dll" "system" fn CreateIProp(lpinterface : *mut windows_sys::core::GUID, lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpvreserved : *mut core::ffi::c_void, lpppropdata : *mut * mut core::ffi::c_void) -> i32);
@@ -28,6 +29,7 @@ windows_targets::link!("mapi32.dll" "system" fn HrAllocAdviseSink(lpfncallback :
 windows_targets::link!("mapi32.dll" "system" fn HrDispatchNotifications(ulflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("mapi32.dll" "system" fn HrGetOneProp(lpmapiprop : * mut core::ffi::c_void, ulproptag : u32, lppprop : *mut *mut SPropValue) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 windows_targets::link!("mapi32.dll" "system" fn HrIStorageFromStream(lpunkin : * mut core::ffi::c_void, lpinterface : *mut windows_sys::core::GUID, ulflags : u32, lppstorageout : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("mapi32.dll" "system" fn HrQueryAllRows(lptable : * mut core::ffi::c_void, lpproptags : *mut SPropTagArray, lprestriction : *mut SRestriction, lpsortorderset : *mut SSortOrderSet, crowsmax : i32, lpprows : *mut *mut SRowSet) -> windows_sys::core::HRESULT);
@@ -39,8 +41,10 @@ windows_targets::link!("mapi32.dll" "system" fn LPropCompareProp(lpspropvaluea :
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("mapi32.dll" "system" fn LpValFindProp(ulproptag : u32, cvalues : u32, lpproparray : *mut SPropValue) -> *mut SPropValue);
 windows_targets::link!("mapi32.dll" "system" fn MAPIDeinitIdle());
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("mapi32.dll" "system" fn MAPIGetDefaultMalloc() -> * mut core::ffi::c_void);
 windows_targets::link!("mapi32.dll" "system" fn MAPIInitIdle(lpvreserved : *mut core::ffi::c_void) -> i32);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("mapi32.dll" "system" fn OpenStreamOnFile(lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER, ulflags : u32, lpszfilename : *const i8, lpszprefix : *const i8, lppstream : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("mapi32.dll" "system" fn PpropFindProp(lpproparray : *mut SPropValue, cvalues : u32, ulproptag : u32) -> *mut SPropValue);
@@ -73,6 +77,7 @@ windows_targets::link!("mapi32.dll" "system" fn UlAddRef(lpunk : *mut core::ffi:
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("mapi32.dll" "system" fn UlPropSize(lpspropvalue : *mut SPropValue) -> u32);
 windows_targets::link!("mapi32.dll" "system" fn UlRelease(lpunk : *mut core::ffi::c_void) -> u32);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("mapi32.dll" "system" fn WrapCompressedRTFStream(lpcompressedrtfstream : * mut core::ffi::c_void, ulflags : u32, lpuncompressedrtfstream : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("mapi32.dll" "system" fn WrapStoreEntryID(ulflags : u32, lpszdllname : *const i8, cborigentry : u32, lporigentry : *const ENTRYID, lpcbwrappedentry : *mut u32, lppwrappedentry : *mut *mut ENTRYID) -> windows_sys::core::HRESULT);
 pub const E_IMAPI_BURN_VERIFICATION_FAILED: windows_sys::core::HRESULT = 0xC0AA0007_u32 as _;
@@ -299,7 +304,7 @@ pub const szScCreateConversationIndex: windows_sys::core::PCSTR = windows_sys::c
 pub type Gender = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ADRENTRY {
     pub ulReserved1: u32,
     pub cValues: u32,
@@ -307,14 +312,14 @@ pub struct ADRENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ADRLIST {
     pub cEntries: u32,
     pub aEntries: [ADRENTRY; 1],
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ADRPARM {
     pub cbABContEntryID: u32,
     pub lpABContEntryID: *mut ENTRYID,
@@ -336,21 +341,21 @@ pub struct ADRPARM {
     pub lpHierRestriction: *mut SRestriction,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DTBLBUTTON {
     pub ulbLpszLabel: u32,
     pub ulFlags: u32,
     pub ulPRControl: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DTBLCHECKBOX {
     pub ulbLpszLabel: u32,
     pub ulFlags: u32,
     pub ulPRPropertyName: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DTBLCOMBOBOX {
     pub ulbLpszCharsAllowed: u32,
     pub ulFlags: u32,
@@ -359,7 +364,7 @@ pub struct DTBLCOMBOBOX {
     pub ulPRTableName: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DTBLDDLBX {
     pub ulFlags: u32,
     pub ulPRDisplayProperty: u32,
@@ -367,7 +372,7 @@ pub struct DTBLDDLBX {
     pub ulPRTableName: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DTBLEDIT {
     pub ulbLpszCharsAllowed: u32,
     pub ulFlags: u32,
@@ -375,38 +380,38 @@ pub struct DTBLEDIT {
     pub ulPropTag: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DTBLGROUPBOX {
     pub ulbLpszLabel: u32,
     pub ulFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DTBLLABEL {
     pub ulbLpszLabelName: u32,
     pub ulFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DTBLLBX {
     pub ulFlags: u32,
     pub ulPRSetProperty: u32,
     pub ulPRTableName: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DTBLMVDDLBX {
     pub ulFlags: u32,
     pub ulMVPropTag: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DTBLMVLISTBOX {
     pub ulFlags: u32,
     pub ulMVPropTag: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DTBLPAGE {
     pub ulbLpszLabel: u32,
     pub ulFlags: u32,
@@ -414,7 +419,7 @@ pub struct DTBLPAGE {
     pub ulContext: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DTBLRADIOBUTTON {
     pub ulbLpszLabel: u32,
     pub ulFlags: u32,
@@ -423,7 +428,7 @@ pub struct DTBLRADIOBUTTON {
     pub lReturnValue: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DTCTL {
     pub ulCtlType: u32,
     pub ulCtlFlags: u32,
@@ -434,7 +439,7 @@ pub struct DTCTL {
     pub ctl: DTCTL_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DTCTL_0 {
     pub lpv: *mut core::ffi::c_void,
     pub lplabel: *mut DTBLLABEL,
@@ -451,7 +456,7 @@ pub union DTCTL_0 {
     pub lppage: *mut DTBLPAGE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DTPAGE {
     pub cctl: u32,
     pub lpszResourceName: *mut i8,
@@ -459,19 +464,19 @@ pub struct DTPAGE {
     pub lpctl: *mut DTCTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DTPAGE_0 {
     pub lpszComponent: *mut i8,
     pub ulItemID: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ENTRYID {
     pub abFlags: [u8; 4],
     pub ab: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ERROR_NOTIFICATION {
     pub cbEntryID: u32,
     pub lpEntryID: *mut ENTRYID,
@@ -480,41 +485,41 @@ pub struct ERROR_NOTIFICATION {
     pub lpMAPIError: *mut MAPIERROR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXTENDED_NOTIFICATION {
     pub ulEvent: u32,
     pub cb: u32,
     pub pbEventParameters: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FLATENTRY {
     pub cb: u32,
     pub abEntry: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FLATENTRYLIST {
     pub cEntries: u32,
     pub cbEntries: u32,
     pub abEntries: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FLATMTSIDLIST {
     pub cMTSIDs: u32,
     pub cbMTSIDs: u32,
     pub abMTSIDs: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FlagList {
     pub cFlags: u32,
     pub ulFlag: [u32; 1],
 }
 pub type LPWABACTIONITEM = isize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MAPIERROR {
     pub ulVersion: u32,
     pub lpszError: *mut i8,
@@ -523,31 +528,31 @@ pub struct MAPIERROR {
     pub ulContext: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MAPINAMEID {
     pub lpguid: *mut windows_sys::core::GUID,
     pub ulKind: u32,
     pub Kind: MAPINAMEID_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union MAPINAMEID_0 {
     pub lID: i32,
     pub lpwstrName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MAPIUID {
     pub ab: [u8; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MTSID {
     pub cb: u32,
     pub ab: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NEWMAIL_NOTIFICATION {
     pub cbEntryID: u32,
     pub lpEntryID: *mut ENTRYID,
@@ -559,7 +564,7 @@ pub struct NEWMAIL_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NOTIFICATION {
     pub ulEventType: u32,
     pub ulAlignPad: u32,
@@ -567,7 +572,7 @@ pub struct NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union NOTIFICATION_0 {
     pub err: ERROR_NOTIFICATION,
     pub newmail: NEWMAIL_NOTIFICATION,
@@ -577,13 +582,13 @@ pub union NOTIFICATION_0 {
     pub statobj: STATUS_OBJECT_NOTIFICATION,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NOTIFKEY {
     pub cb: u32,
     pub ab: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OBJECT_NOTIFICATION {
     pub cbEntryID: u32,
     pub lpEntryID: *mut ENTRYID,
@@ -598,31 +603,31 @@ pub struct OBJECT_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SAndRestriction {
     pub cRes: u32,
     pub lpRes: *mut SRestriction,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SAppTimeArray {
     pub cValues: u32,
     pub lpat: *mut f64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SBinary {
     pub cb: u32,
     pub lpb: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SBinaryArray {
     pub cValues: u32,
     pub lpbin: *mut SBinary,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SBitMaskRestriction {
     pub relBMR: u32,
     pub ulPropTag: u32,
@@ -630,14 +635,14 @@ pub struct SBitMaskRestriction {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SCommentRestriction {
     pub cValues: u32,
     pub lpRes: *mut SRestriction,
     pub lpProp: *mut SPropValue,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SComparePropsRestriction {
     pub relop: u32,
     pub ulPropTag1: u32,
@@ -645,7 +650,7 @@ pub struct SComparePropsRestriction {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SContentRestriction {
     pub ulFuzzyLevel: u32,
     pub ulPropTag: u32,
@@ -653,90 +658,90 @@ pub struct SContentRestriction {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SCurrencyArray {
     pub cValues: u32,
     pub lpcur: *mut super::Com::CY,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SDateTimeArray {
     pub cValues: u32,
     pub lpft: *mut super::super::Foundation::FILETIME,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SDoubleArray {
     pub cValues: u32,
     pub lpdbl: *mut f64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SExistRestriction {
     pub ulReserved1: u32,
     pub ulPropTag: u32,
     pub ulReserved2: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SGuidArray {
     pub cValues: u32,
     pub lpguid: *mut windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SLPSTRArray {
     pub cValues: u32,
     pub lppszA: *mut windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SLargeIntegerArray {
     pub cValues: u32,
     pub lpli: *mut i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SLongArray {
     pub cValues: u32,
     pub lpl: *mut i32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SNotRestriction {
     pub ulReserved: u32,
     pub lpRes: *mut SRestriction,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SOrRestriction {
     pub cRes: u32,
     pub lpRes: *mut SRestriction,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SPropProblem {
     pub ulIndex: u32,
     pub ulPropTag: u32,
     pub scode: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SPropProblemArray {
     pub cProblem: u32,
     pub aProblem: [SPropProblem; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SPropTagArray {
     pub cValues: u32,
     pub aulPropTag: [u32; 1],
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SPropValue {
     pub ulPropTag: u32,
     pub dwAlignPad: u32,
@@ -744,28 +749,28 @@ pub struct SPropValue {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SPropertyRestriction {
     pub relop: u32,
     pub ulPropTag: u32,
     pub lpProp: *mut SPropValue,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SRealArray {
     pub cValues: u32,
     pub lpflt: *mut f32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SRestriction {
     pub rt: u32,
     pub res: SRestriction_0,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union SRestriction_0 {
     pub resCompareProps: SComparePropsRestriction,
     pub resAnd: SAndRestriction,
@@ -781,7 +786,7 @@ pub union SRestriction_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SRow {
     pub ulAdrEntryPad: u32,
     pub cValues: u32,
@@ -789,32 +794,32 @@ pub struct SRow {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SRowSet {
     pub cRows: u32,
     pub aRow: [SRow; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SShortArray {
     pub cValues: u32,
     pub lpi: *mut i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SSizeRestriction {
     pub relop: u32,
     pub ulPropTag: u32,
     pub cb: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SSortOrder {
     pub ulPropTag: u32,
     pub ulOrder: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SSortOrderSet {
     pub cSorts: u32,
     pub cCategories: u32,
@@ -823,14 +828,14 @@ pub struct SSortOrderSet {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SSubRestriction {
     pub ulSubObject: u32,
     pub lpRes: *mut SRestriction,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct STATUS_OBJECT_NOTIFICATION {
     pub cbEntryID: u32,
     pub lpEntryID: *mut ENTRYID,
@@ -838,14 +843,14 @@ pub struct STATUS_OBJECT_NOTIFICATION {
     pub lpPropVals: *mut SPropValue,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SWStringArray {
     pub cValues: u32,
     pub lppszW: *mut windows_sys::core::PWSTR,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TABLE_NOTIFICATION {
     pub ulTableEvent: u32,
     pub hResult: windows_sys::core::HRESULT,
@@ -855,7 +860,7 @@ pub struct TABLE_NOTIFICATION {
     pub ulPad: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WABEXTDISPLAY {
     pub cbSize: u32,
     pub lpWABObject: *mut core::ffi::c_void,
@@ -868,7 +873,7 @@ pub struct WABEXTDISPLAY {
     pub lpsz: *mut i8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WABIMPORTPARAM {
     pub cbSize: u32,
     pub lpAdrBook: *mut core::ffi::c_void,
@@ -877,7 +882,7 @@ pub struct WABIMPORTPARAM {
     pub lpszFileName: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WAB_PARAM {
     pub cbSize: u32,
     pub hwnd: super::super::Foundation::HWND,
@@ -887,7 +892,7 @@ pub struct WAB_PARAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union __UPV {
     pub i: i16,
     pub l: i32,
@@ -929,6 +934,7 @@ pub type LPFNDISMISS = Option<unsafe extern "system" fn(uluiparam: usize, lpvcon
 pub type LPFREEBUFFER = Option<unsafe extern "system" fn(lpbuffer: *mut core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_System_Com")]
 pub type LPNOTIFCALLBACK = Option<unsafe extern "system" fn(lpvcontext: *mut core::ffi::c_void, cnotification: u32, lpnotifications: *mut NOTIFICATION) -> i32>;
+#[cfg(feature = "Win32_System_Com")]
 pub type LPOPENSTREAMONFILE = Option<unsafe extern "system" fn(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type LPWABALLOCATEBUFFER = Option<unsafe extern "system" fn(lpwabobject: *mut core::ffi::c_void, cbsize: u32, lppbuffer: *mut *mut core::ffi::c_void) -> i32>;
 pub type LPWABALLOCATEMORE = Option<unsafe extern "system" fn(lpwabobject: *mut core::ffi::c_void, cbsize: u32, lpobject: *mut core::ffi::c_void, lppbuffer: *mut *mut core::ffi::c_void) -> i32>;

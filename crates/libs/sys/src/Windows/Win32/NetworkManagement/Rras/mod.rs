@@ -1186,7 +1186,7 @@ pub type ROUTER_INTERFACE_TYPE = i32;
 pub type RTM_EVENT_TYPE = i32;
 pub type SECURITY_MESSAGE_MSG_ID = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AUTH_VALIDATION_EX {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub hRasConnection: super::super::Foundation::HANDLE,
@@ -1196,7 +1196,7 @@ pub struct AUTH_VALIDATION_EX {
     pub AuthInfo: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct GRE_CONFIG_PARAMS0 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -1204,7 +1204,7 @@ pub struct GRE_CONFIG_PARAMS0 {
 pub type HRASCONN = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IKEV2_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -1212,7 +1212,7 @@ pub struct IKEV2_CONFIG_PARAMS {
     pub TunnelConfigParams: IKEV2_TUNNEL_CONFIG_PARAMS4,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -1231,7 +1231,7 @@ pub struct IKEV2_PROJECTION_INFO {
     pub dwEncryptionMethod: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IKEV2_PROJECTION_INFO2 {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -1252,7 +1252,7 @@ pub struct IKEV2_PROJECTION_INFO2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -1267,7 +1267,7 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -1285,7 +1285,7 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -1303,13 +1303,13 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub dwMmSaLifeTime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct L2TP_CONFIG_PARAMS0 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct L2TP_CONFIG_PARAMS1 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -1317,7 +1317,7 @@ pub struct L2TP_CONFIG_PARAMS1 {
     pub TunnelConfigParams: L2TP_TUNNEL_CONFIG_PARAMS2,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS1 {
     pub dwIdleTimeout: u32,
     pub dwEncryptionType: u32,
@@ -1326,7 +1326,7 @@ pub struct L2TP_TUNNEL_CONFIG_PARAMS1 {
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: u32,
     pub dwEncryptionType: u32,
@@ -1336,7 +1336,7 @@ pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
     pub dwMmSaLifeTime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MGM_IF_ENTRY {
     pub dwIfIndex: u32,
     pub dwIfNextHopAddr: u32,
@@ -1345,7 +1345,7 @@ pub struct MGM_IF_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
     pub revision: u8,
     pub lpfnMprAdminGetIpAddressForUser: PMPRADMINGETIPADDRESSFORUSER,
@@ -1362,7 +1362,7 @@ pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
     pub lpfnRASValidatePreAuthenticatedConnectionEx: PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPRAPI_OBJECT_HEADER {
     pub revision: u8,
     pub r#type: u8,
@@ -1370,7 +1370,7 @@ pub struct MPRAPI_OBJECT_HEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
     pub PptpConfigParams: PPTP_CONFIG_PARAMS,
@@ -1379,7 +1379,7 @@ pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
     pub PptpConfigParams: PPTP_CONFIG_PARAMS,
@@ -1388,32 +1388,32 @@ pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     pub GREConfigParams: GRE_CONFIG_PARAMS0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_CERT_EKU {
     pub dwSize: u32,
     pub IsEKUOID: super::super::Foundation::BOOL,
     pub pwszEKU: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_CREDENTIALSEX_0 {
     pub dwSize: u32,
     pub lpbCredentialsInfo: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_CREDENTIALSEX_1 {
     pub dwSize: u32,
     pub lpbCredentialsInfo: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_DEVICE_0 {
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_DEVICE_1 {
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
@@ -1421,12 +1421,12 @@ pub struct MPR_DEVICE_1 {
     pub szAlternates: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_FILTER_0 {
     pub fEnable: super::super::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_IFTRANSPORT_0 {
     pub dwTransportId: u32,
     pub hIfTransport: super::super::Foundation::HANDLE,
@@ -1434,7 +1434,7 @@ pub struct MPR_IFTRANSPORT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_IF_CUSTOMINFOEX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
@@ -1442,7 +1442,7 @@ pub struct MPR_IF_CUSTOMINFOEX0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_IF_CUSTOMINFOEX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
@@ -1450,14 +1450,14 @@ pub struct MPR_IF_CUSTOMINFOEX1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_IF_CUSTOMINFOEX2 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
     pub customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG2,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_INTERFACE_0 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -1468,7 +1468,7 @@ pub struct MPR_INTERFACE_0 {
     pub dwLastError: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_INTERFACE_1 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -1480,7 +1480,7 @@ pub struct MPR_INTERFACE_1 {
     pub lpwsDialoutHoursRestriction: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_INTERFACE_2 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -1522,7 +1522,7 @@ pub struct MPR_INTERFACE_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_INTERFACE_3 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::super::Foundation::HANDLE,
@@ -1567,13 +1567,13 @@ pub struct MPR_INTERFACE_3 {
     pub ipv6addr: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_IPINIP_INTERFACE_0 {
     pub wszFriendlyName: [u16; 257],
     pub Guid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_SERVER_0 {
     pub fLanOnlyMode: super::super::Foundation::BOOL,
     pub dwUpTime: u32,
@@ -1581,7 +1581,7 @@ pub struct MPR_SERVER_0 {
     pub dwPortsInUse: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_SERVER_1 {
     pub dwNumPptpPorts: u32,
     pub dwPptpPortFlags: u32,
@@ -1589,7 +1589,7 @@ pub struct MPR_SERVER_1 {
     pub dwL2tpPortFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_SERVER_2 {
     pub dwNumPptpPorts: u32,
     pub dwPptpPortFlags: u32,
@@ -1600,7 +1600,7 @@ pub struct MPR_SERVER_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_SERVER_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub fLanOnlyMode: u32,
@@ -1612,7 +1612,7 @@ pub struct MPR_SERVER_EX0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_SERVER_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub fLanOnlyMode: u32,
@@ -1624,7 +1624,7 @@ pub struct MPR_SERVER_EX1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_SERVER_SET_CONFIG_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub setConfigForProtocols: u32,
@@ -1632,14 +1632,14 @@ pub struct MPR_SERVER_SET_CONFIG_EX0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_SERVER_SET_CONFIG_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub setConfigForProtocols: u32,
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS1,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_TRANSPORT_0 {
     pub dwTransportId: u32,
     pub hTransport: super::super::Foundation::HANDLE,
@@ -1647,7 +1647,7 @@ pub struct MPR_TRANSPORT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_VPN_TRAFFIC_SELECTOR {
     pub r#type: MPR_VPN_TS_TYPE,
     pub protocolId: u8,
@@ -1659,7 +1659,7 @@ pub struct MPR_VPN_TRAFFIC_SELECTOR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MPR_VPN_TRAFFIC_SELECTORS {
     pub numTsi: u32,
     pub numTsr: u32,
@@ -1667,13 +1667,13 @@ pub struct MPR_VPN_TRAFFIC_SELECTORS {
     pub tsR: *mut MPR_VPN_TRAFFIC_SELECTOR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PPP_ATCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 33],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PPP_CCP_INFO {
     pub dwError: u32,
     pub dwCompressionAlgorithm: u32,
@@ -1682,7 +1682,7 @@ pub struct PPP_CCP_INFO {
     pub dwRemoteOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PPP_INFO {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO,
@@ -1690,7 +1690,7 @@ pub struct PPP_INFO {
     pub at: PPP_ATCP_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PPP_INFO_2 {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO2,
@@ -1700,7 +1700,7 @@ pub struct PPP_INFO_2 {
     pub lcp: PPP_LCP_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PPP_INFO_3 {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO2,
@@ -1709,14 +1709,14 @@ pub struct PPP_INFO_3 {
     pub lcp: PPP_LCP_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PPP_IPCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 16],
     pub wszRemoteAddress: [u16; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PPP_IPCP_INFO2 {
     pub dwError: u32,
     pub wszAddress: [u16; 16],
@@ -1725,7 +1725,7 @@ pub struct PPP_IPCP_INFO2 {
     pub dwRemoteOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PPP_IPV6_CP_INFO {
     pub dwVersion: u32,
     pub dwSize: u32,
@@ -1738,13 +1738,13 @@ pub struct PPP_IPV6_CP_INFO {
     pub dwPrefixLength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PPP_IPXCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 23],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PPP_LCP_INFO {
     pub dwError: u32,
     pub dwAuthenticationProtocol: PPP_LCP,
@@ -1759,13 +1759,13 @@ pub struct PPP_LCP_INFO {
     pub dwRemoteEapTypeId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PPP_NBFCP_INFO {
     pub dwError: u32,
     pub wszWksta: [u16; 17],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PPP_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -1797,7 +1797,7 @@ pub struct PPP_PROJECTION_INFO {
     pub dwCcpRemoteOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PPP_PROJECTION_INFO2 {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -1830,37 +1830,37 @@ pub struct PPP_PROJECTION_INFO2 {
     pub dwCcpRemoteOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PPTP_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PROJECTION_INFO {
     pub projectionInfoType: u8,
     pub Anonymous: PROJECTION_INFO_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union PROJECTION_INFO_0 {
     pub PppProjectionInfo: PPP_PROJECTION_INFO,
     pub Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PROJECTION_INFO2 {
     pub projectionInfoType: u8,
     pub Anonymous: PROJECTION_INFO2_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union PROJECTION_INFO2_0 {
     pub PppProjectionInfo: PPP_PROJECTION_INFO2,
     pub Ikev2ProjectionInfo: IKEV2_PROJECTION_INFO2,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASADPARAMS {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -1869,7 +1869,7 @@ pub struct RASADPARAMS {
     pub yDlg: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASAMBA {
     pub dwSize: u32,
     pub dwError: u32,
@@ -1877,7 +1877,7 @@ pub struct RASAMBA {
     pub bLana: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASAMBW {
     pub dwSize: u32,
     pub dwError: u32,
@@ -1885,7 +1885,7 @@ pub struct RASAMBW {
     pub bLana: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASAUTODIALENTRYA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1893,7 +1893,7 @@ pub struct RASAUTODIALENTRYA {
     pub szEntry: [i8; 257],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASAUTODIALENTRYW {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1901,7 +1901,7 @@ pub struct RASAUTODIALENTRYW {
     pub szEntry: [u16; 257],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASCOMMSETTINGS {
     pub dwSize: u32,
     pub bParity: u8,
@@ -1911,7 +1911,7 @@ pub struct RASCOMMSETTINGS {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASCONNA {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -1927,7 +1927,7 @@ pub struct RASCONNA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASCONNA {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -1943,7 +1943,7 @@ pub struct RASCONNA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASCONNSTATUSA {
     pub dwSize: u32,
     pub rasconnstate: RASCONNSTATE,
@@ -1957,7 +1957,7 @@ pub struct RASCONNSTATUSA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASCONNSTATUSW {
     pub dwSize: u32,
     pub rasconnstate: RASCONNSTATE,
@@ -1971,7 +1971,7 @@ pub struct RASCONNSTATUSW {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASCONNW {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -1987,7 +1987,7 @@ pub struct RASCONNW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASCONNW {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -2002,7 +2002,7 @@ pub struct RASCONNW {
     pub guidCorrelationId: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASCREDENTIALSA {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -2011,7 +2011,7 @@ pub struct RASCREDENTIALSA {
     pub szDomain: [i8; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASCREDENTIALSW {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -2020,7 +2020,7 @@ pub struct RASCREDENTIALSW {
     pub szDomain: [u16; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASCTRYINFO {
     pub dwSize: u32,
     pub dwCountryID: u32,
@@ -2029,20 +2029,20 @@ pub struct RASCTRYINFO {
     pub dwCountryNameOffset: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASCUSTOMSCRIPTEXTENSIONS {
     pub dwSize: u32,
     pub pfnRasSetCommSettings: PFNRASSETCOMMSETTINGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASDEVINFOA {
     pub dwSize: u32,
     pub szDeviceType: [i8; 17],
     pub szDeviceName: [i8; 129],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASDEVINFOW {
     pub dwSize: u32,
     pub szDeviceType: [u16; 17],
@@ -2050,20 +2050,20 @@ pub struct RASDEVINFOW {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASDIALDLG {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2076,7 +2076,7 @@ pub struct RASDIALDLG {
     pub reserved2: usize,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASDIALEXTENSIONS {
     pub dwSize: u32,
     pub dwfOptions: u32,
@@ -2089,7 +2089,7 @@ pub struct RASDIALEXTENSIONS {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASDIALPARAMSA {
     pub dwSize: u32,
     pub szEntryName: [i8; 257],
@@ -2105,7 +2105,7 @@ pub struct RASDIALPARAMSA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASDIALPARAMSA {
     pub dwSize: u32,
     pub szEntryName: [i8; 257],
@@ -2121,7 +2121,7 @@ pub struct RASDIALPARAMSA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASDIALPARAMSW {
     pub dwSize: u32,
     pub szEntryName: [u16; 257],
@@ -2137,7 +2137,7 @@ pub struct RASDIALPARAMSW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASDIALPARAMSW {
     pub dwSize: u32,
     pub szEntryName: [u16; 257],
@@ -2152,20 +2152,20 @@ pub struct RASDIALPARAMSW {
     pub szEncPassword: windows_sys::core::PWSTR,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASEAPINFO {
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASEAPUSERIDENTITYA {
     pub szUserName: [i8; 257],
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASEAPUSERIDENTITYW {
     pub szUserName: [u16; 257],
     pub dwSizeofEapInfo: u32,
@@ -2173,7 +2173,7 @@ pub struct RASEAPUSERIDENTITYW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASENTRYA {
     pub dwSize: u32,
     pub dwfOptions: u32,
@@ -2239,7 +2239,7 @@ pub struct RASENTRYA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASENTRYDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2253,7 +2253,7 @@ pub struct RASENTRYDLGA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASENTRYDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2267,7 +2267,7 @@ pub struct RASENTRYDLGA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASENTRYDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2281,7 +2281,7 @@ pub struct RASENTRYDLGW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASENTRYDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2294,7 +2294,7 @@ pub struct RASENTRYDLGW {
     pub reserved2: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASENTRYNAMEA {
     pub dwSize: u32,
     pub szEntryName: [i8; 257],
@@ -2302,7 +2302,7 @@ pub struct RASENTRYNAMEA {
     pub szPhonebookPath: [i8; 261],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASENTRYNAMEW {
     pub dwSize: u32,
     pub szEntryName: [u16; 257],
@@ -2311,7 +2311,7 @@ pub struct RASENTRYNAMEW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASENTRYW {
     pub dwSize: u32,
     pub dwfOptions: u32,
@@ -2378,7 +2378,7 @@ pub struct RASENTRYW {
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASIKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
@@ -2399,7 +2399,7 @@ pub struct RASIKEV2_PROJECTION_INFO {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASIKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
@@ -2418,7 +2418,7 @@ pub struct RASIKEV2_PROJECTION_INFO {
     pub ipv6ServerAddresses: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASIPADDR {
     pub a: u8,
     pub b: u8,
@@ -2426,14 +2426,14 @@ pub struct RASIPADDR {
     pub d: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASIPXW {
     pub dwSize: u32,
     pub dwError: u32,
     pub szIpxAddress: [u16; 22],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASNOUSERA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2443,7 +2443,7 @@ pub struct RASNOUSERA {
     pub szDomain: [i8; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASNOUSERW {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2454,7 +2454,7 @@ pub struct RASNOUSERW {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASPBDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2469,7 +2469,7 @@ pub struct RASPBDLGA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASPBDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2484,7 +2484,7 @@ pub struct RASPBDLGA {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASPBDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2499,7 +2499,7 @@ pub struct RASPBDLGW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASPBDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -2513,7 +2513,7 @@ pub struct RASPBDLGW {
     pub reserved2: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASPPPCCP {
     pub dwSize: u32,
     pub dwError: u32,
@@ -2523,7 +2523,7 @@ pub struct RASPPPCCP {
     pub dwServerOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASPPPIPA {
     pub dwSize: u32,
     pub dwError: u32,
@@ -2533,7 +2533,7 @@ pub struct RASPPPIPA {
     pub dwServerOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASPPPIPV6 {
     pub dwSize: u32,
     pub dwError: u32,
@@ -2543,7 +2543,7 @@ pub struct RASPPPIPV6 {
     pub bPeerCompressionProtocol: [u8; 2],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASPPPIPW {
     pub dwSize: u32,
     pub dwError: u32,
@@ -2553,14 +2553,14 @@ pub struct RASPPPIPW {
     pub dwServerOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASPPPIPXA {
     pub dwSize: u32,
     pub dwError: u32,
     pub szIpxAddress: [i8; 22],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASPPPLCPA {
     pub dwSize: u32,
     pub fBundled: super::super::Foundation::BOOL,
@@ -2579,7 +2579,7 @@ pub struct RASPPPLCPA {
     pub dwServerOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASPPPLCPW {
     pub dwSize: u32,
     pub fBundled: super::super::Foundation::BOOL,
@@ -2598,7 +2598,7 @@ pub struct RASPPPLCPW {
     pub dwServerOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASPPPNBFA {
     pub dwSize: u32,
     pub dwError: u32,
@@ -2608,7 +2608,7 @@ pub struct RASPPPNBFA {
     pub bLana: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASPPPNBFW {
     pub dwSize: u32,
     pub dwError: u32,
@@ -2619,7 +2619,7 @@ pub struct RASPPPNBFW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASPPP_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
@@ -2646,7 +2646,7 @@ pub struct RASPPP_PROJECTION_INFO {
     pub dwCcpServerOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASSUBENTRYA {
     pub dwSize: u32,
     pub dwfFlags: u32,
@@ -2656,7 +2656,7 @@ pub struct RASSUBENTRYA {
     pub dwAlternateOffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASSUBENTRYW {
     pub dwSize: u32,
     pub dwfFlags: u32,
@@ -2667,21 +2667,21 @@ pub struct RASSUBENTRYW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASTUNNELENDPOINT {
     pub dwType: u32,
     pub Anonymous: RASTUNNELENDPOINT_0,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union RASTUNNELENDPOINT_0 {
     pub ipv4: super::super::Networking::WinSock::IN_ADDR,
     pub ipv6: super::super::Networking::WinSock::IN6_ADDR,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASUPDATECONN {
     pub version: RASAPIVERSION,
     pub dwSize: u32,
@@ -2691,7 +2691,7 @@ pub struct RASUPDATECONN {
     pub remoteEndPoint: RASTUNNELENDPOINT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAS_CONNECTION_0 {
     pub hConnection: super::super::Foundation::HANDLE,
     pub hInterface: super::super::Foundation::HANDLE,
@@ -2704,7 +2704,7 @@ pub struct RAS_CONNECTION_0 {
     pub wszRemoteComputer: [u16; 17],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAS_CONNECTION_1 {
     pub hConnection: super::super::Foundation::HANDLE,
     pub hInterface: super::super::Foundation::HANDLE,
@@ -2723,7 +2723,7 @@ pub struct RAS_CONNECTION_1 {
     pub dwCompressionRatioOut: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAS_CONNECTION_2 {
     pub hConnection: super::super::Foundation::HANDLE,
     pub wszUserName: [u16; 257],
@@ -2732,7 +2732,7 @@ pub struct RAS_CONNECTION_2 {
     pub PppInfo2: PPP_INFO_2,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAS_CONNECTION_3 {
     pub dwVersion: u32,
     pub dwSize: u32,
@@ -2745,7 +2745,7 @@ pub struct RAS_CONNECTION_3 {
     pub timer: super::super::Foundation::FILETIME,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAS_CONNECTION_4 {
     pub dwConnectDuration: u32,
     pub dwInterfaceType: ROUTER_INTERFACE_TYPE,
@@ -2779,7 +2779,7 @@ pub struct RAS_CONNECTION_4 {
     pub dwDeviceType: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAS_CONNECTION_EX {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwConnectDuration: u32,
@@ -2812,7 +2812,7 @@ pub struct RAS_CONNECTION_EX {
     pub hInterface: super::super::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAS_PORT_0 {
     pub hPort: super::super::Foundation::HANDLE,
     pub hConnection: super::super::Foundation::HANDLE,
@@ -2825,7 +2825,7 @@ pub struct RAS_PORT_0 {
     pub wszDeviceType: [u16; 17],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAS_PORT_1 {
     pub hPort: super::super::Foundation::HANDLE,
     pub hConnection: super::super::Foundation::HANDLE,
@@ -2845,7 +2845,7 @@ pub struct RAS_PORT_1 {
     pub dwCompressionRatioOut: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAS_PORT_2 {
     pub hPort: super::super::Foundation::HANDLE,
     pub hConnection: super::super::Foundation::HANDLE,
@@ -2877,7 +2877,7 @@ pub struct RAS_PORT_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAS_PROJECTION_INFO {
     pub version: RASAPIVERSION,
     pub r#type: RASPROJECTION_INFO_TYPE,
@@ -2885,20 +2885,20 @@ pub struct RAS_PROJECTION_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union RAS_PROJECTION_INFO_0 {
     pub ppp: RASPPP_PROJECTION_INFO,
     pub ikev2: RASIKEV2_PROJECTION_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAS_SECURITY_INFO {
     pub LastError: u32,
     pub BytesReceived: u32,
     pub DeviceName: [i8; 129],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAS_STATS {
     pub dwSize: u32,
     pub dwBytesXmited: u32,
@@ -2917,7 +2917,7 @@ pub struct RAS_STATS {
     pub dwConnectDuration: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAS_UPDATE_CONNECTION {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwIfIndex: u32,
@@ -2925,20 +2925,20 @@ pub struct RAS_UPDATE_CONNECTION {
     pub wszRemoteEndpointAddress: [u16; 65],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAS_USER_0 {
     pub bfPrivilege: u8,
     pub wszPhoneNumber: [u16; 129],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAS_USER_1 {
     pub bfPrivilege: u8,
     pub wszPhoneNumber: [u16; 129],
     pub bfPrivilege2: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ROUTER_CUSTOM_IKEv2_POLICY0 {
     pub dwIntegrityMethod: u32,
     pub dwEncryptionMethod: u32,
@@ -2949,7 +2949,7 @@ pub struct ROUTER_CUSTOM_IKEv2_POLICY0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -2958,7 +2958,7 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -2968,7 +2968,7 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -2979,7 +2979,7 @@ pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub vpnTrafficSelectors: MPR_VPN_TRAFFIC_SELECTORS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ROUTING_PROTOCOL_CONFIG {
     pub dwCallbackFlags: u32,
     pub pfnRpfCallback: PMGM_RPF_CALLBACK,
@@ -2993,7 +2993,7 @@ pub struct ROUTING_PROTOCOL_CONFIG {
     pub pfnEnableIgmpCallback: PMGM_ENABLE_IGMP_CALLBACK,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RTM_DEST_INFO {
     pub DestHandle: isize,
     pub DestAddress: RTM_NET_ADDRESS,
@@ -3003,7 +3003,7 @@ pub struct RTM_DEST_INFO {
     pub ViewInfo: [RTM_DEST_INFO_0; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RTM_DEST_INFO_0 {
     pub ViewId: i32,
     pub NumRoutes: u32,
@@ -3013,44 +3013,44 @@ pub struct RTM_DEST_INFO_0 {
     pub HoldRoute: isize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RTM_ENTITY_EXPORT_METHODS {
     pub NumMethods: u32,
     pub Methods: [RTM_ENTITY_EXPORT_METHOD; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RTM_ENTITY_ID {
     pub Anonymous: RTM_ENTITY_ID_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union RTM_ENTITY_ID_0 {
     pub Anonymous: RTM_ENTITY_ID_0_0,
     pub EntityId: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RTM_ENTITY_ID_0_0 {
     pub EntityProtocolId: u32,
     pub EntityInstanceId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RTM_ENTITY_INFO {
     pub RtmInstanceId: u16,
     pub AddressFamily: u16,
     pub EntityId: RTM_ENTITY_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RTM_ENTITY_METHOD_INPUT {
     pub MethodType: u32,
     pub InputSize: u32,
     pub InputData: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RTM_ENTITY_METHOD_OUTPUT {
     pub MethodType: u32,
     pub MethodStatus: u32,
@@ -3058,14 +3058,14 @@ pub struct RTM_ENTITY_METHOD_OUTPUT {
     pub OutputData: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RTM_NET_ADDRESS {
     pub AddressFamily: u16,
     pub NumBits: u16,
     pub AddrBits: [u8; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RTM_NEXTHOP_INFO {
     pub NextHopAddress: RTM_NET_ADDRESS,
     pub NextHopOwner: isize,
@@ -3076,19 +3076,19 @@ pub struct RTM_NEXTHOP_INFO {
     pub RemoteNextHop: isize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RTM_NEXTHOP_LIST {
     pub NumNextHops: u16,
     pub NextHops: [isize; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RTM_PREF_INFO {
     pub Metric: u32,
     pub Preference: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RTM_REGN_PROFILE {
     pub MaxNextHopsInRoute: u32,
     pub MaxHandlesInEnum: u32,
@@ -3096,7 +3096,7 @@ pub struct RTM_REGN_PROFILE {
     pub NumberOfViews: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RTM_ROUTE_INFO {
     pub DestHandle: isize,
     pub RouteOwner: isize,
@@ -3110,7 +3110,7 @@ pub struct RTM_ROUTE_INFO {
     pub NextHopsList: RTM_NEXTHOP_LIST,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SECURITY_MESSAGE {
     pub dwMsgId: SECURITY_MESSAGE_MSG_ID,
     pub hPort: isize,
@@ -3119,7 +3119,7 @@ pub struct SECURITY_MESSAGE {
     pub Domain: [i8; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SOURCE_GROUP_ENTRY {
     pub dwSourceAddr: u32,
     pub dwSourceMask: u32,
@@ -3128,14 +3128,14 @@ pub struct SOURCE_GROUP_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SSTP_CERT_INFO {
     pub isDefault: super::super::Foundation::BOOL,
     pub certBlob: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SSTP_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -3145,14 +3145,14 @@ pub struct SSTP_CONFIG_PARAMS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VPN_TS_IP_ADDRESS {
     pub Type: u16,
     pub Anonymous: VPN_TS_IP_ADDRESS_0,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union VPN_TS_IP_ADDRESS_0 {
     pub v4: super::super::Networking::WinSock::IN_ADDR,
     pub v6: super::super::Networking::WinSock::IN6_ADDR,

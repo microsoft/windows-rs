@@ -281,7 +281,7 @@ pub type EVT_VARIANT_TYPE = i32;
 pub type READ_EVENT_LOG_READ_FLAGS = u32;
 pub type REPORT_EVENT_TYPE = u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENTLOGRECORD {
     pub Length: u32,
     pub Reserved: u32,
@@ -301,12 +301,12 @@ pub struct EVENTLOGRECORD {
     pub DataOffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENTLOG_FULL_INFORMATION {
     pub dwFull: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVENTSFORLOGFILE {
     pub ulSize: u32,
     pub szLogicalLogFile: [u16; 256],
@@ -315,7 +315,7 @@ pub struct EVENTSFORLOGFILE {
 }
 pub type EVT_HANDLE = isize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVT_RPC_LOGIN {
     pub Server: windows_sys::core::PWSTR,
     pub User: windows_sys::core::PWSTR,
@@ -325,7 +325,7 @@ pub struct EVT_RPC_LOGIN {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EVT_VARIANT {
     pub Anonymous: EVT_VARIANT_0,
     pub Count: u32,
@@ -333,7 +333,7 @@ pub struct EVT_VARIANT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EVT_VARIANT_0 {
     pub BooleanVal: super::super::Foundation::BOOL,
     pub SByteVal: i8,

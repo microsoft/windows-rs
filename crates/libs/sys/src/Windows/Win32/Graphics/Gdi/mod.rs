@@ -2160,54 +2160,54 @@ pub type TMPF_FLAGS = u8;
 pub type TTEMBED_FLAGS = u32;
 pub type TTLOAD_EMBEDDED_FONT_STATUS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ABC {
     pub abcA: i32,
     pub abcB: u32,
     pub abcC: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ABCFLOAT {
     pub abcfA: f32,
     pub abcfB: f32,
     pub abcfC: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ABORTPATH {
     pub emr: EMR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AXESLISTA {
     pub axlReserved: u32,
     pub axlNumAxes: u32,
     pub axlAxisInfo: [AXISINFOA; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AXESLISTW {
     pub axlReserved: u32,
     pub axlNumAxes: u32,
     pub axlAxisInfo: [AXISINFOW; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AXISINFOA {
     pub axMinValue: i32,
     pub axMaxValue: i32,
     pub axAxisName: [u8; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AXISINFOW {
     pub axMinValue: i32,
     pub axMaxValue: i32,
     pub axAxisName: [u16; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BITMAP {
     pub bmType: i32,
     pub bmWidth: i32,
@@ -2218,7 +2218,7 @@ pub struct BITMAP {
     pub bmBits: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BITMAPCOREHEADER {
     pub bcSize: u32,
     pub bcWidth: u16,
@@ -2227,13 +2227,13 @@ pub struct BITMAPCOREHEADER {
     pub bcBitCount: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BITMAPCOREINFO {
     pub bmciHeader: BITMAPCOREHEADER,
     pub bmciColors: [RGBTRIPLE; 1],
 }
 #[repr(C, packed(2))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BITMAPFILEHEADER {
     pub bfType: u16,
     pub bfSize: u32,
@@ -2242,13 +2242,13 @@ pub struct BITMAPFILEHEADER {
     pub bfOffBits: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BITMAPINFO {
     pub bmiHeader: BITMAPINFOHEADER,
     pub bmiColors: [RGBQUAD; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BITMAPINFOHEADER {
     pub biSize: u32,
     pub biWidth: i32,
@@ -2263,7 +2263,7 @@ pub struct BITMAPINFOHEADER {
     pub biClrImportant: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BITMAPV4HEADER {
     pub bV4Size: u32,
     pub bV4Width: i32,
@@ -2287,7 +2287,7 @@ pub struct BITMAPV4HEADER {
     pub bV4GammaBlue: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BITMAPV5HEADER {
     pub bV5Size: u32,
     pub bV5Width: i32,
@@ -2315,7 +2315,7 @@ pub struct BITMAPV5HEADER {
     pub bV5Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BLENDFUNCTION {
     pub BlendOp: u8,
     pub BlendFlags: u8,
@@ -2323,21 +2323,21 @@ pub struct BLENDFUNCTION {
     pub AlphaFormat: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CIEXYZ {
     pub ciexyzX: i32,
     pub ciexyzY: i32,
     pub ciexyzZ: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CIEXYZTRIPLE {
     pub ciexyzRed: CIEXYZ,
     pub ciexyzGreen: CIEXYZ,
     pub ciexyzBlue: CIEXYZ,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct COLORADJUSTMENT {
     pub caSize: u16,
     pub caFlags: u16,
@@ -2353,14 +2353,14 @@ pub struct COLORADJUSTMENT {
     pub caRedGreenTint: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DESIGNVECTOR {
     pub dvReserved: u32,
     pub dvNumAxes: u32,
     pub dvValues: [i32; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEVMODEA {
     pub dmDeviceName: [u8; 32],
     pub dmSpecVersion: u16,
@@ -2391,13 +2391,13 @@ pub struct DEVMODEA {
     pub dmPanningHeight: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DEVMODEA_0 {
     pub Anonymous1: DEVMODEA_0_0,
     pub Anonymous2: DEVMODEA_0_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEVMODEA_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -2409,20 +2409,20 @@ pub struct DEVMODEA_0_0 {
     pub dmPrintQuality: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEVMODEA_0_1 {
     pub dmPosition: super::super::Foundation::POINTL,
     pub dmDisplayOrientation: DEVMODE_DISPLAY_ORIENTATION,
     pub dmDisplayFixedOutput: DEVMODE_DISPLAY_FIXED_OUTPUT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DEVMODEA_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEVMODEW {
     pub dmDeviceName: [u16; 32],
     pub dmSpecVersion: u16,
@@ -2453,13 +2453,13 @@ pub struct DEVMODEW {
     pub dmPanningHeight: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DEVMODEW_0 {
     pub Anonymous1: DEVMODEW_0_0,
     pub Anonymous2: DEVMODEW_0_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEVMODEW_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -2471,20 +2471,20 @@ pub struct DEVMODEW_0_0 {
     pub dmPrintQuality: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEVMODEW_0_1 {
     pub dmPosition: super::super::Foundation::POINTL,
     pub dmDisplayOrientation: DEVMODE_DISPLAY_ORIENTATION,
     pub dmDisplayFixedOutput: DEVMODE_DISPLAY_FIXED_OUTPUT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DEVMODEW_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DIBSECTION {
     pub dsBm: BITMAP,
     pub dsBmih: BITMAPINFOHEADER,
@@ -2493,7 +2493,7 @@ pub struct DIBSECTION {
     pub dsOffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DISPLAY_DEVICEA {
     pub cb: u32,
     pub DeviceName: [i8; 32],
@@ -2503,7 +2503,7 @@ pub struct DISPLAY_DEVICEA {
     pub DeviceKey: [i8; 128],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DISPLAY_DEVICEW {
     pub cb: u32,
     pub DeviceName: [u16; 32],
@@ -2513,7 +2513,7 @@ pub struct DISPLAY_DEVICEW {
     pub DeviceKey: [u16; 128],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRAWTEXTPARAMS {
     pub cbSize: u32,
     pub iTabLength: i32,
@@ -2522,13 +2522,13 @@ pub struct DRAWTEXTPARAMS {
     pub uiLengthDrawn: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMR {
     pub iType: ENHANCED_METAFILE_RECORD_TYPE,
     pub nSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRALPHABLEND {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2550,7 +2550,7 @@ pub struct EMRALPHABLEND {
     pub cySrc: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRANGLEARC {
     pub emr: EMR,
     pub ptlCenter: super::super::Foundation::POINTL,
@@ -2559,7 +2559,7 @@ pub struct EMRANGLEARC {
     pub eSweepAngle: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRARC {
     pub emr: EMR,
     pub rclBox: super::super::Foundation::RECTL,
@@ -2567,7 +2567,7 @@ pub struct EMRARC {
     pub ptlEnd: super::super::Foundation::POINTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRBITBLT {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2587,7 +2587,7 @@ pub struct EMRBITBLT {
     pub cbBitsSrc: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRCOLORCORRECTPALETTE {
     pub emr: EMR,
     pub ihPalette: u32,
@@ -2596,7 +2596,7 @@ pub struct EMRCOLORCORRECTPALETTE {
     pub nReserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRCOLORMATCHTOTARGET {
     pub emr: EMR,
     pub dwAction: u32,
@@ -2606,14 +2606,14 @@ pub struct EMRCOLORMATCHTOTARGET {
     pub Data: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRCREATEBRUSHINDIRECT {
     pub emr: EMR,
     pub ihBrush: u32,
     pub lb: LOGBRUSH32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRCREATEDIBPATTERNBRUSHPT {
     pub emr: EMR,
     pub ihBrush: u32,
@@ -2624,7 +2624,7 @@ pub struct EMRCREATEDIBPATTERNBRUSHPT {
     pub cbBits: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRCREATEMONOBRUSH {
     pub emr: EMR,
     pub ihBrush: u32,
@@ -2635,27 +2635,27 @@ pub struct EMRCREATEMONOBRUSH {
     pub cbBits: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRCREATEPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
     pub lgpl: LOGPALETTE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRCREATEPEN {
     pub emr: EMR,
     pub ihPen: u32,
     pub lopn: LOGPEN,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRELLIPSE {
     pub emr: EMR,
     pub rclBox: super::super::Foundation::RECTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMREOF {
     pub emr: EMR,
     pub nPalEntries: u32,
@@ -2663,20 +2663,20 @@ pub struct EMREOF {
     pub nSizeLast: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMREXCLUDECLIPRECT {
     pub emr: EMR,
     pub rclClip: super::super::Foundation::RECTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMREXTCREATEFONTINDIRECTW {
     pub emr: EMR,
     pub ihFont: u32,
     pub elfw: EXTLOGFONTW,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMREXTCREATEPEN {
     pub emr: EMR,
     pub ihPen: u32,
@@ -2687,7 +2687,7 @@ pub struct EMREXTCREATEPEN {
     pub elp: EXTLOGPEN32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMREXTESCAPE {
     pub emr: EMR,
     pub iEscape: i32,
@@ -2695,7 +2695,7 @@ pub struct EMREXTESCAPE {
     pub EscData: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMREXTFLOODFILL {
     pub emr: EMR,
     pub ptlStart: super::super::Foundation::POINTL,
@@ -2703,7 +2703,7 @@ pub struct EMREXTFLOODFILL {
     pub iMode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMREXTSELECTCLIPRGN {
     pub emr: EMR,
     pub cbRgnData: u32,
@@ -2711,7 +2711,7 @@ pub struct EMREXTSELECTCLIPRGN {
     pub RgnData: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMREXTTEXTOUTA {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2721,13 +2721,13 @@ pub struct EMREXTTEXTOUTA {
     pub emrtext: EMRTEXT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRFILLPATH {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRFILLRGN {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2736,7 +2736,7 @@ pub struct EMRFILLRGN {
     pub RgnData: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRFORMAT {
     pub dSignature: u32,
     pub nVersion: u32,
@@ -2744,7 +2744,7 @@ pub struct EMRFORMAT {
     pub offData: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRFRAMERGN {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2754,14 +2754,14 @@ pub struct EMRFRAMERGN {
     pub RgnData: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRGDICOMMENT {
     pub emr: EMR,
     pub cbData: u32,
     pub Data: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRGLSBOUNDEDRECORD {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2769,14 +2769,14 @@ pub struct EMRGLSBOUNDEDRECORD {
     pub Data: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRGLSRECORD {
     pub emr: EMR,
     pub cbData: u32,
     pub Data: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRGRADIENTFILL {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2786,7 +2786,7 @@ pub struct EMRGRADIENTFILL {
     pub Ver: [TRIVERTEX; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRINVERTRGN {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2794,13 +2794,13 @@ pub struct EMRINVERTRGN {
     pub RgnData: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRLINETO {
     pub emr: EMR,
     pub ptl: super::super::Foundation::POINTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRMASKBLT {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2827,14 +2827,14 @@ pub struct EMRMASKBLT {
     pub cbBitsMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRMODIFYWORLDTRANSFORM {
     pub emr: EMR,
     pub xform: XFORM,
     pub iMode: MODIFY_WORLD_TRANSFORM_MODE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRNAMEDESCAPE {
     pub emr: EMR,
     pub iEscape: i32,
@@ -2843,13 +2843,13 @@ pub struct EMRNAMEDESCAPE {
     pub EscData: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMROFFSETCLIPRGN {
     pub emr: EMR,
     pub ptlOffset: super::super::Foundation::POINTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRPLGBLT {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2874,7 +2874,7 @@ pub struct EMRPLGBLT {
     pub cbBitsMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRPOLYDRAW {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2883,7 +2883,7 @@ pub struct EMRPOLYDRAW {
     pub abTypes: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRPOLYDRAW16 {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2892,7 +2892,7 @@ pub struct EMRPOLYDRAW16 {
     pub abTypes: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRPOLYLINE {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2900,7 +2900,7 @@ pub struct EMRPOLYLINE {
     pub aptl: [super::super::Foundation::POINTL; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRPOLYLINE16 {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2908,7 +2908,7 @@ pub struct EMRPOLYLINE16 {
     pub apts: [super::super::Foundation::POINTS; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRPOLYPOLYLINE {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2918,7 +2918,7 @@ pub struct EMRPOLYPOLYLINE {
     pub aptl: [super::super::Foundation::POINTL; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRPOLYPOLYLINE16 {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2928,7 +2928,7 @@ pub struct EMRPOLYPOLYLINE16 {
     pub apts: [super::super::Foundation::POINTS; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRPOLYTEXTOUTA {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -2939,27 +2939,27 @@ pub struct EMRPOLYTEXTOUTA {
     pub aemrtext: [EMRTEXT; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRRESIZEPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
     pub cEntries: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRRESTOREDC {
     pub emr: EMR,
     pub iRelative: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRROUNDRECT {
     pub emr: EMR,
     pub rclBox: super::super::Foundation::RECTL,
     pub szlCorner: super::super::Foundation::SIZE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSCALEVIEWPORTEXTEX {
     pub emr: EMR,
     pub xNum: i32,
@@ -2968,43 +2968,43 @@ pub struct EMRSCALEVIEWPORTEXTEX {
     pub yDenom: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSELECTCLIPPATH {
     pub emr: EMR,
     pub iMode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSELECTOBJECT {
     pub emr: EMR,
     pub ihObject: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSELECTPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSETARCDIRECTION {
     pub emr: EMR,
     pub iArcDirection: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSETCOLORADJUSTMENT {
     pub emr: EMR,
     pub ColorAdjustment: COLORADJUSTMENT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSETCOLORSPACE {
     pub emr: EMR,
     pub ihCS: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSETDIBITSTODEVICE {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3023,7 +3023,7 @@ pub struct EMRSETDIBITSTODEVICE {
     pub cScans: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSETICMPROFILE {
     pub emr: EMR,
     pub dwFlags: u32,
@@ -3032,19 +3032,19 @@ pub struct EMRSETICMPROFILE {
     pub Data: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSETMAPPERFLAGS {
     pub emr: EMR,
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSETMITERLIMIT {
     pub emr: EMR,
     pub eMiterLimit: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSETPALETTEENTRIES {
     pub emr: EMR,
     pub ihPal: u32,
@@ -3053,38 +3053,38 @@ pub struct EMRSETPALETTEENTRIES {
     pub aPalEntries: [PALETTEENTRY; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSETPIXELV {
     pub emr: EMR,
     pub ptlPixel: super::super::Foundation::POINTL,
     pub crColor: super::super::Foundation::COLORREF,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSETTEXTCOLOR {
     pub emr: EMR,
     pub crColor: super::super::Foundation::COLORREF,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSETVIEWPORTEXTEX {
     pub emr: EMR,
     pub szlExtent: super::super::Foundation::SIZE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSETVIEWPORTORGEX {
     pub emr: EMR,
     pub ptlOrigin: super::super::Foundation::POINTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSETWORLDTRANSFORM {
     pub emr: EMR,
     pub xform: XFORM,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSTRETCHBLT {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3106,7 +3106,7 @@ pub struct EMRSTRETCHBLT {
     pub cySrc: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRSTRETCHDIBITS {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3126,7 +3126,7 @@ pub struct EMRSTRETCHDIBITS {
     pub cyDest: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRTEXT {
     pub ptlReference: super::super::Foundation::POINTL,
     pub nChars: u32,
@@ -3136,7 +3136,7 @@ pub struct EMRTEXT {
     pub offDx: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRTRANSPARENTBLT {
     pub emr: EMR,
     pub rclBounds: super::super::Foundation::RECTL,
@@ -3158,7 +3158,7 @@ pub struct EMRTRANSPARENTBLT {
     pub cySrc: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ENHMETAHEADER {
     pub iType: u32,
     pub nSize: u32,
@@ -3181,21 +3181,21 @@ pub struct ENHMETAHEADER {
     pub szlMicrometers: super::super::Foundation::SIZE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ENHMETARECORD {
     pub iType: ENHANCED_METAFILE_RECORD_TYPE,
     pub nSize: u32,
     pub dParm: [u32; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ENUMLOGFONTA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
     pub elfStyle: [u8; 32],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ENUMLOGFONTEXA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
@@ -3203,19 +3203,19 @@ pub struct ENUMLOGFONTEXA {
     pub elfScript: [u8; 32],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ENUMLOGFONTEXDVA {
     pub elfEnumLogfontEx: ENUMLOGFONTEXA,
     pub elfDesignVector: DESIGNVECTOR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ENUMLOGFONTEXDVW {
     pub elfEnumLogfontEx: ENUMLOGFONTEXW,
     pub elfDesignVector: DESIGNVECTOR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ENUMLOGFONTEXW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
@@ -3223,14 +3223,14 @@ pub struct ENUMLOGFONTEXW {
     pub elfScript: [u16; 32],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ENUMLOGFONTW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
     pub elfStyle: [u16; 32],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXTLOGFONTA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
@@ -3244,7 +3244,7 @@ pub struct EXTLOGFONTA {
     pub elfPanose: PANOSE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXTLOGFONTW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
@@ -3258,7 +3258,7 @@ pub struct EXTLOGFONTW {
     pub elfPanose: PANOSE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXTLOGPEN {
     pub elpPenStyle: u32,
     pub elpWidth: u32,
@@ -3269,7 +3269,7 @@ pub struct EXTLOGPEN {
     pub elpStyleEntry: [u32; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXTLOGPEN32 {
     pub elpPenStyle: u32,
     pub elpWidth: u32,
@@ -3280,13 +3280,13 @@ pub struct EXTLOGPEN32 {
     pub elpStyleEntry: [u32; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FIXED {
     pub fract: u16,
     pub value: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct GCP_RESULTSA {
     pub lStructSize: u32,
     pub lpOutString: windows_sys::core::PSTR,
@@ -3299,7 +3299,7 @@ pub struct GCP_RESULTSA {
     pub nMaxFit: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct GCP_RESULTSW {
     pub lStructSize: u32,
     pub lpOutString: windows_sys::core::PWSTR,
@@ -3312,7 +3312,7 @@ pub struct GCP_RESULTSW {
     pub nMaxFit: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct GLYPHMETRICS {
     pub gmBlackBoxX: u32,
     pub gmBlackBoxY: u32,
@@ -3321,7 +3321,7 @@ pub struct GLYPHMETRICS {
     pub gmCellIncY: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct GLYPHSET {
     pub cbThis: u32,
     pub flAccel: u32,
@@ -3330,20 +3330,20 @@ pub struct GLYPHSET {
     pub ranges: [WCRANGE; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct GRADIENT_RECT {
     pub UpperLeft: u32,
     pub LowerRight: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct GRADIENT_TRIANGLE {
     pub Vertex1: u32,
     pub Vertex2: u32,
     pub Vertex3: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct HANDLETABLE {
     pub objectHandle: [HGDIOBJ; 1],
 }
@@ -3359,28 +3359,28 @@ pub type HPALETTE = *mut core::ffi::c_void;
 pub type HPEN = *mut core::ffi::c_void;
 pub type HRGN = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct KERNINGPAIR {
     pub wFirst: u16,
     pub wSecond: u16,
     pub iKernAmount: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LOGBRUSH {
     pub lbStyle: BRUSH_STYLE,
     pub lbColor: super::super::Foundation::COLORREF,
     pub lbHatch: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LOGBRUSH32 {
     pub lbStyle: BRUSH_STYLE,
     pub lbColor: super::super::Foundation::COLORREF,
     pub lbHatch: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LOGFONTA {
     pub lfHeight: i32,
     pub lfWidth: i32,
@@ -3398,7 +3398,7 @@ pub struct LOGFONTA {
     pub lfFaceName: [i8; 32],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LOGFONTW {
     pub lfHeight: i32,
     pub lfWidth: i32,
@@ -3416,21 +3416,21 @@ pub struct LOGFONTW {
     pub lfFaceName: [u16; 32],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LOGPALETTE {
     pub palVersion: u16,
     pub palNumEntries: u16,
     pub palPalEntry: [PALETTEENTRY; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LOGPEN {
     pub lopnStyle: u32,
     pub lopnWidth: super::super::Foundation::POINT,
     pub lopnColor: super::super::Foundation::COLORREF,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MAT2 {
     pub eM11: FIXED,
     pub eM12: FIXED,
@@ -3438,7 +3438,7 @@ pub struct MAT2 {
     pub eM22: FIXED,
 }
 #[repr(C, packed(2))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct METAHEADER {
     pub mtType: u16,
     pub mtHeaderSize: u16,
@@ -3449,14 +3449,14 @@ pub struct METAHEADER {
     pub mtNoParameters: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct METARECORD {
     pub rdSize: u32,
     pub rdFunction: u16,
     pub rdParm: [u16; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONITORINFO {
     pub cbSize: u32,
     pub rcMonitor: super::super::Foundation::RECT,
@@ -3464,19 +3464,19 @@ pub struct MONITORINFO {
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONITORINFOEXA {
     pub monitorInfo: MONITORINFO,
     pub szDevice: [i8; 32],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONITORINFOEXW {
     pub monitorInfo: MONITORINFO,
     pub szDevice: [u16; 32],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NEWTEXTMETRICA {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -3504,7 +3504,7 @@ pub struct NEWTEXTMETRICA {
     pub ntmAvgWidth: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NEWTEXTMETRICW {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -3532,7 +3532,7 @@ pub struct NEWTEXTMETRICW {
     pub ntmAvgWidth: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OUTLINETEXTMETRICA {
     pub otmSize: u32,
     pub otmTextMetrics: TEXTMETRICA,
@@ -3568,7 +3568,7 @@ pub struct OUTLINETEXTMETRICA {
     pub otmpFullName: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OUTLINETEXTMETRICW {
     pub otmSize: u32,
     pub otmTextMetrics: TEXTMETRICW,
@@ -3604,7 +3604,7 @@ pub struct OUTLINETEXTMETRICW {
     pub otmpFullName: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PAINTSTRUCT {
     pub hdc: HDC,
     pub fErase: super::super::Foundation::BOOL,
@@ -3614,7 +3614,7 @@ pub struct PAINTSTRUCT {
     pub rgbReserved: [u8; 32],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PALETTEENTRY {
     pub peRed: u8,
     pub peGreen: u8,
@@ -3622,7 +3622,7 @@ pub struct PALETTEENTRY {
     pub peFlags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PANOSE {
     pub bFamilyType: PAN_FAMILY_TYPE,
     pub bSerifStyle: PAN_SERIF_STYLE,
@@ -3636,7 +3636,7 @@ pub struct PANOSE {
     pub bXHeight: PAN_XHEIGHT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PELARRAY {
     pub paXCount: i32,
     pub paYCount: i32,
@@ -3645,13 +3645,13 @@ pub struct PELARRAY {
     pub paRGBs: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct POINTFX {
     pub x: FIXED,
     pub y: FIXED,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct POLYTEXTA {
     pub x: i32,
     pub y: i32,
@@ -3662,7 +3662,7 @@ pub struct POLYTEXTA {
     pub pdx: *mut i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct POLYTEXTW {
     pub x: i32,
     pub y: i32,
@@ -3673,14 +3673,14 @@ pub struct POLYTEXTW {
     pub pdx: *mut i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RASTERIZER_STATUS {
     pub nSize: i16,
     pub wFlags: i16,
     pub nLanguageID: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RGBQUAD {
     pub rgbBlue: u8,
     pub rgbGreen: u8,
@@ -3688,20 +3688,20 @@ pub struct RGBQUAD {
     pub rgbReserved: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RGBTRIPLE {
     pub rgbtBlue: u8,
     pub rgbtGreen: u8,
     pub rgbtRed: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RGNDATA {
     pub rdh: RGNDATAHEADER,
     pub Buffer: [i8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RGNDATAHEADER {
     pub dwSize: u32,
     pub iType: u32,
@@ -3710,7 +3710,7 @@ pub struct RGNDATAHEADER {
     pub rcBound: super::super::Foundation::RECT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TEXTMETRICA {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -3734,7 +3734,7 @@ pub struct TEXTMETRICA {
     pub tmCharSet: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TEXTMETRICW {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -3758,7 +3758,7 @@ pub struct TEXTMETRICW {
     pub tmCharSet: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TRIVERTEX {
     pub x: i32,
     pub y: i32,
@@ -3768,35 +3768,35 @@ pub struct TRIVERTEX {
     pub Alpha: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TTEMBEDINFO {
     pub usStructSize: u16,
     pub usRootStrSize: u16,
     pub pusRootStr: *mut u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TTLOADINFO {
     pub usStructSize: u16,
     pub usRefStrSize: u16,
     pub pusRefStr: *mut u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TTPOLYCURVE {
     pub wType: u16,
     pub cpfx: u16,
     pub apfx: [POINTFX; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TTPOLYGONHEADER {
     pub cb: u32,
     pub dwType: u32,
     pub pfxStart: POINTFX,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TTVALIDATIONTESTSPARAMS {
     pub ulStructSize: u32,
     pub lTestFromSize: i32,
@@ -3807,7 +3807,7 @@ pub struct TTVALIDATIONTESTSPARAMS {
     pub pusCharCodeSet: *mut u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TTVALIDATIONTESTSPARAMSEX {
     pub ulStructSize: u32,
     pub lTestFromSize: i32,
@@ -3818,19 +3818,19 @@ pub struct TTVALIDATIONTESTSPARAMSEX {
     pub pulCharCodeSet: *mut u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WCRANGE {
     pub wcLow: u16,
     pub cGlyphs: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WGLSWAP {
     pub hdc: HDC,
     pub uiFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XFORM {
     pub eM11: f32,
     pub eM12: f32,

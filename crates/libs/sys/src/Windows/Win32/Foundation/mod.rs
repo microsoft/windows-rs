@@ -10,16 +10,16 @@ windows_targets::link!("ntdll.dll" "system" fn RtlNtStatusToDosError(status : NT
 windows_targets::link!("kernel32.dll" "system" fn SetHandleInformation(hobject : HANDLE, dwmask : u32, dwflags : HANDLE_FLAGS) -> BOOL);
 windows_targets::link!("kernel32.dll" "system" fn SetLastError(dwerrcode : WIN32_ERROR));
 windows_targets::link!("user32.dll" "system" fn SetLastErrorEx(dwerrcode : WIN32_ERROR, dwtype : u32));
-windows_targets::link!("oleaut32.dll" "system" fn SysAddRefString(bstrstring : windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
+windows_targets::link!("oleaut32.dll" "system" fn SysAddRefString(bstrstring : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("oleaut32.dll" "system" fn SysAllocString(psz : windows_sys::core::PCWSTR) -> windows_sys::core::BSTR);
 windows_targets::link!("oleaut32.dll" "system" fn SysAllocStringByteLen(psz : windows_sys::core::PCSTR, len : u32) -> windows_sys::core::BSTR);
 windows_targets::link!("oleaut32.dll" "system" fn SysAllocStringLen(strin : windows_sys::core::PCWSTR, ui : u32) -> windows_sys::core::BSTR);
-windows_targets::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : windows_sys::core::BSTR));
-windows_targets::link!("oleaut32.dll" "system" fn SysReAllocString(pbstr : *mut windows_sys::core::BSTR, psz : windows_sys::core::PCWSTR) -> i32);
-windows_targets::link!("oleaut32.dll" "system" fn SysReAllocStringLen(pbstr : *mut windows_sys::core::BSTR, psz : windows_sys::core::PCWSTR, len : u32) -> i32);
-windows_targets::link!("oleaut32.dll" "system" fn SysReleaseString(bstrstring : windows_sys::core::BSTR));
-windows_targets::link!("oleaut32.dll" "system" fn SysStringByteLen(bstr : windows_sys::core::BSTR) -> u32);
-windows_targets::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : windows_sys::core::BSTR) -> u32);
+windows_targets::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : * mut core::ffi::c_void));
+windows_targets::link!("oleaut32.dll" "system" fn SysReAllocString(pbstr : *mut * mut core::ffi::c_void, psz : windows_sys::core::PCWSTR) -> i32);
+windows_targets::link!("oleaut32.dll" "system" fn SysReAllocStringLen(pbstr : *mut * mut core::ffi::c_void, psz : windows_sys::core::PCWSTR, len : u32) -> i32);
+windows_targets::link!("oleaut32.dll" "system" fn SysReleaseString(bstrstring : * mut core::ffi::c_void));
+windows_targets::link!("oleaut32.dll" "system" fn SysStringByteLen(bstr : * mut core::ffi::c_void) -> u32);
+windows_targets::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : * mut core::ffi::c_void) -> u32);
 pub const APPMODEL_ERROR_DYNAMIC_PROPERTY_INVALID: WIN32_ERROR = 15705u32;
 pub const APPMODEL_ERROR_DYNAMIC_PROPERTY_READ_FAILED: WIN32_ERROR = 15704u32;
 pub const APPMODEL_ERROR_NO_APPLICATION: WIN32_ERROR = 15703u32;
@@ -10178,7 +10178,7 @@ pub type NTSTATUS_SEVERITY_CODE = u32;
 pub type WAIT_EVENT = u32;
 pub type WIN32_ERROR = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct APP_LOCAL_DEVICE_ID {
     pub value: [u8; 32],
 }
@@ -10186,7 +10186,7 @@ pub type BOOL = i32;
 pub type BOOLEAN = u8;
 pub type COLORREF = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DECIMAL {
     pub wReserved: u16,
     pub Anonymous1: DECIMAL_0,
@@ -10194,37 +10194,37 @@ pub struct DECIMAL {
     pub Anonymous2: DECIMAL_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DECIMAL_0 {
     pub Anonymous: DECIMAL_0_0,
     pub signscale: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DECIMAL_0_0 {
     pub scale: u8,
     pub sign: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DECIMAL_1 {
     pub Anonymous: DECIMAL_1_0,
     pub Lo64: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DECIMAL_1_0 {
     pub Lo32: u32,
     pub Mid32: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FLOAT128 {
     pub LowPart: i64,
     pub HighPart: i64,
@@ -10244,32 +10244,32 @@ pub type HWND = *mut core::ffi::c_void;
 pub type LPARAM = isize;
 pub type LRESULT = isize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LUID {
     pub LowPart: u32,
     pub HighPart: i32,
 }
 pub type NTSTATUS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct POINT {
     pub x: i32,
     pub y: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct POINTL {
     pub x: i32,
     pub y: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct POINTS {
     pub x: i16,
     pub y: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RECT {
     pub left: i32,
     pub top: i32,
@@ -10277,7 +10277,7 @@ pub struct RECT {
     pub bottom: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RECTL {
     pub left: i32,
     pub top: i32,
@@ -10286,13 +10286,13 @@ pub struct RECTL {
 }
 pub type SHANDLE_PTR = isize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SIZE {
     pub cx: i32,
     pub cy: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -10304,7 +10304,7 @@ pub struct SYSTEMTIME {
     pub wMilliseconds: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,

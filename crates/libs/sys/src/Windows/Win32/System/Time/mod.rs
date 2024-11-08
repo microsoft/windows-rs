@@ -25,7 +25,7 @@ pub const wszW32TimeRegValueEnabled: windows_sys::core::PCWSTR = windows_sys::co
 pub const wszW32TimeRegValueInputProvider: windows_sys::core::PCWSTR = windows_sys::core::w!("InputProvider");
 pub const wszW32TimeRegValueMetaDataProvider: windows_sys::core::PCWSTR = windows_sys::core::w!("MetaDataProvider");
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DYNAMIC_TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],
@@ -38,7 +38,7 @@ pub struct DYNAMIC_TIME_ZONE_INFORMATION {
     pub DynamicDaylightTimeDisabled: super::super::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],

@@ -59,7 +59,7 @@ pub const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0u32;
 pub const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1u32;
 pub type ENCLAVE_SEALING_IDENTITY_POLICY = i32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ENCLAVE_IDENTITY {
     pub OwnerId: [u8; 32],
     pub UniqueId: [u8; 32],
@@ -74,7 +74,7 @@ pub struct ENCLAVE_IDENTITY {
     pub EnclaveType: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ENCLAVE_INFORMATION {
     pub EnclaveType: u32,
     pub Reserved: u32,
@@ -83,7 +83,7 @@ pub struct ENCLAVE_INFORMATION {
     pub Identity: ENCLAVE_IDENTITY,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
     pub RequestSize: u32,
     pub Flags: u32,
@@ -92,7 +92,7 @@ pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
     pub CurrentSystemKeyID: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     pub ExceptionCode: u32,
     pub NumberParameters: u32,
@@ -104,7 +104,7 @@ pub struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     pub ExceptionRSP: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     pub ReturnFromEnclave: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE,
     pub ReturnFromException: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION,
@@ -121,7 +121,7 @@ pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     pub GenerateRandomData: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     pub ThreadContext: [u32; 4],
     pub EntryPoint: u32,
@@ -131,7 +131,7 @@ pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     pub ExceptionActive: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     pub ThreadContext: [u64; 4],
     pub EntryPoint: u64,
@@ -141,7 +141,7 @@ pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     pub ExceptionActive: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VBS_ENCLAVE_REPORT {
     pub ReportSize: u32,
     pub ReportVersion: u32,
@@ -149,7 +149,7 @@ pub struct VBS_ENCLAVE_REPORT {
     pub EnclaveIdentity: ENCLAVE_IDENTITY,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VBS_ENCLAVE_REPORT_MODULE {
     pub Header: VBS_ENCLAVE_REPORT_VARDATA_HEADER,
     pub UniqueId: [u8; 32],
@@ -160,7 +160,7 @@ pub struct VBS_ENCLAVE_REPORT_MODULE {
     pub ModuleName: [u16; 1],
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
     pub PackageSize: u32,
     pub Version: u32,
@@ -170,7 +170,7 @@ pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
     pub Reserved: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     pub DataType: u32,
     pub Size: u32,

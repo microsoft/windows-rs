@@ -1,9 +1,9 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("imgutil.dll" "system" fn ComputeInvCMAP(prgbcolors : *const super::super::Graphics::Gdi:: RGBQUAD, ncolors : u32, pinvtable : *mut u8, cbtable : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("imgutil.dll" "system" fn CreateDDrawSurfaceOnDIB(hbmdib : super::super::Graphics::Gdi:: HBITMAP, ppsurface : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("imgutil.dll" "system" fn CreateMIMEMap(ppmap : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("imgutil.dll" "system" fn DecodeImage(pstream : * mut core::ffi::c_void, pmap : * mut core::ffi::c_void, peventsink : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("imgutil.dll" "system" fn DecodeImageEx(pstream : * mut core::ffi::c_void, pmap : * mut core::ffi::c_void, peventsink : * mut core::ffi::c_void, pszmimetypeparam : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("imgutil.dll" "system" fn DitherTo8(pdestbits : *mut u8, ndestpitch : i32, psrcbits : *mut u8, nsrcpitch : i32, bfidsrc : *const windows_sys::core::GUID, prgbdestcolors : *mut super::super::Graphics::Gdi:: RGBQUAD, prgbsrccolors : *mut super::super::Graphics::Gdi:: RGBQUAD, pbdestinvmap : *mut u8, x : i32, y : i32, cx : i32, cy : i32, ldesttrans : i32, lsrctrans : i32) -> windows_sys::core::HRESULT);
@@ -64,6 +64,7 @@ windows_targets::link!("msrating.dll" "system" fn RatingObtainQuery(psztargeturl
 windows_targets::link!("msrating.dll" "system" fn RatingObtainQueryW(psztargeturl : windows_sys::core::PCWSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
 windows_targets::link!("msrating.dll" "system" fn RatingSetupUI(hdlg : super::super::Foundation:: HWND, pszusername : windows_sys::core::PCSTR) -> windows_sys::core::HRESULT);
 windows_targets::link!("msrating.dll" "system" fn RatingSetupUIW(hdlg : super::super::Foundation:: HWND, pszusername : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("imgutil.dll" "system" fn SniffStream(pinstream : * mut core::ffi::c_void, pnformat : *mut u32, ppoutstream : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const ADDRESSBAND: u32 = 2u32;
 pub const ADDURL_ADDTOCACHE: ADDURL_FLAG = 1i32;
@@ -593,7 +594,7 @@ pub const CoSniffStream: windows_sys::core::GUID = windows_sys::core::GUID::from
 pub const HomePage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x766bf2ae_d650_11d1_9811_00c04fc31d2e);
 pub const HomePageSetting: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x374cede0_873a_4c4f_bc86_bcc8cf5116a3);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IELAUNCHURLINFO {
     pub cbSize: u32,
     pub dwCreationFlags: u32,
@@ -603,7 +604,7 @@ pub const IEWebDriverManager: windows_sys::core::GUID = windows_sys::core::GUID:
 pub const IntelliForms: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x613ab92e_16bf_11d2_bca5_00c04fd929db);
 pub const InternetExplorerManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdf4fcc34_067a_4e0a_8352_4a1a5095346e);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NAVIGATEDATA {
     pub ulTarget: u32,
     pub ulURL: u32,
@@ -615,7 +616,7 @@ pub const OpenServiceActivityManager: windows_sys::core::GUID = windows_sys::cor
 pub const OpenServiceManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x098870b6_39ea_480b_b8b5_dd0167c4db59);
 pub const PeerFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f4cf_98b5_11cf_bb82_00aa00bdce0b);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct STATURL {
     pub cbSize: u32,
     pub pwcsUrl: windows_sys::core::PWSTR,

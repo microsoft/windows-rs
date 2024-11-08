@@ -19,7 +19,7 @@ pub type WNV_NOTIFICATION_TYPE = i32;
 pub type WNV_OBJECT_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     pub MACAddress: super::super::Networking::WinSock::DL_EUI48,
     pub CAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
@@ -31,20 +31,20 @@ pub struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNV_IP_ADDRESS {
     pub IP: WNV_IP_ADDRESS_0,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WNV_IP_ADDRESS_0 {
     pub v4: super::super::Networking::WinSock::IN_ADDR,
     pub v6: super::super::Networking::WinSock::IN6_ADDR,
     pub Addr: [u8; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNV_NOTIFICATION_PARAM {
     pub Header: WNV_OBJECT_HEADER,
     pub NotificationType: WNV_NOTIFICATION_TYPE,
@@ -53,20 +53,20 @@ pub struct WNV_NOTIFICATION_PARAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNV_OBJECT_CHANGE_PARAM {
     pub ObjectType: WNV_OBJECT_TYPE,
     pub ObjectParam: WNV_OBJECT_CHANGE_PARAM_0,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WNV_OBJECT_CHANGE_PARAM_0 {
     pub ProviderAddressChange: WNV_PROVIDER_ADDRESS_CHANGE_PARAM,
     pub CustomerAddressChange: WNV_CUSTOMER_ADDRESS_CHANGE_PARAM,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNV_OBJECT_HEADER {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
@@ -74,7 +74,7 @@ pub struct WNV_OBJECT_HEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNV_POLICY_MISMATCH_PARAM {
     pub CAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
     pub PAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
@@ -84,7 +84,7 @@ pub struct WNV_POLICY_MISMATCH_PARAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     pub PAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
     pub PA: WNV_IP_ADDRESS,
@@ -92,7 +92,7 @@ pub struct WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WNV_REDIRECT_PARAM {
     pub CAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
     pub PAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,

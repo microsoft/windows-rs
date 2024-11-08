@@ -141,7 +141,7 @@ pub type DWM_WINDOW_CORNER_PREFERENCE = i32;
 pub type GESTURE_TYPE = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DWM_BLURBEHIND {
     pub dwFlags: u32,
     pub fEnable: super::super::Foundation::BOOL,
@@ -149,7 +149,7 @@ pub struct DWM_BLURBEHIND {
     pub fTransitionOnMaximized: super::super::Foundation::BOOL,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DWM_PRESENT_PARAMETERS {
     pub cbSize: u32,
     pub fQueue: super::super::Foundation::BOOL,
@@ -161,7 +161,7 @@ pub struct DWM_PRESENT_PARAMETERS {
     pub eSampling: DWM_SOURCE_FRAME_SAMPLING,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DWM_THUMBNAIL_PROPERTIES {
     pub dwFlags: u32,
     pub rcDestination: super::super::Foundation::RECT,
@@ -171,7 +171,7 @@ pub struct DWM_THUMBNAIL_PROPERTIES {
     pub fSourceClientAreaOnly: super::super::Foundation::BOOL,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DWM_TIMING_INFO {
     pub cbSize: u32,
     pub rateRefresh: UNSIGNED_RATIO,
@@ -215,7 +215,7 @@ pub struct DWM_TIMING_INFO {
     pub cBuffersEmpty: u64,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MilMatrix3x2D {
     pub S_11: f64,
     pub S_12: f64,
@@ -225,7 +225,7 @@ pub struct MilMatrix3x2D {
     pub DY: f64,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UNSIGNED_RATIO {
     pub uiNumerator: u32,
     pub uiDenominator: u32,

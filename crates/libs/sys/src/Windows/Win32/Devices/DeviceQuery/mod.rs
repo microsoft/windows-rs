@@ -99,14 +99,14 @@ pub type DEV_QUERY_RESULT_ACTION = i32;
 pub type DEV_QUERY_STATE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEVPROP_FILTER_EXPRESSION {
     pub Operator: DEVPROP_OPERATOR,
     pub Property: super::Properties::DEVPROPERTY,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEV_OBJECT {
     pub ObjectType: DEV_OBJECT_TYPE,
     pub pszObjectId: windows_sys::core::PCWSTR,
@@ -115,7 +115,7 @@ pub struct DEV_OBJECT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEV_QUERY_PARAMETER {
     pub Key: super::Properties::DEVPROPKEY,
     pub Type: super::Properties::DEVPROPTYPE,
@@ -124,14 +124,14 @@ pub struct DEV_QUERY_PARAMETER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEV_QUERY_RESULT_ACTION_DATA {
     pub Action: DEV_QUERY_RESULT_ACTION,
     pub Data: DEV_QUERY_RESULT_ACTION_DATA_0,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DEV_QUERY_RESULT_ACTION_DATA_0 {
     pub State: DEV_QUERY_STATE,
     pub DeviceObject: DEV_OBJECT,

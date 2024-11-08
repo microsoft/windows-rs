@@ -7,7 +7,7 @@ windows_targets::link!("ualapi.dll" "system" fn UalStart(data : *const UAL_DATA_
 windows_targets::link!("ualapi.dll" "system" fn UalStop(data : *const UAL_DATA_BLOB) -> windows_sys::core::HRESULT);
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UAL_DATA_BLOB {
     pub Size: u32,
     pub RoleGuid: windows_sys::core::GUID,

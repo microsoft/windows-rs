@@ -612,19 +612,19 @@ pub type SensorConnectionType = i32;
 pub type SensorState = i32;
 pub type SimpleDeviceOrientation = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MATRIX3X3 {
     pub Anonymous: MATRIX3X3_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union MATRIX3X3_0 {
     pub Anonymous1: MATRIX3X3_0_0,
     pub Anonymous2: MATRIX3X3_0_1,
     pub M: [f32; 9],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MATRIX3X3_0_0 {
     pub A11: f32,
     pub A12: f32,
@@ -637,14 +637,14 @@ pub struct MATRIX3X3_0_0 {
     pub A33: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MATRIX3X3_0_1 {
     pub V1: VEC3D,
     pub V2: VEC3D,
     pub V3: VEC3D,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct QUATERNION {
     pub X: f32,
     pub Y: f32,
@@ -653,7 +653,7 @@ pub struct QUATERNION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SENSOR_COLLECTION_LIST {
     pub AllocatedSizeInBytes: u32,
     pub Count: u32,
@@ -661,7 +661,7 @@ pub struct SENSOR_COLLECTION_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SENSOR_PROPERTY_LIST {
     pub AllocatedSizeInBytes: u32,
     pub Count: u32,
@@ -669,7 +669,7 @@ pub struct SENSOR_PROPERTY_LIST {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SENSOR_VALUE_PAIR {
     pub Key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
     pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
@@ -679,7 +679,7 @@ pub const SensorCollection: windows_sys::core::GUID = windows_sys::core::GUID::f
 pub const SensorDataReport: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4ea9d6ef_694b_4218_8816_ccda8da74bba);
 pub const SensorManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x77a1c827_fcd2_4689_8915_9d613cc5fa3e);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VEC3D {
     pub X: f32,
     pub Y: f32,

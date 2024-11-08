@@ -52,29 +52,29 @@ pub const TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL: u32 = 2u32;
 pub type TBS_COMMAND_LOCALITY = u32;
 pub type TBS_COMMAND_PRIORITY = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TBS_CONTEXT_PARAMS {
     pub version: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TBS_CONTEXT_PARAMS2 {
     pub version: u32,
     pub Anonymous: TBS_CONTEXT_PARAMS2_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union TBS_CONTEXT_PARAMS2_0 {
     pub Anonymous: TBS_CONTEXT_PARAMS2_0_0,
     pub asUINT32: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TBS_CONTEXT_PARAMS2_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TPM_DEVICE_INFO {
     pub structVersion: u32,
     pub tpmVersion: u32,
@@ -82,7 +82,7 @@ pub struct TPM_DEVICE_INFO {
     pub tpmImpRevision: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TPM_WNF_PROVISIONING {
     pub status: u32,
     pub message: [u8; 28],

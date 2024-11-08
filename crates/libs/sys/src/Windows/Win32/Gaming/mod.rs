@@ -86,7 +86,7 @@ pub type GAMING_DEVICE_VENDOR_ID = i32;
 pub type KnownGamingPrivileges = i32;
 pub type XBL_IDP_AUTH_TOKEN_STATUS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct GAMING_DEVICE_MODEL_INFORMATION {
     pub vendorId: GAMING_DEVICE_VENDOR_ID,
     pub deviceId: GAMING_DEVICE_DEVICE_ID,
@@ -96,4 +96,4 @@ pub const GameStatistics: windows_sys::core::GUID = windows_sys::core::GUID::fro
 pub const XblIdpAuthManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xce23534b_56d8_4978_86a2_7ee570640468);
 pub const XblIdpAuthTokenResult: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9f493441_744a_410c_ae2b_9a22f7c7731f);
 pub type GameUICompletionRoutine = Option<unsafe extern "system" fn(returncode: windows_sys::core::HRESULT, context: *const core::ffi::c_void)>;
-pub type PlayerPickerUICompletionRoutine = Option<unsafe extern "system" fn(returncode: windows_sys::core::HRESULT, context: *const core::ffi::c_void, selectedxuids: *const *mut core::ffi::c_void, selectedxuidscount: usize)>;
+pub type PlayerPickerUICompletionRoutine = Option<unsafe extern "system" fn(returncode: windows_sys::core::HRESULT, context: *const core::ffi::c_void, selectedxuids: *const windows_sys::core::HSTRING, selectedxuidscount: usize)>;

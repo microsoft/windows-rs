@@ -24,12 +24,12 @@ pub const PWM_IOCTL_ID_PIN_START: i32 = 104i32;
 pub const PWM_IOCTL_ID_PIN_STOP: i32 = 105i32;
 pub type PWM_POLARITY = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
     pub ActualPeriod: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PWM_CONTROLLER_INFO {
     pub Size: usize,
     pub PinCount: u32,
@@ -37,37 +37,37 @@ pub struct PWM_CONTROLLER_INFO {
     pub MaximumPeriod: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
     pub DesiredPeriod: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
     pub ActualPeriod: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
     pub Percentage: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PWM_PIN_GET_POLARITY_OUTPUT {
     pub Polarity: PWM_POLARITY,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PWM_PIN_IS_STARTED_OUTPUT {
     pub IsStarted: super::super::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
     pub Percentage: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PWM_PIN_SET_POLARITY_INPUT {
     pub Polarity: PWM_POLARITY,
 }

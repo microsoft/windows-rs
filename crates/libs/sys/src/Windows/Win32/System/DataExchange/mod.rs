@@ -234,7 +234,7 @@ pub type DDE_INITIALIZE_COMMAND = u32;
 pub type DDE_NAME_SERVICE_CMD = u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CONVCONTEXT {
     pub cb: u32,
     pub wFlags: u32,
@@ -246,7 +246,7 @@ pub struct CONVCONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CONVINFO {
     pub cb: u32,
     pub hUser: usize,
@@ -266,38 +266,38 @@ pub struct CONVINFO {
     pub hwndPartner: super::super::Foundation::HWND,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct COPYDATASTRUCT {
     pub dwData: usize,
     pub cbData: u32,
     pub lpData: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DDEACK {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DDEADVISE {
     pub _bitfield: u16,
     pub cfFormat: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DDEDATA {
     pub _bitfield: u16,
     pub cfFormat: i16,
     pub Value: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DDELN {
     pub _bitfield: u16,
     pub cfFormat: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DDEML_MSG_HOOK_DATA {
     pub uiLo: usize,
     pub uiHi: usize,
@@ -305,14 +305,14 @@ pub struct DDEML_MSG_HOOK_DATA {
     pub Data: [u32; 8],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DDEPOKE {
     pub _bitfield: u16,
     pub cfFormat: i16,
     pub Value: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DDEUP {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -323,14 +323,14 @@ pub type HCONVLIST = *mut core::ffi::c_void;
 pub type HDDEDATA = *mut core::ffi::c_void;
 pub type HSZ = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct HSZPAIR {
     pub hszSvc: HSZ,
     pub hszTopic: HSZ,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct METAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
@@ -339,7 +339,7 @@ pub struct METAFILEPICT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONCBSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
@@ -358,7 +358,7 @@ pub struct MONCBSTRUCT {
     pub Data: [u32; 8],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONCONVSTRUCT {
     pub cb: u32,
     pub fConnect: super::super::Foundation::BOOL,
@@ -370,7 +370,7 @@ pub struct MONCONVSTRUCT {
     pub hConvServer: HCONV,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONERRSTRUCT {
     pub cb: u32,
     pub wLastError: u32,
@@ -378,7 +378,7 @@ pub struct MONERRSTRUCT {
     pub hTask: super::super::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONHSZSTRUCTA {
     pub cb: u32,
     pub fsAction: super::super::Foundation::BOOL,
@@ -388,7 +388,7 @@ pub struct MONHSZSTRUCTA {
     pub str: [i8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONHSZSTRUCTW {
     pub cb: u32,
     pub fsAction: super::super::Foundation::BOOL,
@@ -398,7 +398,7 @@ pub struct MONHSZSTRUCTW {
     pub str: [u16; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONLINKSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
@@ -414,7 +414,7 @@ pub struct MONLINKSTRUCT {
     pub hConvClient: HCONV,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONMSGSTRUCT {
     pub cb: u32,
     pub hwndTo: super::super::Foundation::HWND,

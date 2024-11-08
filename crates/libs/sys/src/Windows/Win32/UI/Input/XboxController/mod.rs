@@ -103,13 +103,13 @@ pub type XINPUT_GAMEPAD_BUTTON_FLAGS = u16;
 pub type XINPUT_KEYSTROKE_FLAGS = u16;
 pub type XINPUT_VIRTUAL_KEY = u16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XINPUT_BATTERY_INFORMATION {
     pub BatteryType: BATTERY_TYPE,
     pub BatteryLevel: BATTERY_LEVEL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XINPUT_CAPABILITIES {
     pub Type: XINPUT_DEVTYPE,
     pub SubType: XINPUT_DEVSUBTYPE,
@@ -118,7 +118,7 @@ pub struct XINPUT_CAPABILITIES {
     pub Vibration: XINPUT_VIBRATION,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XINPUT_GAMEPAD {
     pub wButtons: XINPUT_GAMEPAD_BUTTON_FLAGS,
     pub bLeftTrigger: u8,
@@ -129,7 +129,7 @@ pub struct XINPUT_GAMEPAD {
     pub sThumbRY: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XINPUT_KEYSTROKE {
     pub VirtualKey: XINPUT_VIRTUAL_KEY,
     pub Unicode: u16,
@@ -138,13 +138,13 @@ pub struct XINPUT_KEYSTROKE {
     pub HidCode: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XINPUT_STATE {
     pub dwPacketNumber: u32,
     pub Gamepad: XINPUT_GAMEPAD,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XINPUT_VIBRATION {
     pub wLeftMotorSpeed: u16,
     pub wRightMotorSpeed: u16,

@@ -3,6 +3,7 @@ windows_targets::link!("mscoree.dll" "system" fn CallFunctionShim(szdllname : wi
 windows_targets::link!("mscoree.dll" "system" fn ClrCreateManagedInstance(ptypename : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, ppobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("mscoree.dll" "system" fn CorBindToCurrentRuntime(pwszfilename : windows_sys::core::PCWSTR, rclsid : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntime(pwszversion : windows_sys::core::PCWSTR, pwszbuildflavor : windows_sys::core::PCWSTR, rclsid : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeByCfg(pcfgstream : * mut core::ffi::c_void, reserved : u32, startupflags : u32, rclsid : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeEx(pwszversion : windows_sys::core::PCWSTR, pwszbuildflavor : windows_sys::core::PCWSTR, startupflags : u32, rclsid : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntimeHost(pwszversion : windows_sys::core::PCWSTR, pwszbuildflavor : windows_sys::core::PCWSTR, pwszhostconfigfile : windows_sys::core::PCWSTR, preserved : *mut core::ffi::c_void, startupflags : u32, rclsid : *const windows_sys::core::GUID, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -231,7 +232,7 @@ pub type STARTUP_FLAGS = i32;
 pub type StackOverflowType = i32;
 pub type WAIT_OPTION = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AssemblyBindInfo {
     pub dwAppDomainId: u32,
     pub lpReferencedIdentity: windows_sys::core::PCWSTR,
@@ -239,7 +240,7 @@ pub struct AssemblyBindInfo {
     pub ePolicyLevel: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BucketParameters {
     pub fInited: super::super::Foundation::BOOL,
     pub pszEventTypeName: [u16; 255],
@@ -247,7 +248,7 @@ pub struct BucketParameters {
 }
 pub const CLRRuntimeHost: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x90f1a06e_7712_4762_86b5_7a5eba6bdb02);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLR_DEBUGGING_VERSION {
     pub wStructVersion: u16,
     pub wMajor: u16,
@@ -256,7 +257,7 @@ pub struct CLR_DEBUGGING_VERSION {
     pub wRevision: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct COR_GC_STATS {
     pub Flags: u32,
     pub ExplicitGCCount: usize,
@@ -271,7 +272,7 @@ pub struct COR_GC_STATS {
     pub KBytesPromotedFromGen1: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct COR_GC_THREAD_STATS {
     pub PerThreadAllocation: u64,
     pub Flags: u32,
@@ -280,33 +281,33 @@ pub const ComCallUnmarshal: windows_sys::core::GUID = windows_sys::core::GUID::f
 pub const ComCallUnmarshalV4: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x45fb4600_e6e8_4928_b25e_50476ff79425);
 pub const CorRuntimeHost: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcb2f6723_ab3a_11d2_9c40_00c04fa30a3e);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CustomDumpItem {
     pub itemKind: ECustomDumpItemKind,
     pub Anonymous: CustomDumpItem_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CustomDumpItem_0 {
     pub pReserved: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MDAInfo {
     pub lpMDACaption: windows_sys::core::PCWSTR,
     pub lpMDAMessage: windows_sys::core::PCWSTR,
     pub lpStackTrace: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ModuleBindInfo {
     pub dwAppDomainId: u32,
     pub lpAssemblyIdentity: windows_sys::core::PCWSTR,
     pub lpModuleName: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy)]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[derive(Copy, Clone)]
 pub struct StackOverflowInfo {
     pub soType: StackOverflowType,
     pub pExceptionInfo: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,

@@ -10,19 +10,19 @@ pub const MCAST_API_VERSION_0: i32 = 0i32;
 pub const MCAST_API_VERSION_1: i32 = 1i32;
 pub const MCAST_CLIENT_ID_LEN: u32 = 17u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union IPNG_ADDRESS {
     pub IpAddrV4: u32,
     pub IpAddrV6: [u8; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MCAST_CLIENT_UID {
     pub ClientUID: *mut u8,
     pub ClientUIDLength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MCAST_LEASE_REQUEST {
     pub LeaseStartTime: i32,
     pub MaxLeaseStartTime: i32,
@@ -34,7 +34,7 @@ pub struct MCAST_LEASE_REQUEST {
     pub pAddrBuf: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MCAST_LEASE_RESPONSE {
     pub LeaseStartTime: i32,
     pub LeaseEndTime: i32,
@@ -43,14 +43,14 @@ pub struct MCAST_LEASE_RESPONSE {
     pub pAddrBuf: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MCAST_SCOPE_CTX {
     pub ScopeID: IPNG_ADDRESS,
     pub Interface: IPNG_ADDRESS,
     pub ServerID: IPNG_ADDRESS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MCAST_SCOPE_ENTRY {
     pub ScopeCtx: MCAST_SCOPE_CTX,
     pub LastAddr: IPNG_ADDRESS,

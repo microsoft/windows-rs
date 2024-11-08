@@ -387,7 +387,7 @@ pub type WDS_CLI_IMAGE_PARAM_TYPE = i32;
 pub type WDS_CLI_IMAGE_TYPE = i32;
 pub type WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PXE_ADDRESS {
     pub uFlags: u32,
     pub Anonymous: PXE_ADDRESS_0,
@@ -395,13 +395,13 @@ pub struct PXE_ADDRESS {
     pub uPort: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union PXE_ADDRESS_0 {
     pub bAddress: [u8; 16],
     pub uIpAddress: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PXE_DHCPV6_MESSAGE {
     pub MessageType: u8,
     pub TransactionIDByte1: u8,
@@ -410,13 +410,13 @@ pub struct PXE_DHCPV6_MESSAGE {
     pub Options: [PXE_DHCPV6_OPTION; 1],
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PXE_DHCPV6_MESSAGE_HEADER {
     pub MessageType: u8,
     pub Message: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PXE_DHCPV6_NESTED_RELAY_MESSAGE {
     pub pRelayMessage: *mut PXE_DHCPV6_RELAY_MESSAGE,
     pub cbRelayMessage: u32,
@@ -424,14 +424,14 @@ pub struct PXE_DHCPV6_NESTED_RELAY_MESSAGE {
     pub cbInterfaceIdOption: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PXE_DHCPV6_OPTION {
     pub OptionCode: u16,
     pub DataLength: u16,
     pub Data: [u8; 1],
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PXE_DHCPV6_RELAY_MESSAGE {
     pub MessageType: u8,
     pub HopCount: u8,
@@ -440,7 +440,7 @@ pub struct PXE_DHCPV6_RELAY_MESSAGE {
     pub Options: [PXE_DHCPV6_OPTION; 1],
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PXE_DHCP_MESSAGE {
     pub Operation: u8,
     pub HardwareAddressType: u8,
@@ -460,20 +460,20 @@ pub struct PXE_DHCP_MESSAGE {
     pub Option: PXE_DHCP_OPTION,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union PXE_DHCP_MESSAGE_0 {
     pub bMagicCookie: [u8; 4],
     pub uMagicCookie: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PXE_DHCP_OPTION {
     pub OptionType: u8,
     pub OptionLength: u8,
     pub OptionValue: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PXE_PROVIDER {
     pub uSizeOfStruct: u32,
     pub pwszName: windows_sys::core::PWSTR,
@@ -482,21 +482,21 @@ pub struct PXE_PROVIDER {
     pub uIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TRANSPORTCLIENT_SESSION_INFO {
     pub ulStructureLength: u32,
     pub ullFileSize: u64,
     pub ulBlockSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WDS_CLI_CRED {
     pub pwszUserName: windows_sys::core::PCWSTR,
     pub pwszDomain: windows_sys::core::PCWSTR,
     pub pwszPassword: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
     pub SessionStart: PFN_WdsTransportClientSessionStart,
     pub SessionStartEx: PFN_WdsTransportClientSessionStartEx,
@@ -506,7 +506,7 @@ pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
     pub SessionNegotiate: PFN_WdsTransportClientSessionNegotiate,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WDS_TRANSPORTCLIENT_REQUEST {
     pub ulLength: u32,
     pub ulApiVersion: u32,
@@ -521,7 +521,7 @@ pub struct WDS_TRANSPORTCLIENT_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     pub ulLength: u32,
     pub ulMcServerVersion: u32,
@@ -529,7 +529,7 @@ pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     pub hProvider: super::super::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WDS_TRANSPORTPROVIDER_SETTINGS {
     pub ulLength: u32,
     pub ulProviderVersion: u32,

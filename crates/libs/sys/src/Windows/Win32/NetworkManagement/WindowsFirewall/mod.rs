@@ -3,6 +3,7 @@ windows_targets::link!("netshell.dll" "system" fn NcIsValidConnectionName(pszwna
 windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername : windows_sys::core::PCWSTR, netisoerror : *mut NETISO_ERROR_TYPE) -> u32);
 #[cfg(feature = "Win32_Security")]
 windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationEnumAppContainers(flags : u32, pdwnumpublicappcs : *mut u32, pppublicappcs : *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32);
+#[cfg(feature = "Win32_System_Ole")]
 windows_targets::link!("firewallapi.dll" "system" fn NetworkIsolationEnumerateAppContainerRules(newenum : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
 windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationFreeAppContainers(ppublicappcs : *const INET_FIREWALL_APP_CONTAINER) -> u32);
@@ -189,7 +190,7 @@ pub type NET_FW_SERVICE_TYPE = i32;
 pub type SHARINGCONNECTIONTYPE = i32;
 pub type SHARINGCONNECTION_ENUM_FLAGS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS0 {
     pub id: windows_sys::core::GUID,
     pub keyword: windows_sys::core::PCWSTR,
@@ -197,7 +198,7 @@ pub struct FW_DYNAMIC_KEYWORD_ADDRESS0 {
     pub addresses: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     pub dynamicKeywordAddress: FW_DYNAMIC_KEYWORD_ADDRESS0,
     pub next: *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0,
@@ -205,21 +206,21 @@ pub struct FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     pub originType: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INET_FIREWALL_AC_BINARIES {
     pub count: u32,
     pub binaries: *mut windows_sys::core::PWSTR,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INET_FIREWALL_AC_CAPABILITIES {
     pub count: u32,
     pub capabilities: *mut super::super::Security::SID_AND_ATTRIBUTES,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INET_FIREWALL_AC_CHANGE {
     pub changeType: INET_FIREWALL_AC_CHANGE_TYPE,
     pub createType: INET_FIREWALL_AC_CREATION_TYPE,
@@ -230,14 +231,14 @@ pub struct INET_FIREWALL_AC_CHANGE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union INET_FIREWALL_AC_CHANGE_0 {
     pub capabilities: INET_FIREWALL_AC_CAPABILITIES,
     pub binaries: INET_FIREWALL_AC_BINARIES,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INET_FIREWALL_APP_CONTAINER {
     pub appContainerSid: *mut super::super::Security::SID,
     pub userSid: *mut super::super::Security::SID,
@@ -250,7 +251,7 @@ pub struct INET_FIREWALL_APP_CONTAINER {
     pub packageFullName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NETCON_PROPERTIES {
     pub guidId: windows_sys::core::GUID,
     pub pszwName: windows_sys::core::PWSTR,

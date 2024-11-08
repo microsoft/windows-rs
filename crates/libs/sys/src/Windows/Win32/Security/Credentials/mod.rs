@@ -412,19 +412,19 @@ pub type READER_SEL_REQUEST_MATCH_TYPE = i32;
 pub type SCARD_SCOPE = u32;
 pub type SCARD_STATE = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BINARY_BLOB_CREDENTIAL_INFO {
     pub cbBlob: u32,
     pub pbBlob: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CERT_CREDENTIAL_INFO {
     pub cbSize: u32,
     pub rgbHashOfCert: [u8; 20],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CREDENTIALA {
     pub Flags: CRED_FLAGS,
     pub Type: CRED_TYPE,
@@ -440,7 +440,7 @@ pub struct CREDENTIALA {
     pub UserName: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CREDENTIALW {
     pub Flags: CRED_FLAGS,
     pub Type: CRED_TYPE,
@@ -456,7 +456,7 @@ pub struct CREDENTIALW {
     pub UserName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CREDENTIAL_ATTRIBUTEA {
     pub Keyword: windows_sys::core::PSTR,
     pub Flags: u32,
@@ -464,7 +464,7 @@ pub struct CREDENTIAL_ATTRIBUTEA {
     pub Value: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CREDENTIAL_ATTRIBUTEW {
     pub Keyword: windows_sys::core::PWSTR,
     pub Flags: u32,
@@ -472,7 +472,7 @@ pub struct CREDENTIAL_ATTRIBUTEW {
     pub Value: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub TargetName: windows_sys::core::PSTR,
     pub NetbiosServerName: windows_sys::core::PSTR,
@@ -486,7 +486,7 @@ pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub CredTypes: *mut u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub TargetName: windows_sys::core::PWSTR,
     pub NetbiosServerName: windows_sys::core::PWSTR,
@@ -500,14 +500,14 @@ pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub CredTypes: *mut u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CREDSSP_CRED {
     pub Type: CREDSPP_SUBMIT_TYPE,
     pub pSchannelCred: *mut core::ffi::c_void,
     pub pSpnegoCred: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CREDSSP_CRED_EX {
     pub Type: CREDSPP_SUBMIT_TYPE,
     pub Version: u32,
@@ -517,7 +517,7 @@ pub struct CREDSSP_CRED_EX {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CREDUI_INFOA {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -527,7 +527,7 @@ pub struct CREDUI_INFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CREDUI_INFOW {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -536,12 +536,12 @@ pub struct CREDUI_INFOW {
     pub hbmBanner: super::super::Graphics::Gdi::HBITMAP,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct KeyCredentialManagerInfo {
     pub containerId: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OPENCARDNAMEA {
     pub dwStructSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -568,7 +568,7 @@ pub struct OPENCARDNAMEA {
     pub hCardHandle: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OPENCARDNAMEW {
     pub dwStructSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -596,7 +596,7 @@ pub struct OPENCARDNAMEW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OPENCARDNAME_EXA {
     pub dwStructSize: u32,
     pub hSCardContext: usize,
@@ -619,7 +619,7 @@ pub struct OPENCARDNAME_EXA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OPENCARDNAME_EXW {
     pub dwStructSize: u32,
     pub hSCardContext: usize,
@@ -641,7 +641,7 @@ pub struct OPENCARDNAME_EXW {
     pub hCardHandle: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OPENCARD_SEARCH_CRITERIAA {
     pub dwStructSize: u32,
     pub lpstrGroupNames: windows_sys::core::PSTR,
@@ -658,7 +658,7 @@ pub struct OPENCARD_SEARCH_CRITERIAA {
     pub dwPreferredProtocols: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OPENCARD_SEARCH_CRITERIAW {
     pub dwStructSize: u32,
     pub lpstrGroupNames: windows_sys::core::PWSTR,
@@ -675,7 +675,7 @@ pub struct OPENCARD_SEARCH_CRITERIAW {
     pub dwPreferredProtocols: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct READER_SEL_REQUEST {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -683,13 +683,13 @@ pub struct READER_SEL_REQUEST {
     pub Anonymous: READER_SEL_REQUEST_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union READER_SEL_REQUEST_0 {
     pub ReaderAndContainerParameter: READER_SEL_REQUEST_0_0,
     pub SerialNumberParameter: READER_SEL_REQUEST_0_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct READER_SEL_REQUEST_0_0 {
     pub cbReaderNameOffset: u32,
     pub cchReaderNameLength: u32,
@@ -699,14 +699,14 @@ pub struct READER_SEL_REQUEST_0_0 {
     pub dwCspFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct READER_SEL_REQUEST_0_1 {
     pub cbSerialNumberOffset: u32,
     pub cbSerialNumberLength: u32,
     pub dwDesiredCardModuleVersion: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct READER_SEL_RESPONSE {
     pub cbReaderNameOffset: u32,
     pub cchReaderNameLength: u32,
@@ -714,20 +714,20 @@ pub struct READER_SEL_RESPONSE {
     pub cchCardNameLength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SCARD_ATRMASK {
     pub cbAtr: u32,
     pub rgbAtr: [u8; 36],
     pub rgbMask: [u8; 36],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SCARD_IO_REQUEST {
     pub dwProtocol: u32,
     pub cbPciLength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SCARD_READERSTATEA {
     pub szReader: windows_sys::core::PCSTR,
     pub pvUserData: *mut core::ffi::c_void,
@@ -737,7 +737,7 @@ pub struct SCARD_READERSTATEA {
     pub rgbAtr: [u8; 36],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SCARD_READERSTATEW {
     pub szReader: windows_sys::core::PCWSTR,
     pub pvUserData: *mut core::ffi::c_void,
@@ -747,7 +747,7 @@ pub struct SCARD_READERSTATEW {
     pub rgbAtr: [u8; 36],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SCARD_T0_COMMAND {
     pub bCla: u8,
     pub bIns: u8,
@@ -756,7 +756,7 @@ pub struct SCARD_T0_COMMAND {
     pub bP3: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SCARD_T0_REQUEST {
     pub ioRequest: SCARD_IO_REQUEST,
     pub bSw1: u8,
@@ -764,30 +764,30 @@ pub struct SCARD_T0_REQUEST {
     pub Anonymous: SCARD_T0_REQUEST_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union SCARD_T0_REQUEST_0 {
     pub CmdBytes: SCARD_T0_COMMAND,
     pub rgbHeader: [u8; 5],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SCARD_T1_REQUEST {
     pub ioRequest: SCARD_IO_REQUEST,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SecHandle {
     pub dwLower: usize,
     pub dwUpper: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SecPkgContext_ClientCreds {
     pub AuthBufferLen: u32,
     pub AuthBuffer: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct USERNAME_TARGET_CREDENTIAL_INFO {
     pub UserName: windows_sys::core::PWSTR,
 }

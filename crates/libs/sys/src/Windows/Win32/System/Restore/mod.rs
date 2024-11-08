@@ -34,7 +34,7 @@ pub const WINDOWS_UPDATE: u32 = 17u32;
 pub type RESTOREPOINTINFO_EVENT_TYPE = u32;
 pub type RESTOREPOINTINFO_TYPE = u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RESTOREPOINTINFOA {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
     pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
@@ -42,7 +42,7 @@ pub struct RESTOREPOINTINFOA {
     pub szDescription: [i8; 64],
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RESTOREPOINTINFOEX {
     pub ftCreation: super::super::Foundation::FILETIME,
     pub dwEventType: u32,
@@ -51,7 +51,7 @@ pub struct RESTOREPOINTINFOEX {
     pub szDescription: [u16; 256],
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RESTOREPOINTINFOW {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
     pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
@@ -59,7 +59,7 @@ pub struct RESTOREPOINTINFOW {
     pub szDescription: [u16; 256],
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct STATEMGRSTATUS {
     pub nStatus: super::super::Foundation::WIN32_ERROR,
     pub llSequenceNumber: i64,

@@ -638,14 +638,14 @@ pub type Uri_PROPERTY = i32;
 pub type VARFLAGS = u16;
 pub type VARKIND = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AUTHENTICATEINFO {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-#[derive(Clone, Copy)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Copy, Clone)]
 pub struct BINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: windows_sys::core::PWSTR,
@@ -664,14 +664,14 @@ pub struct BINDINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
     pub lpvardesc: *mut VARDESC,
     pub lptcomp: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BIND_OPTS {
     pub cbStruct: u32,
     pub grfFlags: u32,
@@ -679,7 +679,7 @@ pub struct BIND_OPTS {
     pub dwTickCountDeadline: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BIND_OPTS2 {
     pub Base: BIND_OPTS,
     pub dwTrackFlags: u32,
@@ -688,38 +688,38 @@ pub struct BIND_OPTS2 {
     pub pServerInfo: *mut COSERVERINFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BIND_OPTS3 {
     pub Base: BIND_OPTS2,
     pub hwnd: super::super::Foundation::HWND,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BLOB {
     pub cbSize: u32,
     pub pBlobData: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BYTE_BLOB {
     pub clSize: u32,
     pub abData: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BYTE_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CATEGORYINFO {
     pub catid: windows_sys::core::GUID,
     pub lcid: u32,
     pub szDescription: [u16; 128],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct COAUTHIDENTITY {
     pub User: *mut u16,
     pub UserLength: u32,
@@ -730,7 +730,7 @@ pub struct COAUTHIDENTITY {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct COAUTHINFO {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
@@ -741,13 +741,13 @@ pub struct COAUTHINFO {
     pub dwCapabilities: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CONNECTDATA {
     pub pUnk: *mut core::ffi::c_void,
     pub dwCookie: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct COSERVERINFO {
     pub dwReserved1: u32,
     pub pwszName: windows_sys::core::PWSTR,
@@ -757,7 +757,7 @@ pub struct COSERVERINFO {
 pub type CO_DEVICE_CATALOG_COOKIE = *mut core::ffi::c_void;
 pub type CO_MTA_USAGE_COOKIE = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CSPLATFORM {
     pub dwPlatformId: u32,
     pub dwVersionHi: u32,
@@ -765,48 +765,48 @@ pub struct CSPLATFORM {
     pub dwProcessorArch: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Copy, Clone)]
 pub struct CUSTDATA {
     pub cCustData: u32,
     pub prgCustData: *mut CUSTDATAITEM,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Copy, Clone)]
 pub struct CUSTDATAITEM {
     pub guid: windows_sys::core::GUID,
     pub varValue: super::Variant::VARIANT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CY {
     pub Anonymous: CY_0,
     pub int64: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CY_0 {
     pub Lo: u32,
     pub Hi: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ComCallData {
     pub dwDispid: u32,
     pub dwReserved: u32,
     pub pUserDefined: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ContextProperty {
     pub policyId: windows_sys::core::GUID,
     pub flags: u32,
     pub pUnk: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy)]
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Copy, Clone)]
 pub struct DISPPARAMS {
     pub rgvarg: *mut super::Variant::VARIANT,
     pub rgdispidNamedArgs: *mut i32,
@@ -814,7 +814,7 @@ pub struct DISPPARAMS {
     pub cNamedArgs: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DVTARGETDEVICE {
     pub tdSize: u32,
     pub tdDriverNameOffset: u16,
@@ -824,33 +824,33 @@ pub struct DVTARGETDEVICE {
     pub tdData: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DWORD_BLOB {
     pub clSize: u32,
     pub alData: [u32; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DWORD_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ELEMDESC {
     pub tdesc: TYPEDESC,
     pub Anonymous: ELEMDESC_0,
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union ELEMDESC_0 {
     pub idldesc: IDLDESC,
     pub paramdesc: super::Ole::PARAMDESC,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXCEPINFO {
     pub wCode: u16,
     pub wReserved: u16,
@@ -863,29 +863,29 @@ pub struct EXCEPINFO {
     pub scode: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FLAGGED_BYTE_BLOB {
     pub fFlags: u32,
     pub clSize: u32,
     pub abData: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FLAGGED_WORD_BLOB {
     pub fFlags: u32,
     pub clSize: u32,
     pub asData: [u16; 1],
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Copy, Clone)]
 pub struct FLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
     pub Stgmed: STGMEDIUM,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FORMATETC {
     pub cfFormat: u16,
     pub ptd: *mut DVTARGETDEVICE,
@@ -895,7 +895,7 @@ pub struct FORMATETC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FUNCDESC {
     pub memid: i32,
     pub lprgscode: *mut i32,
@@ -912,40 +912,40 @@ pub struct FUNCDESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct GDI_OBJECT {
     pub ObjectType: u32,
     pub u: GDI_OBJECT_0,
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union GDI_OBJECT_0 {
     pub hBitmap: *mut super::SystemServices::userHBITMAP,
     pub hPalette: *mut super::SystemServices::userHPALETTE,
     pub hGeneric: *mut super::SystemServices::userHGLOBAL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct HYPER_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IDLDESC {
     pub dwReserved: usize,
     pub wIDLFlags: IDLFLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INTERFACEINFO {
     pub pUnk: *mut core::ffi::c_void,
     pub iid: windows_sys::core::GUID,
     pub wMethod: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MULTI_QI {
     pub pIID: *const windows_sys::core::GUID,
     pub pItf: *mut core::ffi::c_void,
@@ -953,7 +953,7 @@ pub struct MULTI_QI {
 }
 pub type MachineGlobalObjectTableRegistrationToken = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct QUERYCONTEXT {
     pub dwContext: u32,
     pub Platform: CSPLATFORM,
@@ -962,7 +962,7 @@ pub struct QUERYCONTEXT {
     pub dwVersionLo: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RPCOLEMESSAGE {
     pub reserved1: *mut core::ffi::c_void,
     pub dataRepresentation: u32,
@@ -973,7 +973,7 @@ pub struct RPCOLEMESSAGE {
     pub rpcFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RemSTGMEDIUM {
     pub tymed: u32,
     pub dwHandleType: u32,
@@ -983,7 +983,7 @@ pub struct RemSTGMEDIUM {
     pub data: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SAFEARRAY {
     pub cDims: u16,
     pub fFeatures: ADVANCED_FEATURE_FLAGS,
@@ -993,13 +993,13 @@ pub struct SAFEARRAY {
     pub rgsabound: [SAFEARRAYBOUND; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SAFEARRAYBOUND {
     pub cElements: u32,
     pub lLbound: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SChannelHookCallInfo {
     pub iid: windows_sys::core::GUID,
     pub cbSize: u32,
@@ -1009,20 +1009,20 @@ pub struct SChannelHookCallInfo {
     pub pObject: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SOLE_AUTHENTICATION_INFO {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
     pub pAuthInfo: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SOLE_AUTHENTICATION_LIST {
     pub cAuthInfo: u32,
     pub aAuthInfo: *mut SOLE_AUTHENTICATION_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SOLE_AUTHENTICATION_SERVICE {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
@@ -1030,7 +1030,7 @@ pub struct SOLE_AUTHENTICATION_SERVICE {
     pub hr: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct STATDATA {
     pub formatetc: FORMATETC,
     pub advf: u32,
@@ -1038,7 +1038,7 @@ pub struct STATDATA {
     pub dwConnection: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct STATSTG {
     pub pwcsName: windows_sys::core::PWSTR,
     pub r#type: u32,
@@ -1053,16 +1053,16 @@ pub struct STATSTG {
     pub reserved: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Copy, Clone)]
 pub struct STGMEDIUM {
     pub tymed: u32,
     pub u: STGMEDIUM_0,
     pub pUnkForRelease: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[derive(Copy, Clone)]
 pub union STGMEDIUM_0 {
     pub hBitmap: super::super::Graphics::Gdi::HBITMAP,
     pub hMetaFilePict: *mut core::ffi::c_void,
@@ -1073,7 +1073,7 @@ pub union STGMEDIUM_0 {
     pub pstg: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct StorageLayout {
     pub LayoutType: u32,
     pub pwcsElementName: windows_sys::core::PWSTR,
@@ -1081,7 +1081,7 @@ pub struct StorageLayout {
     pub cBytes: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TLIBATTR {
     pub guid: windows_sys::core::GUID,
     pub lcid: u32,
@@ -1092,7 +1092,7 @@ pub struct TLIBATTR {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TYPEATTR {
     pub guid: windows_sys::core::GUID,
     pub lcid: u32,
@@ -1115,14 +1115,14 @@ pub struct TYPEATTR {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TYPEDESC {
     pub Anonymous: TYPEDESC_0,
     pub vt: super::Variant::VARENUM,
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union TYPEDESC_0 {
     pub lptdesc: *mut TYPEDESC,
     pub lpadesc: *mut super::Ole::ARRAYDESC,
@@ -1130,7 +1130,7 @@ pub union TYPEDESC_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VARDESC {
     pub memid: i32,
     pub lpstrSchema: windows_sys::core::PWSTR,
@@ -1141,31 +1141,31 @@ pub struct VARDESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union VARDESC_0 {
     pub oInst: u32,
     pub lpvarValue: *mut super::Variant::VARIANT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WORD_BLOB {
     pub clSize: u32,
     pub asData: [u16; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WORD_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct uCLSSPEC {
     pub tyspec: u32,
     pub tagged_union: uCLSSPEC_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union uCLSSPEC_0 {
     pub clsid: windows_sys::core::GUID,
     pub pFileExt: windows_sys::core::PWSTR,
@@ -1176,20 +1176,20 @@ pub union uCLSSPEC_0 {
     pub ByObjectId: uCLSSPEC_0_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct uCLSSPEC_0_0 {
     pub pPackageName: windows_sys::core::PWSTR,
     pub PolicyId: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct uCLSSPEC_0_1 {
     pub ObjectId: windows_sys::core::GUID,
     pub PolicyId: windows_sys::core::GUID,
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct userFLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
@@ -1197,21 +1197,21 @@ pub struct userFLAG_STGMEDIUM {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct userSTGMEDIUM {
     pub u: userSTGMEDIUM_0,
     pub pUnkForRelease: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct userSTGMEDIUM_0 {
     pub tymed: u32,
     pub u: userSTGMEDIUM_0_0,
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union userSTGMEDIUM_0_0 {
     pub hMetaFilePict: *mut super::SystemServices::userHMETAFILEPICT,
     pub hHEnhMetaFile: *mut super::SystemServices::userHENHMETAFILE,

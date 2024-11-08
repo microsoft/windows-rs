@@ -1,8 +1,6 @@
 #[cfg(feature = "Win32_System_Diagnostics_Debug_Extensions")]
 pub mod Extensions;
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn AddVectoredContinueHandler(first : u32, handler : PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void);
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn AddVectoredExceptionHandler(first : u32, handler : PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void);
 windows_targets::link!("kernel32.dll" "system" fn Beep(dwfreq : u32, dwduration : u32) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("imagehlp.dll" "system" fn BindImage(imagename : windows_sys::core::PCSTR, dllpath : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR) -> super::super::super::Foundation:: BOOL);
@@ -16,7 +14,6 @@ windows_targets::link!("imagehlp.dll" "system" fn CheckSumMappedFile(baseaddress
 windows_targets::link!("imagehlp.dll" "system" fn CheckSumMappedFile(baseaddress : *const core::ffi::c_void, filelength : u32, headersum : *mut u32, checksum : *mut u32) -> *mut IMAGE_NT_HEADERS32);
 windows_targets::link!("advapi32.dll" "system" fn CloseThreadWaitChainSession(wcthandle : *const core::ffi::c_void));
 windows_targets::link!("kernel32.dll" "system" fn ContinueDebugEvent(dwprocessid : u32, dwthreadid : u32, dwcontinuestatus : super::super::super::Foundation:: NTSTATUS) -> super::super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn CopyContext(destination : *mut CONTEXT, contextflags : CONTEXT_FLAGS, source : *const CONTEXT) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDump(filename : windows_sys::core::PCSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDumpW(filename : windows_sys::core::PCWSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
@@ -65,14 +62,12 @@ windows_targets::link!("imagehlp.dll" "system" fn GetImageConfigInformation(load
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 windows_targets::link!("imagehlp.dll" "system" fn GetImageUnusedHeaderBytes(loadedimage : *const LOADED_IMAGE, sizeunusedheaderbytes : *mut u32) -> u32);
 windows_targets::link!("dbghelp.dll" "system" fn GetSymLoadError() -> u32);
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn GetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *mut CONTEXT) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn GetThreadErrorMode() -> u32);
 windows_targets::link!("kernel32.dll" "system" fn GetThreadSelectorEntry(hthread : super::super::super::Foundation:: HANDLE, dwselector : u32, lpselectorentry : *mut LDT_ENTRY) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("advapi32.dll" "system" fn GetThreadWaitChain(wcthandle : *const core::ffi::c_void, context : usize, flags : WAIT_CHAIN_THREAD_OPTIONS, threadid : u32, nodecount : *mut u32, nodeinfoarray : *mut WAITCHAIN_NODE_INFO, iscycle : *mut super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("dbghelp.dll" "system" fn GetTimestampForLoadedLibrary(module : super::super::super::Foundation:: HMODULE) -> u32);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn GetXStateFeaturesMask(context : *const CONTEXT, featuremask : *mut u64) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security_WinTrust")]
 windows_targets::link!("imagehlp.dll" "system" fn ImageAddCertificate(filehandle : super::super::super::Foundation:: HANDLE, certificate : *const super::super::super::Security::WinTrust:: WIN_CERTIFICATE, index : *mut u32) -> super::super::super::Foundation:: BOOL);
@@ -109,13 +104,10 @@ windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToVa(ntheaders : *const
 windows_targets::link!("imagehlp.dll" "system" fn ImageUnload(loadedimage : *mut LOADED_IMAGE) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("dbghelp.dll" "system" fn ImagehlpApiVersion() -> *mut API_VERSION);
 windows_targets::link!("dbghelp.dll" "system" fn ImagehlpApiVersionEx(appversion : *const API_VERSION) -> *mut API_VERSION);
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn InitializeContext(buffer : *mut core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32) -> super::super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn InitializeContext2(buffer : *mut core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32, xstatecompactionmask : u64) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn IsDebuggerPresent() -> super::super::super::Foundation:: BOOL);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn LocateXStateFeature(context : *const CONTEXT, featureid : u32, length : *mut u32) -> *mut core::ffi::c_void);
 windows_targets::link!("dbghelp.dll" "system" fn MakeSureDirectoryPathExists(dirpath : windows_sys::core::PCSTR) -> super::super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
@@ -125,13 +117,12 @@ windows_targets::link!("imagehlp.dll" "system" fn MapFileAndCheckSumW(filename :
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_targets::link!("user32.dll" "system" fn MessageBeep(utype : super::super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("dbghelp.dll" "system" fn MiniDumpReadDumpStream(baseofdump : *const core::ffi::c_void, streamnumber : u32, dir : *mut *mut MINIDUMP_DIRECTORY, streampointer : *mut *mut core::ffi::c_void, streamsize : *mut u32) -> super::super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
 windows_targets::link!("dbghelp.dll" "system" fn MiniDumpWriteDump(hprocess : super::super::super::Foundation:: HANDLE, processid : u32, hfile : super::super::super::Foundation:: HANDLE, dumptype : MINIDUMP_TYPE, exceptionparam : *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam : *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam : *const MINIDUMP_CALLBACK_INFORMATION) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("advapi32.dll" "system" fn OpenThreadWaitChainSession(flags : OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback : PWAITCHAINCALLBACK) -> *mut core::ffi::c_void);
 windows_targets::link!("kernel32.dll" "system" fn OutputDebugStringA(lpoutputstring : windows_sys::core::PCSTR));
 windows_targets::link!("kernel32.dll" "system" fn OutputDebugStringW(lpoutputstring : windows_sys::core::PCWSTR));
 windows_targets::link!("kernel32.dll" "system" fn RaiseException(dwexceptioncode : u32, dwexceptionflags : u32, nnumberofarguments : u32, lparguments : *const usize));
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn RaiseFailFastException(pexceptionrecord : *const EXCEPTION_RECORD, pcontextrecord : *const CONTEXT, dwflags : u32));
 windows_targets::link!("dbghelp.dll" "system" fn RangeMapAddPeImageSections(rmaphandle : *const core::ffi::c_void, imagename : windows_sys::core::PCWSTR, mappedimage : *const core::ffi::c_void, mappingbytes : u32, imagebase : u64, usertag : u64, mappingflags : u32) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("dbghelp.dll" "system" fn RangeMapCreate() -> *mut core::ffi::c_void);
@@ -155,10 +146,8 @@ windows_targets::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functionta
 windows_targets::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_targets::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : *mut CONTEXT));
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext2(contextrecord : *mut CONTEXT));
 windows_targets::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : u32, framestocapture : u32, backtrace : *mut *mut core::ffi::c_void, backtracehash : *mut u32) -> u16);
 #[cfg(target_arch = "aarch64")]
@@ -179,11 +168,9 @@ windows_targets::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(control
 windows_targets::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : u64, imagebase : *mut u64, historytable : *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY);
 windows_targets::link!("kernel32.dll" "system" fn RtlPcToFileHeader(pcvalue : *const core::ffi::c_void, baseofimage : *mut *mut core::ffi::c_void) -> *mut core::ffi::c_void);
 windows_targets::link!("kernel32.dll" "system" fn RtlRaiseException(exceptionrecord : *const EXCEPTION_RECORD));
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "cdecl" fn RtlRestoreContext(contextrecord : *const CONTEXT, exceptionrecord : *const EXCEPTION_RECORD));
 windows_targets::link!("kernel32.dll" "system" fn RtlUnwind(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void));
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn RtlUnwindEx(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void, contextrecord : *const CONTEXT, historytable : *const UNWIND_HISTORY_TABLE));
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -202,13 +189,10 @@ windows_targets::link!("imagehlp.dll" "system" fn SetImageConfigInformation(load
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 windows_targets::link!("imagehlp.dll" "system" fn SetImageConfigInformation(loadedimage : *mut LOADED_IMAGE, imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("dbghelp.dll" "system" fn SetSymLoadError(error : u32));
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn SetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *const CONTEXT) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn SetThreadErrorMode(dwnewmode : THREAD_ERROR_MODE, lpoldmode : *mut THREAD_ERROR_MODE) -> super::super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter : LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn SetXStateFeaturesMask(context : *mut CONTEXT, featuremask : u64) -> super::super::super::Foundation:: BOOL);
 #[cfg(target_arch = "x86")]
 windows_targets::link!("dbghelp.dll" "system" fn StackWalk(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE, translateaddress : PTRANSLATE_ADDRESS_ROUTINE) -> super::super::super::Foundation:: BOOL);
@@ -410,7 +394,6 @@ windows_targets::link!("dbghelp.dll" "system" fn UnDecorateSymbolName(name : win
 windows_targets::link!("dbghelp.dll" "system" fn UnDecorateSymbolNameW(name : windows_sys::core::PCWSTR, outputstring : windows_sys::core::PWSTR, maxstringlength : u32, flags : u32) -> u32);
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 windows_targets::link!("imagehlp.dll" "system" fn UnMapAndLoad(loadedimage : *mut LOADED_IMAGE) -> super::super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_System_Kernel")]
 windows_targets::link!("kernel32.dll" "system" fn UnhandledExceptionFilter(exceptioninfo : *const EXCEPTION_POINTERS) -> i32);
 #[cfg(feature = "Win32_System_SystemInformation")]
 windows_targets::link!("imagehlp.dll" "system" fn UpdateDebugInfoFile(imagefilename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR, ntheaders : *const IMAGE_NT_HEADERS32) -> super::super::super::Foundation:: BOOL);
@@ -2120,55 +2103,54 @@ pub type WHEA_ERROR_SOURCE_TYPE = i32;
 pub type WOW64_CONTEXT_FLAGS = u32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ADDRESS {
     pub Offset: u32,
     pub Segment: u16,
     pub Mode: ADDRESS_MODE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ADDRESS64 {
     pub Offset: u64,
     pub Segment: u16,
     pub Mode: ADDRESS_MODE,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union AER_BRIDGE_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_BRIDGE_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union AER_ENDPOINT_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_ENDPOINT_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union AER_ROOTPORT_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_ROOTPORT_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct APC_CALLBACK_DATA {
     pub Parameter: usize,
     pub ContextRecord: *mut CONTEXT,
@@ -2176,7 +2158,7 @@ pub struct APC_CALLBACK_DATA {
     pub Reserved1: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct API_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -2185,7 +2167,7 @@ pub struct API_VERSION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ARM64_NT_CONTEXT {
     pub ContextFlags: u32,
     pub Cpsr: u32,
@@ -2202,14 +2184,14 @@ pub struct ARM64_NT_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union ARM64_NT_CONTEXT_0 {
     pub Anonymous: ARM64_NT_CONTEXT_0_0,
     pub X: [u64; 31],
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ARM64_NT_CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -2244,7 +2226,7 @@ pub struct ARM64_NT_CONTEXT_0_0 {
     pub Lr: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union ARM64_NT_NEON128 {
     pub Anonymous: ARM64_NT_NEON128_0,
     pub D: [f64; 2],
@@ -2253,15 +2235,14 @@ pub union ARM64_NT_NEON128 {
     pub B: [u8; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ARM64_NT_NEON128_0 {
     pub Low: u64,
     pub High: i64,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CONTEXT {
     pub ContextFlags: CONTEXT_FLAGS,
     pub Cpsr: u32,
@@ -2278,16 +2259,14 @@ pub struct CONTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CONTEXT_0 {
     pub Anonymous: CONTEXT_0_0,
     pub X: [u64; 31],
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -2323,8 +2302,7 @@ pub struct CONTEXT_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CONTEXT {
     pub P1Home: u64,
     pub P2Home: u64,
@@ -2375,16 +2353,14 @@ pub struct CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CONTEXT_0 {
     pub FltSave: XSAVE_FORMAT,
     pub Anonymous: CONTEXT_0_0,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CONTEXT_0_0 {
     pub Header: [M128A; 2],
     pub Legacy: [M128A; 8],
@@ -2408,7 +2384,7 @@ pub struct CONTEXT_0_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CONTEXT {
     pub ContextFlags: CONTEXT_FLAGS,
     pub Dr0: u32,
@@ -2437,18 +2413,18 @@ pub struct CONTEXT {
     pub ExtendedRegisters: [u8; 512],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CPU_INFORMATION {
     pub X86CpuInfo: CPU_INFORMATION_0,
     pub OtherCpuInfo: CPU_INFORMATION_1,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CPU_INFORMATION_1 {
     pub ProcessorFeatures: [u64; 2],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CPU_INFORMATION_0 {
     pub VendorId: [u32; 3],
     pub VersionInformation: u32,
@@ -2457,7 +2433,7 @@ pub struct CPU_INFORMATION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CREATE_PROCESS_DEBUG_INFO {
     pub hFile: super::super::super::Foundation::HANDLE,
     pub hProcess: super::super::super::Foundation::HANDLE,
@@ -2472,21 +2448,21 @@ pub struct CREATE_PROCESS_DEBUG_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CREATE_THREAD_DEBUG_INFO {
     pub hThread: super::super::super::Foundation::HANDLE,
     pub lpThreadLocalBase: *mut core::ffi::c_void,
     pub lpStartAddress: super::super::Threading::LPTHREAD_START_ROUTINE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DBGHELP_DATA_REPORT_STRUCT {
     pub pBinPathNonExist: windows_sys::core::PCWSTR,
     pub pSymbolPathNonExist: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEBUG_EVENT {
     pub dwDebugEventCode: DEBUG_EVENT_CODE,
     pub dwProcessId: u32,
@@ -2495,7 +2471,7 @@ pub struct DEBUG_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DEBUG_EVENT_0 {
     pub Exception: EXCEPTION_DEBUG_INFO,
     pub CreateThread: CREATE_THREAD_DEBUG_INFO,
@@ -2510,7 +2486,7 @@ pub union DEBUG_EVENT_0 {
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DISPATCHER_CONTEXT {
     pub ControlPc: usize,
     pub ImageBase: usize,
@@ -2528,7 +2504,7 @@ pub struct DISPATCHER_CONTEXT {
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DISPATCHER_CONTEXT {
     pub ControlPc: u64,
     pub ImageBase: u64,
@@ -2543,18 +2519,18 @@ pub struct DISPATCHER_CONTEXT {
     pub Fill0: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DUMP_FILE_ATTRIBUTES {
     pub Anonymous: DUMP_FILE_ATTRIBUTES_0,
     pub Attributes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DUMP_FILE_ATTRIBUTES_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DUMP_HEADER32 {
     pub Signature: u32,
     pub ValidDump: u32,
@@ -2596,13 +2572,13 @@ pub struct DUMP_HEADER32 {
     pub _reserved3: [u8; 56],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DUMP_HEADER32_0 {
     pub PhysicalMemoryBlock: PHYSICAL_MEMORY_DESCRIPTOR32,
     pub PhysicalMemoryBlockBuffer: [u8; 700],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DUMP_HEADER64 {
     pub Signature: u32,
     pub ValidDump: u32,
@@ -2642,13 +2618,13 @@ pub struct DUMP_HEADER64 {
     pub _reserved0: [u8; 4008],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DUMP_HEADER64_0 {
     pub PhysicalMemoryBlock: PHYSICAL_MEMORY_DESCRIPTOR64,
     pub PhysicalMemoryBlockBuffer: [u8; 700],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DebugPropertyInfo {
     pub m_dwValidFields: u32,
     pub m_bstrName: windows_sys::core::BSTR,
@@ -2659,20 +2635,19 @@ pub struct DebugPropertyInfo {
     pub m_pDebugProp: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXCEPTION_DEBUG_INFO {
     pub ExceptionRecord: EXCEPTION_RECORD,
     pub dwFirstChance: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXCEPTION_POINTERS {
     pub ExceptionRecord: *mut EXCEPTION_RECORD,
     pub ContextRecord: *mut CONTEXT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXCEPTION_RECORD {
     pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
     pub ExceptionFlags: u32,
@@ -2682,7 +2657,7 @@ pub struct EXCEPTION_RECORD {
     pub ExceptionInformation: [usize; 15],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXCEPTION_RECORD32 {
     pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
     pub ExceptionFlags: u32,
@@ -2692,7 +2667,7 @@ pub struct EXCEPTION_RECORD32 {
     pub ExceptionInformation: [u32; 15],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXCEPTION_RECORD64 {
     pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
     pub ExceptionFlags: u32,
@@ -2703,18 +2678,18 @@ pub struct EXCEPTION_RECORD64 {
     pub ExceptionInformation: [u64; 15],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXIT_PROCESS_DEBUG_INFO {
     pub dwExitCode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXIT_THREAD_DEBUG_INFO {
     pub dwExitCode: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Copy, Clone)]
 pub struct ExtendedDebugPropertyInfo {
     pub dwValidFields: u32,
     pub pszName: windows_sys::core::PWSTR,
@@ -2730,7 +2705,7 @@ pub struct ExtendedDebugPropertyInfo {
     pub pDebugExtProp: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FPO_DATA {
     pub ulOffStart: u32,
     pub cbProcSize: u32,
@@ -2739,7 +2714,7 @@ pub struct FPO_DATA {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_CBA_EVENT {
     pub severity: IMAGEHLP_CBA_EVENT_SEVERITY,
     pub code: u32,
@@ -2747,7 +2722,7 @@ pub struct IMAGEHLP_CBA_EVENT {
     pub object: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_CBA_EVENTW {
     pub severity: IMAGEHLP_CBA_EVENT_SEVERITY,
     pub code: u32,
@@ -2755,7 +2730,7 @@ pub struct IMAGEHLP_CBA_EVENTW {
     pub object: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_CBA_READ_MEMORY {
     pub addr: u64,
     pub buf: *mut core::ffi::c_void,
@@ -2764,7 +2739,7 @@ pub struct IMAGEHLP_CBA_READ_MEMORY {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u32,
@@ -2775,7 +2750,7 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     pub hFile: super::super::super::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u64,
@@ -2787,7 +2762,7 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u64,
@@ -2800,7 +2775,7 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub SizeOfStruct: u32,
     pub NumberOfDups: u32,
@@ -2808,7 +2783,7 @@ pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub SelectedSymbol: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL64 {
     pub SizeOfStruct: u32,
     pub NumberOfDups: u32,
@@ -2816,7 +2791,7 @@ pub struct IMAGEHLP_DUPLICATE_SYMBOL64 {
     pub SelectedSymbol: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub SizeOfStruct: u32,
     pub Flags: IMAGEHLP_GET_TYPE_INFO_FLAGS,
@@ -2838,7 +2813,7 @@ pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub ReqsValid: *mut u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_JIT_SYMBOLMAP {
     pub SizeOfStruct: u32,
     pub Address: u64,
@@ -2846,7 +2821,7 @@ pub struct IMAGEHLP_JIT_SYMBOLMAP {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_LINE {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -2855,7 +2830,7 @@ pub struct IMAGEHLP_LINE {
     pub Address: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_LINE64 {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -2865,7 +2840,7 @@ pub struct IMAGEHLP_LINE64 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_LINEW {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -2874,7 +2849,7 @@ pub struct IMAGEHLP_LINEW {
     pub Address: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_LINEW64 {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -2884,7 +2859,7 @@ pub struct IMAGEHLP_LINEW64 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_MODULE {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u32,
@@ -2898,7 +2873,7 @@ pub struct IMAGEHLP_MODULE {
     pub LoadedImageName: [i8; 256],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_MODULE64 {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u64,
@@ -2927,14 +2902,14 @@ pub struct IMAGEHLP_MODULE64 {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_MODULE64_EX {
     pub Module: IMAGEHLP_MODULE64,
     pub RegionFlags: u32,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_MODULEW {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u32,
@@ -2948,7 +2923,7 @@ pub struct IMAGEHLP_MODULEW {
     pub LoadedImageName: [u16; 256],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_MODULEW64 {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u64,
@@ -2977,13 +2952,13 @@ pub struct IMAGEHLP_MODULEW64 {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_MODULEW64_EX {
     pub Module: IMAGEHLP_MODULEW64,
     pub RegionFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_STACK_FRAME {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
@@ -2998,7 +2973,7 @@ pub struct IMAGEHLP_STACK_FRAME {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_SYMBOL {
     pub SizeOfStruct: u32,
     pub Address: u32,
@@ -3008,7 +2983,7 @@ pub struct IMAGEHLP_SYMBOL {
     pub Name: [i8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_SYMBOL64 {
     pub SizeOfStruct: u32,
     pub Address: u64,
@@ -3018,14 +2993,14 @@ pub struct IMAGEHLP_SYMBOL64 {
     pub Name: [i8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_SYMBOL64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL64,
     pub name: [i8; 2001],
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_SYMBOLW {
     pub SizeOfStruct: u32,
     pub Address: u32,
@@ -3035,7 +3010,7 @@ pub struct IMAGEHLP_SYMBOLW {
     pub Name: [u16; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_SYMBOLW64 {
     pub SizeOfStruct: u32,
     pub Address: u64,
@@ -3045,51 +3020,51 @@ pub struct IMAGEHLP_SYMBOLW64 {
     pub Name: [u16; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_SYMBOLW64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOLW64,
     pub name: [u16; 2001],
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_SYMBOLW_PACKAGE {
     pub sym: IMAGEHLP_SYMBOLW,
     pub name: [u16; 2001],
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_SYMBOL_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL,
     pub name: [i8; 2001],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGEHLP_SYMBOL_SRC {
     pub sizeofstruct: u32,
     pub r#type: u32,
     pub file: [i8; 260],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindData: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_COFF_SYMBOLS_HEADER {
     pub NumberOfSymbols: u32,
     pub LvaToFirstSymbol: u32,
@@ -3101,7 +3076,7 @@ pub struct IMAGE_COFF_SYMBOLS_HEADER {
     pub RvaToLastByteOfData: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_COR20_HEADER {
     pub cb: u32,
     pub MajorRuntimeVersion: u16,
@@ -3117,19 +3092,19 @@ pub struct IMAGE_COR20_HEADER {
     pub ManagedNativeHeader: IMAGE_DATA_DIRECTORY,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union IMAGE_COR20_HEADER_0 {
     pub EntryPointToken: u32,
     pub EntryPointRVA: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_DATA_DIRECTORY {
     pub VirtualAddress: u32,
     pub Size: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_DEBUG_DIRECTORY {
     pub Characteristics: u32,
     pub TimeDateStamp: u32,
@@ -3143,7 +3118,7 @@ pub struct IMAGE_DEBUG_DIRECTORY {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_DEBUG_INFORMATION {
     pub List: super::super::Kernel::LIST_ENTRY,
     pub ReservedSize: u32,
@@ -3179,7 +3154,7 @@ pub struct IMAGE_DEBUG_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_FILE_HEADER {
     pub Machine: super::super::SystemInformation::IMAGE_FILE_MACHINE,
     pub NumberOfSections: u16,
@@ -3190,27 +3165,27 @@ pub struct IMAGE_FILE_HEADER {
     pub Characteristics: IMAGE_FILE_CHARACTERISTICS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_FUNCTION_ENTRY {
     pub StartingAddress: u32,
     pub EndingAddress: u32,
     pub EndOfPrologue: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_FUNCTION_ENTRY64 {
     pub StartingAddress: u64,
     pub EndingAddress: u64,
     pub Anonymous: IMAGE_FUNCTION_ENTRY64_0,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union IMAGE_FUNCTION_ENTRY64_0 {
     pub EndOfPrologue: u64,
     pub UnwindInfoAddress: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     pub Flags: u16,
     pub Catalog: u16,
@@ -3218,7 +3193,7 @@ pub struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
     pub Size: u32,
     pub TimeDateStamp: u32,
@@ -3271,7 +3246,7 @@ pub struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
     pub GuardMemcpyFunctionPointer: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
     pub Size: u32,
     pub TimeDateStamp: u32,
@@ -3325,7 +3300,7 @@ pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_NT_HEADERS32 {
     pub Signature: u32,
     pub FileHeader: IMAGE_FILE_HEADER,
@@ -3333,14 +3308,14 @@ pub struct IMAGE_NT_HEADERS32 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_NT_HEADERS64 {
     pub Signature: u32,
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_OPTIONAL_HEADER64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_OPTIONAL_HEADER32 {
     pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
     pub MajorLinkerVersion: u8,
@@ -3375,7 +3350,7 @@ pub struct IMAGE_OPTIONAL_HEADER32 {
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_OPTIONAL_HEADER64 {
     pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
     pub MajorLinkerVersion: u8,
@@ -3410,13 +3385,13 @@ pub struct IMAGE_OPTIONAL_HEADER64 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_ROM_HEADERS {
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_ROM_OPTIONAL_HEADER,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_ROM_OPTIONAL_HEADER {
     pub Magic: u16,
     pub MajorLinkerVersion: u8,
@@ -3433,20 +3408,20 @@ pub struct IMAGE_ROM_OPTIONAL_HEADER {
     pub GpValue: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub EndAddress: u32,
     pub Anonymous: IMAGE_RUNTIME_FUNCTION_ENTRY_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindInfoAddress: u32,
     pub UnwindData: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_SECTION_HEADER {
     pub Name: [u8; 8],
     pub Misc: IMAGE_SECTION_HEADER_0,
@@ -3460,13 +3435,13 @@ pub struct IMAGE_SECTION_HEADER {
     pub Characteristics: IMAGE_SECTION_CHARACTERISTICS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union IMAGE_SECTION_HEADER_0 {
     pub PhysicalAddress: u32,
     pub VirtualSize: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IPMI_OS_SEL_RECORD {
     pub Signature: u32,
     pub Version: u32,
@@ -3477,7 +3452,7 @@ pub struct IPMI_OS_SEL_RECORD {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct KDHELP {
     pub Thread: u32,
     pub ThCallbackStack: u32,
@@ -3493,7 +3468,7 @@ pub struct KDHELP {
     pub Reserved: [u32; 5],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct KDHELP64 {
     pub Thread: u64,
     pub ThCallbackStack: u32,
@@ -3515,7 +3490,7 @@ pub struct KDHELP64 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub X19: *mut u64,
     pub X20: *mut u64,
@@ -3540,21 +3515,21 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Anonymous1: KNONVOLATILE_CONTEXT_POINTERS_0,
     pub Anonymous2: KNONVOLATILE_CONTEXT_POINTERS_1,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union KNONVOLATILE_CONTEXT_POINTERS_0 {
     pub FloatingContext: [*mut M128A; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_0_0,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm0: *mut M128A,
     pub Xmm1: *mut M128A,
@@ -3575,14 +3550,14 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union KNONVOLATILE_CONTEXT_POINTERS_1 {
     pub IntegerContext: [*mut u64; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_1_0,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub Rax: *mut u64,
     pub Rcx: *mut u64,
@@ -3603,30 +3578,30 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Dummy: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LDT_ENTRY {
     pub LimitLow: u16,
     pub BaseLow: u16,
     pub HighWord: LDT_ENTRY_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union LDT_ENTRY_0 {
     pub Bytes: LDT_ENTRY_0_0,
     pub Bits: LDT_ENTRY_0_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LDT_ENTRY_0_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
@@ -3636,7 +3611,7 @@ pub struct LDT_ENTRY_0_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LOADED_IMAGE {
     pub ModuleName: windows_sys::core::PSTR,
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -3656,7 +3631,7 @@ pub struct LOADED_IMAGE {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LOADED_IMAGE {
     pub ModuleName: windows_sys::core::PSTR,
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -3674,7 +3649,7 @@ pub struct LOADED_IMAGE {
     pub SizeOfImage: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LOAD_DLL_DEBUG_INFO {
     pub hFile: super::super::super::Foundation::HANDLE,
     pub lpBaseOfDll: *mut core::ffi::c_void,
@@ -3684,30 +3659,30 @@ pub struct LOAD_DLL_DEBUG_INFO {
     pub fUnicode: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct M128A {
     pub Low: u64,
     pub High: i64,
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
-#[derive(Clone, Copy)]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
-#[derive(Clone, Copy)]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut core::ffi::c_void,
 }
 #[repr(C, packed(4))]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_CALLBACK_INPUT {
     pub ProcessId: u32,
     pub ProcessHandle: super::super::super::Foundation::HANDLE,
@@ -3715,8 +3690,8 @@ pub struct MINIDUMP_CALLBACK_INPUT {
     pub Anonymous: MINIDUMP_CALLBACK_INPUT_0,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Copy, Clone)]
 pub union MINIDUMP_CALLBACK_INPUT_0 {
     pub Status: windows_sys::core::HRESULT,
     pub Thread: MINIDUMP_THREAD_CALLBACK,
@@ -3733,13 +3708,13 @@ pub union MINIDUMP_CALLBACK_INPUT_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_CALLBACK_OUTPUT {
     pub Anonymous: MINIDUMP_CALLBACK_OUTPUT_0,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union MINIDUMP_CALLBACK_OUTPUT_0 {
     pub ModuleWriteFlags: u32,
     pub ThreadWriteFlags: u32,
@@ -3754,47 +3729,47 @@ pub union MINIDUMP_CALLBACK_OUTPUT_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
     pub MemoryBase: u64,
     pub MemorySize: u32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_1 {
     pub CheckCancel: super::super::super::Foundation::BOOL,
     pub Cancel: super::super::super::Foundation::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_2 {
     pub VmRegion: MINIDUMP_MEMORY_INFO,
     pub Continue: super::super::super::Foundation::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_3 {
     pub VmQueryStatus: windows_sys::core::HRESULT,
     pub VmQueryResult: MINIDUMP_MEMORY_INFO,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
     pub VmReadStatus: windows_sys::core::HRESULT,
     pub VmReadBytesCompleted: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_DIRECTORY {
     pub StreamType: u32,
     pub Location: MINIDUMP_LOCATION_DESCRIPTOR,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_EXCEPTION {
     pub ExceptionCode: u32,
     pub ExceptionFlags: u32,
@@ -3806,8 +3781,7 @@ pub struct MINIDUMP_EXCEPTION {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
     pub ThreadId: u32,
     pub ExceptionPointers: *mut EXCEPTION_POINTERS,
@@ -3815,15 +3789,14 @@ pub struct MINIDUMP_EXCEPTION_INFORMATION {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
     pub ThreadId: u32,
     pub ExceptionPointers: *mut EXCEPTION_POINTERS,
     pub ClientPointers: super::super::super::Foundation::BOOL,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION64 {
     pub ThreadId: u32,
     pub ExceptionRecord: u64,
@@ -3831,7 +3804,7 @@ pub struct MINIDUMP_EXCEPTION_INFORMATION64 {
     pub ClientPointers: super::super::super::Foundation::BOOL,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_EXCEPTION_STREAM {
     pub ThreadId: u32,
     pub __alignment: u32,
@@ -3839,7 +3812,7 @@ pub struct MINIDUMP_EXCEPTION_STREAM {
     pub ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     pub MinimumAddress: u64,
     pub MaximumAddress: u64,
@@ -3848,7 +3821,7 @@ pub struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     pub SizeOfAlignPad: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
     pub SizeOfHeader: u32,
     pub SizeOfDescriptor: u32,
@@ -3858,7 +3831,7 @@ pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
     pub SizeOfAlignPad: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_HANDLE_DATA_STREAM {
     pub SizeOfHeader: u32,
     pub SizeOfDescriptor: u32,
@@ -3866,7 +3839,7 @@ pub struct MINIDUMP_HANDLE_DATA_STREAM {
     pub Reserved: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR {
     pub Handle: u64,
     pub TypeNameRva: u32,
@@ -3877,7 +3850,7 @@ pub struct MINIDUMP_HANDLE_DESCRIPTOR {
     pub PointerCount: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR_2 {
     pub Handle: u64,
     pub TypeNameRva: u32,
@@ -3890,14 +3863,14 @@ pub struct MINIDUMP_HANDLE_DESCRIPTOR_2 {
     pub Reserved0: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION {
     pub NextInfoRva: u32,
     pub InfoType: u32,
     pub SizeOfInfo: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_HANDLE_OPERATION_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
@@ -3905,7 +3878,7 @@ pub struct MINIDUMP_HANDLE_OPERATION_LIST {
     pub Reserved: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_HEADER {
     pub Signature: u32,
     pub Version: u32,
@@ -3916,23 +3889,23 @@ pub struct MINIDUMP_HEADER {
     pub Flags: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union MINIDUMP_HEADER_0 {
     pub Reserved: u32,
     pub TimeDateStamp: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_INCLUDE_MODULE_CALLBACK {
     pub BaseOfImage: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
     pub ThreadId: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_IO_CALLBACK {
     pub Handle: super::super::super::Foundation::HANDLE,
     pub Offset: u64,
@@ -3940,39 +3913,39 @@ pub struct MINIDUMP_IO_CALLBACK {
     pub BufferBytes: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR {
     pub DataSize: u32,
     pub Rva: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR64 {
     pub DataSize: u64,
     pub Rva: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MEMORY64_LIST {
     pub NumberOfMemoryRanges: u64,
     pub BaseRva: u64,
     pub MemoryRanges: [MINIDUMP_MEMORY_DESCRIPTOR64; 1],
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR {
     pub StartOfMemoryRange: u64,
     pub Memory: MINIDUMP_LOCATION_DESCRIPTOR,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR64 {
     pub StartOfMemoryRange: u64,
     pub DataSize: u64,
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MEMORY_INFO {
     pub BaseAddress: u64,
     pub AllocationBase: u64,
@@ -3985,20 +3958,20 @@ pub struct MINIDUMP_MEMORY_INFO {
     pub __alignment2: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MEMORY_INFO_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
     pub NumberOfEntries: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MEMORY_LIST {
     pub NumberOfMemoryRanges: u32,
     pub MemoryRanges: [MINIDUMP_MEMORY_DESCRIPTOR; 1],
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MISC_INFO {
     pub SizeOfInfo: u32,
     pub Flags1: MINIDUMP_MISC_INFO_FLAGS,
@@ -4008,7 +3981,7 @@ pub struct MINIDUMP_MISC_INFO {
     pub ProcessKernelTime: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MISC_INFO_2 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -4024,7 +3997,7 @@ pub struct MINIDUMP_MISC_INFO_2 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MISC_INFO_3 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -4045,7 +4018,7 @@ pub struct MINIDUMP_MISC_INFO_3 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MISC_INFO_4 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -4068,7 +4041,7 @@ pub struct MINIDUMP_MISC_INFO_4 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MISC_INFO_5 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -4093,7 +4066,7 @@ pub struct MINIDUMP_MISC_INFO_5 {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MODULE {
     pub BaseOfImage: u64,
     pub SizeOfImage: u32,
@@ -4108,7 +4081,7 @@ pub struct MINIDUMP_MODULE {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MODULE_CALLBACK {
     pub FullPath: windows_sys::core::PWSTR,
     pub BaseOfImage: u64,
@@ -4123,13 +4096,13 @@ pub struct MINIDUMP_MODULE_CALLBACK {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MODULE_LIST {
     pub NumberOfModules: u32,
     pub Modules: [MINIDUMP_MODULE; 1],
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_1 {
     pub Revision: u16,
     pub PageFaultCount: u32,
@@ -4144,7 +4117,7 @@ pub struct MINIDUMP_PROCESS_VM_COUNTERS_1 {
     pub PrivateUsage: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_2 {
     pub Revision: u16,
     pub Flags: u16,
@@ -4169,20 +4142,20 @@ pub struct MINIDUMP_PROCESS_VM_COUNTERS_2 {
     pub JobTotalCommitLimit: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
     pub Offset: u64,
     pub Bytes: u32,
     pub FailureStatus: windows_sys::core::HRESULT,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_STRING {
     pub Length: u32,
     pub Buffer: [u16; 1],
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
     pub TimerResolution: u32,
     pub PageSize: u32,
@@ -4196,7 +4169,7 @@ pub struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
     pub NumberOfProcessors: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
     pub AvailablePages: u64,
     pub CommittedPages: u64,
@@ -4204,7 +4177,7 @@ pub struct MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
     pub PeakCommitment: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     pub CurrentSize: u64,
     pub PeakSize: u64,
@@ -4218,7 +4191,7 @@ pub struct MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_SYSTEM_INFO {
     pub ProcessorArchitecture: super::super::SystemInformation::PROCESSOR_ARCHITECTURE,
     pub ProcessorLevel: u16,
@@ -4234,34 +4207,34 @@ pub struct MINIDUMP_SYSTEM_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union MINIDUMP_SYSTEM_INFO_0 {
     pub Reserved0: u16,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_0_0,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_SYSTEM_INFO_0_0 {
     pub NumberOfProcessors: u8,
     pub ProductType: u8,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union MINIDUMP_SYSTEM_INFO_1 {
     pub Reserved1: u32,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_1_0,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_SYSTEM_INFO_1_0 {
     pub SuiteMask: u16,
     pub Reserved2: u16,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     pub Revision: u16,
     pub Flags: u16,
@@ -4271,7 +4244,7 @@ pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     pub PerfInfo: MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
     pub IdleProcessTime: u64,
     pub IoReadTransferCount: u64,
@@ -4353,7 +4326,7 @@ pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
     pub SharedCommittedPages: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD {
     pub ThreadId: u32,
     pub SuspendCount: u32,
@@ -4365,8 +4338,7 @@ pub struct MINIDUMP_THREAD {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: u32,
     pub ThreadHandle: super::super::super::Foundation::HANDLE,
@@ -4378,8 +4350,7 @@ pub struct MINIDUMP_THREAD_CALLBACK {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: u32,
     pub ThreadHandle: super::super::super::Foundation::HANDLE,
@@ -4389,7 +4360,7 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackEnd: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_EX {
     pub ThreadId: u32,
     pub SuspendCount: u32,
@@ -4402,8 +4373,7 @@ pub struct MINIDUMP_THREAD_EX {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: u32,
     pub ThreadHandle: super::super::super::Foundation::HANDLE,
@@ -4417,8 +4387,7 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: u32,
     pub ThreadHandle: super::super::super::Foundation::HANDLE,
@@ -4430,13 +4399,13 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreEnd: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_EX_LIST {
     pub NumberOfThreads: u32,
     pub Threads: [MINIDUMP_THREAD_EX; 1],
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_INFO {
     pub ThreadId: u32,
     pub DumpFlags: MINIDUMP_THREAD_INFO_DUMP_FLAGS,
@@ -4450,39 +4419,39 @@ pub struct MINIDUMP_THREAD_INFO {
     pub Affinity: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_INFO_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
     pub NumberOfEntries: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_LIST {
     pub NumberOfThreads: u32,
     pub Threads: [MINIDUMP_THREAD; 1],
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_NAME {
     pub ThreadId: u32,
     pub RvaOfThreadName: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_NAME_LIST {
     pub NumberOfThreadNames: u32,
     pub ThreadNames: [MINIDUMP_THREAD_NAME; 1],
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_TOKEN_INFO_HEADER {
     pub TokenSize: u32,
     pub TokenId: u32,
     pub TokenHandle: u64,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_TOKEN_INFO_LIST {
     pub TokenListSize: u32,
     pub TokenListEntries: u32,
@@ -4490,7 +4459,7 @@ pub struct MINIDUMP_TOKEN_INFO_LIST {
     pub ElementHeaderSize: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_UNLOADED_MODULE {
     pub BaseOfImage: u64,
     pub SizeOfImage: u32,
@@ -4499,21 +4468,21 @@ pub struct MINIDUMP_UNLOADED_MODULE {
     pub ModuleNameRva: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_UNLOADED_MODULE_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
     pub NumberOfEntries: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_USER_RECORD {
     pub Type: u32,
     pub Memory: MINIDUMP_LOCATION_DESCRIPTOR,
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_USER_STREAM {
     pub Type: u32,
     pub BufferSize: u32,
@@ -4521,7 +4490,7 @@ pub struct MINIDUMP_USER_STREAM {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_USER_STREAM {
     pub Type: u32,
     pub BufferSize: u32,
@@ -4529,20 +4498,20 @@ pub struct MINIDUMP_USER_STREAM {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_USER_STREAM_INFORMATION {
     pub UserStreamCount: u32,
     pub UserStreamArray: *mut MINIDUMP_USER_STREAM,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_USER_STREAM_INFORMATION {
     pub UserStreamCount: u32,
     pub UserStreamArray: *mut MINIDUMP_USER_STREAM,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_VM_POST_READ_CALLBACK {
     pub Offset: u64,
     pub Buffer: *mut core::ffi::c_void,
@@ -4551,19 +4520,19 @@ pub struct MINIDUMP_VM_POST_READ_CALLBACK {
     pub Status: windows_sys::core::HRESULT,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_VM_PRE_READ_CALLBACK {
     pub Offset: u64,
     pub Buffer: *mut core::ffi::c_void,
     pub Size: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_VM_QUERY_CALLBACK {
     pub Offset: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MODLOAD_CVMISC {
     pub oCV: u32,
     pub cCV: usize,
@@ -4573,7 +4542,7 @@ pub struct MODLOAD_CVMISC {
     pub cImage: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MODLOAD_DATA {
     pub ssize: u32,
     pub ssig: MODLOAD_DATA_TYPE,
@@ -4582,77 +4551,77 @@ pub struct MODLOAD_DATA {
     pub flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MODLOAD_PDBGUID_PDBAGE {
     pub PdbGuid: windows_sys::core::GUID,
     pub PdbAge: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MODULE_TYPE_INFO {
     pub dataLength: u16,
     pub leaf: u16,
     pub data: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OMAP {
     pub rva: u32,
     pub rvaTo: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OUTPUT_DEBUG_STRING_INFO {
     pub lpDebugStringData: windows_sys::core::PSTR,
     pub fUnicode: u16,
     pub nDebugStringLength: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PHYSICAL_MEMORY_DESCRIPTOR32 {
     pub NumberOfRuns: u32,
     pub NumberOfPages: u32,
     pub Run: [PHYSICAL_MEMORY_RUN32; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PHYSICAL_MEMORY_DESCRIPTOR64 {
     pub NumberOfRuns: u32,
     pub NumberOfPages: u64,
     pub Run: [PHYSICAL_MEMORY_RUN64; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PHYSICAL_MEMORY_RUN32 {
     pub BasePage: u32,
     pub PageCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PHYSICAL_MEMORY_RUN64 {
     pub BasePage: u64,
     pub PageCount: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RIP_INFO {
     pub dwError: u32,
     pub dwType: RIP_INFO_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SOURCEFILE {
     pub ModBase: u64,
     pub FileName: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SOURCEFILEW {
     pub ModBase: u64,
     pub FileName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SRCCODEINFO {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -4663,7 +4632,7 @@ pub struct SRCCODEINFO {
     pub Address: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SRCCODEINFOW {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -4675,7 +4644,7 @@ pub struct SRCCODEINFOW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct STACKFRAME {
     pub AddrPC: ADDRESS,
     pub AddrReturn: ADDRESS,
@@ -4690,7 +4659,7 @@ pub struct STACKFRAME {
     pub AddrBStore: ADDRESS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct STACKFRAME64 {
     pub AddrPC: ADDRESS64,
     pub AddrReturn: ADDRESS64,
@@ -4705,7 +4674,7 @@ pub struct STACKFRAME64 {
     pub KdHelp: KDHELP64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct STACKFRAME_EX {
     pub AddrPC: ADDRESS64,
     pub AddrReturn: ADDRESS64,
@@ -4722,7 +4691,7 @@ pub struct STACKFRAME_EX {
     pub InlineFrameContext: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SYMBOL_INFO {
     pub SizeOfStruct: u32,
     pub TypeIndex: u32,
@@ -4741,7 +4710,7 @@ pub struct SYMBOL_INFO {
     pub Name: [i8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SYMBOL_INFOW {
     pub SizeOfStruct: u32,
     pub TypeIndex: u32,
@@ -4760,26 +4729,26 @@ pub struct SYMBOL_INFOW {
     pub Name: [u16; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SYMBOL_INFO_PACKAGE {
     pub si: SYMBOL_INFO,
     pub name: [i8; 2001],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SYMBOL_INFO_PACKAGEW {
     pub si: SYMBOL_INFOW,
     pub name: [u16; 2001],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SYMSRV_EXTENDED_OUTPUT_DATA {
     pub sizeOfStruct: u32,
     pub version: u32,
     pub filePtrMsg: [u16; 261],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SYMSRV_INDEX_INFO {
     pub sizeofstruct: u32,
     pub file: [i8; 261],
@@ -4793,7 +4762,7 @@ pub struct SYMSRV_INDEX_INFO {
     pub age: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SYMSRV_INDEX_INFOW {
     pub sizeofstruct: u32,
     pub file: [u16; 261],
@@ -4807,20 +4776,20 @@ pub struct SYMSRV_INDEX_INFOW {
     pub age: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TI_FINDCHILDREN_PARAMS {
     pub Count: u32,
     pub Start: u32,
     pub ChildId: [u32; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UNLOAD_DLL_DEBUG_INFO {
     pub lpBaseOfDll: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UNWIND_HISTORY_TABLE {
     pub Count: u32,
     pub LocalHint: u8,
@@ -4833,40 +4802,40 @@ pub struct UNWIND_HISTORY_TABLE {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub ImageBase: usize,
     pub FunctionEntry: *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub ImageBase: usize,
     pub FunctionEntry: *mut IMAGE_RUNTIME_FUNCTION_ENTRY,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WAITCHAIN_NODE_INFO {
     pub ObjectType: WCT_OBJECT_TYPE,
     pub ObjectStatus: WCT_OBJECT_STATUS,
     pub Anonymous: WAITCHAIN_NODE_INFO_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WAITCHAIN_NODE_INFO_0 {
     pub LockObject: WAITCHAIN_NODE_INFO_0_0,
     pub ThreadObject: WAITCHAIN_NODE_INFO_0_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WAITCHAIN_NODE_INFO_0_0 {
     pub ObjectName: [u16; 128],
     pub Timeout: i64,
     pub Alertable: super::super::super::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WAITCHAIN_NODE_INFO_0_1 {
     pub ProcessId: u32,
     pub ThreadId: u32,
@@ -4874,7 +4843,7 @@ pub struct WAITCHAIN_NODE_INFO_0_1 {
     pub ContextSwitches: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_AER_BRIDGE_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -4892,7 +4861,7 @@ pub struct WHEA_AER_BRIDGE_DESCRIPTOR {
     pub SecondaryCapsAndControl: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_AER_ENDPOINT_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -4907,7 +4876,7 @@ pub struct WHEA_AER_ENDPOINT_DESCRIPTOR {
     pub AdvancedCapsAndControl: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_AER_ROOTPORT_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -4923,7 +4892,7 @@ pub struct WHEA_AER_ROOTPORT_DESCRIPTOR {
     pub RootErrorCommand: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_DEVICE_DRIVER_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -4943,7 +4912,7 @@ pub struct WHEA_DEVICE_DRIVER_DESCRIPTOR {
     pub OpenHandles: i32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_DRIVER_BUFFER_SET {
     pub Version: u32,
     pub Data: *mut u8,
@@ -4953,14 +4922,14 @@ pub struct WHEA_DRIVER_BUFFER_SET {
     pub Flags: *mut u8,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DD {
     pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
     pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
     pub Correct: WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
     pub Version: u32,
     pub SourceGuid: windows_sys::core::GUID,
@@ -4974,7 +4943,7 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
     pub PartitionId: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     pub Version: u32,
     pub SourceGuid: windows_sys::core::GUID,
@@ -4984,7 +4953,7 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_ERROR_SOURCE_DESCRIPTOR {
     pub Length: u32,
     pub Version: u32,
@@ -4999,7 +4968,7 @@ pub struct WHEA_ERROR_SOURCE_DESCRIPTOR {
     pub Info: WHEA_ERROR_SOURCE_DESCRIPTOR_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
     pub XpfMceDescriptor: WHEA_XPF_MCE_DESCRIPTOR,
     pub XpfCmcDescriptor: WHEA_XPF_CMC_DESCRIPTOR,
@@ -5015,7 +4984,7 @@ pub union WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
     pub DeviceDriverDescriptor: WHEA_DEVICE_DRIVER_DESCRIPTOR,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_GENERIC_ERROR_DESCRIPTOR {
     pub Type: u16,
     pub Reserved: u8,
@@ -5030,7 +4999,7 @@ pub struct WHEA_GENERIC_ERROR_DESCRIPTOR {
     pub Notify: WHEA_NOTIFICATION_DESCRIPTOR,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
     pub Type: u16,
     pub Reserved: u8,
@@ -5052,28 +5021,28 @@ pub struct WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
     pub ReadAckWriteMask: u64,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_IPF_CMC_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
     pub Reserved: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_IPF_CPE_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
     pub Reserved: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_IPF_MCA_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
     pub Reserved: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR {
     pub Type: u8,
     pub Length: u8,
@@ -5081,7 +5050,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR {
     pub u: WHEA_NOTIFICATION_DESCRIPTOR_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WHEA_NOTIFICATION_DESCRIPTOR_0 {
     pub Polled: WHEA_NOTIFICATION_DESCRIPTOR_0_0,
     pub Interrupt: WHEA_NOTIFICATION_DESCRIPTOR_0_1,
@@ -5093,7 +5062,7 @@ pub union WHEA_NOTIFICATION_DESCRIPTOR_0 {
     pub Gsiv: WHEA_NOTIFICATION_DESCRIPTOR_0_7,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -5103,7 +5072,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     pub ErrorThresholdWindow: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -5113,7 +5082,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
     pub ErrorThresholdWindow: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -5123,7 +5092,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
     pub ErrorThresholdWindow: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -5133,12 +5102,12 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     pub ErrorThresholdWindow: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
     pub PollInterval: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -5148,7 +5117,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     pub ErrorThresholdWindow: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -5158,7 +5127,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
     pub ErrorThresholdWindow: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -5168,34 +5137,34 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
     pub ErrorThresholdWindow: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WHEA_NOTIFICATION_FLAGS {
     pub Anonymous: WHEA_NOTIFICATION_FLAGS_0,
     pub AsUSHORT: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_FLAGS_0 {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_PCI_SLOT_NUMBER {
     pub u: WHEA_PCI_SLOT_NUMBER_0,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WHEA_PCI_SLOT_NUMBER_0 {
     pub bits: WHEA_PCI_SLOT_NUMBER_0_0,
     pub AsULONG: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_PCI_SLOT_NUMBER_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_XPF_CMC_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -5205,7 +5174,7 @@ pub struct WHEA_XPF_CMC_DESCRIPTOR {
     pub Banks: [WHEA_XPF_MC_BANK_DESCRIPTOR; 32],
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_XPF_MCE_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
@@ -5216,7 +5185,7 @@ pub struct WHEA_XPF_MCE_DESCRIPTOR {
     pub Banks: [WHEA_XPF_MC_BANK_DESCRIPTOR; 32],
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_XPF_MC_BANK_DESCRIPTOR {
     pub BankNumber: u8,
     pub ClearOnInitialization: super::super::super::Foundation::BOOLEAN,
@@ -5229,13 +5198,13 @@ pub struct WHEA_XPF_MC_BANK_DESCRIPTOR {
     pub ControlData: u64,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_XPF_NMI_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WOW64_CONTEXT {
     pub ContextFlags: WOW64_CONTEXT_FLAGS,
     pub Dr0: u32,
@@ -5264,13 +5233,13 @@ pub struct WOW64_CONTEXT {
     pub ExtendedRegisters: [u8; 512],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WOW64_DESCRIPTOR_TABLE_ENTRY {
     pub Selector: u32,
     pub Descriptor: WOW64_LDT_ENTRY,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WOW64_FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -5283,25 +5252,25 @@ pub struct WOW64_FLOATING_SAVE_AREA {
     pub Cr0NpxState: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WOW64_LDT_ENTRY {
     pub LimitLow: u16,
     pub BaseLow: u16,
     pub HighWord: WOW64_LDT_ENTRY_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WOW64_LDT_ENTRY_0 {
     pub Bytes: WOW64_LDT_ENTRY_0_0,
     pub Bits: WOW64_LDT_ENTRY_0_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WOW64_LDT_ENTRY_0_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WOW64_LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
@@ -5309,35 +5278,35 @@ pub struct WOW64_LDT_ENTRY_0_0 {
     pub BaseHi: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union XPF_MCE_FLAGS {
     pub Anonymous: XPF_MCE_FLAGS_0,
     pub AsULONG: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XPF_MCE_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union XPF_MC_BANK_FLAGS {
     pub Anonymous: XPF_MC_BANK_FLAGS_0,
     pub AsUCHAR: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XPF_MC_BANK_FLAGS_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XSAVE_AREA {
     pub LegacyState: XSAVE_FORMAT,
     pub Header: XSAVE_AREA_HEADER,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XSAVE_AREA_HEADER {
     pub Mask: u64,
     pub CompactionMask: u64,
@@ -5345,7 +5314,7 @@ pub struct XSAVE_AREA_HEADER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
     pub StatusWord: u16,
@@ -5366,7 +5335,7 @@ pub struct XSAVE_FORMAT {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
     pub StatusWord: u16,
@@ -5386,7 +5355,7 @@ pub struct XSAVE_FORMAT {
     pub Reserved4: [u8; 224],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XSTATE_CONFIGURATION {
     pub EnabledFeatures: u64,
     pub EnabledVolatileFeatures: u64,
@@ -5403,18 +5372,18 @@ pub struct XSTATE_CONFIGURATION {
     pub Spare: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union XSTATE_CONFIGURATION_0 {
     pub ControlFlags: u32,
     pub Anonymous: XSTATE_CONFIGURATION_0_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XSTATE_CONFIGURATION_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XSTATE_CONFIG_FEATURE_MSC_INFO {
     pub SizeOfInfo: u32,
     pub ContextSize: u32,
@@ -5423,7 +5392,7 @@ pub struct XSTATE_CONFIG_FEATURE_MSC_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
     pub Length: u32,
@@ -5433,7 +5402,7 @@ pub struct XSTATE_CONTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
     pub Length: u32,
@@ -5444,16 +5413,15 @@ pub struct XSTATE_CONTEXT {
     pub Reserved3: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XSTATE_FEATURE {
     pub Offset: u32,
     pub Size: u32,
 }
 pub type DIGEST_FUNCTION = Option<unsafe extern "system" fn(refdata: *mut core::ffi::c_void, pdata: *mut u8, dwlength: u32) -> super::super::super::Foundation::BOOL>;
 pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = Option<unsafe extern "system" fn() -> u32>;
-#[cfg(feature = "Win32_System_Kernel")]
 pub type LPTOP_LEVEL_EXCEPTION_FILTER = Option<unsafe extern "system" fn(exceptioninfo: *const EXCEPTION_POINTERS) -> i32>;
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
 pub type MINIDUMP_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(callbackparam: *mut core::ffi::c_void, callbackinput: *const MINIDUMP_CALLBACK_INPUT, callbackoutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> super::super::super::Foundation::BOOL>;
 pub type PCOGETACTIVATIONSTATE = Option<unsafe extern "system" fn(param0: windows_sys::core::GUID, param1: u32, param2: *mut u32) -> windows_sys::core::HRESULT>;
 pub type PCOGETCALLSTATE = Option<unsafe extern "system" fn(param0: i32, param1: *mut u32) -> windows_sys::core::HRESULT>;
@@ -5547,7 +5515,6 @@ pub type PSYM_ENUMSYMBOLS_CALLBACKW = Option<unsafe extern "system" fn(symbolnam
 #[cfg(target_arch = "x86")]
 pub type PTRANSLATE_ADDRESS_ROUTINE = Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *mut ADDRESS) -> u32>;
 pub type PTRANSLATE_ADDRESS_ROUTINE64 = Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *const ADDRESS64) -> u64>;
-#[cfg(feature = "Win32_System_Kernel")]
 pub type PVECTORED_EXCEPTION_HANDLER = Option<unsafe extern "system" fn(exceptioninfo: *mut EXCEPTION_POINTERS) -> i32>;
 pub type PWAITCHAINCALLBACK = Option<unsafe extern "system" fn(wcthandle: *mut core::ffi::c_void, context: usize, callbackstatus: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut super::super::super::Foundation::BOOL)>;
 pub type SYMADDSOURCESTREAM = Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: windows_sys::core::PCSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL>;

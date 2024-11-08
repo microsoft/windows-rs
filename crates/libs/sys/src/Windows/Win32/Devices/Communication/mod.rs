@@ -202,7 +202,7 @@ pub type MODEM_SPEAKER_VOLUME = u32;
 pub type MODEM_STATUS_FLAGS = u32;
 pub type PURGE_COMM_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct COMMCONFIG {
     pub dwSize: u32,
     pub wVersion: u16,
@@ -214,7 +214,7 @@ pub struct COMMCONFIG {
     pub wcProviderData: [u16; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct COMMPROP {
     pub wPacketLength: u16,
     pub wPacketVersion: u16,
@@ -236,7 +236,7 @@ pub struct COMMPROP {
     pub wcProvChar: [u16; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct COMMTIMEOUTS {
     pub ReadIntervalTimeout: u32,
     pub ReadTotalTimeoutMultiplier: u32,
@@ -245,14 +245,14 @@ pub struct COMMTIMEOUTS {
     pub WriteTotalTimeoutConstant: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct COMSTAT {
     pub _bitfield: u32,
     pub cbInQue: u32,
     pub cbOutQue: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DCB {
     pub DCBlength: u32,
     pub BaudRate: u32,
@@ -271,7 +271,7 @@ pub struct DCB {
     pub wReserved1: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MODEMDEVCAPS {
     pub dwActualSize: u32,
     pub dwRequiredSize: u32,
@@ -295,7 +295,7 @@ pub struct MODEMDEVCAPS {
     pub abVariablePortion: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MODEMSETTINGS {
     pub dwActualSize: u32,
     pub dwRequiredSize: u32,

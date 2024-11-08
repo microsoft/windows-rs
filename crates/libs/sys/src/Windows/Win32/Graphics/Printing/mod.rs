@@ -1844,19 +1844,19 @@ pub type XPSRAS_BACKGROUND_COLOR = i32;
 pub type XPSRAS_PIXEL_FORMAT = i32;
 pub type XPSRAS_RENDERING_MODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ADDJOB_INFO_1A {
     pub Path: windows_sys::core::PSTR,
     pub JobId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ADDJOB_INFO_1W {
     pub Path: windows_sys::core::PWSTR,
     pub JobId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ATTRIBUTE_INFO_1 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -1867,7 +1867,7 @@ pub struct ATTRIBUTE_INFO_1 {
     pub dwDrvNumberOfCopies: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ATTRIBUTE_INFO_2 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -1879,7 +1879,7 @@ pub struct ATTRIBUTE_INFO_2 {
     pub dwColorOptimization: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ATTRIBUTE_INFO_3 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -1893,7 +1893,7 @@ pub struct ATTRIBUTE_INFO_3 {
     pub dmYResolution: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ATTRIBUTE_INFO_4 {
     pub dwJobNumberOfPagesPerSide: u32,
     pub dwDrvNumberOfPagesPerSide: u32,
@@ -1912,13 +1912,13 @@ pub struct ATTRIBUTE_INFO_4 {
     pub dwScalingPercentY: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BIDI_DATA {
     pub dwBidiType: u32,
     pub u: BIDI_DATA_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union BIDI_DATA_0 {
     pub bData: super::super::Foundation::BOOL,
     pub iData: i32,
@@ -1927,7 +1927,7 @@ pub union BIDI_DATA_0 {
     pub biData: BINARY_CONTAINER,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BIDI_REQUEST_CONTAINER {
     pub Version: u32,
     pub Flags: u32,
@@ -1935,14 +1935,14 @@ pub struct BIDI_REQUEST_CONTAINER {
     pub aData: [BIDI_REQUEST_DATA; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BIDI_REQUEST_DATA {
     pub dwReqNumber: u32,
     pub pSchema: windows_sys::core::PWSTR,
     pub data: BIDI_DATA,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BIDI_RESPONSE_CONTAINER {
     pub Version: u32,
     pub Flags: u32,
@@ -1950,7 +1950,7 @@ pub struct BIDI_RESPONSE_CONTAINER {
     pub aData: [BIDI_RESPONSE_DATA; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BIDI_RESPONSE_DATA {
     pub dwResult: u32,
     pub dwReqNumber: u32,
@@ -1958,7 +1958,7 @@ pub struct BIDI_RESPONSE_DATA {
     pub data: BIDI_DATA,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BINARY_CONTAINER {
     pub cbBuf: u32,
     pub pData: *mut u8,
@@ -1967,14 +1967,14 @@ pub const BidiRequest: windows_sys::core::GUID = windows_sys::core::GUID::from_u
 pub const BidiRequestContainer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc5b8a24_db05_4a01_8388_22edf6c2bbba);
 pub const BidiSpl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2a614240_a4c5_4c33_bd87_1bc709331639);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BranchOfficeJobData {
     pub eEventType: EBranchOfficeJobEventType,
     pub JobId: u32,
     pub JobInfo: BranchOfficeJobData_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union BranchOfficeJobData_0 {
     pub LogJobPrinted: BranchOfficeJobDataPrinted,
     pub LogJobRendered: BranchOfficeJobDataRendered,
@@ -1983,13 +1983,13 @@ pub union BranchOfficeJobData_0 {
     pub LogOfflineFileFull: BranchOfficeLogOfflineFileFull,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BranchOfficeJobDataContainer {
     pub cJobDataEntries: u32,
     pub JobData: [BranchOfficeJobData; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BranchOfficeJobDataError {
     pub LastError: u32,
     pub pDocumentName: windows_sys::core::PWSTR,
@@ -2005,14 +2005,14 @@ pub struct BranchOfficeJobDataError {
     pub pErrorDescription: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BranchOfficeJobDataPipelineFailed {
     pub pDocumentName: windows_sys::core::PWSTR,
     pub pPrinterName: windows_sys::core::PWSTR,
     pub pExtraErrorInfo: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BranchOfficeJobDataPrinted {
     pub Status: u32,
     pub pDocumentName: windows_sys::core::PWSTR,
@@ -2024,7 +2024,7 @@ pub struct BranchOfficeJobDataPrinted {
     pub TotalPages: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BranchOfficeJobDataRendered {
     pub Size: i64,
     pub ICMMethod: u32,
@@ -2035,13 +2035,13 @@ pub struct BranchOfficeJobDataRendered {
     pub TTOption: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct BranchOfficeLogOfflineFileFull {
     pub pMachineName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct COMPROPSHEETUI {
     pub cbSize: u16,
     pub Flags: u16,
@@ -2061,13 +2061,13 @@ pub struct COMPROPSHEETUI {
     pub dwReserved: [usize; 4],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CONFIG_INFO_DATA_1 {
     pub Reserved: [u8; 128],
     pub dwVersion: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CORE_PRINTER_DRIVERA {
     pub CoreDriverGUID: windows_sys::core::GUID,
     pub ftDriverDate: super::super::Foundation::FILETIME,
@@ -2075,7 +2075,7 @@ pub struct CORE_PRINTER_DRIVERA {
     pub szPackageID: [i8; 260],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CORE_PRINTER_DRIVERW {
     pub CoreDriverGUID: windows_sys::core::GUID,
     pub ftDriverDate: super::super::Foundation::FILETIME,
@@ -2084,7 +2084,7 @@ pub struct CORE_PRINTER_DRIVERW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CPSUICBPARAM {
     pub cbSize: u16,
     pub Reason: u16,
@@ -2099,36 +2099,36 @@ pub struct CPSUICBPARAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CPSUICBPARAM_0 {
     pub OldSel: i32,
     pub pOldSel: *mut i8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CPSUIDATABLOCK {
     pub cbData: u32,
     pub pbData: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CUSTOMSIZEPARAM {
     pub dwOrder: i32,
     pub lMinVal: i32,
     pub lMaxVal: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DATATYPES_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DATATYPES_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DATA_HEADER {
     pub dwSignature: u32,
     pub wSize: u16,
@@ -2137,7 +2137,7 @@ pub struct DATA_HEADER {
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DELETE_PORT_DATA_1 {
     pub psztPortName: [u16; 64],
     pub Reserved: [u8; 98],
@@ -2145,7 +2145,7 @@ pub struct DELETE_PORT_DATA_1 {
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEVICEPROPERTYHEADER {
     pub cbSize: u16,
     pub Flags: u16,
@@ -2154,7 +2154,7 @@ pub struct DEVICEPROPERTYHEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEVQUERYPRINT_INFO {
     pub cbSize: u16,
     pub Level: u16,
@@ -2166,7 +2166,7 @@ pub struct DEVQUERYPRINT_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DLGPAGE {
     pub cbSize: u16,
     pub Flags: u16,
@@ -2177,14 +2177,14 @@ pub struct DLGPAGE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DLGPAGE_0 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DOCEVENT_CREATEDCPRE {
     pub pszDriver: windows_sys::core::PWSTR,
     pub pszDevice: windows_sys::core::PWSTR,
@@ -2192,14 +2192,14 @@ pub struct DOCEVENT_CREATEDCPRE {
     pub bIC: super::super::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DOCEVENT_ESCAPE {
     pub iEscape: i32,
     pub cjInput: i32,
     pub pvInData: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DOCEVENT_FILTER {
     pub cbSize: u32,
     pub cElementsAllocated: u32,
@@ -2209,7 +2209,7 @@ pub struct DOCEVENT_FILTER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DOCUMENTPROPERTYHEADER {
     pub cbSize: u16,
     pub Reserved: u16,
@@ -2221,21 +2221,21 @@ pub struct DOCUMENTPROPERTYHEADER {
     pub fMode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DOC_INFO_1A {
     pub pDocName: windows_sys::core::PSTR,
     pub pOutputFile: windows_sys::core::PSTR,
     pub pDatatype: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DOC_INFO_1W {
     pub pDocName: windows_sys::core::PWSTR,
     pub pOutputFile: windows_sys::core::PWSTR,
     pub pDatatype: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DOC_INFO_2A {
     pub pDocName: windows_sys::core::PSTR,
     pub pOutputFile: windows_sys::core::PSTR,
@@ -2244,7 +2244,7 @@ pub struct DOC_INFO_2A {
     pub JobId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DOC_INFO_2W {
     pub pDocName: windows_sys::core::PWSTR,
     pub pOutputFile: windows_sys::core::PWSTR,
@@ -2253,7 +2253,7 @@ pub struct DOC_INFO_2W {
     pub JobId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DOC_INFO_3A {
     pub pDocName: windows_sys::core::PSTR,
     pub pOutputFile: windows_sys::core::PSTR,
@@ -2261,7 +2261,7 @@ pub struct DOC_INFO_3A {
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DOC_INFO_3W {
     pub pDocName: windows_sys::core::PWSTR,
     pub pOutputFile: windows_sys::core::PWSTR,
@@ -2269,7 +2269,7 @@ pub struct DOC_INFO_3W {
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DOC_INFO_INTERNAL {
     pub pDocName: *mut i8,
     pub pOutputFile: *mut i8,
@@ -2278,17 +2278,17 @@ pub struct DOC_INFO_INTERNAL {
     pub hTokenLowIL: super::super::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_INFO_2A {
     pub cVersion: u32,
     pub pName: windows_sys::core::PSTR,
@@ -2298,7 +2298,7 @@ pub struct DRIVER_INFO_2A {
     pub pConfigFile: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_INFO_2W {
     pub cVersion: u32,
     pub pName: windows_sys::core::PWSTR,
@@ -2308,7 +2308,7 @@ pub struct DRIVER_INFO_2W {
     pub pConfigFile: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_INFO_3A {
     pub cVersion: u32,
     pub pName: windows_sys::core::PSTR,
@@ -2322,7 +2322,7 @@ pub struct DRIVER_INFO_3A {
     pub pDefaultDataType: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_INFO_3W {
     pub cVersion: u32,
     pub pName: windows_sys::core::PWSTR,
@@ -2336,7 +2336,7 @@ pub struct DRIVER_INFO_3W {
     pub pDefaultDataType: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_INFO_4A {
     pub cVersion: u32,
     pub pName: windows_sys::core::PSTR,
@@ -2351,7 +2351,7 @@ pub struct DRIVER_INFO_4A {
     pub pszzPreviousNames: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_INFO_4W {
     pub cVersion: u32,
     pub pName: windows_sys::core::PWSTR,
@@ -2366,7 +2366,7 @@ pub struct DRIVER_INFO_4W {
     pub pszzPreviousNames: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_INFO_5A {
     pub cVersion: u32,
     pub pName: windows_sys::core::PSTR,
@@ -2379,7 +2379,7 @@ pub struct DRIVER_INFO_5A {
     pub dwDriverVersion: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_INFO_5W {
     pub cVersion: u32,
     pub pName: windows_sys::core::PWSTR,
@@ -2392,7 +2392,7 @@ pub struct DRIVER_INFO_5W {
     pub dwDriverVersion: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_INFO_6A {
     pub cVersion: u32,
     pub pName: windows_sys::core::PSTR,
@@ -2413,7 +2413,7 @@ pub struct DRIVER_INFO_6A {
     pub pszProvider: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_INFO_6W {
     pub cVersion: u32,
     pub pName: windows_sys::core::PWSTR,
@@ -2434,7 +2434,7 @@ pub struct DRIVER_INFO_6W {
     pub pszProvider: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_INFO_8A {
     pub cVersion: u32,
     pub pName: windows_sys::core::PSTR,
@@ -2463,7 +2463,7 @@ pub struct DRIVER_INFO_8A {
     pub dwlMinInboxDriverVerVersion: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_INFO_8W {
     pub cVersion: u32,
     pub pName: windows_sys::core::PWSTR,
@@ -2492,13 +2492,13 @@ pub struct DRIVER_INFO_8W {
     pub dwlMinInboxDriverVerVersion: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_UPGRADE_INFO_1 {
     pub pPrinterName: *mut i8,
     pub pOldDriverDirectory: *mut i8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DRIVER_UPGRADE_INFO_2 {
     pub pPrinterName: *mut i8,
     pub pOldDriverDirectory: *mut i8,
@@ -2515,7 +2515,7 @@ pub struct DRIVER_UPGRADE_INFO_2 {
     pub pszzPreviousNames: *mut i8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXTCHKBOX {
     pub cbSize: u16,
     pub Flags: u16,
@@ -2528,7 +2528,7 @@ pub struct EXTCHKBOX {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXTPUSH {
     pub cbSize: u16,
     pub Flags: u16,
@@ -2540,20 +2540,20 @@ pub struct EXTPUSH {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EXTPUSH_0 {
     pub DlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
     pub pfnCallBack: super::super::Foundation::FARPROC,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EXTPUSH_1 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EXTTEXTMETRIC {
     pub emSize: i16,
     pub emPointSize: i16,
@@ -2583,7 +2583,7 @@ pub struct EXTTEXTMETRIC {
     pub emKernTracks: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FORM_INFO_1A {
     pub Flags: u32,
     pub pName: windows_sys::core::PSTR,
@@ -2591,7 +2591,7 @@ pub struct FORM_INFO_1A {
     pub ImageableArea: super::super::Foundation::RECTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FORM_INFO_1W {
     pub Flags: u32,
     pub pName: windows_sys::core::PWSTR,
@@ -2599,7 +2599,7 @@ pub struct FORM_INFO_1W {
     pub ImageableArea: super::super::Foundation::RECTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FORM_INFO_2A {
     pub Flags: u32,
     pub pName: windows_sys::core::PCSTR,
@@ -2613,7 +2613,7 @@ pub struct FORM_INFO_2A {
     pub wLangId: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FORM_INFO_2W {
     pub Flags: u32,
     pub pName: windows_sys::core::PCWSTR,
@@ -2627,13 +2627,13 @@ pub struct FORM_INFO_2W {
     pub wLangId: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct GLYPHRUN {
     pub wcLow: u16,
     pub wGlyphCount: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INSERTPSUIPAGE_INFO {
     pub cbSize: u16,
     pub Type: u8,
@@ -2643,13 +2643,13 @@ pub struct INSERTPSUIPAGE_INFO {
     pub dwData3: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INVOC {
     pub dwCount: u32,
     pub loOffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ImgErrorInfo {
     pub description: windows_sys::core::BSTR,
     pub guid: windows_sys::core::GUID,
@@ -2664,7 +2664,7 @@ pub struct ImgErrorInfo {
     pub exceptionID: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct JOB_INFO_1A {
     pub JobId: u32,
     pub pPrinterName: windows_sys::core::PSTR,
@@ -2681,7 +2681,7 @@ pub struct JOB_INFO_1A {
     pub Submitted: super::super::Foundation::SYSTEMTIME,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct JOB_INFO_1W {
     pub JobId: u32,
     pub pPrinterName: windows_sys::core::PWSTR,
@@ -2699,7 +2699,7 @@ pub struct JOB_INFO_1W {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct JOB_INFO_2A {
     pub JobId: u32,
     pub pPrinterName: windows_sys::core::PSTR,
@@ -2727,7 +2727,7 @@ pub struct JOB_INFO_2A {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct JOB_INFO_2W {
     pub JobId: u32,
     pub pPrinterName: windows_sys::core::PWSTR,
@@ -2754,7 +2754,7 @@ pub struct JOB_INFO_2W {
     pub PagesPrinted: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct JOB_INFO_3 {
     pub JobId: u32,
     pub NextJobId: u32,
@@ -2762,7 +2762,7 @@ pub struct JOB_INFO_3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct JOB_INFO_4A {
     pub JobId: u32,
     pub pPrinterName: windows_sys::core::PSTR,
@@ -2791,7 +2791,7 @@ pub struct JOB_INFO_4A {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct JOB_INFO_4W {
     pub JobId: u32,
     pub pPrinterName: windows_sys::core::PWSTR,
@@ -2820,21 +2820,21 @@ pub struct JOB_INFO_4W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Display")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct KERNDATA {
     pub dwSize: u32,
     pub dwKernPairNum: u32,
     pub KernPair: [super::super::Devices::Display::FD_KERNINGPAIR; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MAPTABLE {
     pub dwSize: u32,
     pub dwGlyphNum: u32,
     pub Trans: [TRANSDATA; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MESSAGEBOX_PARAMS {
     pub cbSize: u32,
     pub pTitle: windows_sys::core::PWSTR,
@@ -2845,7 +2845,7 @@ pub struct MESSAGEBOX_PARAMS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONITOR {
     pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS,
     pub pfnOpenPort: PFN_PRINTING_OPENPORT,
@@ -2867,7 +2867,7 @@ pub struct MONITOR {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONITOR2 {
     pub cbSize: u32,
     pub pfnEnumPorts: PFN_PRINTING_ENUMPORTS2,
@@ -2895,14 +2895,14 @@ pub struct MONITOR2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Communication", feature = "Win32_System_Power"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONITOREX {
     pub dwMonitorSize: u32,
     pub Monitor: MONITOR,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONITORINIT {
     pub cbSize: u32,
     pub hSpooler: super::super::Foundation::HANDLE,
@@ -2912,7 +2912,7 @@ pub struct MONITORINIT {
     pub pszServerName: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONITORREG {
     pub cbSize: u32,
     pub fpCreateKey: isize,
@@ -2927,7 +2927,7 @@ pub struct MONITORREG {
     pub fpQueryValue: isize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONITORUI {
     pub dwMonitorUISize: u32,
     pub pfnAddPortUI: isize,
@@ -2935,74 +2935,74 @@ pub struct MONITORUI {
     pub pfnDeletePortUI: isize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONITOR_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONITOR_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONITOR_INFO_2A {
     pub pName: windows_sys::core::PSTR,
     pub pEnvironment: windows_sys::core::PSTR,
     pub pDLLName: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MONITOR_INFO_2W {
     pub pName: windows_sys::core::PWSTR,
     pub pEnvironment: windows_sys::core::PWSTR,
     pub pDLLName: windows_sys::core::PWSTR,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MXDC_ESCAPE_HEADER_T {
     pub cbInput: u32,
     pub cbOutput: u32,
     pub opCode: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MXDC_GET_FILENAME_DATA_T {
     pub cbOutput: u32,
     pub wszData: [u16; 1],
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MXDC_PRINTTICKET_DATA_T {
     pub dwDataSize: u32,
     pub bData: [u8; 1],
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MXDC_PRINTTICKET_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub printTicketData: MXDC_PRINTTICKET_DATA_T,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MXDC_S0PAGE_DATA_T {
     pub dwSize: u32,
     pub bData: [u8; 1],
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub xpsS0PageData: MXDC_S0PAGE_DATA_T,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MXDC_S0PAGE_RESOURCE_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub xpsS0PageResourcePassthrough: MXDC_XPS_S0PAGE_RESOURCE_T,
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MXDC_XPS_S0PAGE_RESOURCE_T {
     pub dwSize: u32,
     pub dwResourceType: u32,
@@ -3011,7 +3011,7 @@ pub struct MXDC_XPS_S0PAGE_RESOURCE_T {
     pub bData: [u8; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NOTIFICATION_CONFIG_1 {
     pub cbSize: u32,
     pub fdwFlags: u32,
@@ -3020,7 +3020,7 @@ pub struct NOTIFICATION_CONFIG_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OEMCUIPPARAM {
     pub cbSize: u32,
     pub poemuiobj: *mut OEMUIOBJ,
@@ -3040,7 +3040,7 @@ pub struct OEMCUIPPARAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OEMDMPARAM {
     pub cbSize: u32,
     pub pdriverobj: *mut core::ffi::c_void,
@@ -3053,7 +3053,7 @@ pub struct OEMDMPARAM {
     pub cbBufSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OEMFONTINSTPARAM {
     pub cbSize: u32,
     pub hPrinter: super::super::Foundation::HANDLE,
@@ -3063,20 +3063,20 @@ pub struct OEMFONTINSTPARAM {
     pub pFontInstallerName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OEMUIOBJ {
     pub cbSize: u32,
     pub pOemUIProcs: *mut OEMUIPROCS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OEMUIPROCS {
     pub DrvGetDriverSetting: PFN_DrvGetDriverSetting,
     pub DrvUpdateUISetting: PFN_DrvUpdateUISetting,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OEMUIPSPARAM {
     pub cbSize: u32,
     pub poemuiobj: *mut OEMUIOBJ,
@@ -3091,14 +3091,14 @@ pub struct OEMUIPSPARAM {
     pub pOemEntry: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OEM_DMEXTRAHEADER {
     pub dwSize: u32,
     pub dwSignature: u32,
     pub dwVersion: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OIEXT {
     pub cbSize: u16,
     pub Flags: u16,
@@ -3107,7 +3107,7 @@ pub struct OIEXT {
     pub dwReserved: [usize; 4],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OPTCOMBO {
     pub cbSize: u16,
     pub Flags: u8,
@@ -3118,7 +3118,7 @@ pub struct OPTCOMBO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OPTITEM {
     pub cbSize: u16,
     pub Level: u8,
@@ -3138,20 +3138,20 @@ pub struct OPTITEM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union OPTITEM_0 {
     pub Sel: i32,
     pub pSel: *mut i8,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union OPTITEM_1 {
     pub pExtChkBox: *mut EXTCHKBOX,
     pub pExtPush: *mut EXTPUSH,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OPTPARAM {
     pub cbSize: u16,
     pub Flags: u8,
@@ -3162,7 +3162,7 @@ pub struct OPTPARAM {
     pub dwReserved: [usize; 2],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OPTTYPE {
     pub cbSize: u16,
     pub Type: u8,
@@ -3175,7 +3175,7 @@ pub struct OPTTYPE {
     pub dwReserved: [usize; 3],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PORT_DATA_1 {
     pub sztPortName: [u16; 64],
     pub dwVersion: u32,
@@ -3193,7 +3193,7 @@ pub struct PORT_DATA_1 {
     pub dwSNMPDevIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PORT_DATA_2 {
     pub sztPortName: [u16; 64],
     pub dwVersion: u32,
@@ -3211,24 +3211,24 @@ pub struct PORT_DATA_2 {
     pub dwPortMonitorMibIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PORT_DATA_LIST_1 {
     pub dwVersion: u32,
     pub cPortData: u32,
     pub pPortData: [PORT_DATA_2; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PORT_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PORT_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PORT_INFO_2A {
     pub pPortName: windows_sys::core::PSTR,
     pub pMonitorName: windows_sys::core::PSTR,
@@ -3237,7 +3237,7 @@ pub struct PORT_INFO_2A {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PORT_INFO_2W {
     pub pPortName: windows_sys::core::PWSTR,
     pub pMonitorName: windows_sys::core::PWSTR,
@@ -3246,34 +3246,34 @@ pub struct PORT_INFO_2W {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PORT_INFO_3A {
     pub dwStatus: u32,
     pub pszStatus: windows_sys::core::PSTR,
     pub dwSeverity: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PORT_INFO_3W {
     pub dwStatus: u32,
     pub pszStatus: windows_sys::core::PWSTR,
     pub dwSeverity: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_CONNECTION_INFO_1A {
     pub dwFlags: u32,
     pub pszDriverName: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_CONNECTION_INFO_1W {
     pub dwFlags: u32,
     pub pszDriverName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_DEFAULTSA {
     pub pDatatype: windows_sys::core::PSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEA,
@@ -3281,14 +3281,14 @@ pub struct PRINTER_DEFAULTSA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_DEFAULTSW {
     pub pDatatype: windows_sys::core::PWSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEW,
     pub DesiredAccess: PRINTER_ACCESS_RIGHTS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_ENUM_VALUESA {
     pub pValueName: windows_sys::core::PSTR,
     pub cbValueName: u32,
@@ -3297,7 +3297,7 @@ pub struct PRINTER_ENUM_VALUESA {
     pub cbData: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_ENUM_VALUESW {
     pub pValueName: windows_sys::core::PWSTR,
     pub cbValueName: u32,
@@ -3306,14 +3306,14 @@ pub struct PRINTER_ENUM_VALUESW {
     pub cbData: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_EVENT_ATTRIBUTES_INFO {
     pub cbSize: u32,
     pub dwOldAttributes: u32,
     pub dwNewAttributes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_1A {
     pub Flags: u32,
     pub pDescription: windows_sys::core::PSTR,
@@ -3321,7 +3321,7 @@ pub struct PRINTER_INFO_1A {
     pub pComment: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_1W {
     pub Flags: u32,
     pub pDescription: windows_sys::core::PWSTR,
@@ -3330,7 +3330,7 @@ pub struct PRINTER_INFO_1W {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_2A {
     pub pServerName: windows_sys::core::PSTR,
     pub pPrinterName: windows_sys::core::PSTR,
@@ -3356,7 +3356,7 @@ pub struct PRINTER_INFO_2A {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_2W {
     pub pServerName: windows_sys::core::PWSTR,
     pub pPrinterName: windows_sys::core::PWSTR,
@@ -3382,26 +3382,26 @@ pub struct PRINTER_INFO_2W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_3 {
     pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_4A {
     pub pPrinterName: windows_sys::core::PSTR,
     pub pServerName: windows_sys::core::PSTR,
     pub Attributes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_4W {
     pub pPrinterName: windows_sys::core::PWSTR,
     pub pServerName: windows_sys::core::PWSTR,
     pub Attributes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_5A {
     pub pPrinterName: windows_sys::core::PSTR,
     pub pPortName: windows_sys::core::PSTR,
@@ -3410,7 +3410,7 @@ pub struct PRINTER_INFO_5A {
     pub TransmissionRetryTimeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_5W {
     pub pPrinterName: windows_sys::core::PWSTR,
     pub pPortName: windows_sys::core::PWSTR,
@@ -3419,48 +3419,48 @@ pub struct PRINTER_INFO_5W {
     pub TransmissionRetryTimeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_6 {
     pub dwStatus: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_7A {
     pub pszObjectGUID: windows_sys::core::PSTR,
     pub dwAction: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_7W {
     pub pszObjectGUID: windows_sys::core::PWSTR,
     pub dwAction: u32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_8A {
     pub pDevMode: *mut super::Gdi::DEVMODEA,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_8W {
     pub pDevMode: *mut super::Gdi::DEVMODEW,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_9A {
     pub pDevMode: *mut super::Gdi::DEVMODEA,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_INFO_9W {
     pub pDevMode: *mut super::Gdi::DEVMODEW,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_NOTIFY_INFO {
     pub Version: u32,
     pub Flags: u32,
@@ -3468,7 +3468,7 @@ pub struct PRINTER_NOTIFY_INFO {
     pub aData: [PRINTER_NOTIFY_INFO_DATA; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_NOTIFY_INFO_DATA {
     pub Type: u16,
     pub Field: u16,
@@ -3477,26 +3477,26 @@ pub struct PRINTER_NOTIFY_INFO_DATA {
     pub NotifyData: PRINTER_NOTIFY_INFO_DATA_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union PRINTER_NOTIFY_INFO_DATA_0 {
     pub adwData: [u32; 2],
     pub Data: PRINTER_NOTIFY_INFO_DATA_0_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_NOTIFY_INFO_DATA_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_NOTIFY_INIT {
     pub Size: u32,
     pub Reserved: u32,
     pub PollTime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_NOTIFY_OPTIONS {
     pub Version: u32,
     pub Flags: u32,
@@ -3504,7 +3504,7 @@ pub struct PRINTER_NOTIFY_OPTIONS {
     pub pTypes: *mut PRINTER_NOTIFY_OPTIONS_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
     pub Type: u16,
     pub Reserved0: u16,
@@ -3514,20 +3514,20 @@ pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
     pub pFields: *mut u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_OPTIONSA {
     pub cbSize: u32,
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTER_OPTIONSW {
     pub cbSize: u32,
     pub dwFlags: u32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTIFI32 {
     pub cjThis: u32,
     pub cjIfiExtra: u32,
@@ -3591,7 +3591,7 @@ pub struct PRINTIFI32 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTPROCESSOROPENDATA {
     pub pDevMode: *mut super::Gdi::DEVMODEA,
     pub pDatatype: windows_sys::core::PWSTR,
@@ -3602,7 +3602,7 @@ pub struct PRINTPROCESSOROPENDATA {
     pub pPrinterName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTPROCESSOR_CAPS_1 {
     pub dwLevel: u32,
     pub dwNupOptions: u32,
@@ -3610,7 +3610,7 @@ pub struct PRINTPROCESSOR_CAPS_1 {
     pub dwNumberOfCopies: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTPROCESSOR_CAPS_2 {
     pub dwLevel: u32,
     pub dwNupOptions: u32,
@@ -3623,17 +3623,17 @@ pub struct PRINTPROCESSOR_CAPS_2 {
     pub dwScalingCaps: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTPROCESSOR_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTPROCESSOR_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINTPROVIDOR {
     pub fpOpenPrinter: isize,
     pub fpSetJob: isize,
@@ -3745,20 +3745,20 @@ pub struct PRINTPROVIDOR {
     pub fpIppCreateJobOnPrinterWithAttributes: isize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINT_EXECUTION_DATA {
     pub context: PRINT_EXECUTION_CONTEXT,
     pub clientAppPID: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PRINT_FEATURE_OPTION {
     pub pszFeature: windows_sys::core::PCSTR,
     pub pszOption: windows_sys::core::PCSTR,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PROPSHEETUI_GETICON_INFO {
     pub cbSize: u16,
     pub Flags: u16,
@@ -3767,7 +3767,7 @@ pub struct PROPSHEETUI_GETICON_INFO {
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PROPSHEETUI_INFO {
     pub cbSize: u16,
     pub Version: u16,
@@ -3781,7 +3781,7 @@ pub struct PROPSHEETUI_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PROPSHEETUI_INFO_HEADER {
     pub cbSize: u16,
     pub Flags: u16,
@@ -3792,43 +3792,43 @@ pub struct PROPSHEETUI_INFO_HEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union PROPSHEETUI_INFO_HEADER_0 {
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub IconID: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PROVIDOR_INFO_1A {
     pub pName: windows_sys::core::PSTR,
     pub pEnvironment: windows_sys::core::PSTR,
     pub pDLLName: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PROVIDOR_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
     pub pEnvironment: windows_sys::core::PWSTR,
     pub pDLLName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PROVIDOR_INFO_2A {
     pub pOrder: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PROVIDOR_INFO_2W {
     pub pOrder: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PSCRIPT5_PRIVATE_DEVMODE {
     pub wReserved: [u16; 57],
     pub wSize: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PSPINFO {
     pub cbSize: u16,
     pub wReserved: u16,
@@ -3837,32 +3837,32 @@ pub struct PSPINFO {
     pub pfnComPropSheet: PFNCOMPROPSHEET,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PUBLISHERINFO {
     pub dwMode: u32,
     pub wMinoutlinePPEM: u16,
     pub wMaxbitmapPPEM: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PrintNamedProperty {
     pub propertyName: windows_sys::core::PWSTR,
     pub propertyValue: PrintPropertyValue,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PrintPropertiesCollection {
     pub numberOfProperties: u32,
     pub propertiesCollection: *mut PrintNamedProperty,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PrintPropertyValue {
     pub ePropertyType: EPrintPropertyType,
     pub value: PrintPropertyValue_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union PrintPropertyValue_0 {
     pub propertyByte: u8,
     pub propertyString: windows_sys::core::PWSTR,
@@ -3871,7 +3871,7 @@ pub union PrintPropertyValue_0 {
     pub propertyBlob: PrintPropertyValue_0_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PrintPropertyValue_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut core::ffi::c_void,
@@ -3881,7 +3881,7 @@ pub const PrinterExtensionManager: windows_sys::core::GUID = windows_sys::core::
 pub const PrinterQueue: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb54c230_798c_4c9e_b461_29fad04039b1);
 pub const PrinterQueueView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xeb54c231_798c_4c9e_b461_29fad04039b1);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SETRESULT_INFO {
     pub cbSize: u16,
     pub wReserved: u16,
@@ -3889,13 +3889,13 @@ pub struct SETRESULT_INFO {
     pub Result: super::super::Foundation::LRESULT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SHOWUIPARAMS {
     pub UIType: UI_TYPE,
     pub MessageBoxParams: MESSAGEBOX_PARAMS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SIMULATE_CAPS_1 {
     pub dwLevel: u32,
     pub dwPageOrderFlags: u32,
@@ -3904,7 +3904,7 @@ pub struct SIMULATE_CAPS_1 {
     pub dwNupOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SPLCLIENT_INFO_1 {
     pub dwSize: u32,
     pub pMachineName: windows_sys::core::PWSTR,
@@ -3915,24 +3915,24 @@ pub struct SPLCLIENT_INFO_1 {
     pub wProcessorArchitecture: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SPLCLIENT_INFO_2_W2K {
     pub hSplPrinter: usize,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SPLCLIENT_INFO_2_WINXP {
     pub hSplPrinter: u64,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SPLCLIENT_INFO_2_WINXP {
     pub hSplPrinter: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SPLCLIENT_INFO_3_VISTA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -3946,7 +3946,7 @@ pub struct SPLCLIENT_INFO_3_VISTA {
     pub hSplPrinter: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SPLCLIENT_INFO_INTERNAL {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -3962,21 +3962,21 @@ pub struct SPLCLIENT_INFO_INTERNAL {
     pub dwSessionId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct TRANSDATA {
     pub ubCodePageID: u8,
     pub ubType: u8,
     pub uCode: TRANSDATA_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union TRANSDATA_0 {
     pub sCode: i16,
     pub ubCode: u8,
     pub ubPairs: [u8; 2],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UFF_FILEHEADER {
     pub dwSignature: u32,
     pub dwVersion: u32,
@@ -3989,7 +3989,7 @@ pub struct UFF_FILEHEADER {
     pub dwReserved: [u32; 4],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UFF_FONTDIRECTORY {
     pub dwSignature: u32,
     pub wSize: u16,
@@ -4004,7 +4004,7 @@ pub struct UFF_FONTDIRECTORY {
     pub offVarData: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UNIDRVINFO {
     pub dwSize: u32,
     pub flGenFlags: u32,
@@ -4021,13 +4021,13 @@ pub struct UNIDRVINFO {
     pub wReserved: [u16; 4],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UNIDRV_PRIVATE_DEVMODE {
     pub wReserved: [u16; 4],
     pub wSize: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UNIFM_HDR {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -4041,14 +4041,14 @@ pub struct UNIFM_HDR {
     pub dwReserved: [u32; 2],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UNI_CODEPAGEINFO {
     pub dwCodePage: u32,
     pub SelectSymbolSet: INVOC,
     pub UnSelectSymbolSet: INVOC,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UNI_GLYPHSETDATA {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -4063,7 +4063,7 @@ pub struct UNI_GLYPHSETDATA {
     pub dwReserved: [u32; 2],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct USERDATA {
     pub dwSize: u32,
     pub dwItemID: usize,
@@ -4071,21 +4071,21 @@ pub struct USERDATA {
     pub dwReserved: [u32; 8],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WIDTHRUN {
     pub wStartGlyph: u16,
     pub wGlyphCount: u16,
     pub loCharWidthOffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WIDTHTABLE {
     pub dwSize: u32,
     pub dwRunNum: u32,
     pub WidthRun: [WIDTHRUN; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct _SPLCLIENT_INFO_2_V3 {
     pub hSplPrinter: u64,
 }

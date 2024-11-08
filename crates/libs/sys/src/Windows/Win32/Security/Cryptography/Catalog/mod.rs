@@ -84,13 +84,13 @@ pub const szOID_CATALOG_LIST_MEMBER2: windows_sys::core::PCSTR = windows_sys::co
 pub type CRYPTCAT_OPEN_FLAGS = u32;
 pub type CRYPTCAT_VERSION = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CATALOG_INFO {
     pub cbStruct: u32,
     pub wszCatalogFile: [u16; 260],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CRYPTCATATTRIBUTE {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_sys::core::PWSTR,
@@ -100,7 +100,7 @@ pub struct CRYPTCATATTRIBUTE {
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CRYPTCATCDF {
     pub cbStruct: u32,
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -112,7 +112,7 @@ pub struct CRYPTCATCDF {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CRYPTCATMEMBER {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_sys::core::PWSTR,
@@ -127,7 +127,7 @@ pub struct CRYPTCATMEMBER {
     pub sEncodedMemberInfo: super::CRYPT_INTEGER_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CRYPTCATSTORE {
     pub cbStruct: u32,
     pub dwPublicVersion: u32,
@@ -142,7 +142,7 @@ pub struct CRYPTCATSTORE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MS_ADDINFO_CATALOGMEMBER {
     pub cbStruct: u32,
     pub pStore: *mut CRYPTCATSTORE,

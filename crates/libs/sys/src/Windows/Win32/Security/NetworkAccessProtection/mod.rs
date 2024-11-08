@@ -46,24 +46,24 @@ pub type NapNotifyType = i32;
 pub type NapTracingLevel = i32;
 pub type RemoteConfigurationType = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CorrelationId {
     pub connId: windows_sys::core::GUID,
     pub timeStamp: super::super::Foundation::FILETIME,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CountedString {
     pub length: u16,
     pub string: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FailureCategoryMapping {
     pub mappingCompliance: [super::super::Foundation::BOOL; 5],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FixupInfo {
     pub state: FixupState,
     pub percentage: u8,
@@ -71,24 +71,24 @@ pub struct FixupInfo {
     pub fixupMsgId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct Ipv4Address {
     pub addr: [u8; 4],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct Ipv6Address {
     pub addr: [u8; 16],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IsolationInfo {
     pub isolationState: IsolationState,
     pub probEndTime: super::super::Foundation::FILETIME,
     pub failureUrl: CountedString,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IsolationInfoEx {
     pub isolationState: IsolationState,
     pub extendedIsolationState: ExtendedIsolationState,
@@ -96,7 +96,7 @@ pub struct IsolationInfoEx {
     pub failureUrl: CountedString,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NapComponentRegistrationInfo {
     pub id: u32,
     pub friendlyName: CountedString,
@@ -109,38 +109,38 @@ pub struct NapComponentRegistrationInfo {
     pub componentType: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NetworkSoH {
     pub size: u16,
     pub data: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PrivateData {
     pub size: u16,
     pub data: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ResultCodes {
     pub count: u16,
     pub results: *mut windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SoH {
     pub count: u16,
     pub attributes: *mut SoHAttribute,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SoHAttribute {
     pub r#type: u16,
     pub size: u16,
     pub value: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SystemHealthAgentState {
     pub id: u32,
     pub shaResultCodes: ResultCodes,

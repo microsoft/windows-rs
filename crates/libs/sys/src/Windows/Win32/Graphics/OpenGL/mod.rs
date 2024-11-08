@@ -1161,7 +1161,7 @@ pub type PFD_LAYER_TYPE = i8;
 pub type PFD_PIXEL_TYPE = u8;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EMRPIXELFORMAT {
     pub emr: super::Gdi::EMR,
     pub pfd: PIXELFORMATDESCRIPTOR,
@@ -1170,7 +1170,7 @@ pub type GLUnurbs = isize;
 pub type GLUquadric = isize;
 pub type GLUtesselator = isize;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct GLYPHMETRICSFLOAT {
     pub gmfBlackBoxX: f32,
     pub gmfBlackBoxY: f32,
@@ -1180,7 +1180,7 @@ pub struct GLYPHMETRICSFLOAT {
 }
 pub type HGLRC = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LAYERPLANEDESCRIPTOR {
     pub nSize: u16,
     pub nVersion: u16,
@@ -1208,7 +1208,7 @@ pub struct LAYERPLANEDESCRIPTOR {
     pub crTransparent: super::super::Foundation::COLORREF,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct PIXELFORMATDESCRIPTOR {
     pub nSize: u16,
     pub nVersion: u16,
@@ -1238,7 +1238,7 @@ pub struct PIXELFORMATDESCRIPTOR {
     pub dwDamageMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct POINTFLOAT {
     pub x: f32,
     pub y: f32,

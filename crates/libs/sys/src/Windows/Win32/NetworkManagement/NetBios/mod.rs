@@ -84,14 +84,14 @@ pub const SESSION_ABORTED: u32 = 6u32;
 pub const SESSION_ESTABLISHED: u32 = 3u32;
 pub const UNIQUE_NAME: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ACTION_HEADER {
     pub transport_id: u32,
     pub action_code: u16,
     pub reserved: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ADAPTER_STATUS {
     pub adapter_address: [u8; 6],
     pub rev_major: u8,
@@ -122,7 +122,7 @@ pub struct ADAPTER_STATUS {
     pub name_count: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FIND_NAME_BUFFER {
     pub length: u8,
     pub access_control: u8,
@@ -132,20 +132,20 @@ pub struct FIND_NAME_BUFFER {
     pub routing_info: [u8; 18],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FIND_NAME_HEADER {
     pub node_count: u16,
     pub reserved: u8,
     pub unique_group: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LANA_ENUM {
     pub length: u8,
     pub lana: [u8; 255],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NAME_BUFFER {
     pub name: [u8; 16],
     pub name_num: u8,
@@ -153,7 +153,7 @@ pub struct NAME_BUFFER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NCB {
     pub ncb_command: u8,
     pub ncb_retcode: u8,
@@ -173,7 +173,7 @@ pub struct NCB {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NCB {
     pub ncb_command: u8,
     pub ncb_retcode: u8,
@@ -192,7 +192,7 @@ pub struct NCB {
     pub ncb_event: super::super::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SESSION_BUFFER {
     pub lsn: u8,
     pub state: u8,
@@ -202,7 +202,7 @@ pub struct SESSION_BUFFER {
     pub sends_outstanding: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SESSION_HEADER {
     pub sess_name: u8,
     pub num_sess: u8,

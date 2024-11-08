@@ -52,27 +52,27 @@ pub type WEB_SOCKET_BUFFER_TYPE = i32;
 pub type WEB_SOCKET_CLOSE_STATUS = i32;
 pub type WEB_SOCKET_PROPERTY_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WEB_SOCKET_BUFFER {
     pub Data: WEB_SOCKET_BUFFER_0,
     pub CloseStatus: WEB_SOCKET_BUFFER_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WEB_SOCKET_BUFFER_1 {
     pub pbReason: *mut u8,
     pub ulReasonLength: u32,
     pub usStatus: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WEB_SOCKET_BUFFER_0 {
     pub pbBuffer: *mut u8,
     pub ulBufferLength: u32,
 }
 pub type WEB_SOCKET_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WEB_SOCKET_HTTP_HEADER {
     pub pcName: windows_sys::core::PSTR,
     pub ulNameLength: u32,
@@ -80,7 +80,7 @@ pub struct WEB_SOCKET_HTTP_HEADER {
     pub ulValueLength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WEB_SOCKET_PROPERTY {
     pub Type: WEB_SOCKET_PROPERTY_TYPE,
     pub pvValue: *mut core::ffi::c_void,

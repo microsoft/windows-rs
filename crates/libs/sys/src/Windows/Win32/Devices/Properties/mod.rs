@@ -238,14 +238,14 @@ pub const MAX_DEVPROP_TYPEMOD: u32 = 8192u32;
 pub type DEVPROPSTORE = i32;
 pub type DEVPROPTYPE = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEVPROPCOMPKEY {
     pub Key: DEVPROPKEY,
     pub Store: DEVPROPSTORE,
     pub LocaleName: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEVPROPERTY {
     pub CompKey: DEVPROPCOMPKEY,
     pub Type: DEVPROPTYPE,
@@ -253,7 +253,7 @@ pub struct DEVPROPERTY {
     pub Buffer: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEVPROPKEY {
     pub fmtid: windows_sys::core::GUID,
     pub pid: u32,

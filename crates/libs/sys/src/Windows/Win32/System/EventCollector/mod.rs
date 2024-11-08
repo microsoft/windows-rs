@@ -96,14 +96,14 @@ pub type EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID = i32;
 pub type EC_SUBSCRIPTION_TYPE = i32;
 pub type EC_VARIANT_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct EC_VARIANT {
     pub Anonymous: EC_VARIANT_0,
     pub Count: u32,
     pub Type: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union EC_VARIANT_0 {
     pub BooleanVal: super::super::Foundation::BOOL,
     pub UInt32Val: u32,

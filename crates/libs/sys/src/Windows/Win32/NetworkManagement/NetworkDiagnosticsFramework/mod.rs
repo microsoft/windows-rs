@@ -99,26 +99,26 @@ pub type REPAIR_SCOPE = i32;
 pub type REPAIR_STATUS = i32;
 pub type UI_INFO_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DIAG_SOCKADDR {
     pub family: u16,
     pub data: [i8; 126],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DiagnosticsInfo {
     pub cost: i32,
     pub flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct HELPER_ATTRIBUTE {
     pub pwszName: windows_sys::core::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
     pub Anonymous: HELPER_ATTRIBUTE_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union HELPER_ATTRIBUTE_0 {
     pub Boolean: super::super::Foundation::BOOL,
     pub Char: u8,
@@ -136,7 +136,7 @@ pub union HELPER_ATTRIBUTE_0 {
     pub OctetString: OCTET_STRING,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct HYPOTHESIS {
     pub pwszClassName: windows_sys::core::PWSTR,
     pub pwszDescription: windows_sys::core::PWSTR,
@@ -144,31 +144,31 @@ pub struct HYPOTHESIS {
     pub rgAttributes: *mut HELPER_ATTRIBUTE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct HelperAttributeInfo {
     pub pwszName: windows_sys::core::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct HypothesisResult {
     pub hypothesis: HYPOTHESIS,
     pub pathStatus: DIAGNOSIS_STATUS,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LIFE_TIME {
     pub startTime: super::super::Foundation::FILETIME,
     pub endTime: super::super::Foundation::FILETIME,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct OCTET_STRING {
     pub dwLength: u32,
     pub lpValue: *mut u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RepairInfo {
     pub guid: windows_sys::core::GUID,
     pub pwszClassName: windows_sys::core::PWSTR,
@@ -182,13 +182,13 @@ pub struct RepairInfo {
     pub rootCauseIndex: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RepairInfoEx {
     pub repair: RepairInfo,
     pub repairRank: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RootCauseInfo {
     pub pwszDescription: windows_sys::core::PWSTR,
     pub rootCauseID: windows_sys::core::GUID,
@@ -198,7 +198,7 @@ pub struct RootCauseInfo {
     pub repairCount: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ShellCommandInfo {
     pub pwszOperation: windows_sys::core::PWSTR,
     pub pwszFile: windows_sys::core::PWSTR,
@@ -207,13 +207,13 @@ pub struct ShellCommandInfo {
     pub nShowCmd: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UiInfo {
     pub r#type: UI_INFO_TYPE,
     pub Anonymous: UiInfo_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union UiInfo_0 {
     pub pwzNull: windows_sys::core::PWSTR,
     pub ShellInfo: ShellCommandInfo,

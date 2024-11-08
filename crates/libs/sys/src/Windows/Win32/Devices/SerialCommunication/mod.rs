@@ -95,7 +95,7 @@ pub const SerenumWhole: SERENUM_PORTION = 2i32;
 pub type SERENUM_PORTION = i32;
 pub type HCOMDB = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SERENUM_PORT_DESC {
     pub Size: u32,
     pub PortHandle: *mut core::ffi::c_void,
@@ -103,7 +103,7 @@ pub struct SERENUM_PORT_DESC {
     pub Reserved: [u16; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SERENUM_PORT_PARAMETERS {
     pub Size: u32,
     pub ReadAccessor: PSERENUM_READPORT,
@@ -115,7 +115,7 @@ pub struct SERENUM_PORT_PARAMETERS {
     pub Reserved: [u16; 3],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SERIALCONFIG {
     pub Size: u32,
     pub Version: u16,
@@ -125,7 +125,7 @@ pub struct SERIALCONFIG {
     pub ProviderData: [u16; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SERIALPERF_STATS {
     pub ReceivedCount: u32,
     pub TransmittedCount: u32,
@@ -135,7 +135,7 @@ pub struct SERIALPERF_STATS {
     pub ParityErrorCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SERIAL_BASIC_SETTINGS {
     pub Timeouts: SERIAL_TIMEOUTS,
     pub HandFlow: SERIAL_HANDFLOW,
@@ -143,12 +143,12 @@ pub struct SERIAL_BASIC_SETTINGS {
     pub TxFifo: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SERIAL_BAUD_RATE {
     pub BaudRate: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SERIAL_CHARS {
     pub EofChar: u8,
     pub ErrorChar: u8,
@@ -158,7 +158,7 @@ pub struct SERIAL_CHARS {
     pub XoffChar: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SERIAL_COMMPROP {
     pub PacketLength: u16,
     pub PacketVersion: u16,
@@ -180,7 +180,7 @@ pub struct SERIAL_COMMPROP {
     pub ProvChar: [u16; 1],
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SERIAL_HANDFLOW {
     pub ControlHandShake: u32,
     pub FlowReplace: u32,
@@ -188,20 +188,20 @@ pub struct SERIAL_HANDFLOW {
     pub XoffLimit: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SERIAL_LINE_CONTROL {
     pub StopBits: u8,
     pub Parity: u8,
     pub WordLength: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SERIAL_QUEUE_SIZE {
     pub InSize: u32,
     pub OutSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SERIAL_STATUS {
     pub Errors: u32,
     pub HoldReasons: u32,
@@ -211,7 +211,7 @@ pub struct SERIAL_STATUS {
     pub WaitForImmediate: super::super::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SERIAL_TIMEOUTS {
     pub ReadIntervalTimeout: u32,
     pub ReadTotalTimeoutMultiplier: u32,
@@ -220,7 +220,7 @@ pub struct SERIAL_TIMEOUTS {
     pub WriteTotalTimeoutConstant: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SERIAL_XOFF_COUNTER {
     pub Timeout: u32,
     pub Counter: i32,

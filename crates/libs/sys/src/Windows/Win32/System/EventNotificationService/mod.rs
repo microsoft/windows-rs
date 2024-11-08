@@ -17,7 +17,7 @@ pub const SENSGUID_SUBSCRIBER_LCE: windows_sys::core::GUID = windows_sys::core::
 pub const SENSGUID_SUBSCRIBER_WININET: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd3938ab5_5b9d_11d1_8dd2_00aa004abd5e);
 pub type SENS_CONNECTION_TYPE = u32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct QOCINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -26,7 +26,7 @@ pub struct QOCINFO {
 }
 pub const SENS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd597cafe_5b9f_11d1_8dd2_00aa004abd5e);
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SENS_QOCINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
