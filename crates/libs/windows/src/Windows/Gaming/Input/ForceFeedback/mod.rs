@@ -37,11 +37,8 @@ pub struct IConstantForceEffect_Vtbl {
     SetParametersWithEnvelope: usize,
 }
 windows_core::imp::define_interface!(IForceFeedbackEffect, IForceFeedbackEffect_Vtbl, 0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
-impl core::ops::Deref for IForceFeedbackEffect {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IForceFeedbackEffect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IForceFeedbackEffect, windows_core::IUnknown, windows_core::IInspectable);
 impl IForceFeedbackEffect {
@@ -72,9 +69,6 @@ impl IForceFeedbackEffect {
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl windows_core::RuntimeType for IForceFeedbackEffect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IForceFeedbackEffect_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -84,6 +78,9 @@ pub struct IForceFeedbackEffect_Vtbl {
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+impl windows_core::RuntimeName for IForceFeedbackEffect {
+    const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect";
+}
 pub trait IForceFeedbackEffect_Impl: Sized + windows_core::IUnknownImpl {
     fn Gain(&self) -> windows_core::Result<f64>;
     fn SetGain(&self, value: f64) -> windows_core::Result<()>;
@@ -91,11 +88,8 @@ pub trait IForceFeedbackEffect_Impl: Sized + windows_core::IUnknownImpl {
     fn Start(&self) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IForceFeedbackEffect {
-    const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect";
-}
 impl IForceFeedbackEffect_Vtbl {
-    pub const fn new<Identity: IForceFeedbackEffect_Impl, const OFFSET: isize>() -> IForceFeedbackEffect_Vtbl {
+    pub const fn new<Identity: IForceFeedbackEffect_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Gain<Identity: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IForceFeedbackEffect_Impl::Gain(this) {
@@ -207,7 +201,8 @@ pub struct IRampForceEffect_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConditionForceEffect(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ConditionForceEffect, windows_core::IUnknown, windows_core::IInspectable, IForceFeedbackEffect);
+windows_core::imp::interface_hierarchy!(ConditionForceEffect, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ConditionForceEffect, IForceFeedbackEffect);
 impl ConditionForceEffect {
     pub fn Kind(&self) -> windows_core::Result<ConditionForceEffectKind> {
         let this = &windows_core::Interface::cast::<IConditionForceEffect>(self)?;
@@ -228,29 +223,29 @@ impl ConditionForceEffect {
         })
     }
     pub fn Gain(&self) -> windows_core::Result<f64> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Gain)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetGain(&self, value: f64) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetGain)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<ForceFeedbackEffectState> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Start(&self) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
     fn IConditionForceEffectFactory<R, F: FnOnce(&IConditionForceEffectFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -262,18 +257,17 @@ impl windows_core::RuntimeType for ConditionForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IForceFeedbackEffect>();
 }
 unsafe impl windows_core::Interface for ConditionForceEffect {
-    type Vtable = IForceFeedbackEffect_Vtbl;
+    type Vtable = <IForceFeedbackEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IForceFeedbackEffect as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ConditionForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConditionForceEffect";
 }
-unsafe impl Send for ConditionForceEffect {}
-unsafe impl Sync for ConditionForceEffect {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConstantForceEffect(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ConstantForceEffect, windows_core::IUnknown, windows_core::IInspectable, IForceFeedbackEffect);
+windows_core::imp::interface_hierarchy!(ConstantForceEffect, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ConstantForceEffect, IForceFeedbackEffect);
 impl ConstantForceEffect {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -293,29 +287,29 @@ impl ConstantForceEffect {
         unsafe { (windows_core::Interface::vtable(this).SetParametersWithEnvelope)(windows_core::Interface::as_raw(this), vector, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
     pub fn Gain(&self) -> windows_core::Result<f64> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Gain)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetGain(&self, value: f64) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetGain)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<ForceFeedbackEffectState> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Start(&self) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
@@ -323,14 +317,12 @@ impl windows_core::RuntimeType for ConstantForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IForceFeedbackEffect>();
 }
 unsafe impl windows_core::Interface for ConstantForceEffect {
-    type Vtable = IForceFeedbackEffect_Vtbl;
+    type Vtable = <IForceFeedbackEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IForceFeedbackEffect as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ConstantForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConstantForceEffect";
 }
-unsafe impl Send for ConstantForceEffect {}
-unsafe impl Sync for ConstantForceEffect {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ForceFeedbackMotor(windows_core::IUnknown);
@@ -426,43 +418,42 @@ impl windows_core::RuntimeType for ForceFeedbackMotor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IForceFeedbackMotor>();
 }
 unsafe impl windows_core::Interface for ForceFeedbackMotor {
-    type Vtable = IForceFeedbackMotor_Vtbl;
+    type Vtable = <IForceFeedbackMotor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IForceFeedbackMotor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ForceFeedbackMotor {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor";
 }
-unsafe impl Send for ForceFeedbackMotor {}
-unsafe impl Sync for ForceFeedbackMotor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PeriodicForceEffect(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PeriodicForceEffect, windows_core::IUnknown, windows_core::IInspectable, IForceFeedbackEffect);
+windows_core::imp::interface_hierarchy!(PeriodicForceEffect, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PeriodicForceEffect, IForceFeedbackEffect);
 impl PeriodicForceEffect {
     pub fn Gain(&self) -> windows_core::Result<f64> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Gain)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetGain(&self, value: f64) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetGain)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<ForceFeedbackEffectState> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Start(&self) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Kind(&self) -> windows_core::Result<PeriodicForceEffectKind> {
@@ -497,18 +488,17 @@ impl windows_core::RuntimeType for PeriodicForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IForceFeedbackEffect>();
 }
 unsafe impl windows_core::Interface for PeriodicForceEffect {
-    type Vtable = IForceFeedbackEffect_Vtbl;
+    type Vtable = <IForceFeedbackEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IForceFeedbackEffect as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PeriodicForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect";
 }
-unsafe impl Send for PeriodicForceEffect {}
-unsafe impl Sync for PeriodicForceEffect {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RampForceEffect(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RampForceEffect, windows_core::IUnknown, windows_core::IInspectable, IForceFeedbackEffect);
+windows_core::imp::interface_hierarchy!(RampForceEffect, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(RampForceEffect, IForceFeedbackEffect);
 impl RampForceEffect {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -518,29 +508,29 @@ impl RampForceEffect {
         SHARED.call(callback)
     }
     pub fn Gain(&self) -> windows_core::Result<f64> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Gain)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetGain(&self, value: f64) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetGain)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn State(&self) -> windows_core::Result<ForceFeedbackEffectState> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Start(&self) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IForceFeedbackEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -558,16 +548,14 @@ impl windows_core::RuntimeType for RampForceEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IForceFeedbackEffect>();
 }
 unsafe impl windows_core::Interface for RampForceEffect {
-    type Vtable = IForceFeedbackEffect_Vtbl;
+    type Vtable = <IForceFeedbackEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IForceFeedbackEffect as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RampForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.RampForceEffect";
 }
-unsafe impl Send for RampForceEffect {}
-unsafe impl Sync for RampForceEffect {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ConditionForceEffectKind(pub i32);
 impl ConditionForceEffectKind {
     pub const Spring: Self = Self(0i32);
@@ -578,16 +566,11 @@ impl ConditionForceEffectKind {
 impl windows_core::TypeKind for ConditionForceEffectKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ConditionForceEffectKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ConditionForceEffectKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ConditionForceEffectKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ConditionForceEffectKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ForceFeedbackEffectAxes(pub u32);
 impl ForceFeedbackEffectAxes {
     pub const None: Self = Self(0u32);
@@ -598,49 +581,11 @@ impl ForceFeedbackEffectAxes {
 impl windows_core::TypeKind for ForceFeedbackEffectAxes {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ForceFeedbackEffectAxes {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ForceFeedbackEffectAxes").field(&self.0).finish()
-    }
-}
-impl ForceFeedbackEffectAxes {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for ForceFeedbackEffectAxes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for ForceFeedbackEffectAxes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for ForceFeedbackEffectAxes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for ForceFeedbackEffectAxes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for ForceFeedbackEffectAxes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for ForceFeedbackEffectAxes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectAxes;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ForceFeedbackEffectState(pub i32);
 impl ForceFeedbackEffectState {
     pub const Stopped: Self = Self(0i32);
@@ -651,16 +596,11 @@ impl ForceFeedbackEffectState {
 impl windows_core::TypeKind for ForceFeedbackEffectState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ForceFeedbackEffectState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ForceFeedbackEffectState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ForceFeedbackEffectState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ForceFeedbackLoadEffectResult(pub i32);
 impl ForceFeedbackLoadEffectResult {
     pub const Succeeded: Self = Self(0i32);
@@ -670,16 +610,11 @@ impl ForceFeedbackLoadEffectResult {
 impl windows_core::TypeKind for ForceFeedbackLoadEffectResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ForceFeedbackLoadEffectResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ForceFeedbackLoadEffectResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ForceFeedbackLoadEffectResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.ForceFeedbackLoadEffectResult;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PeriodicForceEffectKind(pub i32);
 impl PeriodicForceEffectKind {
     pub const SquareWave: Self = Self(0i32);
@@ -690,11 +625,6 @@ impl PeriodicForceEffectKind {
 }
 impl windows_core::TypeKind for PeriodicForceEffectKind {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PeriodicForceEffectKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PeriodicForceEffectKind").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for PeriodicForceEffectKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ForceFeedback.PeriodicForceEffectKind;i4)");

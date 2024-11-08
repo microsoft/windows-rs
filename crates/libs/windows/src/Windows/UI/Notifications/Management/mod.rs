@@ -52,7 +52,7 @@ impl UserNotificationListener {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NotificationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NotificationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveNotificationChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -97,16 +97,14 @@ impl windows_core::RuntimeType for UserNotificationListener {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserNotificationListener>();
 }
 unsafe impl windows_core::Interface for UserNotificationListener {
-    type Vtable = IUserNotificationListener_Vtbl;
+    type Vtable = <IUserNotificationListener as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserNotificationListener as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserNotificationListener {
     const NAME: &'static str = "Windows.UI.Notifications.Management.UserNotificationListener";
 }
-unsafe impl Send for UserNotificationListener {}
-unsafe impl Sync for UserNotificationListener {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct UserNotificationListenerAccessStatus(pub i32);
 impl UserNotificationListenerAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -115,11 +113,6 @@ impl UserNotificationListenerAccessStatus {
 }
 impl windows_core::TypeKind for UserNotificationListenerAccessStatus {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for UserNotificationListenerAccessStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UserNotificationListenerAccessStatus").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for UserNotificationListenerAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus;i4)");

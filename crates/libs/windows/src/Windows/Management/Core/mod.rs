@@ -14,7 +14,7 @@ impl windows_core::RuntimeType for IApplicationDataManagerStatics {
 pub struct IApplicationDataManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
-    pub CreateForPackageFamily: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateForPackageFamily: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage"))]
     CreateForPackageFamily: usize,
 }
@@ -39,11 +39,9 @@ impl windows_core::RuntimeType for ApplicationDataManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationDataManager>();
 }
 unsafe impl windows_core::Interface for ApplicationDataManager {
-    type Vtable = IApplicationDataManager_Vtbl;
+    type Vtable = <IApplicationDataManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IApplicationDataManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ApplicationDataManager {
     const NAME: &'static str = "Windows.Management.Core.ApplicationDataManager";
 }
-unsafe impl Send for ApplicationDataManager {}
-unsafe impl Sync for ApplicationDataManager {}

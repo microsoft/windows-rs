@@ -64,11 +64,9 @@ impl windows_core::RuntimeType for HolographicKeyboard {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicKeyboard>();
 }
 unsafe impl windows_core::Interface for HolographicKeyboard {
-    type Vtable = IHolographicKeyboard_Vtbl;
+    type Vtable = <IHolographicKeyboard as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicKeyboard as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicKeyboard {
     const NAME: &'static str = "Windows.ApplicationModel.Holographic.HolographicKeyboard";
 }
-unsafe impl Send for HolographicKeyboard {}
-unsafe impl Sync for HolographicKeyboard {}

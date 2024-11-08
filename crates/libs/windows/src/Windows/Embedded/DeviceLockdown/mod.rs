@@ -5,7 +5,7 @@ impl windows_core::RuntimeType for IDeviceLockdownProfileInformation {
 #[repr(C)]
 pub struct IDeviceLockdownProfileInformation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceLockdownProfileStatics, IDeviceLockdownProfileStatics_Vtbl, 0x622f6965_f9a8_41a1_a691_88cd80c7a069);
 impl windows_core::RuntimeType for IDeviceLockdownProfileStatics {
@@ -34,7 +34,7 @@ impl DeviceLockdownProfile {
     pub fn GetCurrentLockdownProfile() -> windows_core::Result<windows_core::GUID> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCurrentLockdownProfile)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GetCurrentLockdownProfile)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     pub fn ApplyLockdownProfileAsync(profileid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
@@ -66,7 +66,7 @@ impl DeviceLockdownProfileInformation {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -74,11 +74,9 @@ impl windows_core::RuntimeType for DeviceLockdownProfileInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceLockdownProfileInformation>();
 }
 unsafe impl windows_core::Interface for DeviceLockdownProfileInformation {
-    type Vtable = IDeviceLockdownProfileInformation_Vtbl;
+    type Vtable = <IDeviceLockdownProfileInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceLockdownProfileInformation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DeviceLockdownProfileInformation {
     const NAME: &'static str = "Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation";
 }
-unsafe impl Send for DeviceLockdownProfileInformation {}
-unsafe impl Sync for DeviceLockdownProfileInformation {}

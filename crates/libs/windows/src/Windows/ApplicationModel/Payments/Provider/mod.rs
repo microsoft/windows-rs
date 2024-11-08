@@ -38,12 +38,12 @@ impl windows_core::RuntimeType for IPaymentTransaction {
 pub struct IPaymentTransaction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PaymentRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PayerEmail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetPayerEmail: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub PayerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetPayerName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub PayerPhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetPayerPhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub PayerEmail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetPayerEmail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PayerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetPayerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PayerPhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetPayerPhoneNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UpdateShippingAddressAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UpdateSelectedShippingOptionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AcceptAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -65,7 +65,7 @@ impl windows_core::RuntimeType for IPaymentTransactionStatics {
 #[repr(C)]
 pub struct IPaymentTransactionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -91,14 +91,12 @@ impl windows_core::RuntimeType for PaymentAppCanMakePaymentTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentAppCanMakePaymentTriggerDetails>();
 }
 unsafe impl windows_core::Interface for PaymentAppCanMakePaymentTriggerDetails {
-    type Vtable = IPaymentAppCanMakePaymentTriggerDetails_Vtbl;
+    type Vtable = <IPaymentAppCanMakePaymentTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentAppCanMakePaymentTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentAppCanMakePaymentTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentAppCanMakePaymentTriggerDetails";
 }
-unsafe impl Send for PaymentAppCanMakePaymentTriggerDetails {}
-unsafe impl Sync for PaymentAppCanMakePaymentTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentAppManager(windows_core::IUnknown);
@@ -137,14 +135,12 @@ impl windows_core::RuntimeType for PaymentAppManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentAppManager>();
 }
 unsafe impl windows_core::Interface for PaymentAppManager {
-    type Vtable = IPaymentAppManager_Vtbl;
+    type Vtable = <IPaymentAppManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentAppManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentAppManager";
 }
-unsafe impl Send for PaymentAppManager {}
-unsafe impl Sync for PaymentAppManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentTransaction(windows_core::IUnknown);
@@ -161,7 +157,7 @@ impl PaymentTransaction {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PayerEmail)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PayerEmail)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetPayerEmail(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -172,7 +168,7 @@ impl PaymentTransaction {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PayerName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PayerName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetPayerName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -183,7 +179,7 @@ impl PaymentTransaction {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PayerPhoneNumber)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PayerPhoneNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetPayerPhoneNumber(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -239,14 +235,12 @@ impl windows_core::RuntimeType for PaymentTransaction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentTransaction>();
 }
 unsafe impl windows_core::Interface for PaymentTransaction {
-    type Vtable = IPaymentTransaction_Vtbl;
+    type Vtable = <IPaymentTransaction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentTransaction as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentTransaction {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentTransaction";
 }
-unsafe impl Send for PaymentTransaction {}
-unsafe impl Sync for PaymentTransaction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentTransactionAcceptResult(windows_core::IUnknown);
@@ -264,11 +258,9 @@ impl windows_core::RuntimeType for PaymentTransactionAcceptResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentTransactionAcceptResult>();
 }
 unsafe impl windows_core::Interface for PaymentTransactionAcceptResult {
-    type Vtable = IPaymentTransactionAcceptResult_Vtbl;
+    type Vtable = <IPaymentTransactionAcceptResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentTransactionAcceptResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentTransactionAcceptResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentTransactionAcceptResult";
 }
-unsafe impl Send for PaymentTransactionAcceptResult {}
-unsafe impl Sync for PaymentTransactionAcceptResult {}

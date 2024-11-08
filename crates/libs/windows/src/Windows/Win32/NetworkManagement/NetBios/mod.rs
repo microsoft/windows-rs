@@ -1,7 +1,7 @@
 #[inline]
 pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
     windows_targets::link!("netapi32.dll" "system" fn Netbios(pncb : *mut NCB) -> u8);
-    Netbios(pncb)
+    Netbios(core::mem::transmute(pncb))
 }
 pub const ALL_TRANSPORTS: windows_core::PCSTR = windows_core::s!("M\u{0}\u{0}\u{0}");
 pub const ASYNCH: u32 = 128u32;
@@ -88,22 +88,22 @@ pub const SESSION_ABORTED: u32 = 6u32;
 pub const SESSION_ESTABLISHED: u32 = 3u32;
 pub const UNIQUE_NAME: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ACTION_HEADER {
     pub transport_id: u32,
     pub action_code: u16,
     pub reserved: u16,
-}
-impl windows_core::TypeKind for ACTION_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ACTION_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ACTION_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ADAPTER_STATUS {
     pub adapter_address: [u8; 6],
     pub rev_major: u8,
@@ -133,16 +133,16 @@ pub struct ADAPTER_STATUS {
     pub max_sess_pkt_size: u16,
     pub name_count: u16,
 }
-impl windows_core::TypeKind for ADAPTER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ADAPTER_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ADAPTER_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FIND_NAME_BUFFER {
     pub length: u8,
     pub access_control: u8,
@@ -151,61 +151,61 @@ pub struct FIND_NAME_BUFFER {
     pub source_addr: [u8; 6],
     pub routing_info: [u8; 18],
 }
-impl windows_core::TypeKind for FIND_NAME_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for FIND_NAME_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FIND_NAME_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FIND_NAME_HEADER {
     pub node_count: u16,
     pub reserved: u8,
     pub unique_group: u8,
-}
-impl windows_core::TypeKind for FIND_NAME_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for FIND_NAME_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FIND_NAME_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LANA_ENUM {
     pub length: u8,
     pub lana: [u8; 255],
-}
-impl windows_core::TypeKind for LANA_ENUM {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LANA_ENUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LANA_ENUM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NAME_BUFFER {
     pub name: [u8; 16],
     pub name_num: u8,
     pub name_flags: u8,
-}
-impl windows_core::TypeKind for NAME_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NAME_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NAME_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NCB {
     pub ncb_command: u8,
     pub ncb_retcode: u8,
@@ -224,18 +224,18 @@ pub struct NCB {
     pub ncb_event: super::super::Foundation::HANDLE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for NCB {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for NCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for NCB {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NCB {
     pub ncb_command: u8,
     pub ncb_retcode: u8,
@@ -254,17 +254,17 @@ pub struct NCB {
     pub ncb_event: super::super::Foundation::HANDLE,
 }
 #[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for NCB {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
 impl Default for NCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for NCB {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SESSION_BUFFER {
     pub lsn: u8,
     pub state: u8,
@@ -273,27 +273,27 @@ pub struct SESSION_BUFFER {
     pub rcvs_outstanding: u8,
     pub sends_outstanding: u8,
 }
-impl windows_core::TypeKind for SESSION_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SESSION_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SESSION_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SESSION_HEADER {
     pub sess_name: u8,
     pub num_sess: u8,
     pub rcv_dg_outstanding: u8,
     pub rcv_any_outstanding: u8,
 }
-impl windows_core::TypeKind for SESSION_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SESSION_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for SESSION_HEADER {
+    type TypeKind = windows_core::CopyType;
 }

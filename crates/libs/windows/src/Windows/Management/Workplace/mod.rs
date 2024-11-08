@@ -89,7 +89,7 @@ impl windows_core::RuntimeName for WorkplaceSettings {
     const NAME: &'static str = "Windows.Management.Workplace.WorkplaceSettings";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct MessagingSyncPolicy(pub i32);
 impl MessagingSyncPolicy {
     pub const Disallowed: Self = Self(0i32);
@@ -98,11 +98,6 @@ impl MessagingSyncPolicy {
 }
 impl windows_core::TypeKind for MessagingSyncPolicy {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for MessagingSyncPolicy {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MessagingSyncPolicy").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for MessagingSyncPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Workplace.MessagingSyncPolicy;i4)");

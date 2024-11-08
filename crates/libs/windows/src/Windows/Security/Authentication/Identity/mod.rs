@@ -7,11 +7,11 @@ impl windows_core::RuntimeType for IEnterpriseKeyCredentialRegistrationInfo {
 #[repr(C)]
 pub struct IEnterpriseKeyCredentialRegistrationInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub TenantId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub TenantName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Subject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub KeyId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub KeyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub TenantId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TenantName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Subject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub KeyId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub KeyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnterpriseKeyCredentialRegistrationManager, IEnterpriseKeyCredentialRegistrationManager_Vtbl, 0x83f3be3f_a25f_4cba_bb8e_bdc32d03c297);
 impl windows_core::RuntimeType for IEnterpriseKeyCredentialRegistrationManager {
@@ -43,35 +43,35 @@ impl EnterpriseKeyCredentialRegistrationInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TenantId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TenantId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn TenantName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TenantName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TenantName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Subject(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Subject)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Subject)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn KeyId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeyId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).KeyId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn KeyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).KeyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -79,14 +79,12 @@ impl windows_core::RuntimeType for EnterpriseKeyCredentialRegistrationInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseKeyCredentialRegistrationInfo>();
 }
 unsafe impl windows_core::Interface for EnterpriseKeyCredentialRegistrationInfo {
-    type Vtable = IEnterpriseKeyCredentialRegistrationInfo_Vtbl;
+    type Vtable = <IEnterpriseKeyCredentialRegistrationInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEnterpriseKeyCredentialRegistrationInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EnterpriseKeyCredentialRegistrationInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo";
 }
-unsafe impl Send for EnterpriseKeyCredentialRegistrationInfo {}
-unsafe impl Sync for EnterpriseKeyCredentialRegistrationInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnterpriseKeyCredentialRegistrationManager(windows_core::IUnknown);
@@ -115,11 +113,9 @@ impl windows_core::RuntimeType for EnterpriseKeyCredentialRegistrationManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseKeyCredentialRegistrationManager>();
 }
 unsafe impl windows_core::Interface for EnterpriseKeyCredentialRegistrationManager {
-    type Vtable = IEnterpriseKeyCredentialRegistrationManager_Vtbl;
+    type Vtable = <IEnterpriseKeyCredentialRegistrationManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEnterpriseKeyCredentialRegistrationManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EnterpriseKeyCredentialRegistrationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationManager";
 }
-unsafe impl Send for EnterpriseKeyCredentialRegistrationManager {}
-unsafe impl Sync for EnterpriseKeyCredentialRegistrationManager {}

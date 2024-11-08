@@ -2,22 +2,20 @@
 pub mod ActiveScript;
 #[cfg(feature = "Win32_System_Diagnostics_Debug_Extensions")]
 pub mod Extensions;
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn AddVectoredContinueHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void {
     windows_targets::link!("kernel32.dll" "system" fn AddVectoredContinueHandler(first : u32, handler : PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void);
-    AddVectoredContinueHandler(first, handler)
+    AddVectoredContinueHandler(core::mem::transmute(first), core::mem::transmute(handler))
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn AddVectoredExceptionHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void {
     windows_targets::link!("kernel32.dll" "system" fn AddVectoredExceptionHandler(first : u32, handler : PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void);
-    AddVectoredExceptionHandler(first, handler)
+    AddVectoredExceptionHandler(core::mem::transmute(first), core::mem::transmute(handler))
 }
 #[inline]
 pub unsafe fn Beep(dwfreq: u32, dwduration: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn Beep(dwfreq : u32, dwduration : u32) -> super::super::super::Foundation:: BOOL);
-    Beep(dwfreq, dwduration).ok()
+    Beep(core::mem::transmute(dwfreq), core::mem::transmute(dwduration)).ok()
 }
 #[inline]
 pub unsafe fn BindImage<P0, P1, P2>(imagename: P0, dllpath: P1, symbolpath: P2) -> windows_core::Result<()>
@@ -30,14 +28,14 @@ where
     BindImage(imagename.param().abi(), dllpath.param().abi(), symbolpath.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn BindImageEx<P0, P1, P2>(flags: u32, imagename: P0, dllpath: P1, symbolpath: P2, statusroutine: PIMAGEHLP_STATUS_ROUTINE) -> windows_core::Result<()>
+pub unsafe fn BindImageEx<P1, P2, P3>(flags: u32, imagename: P1, dllpath: P2, symbolpath: P3, statusroutine: PIMAGEHLP_STATUS_ROUTINE) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn BindImageEx(flags : u32, imagename : windows_core::PCSTR, dllpath : windows_core::PCSTR, symbolpath : windows_core::PCSTR, statusroutine : PIMAGEHLP_STATUS_ROUTINE) -> super::super::super::Foundation:: BOOL);
-    BindImageEx(flags, imagename.param().abi(), dllpath.param().abi(), symbolpath.param().abi(), statusroutine).ok()
+    BindImageEx(core::mem::transmute(flags), imagename.param().abi(), dllpath.param().abi(), symbolpath.param().abi(), core::mem::transmute(statusroutine)).ok()
 }
 #[inline]
 pub unsafe fn CheckRemoteDebuggerPresent<P0>(hprocess: P0, pbdebuggerpresent: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>
@@ -45,40 +43,39 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CheckRemoteDebuggerPresent(hprocess : super::super::super::Foundation:: HANDLE, pbdebuggerpresent : *mut super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    CheckRemoteDebuggerPresent(hprocess.param().abi(), pbdebuggerpresent).ok()
+    CheckRemoteDebuggerPresent(hprocess.param().abi(), core::mem::transmute(pbdebuggerpresent)).ok()
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn CheckSumMappedFile(baseaddress: *const core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS64 {
     windows_targets::link!("imagehlp.dll" "system" fn CheckSumMappedFile(baseaddress : *const core::ffi::c_void, filelength : u32, headersum : *mut u32, checksum : *mut u32) -> *mut IMAGE_NT_HEADERS64);
-    CheckSumMappedFile(baseaddress, filelength, headersum, checksum)
+    CheckSumMappedFile(core::mem::transmute(baseaddress), core::mem::transmute(filelength), core::mem::transmute(headersum), core::mem::transmute(checksum))
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn CheckSumMappedFile(baseaddress: *const core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS32 {
     windows_targets::link!("imagehlp.dll" "system" fn CheckSumMappedFile(baseaddress : *const core::ffi::c_void, filelength : u32, headersum : *mut u32, checksum : *mut u32) -> *mut IMAGE_NT_HEADERS32);
-    CheckSumMappedFile(baseaddress, filelength, headersum, checksum)
+    CheckSumMappedFile(core::mem::transmute(baseaddress), core::mem::transmute(filelength), core::mem::transmute(headersum), core::mem::transmute(checksum))
 }
 #[inline]
 pub unsafe fn CloseThreadWaitChainSession(wcthandle: *const core::ffi::c_void) {
     windows_targets::link!("advapi32.dll" "system" fn CloseThreadWaitChainSession(wcthandle : *const core::ffi::c_void));
-    CloseThreadWaitChainSession(wcthandle)
+    CloseThreadWaitChainSession(core::mem::transmute(wcthandle))
 }
 #[inline]
-pub unsafe fn ContinueDebugEvent<P0>(dwprocessid: u32, dwthreadid: u32, dwcontinuestatus: P0) -> windows_core::Result<()>
+pub unsafe fn ContinueDebugEvent<P2>(dwprocessid: u32, dwthreadid: u32, dwcontinuestatus: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::super::Foundation::NTSTATUS>,
+    P2: windows_core::Param<super::super::super::Foundation::NTSTATUS>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ContinueDebugEvent(dwprocessid : u32, dwthreadid : u32, dwcontinuestatus : super::super::super::Foundation:: NTSTATUS) -> super::super::super::Foundation:: BOOL);
-    ContinueDebugEvent(dwprocessid, dwthreadid, dwcontinuestatus.param().abi()).ok()
+    ContinueDebugEvent(core::mem::transmute(dwprocessid), core::mem::transmute(dwthreadid), dwcontinuestatus.param().abi()).ok()
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn CopyContext(destination: *mut CONTEXT, contextflags: CONTEXT_FLAGS, source: *const CONTEXT) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn CopyContext(destination : *mut CONTEXT, contextflags : CONTEXT_FLAGS, source : *const CONTEXT) -> super::super::super::Foundation:: BOOL);
-    CopyContext(destination, contextflags, source).ok()
+    CopyContext(core::mem::transmute(destination), core::mem::transmute(contextflags), core::mem::transmute(source)).ok()
 }
 #[inline]
 pub unsafe fn DbgHelpCreateUserDump<P0>(filename: P0, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: Option<*const core::ffi::c_void>) -> super::super::super::Foundation::BOOL
@@ -86,7 +83,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDump(filename : windows_core::PCSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    DbgHelpCreateUserDump(filename.param().abi(), callback, core::mem::transmute(userdata.unwrap_or(core::ptr::null())))
+    DbgHelpCreateUserDump(filename.param().abi(), core::mem::transmute(callback), core::mem::transmute(userdata.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn DbgHelpCreateUserDumpW<P0>(filename: P0, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: Option<*const core::ffi::c_void>) -> super::super::super::Foundation::BOOL
@@ -94,17 +91,17 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDumpW(filename : windows_core::PCWSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    DbgHelpCreateUserDumpW(filename.param().abi(), callback, core::mem::transmute(userdata.unwrap_or(core::ptr::null())))
+    DbgHelpCreateUserDumpW(filename.param().abi(), core::mem::transmute(callback), core::mem::transmute(userdata.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn DebugActiveProcess(dwprocessid: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn DebugActiveProcess(dwprocessid : u32) -> super::super::super::Foundation:: BOOL);
-    DebugActiveProcess(dwprocessid).ok()
+    DebugActiveProcess(core::mem::transmute(dwprocessid)).ok()
 }
 #[inline]
 pub unsafe fn DebugActiveProcessStop(dwprocessid: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn DebugActiveProcessStop(dwprocessid : u32) -> super::super::super::Foundation:: BOOL);
-    DebugActiveProcessStop(dwprocessid).ok()
+    DebugActiveProcessStop(core::mem::transmute(dwprocessid)).ok()
 }
 #[inline]
 pub unsafe fn DebugBreak() {
@@ -138,7 +135,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("api-ms-win-core-util-l1-1-1.dll" "system" fn DecodeRemotePointer(processhandle : super::super::super::Foundation:: HANDLE, ptr : *const core::ffi::c_void, decodedptr : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    DecodeRemotePointer(processhandle.param().abi(), core::mem::transmute(ptr.unwrap_or(core::ptr::null())), decodedptr).ok()
+    DecodeRemotePointer(processhandle.param().abi(), core::mem::transmute(ptr.unwrap_or(core::ptr::null())), core::mem::transmute(decodedptr)).ok()
 }
 #[inline]
 pub unsafe fn DecodeSystemPointer(ptr: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
@@ -156,7 +153,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("api-ms-win-core-util-l1-1-1.dll" "system" fn EncodeRemotePointer(processhandle : super::super::super::Foundation:: HANDLE, ptr : *const core::ffi::c_void, encodedptr : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    EncodeRemotePointer(processhandle.param().abi(), core::mem::transmute(ptr.unwrap_or(core::ptr::null())), encodedptr).ok()
+    EncodeRemotePointer(processhandle.param().abi(), core::mem::transmute(ptr.unwrap_or(core::ptr::null())), core::mem::transmute(encodedptr)).ok()
 }
 #[inline]
 pub unsafe fn EncodeSystemPointer(ptr: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
@@ -171,7 +168,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn EnumDirTree(hprocess : super::super::super::Foundation:: HANDLE, rootpath : windows_core::PCSTR, inputpathname : windows_core::PCSTR, outputpathbuffer : windows_core::PSTR, cb : PENUMDIRTREE_CALLBACK, data : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EnumDirTree(hprocess.param().abi(), rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer), cb, core::mem::transmute(data.unwrap_or(core::ptr::null()))).ok()
+    EnumDirTree(hprocess.param().abi(), rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer), core::mem::transmute(cb), core::mem::transmute(data.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn EnumDirTreeW<P0, P1, P2>(hprocess: P0, rootpath: P1, inputpathname: P2, outputpathbuffer: windows_core::PWSTR, cb: PENUMDIRTREE_CALLBACKW, data: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -181,7 +178,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn EnumDirTreeW(hprocess : super::super::super::Foundation:: HANDLE, rootpath : windows_core::PCWSTR, inputpathname : windows_core::PCWSTR, outputpathbuffer : windows_core::PWSTR, cb : PENUMDIRTREE_CALLBACKW, data : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EnumDirTreeW(hprocess.param().abi(), rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer), cb, core::mem::transmute(data.unwrap_or(core::ptr::null()))).ok()
+    EnumDirTreeW(hprocess.param().abi(), rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer), core::mem::transmute(cb), core::mem::transmute(data.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -190,7 +187,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModules(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EnumerateLoadedModules(hprocess.param().abi(), enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    EnumerateLoadedModules(hprocess.param().abi(), core::mem::transmute(enumloadedmodulescallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn EnumerateLoadedModules64<P0>(hprocess: P0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -198,7 +195,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModules64(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EnumerateLoadedModules64(hprocess.param().abi(), enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    EnumerateLoadedModules64(hprocess.param().abi(), core::mem::transmute(enumloadedmodulescallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn EnumerateLoadedModulesEx<P0>(hprocess: P0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -206,7 +203,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesEx(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EnumerateLoadedModulesEx(hprocess.param().abi(), enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    EnumerateLoadedModulesEx(hprocess.param().abi(), core::mem::transmute(enumloadedmodulescallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn EnumerateLoadedModulesExW<P0>(hprocess: P0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -214,7 +211,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesExW(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EnumerateLoadedModulesExW(hprocess.param().abi(), enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    EnumerateLoadedModulesExW(hprocess.param().abi(), core::mem::transmute(enumloadedmodulescallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn EnumerateLoadedModulesW64<P0>(hprocess: P0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -222,28 +219,28 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesW64(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    EnumerateLoadedModulesW64(hprocess.param().abi(), enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    EnumerateLoadedModulesW64(hprocess.param().abi(), core::mem::transmute(enumloadedmodulescallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn FatalAppExitA<P0>(uaction: u32, lpmessagetext: P0)
+pub unsafe fn FatalAppExitA<P1>(uaction: u32, lpmessagetext: P1)
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FatalAppExitA(uaction : u32, lpmessagetext : windows_core::PCSTR));
-    FatalAppExitA(uaction, lpmessagetext.param().abi())
+    FatalAppExitA(core::mem::transmute(uaction), lpmessagetext.param().abi())
 }
 #[inline]
-pub unsafe fn FatalAppExitW<P0>(uaction: u32, lpmessagetext: P0)
+pub unsafe fn FatalAppExitW<P1>(uaction: u32, lpmessagetext: P1)
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FatalAppExitW(uaction : u32, lpmessagetext : windows_core::PCWSTR));
-    FatalAppExitW(uaction, lpmessagetext.param().abi())
+    FatalAppExitW(core::mem::transmute(uaction), lpmessagetext.param().abi())
 }
 #[inline]
-pub unsafe fn FatalExit(exitcode: i32) -> ! {
+pub unsafe fn FatalExit(exitcode: i32) {
     windows_targets::link!("kernel32.dll" "system" fn FatalExit(exitcode : i32) -> !);
-    FatalExit(exitcode)
+    FatalExit(core::mem::transmute(exitcode))
 }
 #[inline]
 pub unsafe fn FindDebugInfoFile<P0, P1>(filename: P0, symbolpath: P1, debugfilepath: windows_core::PSTR) -> windows_core::Result<super::super::super::Foundation::HANDLE>
@@ -262,7 +259,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn FindDebugInfoFileEx(filename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, debugfilepath : windows_core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = FindDebugInfoFileEx(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), callback, core::mem::transmute(callerdata.unwrap_or(core::ptr::null())));
+    let result__ = FindDebugInfoFileEx(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), core::mem::transmute(callback), core::mem::transmute(callerdata.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -272,7 +269,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn FindDebugInfoFileExW(filename : windows_core::PCWSTR, symbolpath : windows_core::PCWSTR, debugfilepath : windows_core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = FindDebugInfoFileExW(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), callback, core::mem::transmute(callerdata.unwrap_or(core::ptr::null())));
+    let result__ = FindDebugInfoFileExW(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), core::mem::transmute(callback), core::mem::transmute(callerdata.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -292,7 +289,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn FindExecutableImageEx(filename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, imagefilepath : windows_core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = FindExecutableImageEx(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath), callback, core::mem::transmute(callerdata.unwrap_or(core::ptr::null())));
+    let result__ = FindExecutableImageEx(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath), core::mem::transmute(callback), core::mem::transmute(callerdata.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -302,7 +299,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn FindExecutableImageExW(filename : windows_core::PCWSTR, symbolpath : windows_core::PCWSTR, imagefilepath : windows_core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = FindExecutableImageExW(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath), callback, callerdata);
+    let result__ = FindExecutableImageExW(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath), core::mem::transmute(callback), core::mem::transmute(callerdata));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -313,7 +310,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn FindFileInPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCSTR, filename : windows_core::PCSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : u32, filepath : windows_core::PSTR) -> super::super::super::Foundation:: BOOL);
-    FindFileInPath(hprocess.param().abi(), searchpatha.param().abi(), filename.param().abi(), id, two, three, flags, core::mem::transmute(filepath))
+    FindFileInPath(hprocess.param().abi(), searchpatha.param().abi(), filename.param().abi(), core::mem::transmute(id), core::mem::transmute(two), core::mem::transmute(three), core::mem::transmute(flags), core::mem::transmute(filepath))
 }
 #[inline]
 pub unsafe fn FindFileInSearchPath<P0, P1, P2>(hprocess: P0, searchpatha: P1, filename: P2, one: u32, two: u32, three: u32, filepath: windows_core::PSTR) -> super::super::super::Foundation::BOOL
@@ -323,7 +320,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn FindFileInSearchPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCSTR, filename : windows_core::PCSTR, one : u32, two : u32, three : u32, filepath : windows_core::PSTR) -> super::super::super::Foundation:: BOOL);
-    FindFileInSearchPath(hprocess.param().abi(), searchpatha.param().abi(), filename.param().abi(), one, two, three, core::mem::transmute(filepath))
+    FindFileInSearchPath(hprocess.param().abi(), searchpatha.param().abi(), filename.param().abi(), core::mem::transmute(one), core::mem::transmute(two), core::mem::transmute(three), core::mem::transmute(filepath))
 }
 #[inline]
 pub unsafe fn FlushInstructionCache<P0>(hprocess: P0, lpbaseaddress: Option<*const core::ffi::c_void>, dwsize: usize) -> windows_core::Result<()>
@@ -331,17 +328,17 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FlushInstructionCache(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, dwsize : usize) -> super::super::super::Foundation:: BOOL);
-    FlushInstructionCache(hprocess.param().abi(), core::mem::transmute(lpbaseaddress.unwrap_or(core::ptr::null())), dwsize).ok()
+    FlushInstructionCache(hprocess.param().abi(), core::mem::transmute(lpbaseaddress.unwrap_or(core::ptr::null())), core::mem::transmute(dwsize)).ok()
 }
 #[inline]
 pub unsafe fn FormatMessageA(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: Option<*const core::ffi::c_void>, dwmessageid: u32, dwlanguageid: u32, lpbuffer: windows_core::PSTR, nsize: u32, arguments: Option<*const *const i8>) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn FormatMessageA(dwflags : FORMAT_MESSAGE_OPTIONS, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : windows_core::PSTR, nsize : u32, arguments : *const *const i8) -> u32);
-    FormatMessageA(dwflags, core::mem::transmute(lpsource.unwrap_or(core::ptr::null())), dwmessageid, dwlanguageid, core::mem::transmute(lpbuffer), nsize, core::mem::transmute(arguments.unwrap_or(core::ptr::null())))
+    FormatMessageA(core::mem::transmute(dwflags), core::mem::transmute(lpsource.unwrap_or(core::ptr::null())), core::mem::transmute(dwmessageid), core::mem::transmute(dwlanguageid), core::mem::transmute(lpbuffer), core::mem::transmute(nsize), core::mem::transmute(arguments.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: Option<*const core::ffi::c_void>, dwmessageid: u32, dwlanguageid: u32, lpbuffer: windows_core::PWSTR, nsize: u32, arguments: Option<*const *const i8>) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn FormatMessageW(dwflags : FORMAT_MESSAGE_OPTIONS, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : windows_core::PWSTR, nsize : u32, arguments : *const *const i8) -> u32);
-    FormatMessageW(dwflags, core::mem::transmute(lpsource.unwrap_or(core::ptr::null())), dwmessageid, dwlanguageid, core::mem::transmute(lpbuffer), nsize, core::mem::transmute(arguments.unwrap_or(core::ptr::null())))
+    FormatMessageW(core::mem::transmute(dwflags), core::mem::transmute(lpsource.unwrap_or(core::ptr::null())), core::mem::transmute(dwmessageid), core::mem::transmute(dwlanguageid), core::mem::transmute(lpbuffer), core::mem::transmute(nsize), core::mem::transmute(arguments.unwrap_or(core::ptr::null())))
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[inline]
@@ -359,34 +356,33 @@ pub unsafe fn GetErrorMode() -> u32 {
 #[inline]
 pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY64) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn GetImageConfigInformation(loadedimage : *const LOADED_IMAGE, imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation:: BOOL);
-    GetImageConfigInformation(loadedimage, imageconfiginformation).ok()
+    GetImageConfigInformation(core::mem::transmute(loadedimage), core::mem::transmute(imageconfiginformation)).ok()
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY32) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn GetImageConfigInformation(loadedimage : *const LOADED_IMAGE, imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation:: BOOL);
-    GetImageConfigInformation(loadedimage, imageconfiginformation).ok()
+    GetImageConfigInformation(core::mem::transmute(loadedimage), core::mem::transmute(imageconfiginformation)).ok()
 }
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn GetImageUnusedHeaderBytes(loadedimage: *const LOADED_IMAGE, sizeunusedheaderbytes: *mut u32) -> u32 {
     windows_targets::link!("imagehlp.dll" "system" fn GetImageUnusedHeaderBytes(loadedimage : *const LOADED_IMAGE, sizeunusedheaderbytes : *mut u32) -> u32);
-    GetImageUnusedHeaderBytes(loadedimage, sizeunusedheaderbytes)
+    GetImageUnusedHeaderBytes(core::mem::transmute(loadedimage), core::mem::transmute(sizeunusedheaderbytes))
 }
 #[inline]
 pub unsafe fn GetSymLoadError() -> u32 {
     windows_targets::link!("dbghelp.dll" "system" fn GetSymLoadError() -> u32);
     GetSymLoadError()
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn GetThreadContext<P0>(hthread: P0, lpcontext: *mut CONTEXT) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *mut CONTEXT) -> super::super::super::Foundation:: BOOL);
-    GetThreadContext(hthread.param().abi(), lpcontext).ok()
+    GetThreadContext(hthread.param().abi(), core::mem::transmute(lpcontext)).ok()
 }
 #[inline]
 pub unsafe fn GetThreadErrorMode() -> u32 {
@@ -399,12 +395,12 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetThreadSelectorEntry(hthread : super::super::super::Foundation:: HANDLE, dwselector : u32, lpselectorentry : *mut LDT_ENTRY) -> super::super::super::Foundation:: BOOL);
-    GetThreadSelectorEntry(hthread.param().abi(), dwselector, lpselectorentry).ok()
+    GetThreadSelectorEntry(hthread.param().abi(), core::mem::transmute(dwselector), core::mem::transmute(lpselectorentry)).ok()
 }
 #[inline]
 pub unsafe fn GetThreadWaitChain(wcthandle: *const core::ffi::c_void, context: usize, flags: WAIT_CHAIN_THREAD_OPTIONS, threadid: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
     windows_targets::link!("advapi32.dll" "system" fn GetThreadWaitChain(wcthandle : *const core::ffi::c_void, context : usize, flags : WAIT_CHAIN_THREAD_OPTIONS, threadid : u32, nodecount : *mut u32, nodeinfoarray : *mut WAITCHAIN_NODE_INFO, iscycle : *mut super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    GetThreadWaitChain(wcthandle, context, flags, threadid, nodecount, nodeinfoarray, iscycle).ok()
+    GetThreadWaitChain(core::mem::transmute(wcthandle), core::mem::transmute(context), core::mem::transmute(flags), core::mem::transmute(threadid), core::mem::transmute(nodecount), core::mem::transmute(nodeinfoarray), core::mem::transmute(iscycle)).ok()
 }
 #[inline]
 pub unsafe fn GetTimestampForLoadedLibrary<P0>(module: P0) -> u32
@@ -415,11 +411,10 @@ where
     GetTimestampForLoadedLibrary(module.param().abi())
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn GetXStateFeaturesMask(context: *const CONTEXT, featuremask: *mut u64) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn GetXStateFeaturesMask(context : *const CONTEXT, featuremask : *mut u64) -> super::super::super::Foundation:: BOOL);
-    GetXStateFeaturesMask(context, featuremask)
+    GetXStateFeaturesMask(core::mem::transmute(context), core::mem::transmute(featuremask))
 }
 #[cfg(feature = "Win32_Security_WinTrust")]
 #[inline]
@@ -428,23 +423,23 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn ImageAddCertificate(filehandle : super::super::super::Foundation:: HANDLE, certificate : *const super::super::super::Security::WinTrust:: WIN_CERTIFICATE, index : *mut u32) -> super::super::super::Foundation:: BOOL);
-    ImageAddCertificate(filehandle.param().abi(), certificate, index).ok()
+    ImageAddCertificate(filehandle.param().abi(), core::mem::transmute(certificate), core::mem::transmute(index)).ok()
 }
 #[inline]
-pub unsafe fn ImageDirectoryEntryToData<P0>(base: *const core::ffi::c_void, mappedasimage: P0, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32) -> *mut core::ffi::c_void
+pub unsafe fn ImageDirectoryEntryToData<P1>(base: *const core::ffi::c_void, mappedasimage: P1, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToData(base : *const core::ffi::c_void, mappedasimage : super::super::super::Foundation:: BOOLEAN, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32) -> *mut core::ffi::c_void);
-    ImageDirectoryEntryToData(base, mappedasimage.param().abi(), directoryentry, size)
+    ImageDirectoryEntryToData(core::mem::transmute(base), mappedasimage.param().abi(), core::mem::transmute(directoryentry), core::mem::transmute(size))
 }
 #[inline]
-pub unsafe fn ImageDirectoryEntryToDataEx<P0>(base: *const core::ffi::c_void, mappedasimage: P0, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32, foundheader: Option<*mut *mut IMAGE_SECTION_HEADER>) -> *mut core::ffi::c_void
+pub unsafe fn ImageDirectoryEntryToDataEx<P1>(base: *const core::ffi::c_void, mappedasimage: P1, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32, foundheader: Option<*mut *mut IMAGE_SECTION_HEADER>) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToDataEx(base : *const core::ffi::c_void, mappedasimage : super::super::super::Foundation:: BOOLEAN, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32, foundheader : *mut *mut IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
-    ImageDirectoryEntryToDataEx(base, mappedasimage.param().abi(), directoryentry, size, core::mem::transmute(foundheader.unwrap_or(core::ptr::null_mut())))
+    ImageDirectoryEntryToDataEx(core::mem::transmute(base), mappedasimage.param().abi(), core::mem::transmute(directoryentry), core::mem::transmute(size), core::mem::transmute(foundheader.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn ImageEnumerateCertificates<P0>(filehandle: P0, typefilter: u16, certificatecount: *mut u32, indices: Option<&mut [u32]>) -> windows_core::Result<()>
@@ -452,7 +447,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn ImageEnumerateCertificates(filehandle : super::super::super::Foundation:: HANDLE, typefilter : u16, certificatecount : *mut u32, indices : *mut u32, indexcount : u32) -> super::super::super::Foundation:: BOOL);
-    ImageEnumerateCertificates(filehandle.param().abi(), typefilter, certificatecount, core::mem::transmute(indices.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), indices.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
+    ImageEnumerateCertificates(filehandle.param().abi(), core::mem::transmute(typefilter), core::mem::transmute(certificatecount), core::mem::transmute(indices.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), indices.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[cfg(feature = "Win32_Security_WinTrust")]
 #[inline]
@@ -461,7 +456,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn ImageGetCertificateData(filehandle : super::super::super::Foundation:: HANDLE, certificateindex : u32, certificate : *mut super::super::super::Security::WinTrust:: WIN_CERTIFICATE, requiredlength : *mut u32) -> super::super::super::Foundation:: BOOL);
-    ImageGetCertificateData(filehandle.param().abi(), certificateindex, certificate, requiredlength).ok()
+    ImageGetCertificateData(filehandle.param().abi(), core::mem::transmute(certificateindex), core::mem::transmute(certificate), core::mem::transmute(requiredlength)).ok()
 }
 #[cfg(feature = "Win32_Security_WinTrust")]
 #[inline]
@@ -470,7 +465,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn ImageGetCertificateHeader(filehandle : super::super::super::Foundation:: HANDLE, certificateindex : u32, certificateheader : *mut super::super::super::Security::WinTrust:: WIN_CERTIFICATE) -> super::super::super::Foundation:: BOOL);
-    ImageGetCertificateHeader(filehandle.param().abi(), certificateindex, certificateheader).ok()
+    ImageGetCertificateHeader(filehandle.param().abi(), core::mem::transmute(certificateindex), core::mem::transmute(certificateheader)).ok()
 }
 #[inline]
 pub unsafe fn ImageGetDigestStream<P0>(filehandle: P0, digestlevel: u32, digestfunction: DIGEST_FUNCTION, digesthandle: *const core::ffi::c_void) -> windows_core::Result<()>
@@ -478,7 +473,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn ImageGetDigestStream(filehandle : super::super::super::Foundation:: HANDLE, digestlevel : u32, digestfunction : DIGEST_FUNCTION, digesthandle : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    ImageGetDigestStream(filehandle.param().abi(), digestlevel, digestfunction, digesthandle).ok()
+    ImageGetDigestStream(filehandle.param().abi(), core::mem::transmute(digestlevel), core::mem::transmute(digestfunction), core::mem::transmute(digesthandle)).ok()
 }
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
@@ -495,14 +490,14 @@ where
 #[inline]
 pub unsafe fn ImageNtHeader(base: *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS64 {
     windows_targets::link!("dbghelp.dll" "system" fn ImageNtHeader(base : *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS64);
-    ImageNtHeader(base)
+    ImageNtHeader(core::mem::transmute(base))
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageNtHeader(base: *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS32 {
     windows_targets::link!("dbghelp.dll" "system" fn ImageNtHeader(base : *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS32);
-    ImageNtHeader(base)
+    ImageNtHeader(core::mem::transmute(base))
 }
 #[inline]
 pub unsafe fn ImageRemoveCertificate<P0>(filehandle: P0, index: u32) -> windows_core::Result<()>
@@ -510,41 +505,41 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn ImageRemoveCertificate(filehandle : super::super::super::Foundation:: HANDLE, index : u32) -> super::super::super::Foundation:: BOOL);
-    ImageRemoveCertificate(filehandle.param().abi(), index).ok()
+    ImageRemoveCertificate(filehandle.param().abi(), core::mem::transmute(index)).ok()
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS64, base: *const core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER {
     windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToSection(ntheaders : *const IMAGE_NT_HEADERS64, base : *const core::ffi::c_void, rva : u32) -> *mut IMAGE_SECTION_HEADER);
-    ImageRvaToSection(ntheaders, base, rva)
+    ImageRvaToSection(core::mem::transmute(ntheaders), core::mem::transmute(base), core::mem::transmute(rva))
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS32, base: *const core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER {
     windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToSection(ntheaders : *const IMAGE_NT_HEADERS32, base : *const core::ffi::c_void, rva : u32) -> *mut IMAGE_SECTION_HEADER);
-    ImageRvaToSection(ntheaders, base, rva)
+    ImageRvaToSection(core::mem::transmute(ntheaders), core::mem::transmute(base), core::mem::transmute(rva))
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS64, base: *const core::ffi::c_void, rva: u32, lastrvasection: Option<*const *const IMAGE_SECTION_HEADER>) -> *mut core::ffi::c_void {
     windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToVa(ntheaders : *const IMAGE_NT_HEADERS64, base : *const core::ffi::c_void, rva : u32, lastrvasection : *const *const IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
-    ImageRvaToVa(ntheaders, base, rva, core::mem::transmute(lastrvasection.unwrap_or(core::ptr::null())))
+    ImageRvaToVa(core::mem::transmute(ntheaders), core::mem::transmute(base), core::mem::transmute(rva), core::mem::transmute(lastrvasection.unwrap_or(core::ptr::null())))
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS32, base: *const core::ffi::c_void, rva: u32, lastrvasection: Option<*const *const IMAGE_SECTION_HEADER>) -> *mut core::ffi::c_void {
     windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToVa(ntheaders : *const IMAGE_NT_HEADERS32, base : *const core::ffi::c_void, rva : u32, lastrvasection : *const *const IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
-    ImageRvaToVa(ntheaders, base, rva, core::mem::transmute(lastrvasection.unwrap_or(core::ptr::null())))
+    ImageRvaToVa(core::mem::transmute(ntheaders), core::mem::transmute(base), core::mem::transmute(rva), core::mem::transmute(lastrvasection.unwrap_or(core::ptr::null())))
 }
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn ImageUnload(loadedimage: *mut LOADED_IMAGE) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn ImageUnload(loadedimage : *mut LOADED_IMAGE) -> super::super::super::Foundation:: BOOL);
-    ImageUnload(loadedimage).ok()
+    ImageUnload(core::mem::transmute(loadedimage)).ok()
 }
 #[inline]
 pub unsafe fn ImagehlpApiVersion() -> *mut API_VERSION {
@@ -554,19 +549,17 @@ pub unsafe fn ImagehlpApiVersion() -> *mut API_VERSION {
 #[inline]
 pub unsafe fn ImagehlpApiVersionEx(appversion: *const API_VERSION) -> *mut API_VERSION {
     windows_targets::link!("dbghelp.dll" "system" fn ImagehlpApiVersionEx(appversion : *const API_VERSION) -> *mut API_VERSION);
-    ImagehlpApiVersionEx(appversion)
+    ImagehlpApiVersionEx(core::mem::transmute(appversion))
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InitializeContext(buffer: Option<*mut core::ffi::c_void>, contextflags: CONTEXT_FLAGS, context: *mut *mut CONTEXT, contextlength: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn InitializeContext(buffer : *mut core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32) -> super::super::super::Foundation:: BOOL);
-    InitializeContext(core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), contextflags, context, contextlength).ok()
+    InitializeContext(core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(contextflags), core::mem::transmute(context), core::mem::transmute(contextlength)).ok()
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InitializeContext2(buffer: Option<*mut core::ffi::c_void>, contextflags: CONTEXT_FLAGS, context: *mut *mut CONTEXT, contextlength: *mut u32, xstatecompactionmask: u64) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn InitializeContext2(buffer : *mut core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32, xstatecompactionmask : u64) -> super::super::super::Foundation:: BOOL);
-    InitializeContext2(core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), contextflags, context, contextlength, xstatecompactionmask).ok()
+    InitializeContext2(core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(contextflags), core::mem::transmute(context), core::mem::transmute(contextlength), core::mem::transmute(xstatecompactionmask)).ok()
 }
 #[inline]
 pub unsafe fn IsDebuggerPresent() -> super::super::super::Foundation::BOOL {
@@ -574,11 +567,10 @@ pub unsafe fn IsDebuggerPresent() -> super::super::super::Foundation::BOOL {
     IsDebuggerPresent()
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn LocateXStateFeature(context: *const CONTEXT, featureid: u32, length: Option<*mut u32>) -> *mut core::ffi::c_void {
     windows_targets::link!("kernel32.dll" "system" fn LocateXStateFeature(context : *const CONTEXT, featureid : u32, length : *mut u32) -> *mut core::ffi::c_void);
-    LocateXStateFeature(context, featureid, core::mem::transmute(length.unwrap_or(core::ptr::null_mut())))
+    LocateXStateFeature(core::mem::transmute(context), core::mem::transmute(featureid), core::mem::transmute(length.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn MakeSureDirectoryPathExists<P0>(dirpath: P0) -> windows_core::Result<()>
@@ -590,15 +582,15 @@ where
 }
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
-pub unsafe fn MapAndLoad<P0, P1, P2, P3>(imagename: P0, dllpath: P1, loadedimage: *mut LOADED_IMAGE, dotdll: P2, readonly: P3) -> windows_core::Result<()>
+pub unsafe fn MapAndLoad<P0, P1, P3, P4>(imagename: P0, dllpath: P1, loadedimage: *mut LOADED_IMAGE, dotdll: P3, readonly: P4) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
     P3: windows_core::Param<super::super::super::Foundation::BOOL>,
+    P4: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn MapAndLoad(imagename : windows_core::PCSTR, dllpath : windows_core::PCSTR, loadedimage : *mut LOADED_IMAGE, dotdll : super::super::super::Foundation:: BOOL, readonly : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    MapAndLoad(imagename.param().abi(), dllpath.param().abi(), loadedimage, dotdll.param().abi(), readonly.param().abi()).ok()
+    MapAndLoad(imagename.param().abi(), dllpath.param().abi(), core::mem::transmute(loadedimage), dotdll.param().abi(), readonly.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn MapFileAndCheckSumA<P0>(filename: P0, headersum: *mut u32, checksum: *mut u32) -> u32
@@ -606,7 +598,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn MapFileAndCheckSumA(filename : windows_core::PCSTR, headersum : *mut u32, checksum : *mut u32) -> u32);
-    MapFileAndCheckSumA(filename.param().abi(), headersum, checksum)
+    MapFileAndCheckSumA(filename.param().abi(), core::mem::transmute(headersum), core::mem::transmute(checksum))
 }
 #[inline]
 pub unsafe fn MapFileAndCheckSumW<P0>(filename: P0, headersum: *mut u32, checksum: *mut u32) -> u32
@@ -614,33 +606,33 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn MapFileAndCheckSumW(filename : windows_core::PCWSTR, headersum : *mut u32, checksum : *mut u32) -> u32);
-    MapFileAndCheckSumW(filename.param().abi(), headersum, checksum)
+    MapFileAndCheckSumW(filename.param().abi(), core::mem::transmute(headersum), core::mem::transmute(checksum))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn MessageBeep(utype: super::super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn MessageBeep(utype : super::super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE) -> super::super::super::Foundation:: BOOL);
-    MessageBeep(utype).ok()
+    MessageBeep(core::mem::transmute(utype)).ok()
 }
 #[inline]
 pub unsafe fn MiniDumpReadDumpStream(baseofdump: *const core::ffi::c_void, streamnumber: u32, dir: *mut *mut MINIDUMP_DIRECTORY, streampointer: *mut *mut core::ffi::c_void, streamsize: Option<*mut u32>) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn MiniDumpReadDumpStream(baseofdump : *const core::ffi::c_void, streamnumber : u32, dir : *mut *mut MINIDUMP_DIRECTORY, streampointer : *mut *mut core::ffi::c_void, streamsize : *mut u32) -> super::super::super::Foundation:: BOOL);
-    MiniDumpReadDumpStream(baseofdump, streamnumber, dir, streampointer, core::mem::transmute(streamsize.unwrap_or(core::ptr::null_mut())))
+    MiniDumpReadDumpStream(core::mem::transmute(baseofdump), core::mem::transmute(streamnumber), core::mem::transmute(dir), core::mem::transmute(streampointer), core::mem::transmute(streamsize.unwrap_or(core::ptr::null_mut())))
 }
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
 #[inline]
-pub unsafe fn MiniDumpWriteDump<P0, P1>(hprocess: P0, processid: u32, hfile: P1, dumptype: MINIDUMP_TYPE, exceptionparam: Option<*const MINIDUMP_EXCEPTION_INFORMATION>, userstreamparam: Option<*const MINIDUMP_USER_STREAM_INFORMATION>, callbackparam: Option<*const MINIDUMP_CALLBACK_INFORMATION>) -> windows_core::Result<()>
+pub unsafe fn MiniDumpWriteDump<P0, P2>(hprocess: P0, processid: u32, hfile: P2, dumptype: MINIDUMP_TYPE, exceptionparam: Option<*const MINIDUMP_EXCEPTION_INFORMATION>, userstreamparam: Option<*const MINIDUMP_USER_STREAM_INFORMATION>, callbackparam: Option<*const MINIDUMP_CALLBACK_INFORMATION>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn MiniDumpWriteDump(hprocess : super::super::super::Foundation:: HANDLE, processid : u32, hfile : super::super::super::Foundation:: HANDLE, dumptype : MINIDUMP_TYPE, exceptionparam : *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam : *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam : *const MINIDUMP_CALLBACK_INFORMATION) -> super::super::super::Foundation:: BOOL);
-    MiniDumpWriteDump(hprocess.param().abi(), processid, hfile.param().abi(), dumptype, core::mem::transmute(exceptionparam.unwrap_or(core::ptr::null())), core::mem::transmute(userstreamparam.unwrap_or(core::ptr::null())), core::mem::transmute(callbackparam.unwrap_or(core::ptr::null()))).ok()
+    MiniDumpWriteDump(hprocess.param().abi(), core::mem::transmute(processid), hfile.param().abi(), core::mem::transmute(dumptype), core::mem::transmute(exceptionparam.unwrap_or(core::ptr::null())), core::mem::transmute(userstreamparam.unwrap_or(core::ptr::null())), core::mem::transmute(callbackparam.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: PWAITCHAINCALLBACK) -> *mut core::ffi::c_void {
     windows_targets::link!("advapi32.dll" "system" fn OpenThreadWaitChainSession(flags : OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback : PWAITCHAINCALLBACK) -> *mut core::ffi::c_void);
-    OpenThreadWaitChainSession(flags, callback)
+    OpenThreadWaitChainSession(core::mem::transmute(flags), core::mem::transmute(callback))
 }
 #[inline]
 pub unsafe fn OutputDebugStringA<P0>(lpoutputstring: P0)
@@ -661,21 +653,20 @@ where
 #[inline]
 pub unsafe fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, lparguments: Option<&[usize]>) {
     windows_targets::link!("kernel32.dll" "system" fn RaiseException(dwexceptioncode : u32, dwexceptionflags : u32, nnumberofarguments : u32, lparguments : *const usize));
-    RaiseException(dwexceptioncode, dwexceptionflags, lparguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lparguments.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+    RaiseException(core::mem::transmute(dwexceptioncode), core::mem::transmute(dwexceptionflags), lparguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lparguments.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RaiseFailFastException(pexceptionrecord: Option<*const EXCEPTION_RECORD>, pcontextrecord: Option<*const CONTEXT>, dwflags: u32) {
     windows_targets::link!("kernel32.dll" "system" fn RaiseFailFastException(pexceptionrecord : *const EXCEPTION_RECORD, pcontextrecord : *const CONTEXT, dwflags : u32));
-    RaiseFailFastException(core::mem::transmute(pexceptionrecord.unwrap_or(core::ptr::null())), core::mem::transmute(pcontextrecord.unwrap_or(core::ptr::null())), dwflags)
+    RaiseFailFastException(core::mem::transmute(pexceptionrecord.unwrap_or(core::ptr::null())), core::mem::transmute(pcontextrecord.unwrap_or(core::ptr::null())), core::mem::transmute(dwflags))
 }
 #[inline]
-pub unsafe fn RangeMapAddPeImageSections<P0>(rmaphandle: *const core::ffi::c_void, imagename: P0, mappedimage: *const core::ffi::c_void, mappingbytes: u32, imagebase: u64, usertag: u64, mappingflags: u32) -> super::super::super::Foundation::BOOL
+pub unsafe fn RangeMapAddPeImageSections<P1>(rmaphandle: *const core::ffi::c_void, imagename: P1, mappedimage: *const core::ffi::c_void, mappingbytes: u32, imagebase: u64, usertag: u64, mappingflags: u32) -> super::super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn RangeMapAddPeImageSections(rmaphandle : *const core::ffi::c_void, imagename : windows_core::PCWSTR, mappedimage : *const core::ffi::c_void, mappingbytes : u32, imagebase : u64, usertag : u64, mappingflags : u32) -> super::super::super::Foundation:: BOOL);
-    RangeMapAddPeImageSections(rmaphandle, imagename.param().abi(), mappedimage, mappingbytes, imagebase, usertag, mappingflags)
+    RangeMapAddPeImageSections(core::mem::transmute(rmaphandle), imagename.param().abi(), core::mem::transmute(mappedimage), core::mem::transmute(mappingbytes), core::mem::transmute(imagebase), core::mem::transmute(usertag), core::mem::transmute(mappingflags))
 }
 #[inline]
 pub unsafe fn RangeMapCreate() -> *mut core::ffi::c_void {
@@ -690,17 +681,17 @@ pub unsafe fn RangeMapFree(rmaphandle: Option<*const core::ffi::c_void>) {
 #[inline]
 pub unsafe fn RangeMapRead(rmaphandle: *const core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, requestbytes: u32, flags: u32, donebytes: Option<*mut u32>) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn RangeMapRead(rmaphandle : *const core::ffi::c_void, offset : u64, buffer : *mut core::ffi::c_void, requestbytes : u32, flags : u32, donebytes : *mut u32) -> super::super::super::Foundation:: BOOL);
-    RangeMapRead(rmaphandle, offset, buffer, requestbytes, flags, core::mem::transmute(donebytes.unwrap_or(core::ptr::null_mut())))
+    RangeMapRead(core::mem::transmute(rmaphandle), core::mem::transmute(offset), core::mem::transmute(buffer), core::mem::transmute(requestbytes), core::mem::transmute(flags), core::mem::transmute(donebytes.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn RangeMapRemove(rmaphandle: *const core::ffi::c_void, usertag: u64) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn RangeMapRemove(rmaphandle : *const core::ffi::c_void, usertag : u64) -> super::super::super::Foundation:: BOOL);
-    RangeMapRemove(rmaphandle, usertag)
+    RangeMapRemove(core::mem::transmute(rmaphandle), core::mem::transmute(usertag))
 }
 #[inline]
 pub unsafe fn RangeMapWrite(rmaphandle: *const core::ffi::c_void, offset: u64, buffer: *const core::ffi::c_void, requestbytes: u32, flags: u32, donebytes: Option<*mut u32>) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn RangeMapWrite(rmaphandle : *const core::ffi::c_void, offset : u64, buffer : *const core::ffi::c_void, requestbytes : u32, flags : u32, donebytes : *mut u32) -> super::super::super::Foundation:: BOOL);
-    RangeMapWrite(rmaphandle, offset, buffer, requestbytes, flags, core::mem::transmute(donebytes.unwrap_or(core::ptr::null_mut())))
+    RangeMapWrite(core::mem::transmute(rmaphandle), core::mem::transmute(offset), core::mem::transmute(buffer), core::mem::transmute(requestbytes), core::mem::transmute(flags), core::mem::transmute(donebytes.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn ReBaseImage<P0, P1, P2, P3, P4>(currentimagename: P0, symbolpath: P1, frebase: P2, frebasesysfileok: P3, fgoingdown: P4, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut usize, newimagesize: *mut u32, newimagebase: *mut usize, timestamp: u32) -> windows_core::Result<()>
@@ -712,7 +703,7 @@ where
     P4: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn ReBaseImage(currentimagename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, frebase : super::super::super::Foundation:: BOOL, frebasesysfileok : super::super::super::Foundation:: BOOL, fgoingdown : super::super::super::Foundation:: BOOL, checkimagesize : u32, oldimagesize : *mut u32, oldimagebase : *mut usize, newimagesize : *mut u32, newimagebase : *mut usize, timestamp : u32) -> super::super::super::Foundation:: BOOL);
-    ReBaseImage(currentimagename.param().abi(), symbolpath.param().abi(), frebase.param().abi(), frebasesysfileok.param().abi(), fgoingdown.param().abi(), checkimagesize, oldimagesize, oldimagebase, newimagesize, newimagebase, timestamp).ok()
+    ReBaseImage(currentimagename.param().abi(), symbolpath.param().abi(), frebase.param().abi(), frebasesysfileok.param().abi(), fgoingdown.param().abi(), core::mem::transmute(checkimagesize), core::mem::transmute(oldimagesize), core::mem::transmute(oldimagebase), core::mem::transmute(newimagesize), core::mem::transmute(newimagebase), core::mem::transmute(timestamp)).ok()
 }
 #[inline]
 pub unsafe fn ReBaseImage64<P0, P1, P2, P3, P4>(currentimagename: P0, symbolpath: P1, frebase: P2, frebasesysfileok: P3, fgoingdown: P4, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut u64, newimagesize: *mut u32, newimagebase: *mut u64, timestamp: u32) -> windows_core::Result<()>
@@ -724,7 +715,7 @@ where
     P4: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn ReBaseImage64(currentimagename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, frebase : super::super::super::Foundation:: BOOL, frebasesysfileok : super::super::super::Foundation:: BOOL, fgoingdown : super::super::super::Foundation:: BOOL, checkimagesize : u32, oldimagesize : *mut u32, oldimagebase : *mut u64, newimagesize : *mut u32, newimagebase : *mut u64, timestamp : u32) -> super::super::super::Foundation:: BOOL);
-    ReBaseImage64(currentimagename.param().abi(), symbolpath.param().abi(), frebase.param().abi(), frebasesysfileok.param().abi(), fgoingdown.param().abi(), checkimagesize, oldimagesize, oldimagebase, newimagesize, newimagebase, timestamp).ok()
+    ReBaseImage64(currentimagename.param().abi(), symbolpath.param().abi(), frebase.param().abi(), frebasesysfileok.param().abi(), fgoingdown.param().abi(), core::mem::transmute(checkimagesize), core::mem::transmute(oldimagesize), core::mem::transmute(oldimagebase), core::mem::transmute(newimagesize), core::mem::transmute(newimagebase), core::mem::transmute(timestamp)).ok()
 }
 #[inline]
 pub unsafe fn ReadProcessMemory<P0>(hprocess: P0, lpbaseaddress: *const core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, nsize: usize, lpnumberofbytesread: Option<*mut usize>) -> windows_core::Result<()>
@@ -732,12 +723,12 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ReadProcessMemory(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *mut core::ffi::c_void, nsize : usize, lpnumberofbytesread : *mut usize) -> super::super::super::Foundation:: BOOL);
-    ReadProcessMemory(hprocess.param().abi(), lpbaseaddress, lpbuffer, nsize, core::mem::transmute(lpnumberofbytesread.unwrap_or(core::ptr::null_mut()))).ok()
+    ReadProcessMemory(hprocess.param().abi(), core::mem::transmute(lpbaseaddress), core::mem::transmute(lpbuffer), core::mem::transmute(nsize), core::mem::transmute(lpnumberofbytesread.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, activationstatecallback: PCOGETACTIVATIONSTATE) {
     windows_targets::link!("advapi32.dll" "system" fn RegisterWaitChainCOMCallback(callstatecallback : PCOGETCALLSTATE, activationstatecallback : PCOGETACTIVATIONSTATE));
-    RegisterWaitChainCOMCallback(callstatecallback, activationstatecallback)
+    RegisterWaitChainCOMCallback(core::mem::transmute(callstatecallback), core::mem::transmute(activationstatecallback))
 }
 #[inline]
 pub unsafe fn RemoveInvalidModuleList<P0>(hprocess: P0)
@@ -750,12 +741,12 @@ where
 #[inline]
 pub unsafe fn RemoveVectoredContinueHandler(handle: *const core::ffi::c_void) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn RemoveVectoredContinueHandler(handle : *const core::ffi::c_void) -> u32);
-    RemoveVectoredContinueHandler(handle)
+    RemoveVectoredContinueHandler(core::mem::transmute(handle))
 }
 #[inline]
 pub unsafe fn RemoveVectoredExceptionHandler(handle: *const core::ffi::c_void) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn RemoveVectoredExceptionHandler(handle : *const core::ffi::c_void) -> u32);
-    RemoveVectoredExceptionHandler(handle)
+    RemoveVectoredExceptionHandler(core::mem::transmute(handle))
 }
 #[inline]
 pub unsafe fn ReportSymbolLoadSummary<P0, P1>(hprocess: P0, ploadmodule: P1, psymboldata: *const DBGHELP_DATA_REPORT_STRUCT) -> super::super::super::Foundation::BOOL
@@ -764,145 +755,141 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn ReportSymbolLoadSummary(hprocess : super::super::super::Foundation:: HANDLE, ploadmodule : windows_core::PCWSTR, psymboldata : *const DBGHELP_DATA_REPORT_STRUCT) -> super::super::super::Foundation:: BOOL);
-    ReportSymbolLoadSummary(hprocess.param().abi(), ploadmodule.param().abi(), psymboldata)
+    ReportSymbolLoadSummary(hprocess.param().abi(), ploadmodule.param().abi(), core::mem::transmute(psymboldata))
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY], baseaddress: usize) -> super::super::super::Foundation::BOOLEAN {
     windows_targets::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : usize) -> super::super::super::Foundation:: BOOLEAN);
-    RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress)
+    RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), core::mem::transmute(baseaddress))
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY], baseaddress: u64) -> super::super::super::Foundation::BOOLEAN {
     windows_targets::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : u64) -> super::super::super::Foundation:: BOOLEAN);
-    RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress)
+    RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), core::mem::transmute(baseaddress))
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut core::ffi::c_void, functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
-    RtlAddGrowableFunctionTable(dynamictable, core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend)
+    RtlAddGrowableFunctionTable(core::mem::transmute(dynamictable), core::mem::transmute(functiontable.as_ptr()), core::mem::transmute(entrycount), functiontable.len().try_into().unwrap(), core::mem::transmute(rangebase), core::mem::transmute(rangeend))
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut core::ffi::c_void, functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
     windows_targets::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
-    RtlAddGrowableFunctionTable(dynamictable, core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend)
+    RtlAddGrowableFunctionTable(core::mem::transmute(dynamictable), core::mem::transmute(functiontable.as_ptr()), core::mem::transmute(entrycount), functiontable.len().try_into().unwrap(), core::mem::transmute(rangebase), core::mem::transmute(rangeend))
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlCaptureContext(contextrecord: *mut CONTEXT) {
     windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : *mut CONTEXT));
-    RtlCaptureContext(contextrecord)
+    RtlCaptureContext(core::mem::transmute(contextrecord))
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlCaptureContext2(contextrecord: *mut CONTEXT) {
     windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext2(contextrecord : *mut CONTEXT));
-    RtlCaptureContext2(contextrecord)
+    RtlCaptureContext2(core::mem::transmute(contextrecord))
 }
 #[inline]
 pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, backtrace: &mut [*mut core::ffi::c_void], backtracehash: Option<*mut u32>) -> u16 {
     windows_targets::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : u32, framestocapture : u32, backtrace : *mut *mut core::ffi::c_void, backtracehash : *mut u32) -> u16);
-    RtlCaptureStackBackTrace(framestoskip, backtrace.len().try_into().unwrap(), core::mem::transmute(backtrace.as_ptr()), core::mem::transmute(backtracehash.unwrap_or(core::ptr::null_mut())))
+    RtlCaptureStackBackTrace(core::mem::transmute(framestoskip), backtrace.len().try_into().unwrap(), core::mem::transmute(backtrace.as_ptr()), core::mem::transmute(backtracehash.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
     windows_targets::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation:: BOOLEAN);
-    RtlDeleteFunctionTable(functiontable)
+    RtlDeleteFunctionTable(core::mem::transmute(functiontable))
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
     windows_targets::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation:: BOOLEAN);
-    RtlDeleteFunctionTable(functiontable)
+    RtlDeleteFunctionTable(core::mem::transmute(functiontable))
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlDeleteGrowableFunctionTable(dynamictable: *const core::ffi::c_void) {
     windows_targets::link!("ntdll.dll" "system" fn RtlDeleteGrowableFunctionTable(dynamictable : *const core::ffi::c_void));
-    RtlDeleteGrowableFunctionTable(dynamictable)
+    RtlDeleteGrowableFunctionTable(core::mem::transmute(dynamictable))
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut core::ffi::c_void, newentrycount: u32) {
     windows_targets::link!("ntdll.dll" "system" fn RtlGrowFunctionTable(dynamictable : *mut core::ffi::c_void, newentrycount : u32));
-    RtlGrowFunctionTable(dynamictable, newentrycount)
+    RtlGrowFunctionTable(core::mem::transmute(dynamictable), core::mem::transmute(newentrycount))
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
-pub unsafe fn RtlInstallFunctionTableCallback<P0>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P0) -> super::super::super::Foundation::BOOLEAN
+pub unsafe fn RtlInstallFunctionTableCallback<P5>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P5) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOLEAN);
-    RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, core::mem::transmute(context.unwrap_or(core::ptr::null())), outofprocesscallbackdll.param().abi())
+    RtlInstallFunctionTableCallback(core::mem::transmute(tableidentifier), core::mem::transmute(baseaddress), core::mem::transmute(length), core::mem::transmute(callback), core::mem::transmute(context.unwrap_or(core::ptr::null())), outofprocesscallbackdll.param().abi())
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn RtlInstallFunctionTableCallback<P0>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P0) -> super::super::super::Foundation::BOOLEAN
+pub unsafe fn RtlInstallFunctionTableCallback<P5>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P5) -> super::super::super::Foundation::BOOLEAN
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOLEAN);
-    RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, core::mem::transmute(context.unwrap_or(core::ptr::null())), outofprocesscallbackdll.param().abi())
+    RtlInstallFunctionTableCallback(core::mem::transmute(tableidentifier), core::mem::transmute(baseaddress), core::mem::transmute(length), core::mem::transmute(callback), core::mem::transmute(context.unwrap_or(core::ptr::null())), outofprocesscallbackdll.param().abi())
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlLookupFunctionEntry(controlpc: usize, imagebase: *mut usize, historytable: Option<*mut UNWIND_HISTORY_TABLE>) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     windows_targets::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : usize, imagebase : *mut usize, historytable : *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY);
-    RtlLookupFunctionEntry(controlpc, imagebase, core::mem::transmute(historytable.unwrap_or(core::ptr::null_mut())))
+    RtlLookupFunctionEntry(core::mem::transmute(controlpc), core::mem::transmute(imagebase), core::mem::transmute(historytable.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlLookupFunctionEntry(controlpc: u64, imagebase: *mut u64, historytable: Option<*mut UNWIND_HISTORY_TABLE>) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY {
     windows_targets::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : u64, imagebase : *mut u64, historytable : *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY);
-    RtlLookupFunctionEntry(controlpc, imagebase, core::mem::transmute(historytable.unwrap_or(core::ptr::null_mut())))
+    RtlLookupFunctionEntry(core::mem::transmute(controlpc), core::mem::transmute(imagebase), core::mem::transmute(historytable.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn RtlPcToFileHeader(pcvalue: *const core::ffi::c_void, baseofimage: *mut *mut core::ffi::c_void) -> *mut core::ffi::c_void {
     windows_targets::link!("kernel32.dll" "system" fn RtlPcToFileHeader(pcvalue : *const core::ffi::c_void, baseofimage : *mut *mut core::ffi::c_void) -> *mut core::ffi::c_void);
-    RtlPcToFileHeader(pcvalue, baseofimage)
+    RtlPcToFileHeader(core::mem::transmute(pcvalue), core::mem::transmute(baseofimage))
 }
 #[inline]
 pub unsafe fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD) {
     windows_targets::link!("kernel32.dll" "system" fn RtlRaiseException(exceptionrecord : *const EXCEPTION_RECORD));
-    RtlRaiseException(exceptionrecord)
+    RtlRaiseException(core::mem::transmute(exceptionrecord))
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlRestoreContext(contextrecord: *const CONTEXT, exceptionrecord: Option<*const EXCEPTION_RECORD>) {
     windows_targets::link!("kernel32.dll" "cdecl" fn RtlRestoreContext(contextrecord : *const CONTEXT, exceptionrecord : *const EXCEPTION_RECORD));
-    RtlRestoreContext(contextrecord, core::mem::transmute(exceptionrecord.unwrap_or(core::ptr::null())))
+    RtlRestoreContext(core::mem::transmute(contextrecord), core::mem::transmute(exceptionrecord.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn RtlUnwind(targetframe: Option<*const core::ffi::c_void>, targetip: Option<*const core::ffi::c_void>, exceptionrecord: Option<*const EXCEPTION_RECORD>, returnvalue: *const core::ffi::c_void) {
     windows_targets::link!("kernel32.dll" "system" fn RtlUnwind(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void));
-    RtlUnwind(core::mem::transmute(targetframe.unwrap_or(core::ptr::null())), core::mem::transmute(targetip.unwrap_or(core::ptr::null())), core::mem::transmute(exceptionrecord.unwrap_or(core::ptr::null())), returnvalue)
+    RtlUnwind(core::mem::transmute(targetframe.unwrap_or(core::ptr::null())), core::mem::transmute(targetip.unwrap_or(core::ptr::null())), core::mem::transmute(exceptionrecord.unwrap_or(core::ptr::null())), core::mem::transmute(returnvalue))
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlUnwindEx(targetframe: Option<*const core::ffi::c_void>, targetip: Option<*const core::ffi::c_void>, exceptionrecord: Option<*const EXCEPTION_RECORD>, returnvalue: *const core::ffi::c_void, contextrecord: *const CONTEXT, historytable: Option<*const UNWIND_HISTORY_TABLE>) {
     windows_targets::link!("kernel32.dll" "system" fn RtlUnwindEx(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void, contextrecord : *const CONTEXT, historytable : *const UNWIND_HISTORY_TABLE));
-    RtlUnwindEx(core::mem::transmute(targetframe.unwrap_or(core::ptr::null())), core::mem::transmute(targetip.unwrap_or(core::ptr::null())), core::mem::transmute(exceptionrecord.unwrap_or(core::ptr::null())), returnvalue, contextrecord, core::mem::transmute(historytable.unwrap_or(core::ptr::null())))
+    RtlUnwindEx(core::mem::transmute(targetframe.unwrap_or(core::ptr::null())), core::mem::transmute(targetip.unwrap_or(core::ptr::null())), core::mem::transmute(exceptionrecord.unwrap_or(core::ptr::null())), core::mem::transmute(returnvalue), core::mem::transmute(contextrecord), core::mem::transmute(historytable.unwrap_or(core::ptr::null())))
 }
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut usize, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS>) -> super::super::Kernel::EXCEPTION_ROUTINE {
     windows_targets::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : usize, controlpc : usize, functionentry : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut usize, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel:: EXCEPTION_ROUTINE);
-    RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, contextrecord, handlerdata, establisherframe, core::mem::transmute(contextpointers.unwrap_or(core::ptr::null_mut())))
+    RtlVirtualUnwind(core::mem::transmute(handlertype), core::mem::transmute(imagebase), core::mem::transmute(controlpc), core::mem::transmute(functionentry), core::mem::transmute(contextrecord), core::mem::transmute(handlerdata), core::mem::transmute(establisherframe), core::mem::transmute(contextpointers.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut u64, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS>) -> super::super::Kernel::EXCEPTION_ROUTINE {
     windows_targets::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : u64, controlpc : u64, functionentry : *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut u64, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel:: EXCEPTION_ROUTINE);
-    RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, contextrecord, handlerdata, establisherframe, core::mem::transmute(contextpointers.unwrap_or(core::ptr::null_mut())))
+    RtlVirtualUnwind(core::mem::transmute(handlertype), core::mem::transmute(imagebase), core::mem::transmute(controlpc), core::mem::transmute(functionentry), core::mem::transmute(contextrecord), core::mem::transmute(handlerdata), core::mem::transmute(establisherframe), core::mem::transmute(contextpointers.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SearchTreeForFile<P0, P1>(rootpath: P0, inputpathname: P1, outputpathbuffer: windows_core::PSTR) -> windows_core::Result<()>
@@ -925,140 +912,137 @@ where
 #[inline]
 pub unsafe fn SetCheckUserInterruptShared(lpstartaddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE) {
     windows_targets::link!("dbghelp.dll" "system" fn SetCheckUserInterruptShared(lpstartaddress : LPCALL_BACK_USER_INTERRUPT_ROUTINE));
-    SetCheckUserInterruptShared(lpstartaddress)
+    SetCheckUserInterruptShared(core::mem::transmute(lpstartaddress))
 }
 #[inline]
 pub unsafe fn SetErrorMode(umode: THREAD_ERROR_MODE) -> THREAD_ERROR_MODE {
     windows_targets::link!("kernel32.dll" "system" fn SetErrorMode(umode : THREAD_ERROR_MODE) -> THREAD_ERROR_MODE);
-    SetErrorMode(umode)
+    SetErrorMode(core::mem::transmute(umode))
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY64) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn SetImageConfigInformation(loadedimage : *mut LOADED_IMAGE, imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation:: BOOL);
-    SetImageConfigInformation(loadedimage, imageconfiginformation).ok()
+    SetImageConfigInformation(core::mem::transmute(loadedimage), core::mem::transmute(imageconfiginformation)).ok()
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY32) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn SetImageConfigInformation(loadedimage : *mut LOADED_IMAGE, imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation:: BOOL);
-    SetImageConfigInformation(loadedimage, imageconfiginformation).ok()
+    SetImageConfigInformation(core::mem::transmute(loadedimage), core::mem::transmute(imageconfiginformation)).ok()
 }
 #[inline]
 pub unsafe fn SetSymLoadError(error: u32) {
     windows_targets::link!("dbghelp.dll" "system" fn SetSymLoadError(error : u32));
-    SetSymLoadError(error)
+    SetSymLoadError(core::mem::transmute(error))
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn SetThreadContext<P0>(hthread: P0, lpcontext: *const CONTEXT) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *const CONTEXT) -> super::super::super::Foundation:: BOOL);
-    SetThreadContext(hthread.param().abi(), lpcontext).ok()
+    SetThreadContext(hthread.param().abi(), core::mem::transmute(lpcontext)).ok()
 }
 #[inline]
 pub unsafe fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: Option<*mut THREAD_ERROR_MODE>) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn SetThreadErrorMode(dwnewmode : THREAD_ERROR_MODE, lpoldmode : *mut THREAD_ERROR_MODE) -> super::super::super::Foundation:: BOOL);
-    SetThreadErrorMode(dwnewmode, core::mem::transmute(lpoldmode.unwrap_or(core::ptr::null_mut()))).ok()
+    SetThreadErrorMode(core::mem::transmute(dwnewmode), core::mem::transmute(lpoldmode.unwrap_or(core::ptr::null_mut()))).ok()
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER {
     windows_targets::link!("kernel32.dll" "system" fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter : LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER);
-    SetUnhandledExceptionFilter(lptoplevelexceptionfilter)
+    SetUnhandledExceptionFilter(core::mem::transmute(lptoplevelexceptionfilter))
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn SetXStateFeaturesMask(context: *mut CONTEXT, featuremask: u64) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("kernel32.dll" "system" fn SetXStateFeaturesMask(context : *mut CONTEXT, featuremask : u64) -> super::super::super::Foundation:: BOOL);
-    SetXStateFeaturesMask(context, featuremask)
+    SetXStateFeaturesMask(core::mem::transmute(context), core::mem::transmute(featuremask))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
-pub unsafe fn StackWalk<P0, P1>(machinetype: u32, hprocess: P0, hthread: P1, stackframe: *mut STACKFRAME, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE, translateaddress: PTRANSLATE_ADDRESS_ROUTINE) -> super::super::super::Foundation::BOOL
+pub unsafe fn StackWalk<P1, P2>(machinetype: u32, hprocess: P1, hthread: P2, stackframe: *mut STACKFRAME, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE, translateaddress: PTRANSLATE_ADDRESS_ROUTINE) -> super::super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn StackWalk(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE, translateaddress : PTRANSLATE_ADDRESS_ROUTINE) -> super::super::super::Foundation:: BOOL);
-    StackWalk(machinetype, hprocess.param().abi(), hthread.param().abi(), stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress)
+    StackWalk(core::mem::transmute(machinetype), hprocess.param().abi(), hthread.param().abi(), core::mem::transmute(stackframe), core::mem::transmute(contextrecord), core::mem::transmute(readmemoryroutine), core::mem::transmute(functiontableaccessroutine), core::mem::transmute(getmodulebaseroutine), core::mem::transmute(translateaddress))
 }
 #[inline]
-pub unsafe fn StackWalk2<P0, P1>(machinetype: u32, hprocess: P0, hthread: P1, stackframe: *mut STACKFRAME_EX, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue: PGET_TARGET_ATTRIBUTE_VALUE64, flags: u32) -> super::super::super::Foundation::BOOL
+pub unsafe fn StackWalk2<P1, P2>(machinetype: u32, hprocess: P1, hthread: P2, stackframe: *mut STACKFRAME_EX, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue: PGET_TARGET_ATTRIBUTE_VALUE64, flags: u32) -> super::super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn StackWalk2(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME_EX, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue : PGET_TARGET_ATTRIBUTE_VALUE64, flags : u32) -> super::super::super::Foundation:: BOOL);
-    StackWalk2(machinetype, hprocess.param().abi(), hthread.param().abi(), stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress, gettargetattributevalue, flags)
+    StackWalk2(core::mem::transmute(machinetype), hprocess.param().abi(), hthread.param().abi(), core::mem::transmute(stackframe), core::mem::transmute(contextrecord), core::mem::transmute(readmemoryroutine), core::mem::transmute(functiontableaccessroutine), core::mem::transmute(getmodulebaseroutine), core::mem::transmute(translateaddress), core::mem::transmute(gettargetattributevalue), core::mem::transmute(flags))
 }
 #[inline]
-pub unsafe fn StackWalk64<P0, P1>(machinetype: u32, hprocess: P0, hthread: P1, stackframe: *mut STACKFRAME64, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64) -> super::super::super::Foundation::BOOL
+pub unsafe fn StackWalk64<P1, P2>(machinetype: u32, hprocess: P1, hthread: P2, stackframe: *mut STACKFRAME64, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64) -> super::super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn StackWalk64(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME64, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64) -> super::super::super::Foundation:: BOOL);
-    StackWalk64(machinetype, hprocess.param().abi(), hthread.param().abi(), stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress)
+    StackWalk64(core::mem::transmute(machinetype), hprocess.param().abi(), hthread.param().abi(), core::mem::transmute(stackframe), core::mem::transmute(contextrecord), core::mem::transmute(readmemoryroutine), core::mem::transmute(functiontableaccessroutine), core::mem::transmute(getmodulebaseroutine), core::mem::transmute(translateaddress))
 }
 #[inline]
-pub unsafe fn StackWalkEx<P0, P1>(machinetype: u32, hprocess: P0, hthread: P1, stackframe: *mut STACKFRAME_EX, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, flags: u32) -> super::super::super::Foundation::BOOL
+pub unsafe fn StackWalkEx<P1, P2>(machinetype: u32, hprocess: P1, hthread: P2, stackframe: *mut STACKFRAME_EX, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, flags: u32) -> super::super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
     P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn StackWalkEx(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME_EX, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, flags : u32) -> super::super::super::Foundation:: BOOL);
-    StackWalkEx(machinetype, hprocess.param().abi(), hthread.param().abi(), stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress, flags)
+    StackWalkEx(core::mem::transmute(machinetype), hprocess.param().abi(), hthread.param().abi(), core::mem::transmute(stackframe), core::mem::transmute(contextrecord), core::mem::transmute(readmemoryroutine), core::mem::transmute(functiontableaccessroutine), core::mem::transmute(getmodulebaseroutine), core::mem::transmute(translateaddress), core::mem::transmute(flags))
 }
 #[inline]
-pub unsafe fn SymAddSourceStream<P0, P1>(hprocess: P0, base: u64, streamfile: P1, buffer: Option<&[u8]>) -> windows_core::Result<()>
+pub unsafe fn SymAddSourceStream<P0, P2>(hprocess: P0, base: u64, streamfile: P2, buffer: Option<&[u8]>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymAddSourceStream(hprocess : super::super::super::Foundation:: HANDLE, base : u64, streamfile : windows_core::PCSTR, buffer : *const u8, size : usize) -> super::super::super::Foundation:: BOOL);
-    SymAddSourceStream(hprocess.param().abi(), base, streamfile.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
+    SymAddSourceStream(hprocess.param().abi(), core::mem::transmute(base), streamfile.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[inline]
-pub unsafe fn SymAddSourceStreamA<P0, P1>(hprocess: P0, base: u64, streamfile: P1, buffer: Option<&[u8]>) -> super::super::super::Foundation::BOOL
+pub unsafe fn SymAddSourceStreamA<P0, P2>(hprocess: P0, base: u64, streamfile: P2, buffer: Option<&[u8]>) -> super::super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymAddSourceStreamA(hprocess : super::super::super::Foundation:: HANDLE, base : u64, streamfile : windows_core::PCSTR, buffer : *const u8, size : usize) -> super::super::super::Foundation:: BOOL);
-    SymAddSourceStreamA(hprocess.param().abi(), base, streamfile.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    SymAddSourceStreamA(hprocess.param().abi(), core::mem::transmute(base), streamfile.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
-pub unsafe fn SymAddSourceStreamW<P0, P1>(hprocess: P0, base: u64, filespec: P1, buffer: Option<&[u8]>) -> windows_core::Result<()>
+pub unsafe fn SymAddSourceStreamW<P0, P2>(hprocess: P0, base: u64, filespec: P2, buffer: Option<&[u8]>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymAddSourceStreamW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCWSTR, buffer : *const u8, size : usize) -> super::super::super::Foundation:: BOOL);
-    SymAddSourceStreamW(hprocess.param().abi(), base, filespec.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
+    SymAddSourceStreamW(hprocess.param().abi(), core::mem::transmute(base), filespec.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[inline]
-pub unsafe fn SymAddSymbol<P0, P1>(hprocess: P0, baseofdll: u64, name: P1, address: u64, size: u32, flags: u32) -> windows_core::Result<()>
+pub unsafe fn SymAddSymbol<P0, P2>(hprocess: P0, baseofdll: u64, name: P2, address: u64, size: u32, flags: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymAddSymbol(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCSTR, address : u64, size : u32, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymAddSymbol(hprocess.param().abi(), baseofdll, name.param().abi(), address, size, flags).ok()
+    SymAddSymbol(hprocess.param().abi(), core::mem::transmute(baseofdll), name.param().abi(), core::mem::transmute(address), core::mem::transmute(size), core::mem::transmute(flags)).ok()
 }
 #[inline]
-pub unsafe fn SymAddSymbolW<P0, P1>(hprocess: P0, baseofdll: u64, name: P1, address: u64, size: u32, flags: u32) -> windows_core::Result<()>
+pub unsafe fn SymAddSymbolW<P0, P2>(hprocess: P0, baseofdll: u64, name: P2, address: u64, size: u32, flags: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymAddSymbolW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCWSTR, address : u64, size : u32, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymAddSymbolW(hprocess.param().abi(), baseofdll, name.param().abi(), address, size, flags).ok()
+    SymAddSymbolW(hprocess.param().abi(), core::mem::transmute(baseofdll), name.param().abi(), core::mem::transmute(address), core::mem::transmute(size), core::mem::transmute(flags)).ok()
 }
 #[inline]
 pub unsafe fn SymAddrIncludeInlineTrace<P0>(hprocess: P0, address: u64) -> u32
@@ -1066,7 +1050,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymAddrIncludeInlineTrace(hprocess : super::super::super::Foundation:: HANDLE, address : u64) -> u32);
-    SymAddrIncludeInlineTrace(hprocess.param().abi(), address)
+    SymAddrIncludeInlineTrace(hprocess.param().abi(), core::mem::transmute(address))
 }
 #[inline]
 pub unsafe fn SymCleanup<P0>(hprocess: P0) -> windows_core::Result<()>
@@ -1082,50 +1066,50 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymCompareInlineTrace(hprocess : super::super::super::Foundation:: HANDLE, address1 : u64, inlinecontext1 : u32, retaddress1 : u64, address2 : u64, retaddress2 : u64) -> u32);
-    SymCompareInlineTrace(hprocess.param().abi(), address1, inlinecontext1, retaddress1, address2, retaddress2)
+    SymCompareInlineTrace(hprocess.param().abi(), core::mem::transmute(address1), core::mem::transmute(inlinecontext1), core::mem::transmute(retaddress1), core::mem::transmute(address2), core::mem::transmute(retaddress2))
 }
 #[inline]
-pub unsafe fn SymDeleteSymbol<P0, P1>(hprocess: P0, baseofdll: u64, name: P1, address: u64, flags: u32) -> windows_core::Result<()>
+pub unsafe fn SymDeleteSymbol<P0, P2>(hprocess: P0, baseofdll: u64, name: P2, address: u64, flags: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_targets::link!("dbghelp.dll" "system" fn SymDeleteSymbol(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCSTR, address : u64, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymDeleteSymbol(hprocess.param().abi(), baseofdll, name.param().abi(), address, flags).ok()
-}
-#[inline]
-pub unsafe fn SymDeleteSymbolW<P0, P1>(hprocess: P0, baseofdll: u64, name: P1, address: u64, flags: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_targets::link!("dbghelp.dll" "system" fn SymDeleteSymbolW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCWSTR, address : u64, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymDeleteSymbolW(hprocess.param().abi(), baseofdll, name.param().abi(), address, flags).ok()
-}
-#[inline]
-pub unsafe fn SymEnumLines<P0, P1, P2>(hprocess: P0, base: u64, obj: P1, file: P2, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("dbghelp.dll" "system" fn SymEnumLines(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_core::PCSTR, file : windows_core::PCSTR, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumLines(hprocess.param().abi(), base, obj.param().abi(), file.param().abi(), enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    windows_targets::link!("dbghelp.dll" "system" fn SymDeleteSymbol(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCSTR, address : u64, flags : u32) -> super::super::super::Foundation:: BOOL);
+    SymDeleteSymbol(hprocess.param().abi(), core::mem::transmute(baseofdll), name.param().abi(), core::mem::transmute(address), core::mem::transmute(flags)).ok()
 }
 #[inline]
-pub unsafe fn SymEnumLinesW<P0, P1, P2>(hprocess: P0, base: u64, obj: P1, file: P2, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SymDeleteSymbolW<P0, P2>(hprocess: P0, baseofdll: u64, name: P2, address: u64, flags: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
+    windows_targets::link!("dbghelp.dll" "system" fn SymDeleteSymbolW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCWSTR, address : u64, flags : u32) -> super::super::super::Foundation:: BOOL);
+    SymDeleteSymbolW(hprocess.param().abi(), core::mem::transmute(baseofdll), name.param().abi(), core::mem::transmute(address), core::mem::transmute(flags)).ok()
+}
+#[inline]
+pub unsafe fn SymEnumLines<P0, P2, P3>(hprocess: P0, base: u64, obj: P2, file: P3, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumLines(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_core::PCSTR, file : windows_core::PCSTR, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumLines(hprocess.param().abi(), core::mem::transmute(base), obj.param().abi(), file.param().abi(), core::mem::transmute(enumlinescallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumLinesW<P0, P2, P3>(hprocess: P0, base: u64, obj: P2, file: P3, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+{
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumLinesW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_core::PCWSTR, file : windows_core::PCWSTR, enumlinescallback : PSYM_ENUMLINES_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumLinesW(hprocess.param().abi(), base, obj.param().abi(), file.param().abi(), enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumLinesW(hprocess.param().abi(), core::mem::transmute(base), obj.param().abi(), file.param().abi(), core::mem::transmute(enumlinescallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn SymEnumProcesses(enumprocessescallback: PSYM_ENUMPROCESSES_CALLBACK, usercontext: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumProcesses(enumprocessescallback : PSYM_ENUMPROCESSES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumProcesses(enumprocessescallback, usercontext).ok()
+    SymEnumProcesses(core::mem::transmute(enumprocessescallback), core::mem::transmute(usercontext)).ok()
 }
 #[inline]
 pub unsafe fn SymEnumSourceFileTokens<P0>(hprocess: P0, base: u64, callback: PENUMSOURCEFILETOKENSCALLBACK) -> windows_core::Result<()>
@@ -1133,45 +1117,45 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceFileTokens(hprocess : super::super::super::Foundation:: HANDLE, base : u64, callback : PENUMSOURCEFILETOKENSCALLBACK) -> super::super::super::Foundation:: BOOL);
-    SymEnumSourceFileTokens(hprocess.param().abi(), base, callback).ok()
+    SymEnumSourceFileTokens(hprocess.param().abi(), core::mem::transmute(base), core::mem::transmute(callback)).ok()
 }
 #[inline]
-pub unsafe fn SymEnumSourceFiles<P0, P1>(hprocess: P0, modbase: u64, mask: P1, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SymEnumSourceFiles<P0, P2>(hprocess: P0, modbase: u64, mask: P2, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceFiles(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, mask : windows_core::PCSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSourceFiles(hprocess.param().abi(), modbase, mask.param().abi(), cbsrcfiles, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
-}
-#[inline]
-pub unsafe fn SymEnumSourceFilesW<P0, P1>(hprocess: P0, modbase: u64, mask: P1, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceFilesW(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, mask : windows_core::PCWSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSourceFilesW(hprocess.param().abi(), modbase, mask.param().abi(), cbsrcfiles, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
-}
-#[inline]
-pub unsafe fn SymEnumSourceLines<P0, P1, P2>(hprocess: P0, base: u64, obj: P1, file: P2, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceLines(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_core::PCSTR, file : windows_core::PCSTR, line : u32, flags : u32, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSourceLines(hprocess.param().abi(), base, obj.param().abi(), file.param().abi(), line, flags, enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceFiles(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, mask : windows_core::PCSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumSourceFiles(hprocess.param().abi(), core::mem::transmute(modbase), mask.param().abi(), core::mem::transmute(cbsrcfiles), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SymEnumSourceLinesW<P0, P1, P2>(hprocess: P0, base: u64, obj: P1, file: P2, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SymEnumSourceFilesW<P0, P2>(hprocess: P0, modbase: u64, mask: P2, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceFilesW(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, mask : windows_core::PCWSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumSourceFilesW(hprocess.param().abi(), core::mem::transmute(modbase), mask.param().abi(), core::mem::transmute(cbsrcfiles), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumSourceLines<P0, P2, P3>(hprocess: P0, base: u64, obj: P2, file: P3, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceLines(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_core::PCSTR, file : windows_core::PCSTR, line : u32, flags : u32, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumSourceLines(hprocess.param().abi(), core::mem::transmute(base), obj.param().abi(), file.param().abi(), core::mem::transmute(line), core::mem::transmute(flags), core::mem::transmute(enumlinescallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumSourceLinesW<P0, P2, P3>(hprocess: P0, base: u64, obj: P2, file: P3, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+{
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceLinesW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_core::PCWSTR, file : windows_core::PCWSTR, line : u32, flags : u32, enumlinescallback : PSYM_ENUMLINES_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSourceLinesW(hprocess.param().abi(), base, obj.param().abi(), file.param().abi(), line, flags, enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumSourceLinesW(hprocess.param().abi(), core::mem::transmute(base), obj.param().abi(), file.param().abi(), core::mem::transmute(line), core::mem::transmute(flags), core::mem::transmute(enumlinescallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn SymEnumSym<P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> super::super::super::Foundation::BOOL
@@ -1179,34 +1163,34 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSym(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSym(hprocess.param().abi(), baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null())))
+    SymEnumSym(hprocess.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn SymEnumSymbols<P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SymEnumSymbols<P0, P2>(hprocess: P0, baseofdll: u64, mask: P2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbols(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSymbols(hprocess.param().abi(), baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumSymbols(hprocess.param().abi(), core::mem::transmute(baseofdll), mask.param().abi(), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SymEnumSymbolsEx<P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
+pub unsafe fn SymEnumSymbolsEx<P0, P2>(hprocess: P0, baseofdll: u64, mask: P2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsEx(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void, options : u32) -> super::super::super::Foundation:: BOOL);
-    SymEnumSymbolsEx(hprocess.param().abi(), baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null())), options).ok()
+    SymEnumSymbolsEx(hprocess.param().abi(), core::mem::transmute(baseofdll), mask.param().abi(), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null())), core::mem::transmute(options)).ok()
 }
 #[inline]
-pub unsafe fn SymEnumSymbolsExW<P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
+pub unsafe fn SymEnumSymbolsExW<P0, P2>(hprocess: P0, baseofdll: u64, mask: P2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsExW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void, options : u32) -> super::super::super::Foundation:: BOOL);
-    SymEnumSymbolsExW(hprocess.param().abi(), baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null())), options).ok()
+    SymEnumSymbolsExW(hprocess.param().abi(), core::mem::transmute(baseofdll), mask.param().abi(), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null())), core::mem::transmute(options)).ok()
 }
 #[inline]
 pub unsafe fn SymEnumSymbolsForAddr<P0>(hprocess: P0, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1214,7 +1198,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsForAddr(hprocess : super::super::super::Foundation:: HANDLE, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSymbolsForAddr(hprocess.param().abi(), address, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumSymbolsForAddr(hprocess.param().abi(), core::mem::transmute(address), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn SymEnumSymbolsForAddrW<P0>(hprocess: P0, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1222,16 +1206,16 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsForAddrW(hprocess : super::super::super::Foundation:: HANDLE, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSymbolsForAddrW(hprocess.param().abi(), address, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumSymbolsForAddrW(hprocess.param().abi(), core::mem::transmute(address), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SymEnumSymbolsW<P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SymEnumSymbolsW<P0, P2>(hprocess: P0, baseofdll: u64, mask: P2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumSymbolsW(hprocess.param().abi(), baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumSymbolsW(hprocess.param().abi(), core::mem::transmute(baseofdll), mask.param().abi(), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn SymEnumTypes<P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1239,25 +1223,25 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypes(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumTypes(hprocess.param().abi(), baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumTypes(hprocess.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SymEnumTypesByName<P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SymEnumTypesByName<P0, P2>(hprocess: P0, baseofdll: u64, mask: P2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypesByName(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumTypesByName(hprocess.param().abi(), baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumTypesByName(hprocess.param().abi(), core::mem::transmute(baseofdll), mask.param().abi(), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SymEnumTypesByNameW<P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn SymEnumTypesByNameW<P0, P2>(hprocess: P0, baseofdll: u64, mask: P2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypesByNameW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumTypesByNameW(hprocess.param().abi(), baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumTypesByNameW(hprocess.param().abi(), core::mem::transmute(baseofdll), mask.param().abi(), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn SymEnumTypesW<P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1265,7 +1249,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypesW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumTypesW(hprocess.param().abi(), baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumTypesW(hprocess.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1274,7 +1258,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateModules(hprocess : super::super::super::Foundation:: HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumerateModules(hprocess.param().abi(), enummodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumerateModules(hprocess.param().abi(), core::mem::transmute(enummodulescallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn SymEnumerateModules64<P0>(hprocess: P0, enummodulescallback: PSYM_ENUMMODULES_CALLBACK64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1282,7 +1266,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateModules64(hprocess : super::super::super::Foundation:: HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumerateModules64(hprocess.param().abi(), enummodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumerateModules64(hprocess.param().abi(), core::mem::transmute(enummodulescallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn SymEnumerateModulesW64<P0>(hprocess: P0, enummodulescallback: PSYM_ENUMMODULES_CALLBACKW64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1290,7 +1274,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateModulesW64(hprocess : super::super::super::Foundation:: HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumerateModulesW64(hprocess.param().abi(), enummodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumerateModulesW64(hprocess.param().abi(), core::mem::transmute(enummodulescallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1299,7 +1283,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbols(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u32, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumerateSymbols(hprocess.param().abi(), baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumerateSymbols(hprocess.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn SymEnumerateSymbols64<P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1307,7 +1291,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbols64(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumerateSymbols64(hprocess.param().abi(), baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumerateSymbols64(hprocess.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1316,7 +1300,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbolsW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u32, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumerateSymbolsW(hprocess.param().abi(), baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumerateSymbolsW(hprocess.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn SymEnumerateSymbolsW64<P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1324,7 +1308,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbolsW64(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymEnumerateSymbolsW64(hprocess.param().abi(), baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymEnumerateSymbolsW64(hprocess.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn SymFindDebugInfoFile<P0, P1>(hprocess: P0, filename: P1, debugfilepath: windows_core::PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
@@ -1333,7 +1317,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFindDebugInfoFile(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_core::PCSTR, debugfilepath : windows_core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = SymFindDebugInfoFile(hprocess.param().abi(), filename.param().abi(), core::mem::transmute(debugfilepath), callback, core::mem::transmute(callerdata.unwrap_or(core::ptr::null())));
+    let result__ = SymFindDebugInfoFile(hprocess.param().abi(), filename.param().abi(), core::mem::transmute(debugfilepath), core::mem::transmute(callback), core::mem::transmute(callerdata.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -1343,7 +1327,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFindDebugInfoFileW(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_core::PCWSTR, debugfilepath : windows_core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = SymFindDebugInfoFileW(hprocess.param().abi(), filename.param().abi(), core::mem::transmute(debugfilepath), callback, core::mem::transmute(callerdata.unwrap_or(core::ptr::null())));
+    let result__ = SymFindDebugInfoFileW(hprocess.param().abi(), filename.param().abi(), core::mem::transmute(debugfilepath), core::mem::transmute(callback), core::mem::transmute(callerdata.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -1353,7 +1337,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFindExecutableImage(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_core::PCSTR, imagefilepath : windows_core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = SymFindExecutableImage(hprocess.param().abi(), filename.param().abi(), core::mem::transmute(imagefilepath), callback, callerdata);
+    let result__ = SymFindExecutableImage(hprocess.param().abi(), filename.param().abi(), core::mem::transmute(imagefilepath), core::mem::transmute(callback), core::mem::transmute(callerdata));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -1363,7 +1347,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFindExecutableImageW(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_core::PCWSTR, imagefilepath : windows_core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-    let result__ = SymFindExecutableImageW(hprocess.param().abi(), filename.param().abi(), core::mem::transmute(imagefilepath), callback, callerdata);
+    let result__ = SymFindExecutableImageW(hprocess.param().abi(), filename.param().abi(), core::mem::transmute(imagefilepath), core::mem::transmute(callback), core::mem::transmute(callerdata));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -1374,7 +1358,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFindFileInPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCSTR, filename : windows_core::PCSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : SYM_FIND_ID_OPTION, foundfile : windows_core::PSTR, callback : PFINDFILEINPATHCALLBACK, context : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymFindFileInPath(hprocess.param().abi(), searchpatha.param().abi(), filename.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null())), two, three, flags, core::mem::transmute(foundfile), callback, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
+    SymFindFileInPath(hprocess.param().abi(), searchpatha.param().abi(), filename.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null())), core::mem::transmute(two), core::mem::transmute(three), core::mem::transmute(flags), core::mem::transmute(foundfile), core::mem::transmute(callback), core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn SymFindFileInPathW<P0, P1, P2>(hprocess: P0, searchpatha: P1, filename: P2, id: Option<*const core::ffi::c_void>, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: windows_core::PWSTR, callback: PFINDFILEINPATHCALLBACKW, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -1384,7 +1368,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFindFileInPathW(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCWSTR, filename : windows_core::PCWSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : SYM_FIND_ID_OPTION, foundfile : windows_core::PWSTR, callback : PFINDFILEINPATHCALLBACKW, context : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymFindFileInPathW(hprocess.param().abi(), searchpatha.param().abi(), filename.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null())), two, three, flags, core::mem::transmute(foundfile), callback, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
+    SymFindFileInPathW(hprocess.param().abi(), searchpatha.param().abi(), filename.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null())), core::mem::transmute(two), core::mem::transmute(three), core::mem::transmute(flags), core::mem::transmute(foundfile), core::mem::transmute(callback), core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn SymFromAddr<P0>(hprocess: P0, address: u64, displacement: Option<*mut u64>, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
@@ -1392,7 +1376,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromAddr(hprocess : super::super::super::Foundation:: HANDLE, address : u64, displacement : *mut u64, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymFromAddr(hprocess.param().abi(), address, core::mem::transmute(displacement.unwrap_or(core::ptr::null_mut())), symbol).ok()
+    SymFromAddr(hprocess.param().abi(), core::mem::transmute(address), core::mem::transmute(displacement.unwrap_or(core::ptr::null_mut())), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymFromAddrW<P0>(hprocess: P0, address: u64, displacement: Option<*mut u64>, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
@@ -1400,7 +1384,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromAddrW(hprocess : super::super::super::Foundation:: HANDLE, address : u64, displacement : *mut u64, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymFromAddrW(hprocess.param().abi(), address, core::mem::transmute(displacement.unwrap_or(core::ptr::null_mut())), symbol).ok()
+    SymFromAddrW(hprocess.param().abi(), core::mem::transmute(address), core::mem::transmute(displacement.unwrap_or(core::ptr::null_mut())), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymFromIndex<P0>(hprocess: P0, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
@@ -1408,7 +1392,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromIndex(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymFromIndex(hprocess.param().abi(), baseofdll, index, symbol).ok()
+    SymFromIndex(hprocess.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(index), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymFromIndexW<P0>(hprocess: P0, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
@@ -1416,7 +1400,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromIndexW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymFromIndexW(hprocess.param().abi(), baseofdll, index, symbol).ok()
+    SymFromIndexW(hprocess.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(index), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymFromInlineContext<P0>(hprocess: P0, address: u64, inlinecontext: u32, displacement: Option<*mut u64>, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
@@ -1424,7 +1408,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromInlineContext(hprocess : super::super::super::Foundation:: HANDLE, address : u64, inlinecontext : u32, displacement : *mut u64, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymFromInlineContext(hprocess.param().abi(), address, inlinecontext, core::mem::transmute(displacement.unwrap_or(core::ptr::null_mut())), symbol).ok()
+    SymFromInlineContext(hprocess.param().abi(), core::mem::transmute(address), core::mem::transmute(inlinecontext), core::mem::transmute(displacement.unwrap_or(core::ptr::null_mut())), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymFromInlineContextW<P0>(hprocess: P0, address: u64, inlinecontext: u32, displacement: Option<*mut u64>, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
@@ -1432,7 +1416,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromInlineContextW(hprocess : super::super::super::Foundation:: HANDLE, address : u64, inlinecontext : u32, displacement : *mut u64, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymFromInlineContextW(hprocess.param().abi(), address, inlinecontext, core::mem::transmute(displacement.unwrap_or(core::ptr::null_mut())), symbol).ok()
+    SymFromInlineContextW(hprocess.param().abi(), core::mem::transmute(address), core::mem::transmute(inlinecontext), core::mem::transmute(displacement.unwrap_or(core::ptr::null_mut())), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymFromName<P0, P1>(hprocess: P0, name: P1, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
@@ -1441,7 +1425,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromName(hprocess : super::super::super::Foundation:: HANDLE, name : windows_core::PCSTR, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymFromName(hprocess.param().abi(), name.param().abi(), symbol).ok()
+    SymFromName(hprocess.param().abi(), name.param().abi(), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymFromNameW<P0, P1>(hprocess: P0, name: P1, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
@@ -1450,7 +1434,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromNameW(hprocess : super::super::super::Foundation:: HANDLE, name : windows_core::PCWSTR, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymFromNameW(hprocess.param().abi(), name.param().abi(), symbol).ok()
+    SymFromNameW(hprocess.param().abi(), name.param().abi(), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymFromToken<P0>(hprocess: P0, base: u64, token: u32, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
@@ -1458,7 +1442,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromToken(hprocess : super::super::super::Foundation:: HANDLE, base : u64, token : u32, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymFromToken(hprocess.param().abi(), base, token, symbol).ok()
+    SymFromToken(hprocess.param().abi(), core::mem::transmute(base), core::mem::transmute(token), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymFromTokenW<P0>(hprocess: P0, base: u64, token: u32, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
@@ -1466,7 +1450,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, token : u32, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymFromTokenW(hprocess.param().abi(), base, token, symbol).ok()
+    SymFromTokenW(hprocess.param().abi(), core::mem::transmute(base), core::mem::transmute(token), core::mem::transmute(symbol)).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1475,7 +1459,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFunctionTableAccess(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u32) -> *mut core::ffi::c_void);
-    SymFunctionTableAccess(hprocess.param().abi(), addrbase)
+    SymFunctionTableAccess(hprocess.param().abi(), core::mem::transmute(addrbase))
 }
 #[inline]
 pub unsafe fn SymFunctionTableAccess64<P0>(hprocess: P0, addrbase: u64) -> *mut core::ffi::c_void
@@ -1483,7 +1467,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFunctionTableAccess64(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u64) -> *mut core::ffi::c_void);
-    SymFunctionTableAccess64(hprocess.param().abi(), addrbase)
+    SymFunctionTableAccess64(hprocess.param().abi(), core::mem::transmute(addrbase))
 }
 #[inline]
 pub unsafe fn SymFunctionTableAccess64AccessRoutines<P0>(hprocess: P0, addrbase: u64, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64) -> *mut core::ffi::c_void
@@ -1491,12 +1475,12 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymFunctionTableAccess64AccessRoutines(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u64, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64) -> *mut core::ffi::c_void);
-    SymFunctionTableAccess64AccessRoutines(hprocess.param().abi(), addrbase, readmemoryroutine, getmodulebaseroutine)
+    SymFunctionTableAccess64AccessRoutines(hprocess.param().abi(), core::mem::transmute(addrbase), core::mem::transmute(readmemoryroutine), core::mem::transmute(getmodulebaseroutine))
 }
 #[inline]
 pub unsafe fn SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS) -> super::super::super::Foundation::BOOL {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetExtendedOption(option : IMAGEHLP_EXTENDED_OPTIONS) -> super::super::super::Foundation:: BOOL);
-    SymGetExtendedOption(option)
+    SymGetExtendedOption(core::mem::transmute(option))
 }
 #[inline]
 pub unsafe fn SymGetFileLineOffsets64<P0, P1, P2>(hprocess: P0, modulename: P1, filename: P2, buffer: &mut [u64]) -> u32
@@ -1525,7 +1509,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromAddr(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, pdwdisplacement : *mut u32, line : *mut IMAGEHLP_LINE) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromAddr(hprocess.param().abi(), dwaddr, pdwdisplacement, line).ok()
+    SymGetLineFromAddr(hprocess.param().abi(), core::mem::transmute(dwaddr), core::mem::transmute(pdwdisplacement), core::mem::transmute(line)).ok()
 }
 #[inline]
 pub unsafe fn SymGetLineFromAddr64<P0>(hprocess: P0, qwaddr: u64, pdwdisplacement: *mut u32, line64: *mut IMAGEHLP_LINE64) -> windows_core::Result<()>
@@ -1533,7 +1517,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromAddr64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, pdwdisplacement : *mut u32, line64 : *mut IMAGEHLP_LINE64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromAddr64(hprocess.param().abi(), qwaddr, pdwdisplacement, line64).ok()
+    SymGetLineFromAddr64(hprocess.param().abi(), core::mem::transmute(qwaddr), core::mem::transmute(pdwdisplacement), core::mem::transmute(line64)).ok()
 }
 #[inline]
 pub unsafe fn SymGetLineFromAddrW64<P0>(hprocess: P0, dwaddr: u64, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINEW64) -> windows_core::Result<()>
@@ -1541,7 +1525,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromAddrW64(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u64, pdwdisplacement : *mut u32, line : *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromAddrW64(hprocess.param().abi(), dwaddr, pdwdisplacement, line).ok()
+    SymGetLineFromAddrW64(hprocess.param().abi(), core::mem::transmute(dwaddr), core::mem::transmute(pdwdisplacement), core::mem::transmute(line)).ok()
 }
 #[inline]
 pub unsafe fn SymGetLineFromInlineContext<P0>(hprocess: P0, qwaddr: u64, inlinecontext: u32, qwmodulebaseaddress: u64, pdwdisplacement: *mut u32, line64: *mut IMAGEHLP_LINE64) -> windows_core::Result<()>
@@ -1549,7 +1533,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromInlineContext(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, inlinecontext : u32, qwmodulebaseaddress : u64, pdwdisplacement : *mut u32, line64 : *mut IMAGEHLP_LINE64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromInlineContext(hprocess.param().abi(), qwaddr, inlinecontext, qwmodulebaseaddress, pdwdisplacement, line64).ok()
+    SymGetLineFromInlineContext(hprocess.param().abi(), core::mem::transmute(qwaddr), core::mem::transmute(inlinecontext), core::mem::transmute(qwmodulebaseaddress), core::mem::transmute(pdwdisplacement), core::mem::transmute(line64)).ok()
 }
 #[inline]
 pub unsafe fn SymGetLineFromInlineContextW<P0>(hprocess: P0, dwaddr: u64, inlinecontext: u32, qwmodulebaseaddress: u64, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINEW64) -> windows_core::Result<()>
@@ -1557,7 +1541,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromInlineContextW(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u64, inlinecontext : u32, qwmodulebaseaddress : u64, pdwdisplacement : *mut u32, line : *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromInlineContextW(hprocess.param().abi(), dwaddr, inlinecontext, qwmodulebaseaddress, pdwdisplacement, line).ok()
+    SymGetLineFromInlineContextW(hprocess.param().abi(), core::mem::transmute(dwaddr), core::mem::transmute(inlinecontext), core::mem::transmute(qwmodulebaseaddress), core::mem::transmute(pdwdisplacement), core::mem::transmute(line)).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1568,7 +1552,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromName(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_core::PCSTR, filename : windows_core::PCSTR, dwlinenumber : u32, pldisplacement : *mut i32, line : *mut IMAGEHLP_LINE) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromName(hprocess.param().abi(), modulename.param().abi(), filename.param().abi(), dwlinenumber, pldisplacement, line).ok()
+    SymGetLineFromName(hprocess.param().abi(), modulename.param().abi(), filename.param().abi(), core::mem::transmute(dwlinenumber), core::mem::transmute(pldisplacement), core::mem::transmute(line)).ok()
 }
 #[inline]
 pub unsafe fn SymGetLineFromName64<P0, P1, P2>(hprocess: P0, modulename: P1, filename: P2, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINE64) -> windows_core::Result<()>
@@ -1578,7 +1562,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromName64(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_core::PCSTR, filename : windows_core::PCSTR, dwlinenumber : u32, pldisplacement : *mut i32, line : *mut IMAGEHLP_LINE64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromName64(hprocess.param().abi(), modulename.param().abi(), filename.param().abi(), dwlinenumber, pldisplacement, line).ok()
+    SymGetLineFromName64(hprocess.param().abi(), modulename.param().abi(), filename.param().abi(), core::mem::transmute(dwlinenumber), core::mem::transmute(pldisplacement), core::mem::transmute(line)).ok()
 }
 #[inline]
 pub unsafe fn SymGetLineFromNameW64<P0, P1, P2>(hprocess: P0, modulename: P1, filename: P2, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINEW64) -> windows_core::Result<()>
@@ -1588,7 +1572,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromNameW64(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_core::PCWSTR, filename : windows_core::PCWSTR, dwlinenumber : u32, pldisplacement : *mut i32, line : *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineFromNameW64(hprocess.param().abi(), modulename.param().abi(), filename.param().abi(), dwlinenumber, pldisplacement, line).ok()
+    SymGetLineFromNameW64(hprocess.param().abi(), modulename.param().abi(), filename.param().abi(), core::mem::transmute(dwlinenumber), core::mem::transmute(pldisplacement), core::mem::transmute(line)).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1597,7 +1581,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineNext(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE) -> super::super::super::Foundation:: BOOL);
-    SymGetLineNext(hprocess.param().abi(), line).ok()
+    SymGetLineNext(hprocess.param().abi(), core::mem::transmute(line)).ok()
 }
 #[inline]
 pub unsafe fn SymGetLineNext64<P0>(hprocess: P0, line: *mut IMAGEHLP_LINE64) -> windows_core::Result<()>
@@ -1605,7 +1589,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineNext64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineNext64(hprocess.param().abi(), line).ok()
+    SymGetLineNext64(hprocess.param().abi(), core::mem::transmute(line)).ok()
 }
 #[inline]
 pub unsafe fn SymGetLineNextW64<P0>(hprocess: P0, line: *mut IMAGEHLP_LINEW64) -> windows_core::Result<()>
@@ -1613,7 +1597,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLineNextW64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation:: BOOL);
-    SymGetLineNextW64(hprocess.param().abi(), line).ok()
+    SymGetLineNextW64(hprocess.param().abi(), core::mem::transmute(line)).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1622,7 +1606,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLinePrev(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE) -> super::super::super::Foundation:: BOOL);
-    SymGetLinePrev(hprocess.param().abi(), line).ok()
+    SymGetLinePrev(hprocess.param().abi(), core::mem::transmute(line)).ok()
 }
 #[inline]
 pub unsafe fn SymGetLinePrev64<P0>(hprocess: P0, line: *mut IMAGEHLP_LINE64) -> windows_core::Result<()>
@@ -1630,7 +1614,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLinePrev64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE64) -> super::super::super::Foundation:: BOOL);
-    SymGetLinePrev64(hprocess.param().abi(), line).ok()
+    SymGetLinePrev64(hprocess.param().abi(), core::mem::transmute(line)).ok()
 }
 #[inline]
 pub unsafe fn SymGetLinePrevW64<P0>(hprocess: P0, line: *mut IMAGEHLP_LINEW64) -> windows_core::Result<()>
@@ -1638,7 +1622,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetLinePrevW64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation:: BOOL);
-    SymGetLinePrevW64(hprocess.param().abi(), line).ok()
+    SymGetLinePrevW64(hprocess.param().abi(), core::mem::transmute(line)).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1647,7 +1631,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleBase(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32) -> u32);
-    SymGetModuleBase(hprocess.param().abi(), dwaddr)
+    SymGetModuleBase(hprocess.param().abi(), core::mem::transmute(dwaddr))
 }
 #[inline]
 pub unsafe fn SymGetModuleBase64<P0>(hprocess: P0, qwaddr: u64) -> u64
@@ -1655,7 +1639,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleBase64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64) -> u64);
-    SymGetModuleBase64(hprocess.param().abi(), qwaddr)
+    SymGetModuleBase64(hprocess.param().abi(), core::mem::transmute(qwaddr))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1664,7 +1648,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfo(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, moduleinfo : *mut IMAGEHLP_MODULE) -> super::super::super::Foundation:: BOOL);
-    SymGetModuleInfo(hprocess.param().abi(), dwaddr, moduleinfo).ok()
+    SymGetModuleInfo(hprocess.param().abi(), core::mem::transmute(dwaddr), core::mem::transmute(moduleinfo)).ok()
 }
 #[inline]
 pub unsafe fn SymGetModuleInfo64<P0>(hprocess: P0, qwaddr: u64, moduleinfo: *mut IMAGEHLP_MODULE64) -> windows_core::Result<()>
@@ -1672,7 +1656,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfo64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, moduleinfo : *mut IMAGEHLP_MODULE64) -> super::super::super::Foundation:: BOOL);
-    SymGetModuleInfo64(hprocess.param().abi(), qwaddr, moduleinfo).ok()
+    SymGetModuleInfo64(hprocess.param().abi(), core::mem::transmute(qwaddr), core::mem::transmute(moduleinfo)).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1681,7 +1665,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfoW(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, moduleinfo : *mut IMAGEHLP_MODULEW) -> super::super::super::Foundation:: BOOL);
-    SymGetModuleInfoW(hprocess.param().abi(), dwaddr, moduleinfo).ok()
+    SymGetModuleInfoW(hprocess.param().abi(), core::mem::transmute(dwaddr), core::mem::transmute(moduleinfo)).ok()
 }
 #[inline]
 pub unsafe fn SymGetModuleInfoW64<P0>(hprocess: P0, qwaddr: u64, moduleinfo: *mut IMAGEHLP_MODULEW64) -> windows_core::Result<()>
@@ -1689,7 +1673,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfoW64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, moduleinfo : *mut IMAGEHLP_MODULEW64) -> super::super::super::Foundation:: BOOL);
-    SymGetModuleInfoW64(hprocess.param().abi(), qwaddr, moduleinfo).ok()
+    SymGetModuleInfoW64(hprocess.param().abi(), core::mem::transmute(qwaddr), core::mem::transmute(moduleinfo)).ok()
 }
 #[inline]
 pub unsafe fn SymGetOmaps<P0>(hprocess: P0, baseofdll: u64, omapto: *mut *mut OMAP, comapto: *mut u64, omapfrom: *mut *mut OMAP, comapfrom: *mut u64) -> windows_core::Result<()>
@@ -1697,7 +1681,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetOmaps(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, omapto : *mut *mut OMAP, comapto : *mut u64, omapfrom : *mut *mut OMAP, comapfrom : *mut u64) -> super::super::super::Foundation:: BOOL);
-    SymGetOmaps(hprocess.param().abi(), baseofdll, omapto, comapto, omapfrom, comapfrom).ok()
+    SymGetOmaps(hprocess.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(omapto), core::mem::transmute(comapto), core::mem::transmute(omapfrom), core::mem::transmute(comapfrom)).ok()
 }
 #[inline]
 pub unsafe fn SymGetOptions() -> u32 {
@@ -1710,7 +1694,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetScope(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymGetScope(hprocess.param().abi(), baseofdll, index, symbol).ok()
+    SymGetScope(hprocess.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(index), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymGetScopeW<P0>(hprocess: P0, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
@@ -1718,7 +1702,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetScopeW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymGetScopeW(hprocess.param().abi(), baseofdll, index, symbol).ok()
+    SymGetScopeW(hprocess.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(index), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymGetSearchPath<P0>(hprocess: P0, searchpatha: &mut [u8]) -> windows_core::Result<()>
@@ -1737,140 +1721,140 @@ where
     SymGetSearchPathW(hprocess.param().abi(), core::mem::transmute(searchpatha.as_ptr()), searchpatha.len().try_into().unwrap()).ok()
 }
 #[inline]
-pub unsafe fn SymGetSourceFile<P0, P1, P2>(hprocess: P0, base: u64, params: P1, filespec: P2, filepath: &mut [u8]) -> windows_core::Result<()>
+pub unsafe fn SymGetSourceFile<P0, P2, P3>(hprocess: P0, base: u64, params: P2, filespec: P3, filepath: &mut [u8]) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFile(hprocess : super::super::super::Foundation:: HANDLE, base : u64, params : windows_core::PCSTR, filespec : windows_core::PCSTR, filepath : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFile(hprocess.param().abi(), base, params.param().abi(), filespec.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
-}
-#[inline]
-pub unsafe fn SymGetSourceFileChecksum<P0, P1>(hprocess: P0, base: u64, filespec: P1, pchecksumtype: *mut u32, pchecksum: &mut [u8], pactualbyteswritten: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksum(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileChecksum(hprocess.param().abi(), base, filespec.param().abi(), pchecksumtype, core::mem::transmute(pchecksum.as_ptr()), pchecksum.len().try_into().unwrap(), pactualbyteswritten).ok()
-}
-#[inline]
-pub unsafe fn SymGetSourceFileChecksumW<P0, P1>(hprocess: P0, base: u64, filespec: P1, pchecksumtype: *mut u32, pchecksum: &mut [u8], pactualbyteswritten: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksumW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCWSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileChecksumW(hprocess.param().abi(), base, filespec.param().abi(), pchecksumtype, core::mem::transmute(pchecksum.as_ptr()), pchecksum.len().try_into().unwrap(), pactualbyteswritten).ok()
-}
-#[inline]
-pub unsafe fn SymGetSourceFileFromToken<P0, P1>(hprocess: P0, token: *const core::ffi::c_void, params: P1, filepath: &mut [u8]) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromToken(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_core::PCSTR, filepath : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileFromToken(hprocess.param().abi(), token, params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
-}
-#[inline]
-pub unsafe fn SymGetSourceFileFromTokenByTokenName<P0, P1, P2>(hprocess: P0, token: *const core::ffi::c_void, tokenname: P1, params: P2, filepath: &mut [u8]) -> super::super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenName(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, tokenname : windows_core::PCSTR, params : windows_core::PCSTR, filepath : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileFromTokenByTokenName(hprocess.param().abi(), token, tokenname.param().abi(), params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap())
-}
-#[inline]
-pub unsafe fn SymGetSourceFileFromTokenByTokenNameW<P0, P1, P2>(hprocess: P0, token: *const core::ffi::c_void, tokenname: P1, params: P2, filepath: &mut [u16]) -> super::super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenNameW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, tokenname : windows_core::PCWSTR, params : windows_core::PCWSTR, filepath : windows_core::PWSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileFromTokenByTokenNameW(hprocess.param().abi(), token, tokenname.param().abi(), params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap())
-}
-#[inline]
-pub unsafe fn SymGetSourceFileFromTokenW<P0, P1>(hprocess: P0, token: *const core::ffi::c_void, params: P1, filepath: &mut [u16]) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_core::PCWSTR, filepath : windows_core::PWSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileFromTokenW(hprocess.param().abi(), token, params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
-}
-#[inline]
-pub unsafe fn SymGetSourceFileToken<P0, P1>(hprocess: P0, base: u64, filespec: P1, token: *mut *mut core::ffi::c_void, size: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileToken(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileToken(hprocess.param().abi(), base, filespec.param().abi(), token, size).ok()
-}
-#[inline]
-pub unsafe fn SymGetSourceFileTokenByTokenName<P0, P1, P2, P3>(hprocess: P0, base: u64, filespec: P1, tokenname: P2, tokenparameters: P3, token: *mut *mut core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenName(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCSTR, tokenname : windows_core::PCSTR, tokenparameters : windows_core::PCSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileTokenByTokenName(hprocess.param().abi(), base, filespec.param().abi(), tokenname.param().abi(), tokenparameters.param().abi(), token, size)
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFile(hprocess : super::super::super::Foundation:: HANDLE, base : u64, params : windows_core::PCSTR, filespec : windows_core::PCSTR, filepath : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFile(hprocess.param().abi(), core::mem::transmute(base), params.param().abi(), filespec.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
 }
 #[inline]
-pub unsafe fn SymGetSourceFileTokenByTokenNameW<P0, P1, P2, P3>(hprocess: P0, base: u64, filespec: P1, tokenname: P2, tokenparameters: P3, token: *mut *mut core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL
+pub unsafe fn SymGetSourceFileChecksum<P0, P2>(hprocess: P0, base: u64, filespec: P2, pchecksumtype: *mut u32, pchecksum: &mut [u8], pactualbyteswritten: *mut u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksum(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileChecksum(hprocess.param().abi(), core::mem::transmute(base), filespec.param().abi(), core::mem::transmute(pchecksumtype), core::mem::transmute(pchecksum.as_ptr()), pchecksum.len().try_into().unwrap(), core::mem::transmute(pactualbyteswritten)).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceFileChecksumW<P0, P2>(hprocess: P0, base: u64, filespec: P2, pchecksumtype: *mut u32, pchecksum: &mut [u8], pactualbyteswritten: *mut u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksumW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCWSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileChecksumW(hprocess.param().abi(), core::mem::transmute(base), filespec.param().abi(), core::mem::transmute(pchecksumtype), core::mem::transmute(pchecksum.as_ptr()), pchecksum.len().try_into().unwrap(), core::mem::transmute(pactualbyteswritten)).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceFileFromToken<P0, P2>(hprocess: P0, token: *const core::ffi::c_void, params: P2, filepath: &mut [u8]) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromToken(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_core::PCSTR, filepath : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileFromToken(hprocess.param().abi(), core::mem::transmute(token), params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceFileFromTokenByTokenName<P0, P2, P3>(hprocess: P0, token: *const core::ffi::c_void, tokenname: P2, params: P3, filepath: &mut [u8]) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenName(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, tokenname : windows_core::PCSTR, params : windows_core::PCSTR, filepath : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileFromTokenByTokenName(hprocess.param().abi(), core::mem::transmute(token), tokenname.param().abi(), params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap())
+}
+#[inline]
+pub unsafe fn SymGetSourceFileFromTokenByTokenNameW<P0, P2, P3>(hprocess: P0, token: *const core::ffi::c_void, tokenname: P2, params: P3, filepath: &mut [u16]) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenNameW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCWSTR, tokenname : windows_core::PCWSTR, tokenparameters : windows_core::PCWSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileTokenByTokenNameW(hprocess.param().abi(), base, filespec.param().abi(), tokenname.param().abi(), tokenparameters.param().abi(), token, size)
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenNameW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, tokenname : windows_core::PCWSTR, params : windows_core::PCWSTR, filepath : windows_core::PWSTR, size : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileFromTokenByTokenNameW(hprocess.param().abi(), core::mem::transmute(token), tokenname.param().abi(), params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn SymGetSourceFileTokenW<P0, P1>(hprocess: P0, base: u64, filespec: P1, token: *mut *mut core::ffi::c_void, size: *mut u32) -> windows_core::Result<()>
+pub unsafe fn SymGetSourceFileFromTokenW<P0, P2>(hprocess: P0, token: *const core::ffi::c_void, params: P2, filepath: &mut [u16]) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCWSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileTokenW(hprocess.param().abi(), base, filespec.param().abi(), token, size).ok()
-}
-#[inline]
-pub unsafe fn SymGetSourceFileW<P0, P1, P2>(hprocess: P0, base: u64, params: P1, filespec: P2, filepath: &mut [u16]) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, params : windows_core::PCWSTR, filespec : windows_core::PCWSTR, filepath : windows_core::PWSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceFileW(hprocess.param().abi(), base, params.param().abi(), filespec.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_core::PCWSTR, filepath : windows_core::PWSTR, size : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileFromTokenW(hprocess.param().abi(), core::mem::transmute(token), params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
 }
 #[inline]
-pub unsafe fn SymGetSourceVarFromToken<P0, P1, P2>(hprocess: P0, token: *const core::ffi::c_void, params: P1, varname: P2, value: &mut [u8]) -> windows_core::Result<()>
+pub unsafe fn SymGetSourceFileToken<P0, P2>(hprocess: P0, base: u64, filespec: P2, token: *mut *mut core::ffi::c_void, size: *mut u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceVarFromToken(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_core::PCSTR, varname : windows_core::PCSTR, value : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceVarFromToken(hprocess.param().abi(), token, params.param().abi(), varname.param().abi(), core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()).ok()
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileToken(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileToken(hprocess.param().abi(), core::mem::transmute(base), filespec.param().abi(), core::mem::transmute(token), core::mem::transmute(size)).ok()
 }
 #[inline]
-pub unsafe fn SymGetSourceVarFromTokenW<P0, P1, P2>(hprocess: P0, token: *const core::ffi::c_void, params: P1, varname: P2, value: &mut [u16]) -> windows_core::Result<()>
+pub unsafe fn SymGetSourceFileTokenByTokenName<P0, P2, P3, P4>(hprocess: P0, base: u64, filespec: P2, tokenname: P3, tokenparameters: P4, token: *mut *mut core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+    P4: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenName(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCSTR, tokenname : windows_core::PCSTR, tokenparameters : windows_core::PCSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileTokenByTokenName(hprocess.param().abi(), core::mem::transmute(base), filespec.param().abi(), tokenname.param().abi(), tokenparameters.param().abi(), core::mem::transmute(token), core::mem::transmute(size))
+}
+#[inline]
+pub unsafe fn SymGetSourceFileTokenByTokenNameW<P0, P2, P3, P4>(hprocess: P0, base: u64, filespec: P2, tokenname: P3, tokenparameters: P4, token: *mut *mut core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenNameW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCWSTR, tokenname : windows_core::PCWSTR, tokenparameters : windows_core::PCWSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileTokenByTokenNameW(hprocess.param().abi(), core::mem::transmute(base), filespec.param().abi(), tokenname.param().abi(), tokenparameters.param().abi(), core::mem::transmute(token), core::mem::transmute(size))
+}
+#[inline]
+pub unsafe fn SymGetSourceFileTokenW<P0, P2>(hprocess: P0, base: u64, filespec: P2, token: *mut *mut core::ffi::c_void, size: *mut u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCWSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileTokenW(hprocess.param().abi(), core::mem::transmute(base), filespec.param().abi(), core::mem::transmute(token), core::mem::transmute(size)).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceFileW<P0, P2, P3>(hprocess: P0, base: u64, params: P2, filespec: P3, filepath: &mut [u16]) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, params : windows_core::PCWSTR, filespec : windows_core::PCWSTR, filepath : windows_core::PWSTR, size : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileW(hprocess.param().abi(), core::mem::transmute(base), params.param().abi(), filespec.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceVarFromToken<P0, P2, P3>(hprocess: P0, token: *const core::ffi::c_void, params: P2, varname: P3, value: &mut [u8]) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceVarFromToken(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_core::PCSTR, varname : windows_core::PCSTR, value : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceVarFromToken(hprocess.param().abi(), core::mem::transmute(token), params.param().abi(), varname.param().abi(), core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceVarFromTokenW<P0, P2, P3>(hprocess: P0, token: *const core::ffi::c_void, params: P2, varname: P3, value: &mut [u16]) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+{
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceVarFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_core::PCWSTR, varname : windows_core::PCWSTR, value : windows_core::PWSTR, size : u32) -> super::super::super::Foundation:: BOOL);
-    SymGetSourceVarFromTokenW(hprocess.param().abi(), token, params.param().abi(), varname.param().abi(), core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()).ok()
+    SymGetSourceVarFromTokenW(hprocess.param().abi(), core::mem::transmute(token), params.param().abi(), varname.param().abi(), core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1879,7 +1863,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromAddr(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, pdwdisplacement : *mut u32, symbol : *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation:: BOOL);
-    SymGetSymFromAddr(hprocess.param().abi(), dwaddr, core::mem::transmute(pdwdisplacement.unwrap_or(core::ptr::null_mut())), symbol).ok()
+    SymGetSymFromAddr(hprocess.param().abi(), core::mem::transmute(dwaddr), core::mem::transmute(pdwdisplacement.unwrap_or(core::ptr::null_mut())), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymGetSymFromAddr64<P0>(hprocess: P0, qwaddr: u64, pdwdisplacement: Option<*mut u64>, symbol: *mut IMAGEHLP_SYMBOL64) -> windows_core::Result<()>
@@ -1887,7 +1871,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromAddr64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, pdwdisplacement : *mut u64, symbol : *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation:: BOOL);
-    SymGetSymFromAddr64(hprocess.param().abi(), qwaddr, core::mem::transmute(pdwdisplacement.unwrap_or(core::ptr::null_mut())), symbol).ok()
+    SymGetSymFromAddr64(hprocess.param().abi(), core::mem::transmute(qwaddr), core::mem::transmute(pdwdisplacement.unwrap_or(core::ptr::null_mut())), core::mem::transmute(symbol)).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1897,7 +1881,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromName(hprocess : super::super::super::Foundation:: HANDLE, name : windows_core::PCSTR, symbol : *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation:: BOOL);
-    SymGetSymFromName(hprocess.param().abi(), name.param().abi(), symbol).ok()
+    SymGetSymFromName(hprocess.param().abi(), name.param().abi(), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymGetSymFromName64<P0, P1>(hprocess: P0, name: P1, symbol: *mut IMAGEHLP_SYMBOL64) -> windows_core::Result<()>
@@ -1906,7 +1890,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromName64(hprocess : super::super::super::Foundation:: HANDLE, name : windows_core::PCSTR, symbol : *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation:: BOOL);
-    SymGetSymFromName64(hprocess.param().abi(), name.param().abi(), symbol).ok()
+    SymGetSymFromName64(hprocess.param().abi(), name.param().abi(), core::mem::transmute(symbol)).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1915,7 +1899,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymNext(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation:: BOOL);
-    SymGetSymNext(hprocess.param().abi(), symbol).ok()
+    SymGetSymNext(hprocess.param().abi(), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymGetSymNext64<P0>(hprocess: P0, symbol: *mut IMAGEHLP_SYMBOL64) -> windows_core::Result<()>
@@ -1923,7 +1907,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymNext64(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation:: BOOL);
-    SymGetSymNext64(hprocess.param().abi(), symbol).ok()
+    SymGetSymNext64(hprocess.param().abi(), core::mem::transmute(symbol)).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1932,7 +1916,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymPrev(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation:: BOOL);
-    SymGetSymPrev(hprocess.param().abi(), symbol).ok()
+    SymGetSymPrev(hprocess.param().abi(), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymGetSymPrev64<P0>(hprocess: P0, symbol: *mut IMAGEHLP_SYMBOL64) -> windows_core::Result<()>
@@ -1940,7 +1924,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetSymPrev64(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation:: BOOL);
-    SymGetSymPrev64(hprocess.param().abi(), symbol).ok()
+    SymGetSymPrev64(hprocess.param().abi(), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymGetSymbolFile<P0, P1, P2>(hprocess: P0, sympath: P1, imagefile: P2, r#type: IMAGEHLP_SF_TYPE, symbolfile: &mut [u8], dbgfile: &mut [u8]) -> windows_core::Result<()>
@@ -1963,22 +1947,22 @@ where
     SymGetSymbolFileW(hprocess.param().abi(), sympath.param().abi(), imagefile.param().abi(), r#type.0 as _, core::mem::transmute(symbolfile.as_ptr()), symbolfile.len().try_into().unwrap(), core::mem::transmute(dbgfile.as_ptr()), dbgfile.len().try_into().unwrap()).ok()
 }
 #[inline]
-pub unsafe fn SymGetTypeFromName<P0, P1>(hprocess: P0, baseofdll: u64, name: P1, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
+pub unsafe fn SymGetTypeFromName<P0, P2>(hprocess: P0, baseofdll: u64, name: P2, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeFromName(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCSTR, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymGetTypeFromName(hprocess.param().abi(), baseofdll, name.param().abi(), symbol).ok()
+    SymGetTypeFromName(hprocess.param().abi(), core::mem::transmute(baseofdll), name.param().abi(), core::mem::transmute(symbol)).ok()
 }
 #[inline]
-pub unsafe fn SymGetTypeFromNameW<P0, P1>(hprocess: P0, baseofdll: u64, name: P1, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
+pub unsafe fn SymGetTypeFromNameW<P0, P2>(hprocess: P0, baseofdll: u64, name: P2, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeFromNameW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCWSTR, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymGetTypeFromNameW(hprocess.param().abi(), baseofdll, name.param().abi(), symbol).ok()
+    SymGetTypeFromNameW(hprocess.param().abi(), core::mem::transmute(baseofdll), name.param().abi(), core::mem::transmute(symbol)).ok()
 }
 #[inline]
 pub unsafe fn SymGetTypeInfo<P0>(hprocess: P0, modbase: u64, typeid: u32, gettype: IMAGEHLP_SYMBOL_TYPE_INFO, pinfo: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -1986,7 +1970,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeInfo(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, typeid : u32, gettype : IMAGEHLP_SYMBOL_TYPE_INFO, pinfo : *mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymGetTypeInfo(hprocess.param().abi(), modbase, typeid, gettype, pinfo).ok()
+    SymGetTypeInfo(hprocess.param().abi(), core::mem::transmute(modbase), core::mem::transmute(typeid), core::mem::transmute(gettype), core::mem::transmute(pinfo)).ok()
 }
 #[inline]
 pub unsafe fn SymGetTypeInfoEx<P0>(hprocess: P0, modbase: u64, params: *mut IMAGEHLP_GET_TYPE_INFO_PARAMS) -> windows_core::Result<()>
@@ -1994,7 +1978,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeInfoEx(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, params : *mut IMAGEHLP_GET_TYPE_INFO_PARAMS) -> super::super::super::Foundation:: BOOL);
-    SymGetTypeInfoEx(hprocess.param().abi(), modbase, params).ok()
+    SymGetTypeInfoEx(hprocess.param().abi(), core::mem::transmute(modbase), core::mem::transmute(params)).ok()
 }
 #[inline]
 pub unsafe fn SymGetUnwindInfo<P0>(hprocess: P0, address: u64, buffer: Option<*mut core::ffi::c_void>, size: *mut u32) -> super::super::super::Foundation::BOOL
@@ -2002,7 +1986,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymGetUnwindInfo(hprocess : super::super::super::Foundation:: HANDLE, address : u64, buffer : *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymGetUnwindInfo(hprocess.param().abi(), address, core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), size)
+    SymGetUnwindInfo(hprocess.param().abi(), core::mem::transmute(address), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(size))
 }
 #[inline]
 pub unsafe fn SymInitialize<P0, P1, P2>(hprocess: P0, usersearchpath: P1, finvadeprocess: P2) -> windows_core::Result<()>
@@ -2034,7 +2018,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymLoadModule(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_core::PCSTR, modulename : windows_core::PCSTR, baseofdll : u32, sizeofdll : u32) -> u32);
-    SymLoadModule(hprocess.param().abi(), hfile.param().abi(), imagename.param().abi(), modulename.param().abi(), baseofdll, sizeofdll)
+    SymLoadModule(hprocess.param().abi(), hfile.param().abi(), imagename.param().abi(), modulename.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(sizeofdll))
 }
 #[inline]
 pub unsafe fn SymLoadModule64<P0, P1, P2, P3>(hprocess: P0, hfile: P1, imagename: P2, modulename: P3, baseofdll: u64, sizeofdll: u32) -> u64
@@ -2045,7 +2029,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymLoadModule64(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_core::PCSTR, modulename : windows_core::PCSTR, baseofdll : u64, sizeofdll : u32) -> u64);
-    SymLoadModule64(hprocess.param().abi(), hfile.param().abi(), imagename.param().abi(), modulename.param().abi(), baseofdll, sizeofdll)
+    SymLoadModule64(hprocess.param().abi(), hfile.param().abi(), imagename.param().abi(), modulename.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(sizeofdll))
 }
 #[inline]
 pub unsafe fn SymLoadModuleEx<P0, P1, P2, P3>(hprocess: P0, hfile: P1, imagename: P2, modulename: P3, baseofdll: u64, dllsize: u32, data: Option<*const MODLOAD_DATA>, flags: SYM_LOAD_FLAGS) -> u64
@@ -2056,7 +2040,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymLoadModuleEx(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_core::PCSTR, modulename : windows_core::PCSTR, baseofdll : u64, dllsize : u32, data : *const MODLOAD_DATA, flags : SYM_LOAD_FLAGS) -> u64);
-    SymLoadModuleEx(hprocess.param().abi(), hfile.param().abi(), imagename.param().abi(), modulename.param().abi(), baseofdll, dllsize, core::mem::transmute(data.unwrap_or(core::ptr::null())), flags)
+    SymLoadModuleEx(hprocess.param().abi(), hfile.param().abi(), imagename.param().abi(), modulename.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(dllsize), core::mem::transmute(data.unwrap_or(core::ptr::null())), core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn SymLoadModuleExW<P0, P1, P2, P3>(hprocess: P0, hfile: P1, imagename: P2, modulename: P3, baseofdll: u64, dllsize: u32, data: Option<*const MODLOAD_DATA>, flags: SYM_LOAD_FLAGS) -> u64
@@ -2067,7 +2051,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymLoadModuleExW(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_core::PCWSTR, modulename : windows_core::PCWSTR, baseofdll : u64, dllsize : u32, data : *const MODLOAD_DATA, flags : SYM_LOAD_FLAGS) -> u64);
-    SymLoadModuleExW(hprocess.param().abi(), hfile.param().abi(), imagename.param().abi(), modulename.param().abi(), baseofdll, dllsize, core::mem::transmute(data.unwrap_or(core::ptr::null())), flags)
+    SymLoadModuleExW(hprocess.param().abi(), hfile.param().abi(), imagename.param().abi(), modulename.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(dllsize), core::mem::transmute(data.unwrap_or(core::ptr::null())), core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn SymMatchFileName<P0, P1>(filename: P0, r#match: P1, filenamestop: Option<*mut windows_core::PSTR>, matchstop: Option<*mut windows_core::PSTR>) -> windows_core::Result<()>
@@ -2123,7 +2107,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymNext(hprocess : super::super::super::Foundation:: HANDLE, si : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymNext(hprocess.param().abi(), si).ok()
+    SymNext(hprocess.param().abi(), core::mem::transmute(si)).ok()
 }
 #[inline]
 pub unsafe fn SymNextW<P0>(hprocess: P0, siw: *mut SYMBOL_INFOW) -> windows_core::Result<()>
@@ -2131,7 +2115,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymNextW(hprocess : super::super::super::Foundation:: HANDLE, siw : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymNextW(hprocess.param().abi(), siw).ok()
+    SymNextW(hprocess.param().abi(), core::mem::transmute(siw)).ok()
 }
 #[inline]
 pub unsafe fn SymPrev<P0>(hprocess: P0, si: *mut SYMBOL_INFO) -> windows_core::Result<()>
@@ -2139,7 +2123,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymPrev(hprocess : super::super::super::Foundation:: HANDLE, si : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
-    SymPrev(hprocess.param().abi(), si).ok()
+    SymPrev(hprocess.param().abi(), core::mem::transmute(si)).ok()
 }
 #[inline]
 pub unsafe fn SymPrevW<P0>(hprocess: P0, siw: *mut SYMBOL_INFOW) -> windows_core::Result<()>
@@ -2147,7 +2131,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymPrevW(hprocess : super::super::super::Foundation:: HANDLE, siw : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
-    SymPrevW(hprocess.param().abi(), siw).ok()
+    SymPrevW(hprocess.param().abi(), core::mem::transmute(siw)).ok()
 }
 #[inline]
 pub unsafe fn SymQueryInlineTrace<P0>(hprocess: P0, startaddress: u64, startcontext: u32, startretaddress: u64, curaddress: u64, curcontext: *mut u32, curframeindex: *mut u32) -> windows_core::Result<()>
@@ -2155,7 +2139,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymQueryInlineTrace(hprocess : super::super::super::Foundation:: HANDLE, startaddress : u64, startcontext : u32, startretaddress : u64, curaddress : u64, curcontext : *mut u32, curframeindex : *mut u32) -> super::super::super::Foundation:: BOOL);
-    SymQueryInlineTrace(hprocess.param().abi(), startaddress, startcontext, startretaddress, curaddress, curcontext, curframeindex).ok()
+    SymQueryInlineTrace(hprocess.param().abi(), core::mem::transmute(startaddress), core::mem::transmute(startcontext), core::mem::transmute(startretaddress), core::mem::transmute(curaddress), core::mem::transmute(curcontext), core::mem::transmute(curframeindex)).ok()
 }
 #[inline]
 pub unsafe fn SymRefreshModuleList<P0>(hprocess: P0) -> windows_core::Result<()>
@@ -2172,7 +2156,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymRegisterCallback(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymRegisterCallback(hprocess.param().abi(), callbackfunction, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymRegisterCallback(hprocess.param().abi(), core::mem::transmute(callbackfunction), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn SymRegisterCallback64<P0>(hprocess: P0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> windows_core::Result<()>
@@ -2180,7 +2164,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymRegisterCallback64(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK64, usercontext : u64) -> super::super::super::Foundation:: BOOL);
-    SymRegisterCallback64(hprocess.param().abi(), callbackfunction, usercontext).ok()
+    SymRegisterCallback64(hprocess.param().abi(), core::mem::transmute(callbackfunction), core::mem::transmute(usercontext)).ok()
 }
 #[inline]
 pub unsafe fn SymRegisterCallbackW64<P0>(hprocess: P0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> windows_core::Result<()>
@@ -2188,7 +2172,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymRegisterCallbackW64(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK64, usercontext : u64) -> super::super::super::Foundation:: BOOL);
-    SymRegisterCallbackW64(hprocess.param().abi(), callbackfunction, usercontext).ok()
+    SymRegisterCallbackW64(hprocess.param().abi(), core::mem::transmute(callbackfunction), core::mem::transmute(usercontext)).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -2197,7 +2181,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymRegisterFunctionEntryCallback(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymRegisterFunctionEntryCallback(hprocess.param().abi(), callbackfunction, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+    SymRegisterFunctionEntryCallback(hprocess.param().abi(), core::mem::transmute(callbackfunction), core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn SymRegisterFunctionEntryCallback64<P0>(hprocess: P0, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK64, usercontext: u64) -> windows_core::Result<()>
@@ -2205,25 +2189,25 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymRegisterFunctionEntryCallback64(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK64, usercontext : u64) -> super::super::super::Foundation:: BOOL);
-    SymRegisterFunctionEntryCallback64(hprocess.param().abi(), callbackfunction, usercontext).ok()
+    SymRegisterFunctionEntryCallback64(hprocess.param().abi(), core::mem::transmute(callbackfunction), core::mem::transmute(usercontext)).ok()
 }
 #[inline]
-pub unsafe fn SymSearch<P0, P1>(hprocess: P0, baseofdll: u64, index: u32, symtag: u32, mask: P1, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
+pub unsafe fn SymSearch<P0, P4>(hprocess: P0, baseofdll: u64, index: u32, symtag: u32, mask: P4, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSearch(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symtag : u32, mask : windows_core::PCSTR, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void, options : u32) -> super::super::super::Foundation:: BOOL);
-    SymSearch(hprocess.param().abi(), baseofdll, index, symtag, mask.param().abi(), address, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null())), options).ok()
+    SymSearch(hprocess.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(index), core::mem::transmute(symtag), mask.param().abi(), core::mem::transmute(address), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null())), core::mem::transmute(options)).ok()
 }
 #[inline]
-pub unsafe fn SymSearchW<P0, P1>(hprocess: P0, baseofdll: u64, index: u32, symtag: u32, mask: P1, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
+pub unsafe fn SymSearchW<P0, P4>(hprocess: P0, baseofdll: u64, index: u32, symtag: u32, mask: P4, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSearchW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symtag : u32, mask : windows_core::PCWSTR, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void, options : u32) -> super::super::super::Foundation:: BOOL);
-    SymSearchW(hprocess.param().abi(), baseofdll, index, symtag, mask.param().abi(), address, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null())), options).ok()
+    SymSearchW(hprocess.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(index), core::mem::transmute(symtag), mask.param().abi(), core::mem::transmute(address), core::mem::transmute(enumsymbolscallback), core::mem::transmute(usercontext.unwrap_or(core::ptr::null())), core::mem::transmute(options)).ok()
 }
 #[inline]
 pub unsafe fn SymSetContext<P0>(hprocess: P0, stackframe: *const IMAGEHLP_STACK_FRAME, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -2231,15 +2215,15 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetContext(hprocess : super::super::super::Foundation:: HANDLE, stackframe : *const IMAGEHLP_STACK_FRAME, context : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    SymSetContext(hprocess.param().abi(), stackframe, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
+    SymSetContext(hprocess.param().abi(), core::mem::transmute(stackframe), core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SymSetExtendedOption<P0>(option: IMAGEHLP_EXTENDED_OPTIONS, value: P0) -> super::super::super::Foundation::BOOL
+pub unsafe fn SymSetExtendedOption<P1>(option: IMAGEHLP_EXTENDED_OPTIONS, value: P1) -> super::super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetExtendedOption(option : IMAGEHLP_EXTENDED_OPTIONS, value : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
-    SymSetExtendedOption(option, value.param().abi())
+    SymSetExtendedOption(core::mem::transmute(option), value.param().abi())
 }
 #[inline]
 pub unsafe fn SymSetHomeDirectory<P0, P1>(hprocess: P0, dir: P1) -> windows_core::PSTR
@@ -2262,7 +2246,7 @@ where
 #[inline]
 pub unsafe fn SymSetOptions(symoptions: u32) -> u32 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetOptions(symoptions : u32) -> u32);
-    SymSetOptions(symoptions)
+    SymSetOptions(core::mem::transmute(symoptions))
 }
 #[inline]
 pub unsafe fn SymSetParentWindow<P0>(hwnd: P0) -> windows_core::Result<()>
@@ -2278,7 +2262,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetScopeFromAddr(hprocess : super::super::super::Foundation:: HANDLE, address : u64) -> super::super::super::Foundation:: BOOL);
-    SymSetScopeFromAddr(hprocess.param().abi(), address).ok()
+    SymSetScopeFromAddr(hprocess.param().abi(), core::mem::transmute(address)).ok()
 }
 #[inline]
 pub unsafe fn SymSetScopeFromIndex<P0>(hprocess: P0, baseofdll: u64, index: u32) -> windows_core::Result<()>
@@ -2286,7 +2270,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetScopeFromIndex(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32) -> super::super::super::Foundation:: BOOL);
-    SymSetScopeFromIndex(hprocess.param().abi(), baseofdll, index).ok()
+    SymSetScopeFromIndex(hprocess.param().abi(), core::mem::transmute(baseofdll), core::mem::transmute(index)).ok()
 }
 #[inline]
 pub unsafe fn SymSetScopeFromInlineContext<P0>(hprocess: P0, address: u64, inlinecontext: u32) -> windows_core::Result<()>
@@ -2294,7 +2278,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSetScopeFromInlineContext(hprocess : super::super::super::Foundation:: HANDLE, address : u64, inlinecontext : u32) -> super::super::super::Foundation:: BOOL);
-    SymSetScopeFromInlineContext(hprocess.param().abi(), address, inlinecontext).ok()
+    SymSetScopeFromInlineContext(hprocess.param().abi(), core::mem::transmute(address), core::mem::transmute(inlinecontext)).ok()
 }
 #[inline]
 pub unsafe fn SymSetSearchPath<P0, P1>(hprocess: P0, searchpatha: P1) -> windows_core::Result<()>
@@ -2344,7 +2328,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexInfo(file : windows_core::PCSTR, info : *mut SYMSRV_INDEX_INFO, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymSrvGetFileIndexInfo(file.param().abi(), info, flags).ok()
+    SymSrvGetFileIndexInfo(file.param().abi(), core::mem::transmute(info), core::mem::transmute(flags)).ok()
 }
 #[inline]
 pub unsafe fn SymSrvGetFileIndexInfoW<P0>(file: P0, info: *mut SYMSRV_INDEX_INFOW, flags: u32) -> windows_core::Result<()>
@@ -2352,7 +2336,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexInfoW(file : windows_core::PCWSTR, info : *mut SYMSRV_INDEX_INFOW, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymSrvGetFileIndexInfoW(file.param().abi(), info, flags).ok()
+    SymSrvGetFileIndexInfoW(file.param().abi(), core::mem::transmute(info), core::mem::transmute(flags)).ok()
 }
 #[inline]
 pub unsafe fn SymSrvGetFileIndexString<P0, P1, P2>(hprocess: P0, srvpath: P1, file: P2, index: &mut [u8], flags: u32) -> windows_core::Result<()>
@@ -2362,7 +2346,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexString(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_core::PCSTR, file : windows_core::PCSTR, index : windows_core::PSTR, size : usize, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymSrvGetFileIndexString(hprocess.param().abi(), srvpath.param().abi(), file.param().abi(), core::mem::transmute(index.as_ptr()), index.len().try_into().unwrap(), flags).ok()
+    SymSrvGetFileIndexString(hprocess.param().abi(), srvpath.param().abi(), file.param().abi(), core::mem::transmute(index.as_ptr()), index.len().try_into().unwrap(), core::mem::transmute(flags)).ok()
 }
 #[inline]
 pub unsafe fn SymSrvGetFileIndexStringW<P0, P1, P2>(hprocess: P0, srvpath: P1, file: P2, index: &mut [u16], flags: u32) -> windows_core::Result<()>
@@ -2372,7 +2356,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexStringW(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_core::PCWSTR, file : windows_core::PCWSTR, index : windows_core::PWSTR, size : usize, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymSrvGetFileIndexStringW(hprocess.param().abi(), srvpath.param().abi(), file.param().abi(), core::mem::transmute(index.as_ptr()), index.len().try_into().unwrap(), flags).ok()
+    SymSrvGetFileIndexStringW(hprocess.param().abi(), srvpath.param().abi(), file.param().abi(), core::mem::transmute(index.as_ptr()), index.len().try_into().unwrap(), core::mem::transmute(flags)).ok()
 }
 #[inline]
 pub unsafe fn SymSrvGetFileIndexes<P0>(file: P0, id: *mut windows_core::GUID, val1: *mut u32, val2: Option<*mut u32>, flags: u32) -> windows_core::Result<()>
@@ -2380,7 +2364,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexes(file : windows_core::PCSTR, id : *mut windows_core::GUID, val1 : *mut u32, val2 : *mut u32, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymSrvGetFileIndexes(file.param().abi(), id, val1, core::mem::transmute(val2.unwrap_or(core::ptr::null_mut())), flags).ok()
+    SymSrvGetFileIndexes(file.param().abi(), core::mem::transmute(id), core::mem::transmute(val1), core::mem::transmute(val2.unwrap_or(core::ptr::null_mut())), core::mem::transmute(flags)).ok()
 }
 #[inline]
 pub unsafe fn SymSrvGetFileIndexesW<P0>(file: P0, id: *mut windows_core::GUID, val1: *mut u32, val2: Option<*mut u32>, flags: u32) -> windows_core::Result<()>
@@ -2388,7 +2372,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexesW(file : windows_core::PCWSTR, id : *mut windows_core::GUID, val1 : *mut u32, val2 : *mut u32, flags : u32) -> super::super::super::Foundation:: BOOL);
-    SymSrvGetFileIndexesW(file.param().abi(), id, val1, core::mem::transmute(val2.unwrap_or(core::ptr::null_mut())), flags).ok()
+    SymSrvGetFileIndexesW(file.param().abi(), core::mem::transmute(id), core::mem::transmute(val1), core::mem::transmute(val2.unwrap_or(core::ptr::null_mut())), core::mem::transmute(flags)).ok()
 }
 #[inline]
 pub unsafe fn SymSrvGetSupplement<P0, P1, P2, P3>(hprocess: P0, sympath: P1, node: P2, file: P3) -> windows_core::PCSTR
@@ -2438,7 +2422,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreFile(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_core::PCSTR, file : windows_core::PCSTR, flags : SYM_SRV_STORE_FILE_FLAGS) -> windows_core::PCSTR);
-    SymSrvStoreFile(hprocess.param().abi(), srvpath.param().abi(), file.param().abi(), flags)
+    SymSrvStoreFile(hprocess.param().abi(), srvpath.param().abi(), file.param().abi(), core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn SymSrvStoreFileW<P0, P1, P2>(hprocess: P0, srvpath: P1, file: P2, flags: SYM_SRV_STORE_FILE_FLAGS) -> windows_core::PCWSTR
@@ -2448,7 +2432,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreFileW(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_core::PCWSTR, file : windows_core::PCWSTR, flags : SYM_SRV_STORE_FILE_FLAGS) -> windows_core::PCWSTR);
-    SymSrvStoreFileW(hprocess.param().abi(), srvpath.param().abi(), file.param().abi(), flags)
+    SymSrvStoreFileW(hprocess.param().abi(), srvpath.param().abi(), file.param().abi(), core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn SymSrvStoreSupplement<P0, P1, P2, P3>(hprocess: P0, srvpath: P1, node: P2, file: P3, flags: u32) -> windows_core::PCSTR
@@ -2459,7 +2443,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreSupplement(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_core::PCSTR, node : windows_core::PCSTR, file : windows_core::PCSTR, flags : u32) -> windows_core::PCSTR);
-    SymSrvStoreSupplement(hprocess.param().abi(), srvpath.param().abi(), node.param().abi(), file.param().abi(), flags)
+    SymSrvStoreSupplement(hprocess.param().abi(), srvpath.param().abi(), node.param().abi(), file.param().abi(), core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn SymSrvStoreSupplementW<P0, P1, P2, P3>(hprocess: P0, sympath: P1, node: P2, file: P3, flags: u32) -> windows_core::PCWSTR
@@ -2470,18 +2454,18 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreSupplementW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_core::PCWSTR, node : windows_core::PCWSTR, file : windows_core::PCWSTR, flags : u32) -> windows_core::PCWSTR);
-    SymSrvStoreSupplementW(hprocess.param().abi(), sympath.param().abi(), node.param().abi(), file.param().abi(), flags)
+    SymSrvStoreSupplementW(hprocess.param().abi(), sympath.param().abi(), node.param().abi(), file.param().abi(), core::mem::transmute(flags))
 }
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SymUnDName(sym: *const IMAGEHLP_SYMBOL, undecname: &mut [u8]) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymUnDName(sym : *const IMAGEHLP_SYMBOL, undecname : windows_core::PSTR, undecnamelength : u32) -> super::super::super::Foundation:: BOOL);
-    SymUnDName(sym, core::mem::transmute(undecname.as_ptr()), undecname.len().try_into().unwrap()).ok()
+    SymUnDName(core::mem::transmute(sym), core::mem::transmute(undecname.as_ptr()), undecname.len().try_into().unwrap()).ok()
 }
 #[inline]
 pub unsafe fn SymUnDName64(sym: *const IMAGEHLP_SYMBOL64, undecname: &mut [u8]) -> windows_core::Result<()> {
     windows_targets::link!("dbghelp.dll" "system" fn SymUnDName64(sym : *const IMAGEHLP_SYMBOL64, undecname : windows_core::PSTR, undecnamelength : u32) -> super::super::super::Foundation:: BOOL);
-    SymUnDName64(sym, core::mem::transmute(undecname.as_ptr()), undecname.len().try_into().unwrap()).ok()
+    SymUnDName64(core::mem::transmute(sym), core::mem::transmute(undecname.as_ptr()), undecname.len().try_into().unwrap()).ok()
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -2490,7 +2474,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymUnloadModule(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u32) -> super::super::super::Foundation:: BOOL);
-    SymUnloadModule(hprocess.param().abi(), baseofdll).ok()
+    SymUnloadModule(hprocess.param().abi(), core::mem::transmute(baseofdll)).ok()
 }
 #[inline]
 pub unsafe fn SymUnloadModule64<P0>(hprocess: P0, baseofdll: u64) -> windows_core::Result<()>
@@ -2498,12 +2482,12 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn SymUnloadModule64(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64) -> super::super::super::Foundation:: BOOL);
-    SymUnloadModule64(hprocess.param().abi(), baseofdll).ok()
+    SymUnloadModule64(hprocess.param().abi(), core::mem::transmute(baseofdll)).ok()
 }
 #[inline]
 pub unsafe fn TerminateProcessOnMemoryExhaustion(failedallocationsize: usize) {
     windows_targets::link!("api-ms-win-core-errorhandling-l1-1-3.dll" "system" fn TerminateProcessOnMemoryExhaustion(failedallocationsize : usize));
-    TerminateProcessOnMemoryExhaustion(failedallocationsize)
+    TerminateProcessOnMemoryExhaustion(core::mem::transmute(failedallocationsize))
 }
 #[inline]
 pub unsafe fn TouchFileTimes<P0>(filehandle: P0, psystemtime: Option<*const super::super::super::Foundation::SYSTEMTIME>) -> windows_core::Result<()>
@@ -2519,7 +2503,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn UnDecorateSymbolName(name : windows_core::PCSTR, outputstring : windows_core::PSTR, maxstringlength : u32, flags : u32) -> u32);
-    UnDecorateSymbolName(name.param().abi(), core::mem::transmute(outputstring.as_ptr()), outputstring.len().try_into().unwrap(), flags)
+    UnDecorateSymbolName(name.param().abi(), core::mem::transmute(outputstring.as_ptr()), outputstring.len().try_into().unwrap(), core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn UnDecorateSymbolNameW<P0>(name: P0, outputstring: &mut [u16], flags: u32) -> u32
@@ -2527,19 +2511,18 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dbghelp.dll" "system" fn UnDecorateSymbolNameW(name : windows_core::PCWSTR, outputstring : windows_core::PWSTR, maxstringlength : u32, flags : u32) -> u32);
-    UnDecorateSymbolNameW(name.param().abi(), core::mem::transmute(outputstring.as_ptr()), outputstring.len().try_into().unwrap(), flags)
+    UnDecorateSymbolNameW(name.param().abi(), core::mem::transmute(outputstring.as_ptr()), outputstring.len().try_into().unwrap(), core::mem::transmute(flags))
 }
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn UnMapAndLoad(loadedimage: *mut LOADED_IMAGE) -> windows_core::Result<()> {
     windows_targets::link!("imagehlp.dll" "system" fn UnMapAndLoad(loadedimage : *mut LOADED_IMAGE) -> super::super::super::Foundation:: BOOL);
-    UnMapAndLoad(loadedimage).ok()
+    UnMapAndLoad(core::mem::transmute(loadedimage)).ok()
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn UnhandledExceptionFilter(exceptioninfo: *const EXCEPTION_POINTERS) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn UnhandledExceptionFilter(exceptioninfo : *const EXCEPTION_POINTERS) -> i32);
-    UnhandledExceptionFilter(exceptioninfo)
+    UnhandledExceptionFilter(core::mem::transmute(exceptioninfo))
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
@@ -2549,7 +2532,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn UpdateDebugInfoFile(imagefilename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, debugfilepath : windows_core::PSTR, ntheaders : *const IMAGE_NT_HEADERS32) -> super::super::super::Foundation:: BOOL);
-    UpdateDebugInfoFile(imagefilename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), ntheaders).ok()
+    UpdateDebugInfoFile(imagefilename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), core::mem::transmute(ntheaders)).ok()
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
@@ -2559,19 +2542,19 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("imagehlp.dll" "system" fn UpdateDebugInfoFileEx(imagefilename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, debugfilepath : windows_core::PSTR, ntheaders : *const IMAGE_NT_HEADERS32, oldchecksum : u32) -> super::super::super::Foundation:: BOOL);
-    UpdateDebugInfoFileEx(imagefilename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), ntheaders, oldchecksum)
+    UpdateDebugInfoFileEx(imagefilename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), core::mem::transmute(ntheaders), core::mem::transmute(oldchecksum))
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
 pub unsafe fn WaitForDebugEvent(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn WaitForDebugEvent(lpdebugevent : *mut DEBUG_EVENT, dwmilliseconds : u32) -> super::super::super::Foundation:: BOOL);
-    WaitForDebugEvent(lpdebugevent, dwmilliseconds).ok()
+    WaitForDebugEvent(core::mem::transmute(lpdebugevent), core::mem::transmute(dwmilliseconds)).ok()
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
 pub unsafe fn WaitForDebugEventEx(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn WaitForDebugEventEx(lpdebugevent : *mut DEBUG_EVENT, dwmilliseconds : u32) -> super::super::super::Foundation:: BOOL);
-    WaitForDebugEventEx(lpdebugevent, dwmilliseconds).ok()
+    WaitForDebugEventEx(core::mem::transmute(lpdebugevent), core::mem::transmute(dwmilliseconds)).ok()
 }
 #[inline]
 pub unsafe fn Wow64GetThreadContext<P0>(hthread: P0, lpcontext: *mut WOW64_CONTEXT) -> windows_core::Result<()>
@@ -2579,7 +2562,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn Wow64GetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *mut WOW64_CONTEXT) -> super::super::super::Foundation:: BOOL);
-    Wow64GetThreadContext(hthread.param().abi(), lpcontext).ok()
+    Wow64GetThreadContext(hthread.param().abi(), core::mem::transmute(lpcontext)).ok()
 }
 #[inline]
 pub unsafe fn Wow64GetThreadSelectorEntry<P0>(hthread: P0, dwselector: u32, lpselectorentry: *mut WOW64_LDT_ENTRY) -> windows_core::Result<()>
@@ -2587,7 +2570,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn Wow64GetThreadSelectorEntry(hthread : super::super::super::Foundation:: HANDLE, dwselector : u32, lpselectorentry : *mut WOW64_LDT_ENTRY) -> super::super::super::Foundation:: BOOL);
-    Wow64GetThreadSelectorEntry(hthread.param().abi(), dwselector, lpselectorentry).ok()
+    Wow64GetThreadSelectorEntry(hthread.param().abi(), core::mem::transmute(dwselector), core::mem::transmute(lpselectorentry)).ok()
 }
 #[inline]
 pub unsafe fn Wow64SetThreadContext<P0>(hthread: P0, lpcontext: *const WOW64_CONTEXT) -> windows_core::Result<()>
@@ -2595,7 +2578,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn Wow64SetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *const WOW64_CONTEXT) -> super::super::super::Foundation:: BOOL);
-    Wow64SetThreadContext(hthread.param().abi(), lpcontext).ok()
+    Wow64SetThreadContext(hthread.param().abi(), core::mem::transmute(lpcontext)).ok()
 }
 #[inline]
 pub unsafe fn WriteProcessMemory<P0>(hprocess: P0, lpbaseaddress: *const core::ffi::c_void, lpbuffer: *const core::ffi::c_void, nsize: usize, lpnumberofbyteswritten: Option<*mut usize>) -> windows_core::Result<()>
@@ -2603,7 +2586,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn WriteProcessMemory(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *const core::ffi::c_void, nsize : usize, lpnumberofbyteswritten : *mut usize) -> super::super::super::Foundation:: BOOL);
-    WriteProcessMemory(hprocess.param().abi(), lpbaseaddress, lpbuffer, nsize, core::mem::transmute(lpnumberofbyteswritten.unwrap_or(core::ptr::null_mut()))).ok()
+    WriteProcessMemory(hprocess.param().abi(), core::mem::transmute(lpbaseaddress), core::mem::transmute(lpbuffer), core::mem::transmute(nsize), core::mem::transmute(lpnumberofbyteswritten.unwrap_or(core::ptr::null_mut()))).ok()
 }
 windows_core::imp::define_interface!(IDebugExtendedProperty, IDebugExtendedProperty_Vtbl, 0x51973c52_cb0c_11d0_b5c9_00a0244a0e7a);
 impl core::ops::Deref for IDebugExtendedProperty {
@@ -2616,11 +2599,11 @@ windows_core::imp::interface_hierarchy!(IDebugExtendedProperty, windows_core::IU
 impl IDebugExtendedProperty {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetExtendedPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, pextendedpropertyinfo).ok()
+        (windows_core::Interface::vtable(self).GetExtendedPropertyInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(dwfieldspec), core::mem::transmute(nradix), core::mem::transmute(pextendedpropertyinfo)).ok()
     }
     pub unsafe fn EnumExtendedMembers(&self, dwfieldspec: u32, nradix: u32) -> windows_core::Result<IEnumDebugExtendedPropertyInfo> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumExtendedMembers)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumExtendedMembers)(windows_core::Interface::as_raw(self), core::mem::transmute(dwfieldspec), core::mem::transmute(nradix), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -2633,15 +2616,13 @@ pub struct IDebugExtendedProperty_Vtbl {
     pub EnumExtendedMembers: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IDebugExtendedProperty_Impl: Sized + IDebugProperty_Impl {
+pub trait IDebugExtendedProperty_Impl: IDebugProperty_Impl {
     fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::Result<()>;
     fn EnumExtendedMembers(&self, dwfieldspec: u32, nradix: u32) -> windows_core::Result<IEnumDebugExtendedPropertyInfo>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IDebugExtendedProperty {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDebugExtendedProperty_Vtbl {
-    pub const fn new<Identity: IDebugExtendedProperty_Impl, const OFFSET: isize>() -> IDebugExtendedProperty_Vtbl {
+    pub const fn new<Identity: IDebugExtendedProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetExtendedPropertyInfo<Identity: IDebugExtendedProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDebugExtendedProperty_Impl::GetExtendedPropertyInfo(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&pextendedpropertyinfo)).into()
@@ -2663,34 +2644,31 @@ impl IDebugExtendedProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugExtendedProperty as windows_core::Interface>::IID || iid == &<IDebugProperty as windows_core::Interface>::IID
+        iid == &<IDebugExtendedProperty as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IDebugExtendedProperty {}
 windows_core::imp::define_interface!(IDebugProperty, IDebugProperty_Vtbl, 0x51973c50_cb0c_11d0_b5c9_00a0244a0e7a);
-impl core::ops::Deref for IDebugProperty {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDebugProperty, windows_core::IUnknown);
 impl IDebugProperty {
     pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, ppropertyinfo).ok()
+        (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(dwfieldspec), core::mem::transmute(nradix), core::mem::transmute(ppropertyinfo)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const windows_core::GUID, rgvar: *mut super::super::Variant::VARIANT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetExtendedInfo)(windows_core::Interface::as_raw(self), cinfos, rgguidextendedinfo, core::mem::transmute(rgvar)).ok()
+    pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const windows_core::GUID) -> windows_core::Result<super::super::Variant::VARIANT> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetExtendedInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(cinfos), core::mem::transmute(rgguidextendedinfo), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetValueAsString<P0>(&self, pszvalue: P0, nradix: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetValueAsString)(windows_core::Interface::as_raw(self), pszvalue.param().abi(), nradix).ok()
+        (windows_core::Interface::vtable(self).SetValueAsString)(windows_core::Interface::as_raw(self), pszvalue.param().abi(), core::mem::transmute(nradix)).ok()
     }
     pub unsafe fn EnumMembers(&self, dwfieldspec: u32, nradix: u32, refiid: *const windows_core::GUID) -> windows_core::Result<IEnumDebugPropertyInfo> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumMembers)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, refiid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumMembers)(windows_core::Interface::as_raw(self), core::mem::transmute(dwfieldspec), core::mem::transmute(nradix), core::mem::transmute(refiid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetParent(&self) -> windows_core::Result<IDebugProperty> {
         let mut result__ = core::mem::zeroed();
@@ -2702,7 +2680,7 @@ pub struct IDebugProperty_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DebugPropertyInfo) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetExtendedInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub GetExtendedInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut super::super::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetExtendedInfo: usize,
     pub SetValueAsString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -2710,25 +2688,29 @@ pub struct IDebugProperty_Vtbl {
     pub GetParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IDebugProperty_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDebugProperty_Impl: windows_core::IUnknownImpl {
     fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::Result<()>;
-    fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const windows_core::GUID, rgvar: *mut super::super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const windows_core::GUID) -> windows_core::Result<super::super::Variant::VARIANT>;
     fn SetValueAsString(&self, pszvalue: &windows_core::PCWSTR, nradix: u32) -> windows_core::Result<()>;
     fn EnumMembers(&self, dwfieldspec: u32, nradix: u32, refiid: *const windows_core::GUID) -> windows_core::Result<IEnumDebugPropertyInfo>;
     fn GetParent(&self) -> windows_core::Result<IDebugProperty>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IDebugProperty {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDebugProperty_Vtbl {
-    pub const fn new<Identity: IDebugProperty_Impl, const OFFSET: isize>() -> IDebugProperty_Vtbl {
+    pub const fn new<Identity: IDebugProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPropertyInfo<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDebugProperty_Impl::GetPropertyInfo(this, core::mem::transmute_copy(&dwfieldspec), core::mem::transmute_copy(&nradix), core::mem::transmute_copy(&ppropertyinfo)).into()
         }
-        unsafe extern "system" fn GetExtendedInfo<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const windows_core::GUID, rgvar: *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetExtendedInfo<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const windows_core::GUID, rgvar: *mut super::super::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IDebugProperty_Impl::GetExtendedInfo(this, core::mem::transmute_copy(&cinfos), core::mem::transmute_copy(&rgguidextendedinfo), core::mem::transmute_copy(&rgvar)).into()
+            match IDebugProperty_Impl::GetExtendedInfo(this, core::mem::transmute_copy(&cinfos), core::mem::transmute_copy(&rgguidextendedinfo)) {
+                Ok(ok__) => {
+                    rgvar.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetValueAsString<Identity: IDebugProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvalue: windows_core::PCWSTR, nradix: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2767,32 +2749,27 @@ impl IDebugProperty_Vtbl {
         iid == &<IDebugProperty as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IDebugProperty {}
 windows_core::imp::define_interface!(IDebugPropertyEnumType_All, IDebugPropertyEnumType_All_Vtbl, 0x51973c55_cb0c_11d0_b5c9_00a0244a0e7a);
-impl core::ops::Deref for IDebugPropertyEnumType_All {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_All, windows_core::IUnknown);
 impl IDebugPropertyEnumType_All {
     pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[repr(C)]
 pub struct IDebugPropertyEnumType_All_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IDebugPropertyEnumType_All_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDebugPropertyEnumType_All_Impl: windows_core::IUnknownImpl {
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-impl windows_core::RuntimeName for IDebugPropertyEnumType_All {}
 impl IDebugPropertyEnumType_All_Vtbl {
-    pub const fn new<Identity: IDebugPropertyEnumType_All_Impl, const OFFSET: isize>() -> IDebugPropertyEnumType_All_Vtbl {
-        unsafe extern "system" fn GetName<Identity: IDebugPropertyEnumType_All_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+    pub const fn new<Identity: IDebugPropertyEnumType_All_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetName<Identity: IDebugPropertyEnumType_All_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDebugPropertyEnumType_All_Impl::GetName(this) {
                 Ok(ok__) => {
@@ -2808,6 +2785,7 @@ impl IDebugPropertyEnumType_All_Vtbl {
         iid == &<IDebugPropertyEnumType_All as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDebugPropertyEnumType_All {}
 windows_core::imp::define_interface!(IDebugPropertyEnumType_Arguments, IDebugPropertyEnumType_Arguments_Vtbl, 0x51973c57_cb0c_11d0_b5c9_00a0244a0e7a);
 impl core::ops::Deref for IDebugPropertyEnumType_Arguments {
     type Target = IDebugPropertyEnumType_All;
@@ -2816,21 +2794,20 @@ impl core::ops::Deref for IDebugPropertyEnumType_Arguments {
     }
 }
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Arguments, windows_core::IUnknown, IDebugPropertyEnumType_All);
-impl IDebugPropertyEnumType_Arguments {}
 #[repr(C)]
 pub struct IDebugPropertyEnumType_Arguments_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
-pub trait IDebugPropertyEnumType_Arguments_Impl: Sized + IDebugPropertyEnumType_All_Impl {}
-impl windows_core::RuntimeName for IDebugPropertyEnumType_Arguments {}
+pub trait IDebugPropertyEnumType_Arguments_Impl: IDebugPropertyEnumType_All_Impl {}
 impl IDebugPropertyEnumType_Arguments_Vtbl {
-    pub const fn new<Identity: IDebugPropertyEnumType_Arguments_Impl, const OFFSET: isize>() -> IDebugPropertyEnumType_Arguments_Vtbl {
+    pub const fn new<Identity: IDebugPropertyEnumType_Arguments_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_Arguments as windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as windows_core::Interface>::IID
+        iid == &<IDebugPropertyEnumType_Arguments as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDebugPropertyEnumType_Arguments {}
 windows_core::imp::define_interface!(IDebugPropertyEnumType_Locals, IDebugPropertyEnumType_Locals_Vtbl, 0x51973c56_cb0c_11d0_b5c9_00a0244a0e7a);
 impl core::ops::Deref for IDebugPropertyEnumType_Locals {
     type Target = IDebugPropertyEnumType_All;
@@ -2839,21 +2816,20 @@ impl core::ops::Deref for IDebugPropertyEnumType_Locals {
     }
 }
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Locals, windows_core::IUnknown, IDebugPropertyEnumType_All);
-impl IDebugPropertyEnumType_Locals {}
 #[repr(C)]
 pub struct IDebugPropertyEnumType_Locals_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
-pub trait IDebugPropertyEnumType_Locals_Impl: Sized + IDebugPropertyEnumType_All_Impl {}
-impl windows_core::RuntimeName for IDebugPropertyEnumType_Locals {}
+pub trait IDebugPropertyEnumType_Locals_Impl: IDebugPropertyEnumType_All_Impl {}
 impl IDebugPropertyEnumType_Locals_Vtbl {
-    pub const fn new<Identity: IDebugPropertyEnumType_Locals_Impl, const OFFSET: isize>() -> IDebugPropertyEnumType_Locals_Vtbl {
+    pub const fn new<Identity: IDebugPropertyEnumType_Locals_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_Locals as windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as windows_core::Interface>::IID
+        iid == &<IDebugPropertyEnumType_Locals as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDebugPropertyEnumType_Locals {}
 windows_core::imp::define_interface!(IDebugPropertyEnumType_LocalsPlusArgs, IDebugPropertyEnumType_LocalsPlusArgs_Vtbl, 0x51973c58_cb0c_11d0_b5c9_00a0244a0e7a);
 impl core::ops::Deref for IDebugPropertyEnumType_LocalsPlusArgs {
     type Target = IDebugPropertyEnumType_All;
@@ -2862,21 +2838,20 @@ impl core::ops::Deref for IDebugPropertyEnumType_LocalsPlusArgs {
     }
 }
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_LocalsPlusArgs, windows_core::IUnknown, IDebugPropertyEnumType_All);
-impl IDebugPropertyEnumType_LocalsPlusArgs {}
 #[repr(C)]
 pub struct IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
-pub trait IDebugPropertyEnumType_LocalsPlusArgs_Impl: Sized + IDebugPropertyEnumType_All_Impl {}
-impl windows_core::RuntimeName for IDebugPropertyEnumType_LocalsPlusArgs {}
+pub trait IDebugPropertyEnumType_LocalsPlusArgs_Impl: IDebugPropertyEnumType_All_Impl {}
 impl IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
-    pub const fn new<Identity: IDebugPropertyEnumType_LocalsPlusArgs_Impl, const OFFSET: isize>() -> IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
+    pub const fn new<Identity: IDebugPropertyEnumType_LocalsPlusArgs_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_LocalsPlusArgs as windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as windows_core::Interface>::IID
+        iid == &<IDebugPropertyEnumType_LocalsPlusArgs as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDebugPropertyEnumType_LocalsPlusArgs {}
 windows_core::imp::define_interface!(IDebugPropertyEnumType_Registers, IDebugPropertyEnumType_Registers_Vtbl, 0x51973c59_cb0c_11d0_b5c9_00a0244a0e7a);
 impl core::ops::Deref for IDebugPropertyEnumType_Registers {
     type Target = IDebugPropertyEnumType_All;
@@ -2885,36 +2860,29 @@ impl core::ops::Deref for IDebugPropertyEnumType_Registers {
     }
 }
 windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Registers, windows_core::IUnknown, IDebugPropertyEnumType_All);
-impl IDebugPropertyEnumType_Registers {}
 #[repr(C)]
 pub struct IDebugPropertyEnumType_Registers_Vtbl {
     pub base__: IDebugPropertyEnumType_All_Vtbl,
 }
-pub trait IDebugPropertyEnumType_Registers_Impl: Sized + IDebugPropertyEnumType_All_Impl {}
-impl windows_core::RuntimeName for IDebugPropertyEnumType_Registers {}
+pub trait IDebugPropertyEnumType_Registers_Impl: IDebugPropertyEnumType_All_Impl {}
 impl IDebugPropertyEnumType_Registers_Vtbl {
-    pub const fn new<Identity: IDebugPropertyEnumType_Registers_Impl, const OFFSET: isize>() -> IDebugPropertyEnumType_Registers_Vtbl {
+    pub const fn new<Identity: IDebugPropertyEnumType_Registers_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IDebugPropertyEnumType_All_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugPropertyEnumType_Registers as windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as windows_core::Interface>::IID
+        iid == &<IDebugPropertyEnumType_Registers as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDebugPropertyEnumType_Registers {}
 windows_core::imp::define_interface!(IEnumDebugExtendedPropertyInfo, IEnumDebugExtendedPropertyInfo_Vtbl, 0x51973c53_cb0c_11d0_b5c9_00a0244a0e7a);
-impl core::ops::Deref for IEnumDebugExtendedPropertyInfo {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IEnumDebugExtendedPropertyInfo, windows_core::IUnknown);
 impl IEnumDebugExtendedPropertyInfo {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Next(&self, rgextendedpropertyinfo: &mut [ExtendedDebugPropertyInfo], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgextendedpropertyinfo.len().try_into().unwrap(), core::mem::transmute(rgextendedpropertyinfo.as_ptr()), pceltfetched).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgextendedpropertyinfo.len().try_into().unwrap(), core::mem::transmute(rgextendedpropertyinfo.as_ptr()), core::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2941,7 +2909,7 @@ pub struct IEnumDebugExtendedPropertyInfo_Vtbl {
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IEnumDebugExtendedPropertyInfo_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IEnumDebugExtendedPropertyInfo_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
@@ -2949,10 +2917,8 @@ pub trait IEnumDebugExtendedPropertyInfo_Impl: Sized + windows_core::IUnknownImp
     fn GetCount(&self) -> windows_core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IEnumDebugExtendedPropertyInfo {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEnumDebugExtendedPropertyInfo_Vtbl {
-    pub const fn new<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>() -> IEnumDebugExtendedPropertyInfo_Vtbl {
+    pub const fn new<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnumDebugExtendedPropertyInfo_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgextendedpropertyinfo), core::mem::transmute_copy(&pceltfetched)).into()
@@ -2998,20 +2964,16 @@ impl IEnumDebugExtendedPropertyInfo_Vtbl {
         iid == &<IEnumDebugExtendedPropertyInfo as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IEnumDebugExtendedPropertyInfo {}
 windows_core::imp::define_interface!(IEnumDebugPropertyInfo, IEnumDebugPropertyInfo_Vtbl, 0x51973c51_cb0c_11d0_b5c9_00a0244a0e7a);
-impl core::ops::Deref for IEnumDebugPropertyInfo {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IEnumDebugPropertyInfo, windows_core::IUnknown);
 impl IEnumDebugPropertyInfo {
     pub unsafe fn Next(&self, pi: &mut [DebugPropertyInfo], pceltsfetched: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pi.len().try_into().unwrap(), core::mem::transmute(pi.as_ptr()), pceltsfetched).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pi.len().try_into().unwrap(), core::mem::transmute(pi.as_ptr()), core::mem::transmute(pceltsfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), core::mem::transmute(celt)).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -3034,16 +2996,15 @@ pub struct IEnumDebugPropertyInfo_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-pub trait IEnumDebugPropertyInfo_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IEnumDebugPropertyInfo_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: u32, pi: *mut DebugPropertyInfo, pceltsfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumDebugPropertyInfo>;
     fn GetCount(&self) -> windows_core::Result<u32>;
 }
-impl windows_core::RuntimeName for IEnumDebugPropertyInfo {}
 impl IEnumDebugPropertyInfo_Vtbl {
-    pub const fn new<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>() -> IEnumDebugPropertyInfo_Vtbl {
+    pub const fn new<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IEnumDebugPropertyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, pi: *mut DebugPropertyInfo, pceltsfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IEnumDebugPropertyInfo_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&pi), core::mem::transmute_copy(&pceltsfetched)).into()
@@ -3089,20 +3050,15 @@ impl IEnumDebugPropertyInfo_Vtbl {
         iid == &<IEnumDebugPropertyInfo as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IEnumDebugPropertyInfo {}
 windows_core::imp::define_interface!(IObjectSafety, IObjectSafety_Vtbl, 0xcb5bdc81_93c1_11cf_8f20_00805f2cd064);
-impl core::ops::Deref for IObjectSafety {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IObjectSafety, windows_core::IUnknown);
 impl IObjectSafety {
     pub unsafe fn GetInterfaceSafetyOptions(&self, riid: *const windows_core::GUID, pdwsupportedoptions: *mut u32, pdwenabledoptions: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetInterfaceSafetyOptions)(windows_core::Interface::as_raw(self), riid, pdwsupportedoptions, pdwenabledoptions).ok()
+        (windows_core::Interface::vtable(self).GetInterfaceSafetyOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(riid), core::mem::transmute(pdwsupportedoptions), core::mem::transmute(pdwenabledoptions)).ok()
     }
     pub unsafe fn SetInterfaceSafetyOptions(&self, riid: *const windows_core::GUID, dwoptionsetmask: u32, dwenabledoptions: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetInterfaceSafetyOptions)(windows_core::Interface::as_raw(self), riid, dwoptionsetmask, dwenabledoptions).ok()
+        (windows_core::Interface::vtable(self).SetInterfaceSafetyOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(riid), core::mem::transmute(dwoptionsetmask), core::mem::transmute(dwenabledoptions)).ok()
     }
 }
 #[repr(C)]
@@ -3111,13 +3067,12 @@ pub struct IObjectSafety_Vtbl {
     pub GetInterfaceSafetyOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub SetInterfaceSafetyOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32) -> windows_core::HRESULT,
 }
-pub trait IObjectSafety_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IObjectSafety_Impl: windows_core::IUnknownImpl {
     fn GetInterfaceSafetyOptions(&self, riid: *const windows_core::GUID, pdwsupportedoptions: *mut u32, pdwenabledoptions: *mut u32) -> windows_core::Result<()>;
     fn SetInterfaceSafetyOptions(&self, riid: *const windows_core::GUID, dwoptionsetmask: u32, dwenabledoptions: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IObjectSafety {}
 impl IObjectSafety_Vtbl {
-    pub const fn new<Identity: IObjectSafety_Impl, const OFFSET: isize>() -> IObjectSafety_Vtbl {
+    pub const fn new<Identity: IObjectSafety_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetInterfaceSafetyOptions<Identity: IObjectSafety_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, pdwsupportedoptions: *mut u32, pdwenabledoptions: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IObjectSafety_Impl::GetInterfaceSafetyOptions(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pdwsupportedoptions), core::mem::transmute_copy(&pdwenabledoptions)).into()
@@ -3136,35 +3091,30 @@ impl IObjectSafety_Vtbl {
         iid == &<IObjectSafety as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IObjectSafety {}
 windows_core::imp::define_interface!(IPerPropertyBrowsing2, IPerPropertyBrowsing2_Vtbl, 0x51973c54_cb0c_11d0_b5c9_00a0244a0e7a);
-impl core::ops::Deref for IPerPropertyBrowsing2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IPerPropertyBrowsing2, windows_core::IUnknown);
 impl IPerPropertyBrowsing2 {
     pub unsafe fn GetDisplayString(&self, dispid: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetDisplayString)(windows_core::Interface::as_raw(self), dispid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetDisplayString)(windows_core::Interface::as_raw(self), core::mem::transmute(dispid), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn MapPropertyToPage(&self, dispid: i32) -> windows_core::Result<windows_core::GUID> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MapPropertyToPage)(windows_core::Interface::as_raw(self), dispid, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).MapPropertyToPage)(windows_core::Interface::as_raw(self), core::mem::transmute(dispid), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetPredefinedStrings(&self, dispid: i32, pcastrings: *mut super::super::Ole::CALPOLESTR, pcacookies: *mut super::super::Ole::CADWORD) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPredefinedStrings)(windows_core::Interface::as_raw(self), dispid, pcastrings, pcacookies).ok()
+        (windows_core::Interface::vtable(self).GetPredefinedStrings)(windows_core::Interface::as_raw(self), core::mem::transmute(dispid), core::mem::transmute(pcastrings), core::mem::transmute(pcacookies)).ok()
     }
     pub unsafe fn SetPredefinedValue(&self, dispid: i32, dwcookie: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetPredefinedValue)(windows_core::Interface::as_raw(self), dispid, dwcookie).ok()
+        (windows_core::Interface::vtable(self).SetPredefinedValue)(windows_core::Interface::as_raw(self), core::mem::transmute(dispid), core::mem::transmute(dwcookie)).ok()
     }
 }
 #[repr(C)]
 pub struct IPerPropertyBrowsing2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetDisplayString: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub GetDisplayString: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MapPropertyToPage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut windows_core::GUID) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Ole")]
     pub GetPredefinedStrings: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::super::Ole::CALPOLESTR, *mut super::super::Ole::CADWORD) -> windows_core::HRESULT,
@@ -3173,18 +3123,16 @@ pub struct IPerPropertyBrowsing2_Vtbl {
     pub SetPredefinedValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Ole")]
-pub trait IPerPropertyBrowsing2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IPerPropertyBrowsing2_Impl: windows_core::IUnknownImpl {
     fn GetDisplayString(&self, dispid: i32) -> windows_core::Result<windows_core::BSTR>;
     fn MapPropertyToPage(&self, dispid: i32) -> windows_core::Result<windows_core::GUID>;
     fn GetPredefinedStrings(&self, dispid: i32, pcastrings: *mut super::super::Ole::CALPOLESTR, pcacookies: *mut super::super::Ole::CADWORD) -> windows_core::Result<()>;
     fn SetPredefinedValue(&self, dispid: i32, dwcookie: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Ole")]
-impl windows_core::RuntimeName for IPerPropertyBrowsing2 {}
-#[cfg(feature = "Win32_System_Ole")]
 impl IPerPropertyBrowsing2_Vtbl {
-    pub const fn new<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>() -> IPerPropertyBrowsing2_Vtbl {
-        unsafe extern "system" fn GetDisplayString<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: i32, pbstr: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+    pub const fn new<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetDisplayString<Identity: IPerPropertyBrowsing2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dispid: i32, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPerPropertyBrowsing2_Impl::GetDisplayString(this, core::mem::transmute_copy(&dispid)) {
                 Ok(ok__) => {
@@ -3224,6 +3172,8 @@ impl IPerPropertyBrowsing2_Vtbl {
         iid == &<IPerPropertyBrowsing2 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Ole")]
+impl windows_core::RuntimeName for IPerPropertyBrowsing2 {}
 pub const ABNORMAL_RESET_DETECTED: BUGCHECK_ERROR = BUGCHECK_ERROR(327u32);
 pub const ACPI_BIOS_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(165u32);
 pub const ACPI_BIOS_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(224u32);
@@ -4865,37 +4815,22 @@ pub const sfMax: IMAGEHLP_SF_TYPE = IMAGEHLP_SF_TYPE(4i32);
 pub const sfMpd: IMAGEHLP_SF_TYPE = IMAGEHLP_SF_TYPE(3i32);
 pub const sfPdb: IMAGEHLP_SF_TYPE = IMAGEHLP_SF_TYPE(2i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ADDRESS_MODE(pub i32);
 impl windows_core::TypeKind for ADDRESS_MODE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ADDRESS_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ADDRESS_MODE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct BUGCHECK_ERROR(pub u32);
 impl windows_core::TypeKind for BUGCHECK_ERROR {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BUGCHECK_ERROR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BUGCHECK_ERROR").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CONTEXT_FLAGS(pub u32);
 impl windows_core::TypeKind for CONTEXT_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CONTEXT_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CONTEXT_FLAGS").field(&self.0).finish()
-    }
 }
 impl CONTEXT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -4931,15 +4866,10 @@ impl core::ops::Not for CONTEXT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DBGPROP_ATTRIB_FLAGS(pub i32);
 impl windows_core::TypeKind for DBGPROP_ATTRIB_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DBGPROP_ATTRIB_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DBGPROP_ATTRIB_FLAGS").field(&self.0).finish()
-    }
 }
 impl DBGPROP_ATTRIB_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -4975,15 +4905,10 @@ impl core::ops::Not for DBGPROP_ATTRIB_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DBGPROP_INFO(pub i32);
 impl windows_core::TypeKind for DBGPROP_INFO {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DBGPROP_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DBGPROP_INFO").field(&self.0).finish()
-    }
 }
 impl DBGPROP_INFO {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5019,59 +4944,34 @@ impl core::ops::Not for DBGPROP_INFO {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DEBUG_EVENT_CODE(pub u32);
 impl windows_core::TypeKind for DEBUG_EVENT_CODE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DEBUG_EVENT_CODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DEBUG_EVENT_CODE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DUMP_TYPE(pub i32);
 impl windows_core::TypeKind for DUMP_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DUMP_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DUMP_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct EX_PROP_INFO_FLAGS(pub i32);
 impl windows_core::TypeKind for EX_PROP_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EX_PROP_INFO_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EX_PROP_INFO_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct FACILITY_CODE(pub u32);
 impl windows_core::TypeKind for FACILITY_CODE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FACILITY_CODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FACILITY_CODE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct FORMAT_MESSAGE_OPTIONS(pub u32);
 impl windows_core::TypeKind for FORMAT_MESSAGE_OPTIONS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FORMAT_MESSAGE_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FORMAT_MESSAGE_OPTIONS").field(&self.0).finish()
-    }
 }
 impl FORMAT_MESSAGE_OPTIONS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5107,114 +5007,64 @@ impl core::ops::Not for FORMAT_MESSAGE_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IMAGEHLP_CBA_EVENT_SEVERITY(pub u32);
 impl windows_core::TypeKind for IMAGEHLP_CBA_EVENT_SEVERITY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IMAGEHLP_CBA_EVENT_SEVERITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGEHLP_CBA_EVENT_SEVERITY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IMAGEHLP_EXTENDED_OPTIONS(pub i32);
 impl windows_core::TypeKind for IMAGEHLP_EXTENDED_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IMAGEHLP_EXTENDED_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGEHLP_EXTENDED_OPTIONS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IMAGEHLP_GET_TYPE_INFO_FLAGS(pub u32);
 impl windows_core::TypeKind for IMAGEHLP_GET_TYPE_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IMAGEHLP_GET_TYPE_INFO_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGEHLP_GET_TYPE_INFO_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IMAGEHLP_HD_TYPE(pub i32);
 impl windows_core::TypeKind for IMAGEHLP_HD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IMAGEHLP_HD_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGEHLP_HD_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IMAGEHLP_SF_TYPE(pub i32);
 impl windows_core::TypeKind for IMAGEHLP_SF_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IMAGEHLP_SF_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGEHLP_SF_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IMAGEHLP_STATUS_REASON(pub i32);
 impl windows_core::TypeKind for IMAGEHLP_STATUS_REASON {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IMAGEHLP_STATUS_REASON {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGEHLP_STATUS_REASON").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IMAGEHLP_SYMBOL_TYPE_INFO(pub i32);
 impl windows_core::TypeKind for IMAGEHLP_SYMBOL_TYPE_INFO {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IMAGEHLP_SYMBOL_TYPE_INFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGEHLP_SYMBOL_TYPE_INFO").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IMAGE_DEBUG_TYPE(pub u32);
 impl windows_core::TypeKind for IMAGE_DEBUG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IMAGE_DEBUG_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGE_DEBUG_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IMAGE_DIRECTORY_ENTRY(pub u16);
 impl windows_core::TypeKind for IMAGE_DIRECTORY_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IMAGE_DIRECTORY_ENTRY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGE_DIRECTORY_ENTRY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IMAGE_DLL_CHARACTERISTICS(pub u16);
 impl windows_core::TypeKind for IMAGE_DLL_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IMAGE_DLL_CHARACTERISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGE_DLL_CHARACTERISTICS").field(&self.0).finish()
-    }
 }
 impl IMAGE_DLL_CHARACTERISTICS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5250,15 +5100,10 @@ impl core::ops::Not for IMAGE_DLL_CHARACTERISTICS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IMAGE_FILE_CHARACTERISTICS(pub u16);
 impl windows_core::TypeKind for IMAGE_FILE_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IMAGE_FILE_CHARACTERISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGE_FILE_CHARACTERISTICS").field(&self.0).finish()
-    }
 }
 impl IMAGE_FILE_CHARACTERISTICS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5294,15 +5139,10 @@ impl core::ops::Not for IMAGE_FILE_CHARACTERISTICS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IMAGE_FILE_CHARACTERISTICS2(pub u32);
 impl windows_core::TypeKind for IMAGE_FILE_CHARACTERISTICS2 {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IMAGE_FILE_CHARACTERISTICS2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGE_FILE_CHARACTERISTICS2").field(&self.0).finish()
-    }
 }
 impl IMAGE_FILE_CHARACTERISTICS2 {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5338,26 +5178,16 @@ impl core::ops::Not for IMAGE_FILE_CHARACTERISTICS2 {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IMAGE_OPTIONAL_HEADER_MAGIC(pub u16);
 impl windows_core::TypeKind for IMAGE_OPTIONAL_HEADER_MAGIC {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IMAGE_OPTIONAL_HEADER_MAGIC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGE_OPTIONAL_HEADER_MAGIC").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IMAGE_SECTION_CHARACTERISTICS(pub u32);
 impl windows_core::TypeKind for IMAGE_SECTION_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IMAGE_SECTION_CHARACTERISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGE_SECTION_CHARACTERISTICS").field(&self.0).finish()
-    }
 }
 impl IMAGE_SECTION_CHARACTERISTICS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5393,59 +5223,34 @@ impl core::ops::Not for IMAGE_SECTION_CHARACTERISTICS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IMAGE_SUBSYSTEM(pub u16);
 impl windows_core::TypeKind for IMAGE_SUBSYSTEM {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IMAGE_SUBSYSTEM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGE_SUBSYSTEM").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IPMI_OS_SEL_RECORD_TYPE(pub i32);
 impl windows_core::TypeKind for IPMI_OS_SEL_RECORD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IPMI_OS_SEL_RECORD_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IPMI_OS_SEL_RECORD_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MINIDUMP_CALLBACK_TYPE(pub i32);
 impl windows_core::TypeKind for MINIDUMP_CALLBACK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MINIDUMP_CALLBACK_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MINIDUMP_CALLBACK_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(pub i32);
 impl windows_core::TypeKind for MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MINIDUMP_MISC_INFO_FLAGS(pub u32);
 impl windows_core::TypeKind for MINIDUMP_MISC_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for MINIDUMP_MISC_INFO_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MINIDUMP_MISC_INFO_FLAGS").field(&self.0).finish()
-    }
 }
 impl MINIDUMP_MISC_INFO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5481,48 +5286,28 @@ impl core::ops::Not for MINIDUMP_MISC_INFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MINIDUMP_SECONDARY_FLAGS(pub i32);
 impl windows_core::TypeKind for MINIDUMP_SECONDARY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MINIDUMP_SECONDARY_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MINIDUMP_SECONDARY_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MINIDUMP_STREAM_TYPE(pub i32);
 impl windows_core::TypeKind for MINIDUMP_STREAM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MINIDUMP_STREAM_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MINIDUMP_STREAM_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MINIDUMP_THREAD_INFO_DUMP_FLAGS(pub u32);
 impl windows_core::TypeKind for MINIDUMP_THREAD_INFO_DUMP_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MINIDUMP_THREAD_INFO_DUMP_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MINIDUMP_THREAD_INFO_DUMP_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MINIDUMP_TYPE(pub i32);
 impl windows_core::TypeKind for MINIDUMP_TYPE {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for MINIDUMP_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MINIDUMP_TYPE").field(&self.0).finish()
-    }
 }
 impl MINIDUMP_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5558,92 +5343,52 @@ impl core::ops::Not for MINIDUMP_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MODLOAD_DATA_TYPE(pub u32);
 impl windows_core::TypeKind for MODLOAD_DATA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MODLOAD_DATA_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MODLOAD_DATA_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MODULE_WRITE_FLAGS(pub i32);
 impl windows_core::TypeKind for MODULE_WRITE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MODULE_WRITE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MODULE_WRITE_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct OBJECT_ATTRIB_FLAGS(pub i32);
 impl windows_core::TypeKind for OBJECT_ATTRIB_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for OBJECT_ATTRIB_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("OBJECT_ATTRIB_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS(pub u32);
 impl windows_core::TypeKind for OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PROP_INFO_FLAGS(pub i32);
 impl windows_core::TypeKind for PROP_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PROP_INFO_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PROP_INFO_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RIP_INFO_TYPE(pub u32);
 impl windows_core::TypeKind for RIP_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RIP_INFO_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RIP_INFO_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RTL_VIRTUAL_UNWIND_HANDLER_TYPE(pub u32);
 impl windows_core::TypeKind for RTL_VIRTUAL_UNWIND_HANDLER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RTL_VIRTUAL_UNWIND_HANDLER_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RTL_VIRTUAL_UNWIND_HANDLER_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SYMBOL_INFO_FLAGS(pub u32);
 impl windows_core::TypeKind for SYMBOL_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SYMBOL_INFO_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYMBOL_INFO_FLAGS").field(&self.0).finish()
-    }
 }
 impl SYMBOL_INFO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5679,26 +5424,16 @@ impl core::ops::Not for SYMBOL_INFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SYM_FIND_ID_OPTION(pub u32);
 impl windows_core::TypeKind for SYM_FIND_ID_OPTION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SYM_FIND_ID_OPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYM_FIND_ID_OPTION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SYM_LOAD_FLAGS(pub u32);
 impl windows_core::TypeKind for SYM_LOAD_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SYM_LOAD_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYM_LOAD_FLAGS").field(&self.0).finish()
-    }
 }
 impl SYM_LOAD_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5734,37 +5469,22 @@ impl core::ops::Not for SYM_LOAD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SYM_SRV_STORE_FILE_FLAGS(pub u32);
 impl windows_core::TypeKind for SYM_SRV_STORE_FILE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SYM_SRV_STORE_FILE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYM_SRV_STORE_FILE_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SYM_TYPE(pub i32);
 impl windows_core::TypeKind for SYM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SYM_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYM_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct THREAD_ERROR_MODE(pub u32);
 impl windows_core::TypeKind for THREAD_ERROR_MODE {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for THREAD_ERROR_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("THREAD_ERROR_MODE").field(&self.0).finish()
-    }
 }
 impl THREAD_ERROR_MODE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5800,92 +5520,52 @@ impl core::ops::Not for THREAD_ERROR_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct THREAD_WRITE_FLAGS(pub i32);
 impl windows_core::TypeKind for THREAD_WRITE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for THREAD_WRITE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("THREAD_WRITE_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VER_PLATFORM(pub u32);
 impl windows_core::TypeKind for VER_PLATFORM {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VER_PLATFORM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VER_PLATFORM").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WAIT_CHAIN_THREAD_OPTIONS(pub u32);
 impl windows_core::TypeKind for WAIT_CHAIN_THREAD_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WAIT_CHAIN_THREAD_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WAIT_CHAIN_THREAD_OPTIONS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WCT_OBJECT_STATUS(pub i32);
 impl windows_core::TypeKind for WCT_OBJECT_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WCT_OBJECT_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WCT_OBJECT_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WCT_OBJECT_TYPE(pub i32);
 impl windows_core::TypeKind for WCT_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WCT_OBJECT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WCT_OBJECT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WHEA_ERROR_SOURCE_STATE(pub i32);
 impl windows_core::TypeKind for WHEA_ERROR_SOURCE_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WHEA_ERROR_SOURCE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WHEA_ERROR_SOURCE_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WHEA_ERROR_SOURCE_TYPE(pub i32);
 impl windows_core::TypeKind for WHEA_ERROR_SOURCE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WHEA_ERROR_SOURCE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WHEA_ERROR_SOURCE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WOW64_CONTEXT_FLAGS(pub u32);
 impl windows_core::TypeKind for WOW64_CONTEXT_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WOW64_CONTEXT_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WOW64_CONTEXT_FLAGS").field(&self.0).finish()
-    }
 }
 impl WOW64_CONTEXT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -5922,15 +5602,11 @@ impl core::ops::Not for WOW64_CONTEXT_FLAGS {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ADDRESS {
     pub Offset: u32,
     pub Segment: u16,
     pub Mode: ADDRESS_MODE,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for ADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for ADDRESS {
@@ -5938,140 +5614,141 @@ impl Default for ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for ADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ADDRESS64 {
     pub Offset: u64,
     pub Segment: u16,
     pub Mode: ADDRESS_MODE,
-}
-impl windows_core::TypeKind for ADDRESS64 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ADDRESS64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ADDRESS64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union AER_BRIDGE_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_BRIDGE_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
-}
-impl windows_core::TypeKind for AER_BRIDGE_DESCRIPTOR_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for AER_BRIDGE_DESCRIPTOR_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for AER_BRIDGE_DESCRIPTOR_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
-}
-impl windows_core::TypeKind for AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union AER_ENDPOINT_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_ENDPOINT_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
-}
-impl windows_core::TypeKind for AER_ENDPOINT_DESCRIPTOR_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for AER_ENDPOINT_DESCRIPTOR_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for AER_ENDPOINT_DESCRIPTOR_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
-}
-impl windows_core::TypeKind for AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union AER_ROOTPORT_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_ROOTPORT_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
-}
-impl windows_core::TypeKind for AER_ROOTPORT_DESCRIPTOR_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for AER_ROOTPORT_DESCRIPTOR_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for AER_ROOTPORT_DESCRIPTOR_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
-}
-impl windows_core::TypeKind for AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct APC_CALLBACK_DATA {
     pub Parameter: usize,
     pub ContextRecord: *mut CONTEXT,
     pub Reserved0: usize,
     pub Reserved1: usize,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for APC_CALLBACK_DATA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for APC_CALLBACK_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for APC_CALLBACK_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct API_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
     pub Revision: u16,
     pub Reserved: u16,
 }
-impl windows_core::TypeKind for API_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for API_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for API_VERSION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ARM64_NT_CONTEXT {
     pub ContextFlags: u32,
     pub Cpsr: u32,
@@ -6087,25 +5764,21 @@ pub struct ARM64_NT_CONTEXT {
     pub Wvr: [u64; 2],
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ARM64_NT_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 impl Default for ARM64_NT_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ARM64_NT_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union ARM64_NT_CONTEXT_0 {
     pub Anonymous: ARM64_NT_CONTEXT_0_0,
     pub X: [u64; 31],
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ARM64_NT_CONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 impl Default for ARM64_NT_CONTEXT_0 {
@@ -6113,9 +5786,13 @@ impl Default for ARM64_NT_CONTEXT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ARM64_NT_CONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ARM64_NT_CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -6150,17 +5827,17 @@ pub struct ARM64_NT_CONTEXT_0_0 {
     pub Lr: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ARM64_NT_CONTEXT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 impl Default for ARM64_NT_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ARM64_NT_CONTEXT_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union ARM64_NT_NEON128 {
     pub Anonymous: ARM64_NT_NEON128_0,
     pub D: [f64; 2],
@@ -6168,32 +5845,31 @@ pub union ARM64_NT_NEON128 {
     pub H: [u16; 8],
     pub B: [u8; 16],
 }
-impl windows_core::TypeKind for ARM64_NT_NEON128 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ARM64_NT_NEON128 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ARM64_NT_NEON128 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ARM64_NT_NEON128_0 {
     pub Low: u64,
     pub High: i64,
-}
-impl windows_core::TypeKind for ARM64_NT_NEON128_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ARM64_NT_NEON128_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ARM64_NT_NEON128_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CONTEXT {
     pub ContextFlags: CONTEXT_FLAGS,
     pub Cpsr: u32,
@@ -6209,41 +5885,35 @@ pub struct CONTEXT {
     pub Wvr: [u64; 2],
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "aarch64")]
+impl windows_core::TypeKind for CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CONTEXT_0 {
     pub Anonymous: CONTEXT_0_0,
     pub X: [u64; 31],
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for CONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "aarch64")]
+impl windows_core::TypeKind for CONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -6278,21 +5948,18 @@ pub struct CONTEXT_0_0 {
     pub Lr: u64,
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for CONTEXT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "aarch64")]
+impl windows_core::TypeKind for CONTEXT_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CONTEXT {
     pub P1Home: u64,
     pub P2Home: u64,
@@ -6342,41 +6009,35 @@ pub struct CONTEXT {
     pub LastExceptionFromRip: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CONTEXT_0 {
     pub FltSave: XSAVE_FORMAT,
     pub Anonymous: CONTEXT_0_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for CONTEXT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for CONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CONTEXT_0_0 {
     pub Header: [M128A; 2],
     pub Legacy: [M128A; 8],
@@ -6398,21 +6059,19 @@ pub struct CONTEXT_0_0 {
     pub Xmm15: M128A,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for CONTEXT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for CONTEXT_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CONTEXT {
     pub ContextFlags: CONTEXT_FLAGS,
     pub Dr0: u32,
@@ -6442,62 +6101,62 @@ pub struct CONTEXT {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CPU_INFORMATION {
     pub X86CpuInfo: CPU_INFORMATION_0,
     pub OtherCpuInfo: CPU_INFORMATION_1,
-}
-impl windows_core::TypeKind for CPU_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CPU_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CPU_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CPU_INFORMATION_1 {
     pub ProcessorFeatures: [u64; 2],
-}
-impl windows_core::TypeKind for CPU_INFORMATION_1 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CPU_INFORMATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CPU_INFORMATION_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CPU_INFORMATION_0 {
     pub VendorId: [u32; 3],
     pub VersionInformation: u32,
     pub FeatureInformation: u32,
     pub AMDExtendedCpuFeatures: u32,
 }
-impl windows_core::TypeKind for CPU_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CPU_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CPU_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CREATE_PROCESS_DEBUG_INFO {
     pub hFile: super::super::super::Foundation::HANDLE,
     pub hProcess: super::super::super::Foundation::HANDLE,
@@ -6511,26 +6170,22 @@ pub struct CREATE_PROCESS_DEBUG_INFO {
     pub fUnicode: u16,
 }
 #[cfg(feature = "Win32_System_Threading")]
-impl windows_core::TypeKind for CREATE_PROCESS_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Threading")]
 impl Default for CREATE_PROCESS_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Threading")]
+impl windows_core::TypeKind for CREATE_PROCESS_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CREATE_THREAD_DEBUG_INFO {
     pub hThread: super::super::super::Foundation::HANDLE,
     pub lpThreadLocalBase: *mut core::ffi::c_void,
     pub lpStartAddress: super::super::Threading::LPTHREAD_START_ROUTINE,
-}
-#[cfg(feature = "Win32_System_Threading")]
-impl windows_core::TypeKind for CREATE_THREAD_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Threading")]
 impl Default for CREATE_THREAD_DEBUG_INFO {
@@ -6538,23 +6193,27 @@ impl Default for CREATE_THREAD_DEBUG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Threading")]
+impl windows_core::TypeKind for CREATE_THREAD_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DBGHELP_DATA_REPORT_STRUCT {
     pub pBinPathNonExist: windows_core::PCWSTR,
     pub pSymbolPathNonExist: windows_core::PCWSTR,
-}
-impl windows_core::TypeKind for DBGHELP_DATA_REPORT_STRUCT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DBGHELP_DATA_REPORT_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DBGHELP_DATA_REPORT_STRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DEBUG_EVENT {
     pub dwDebugEventCode: DEBUG_EVENT_CODE,
     pub dwProcessId: u32,
@@ -6562,18 +6221,18 @@ pub struct DEBUG_EVENT {
     pub u: DEBUG_EVENT_0,
 }
 #[cfg(feature = "Win32_System_Threading")]
-impl windows_core::TypeKind for DEBUG_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Threading")]
 impl Default for DEBUG_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Threading")]
+impl windows_core::TypeKind for DEBUG_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DEBUG_EVENT_0 {
     pub Exception: EXCEPTION_DEBUG_INFO,
     pub CreateThread: CREATE_THREAD_DEBUG_INFO,
@@ -6586,19 +6245,19 @@ pub union DEBUG_EVENT_0 {
     pub RipInfo: RIP_INFO,
 }
 #[cfg(feature = "Win32_System_Threading")]
-impl windows_core::TypeKind for DEBUG_EVENT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Threading")]
 impl Default for DEBUG_EVENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Threading")]
+impl windows_core::TypeKind for DEBUG_EVENT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DISPATCHER_CONTEXT {
     pub ControlPc: usize,
     pub ImageBase: usize,
@@ -6615,20 +6274,20 @@ pub struct DISPATCHER_CONTEXT {
 }
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for DISPATCHER_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for DISPATCHER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for DISPATCHER_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DISPATCHER_CONTEXT {
     pub ControlPc: u64,
     pub ImageBase: u64,
@@ -6644,45 +6303,45 @@ pub struct DISPATCHER_CONTEXT {
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for DISPATCHER_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for DISPATCHER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for DISPATCHER_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DUMP_FILE_ATTRIBUTES {
     pub Anonymous: DUMP_FILE_ATTRIBUTES_0,
     pub Attributes: u32,
-}
-impl windows_core::TypeKind for DUMP_FILE_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DUMP_FILE_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DUMP_FILE_ATTRIBUTES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DUMP_FILE_ATTRIBUTES_0 {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for DUMP_FILE_ATTRIBUTES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DUMP_FILE_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DUMP_FILE_ATTRIBUTES_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DUMP_HEADER32 {
     pub Signature: u32,
     pub ValidDump: u32,
@@ -6723,30 +6382,30 @@ pub struct DUMP_HEADER32 {
     pub SystemTime: i64,
     pub _reserved3: [u8; 56],
 }
-impl windows_core::TypeKind for DUMP_HEADER32 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DUMP_HEADER32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DUMP_HEADER32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DUMP_HEADER32_0 {
     pub PhysicalMemoryBlock: PHYSICAL_MEMORY_DESCRIPTOR32,
     pub PhysicalMemoryBlockBuffer: [u8; 700],
-}
-impl windows_core::TypeKind for DUMP_HEADER32_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DUMP_HEADER32_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DUMP_HEADER32_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DUMP_HEADER64 {
     pub Signature: u32,
     pub ValidDump: u32,
@@ -6785,30 +6444,30 @@ pub struct DUMP_HEADER64 {
     pub BootId: u32,
     pub _reserved0: [u8; 4008],
 }
-impl windows_core::TypeKind for DUMP_HEADER64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DUMP_HEADER64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DUMP_HEADER64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union DUMP_HEADER64_0 {
     pub PhysicalMemoryBlock: PHYSICAL_MEMORY_DESCRIPTOR64,
     pub PhysicalMemoryBlockBuffer: [u8; 700],
-}
-impl windows_core::TypeKind for DUMP_HEADER64_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DUMP_HEADER64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DUMP_HEADER64_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Debug, Eq, PartialEq)]
+#[derive(Debug, PartialEq)]
 pub struct DebugPropertyInfo {
     pub m_dwValidFields: u32,
     pub m_bstrName: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -6818,52 +6477,44 @@ pub struct DebugPropertyInfo {
     pub m_dwAttrib: u32,
     pub m_pDebugProp: core::mem::ManuallyDrop<Option<IDebugProperty>>,
 }
-impl Clone for DebugPropertyInfo {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-impl windows_core::TypeKind for DebugPropertyInfo {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DebugPropertyInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DebugPropertyInfo {
+    type TypeKind = windows_core::CloneType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EXCEPTION_DEBUG_INFO {
     pub ExceptionRecord: EXCEPTION_RECORD,
     pub dwFirstChance: u32,
-}
-impl windows_core::TypeKind for EXCEPTION_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EXCEPTION_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EXCEPTION_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EXCEPTION_POINTERS {
     pub ExceptionRecord: *mut EXCEPTION_RECORD,
     pub ContextRecord: *mut CONTEXT,
 }
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for EXCEPTION_POINTERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for EXCEPTION_POINTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EXCEPTION_POINTERS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EXCEPTION_RECORD {
     pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
     pub ExceptionFlags: u32,
@@ -6872,16 +6523,16 @@ pub struct EXCEPTION_RECORD {
     pub NumberParameters: u32,
     pub ExceptionInformation: [usize; 15],
 }
-impl windows_core::TypeKind for EXCEPTION_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EXCEPTION_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EXCEPTION_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EXCEPTION_RECORD32 {
     pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
     pub ExceptionFlags: u32,
@@ -6890,16 +6541,16 @@ pub struct EXCEPTION_RECORD32 {
     pub NumberParameters: u32,
     pub ExceptionInformation: [u32; 15],
 }
-impl windows_core::TypeKind for EXCEPTION_RECORD32 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EXCEPTION_RECORD32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EXCEPTION_RECORD32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EXCEPTION_RECORD64 {
     pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
     pub ExceptionFlags: u32,
@@ -6909,42 +6560,43 @@ pub struct EXCEPTION_RECORD64 {
     pub __unusedAlignment: u32,
     pub ExceptionInformation: [u64; 15],
 }
-impl windows_core::TypeKind for EXCEPTION_RECORD64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EXCEPTION_RECORD64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EXCEPTION_RECORD64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EXIT_PROCESS_DEBUG_INFO {
     pub dwExitCode: u32,
-}
-impl windows_core::TypeKind for EXIT_PROCESS_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EXIT_PROCESS_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EXIT_PROCESS_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EXIT_THREAD_DEBUG_INFO {
     pub dwExitCode: u32,
-}
-impl windows_core::TypeKind for EXIT_THREAD_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for EXIT_THREAD_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EXIT_THREAD_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive()]
 pub struct ExtendedDebugPropertyInfo {
     pub dwValidFields: u32,
     pub pszName: windows_core::PWSTR,
@@ -6955,19 +6607,9 @@ pub struct ExtendedDebugPropertyInfo {
     pub pDebugProp: core::mem::ManuallyDrop<Option<IDebugProperty>>,
     pub nDISPID: u32,
     pub nType: u32,
-    pub varValue: core::mem::ManuallyDrop<super::super::Variant::VARIANT>,
+    pub varValue: super::super::Variant::VARIANT,
     pub plbValue: core::mem::ManuallyDrop<Option<super::super::Com::StructuredStorage::ILockBytes>>,
     pub pDebugExtProp: core::mem::ManuallyDrop<Option<IDebugExtendedProperty>>,
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl Clone for ExtendedDebugPropertyInfo {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for ExtendedDebugPropertyInfo {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for ExtendedDebugPropertyInfo {
@@ -6975,8 +6617,12 @@ impl Default for ExtendedDebugPropertyInfo {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for ExtendedDebugPropertyInfo {
+    type TypeKind = windows_core::CloneType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FPO_DATA {
     pub ulOffStart: u32,
     pub cbProcSize: u32,
@@ -6984,65 +6630,65 @@ pub struct FPO_DATA {
     pub cdwParams: u16,
     pub _bitfield: u16,
 }
-impl windows_core::TypeKind for FPO_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for FPO_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FPO_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_CBA_EVENT {
     pub severity: IMAGEHLP_CBA_EVENT_SEVERITY,
     pub code: u32,
     pub desc: windows_core::PSTR,
     pub object: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for IMAGEHLP_CBA_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGEHLP_CBA_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_CBA_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_CBA_EVENTW {
     pub severity: IMAGEHLP_CBA_EVENT_SEVERITY,
     pub code: u32,
     pub desc: windows_core::PCWSTR,
     pub object: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for IMAGEHLP_CBA_EVENTW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGEHLP_CBA_EVENTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_CBA_EVENTW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_CBA_READ_MEMORY {
     pub addr: u64,
     pub buf: *mut core::ffi::c_void,
     pub bytes: u32,
     pub bytesread: *mut u32,
 }
-impl windows_core::TypeKind for IMAGEHLP_CBA_READ_MEMORY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGEHLP_CBA_READ_MEMORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_CBA_READ_MEMORY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u32,
@@ -7053,17 +6699,17 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     pub hFile: super::super::super::Foundation::HANDLE,
 }
 #[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u64,
@@ -7074,16 +6720,16 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     pub hFile: super::super::super::Foundation::HANDLE,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u64,
@@ -7094,17 +6740,17 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     pub hFile: super::super::super::Foundation::HANDLE,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub SizeOfStruct: u32,
     pub NumberOfDups: u32,
@@ -7112,33 +6758,33 @@ pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub SelectedSymbol: u32,
 }
 #[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_DUPLICATE_SYMBOL {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_DUPLICATE_SYMBOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_DUPLICATE_SYMBOL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL64 {
     pub SizeOfStruct: u32,
     pub NumberOfDups: u32,
     pub Symbol: *mut IMAGEHLP_SYMBOL64,
     pub SelectedSymbol: u32,
 }
-impl windows_core::TypeKind for IMAGEHLP_DUPLICATE_SYMBOL64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGEHLP_DUPLICATE_SYMBOL64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_DUPLICATE_SYMBOL64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub SizeOfStruct: u32,
     pub Flags: IMAGEHLP_GET_TYPE_INFO_FLAGS,
@@ -7159,32 +6805,32 @@ pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub NumReqsValid: u32,
     pub ReqsValid: *mut u64,
 }
-impl windows_core::TypeKind for IMAGEHLP_GET_TYPE_INFO_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGEHLP_GET_TYPE_INFO_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_GET_TYPE_INFO_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_JIT_SYMBOLMAP {
     pub SizeOfStruct: u32,
     pub Address: u64,
     pub BaseOfImage: u64,
-}
-impl windows_core::TypeKind for IMAGEHLP_JIT_SYMBOLMAP {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGEHLP_JIT_SYMBOLMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_JIT_SYMBOLMAP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_LINE {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -7193,17 +6839,17 @@ pub struct IMAGEHLP_LINE {
     pub Address: u32,
 }
 #[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_LINE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_LINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_LINE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_LINE64 {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -7211,17 +6857,17 @@ pub struct IMAGEHLP_LINE64 {
     pub FileName: windows_core::PSTR,
     pub Address: u64,
 }
-impl windows_core::TypeKind for IMAGEHLP_LINE64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGEHLP_LINE64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_LINE64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_LINEW {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -7230,17 +6876,17 @@ pub struct IMAGEHLP_LINEW {
     pub Address: u64,
 }
 #[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_LINEW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_LINEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_LINEW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_LINEW64 {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -7248,17 +6894,17 @@ pub struct IMAGEHLP_LINEW64 {
     pub FileName: windows_core::PWSTR,
     pub Address: u64,
 }
-impl windows_core::TypeKind for IMAGEHLP_LINEW64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGEHLP_LINEW64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_LINEW64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_MODULE {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u32,
@@ -7272,17 +6918,17 @@ pub struct IMAGEHLP_MODULE {
     pub LoadedImageName: [i8; 256],
 }
 #[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_MODULE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_MODULE64 {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u64,
@@ -7310,31 +6956,31 @@ pub struct IMAGEHLP_MODULE64 {
     pub MachineType: u32,
     pub Reserved: u32,
 }
-impl windows_core::TypeKind for IMAGEHLP_MODULE64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGEHLP_MODULE64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_MODULE64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_MODULE64_EX {
     pub Module: IMAGEHLP_MODULE64,
     pub RegionFlags: u32,
-}
-impl windows_core::TypeKind for IMAGEHLP_MODULE64_EX {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGEHLP_MODULE64_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_MODULE64_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_MODULEW {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u32,
@@ -7348,17 +6994,17 @@ pub struct IMAGEHLP_MODULEW {
     pub LoadedImageName: [u16; 256],
 }
 #[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_MODULEW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_MODULEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_MODULEW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_MODULEW64 {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u64,
@@ -7386,30 +7032,30 @@ pub struct IMAGEHLP_MODULEW64 {
     pub MachineType: u32,
     pub Reserved: u32,
 }
-impl windows_core::TypeKind for IMAGEHLP_MODULEW64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGEHLP_MODULEW64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_MODULEW64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_MODULEW64_EX {
     pub Module: IMAGEHLP_MODULEW64,
     pub RegionFlags: u32,
-}
-impl windows_core::TypeKind for IMAGEHLP_MODULEW64_EX {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGEHLP_MODULEW64_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_MODULEW64_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_STACK_FRAME {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
@@ -7422,17 +7068,17 @@ pub struct IMAGEHLP_STACK_FRAME {
     pub Virtual: super::super::super::Foundation::BOOL,
     pub Reserved2: u32,
 }
-impl windows_core::TypeKind for IMAGEHLP_STACK_FRAME {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGEHLP_STACK_FRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_STACK_FRAME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_SYMBOL {
     pub SizeOfStruct: u32,
     pub Address: u32,
@@ -7442,17 +7088,17 @@ pub struct IMAGEHLP_SYMBOL {
     pub Name: [i8; 1],
 }
 #[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_SYMBOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_SYMBOL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_SYMBOL64 {
     pub SizeOfStruct: u32,
     pub Address: u64,
@@ -7461,31 +7107,31 @@ pub struct IMAGEHLP_SYMBOL64 {
     pub MaxNameLength: u32,
     pub Name: [i8; 1],
 }
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGEHLP_SYMBOL64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_SYMBOL64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_SYMBOL64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL64,
     pub name: [i8; 2001],
-}
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL64_PACKAGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGEHLP_SYMBOL64_PACKAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_SYMBOL64_PACKAGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_SYMBOLW {
     pub SizeOfStruct: u32,
     pub Address: u32,
@@ -7495,17 +7141,17 @@ pub struct IMAGEHLP_SYMBOLW {
     pub Name: [u16; 1],
 }
 #[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_SYMBOLW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_SYMBOLW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_SYMBOLW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_SYMBOLW64 {
     pub SizeOfStruct: u32,
     pub Address: u64,
@@ -7514,38 +7160,34 @@ pub struct IMAGEHLP_SYMBOLW64 {
     pub MaxNameLength: u32,
     pub Name: [u16; 1],
 }
-impl windows_core::TypeKind for IMAGEHLP_SYMBOLW64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGEHLP_SYMBOLW64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_SYMBOLW64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_SYMBOLW64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOLW64,
     pub name: [u16; 2001],
-}
-impl windows_core::TypeKind for IMAGEHLP_SYMBOLW64_PACKAGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGEHLP_SYMBOLW64_PACKAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_SYMBOLW64_PACKAGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_SYMBOLW_PACKAGE {
     pub sym: IMAGEHLP_SYMBOLW,
     pub name: [u16; 2001],
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_SYMBOLW_PACKAGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_SYMBOLW_PACKAGE {
@@ -7553,16 +7195,16 @@ impl Default for IMAGEHLP_SYMBOLW_PACKAGE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_SYMBOLW_PACKAGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_SYMBOL_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL,
     pub name: [i8; 2001],
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL_PACKAGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_SYMBOL_PACKAGE {
@@ -7570,64 +7212,68 @@ impl Default for IMAGEHLP_SYMBOL_PACKAGE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_SYMBOL_PACKAGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGEHLP_SYMBOL_SRC {
     pub sizeofstruct: u32,
     pub r#type: u32,
     pub file: [i8; 260],
-}
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL_SRC {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGEHLP_SYMBOL_SRC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGEHLP_SYMBOL_SRC {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0,
-}
-impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindData: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0,
-}
-impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGE_COFF_SYMBOLS_HEADER {
     pub NumberOfSymbols: u32,
     pub LvaToFirstSymbol: u32,
@@ -7638,16 +7284,16 @@ pub struct IMAGE_COFF_SYMBOLS_HEADER {
     pub RvaToFirstByteOfData: u32,
     pub RvaToLastByteOfData: u32,
 }
-impl windows_core::TypeKind for IMAGE_COFF_SYMBOLS_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGE_COFF_SYMBOLS_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_COFF_SYMBOLS_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_COR20_HEADER {
     pub cb: u32,
     pub MajorRuntimeVersion: u16,
@@ -7662,44 +7308,44 @@ pub struct IMAGE_COR20_HEADER {
     pub ExportAddressTableJumps: IMAGE_DATA_DIRECTORY,
     pub ManagedNativeHeader: IMAGE_DATA_DIRECTORY,
 }
-impl windows_core::TypeKind for IMAGE_COR20_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGE_COR20_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_COR20_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union IMAGE_COR20_HEADER_0 {
     pub EntryPointToken: u32,
     pub EntryPointRVA: u32,
-}
-impl windows_core::TypeKind for IMAGE_COR20_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_COR20_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_COR20_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGE_DATA_DIRECTORY {
     pub VirtualAddress: u32,
     pub Size: u32,
-}
-impl windows_core::TypeKind for IMAGE_DATA_DIRECTORY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_DATA_DIRECTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_DATA_DIRECTORY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGE_DEBUG_DIRECTORY {
     pub Characteristics: u32,
     pub TimeDateStamp: u32,
@@ -7710,18 +7356,18 @@ pub struct IMAGE_DEBUG_DIRECTORY {
     pub AddressOfRawData: u32,
     pub PointerToRawData: u32,
 }
-impl windows_core::TypeKind for IMAGE_DEBUG_DIRECTORY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGE_DEBUG_DIRECTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_DEBUG_DIRECTORY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGE_DEBUG_INFORMATION {
     pub List: super::super::Kernel::LIST_ENTRY,
     pub ReservedSize: u32,
@@ -7757,19 +7403,19 @@ pub struct IMAGE_DEBUG_INFORMATION {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for IMAGE_DEBUG_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for IMAGE_DEBUG_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for IMAGE_DEBUG_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGE_FILE_HEADER {
     pub Machine: super::super::SystemInformation::IMAGE_FILE_MACHINE,
     pub NumberOfSections: u16,
@@ -7780,77 +7426,77 @@ pub struct IMAGE_FILE_HEADER {
     pub Characteristics: IMAGE_FILE_CHARACTERISTICS,
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for IMAGE_FILE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for IMAGE_FILE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for IMAGE_FILE_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGE_FUNCTION_ENTRY {
     pub StartingAddress: u32,
     pub EndingAddress: u32,
     pub EndOfPrologue: u32,
-}
-impl windows_core::TypeKind for IMAGE_FUNCTION_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_FUNCTION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_FUNCTION_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_FUNCTION_ENTRY64 {
     pub StartingAddress: u64,
     pub EndingAddress: u64,
     pub Anonymous: IMAGE_FUNCTION_ENTRY64_0,
-}
-impl windows_core::TypeKind for IMAGE_FUNCTION_ENTRY64 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_FUNCTION_ENTRY64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_FUNCTION_ENTRY64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union IMAGE_FUNCTION_ENTRY64_0 {
     pub EndOfPrologue: u64,
     pub UnwindInfoAddress: u64,
-}
-impl windows_core::TypeKind for IMAGE_FUNCTION_ENTRY64_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_FUNCTION_ENTRY64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_FUNCTION_ENTRY64_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     pub Flags: u16,
     pub Catalog: u16,
     pub CatalogOffset: u32,
     pub Reserved: u32,
 }
-impl windows_core::TypeKind for IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
     pub Size: u32,
     pub TimeDateStamp: u32,
@@ -7902,16 +7548,16 @@ pub struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
     pub CastGuardOsDeterminedFailureMode: u32,
     pub GuardMemcpyFunctionPointer: u32,
 }
-impl windows_core::TypeKind for IMAGE_LOAD_CONFIG_DIRECTORY32 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGE_LOAD_CONFIG_DIRECTORY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_LOAD_CONFIG_DIRECTORY32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
     pub Size: u32,
     pub TimeDateStamp: u32,
@@ -7963,25 +7609,21 @@ pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
     pub CastGuardOsDeterminedFailureMode: u64,
     pub GuardMemcpyFunctionPointer: u64,
 }
-impl windows_core::TypeKind for IMAGE_LOAD_CONFIG_DIRECTORY64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGE_LOAD_CONFIG_DIRECTORY64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_LOAD_CONFIG_DIRECTORY64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGE_NT_HEADERS32 {
     pub Signature: u32,
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_OPTIONAL_HEADER32,
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for IMAGE_NT_HEADERS32 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for IMAGE_NT_HEADERS32 {
@@ -7989,17 +7631,17 @@ impl Default for IMAGE_NT_HEADERS32 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for IMAGE_NT_HEADERS32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_NT_HEADERS64 {
     pub Signature: u32,
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_OPTIONAL_HEADER64,
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for IMAGE_NT_HEADERS64 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for IMAGE_NT_HEADERS64 {
@@ -8007,8 +7649,12 @@ impl Default for IMAGE_NT_HEADERS64 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for IMAGE_NT_HEADERS64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGE_OPTIONAL_HEADER32 {
     pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
     pub MajorLinkerVersion: u8,
@@ -8042,16 +7688,16 @@ pub struct IMAGE_OPTIONAL_HEADER32 {
     pub NumberOfRvaAndSizes: u32,
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
-impl windows_core::TypeKind for IMAGE_OPTIONAL_HEADER32 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGE_OPTIONAL_HEADER32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_OPTIONAL_HEADER32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_OPTIONAL_HEADER64 {
     pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
     pub MajorLinkerVersion: u8,
@@ -8084,24 +7730,20 @@ pub struct IMAGE_OPTIONAL_HEADER64 {
     pub NumberOfRvaAndSizes: u32,
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
-impl windows_core::TypeKind for IMAGE_OPTIONAL_HEADER64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGE_OPTIONAL_HEADER64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_OPTIONAL_HEADER64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGE_ROM_HEADERS {
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_ROM_OPTIONAL_HEADER,
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for IMAGE_ROM_HEADERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for IMAGE_ROM_HEADERS {
@@ -8109,8 +7751,12 @@ impl Default for IMAGE_ROM_HEADERS {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for IMAGE_ROM_HEADERS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IMAGE_ROM_OPTIONAL_HEADER {
     pub Magic: u16,
     pub MajorLinkerVersion: u8,
@@ -8126,45 +7772,45 @@ pub struct IMAGE_ROM_OPTIONAL_HEADER {
     pub CprMask: [u32; 4],
     pub GpValue: u32,
 }
-impl windows_core::TypeKind for IMAGE_ROM_OPTIONAL_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGE_ROM_OPTIONAL_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_ROM_OPTIONAL_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub EndAddress: u32,
     pub Anonymous: IMAGE_RUNTIME_FUNCTION_ENTRY_0,
-}
-impl windows_core::TypeKind for IMAGE_RUNTIME_FUNCTION_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_RUNTIME_FUNCTION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_RUNTIME_FUNCTION_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindInfoAddress: u32,
     pub UnwindData: u32,
-}
-impl windows_core::TypeKind for IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IMAGE_SECTION_HEADER {
     pub Name: [u8; 8],
     pub Misc: IMAGE_SECTION_HEADER_0,
@@ -8177,30 +7823,30 @@ pub struct IMAGE_SECTION_HEADER {
     pub NumberOfLinenumbers: u16,
     pub Characteristics: IMAGE_SECTION_CHARACTERISTICS,
 }
-impl windows_core::TypeKind for IMAGE_SECTION_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGE_SECTION_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_SECTION_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union IMAGE_SECTION_HEADER_0 {
     pub PhysicalAddress: u32,
     pub VirtualSize: u32,
-}
-impl windows_core::TypeKind for IMAGE_SECTION_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_SECTION_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGE_SECTION_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct IPMI_OS_SEL_RECORD {
     pub Signature: u32,
     pub Version: u32,
@@ -8209,17 +7855,17 @@ pub struct IPMI_OS_SEL_RECORD {
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
-impl windows_core::TypeKind for IPMI_OS_SEL_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IPMI_OS_SEL_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IPMI_OS_SEL_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KDHELP {
     pub Thread: u32,
     pub ThCallbackStack: u32,
@@ -8235,17 +7881,17 @@ pub struct KDHELP {
     pub Reserved: [u32; 5],
 }
 #[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for KDHELP {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
 impl Default for KDHELP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for KDHELP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KDHELP64 {
     pub Thread: u64,
     pub ThCallbackStack: u32,
@@ -8265,17 +7911,17 @@ pub struct KDHELP64 {
     pub RetpolineStubSize: u32,
     pub Reserved0: [u64; 2],
 }
-impl windows_core::TypeKind for KDHELP64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for KDHELP64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KDHELP64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub X19: *mut u64,
     pub X20: *mut u64,
@@ -8299,42 +7945,38 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub D15: *mut u64,
 }
 #[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "aarch64")]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "aarch64")]
+impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Anonymous1: KNONVOLATILE_CONTEXT_POINTERS_0,
     pub Anonymous2: KNONVOLATILE_CONTEXT_POINTERS_1,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union KNONVOLATILE_CONTEXT_POINTERS_0 {
     pub FloatingContext: [*mut M128A; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_0_0,
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
@@ -8342,9 +7984,13 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm0: *mut M128A,
     pub Xmm1: *mut M128A,
@@ -8364,25 +8010,21 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm15: *mut M128A,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union KNONVOLATILE_CONTEXT_POINTERS_1 {
     pub IntegerContext: [*mut u64; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_1_0,
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
@@ -8390,9 +8032,13 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub Rax: *mut u64,
     pub Rcx: *mut u64,
@@ -8412,24 +8058,20 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub R15: *mut u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Dummy: u32,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS {
@@ -8437,68 +8079,72 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct LDT_ENTRY {
     pub LimitLow: u16,
     pub BaseLow: u16,
     pub HighWord: LDT_ENTRY_0,
-}
-impl windows_core::TypeKind for LDT_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LDT_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LDT_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union LDT_ENTRY_0 {
     pub Bytes: LDT_ENTRY_0_0,
     pub Bits: LDT_ENTRY_0_1,
-}
-impl windows_core::TypeKind for LDT_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LDT_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LDT_ENTRY_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LDT_ENTRY_0_1 {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for LDT_ENTRY_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LDT_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LDT_ENTRY_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,
     pub BaseHi: u8,
 }
-impl windows_core::TypeKind for LDT_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LDT_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LDT_ENTRY_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LOADED_IMAGE {
     pub ModuleName: windows_core::PSTR,
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -8517,20 +8163,20 @@ pub struct LOADED_IMAGE {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for LOADED_IMAGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 impl Default for LOADED_IMAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+impl windows_core::TypeKind for LOADED_IMAGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LOADED_IMAGE {
     pub ModuleName: windows_core::PSTR,
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -8549,18 +8195,18 @@ pub struct LOADED_IMAGE {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for LOADED_IMAGE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 impl Default for LOADED_IMAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+impl windows_core::TypeKind for LOADED_IMAGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LOAD_DLL_DEBUG_INFO {
     pub hFile: super::super::super::Foundation::HANDLE,
     pub lpBaseOfDll: *mut core::ffi::c_void,
@@ -8569,90 +8215,90 @@ pub struct LOAD_DLL_DEBUG_INFO {
     pub lpImageName: *mut core::ffi::c_void,
     pub fUnicode: u16,
 }
-impl windows_core::TypeKind for LOAD_DLL_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LOAD_DLL_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LOAD_DLL_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct M128A {
     pub Low: u64,
     pub High: i64,
-}
-impl windows_core::TypeKind for M128A {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for M128A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for M128A {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
-#[derive(Clone, Copy)]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
 impl Default for MINIDUMP_CALLBACK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
-#[derive(Clone, Copy)]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
 impl Default for MINIDUMP_CALLBACK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_CALLBACK_INPUT {
     pub ProcessId: u32,
     pub ProcessHandle: super::super::super::Foundation::HANDLE,
     pub CallbackType: u32,
     pub Anonymous: MINIDUMP_CALLBACK_INPUT_0,
 }
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for MINIDUMP_CALLBACK_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Copy, Clone)]
 pub union MINIDUMP_CALLBACK_INPUT_0 {
     pub Status: windows_core::HRESULT,
     pub Thread: MINIDUMP_THREAD_CALLBACK,
@@ -8667,25 +8313,21 @@ pub union MINIDUMP_CALLBACK_INPUT_0 {
     pub VmPreRead: MINIDUMP_VM_PRE_READ_CALLBACK,
     pub VmPostRead: MINIDUMP_VM_POST_READ_CALLBACK,
 }
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_INPUT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for MINIDUMP_CALLBACK_INPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_INPUT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_CALLBACK_OUTPUT {
     pub Anonymous: MINIDUMP_CALLBACK_OUTPUT_0,
-}
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_CALLBACK_OUTPUT {
@@ -8693,9 +8335,13 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union MINIDUMP_CALLBACK_OUTPUT_0 {
     pub ModuleWriteFlags: u32,
     pub ThreadWriteFlags: u32,
@@ -8709,25 +8355,21 @@ pub union MINIDUMP_CALLBACK_OUTPUT_0 {
     pub Status: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_CALLBACK_OUTPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
     pub MemoryBase: u64,
     pub MemorySize: u32,
-}
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_CALLBACK_OUTPUT_0_0 {
@@ -8735,16 +8377,16 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_1 {
     pub CheckCancel: super::super::super::Foundation::BOOL,
     pub Cancel: super::super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_CALLBACK_OUTPUT_0_1 {
@@ -8752,16 +8394,16 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_2 {
     pub VmRegion: MINIDUMP_MEMORY_INFO,
     pub Continue: super::super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_CALLBACK_OUTPUT_0_2 {
@@ -8769,16 +8411,16 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_3 {
     pub VmQueryStatus: windows_core::HRESULT,
     pub VmQueryResult: MINIDUMP_MEMORY_INFO,
-}
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_CALLBACK_OUTPUT_0_3 {
@@ -8786,16 +8428,16 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0_3 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
     pub VmReadStatus: windows_core::HRESULT,
     pub VmReadBytesCompleted: u32,
-}
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_4 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_CALLBACK_OUTPUT_0_4 {
@@ -8803,22 +8445,26 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0_4 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_4 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_DIRECTORY {
     pub StreamType: u32,
     pub Location: MINIDUMP_LOCATION_DESCRIPTOR,
-}
-impl windows_core::TypeKind for MINIDUMP_DIRECTORY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_DIRECTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_DIRECTORY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_EXCEPTION {
     pub ExceptionCode: u32,
     pub ExceptionFlags: u32,
@@ -8828,90 +8474,84 @@ pub struct MINIDUMP_EXCEPTION {
     pub __unusedAlignment: u32,
     pub ExceptionInformation: [u64; 15],
 }
-impl windows_core::TypeKind for MINIDUMP_EXCEPTION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_EXCEPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_EXCEPTION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
     pub ThreadId: u32,
     pub ExceptionPointers: *mut EXCEPTION_POINTERS,
     pub ClientPointers: super::super::super::Foundation::BOOL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for MINIDUMP_EXCEPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
     pub ThreadId: u32,
     pub ExceptionPointers: *mut EXCEPTION_POINTERS,
     pub ClientPointers: super::super::super::Foundation::BOOL,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for MINIDUMP_EXCEPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION64 {
     pub ThreadId: u32,
     pub ExceptionRecord: u64,
     pub ContextRecord: u64,
     pub ClientPointers: super::super::super::Foundation::BOOL,
 }
-impl windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_EXCEPTION_INFORMATION64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_EXCEPTION_STREAM {
     pub ThreadId: u32,
     pub __alignment: u32,
     pub ExceptionRecord: MINIDUMP_EXCEPTION,
     pub ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
 }
-impl windows_core::TypeKind for MINIDUMP_EXCEPTION_STREAM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_EXCEPTION_STREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_EXCEPTION_STREAM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     pub MinimumAddress: u64,
     pub MaximumAddress: u64,
@@ -8919,16 +8559,16 @@ pub struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     pub EntryCount: u32,
     pub SizeOfAlignPad: u32,
 }
-impl windows_core::TypeKind for MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
     pub SizeOfHeader: u32,
     pub SizeOfDescriptor: u32,
@@ -8937,32 +8577,32 @@ pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
     pub NumberOfDescriptors: u32,
     pub SizeOfAlignPad: u32,
 }
-impl windows_core::TypeKind for MINIDUMP_FUNCTION_TABLE_STREAM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_FUNCTION_TABLE_STREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_FUNCTION_TABLE_STREAM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_HANDLE_DATA_STREAM {
     pub SizeOfHeader: u32,
     pub SizeOfDescriptor: u32,
     pub NumberOfDescriptors: u32,
     pub Reserved: u32,
 }
-impl windows_core::TypeKind for MINIDUMP_HANDLE_DATA_STREAM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_HANDLE_DATA_STREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_HANDLE_DATA_STREAM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR {
     pub Handle: u64,
     pub TypeNameRva: u32,
@@ -8972,16 +8612,16 @@ pub struct MINIDUMP_HANDLE_DESCRIPTOR {
     pub HandleCount: u32,
     pub PointerCount: u32,
 }
-impl windows_core::TypeKind for MINIDUMP_HANDLE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_HANDLE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_HANDLE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR_2 {
     pub Handle: u64,
     pub TypeNameRva: u32,
@@ -8993,47 +8633,47 @@ pub struct MINIDUMP_HANDLE_DESCRIPTOR_2 {
     pub ObjectInfoRva: u32,
     pub Reserved0: u32,
 }
-impl windows_core::TypeKind for MINIDUMP_HANDLE_DESCRIPTOR_2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_HANDLE_DESCRIPTOR_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_HANDLE_DESCRIPTOR_2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION {
     pub NextInfoRva: u32,
     pub InfoType: u32,
     pub SizeOfInfo: u32,
-}
-impl windows_core::TypeKind for MINIDUMP_HANDLE_OBJECT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_HANDLE_OBJECT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_HANDLE_OBJECT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_HANDLE_OPERATION_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
     pub NumberOfEntries: u32,
     pub Reserved: u32,
 }
-impl windows_core::TypeKind for MINIDUMP_HANDLE_OPERATION_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_HANDLE_OPERATION_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_HANDLE_OPERATION_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_HEADER {
     pub Signature: u32,
     pub Version: u32,
@@ -9043,144 +8683,144 @@ pub struct MINIDUMP_HEADER {
     pub Anonymous: MINIDUMP_HEADER_0,
     pub Flags: u64,
 }
-impl windows_core::TypeKind for MINIDUMP_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union MINIDUMP_HEADER_0 {
     pub Reserved: u32,
     pub TimeDateStamp: u32,
-}
-impl windows_core::TypeKind for MINIDUMP_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_INCLUDE_MODULE_CALLBACK {
     pub BaseOfImage: u64,
-}
-impl windows_core::TypeKind for MINIDUMP_INCLUDE_MODULE_CALLBACK {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_INCLUDE_MODULE_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_INCLUDE_MODULE_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
     pub ThreadId: u32,
-}
-impl windows_core::TypeKind for MINIDUMP_INCLUDE_THREAD_CALLBACK {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_INCLUDE_THREAD_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_INCLUDE_THREAD_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_IO_CALLBACK {
     pub Handle: super::super::super::Foundation::HANDLE,
     pub Offset: u64,
     pub Buffer: *mut core::ffi::c_void,
     pub BufferBytes: u32,
 }
-impl windows_core::TypeKind for MINIDUMP_IO_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_IO_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_IO_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR {
     pub DataSize: u32,
     pub Rva: u32,
-}
-impl windows_core::TypeKind for MINIDUMP_LOCATION_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_LOCATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_LOCATION_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR64 {
     pub DataSize: u64,
     pub Rva: u64,
-}
-impl windows_core::TypeKind for MINIDUMP_LOCATION_DESCRIPTOR64 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_LOCATION_DESCRIPTOR64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_LOCATION_DESCRIPTOR64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MEMORY64_LIST {
     pub NumberOfMemoryRanges: u64,
     pub BaseRva: u64,
     pub MemoryRanges: [MINIDUMP_MEMORY_DESCRIPTOR64; 1],
-}
-impl windows_core::TypeKind for MINIDUMP_MEMORY64_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_MEMORY64_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_MEMORY64_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR {
     pub StartOfMemoryRange: u64,
     pub Memory: MINIDUMP_LOCATION_DESCRIPTOR,
-}
-impl windows_core::TypeKind for MINIDUMP_MEMORY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_MEMORY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_MEMORY_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR64 {
     pub StartOfMemoryRange: u64,
     pub DataSize: u64,
-}
-impl windows_core::TypeKind for MINIDUMP_MEMORY_DESCRIPTOR64 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_MEMORY_DESCRIPTOR64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_MEMORY_DESCRIPTOR64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MEMORY_INFO {
     pub BaseAddress: u64,
     pub AllocationBase: u64,
@@ -9193,46 +8833,46 @@ pub struct MINIDUMP_MEMORY_INFO {
     pub __alignment2: u32,
 }
 #[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_MEMORY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_MEMORY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_MEMORY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MEMORY_INFO_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
     pub NumberOfEntries: u64,
-}
-impl windows_core::TypeKind for MINIDUMP_MEMORY_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_MEMORY_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_MEMORY_INFO_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MEMORY_LIST {
     pub NumberOfMemoryRanges: u32,
     pub MemoryRanges: [MINIDUMP_MEMORY_DESCRIPTOR; 1],
-}
-impl windows_core::TypeKind for MINIDUMP_MEMORY_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_MEMORY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_MEMORY_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MISC_INFO {
     pub SizeOfInfo: u32,
     pub Flags1: MINIDUMP_MISC_INFO_FLAGS,
@@ -9241,16 +8881,16 @@ pub struct MINIDUMP_MISC_INFO {
     pub ProcessUserTime: u32,
     pub ProcessKernelTime: u32,
 }
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_MISC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_MISC_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MISC_INFO_2 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -9264,17 +8904,17 @@ pub struct MINIDUMP_MISC_INFO_2 {
     pub ProcessorMaxIdleState: u32,
     pub ProcessorCurrentIdleState: u32,
 }
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO_2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_MISC_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_MISC_INFO_2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MISC_INFO_3 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -9294,18 +8934,18 @@ pub struct MINIDUMP_MISC_INFO_3 {
     pub TimeZone: super::super::Time::TIME_ZONE_INFORMATION,
 }
 #[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO_3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Time")]
 impl Default for MINIDUMP_MISC_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for MINIDUMP_MISC_INFO_3 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MISC_INFO_4 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -9327,18 +8967,18 @@ pub struct MINIDUMP_MISC_INFO_4 {
     pub DbgBldStr: [u16; 40],
 }
 #[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO_4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Time")]
 impl Default for MINIDUMP_MISC_INFO_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for MINIDUMP_MISC_INFO_4 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MISC_INFO_5 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -9362,18 +9002,18 @@ pub struct MINIDUMP_MISC_INFO_5 {
     pub ProcessCookie: u32,
 }
 #[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO_5 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Time")]
 impl Default for MINIDUMP_MISC_INFO_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for MINIDUMP_MISC_INFO_5 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MODULE {
     pub BaseOfImage: u64,
     pub SizeOfImage: u32,
@@ -9387,18 +9027,18 @@ pub struct MINIDUMP_MODULE {
     pub Reserved1: u64,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for MINIDUMP_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for MINIDUMP_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for MINIDUMP_MODULE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MODULE_CALLBACK {
     pub FullPath: windows_core::PWSTR,
     pub BaseOfImage: u64,
@@ -9412,25 +9052,21 @@ pub struct MINIDUMP_MODULE_CALLBACK {
     pub SizeOfMiscRecord: u32,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for MINIDUMP_MODULE_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for MINIDUMP_MODULE_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for MINIDUMP_MODULE_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_MODULE_LIST {
     pub NumberOfModules: u32,
     pub Modules: [MINIDUMP_MODULE; 1],
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for MINIDUMP_MODULE_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for MINIDUMP_MODULE_LIST {
@@ -9438,8 +9074,12 @@ impl Default for MINIDUMP_MODULE_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for MINIDUMP_MODULE_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_1 {
     pub Revision: u16,
     pub PageFaultCount: u32,
@@ -9453,16 +9093,16 @@ pub struct MINIDUMP_PROCESS_VM_COUNTERS_1 {
     pub PeakPagefileUsage: u64,
     pub PrivateUsage: u64,
 }
-impl windows_core::TypeKind for MINIDUMP_PROCESS_VM_COUNTERS_1 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_PROCESS_VM_COUNTERS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_PROCESS_VM_COUNTERS_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_2 {
     pub Revision: u16,
     pub Flags: u16,
@@ -9486,45 +9126,45 @@ pub struct MINIDUMP_PROCESS_VM_COUNTERS_2 {
     pub JobPrivateCommitLimit: u64,
     pub JobTotalCommitLimit: u64,
 }
-impl windows_core::TypeKind for MINIDUMP_PROCESS_VM_COUNTERS_2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_PROCESS_VM_COUNTERS_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_PROCESS_VM_COUNTERS_2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
     pub Offset: u64,
     pub Bytes: u32,
     pub FailureStatus: windows_core::HRESULT,
-}
-impl windows_core::TypeKind for MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_STRING {
     pub Length: u32,
     pub Buffer: [u16; 1],
-}
-impl windows_core::TypeKind for MINIDUMP_STRING {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_STRING {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
     pub TimerResolution: u32,
     pub PageSize: u32,
@@ -9537,32 +9177,32 @@ pub struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
     pub ActiveProcessorsAffinityMask: u64,
     pub NumberOfProcessors: u32,
 }
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_SYSTEM_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_BASIC_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
     pub AvailablePages: u64,
     pub CommittedPages: u64,
     pub CommitLimit: u64,
     pub PeakCommitment: u64,
 }
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     pub CurrentSize: u64,
     pub PeakSize: u64,
@@ -9574,17 +9214,17 @@ pub struct MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     pub TransitionRePurposeCount: u32,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_SYSTEM_INFO {
     pub ProcessorArchitecture: super::super::SystemInformation::PROCESSOR_ARCHITECTURE,
     pub ProcessorLevel: u16,
@@ -9599,25 +9239,21 @@ pub struct MINIDUMP_SYSTEM_INFO {
     pub Cpu: CPU_INFORMATION,
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for MINIDUMP_SYSTEM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union MINIDUMP_SYSTEM_INFO_0 {
     pub Reserved0: u16,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_0_0,
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for MINIDUMP_SYSTEM_INFO_0 {
@@ -9625,16 +9261,16 @@ impl Default for MINIDUMP_SYSTEM_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MINIDUMP_SYSTEM_INFO_0_0 {
     pub NumberOfProcessors: u8,
     pub ProductType: u8,
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for MINIDUMP_SYSTEM_INFO_0_0 {
@@ -9642,16 +9278,16 @@ impl Default for MINIDUMP_SYSTEM_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union MINIDUMP_SYSTEM_INFO_1 {
     pub Reserved1: u32,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_1_0,
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for MINIDUMP_SYSTEM_INFO_1 {
@@ -9659,16 +9295,16 @@ impl Default for MINIDUMP_SYSTEM_INFO_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MINIDUMP_SYSTEM_INFO_1_0 {
     pub SuiteMask: u16,
     pub Reserved2: u16,
-}
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for MINIDUMP_SYSTEM_INFO_1_0 {
@@ -9676,8 +9312,12 @@ impl Default for MINIDUMP_SYSTEM_INFO_1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     pub Revision: u16,
     pub Flags: u16,
@@ -9686,16 +9326,16 @@ pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     pub BasicPerfInfo: MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION,
     pub PerfInfo: MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION,
 }
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_MEMORY_INFO_1 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_MEMORY_INFO_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
     pub IdleProcessTime: u64,
     pub IoReadTransferCount: u64,
@@ -9776,16 +9416,16 @@ pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
     pub ResidentAvailablePages: i64,
     pub SharedCommittedPages: u64,
 }
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD {
     pub ThreadId: u32,
     pub SuspendCount: u32,
@@ -9795,18 +9435,17 @@ pub struct MINIDUMP_THREAD {
     pub Stack: MINIDUMP_MEMORY_DESCRIPTOR,
     pub ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
 }
-impl windows_core::TypeKind for MINIDUMP_THREAD {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_THREAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_THREAD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: u32,
     pub ThreadHandle: super::super::super::Foundation::HANDLE,
@@ -9817,21 +9456,18 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackEnd: u64,
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for MINIDUMP_THREAD_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for MINIDUMP_THREAD_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "aarch64")]
+impl windows_core::TypeKind for MINIDUMP_THREAD_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: u32,
     pub ThreadHandle: super::super::super::Foundation::HANDLE,
@@ -9841,19 +9477,17 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackEnd: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for MINIDUMP_THREAD_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for MINIDUMP_THREAD_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+impl windows_core::TypeKind for MINIDUMP_THREAD_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_EX {
     pub ThreadId: u32,
     pub SuspendCount: u32,
@@ -9864,18 +9498,17 @@ pub struct MINIDUMP_THREAD_EX {
     pub ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
     pub BackingStore: MINIDUMP_MEMORY_DESCRIPTOR,
 }
-impl windows_core::TypeKind for MINIDUMP_THREAD_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_THREAD_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_THREAD_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: u32,
     pub ThreadHandle: super::super::super::Foundation::HANDLE,
@@ -9888,21 +9521,18 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreEnd: u64,
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for MINIDUMP_THREAD_EX_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for MINIDUMP_THREAD_EX_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "aarch64")]
+impl windows_core::TypeKind for MINIDUMP_THREAD_EX_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: u32,
     pub ThreadHandle: super::super::super::Foundation::HANDLE,
@@ -9914,33 +9544,31 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreEnd: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for MINIDUMP_THREAD_EX_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 impl Default for MINIDUMP_THREAD_EX_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+impl windows_core::TypeKind for MINIDUMP_THREAD_EX_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_EX_LIST {
     pub NumberOfThreads: u32,
     pub Threads: [MINIDUMP_THREAD_EX; 1],
-}
-impl windows_core::TypeKind for MINIDUMP_THREAD_EX_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_THREAD_EX_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_THREAD_EX_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_INFO {
     pub ThreadId: u32,
     pub DumpFlags: MINIDUMP_THREAD_INFO_DUMP_FLAGS,
@@ -9953,104 +9581,104 @@ pub struct MINIDUMP_THREAD_INFO {
     pub StartAddress: u64,
     pub Affinity: u64,
 }
-impl windows_core::TypeKind for MINIDUMP_THREAD_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_THREAD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_THREAD_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_INFO_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
     pub NumberOfEntries: u32,
-}
-impl windows_core::TypeKind for MINIDUMP_THREAD_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_THREAD_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_THREAD_INFO_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_LIST {
     pub NumberOfThreads: u32,
     pub Threads: [MINIDUMP_THREAD; 1],
-}
-impl windows_core::TypeKind for MINIDUMP_THREAD_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_THREAD_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_THREAD_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_NAME {
     pub ThreadId: u32,
     pub RvaOfThreadName: u64,
-}
-impl windows_core::TypeKind for MINIDUMP_THREAD_NAME {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_THREAD_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_THREAD_NAME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_THREAD_NAME_LIST {
     pub NumberOfThreadNames: u32,
     pub ThreadNames: [MINIDUMP_THREAD_NAME; 1],
-}
-impl windows_core::TypeKind for MINIDUMP_THREAD_NAME_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_THREAD_NAME_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_THREAD_NAME_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_TOKEN_INFO_HEADER {
     pub TokenSize: u32,
     pub TokenId: u32,
     pub TokenHandle: u64,
-}
-impl windows_core::TypeKind for MINIDUMP_TOKEN_INFO_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_TOKEN_INFO_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_TOKEN_INFO_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_TOKEN_INFO_LIST {
     pub TokenListSize: u32,
     pub TokenListEntries: u32,
     pub ListHeaderSize: u32,
     pub ElementHeaderSize: u32,
 }
-impl windows_core::TypeKind for MINIDUMP_TOKEN_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_TOKEN_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_TOKEN_INFO_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_UNLOADED_MODULE {
     pub BaseOfImage: u64,
     pub SizeOfImage: u32,
@@ -10058,54 +9686,50 @@ pub struct MINIDUMP_UNLOADED_MODULE {
     pub TimeDateStamp: u32,
     pub ModuleNameRva: u32,
 }
-impl windows_core::TypeKind for MINIDUMP_UNLOADED_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_UNLOADED_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_UNLOADED_MODULE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_UNLOADED_MODULE_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
     pub NumberOfEntries: u32,
-}
-impl windows_core::TypeKind for MINIDUMP_UNLOADED_MODULE_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_UNLOADED_MODULE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_UNLOADED_MODULE_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_USER_RECORD {
     pub Type: u32,
     pub Memory: MINIDUMP_LOCATION_DESCRIPTOR,
-}
-impl windows_core::TypeKind for MINIDUMP_USER_RECORD {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_USER_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_USER_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_USER_STREAM {
     pub Type: u32,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MINIDUMP_USER_STREAM {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for MINIDUMP_USER_STREAM {
@@ -10113,17 +9737,17 @@ impl Default for MINIDUMP_USER_STREAM {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for MINIDUMP_USER_STREAM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MINIDUMP_USER_STREAM {
     pub Type: u32,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for MINIDUMP_USER_STREAM {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for MINIDUMP_USER_STREAM {
@@ -10131,33 +9755,33 @@ impl Default for MINIDUMP_USER_STREAM {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for MINIDUMP_USER_STREAM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_USER_STREAM_INFORMATION {
     pub UserStreamCount: u32,
     pub UserStreamArray: *mut MINIDUMP_USER_STREAM,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MINIDUMP_USER_STREAM_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for MINIDUMP_USER_STREAM_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for MINIDUMP_USER_STREAM_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MINIDUMP_USER_STREAM_INFORMATION {
     pub UserStreamCount: u32,
     pub UserStreamArray: *mut MINIDUMP_USER_STREAM,
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for MINIDUMP_USER_STREAM_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for MINIDUMP_USER_STREAM_INFORMATION {
@@ -10165,8 +9789,12 @@ impl Default for MINIDUMP_USER_STREAM_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for MINIDUMP_USER_STREAM_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_VM_POST_READ_CALLBACK {
     pub Offset: u64,
     pub Buffer: *mut core::ffi::c_void,
@@ -10174,44 +9802,44 @@ pub struct MINIDUMP_VM_POST_READ_CALLBACK {
     pub Completed: u32,
     pub Status: windows_core::HRESULT,
 }
-impl windows_core::TypeKind for MINIDUMP_VM_POST_READ_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MINIDUMP_VM_POST_READ_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_VM_POST_READ_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_VM_PRE_READ_CALLBACK {
     pub Offset: u64,
     pub Buffer: *mut core::ffi::c_void,
     pub Size: u32,
-}
-impl windows_core::TypeKind for MINIDUMP_VM_PRE_READ_CALLBACK {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_VM_PRE_READ_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_VM_PRE_READ_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MINIDUMP_VM_QUERY_CALLBACK {
     pub Offset: u64,
-}
-impl windows_core::TypeKind for MINIDUMP_VM_QUERY_CALLBACK {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_VM_QUERY_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MINIDUMP_VM_QUERY_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MODLOAD_CVMISC {
     pub oCV: u32,
     pub cCV: usize,
@@ -10220,16 +9848,16 @@ pub struct MODLOAD_CVMISC {
     pub dtImage: u32,
     pub cImage: u32,
 }
-impl windows_core::TypeKind for MODLOAD_CVMISC {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MODLOAD_CVMISC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MODLOAD_CVMISC {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MODLOAD_DATA {
     pub ssize: u32,
     pub ssig: MODLOAD_DATA_TYPE,
@@ -10237,174 +9865,174 @@ pub struct MODLOAD_DATA {
     pub size: u32,
     pub flags: u32,
 }
-impl windows_core::TypeKind for MODLOAD_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MODLOAD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MODLOAD_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MODLOAD_PDBGUID_PDBAGE {
     pub PdbGuid: windows_core::GUID,
     pub PdbAge: u32,
-}
-impl windows_core::TypeKind for MODLOAD_PDBGUID_PDBAGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MODLOAD_PDBGUID_PDBAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MODLOAD_PDBGUID_PDBAGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MODULE_TYPE_INFO {
     pub dataLength: u16,
     pub leaf: u16,
     pub data: [u8; 1],
-}
-impl windows_core::TypeKind for MODULE_TYPE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MODULE_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MODULE_TYPE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct OMAP {
     pub rva: u32,
     pub rvaTo: u32,
-}
-impl windows_core::TypeKind for OMAP {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for OMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for OMAP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct OUTPUT_DEBUG_STRING_INFO {
     pub lpDebugStringData: windows_core::PSTR,
     pub fUnicode: u16,
     pub nDebugStringLength: u16,
-}
-impl windows_core::TypeKind for OUTPUT_DEBUG_STRING_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for OUTPUT_DEBUG_STRING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for OUTPUT_DEBUG_STRING_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PHYSICAL_MEMORY_DESCRIPTOR32 {
     pub NumberOfRuns: u32,
     pub NumberOfPages: u32,
     pub Run: [PHYSICAL_MEMORY_RUN32; 1],
-}
-impl windows_core::TypeKind for PHYSICAL_MEMORY_DESCRIPTOR32 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_MEMORY_DESCRIPTOR32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PHYSICAL_MEMORY_DESCRIPTOR32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PHYSICAL_MEMORY_DESCRIPTOR64 {
     pub NumberOfRuns: u32,
     pub NumberOfPages: u64,
     pub Run: [PHYSICAL_MEMORY_RUN64; 1],
-}
-impl windows_core::TypeKind for PHYSICAL_MEMORY_DESCRIPTOR64 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_MEMORY_DESCRIPTOR64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PHYSICAL_MEMORY_DESCRIPTOR64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PHYSICAL_MEMORY_RUN32 {
     pub BasePage: u32,
     pub PageCount: u32,
-}
-impl windows_core::TypeKind for PHYSICAL_MEMORY_RUN32 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_MEMORY_RUN32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PHYSICAL_MEMORY_RUN32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PHYSICAL_MEMORY_RUN64 {
     pub BasePage: u64,
     pub PageCount: u64,
-}
-impl windows_core::TypeKind for PHYSICAL_MEMORY_RUN64 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_MEMORY_RUN64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PHYSICAL_MEMORY_RUN64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RIP_INFO {
     pub dwError: u32,
     pub dwType: RIP_INFO_TYPE,
-}
-impl windows_core::TypeKind for RIP_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RIP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RIP_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SOURCEFILE {
     pub ModBase: u64,
     pub FileName: windows_core::PSTR,
-}
-impl windows_core::TypeKind for SOURCEFILE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SOURCEFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SOURCEFILE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SOURCEFILEW {
     pub ModBase: u64,
     pub FileName: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for SOURCEFILEW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SOURCEFILEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SOURCEFILEW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SRCCODEINFO {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -10414,16 +10042,16 @@ pub struct SRCCODEINFO {
     pub LineNumber: u32,
     pub Address: u64,
 }
-impl windows_core::TypeKind for SRCCODEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SRCCODEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SRCCODEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SRCCODEINFOW {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -10433,17 +10061,17 @@ pub struct SRCCODEINFOW {
     pub LineNumber: u32,
     pub Address: u64,
 }
-impl windows_core::TypeKind for SRCCODEINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SRCCODEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SRCCODEINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct STACKFRAME {
     pub AddrPC: ADDRESS,
     pub AddrReturn: ADDRESS,
@@ -10458,17 +10086,17 @@ pub struct STACKFRAME {
     pub AddrBStore: ADDRESS,
 }
 #[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for STACKFRAME {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
 impl Default for STACKFRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for STACKFRAME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct STACKFRAME64 {
     pub AddrPC: ADDRESS64,
     pub AddrReturn: ADDRESS64,
@@ -10482,16 +10110,16 @@ pub struct STACKFRAME64 {
     pub Reserved: [u64; 3],
     pub KdHelp: KDHELP64,
 }
-impl windows_core::TypeKind for STACKFRAME64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for STACKFRAME64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for STACKFRAME64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct STACKFRAME_EX {
     pub AddrPC: ADDRESS64,
     pub AddrReturn: ADDRESS64,
@@ -10507,16 +10135,16 @@ pub struct STACKFRAME_EX {
     pub StackFrameSize: u32,
     pub InlineFrameContext: u32,
 }
-impl windows_core::TypeKind for STACKFRAME_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for STACKFRAME_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for STACKFRAME_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SYMBOL_INFO {
     pub SizeOfStruct: u32,
     pub TypeIndex: u32,
@@ -10534,16 +10162,16 @@ pub struct SYMBOL_INFO {
     pub MaxNameLen: u32,
     pub Name: [i8; 1],
 }
-impl windows_core::TypeKind for SYMBOL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SYMBOL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SYMBOL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SYMBOL_INFOW {
     pub SizeOfStruct: u32,
     pub TypeIndex: u32,
@@ -10561,59 +10189,59 @@ pub struct SYMBOL_INFOW {
     pub MaxNameLen: u32,
     pub Name: [u16; 1],
 }
-impl windows_core::TypeKind for SYMBOL_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SYMBOL_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SYMBOL_INFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SYMBOL_INFO_PACKAGE {
     pub si: SYMBOL_INFO,
     pub name: [i8; 2001],
-}
-impl windows_core::TypeKind for SYMBOL_INFO_PACKAGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SYMBOL_INFO_PACKAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SYMBOL_INFO_PACKAGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SYMBOL_INFO_PACKAGEW {
     pub si: SYMBOL_INFOW,
     pub name: [u16; 2001],
-}
-impl windows_core::TypeKind for SYMBOL_INFO_PACKAGEW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SYMBOL_INFO_PACKAGEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SYMBOL_INFO_PACKAGEW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SYMSRV_EXTENDED_OUTPUT_DATA {
     pub sizeOfStruct: u32,
     pub version: u32,
     pub filePtrMsg: [u16; 261],
-}
-impl windows_core::TypeKind for SYMSRV_EXTENDED_OUTPUT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SYMSRV_EXTENDED_OUTPUT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SYMSRV_EXTENDED_OUTPUT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SYMSRV_INDEX_INFO {
     pub sizeofstruct: u32,
     pub file: [i8; 261],
@@ -10626,16 +10254,16 @@ pub struct SYMSRV_INDEX_INFO {
     pub sig: u32,
     pub age: u32,
 }
-impl windows_core::TypeKind for SYMSRV_INDEX_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SYMSRV_INDEX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SYMSRV_INDEX_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SYMSRV_INDEX_INFOW {
     pub sizeofstruct: u32,
     pub file: [u16; 261],
@@ -10648,45 +10276,45 @@ pub struct SYMSRV_INDEX_INFOW {
     pub sig: u32,
     pub age: u32,
 }
-impl windows_core::TypeKind for SYMSRV_INDEX_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SYMSRV_INDEX_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SYMSRV_INDEX_INFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TI_FINDCHILDREN_PARAMS {
     pub Count: u32,
     pub Start: u32,
     pub ChildId: [u32; 1],
-}
-impl windows_core::TypeKind for TI_FINDCHILDREN_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TI_FINDCHILDREN_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TI_FINDCHILDREN_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct UNLOAD_DLL_DEBUG_INFO {
     pub lpBaseOfDll: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for UNLOAD_DLL_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for UNLOAD_DLL_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for UNLOAD_DLL_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct UNWIND_HISTORY_TABLE {
     pub Count: u32,
     pub LocalHint: u8,
@@ -10698,111 +10326,111 @@ pub struct UNWIND_HISTORY_TABLE {
     pub Entry: [UNWIND_HISTORY_TABLE_ENTRY; 12],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for UNWIND_HISTORY_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for UNWIND_HISTORY_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for UNWIND_HISTORY_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub ImageBase: usize,
     pub FunctionEntry: *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY,
 }
 #[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for UNWIND_HISTORY_TABLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "aarch64")]
 impl Default for UNWIND_HISTORY_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "aarch64")]
+impl windows_core::TypeKind for UNWIND_HISTORY_TABLE_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub ImageBase: usize,
     pub FunctionEntry: *mut IMAGE_RUNTIME_FUNCTION_ENTRY,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for UNWIND_HISTORY_TABLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for UNWIND_HISTORY_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for UNWIND_HISTORY_TABLE_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WAITCHAIN_NODE_INFO {
     pub ObjectType: WCT_OBJECT_TYPE,
     pub ObjectStatus: WCT_OBJECT_STATUS,
     pub Anonymous: WAITCHAIN_NODE_INFO_0,
-}
-impl windows_core::TypeKind for WAITCHAIN_NODE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WAITCHAIN_NODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WAITCHAIN_NODE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WAITCHAIN_NODE_INFO_0 {
     pub LockObject: WAITCHAIN_NODE_INFO_0_0,
     pub ThreadObject: WAITCHAIN_NODE_INFO_0_1,
-}
-impl windows_core::TypeKind for WAITCHAIN_NODE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WAITCHAIN_NODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WAITCHAIN_NODE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WAITCHAIN_NODE_INFO_0_0 {
     pub ObjectName: [u16; 128],
     pub Timeout: i64,
     pub Alertable: super::super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for WAITCHAIN_NODE_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WAITCHAIN_NODE_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WAITCHAIN_NODE_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WAITCHAIN_NODE_INFO_0_1 {
     pub ProcessId: u32,
     pub ThreadId: u32,
     pub WaitTime: u32,
     pub ContextSwitches: u32,
 }
-impl windows_core::TypeKind for WAITCHAIN_NODE_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WAITCHAIN_NODE_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WAITCHAIN_NODE_INFO_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_AER_BRIDGE_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -10819,16 +10447,16 @@ pub struct WHEA_AER_BRIDGE_DESCRIPTOR {
     pub SecondaryUncorrectableErrorSev: u32,
     pub SecondaryCapsAndControl: u32,
 }
-impl windows_core::TypeKind for WHEA_AER_BRIDGE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_AER_BRIDGE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_AER_BRIDGE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_AER_ENDPOINT_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -10842,16 +10470,16 @@ pub struct WHEA_AER_ENDPOINT_DESCRIPTOR {
     pub CorrectableErrorMask: u32,
     pub AdvancedCapsAndControl: u32,
 }
-impl windows_core::TypeKind for WHEA_AER_ENDPOINT_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_AER_ENDPOINT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_AER_ENDPOINT_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_AER_ROOTPORT_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -10866,16 +10494,16 @@ pub struct WHEA_AER_ROOTPORT_DESCRIPTOR {
     pub AdvancedCapsAndControl: u32,
     pub RootErrorCommand: u32,
 }
-impl windows_core::TypeKind for WHEA_AER_ROOTPORT_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_AER_ROOTPORT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_AER_ROOTPORT_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_DEVICE_DRIVER_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -10894,16 +10522,16 @@ pub struct WHEA_DEVICE_DRIVER_DESCRIPTOR {
     pub PacketStateBuffer: *mut u8,
     pub OpenHandles: i32,
 }
-impl windows_core::TypeKind for WHEA_DEVICE_DRIVER_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_DEVICE_DRIVER_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_DEVICE_DRIVER_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_DRIVER_BUFFER_SET {
     pub Version: u32,
     pub Data: *mut u8,
@@ -10912,31 +10540,31 @@ pub struct WHEA_DRIVER_BUFFER_SET {
     pub SectionFriendlyName: *mut u8,
     pub Flags: *mut u8,
 }
-impl windows_core::TypeKind for WHEA_DRIVER_BUFFER_SET {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_DRIVER_BUFFER_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_DRIVER_BUFFER_SET {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DD {
     pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
     pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
     pub Correct: WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER,
-}
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION_DD {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_SOURCE_CONFIGURATION_DD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION_DD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
     pub Version: u32,
     pub SourceGuid: windows_core::GUID,
@@ -10949,16 +10577,16 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
     pub CreatorId: windows_core::GUID,
     pub PartitionId: windows_core::GUID,
 }
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     pub Version: u32,
     pub SourceGuid: windows_core::GUID,
@@ -10967,16 +10595,16 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
     pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
 }
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_ERROR_SOURCE_DESCRIPTOR {
     pub Length: u32,
     pub Version: u32,
@@ -10990,16 +10618,16 @@ pub struct WHEA_ERROR_SOURCE_DESCRIPTOR {
     pub Flags: u32,
     pub Info: WHEA_ERROR_SOURCE_DESCRIPTOR_0,
 }
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_ERROR_SOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_ERROR_SOURCE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
     pub XpfMceDescriptor: WHEA_XPF_MCE_DESCRIPTOR,
     pub XpfCmcDescriptor: WHEA_XPF_CMC_DESCRIPTOR,
@@ -11014,16 +10642,16 @@ pub union WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
     pub GenErrDescriptorV2: WHEA_GENERIC_ERROR_DESCRIPTOR_V2,
     pub DeviceDriverDescriptor: WHEA_DEVICE_DRIVER_DESCRIPTOR,
 }
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_GENERIC_ERROR_DESCRIPTOR {
     pub Type: u16,
     pub Reserved: u8,
@@ -11037,16 +10665,16 @@ pub struct WHEA_GENERIC_ERROR_DESCRIPTOR {
     pub ErrStatusAddress: i64,
     pub Notify: WHEA_NOTIFICATION_DESCRIPTOR,
 }
-impl windows_core::TypeKind for WHEA_GENERIC_ERROR_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_GENERIC_ERROR_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_GENERIC_ERROR_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
     pub Type: u16,
     pub Reserved: u8,
@@ -11067,77 +10695,77 @@ pub struct WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
     pub ReadAckPreserveMask: u64,
     pub ReadAckWriteMask: u64,
 }
-impl windows_core::TypeKind for WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_IPF_CMC_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
     pub Reserved: u8,
-}
-impl windows_core::TypeKind for WHEA_IPF_CMC_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_IPF_CMC_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_IPF_CMC_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_IPF_CPE_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
     pub Reserved: u8,
-}
-impl windows_core::TypeKind for WHEA_IPF_CPE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_IPF_CPE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_IPF_CPE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_IPF_MCA_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
     pub Reserved: u8,
-}
-impl windows_core::TypeKind for WHEA_IPF_MCA_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_IPF_MCA_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_IPF_MCA_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR {
     pub Type: u8,
     pub Length: u8,
     pub Flags: WHEA_NOTIFICATION_FLAGS,
     pub u: WHEA_NOTIFICATION_DESCRIPTOR_0,
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WHEA_NOTIFICATION_DESCRIPTOR_0 {
     pub Polled: WHEA_NOTIFICATION_DESCRIPTOR_0_0,
     pub Interrupt: WHEA_NOTIFICATION_DESCRIPTOR_0_1,
@@ -11148,16 +10776,16 @@ pub union WHEA_NOTIFICATION_DESCRIPTOR_0 {
     pub Sei: WHEA_NOTIFICATION_DESCRIPTOR_0_6,
     pub Gsiv: WHEA_NOTIFICATION_DESCRIPTOR_0_7,
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -11166,16 +10794,16 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     pub ErrorThreshold: u32,
     pub ErrorThresholdWindow: u32,
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -11184,16 +10812,16 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
     pub ErrorThreshold: u32,
     pub ErrorThresholdWindow: u32,
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -11202,16 +10830,16 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
     pub ErrorThreshold: u32,
     pub ErrorThresholdWindow: u32,
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -11220,29 +10848,29 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     pub ErrorThreshold: u32,
     pub ErrorThresholdWindow: u32,
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
     pub PollInterval: u32,
-}
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -11251,16 +10879,16 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     pub ErrorThreshold: u32,
     pub ErrorThresholdWindow: u32,
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -11269,16 +10897,16 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
     pub ErrorThreshold: u32,
     pub ErrorThresholdWindow: u32,
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -11287,83 +10915,83 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
     pub ErrorThreshold: u32,
     pub ErrorThresholdWindow: u32,
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WHEA_NOTIFICATION_FLAGS {
     pub Anonymous: WHEA_NOTIFICATION_FLAGS_0,
     pub AsUSHORT: u16,
-}
-impl windows_core::TypeKind for WHEA_NOTIFICATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_NOTIFICATION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_NOTIFICATION_FLAGS_0 {
     pub _bitfield: u16,
-}
-impl windows_core::TypeKind for WHEA_NOTIFICATION_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_NOTIFICATION_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_PCI_SLOT_NUMBER {
     pub u: WHEA_PCI_SLOT_NUMBER_0,
-}
-impl windows_core::TypeKind for WHEA_PCI_SLOT_NUMBER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCI_SLOT_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_PCI_SLOT_NUMBER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WHEA_PCI_SLOT_NUMBER_0 {
     pub bits: WHEA_PCI_SLOT_NUMBER_0_0,
     pub AsULONG: u32,
-}
-impl windows_core::TypeKind for WHEA_PCI_SLOT_NUMBER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCI_SLOT_NUMBER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_PCI_SLOT_NUMBER_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_PCI_SLOT_NUMBER_0_0 {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for WHEA_PCI_SLOT_NUMBER_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCI_SLOT_NUMBER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_PCI_SLOT_NUMBER_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_XPF_CMC_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -11372,16 +11000,16 @@ pub struct WHEA_XPF_CMC_DESCRIPTOR {
     pub Notify: WHEA_NOTIFICATION_DESCRIPTOR,
     pub Banks: [WHEA_XPF_MC_BANK_DESCRIPTOR; 32],
 }
-impl windows_core::TypeKind for WHEA_XPF_CMC_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_XPF_CMC_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_XPF_CMC_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_XPF_MCE_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
@@ -11391,16 +11019,16 @@ pub struct WHEA_XPF_MCE_DESCRIPTOR {
     pub MCG_GlobalControl: u64,
     pub Banks: [WHEA_XPF_MC_BANK_DESCRIPTOR; 32],
 }
-impl windows_core::TypeKind for WHEA_XPF_MCE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_XPF_MCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_XPF_MCE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_XPF_MC_BANK_DESCRIPTOR {
     pub BankNumber: u8,
     pub ClearOnInitialization: super::super::super::Foundation::BOOLEAN,
@@ -11412,30 +11040,30 @@ pub struct WHEA_XPF_MC_BANK_DESCRIPTOR {
     pub MiscMsr: u32,
     pub ControlData: u64,
 }
-impl windows_core::TypeKind for WHEA_XPF_MC_BANK_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WHEA_XPF_MC_BANK_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_XPF_MC_BANK_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WHEA_XPF_NMI_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for WHEA_XPF_NMI_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_XPF_NMI_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WHEA_XPF_NMI_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WOW64_CONTEXT {
     pub ContextFlags: WOW64_CONTEXT_FLAGS,
     pub Dr0: u32,
@@ -11463,30 +11091,30 @@ pub struct WOW64_CONTEXT {
     pub SegSs: u32,
     pub ExtendedRegisters: [u8; 512],
 }
-impl windows_core::TypeKind for WOW64_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WOW64_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WOW64_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WOW64_DESCRIPTOR_TABLE_ENTRY {
     pub Selector: u32,
     pub Descriptor: WOW64_LDT_ENTRY,
-}
-impl windows_core::TypeKind for WOW64_DESCRIPTOR_TABLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WOW64_DESCRIPTOR_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WOW64_DESCRIPTOR_TABLE_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WOW64_FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -11498,158 +11126,158 @@ pub struct WOW64_FLOATING_SAVE_AREA {
     pub RegisterArea: [u8; 80],
     pub Cr0NpxState: u32,
 }
-impl windows_core::TypeKind for WOW64_FLOATING_SAVE_AREA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WOW64_FLOATING_SAVE_AREA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WOW64_FLOATING_SAVE_AREA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct WOW64_LDT_ENTRY {
     pub LimitLow: u16,
     pub BaseLow: u16,
     pub HighWord: WOW64_LDT_ENTRY_0,
-}
-impl windows_core::TypeKind for WOW64_LDT_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WOW64_LDT_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WOW64_LDT_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union WOW64_LDT_ENTRY_0 {
     pub Bytes: WOW64_LDT_ENTRY_0_0,
     pub Bits: WOW64_LDT_ENTRY_0_1,
-}
-impl windows_core::TypeKind for WOW64_LDT_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WOW64_LDT_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WOW64_LDT_ENTRY_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WOW64_LDT_ENTRY_0_1 {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for WOW64_LDT_ENTRY_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WOW64_LDT_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WOW64_LDT_ENTRY_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WOW64_LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,
     pub BaseHi: u8,
 }
-impl windows_core::TypeKind for WOW64_LDT_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WOW64_LDT_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WOW64_LDT_ENTRY_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union XPF_MCE_FLAGS {
     pub Anonymous: XPF_MCE_FLAGS_0,
     pub AsULONG: u32,
-}
-impl windows_core::TypeKind for XPF_MCE_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for XPF_MCE_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XPF_MCE_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XPF_MCE_FLAGS_0 {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for XPF_MCE_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for XPF_MCE_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XPF_MCE_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union XPF_MC_BANK_FLAGS {
     pub Anonymous: XPF_MC_BANK_FLAGS_0,
     pub AsUCHAR: u8,
-}
-impl windows_core::TypeKind for XPF_MC_BANK_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for XPF_MC_BANK_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XPF_MC_BANK_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct XPF_MC_BANK_FLAGS_0 {
     pub _bitfield: u8,
-}
-impl windows_core::TypeKind for XPF_MC_BANK_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for XPF_MC_BANK_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XPF_MC_BANK_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct XSAVE_AREA {
     pub LegacyState: XSAVE_FORMAT,
     pub Header: XSAVE_AREA_HEADER,
-}
-impl windows_core::TypeKind for XSAVE_AREA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for XSAVE_AREA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XSAVE_AREA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct XSAVE_AREA_HEADER {
     pub Mask: u64,
     pub CompactionMask: u64,
     pub Reserved2: [u64; 6],
-}
-impl windows_core::TypeKind for XSAVE_AREA_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for XSAVE_AREA_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XSAVE_AREA_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
     pub StatusWord: u16,
@@ -11669,18 +11297,18 @@ pub struct XSAVE_FORMAT {
     pub Reserved4: [u8; 96],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for XSAVE_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for XSAVE_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for XSAVE_FORMAT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
     pub StatusWord: u16,
@@ -11700,17 +11328,17 @@ pub struct XSAVE_FORMAT {
     pub Reserved4: [u8; 224],
 }
 #[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for XSAVE_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
 impl Default for XSAVE_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for XSAVE_FORMAT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XSTATE_CONFIGURATION {
     pub EnabledFeatures: u64,
     pub EnabledVolatileFeatures: u64,
@@ -11726,60 +11354,60 @@ pub struct XSTATE_CONFIGURATION {
     pub AllNonLargeFeatureSize: u32,
     pub Spare: u32,
 }
-impl windows_core::TypeKind for XSTATE_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for XSTATE_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XSTATE_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union XSTATE_CONFIGURATION_0 {
     pub ControlFlags: u32,
     pub Anonymous: XSTATE_CONFIGURATION_0_0,
-}
-impl windows_core::TypeKind for XSTATE_CONFIGURATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for XSTATE_CONFIGURATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XSTATE_CONFIGURATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct XSTATE_CONFIGURATION_0_0 {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for XSTATE_CONFIGURATION_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for XSTATE_CONFIGURATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XSTATE_CONFIGURATION_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct XSTATE_CONFIG_FEATURE_MSC_INFO {
     pub SizeOfInfo: u32,
     pub ContextSize: u32,
     pub EnabledFeatures: u64,
     pub Features: [XSTATE_FEATURE; 64],
 }
-impl windows_core::TypeKind for XSTATE_CONFIG_FEATURE_MSC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for XSTATE_CONFIG_FEATURE_MSC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XSTATE_CONFIG_FEATURE_MSC_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
     pub Length: u32,
@@ -11788,18 +11416,18 @@ pub struct XSTATE_CONTEXT {
     pub Buffer: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for XSTATE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for XSTATE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for XSTATE_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
     pub Length: u32,
@@ -11810,34 +11438,33 @@ pub struct XSTATE_CONTEXT {
     pub Reserved3: u32,
 }
 #[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for XSTATE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
 impl Default for XSTATE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for XSTATE_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct XSTATE_FEATURE {
     pub Offset: u32,
     pub Size: u32,
-}
-impl windows_core::TypeKind for XSTATE_FEATURE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for XSTATE_FEATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XSTATE_FEATURE {
+    type TypeKind = windows_core::CopyType;
+}
 pub type DIGEST_FUNCTION = Option<unsafe extern "system" fn(refdata: *mut core::ffi::c_void, pdata: *mut u8, dwlength: u32) -> super::super::super::Foundation::BOOL>;
 pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = Option<unsafe extern "system" fn() -> u32>;
-#[cfg(feature = "Win32_System_Kernel")]
 pub type LPTOP_LEVEL_EXCEPTION_FILTER = Option<unsafe extern "system" fn(exceptioninfo: *const EXCEPTION_POINTERS) -> i32>;
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
 pub type MINIDUMP_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(callbackparam: *mut core::ffi::c_void, callbackinput: *const MINIDUMP_CALLBACK_INPUT, callbackoutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> super::super::super::Foundation::BOOL>;
 pub type PCOGETACTIVATIONSTATE = Option<unsafe extern "system" fn(param0: windows_core::GUID, param1: u32, param2: *mut u32) -> windows_core::HRESULT>;
 pub type PCOGETCALLSTATE = Option<unsafe extern "system" fn(param0: i32, param1: *mut u32) -> windows_core::HRESULT>;
@@ -11931,7 +11558,6 @@ pub type PSYM_ENUMSYMBOLS_CALLBACKW = Option<unsafe extern "system" fn(symbolnam
 #[cfg(target_arch = "x86")]
 pub type PTRANSLATE_ADDRESS_ROUTINE = Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *mut ADDRESS) -> u32>;
 pub type PTRANSLATE_ADDRESS_ROUTINE64 = Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *const ADDRESS64) -> u64>;
-#[cfg(feature = "Win32_System_Kernel")]
 pub type PVECTORED_EXCEPTION_HANDLER = Option<unsafe extern "system" fn(exceptioninfo: *mut EXCEPTION_POINTERS) -> i32>;
 pub type PWAITCHAINCALLBACK = Option<unsafe extern "system" fn(wcthandle: *mut core::ffi::c_void, context: usize, callbackstatus: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut super::super::super::Foundation::BOOL)>;
 pub type SYMADDSOURCESTREAM = Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: windows_core::PCSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL>;

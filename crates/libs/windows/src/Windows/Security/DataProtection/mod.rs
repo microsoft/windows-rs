@@ -86,14 +86,12 @@ impl windows_core::RuntimeType for UserDataAvailabilityStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAvailabilityStateChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for UserDataAvailabilityStateChangedEventArgs {
-    type Vtable = IUserDataAvailabilityStateChangedEventArgs_Vtbl;
+    type Vtable = <IUserDataAvailabilityStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataAvailabilityStateChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserDataAvailabilityStateChangedEventArgs {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs";
 }
-unsafe impl Send for UserDataAvailabilityStateChangedEventArgs {}
-unsafe impl Sync for UserDataAvailabilityStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataBufferUnprotectResult(windows_core::IUnknown);
@@ -119,14 +117,12 @@ impl windows_core::RuntimeType for UserDataBufferUnprotectResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataBufferUnprotectResult>();
 }
 unsafe impl windows_core::Interface for UserDataBufferUnprotectResult {
-    type Vtable = IUserDataBufferUnprotectResult_Vtbl;
+    type Vtable = <IUserDataBufferUnprotectResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataBufferUnprotectResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserDataBufferUnprotectResult {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataBufferUnprotectResult";
 }
-unsafe impl Send for UserDataBufferUnprotectResult {}
-unsafe impl Sync for UserDataBufferUnprotectResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataProtectionManager(windows_core::IUnknown);
@@ -190,7 +186,7 @@ impl UserDataProtectionManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DataAvailabilityStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DataAvailabilityStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveDataAvailabilityStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -222,14 +218,12 @@ impl windows_core::RuntimeType for UserDataProtectionManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataProtectionManager>();
 }
 unsafe impl windows_core::Interface for UserDataProtectionManager {
-    type Vtable = IUserDataProtectionManager_Vtbl;
+    type Vtable = <IUserDataProtectionManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataProtectionManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserDataProtectionManager {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataProtectionManager";
 }
-unsafe impl Send for UserDataProtectionManager {}
-unsafe impl Sync for UserDataProtectionManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataStorageItemProtectionInfo(windows_core::IUnknown);
@@ -247,16 +241,14 @@ impl windows_core::RuntimeType for UserDataStorageItemProtectionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataStorageItemProtectionInfo>();
 }
 unsafe impl windows_core::Interface for UserDataStorageItemProtectionInfo {
-    type Vtable = IUserDataStorageItemProtectionInfo_Vtbl;
+    type Vtable = <IUserDataStorageItemProtectionInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataStorageItemProtectionInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserDataStorageItemProtectionInfo {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataStorageItemProtectionInfo";
 }
-unsafe impl Send for UserDataStorageItemProtectionInfo {}
-unsafe impl Sync for UserDataStorageItemProtectionInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct UserDataAvailability(pub i32);
 impl UserDataAvailability {
     pub const Always: Self = Self(0i32);
@@ -266,16 +258,11 @@ impl UserDataAvailability {
 impl windows_core::TypeKind for UserDataAvailability {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UserDataAvailability {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UserDataAvailability").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for UserDataAvailability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataAvailability;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct UserDataBufferUnprotectStatus(pub i32);
 impl UserDataBufferUnprotectStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -284,16 +271,11 @@ impl UserDataBufferUnprotectStatus {
 impl windows_core::TypeKind for UserDataBufferUnprotectStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UserDataBufferUnprotectStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UserDataBufferUnprotectStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for UserDataBufferUnprotectStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataBufferUnprotectStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct UserDataStorageItemProtectionStatus(pub i32);
 impl UserDataStorageItemProtectionStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -302,11 +284,6 @@ impl UserDataStorageItemProtectionStatus {
 }
 impl windows_core::TypeKind for UserDataStorageItemProtectionStatus {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for UserDataStorageItemProtectionStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UserDataStorageItemProtectionStatus").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for UserDataStorageItemProtectionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataStorageItemProtectionStatus;i4)");

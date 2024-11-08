@@ -6,7 +6,7 @@ impl windows_core::RuntimeType for IAppServiceCatalogStatics {
 pub struct IAppServiceCatalogStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub FindAppServiceProvidersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindAppServiceProvidersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     FindAppServiceProvidersAsync: usize,
 }
@@ -26,10 +26,10 @@ impl windows_core::RuntimeType for IAppServiceConnection {
 #[repr(C)]
 pub struct IAppServiceConnection_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub AppServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetAppServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub AppServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetAppServiceName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OpenAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub SendMessageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -127,8 +127,8 @@ impl windows_core::RuntimeType for IAppServiceTriggerDetails {
 #[repr(C)]
 pub struct IAppServiceTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CallerPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AppServiceConnection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppServiceTriggerDetails2, IAppServiceTriggerDetails2_Vtbl, 0xe83d54b2_28cc_43f2_b465_c0482e59e2dc);
@@ -147,7 +147,7 @@ impl windows_core::RuntimeType for IAppServiceTriggerDetails3 {
 #[repr(C)]
 pub struct IAppServiceTriggerDetails3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CheckCallerForCapabilityAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CheckCallerForCapabilityAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppServiceTriggerDetails4, IAppServiceTriggerDetails4_Vtbl, 0x1185b180_8861_5e30_ab55_1cf4d08bbf6d);
 impl windows_core::RuntimeType for IAppServiceTriggerDetails4 {
@@ -156,7 +156,7 @@ impl windows_core::RuntimeType for IAppServiceTriggerDetails4 {
 #[repr(C)]
 pub struct IAppServiceTriggerDetails4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CallerRemoteConnectionToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub CallerRemoteConnectionToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStatelessAppServiceResponse, IStatelessAppServiceResponse_Vtbl, 0x43754af7_a9ec_52fe_82e7_939b68dc9388);
 impl windows_core::RuntimeType for IStatelessAppServiceResponse {
@@ -205,14 +205,12 @@ impl windows_core::RuntimeType for AppServiceClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppServiceClosedEventArgs>();
 }
 unsafe impl windows_core::Interface for AppServiceClosedEventArgs {
-    type Vtable = IAppServiceClosedEventArgs_Vtbl;
+    type Vtable = <IAppServiceClosedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppServiceClosedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppServiceClosedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceClosedEventArgs";
 }
-unsafe impl Send for AppServiceClosedEventArgs {}
-unsafe impl Sync for AppServiceClosedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceConnection(windows_core::IUnknown);
@@ -230,7 +228,7 @@ impl AppServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppServiceName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AppServiceName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetAppServiceName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -241,7 +239,7 @@ impl AppServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetPackageFamilyName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -273,7 +271,7 @@ impl AppServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RequestReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveRequestReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -287,7 +285,7 @@ impl AppServiceConnection {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServiceClosed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ServiceClosed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveServiceClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -346,14 +344,12 @@ impl windows_core::RuntimeType for AppServiceConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppServiceConnection>();
 }
 unsafe impl windows_core::Interface for AppServiceConnection {
-    type Vtable = IAppServiceConnection_Vtbl;
+    type Vtable = <IAppServiceConnection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppServiceConnection as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppServiceConnection {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceConnection";
 }
-unsafe impl Send for AppServiceConnection {}
-unsafe impl Sync for AppServiceConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceDeferral(windows_core::IUnknown);
@@ -368,14 +364,12 @@ impl windows_core::RuntimeType for AppServiceDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppServiceDeferral>();
 }
 unsafe impl windows_core::Interface for AppServiceDeferral {
-    type Vtable = IAppServiceDeferral_Vtbl;
+    type Vtable = <IAppServiceDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppServiceDeferral as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppServiceDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceDeferral";
 }
-unsafe impl Send for AppServiceDeferral {}
-unsafe impl Sync for AppServiceDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceRequest(windows_core::IUnknown);
@@ -405,14 +399,12 @@ impl windows_core::RuntimeType for AppServiceRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppServiceRequest>();
 }
 unsafe impl windows_core::Interface for AppServiceRequest {
-    type Vtable = IAppServiceRequest_Vtbl;
+    type Vtable = <IAppServiceRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppServiceRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppServiceRequest {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceRequest";
 }
-unsafe impl Send for AppServiceRequest {}
-unsafe impl Sync for AppServiceRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceRequestReceivedEventArgs(windows_core::IUnknown);
@@ -437,14 +429,12 @@ impl windows_core::RuntimeType for AppServiceRequestReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppServiceRequestReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for AppServiceRequestReceivedEventArgs {
-    type Vtable = IAppServiceRequestReceivedEventArgs_Vtbl;
+    type Vtable = <IAppServiceRequestReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppServiceRequestReceivedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppServiceRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs";
 }
-unsafe impl Send for AppServiceRequestReceivedEventArgs {}
-unsafe impl Sync for AppServiceRequestReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceResponse(windows_core::IUnknown);
@@ -470,14 +460,12 @@ impl windows_core::RuntimeType for AppServiceResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppServiceResponse>();
 }
 unsafe impl windows_core::Interface for AppServiceResponse {
-    type Vtable = IAppServiceResponse_Vtbl;
+    type Vtable = <IAppServiceResponse as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppServiceResponse as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceResponse";
 }
-unsafe impl Send for AppServiceResponse {}
-unsafe impl Sync for AppServiceResponse {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceTriggerDetails(windows_core::IUnknown);
@@ -487,14 +475,14 @@ impl AppServiceTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CallerPackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn AppServiceConnection(&self) -> windows_core::Result<AppServiceConnection> {
@@ -522,7 +510,7 @@ impl AppServiceTriggerDetails {
         let this = &windows_core::Interface::cast::<IAppServiceTriggerDetails4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CallerRemoteConnectionToken)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CallerRemoteConnectionToken)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -530,14 +518,12 @@ impl windows_core::RuntimeType for AppServiceTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppServiceTriggerDetails>();
 }
 unsafe impl windows_core::Interface for AppServiceTriggerDetails {
-    type Vtable = IAppServiceTriggerDetails_Vtbl;
+    type Vtable = <IAppServiceTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppServiceTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppServiceTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceTriggerDetails";
 }
-unsafe impl Send for AppServiceTriggerDetails {}
-unsafe impl Sync for AppServiceTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StatelessAppServiceResponse(windows_core::IUnknown);
@@ -563,16 +549,14 @@ impl windows_core::RuntimeType for StatelessAppServiceResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStatelessAppServiceResponse>();
 }
 unsafe impl windows_core::Interface for StatelessAppServiceResponse {
-    type Vtable = IStatelessAppServiceResponse_Vtbl;
+    type Vtable = <IStatelessAppServiceResponse as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStatelessAppServiceResponse as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for StatelessAppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.StatelessAppServiceResponse";
 }
-unsafe impl Send for StatelessAppServiceResponse {}
-unsafe impl Sync for StatelessAppServiceResponse {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AppServiceClosedStatus(pub i32);
 impl AppServiceClosedStatus {
     pub const Completed: Self = Self(0i32);
@@ -583,16 +567,11 @@ impl AppServiceClosedStatus {
 impl windows_core::TypeKind for AppServiceClosedStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for AppServiceClosedStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AppServiceClosedStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for AppServiceClosedStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceClosedStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AppServiceConnectionStatus(pub i32);
 impl AppServiceConnectionStatus {
     pub const Success: Self = Self(0i32);
@@ -611,16 +590,11 @@ impl AppServiceConnectionStatus {
 impl windows_core::TypeKind for AppServiceConnectionStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for AppServiceConnectionStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AppServiceConnectionStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for AppServiceConnectionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceConnectionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AppServiceResponseStatus(pub i32);
 impl AppServiceResponseStatus {
     pub const Success: Self = Self(0i32);
@@ -638,16 +612,11 @@ impl AppServiceResponseStatus {
 impl windows_core::TypeKind for AppServiceResponseStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for AppServiceResponseStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AppServiceResponseStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for AppServiceResponseStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceResponseStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct StatelessAppServiceResponseStatus(pub i32);
 impl StatelessAppServiceResponseStatus {
     pub const Success: Self = Self(0i32);
@@ -668,11 +637,6 @@ impl StatelessAppServiceResponseStatus {
 }
 impl windows_core::TypeKind for StatelessAppServiceResponseStatus {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for StatelessAppServiceResponseStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("StatelessAppServiceResponseStatus").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for StatelessAppServiceResponseStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.StatelessAppServiceResponseStatus;i4)");

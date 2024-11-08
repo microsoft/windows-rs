@@ -291,7 +291,7 @@ impl CameraIntrinsics {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FocalLength)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FocalLength)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -299,7 +299,7 @@ impl CameraIntrinsics {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrincipalPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PrincipalPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -307,7 +307,7 @@ impl CameraIntrinsics {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RadialDistortion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RadialDistortion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -315,7 +315,7 @@ impl CameraIntrinsics {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TangentialDistortion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TangentialDistortion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn ImageWidth(&self) -> windows_core::Result<u32> {
@@ -337,7 +337,7 @@ impl CameraIntrinsics {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProjectOntoFrame)(windows_core::Interface::as_raw(this), coordinate, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ProjectOntoFrame)(windows_core::Interface::as_raw(this), coordinate, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -345,7 +345,7 @@ impl CameraIntrinsics {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnprojectAtUnitDepth)(windows_core::Interface::as_raw(this), pixelcoordinate, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UnprojectAtUnitDepth)(windows_core::Interface::as_raw(this), pixelcoordinate, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -363,14 +363,14 @@ impl CameraIntrinsics {
         let this = &windows_core::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UndistortedProjectionTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UndistortedProjectionTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn DistortPoint(&self, input: super::super::super::Foundation::Point) -> windows_core::Result<super::super::super::Foundation::Point> {
         let this = &windows_core::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DistortPoint)(windows_core::Interface::as_raw(this), input, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DistortPoint)(windows_core::Interface::as_raw(this), input, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn DistortPoints(&self, inputs: &[super::super::super::Foundation::Point], results: &mut [super::super::super::Foundation::Point]) -> windows_core::Result<()> {
@@ -381,7 +381,7 @@ impl CameraIntrinsics {
         let this = &windows_core::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UndistortPoint)(windows_core::Interface::as_raw(this), input, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UndistortPoint)(windows_core::Interface::as_raw(this), input, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn UndistortPoints(&self, inputs: &[super::super::super::Foundation::Point], results: &mut [super::super::super::Foundation::Point]) -> windows_core::Result<()> {
@@ -404,14 +404,12 @@ impl windows_core::RuntimeType for CameraIntrinsics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICameraIntrinsics>();
 }
 unsafe impl windows_core::Interface for CameraIntrinsics {
-    type Vtable = ICameraIntrinsics_Vtbl;
+    type Vtable = <ICameraIntrinsics as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICameraIntrinsics as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CameraIntrinsics {
     const NAME: &'static str = "Windows.Media.Devices.Core.CameraIntrinsics";
 }
-unsafe impl Send for CameraIntrinsics {}
-unsafe impl Sync for CameraIntrinsics {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DepthCorrelatedCoordinateMapper(windows_core::IUnknown);
@@ -423,41 +421,41 @@ impl DepthCorrelatedCoordinateMapper {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn UnprojectPoint<P0>(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: P0) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3>
+    pub fn UnprojectPoint<P1>(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: P1) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3>
     where
-        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P1: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UnprojectPoint)(windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UnprojectPoint)(windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn UnprojectPoints<P0>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: P0, results: &mut [super::super::super::Foundation::Numerics::Vector3]) -> windows_core::Result<()>
+    pub fn UnprojectPoints<P1>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: P1, results: &mut [super::super::super::Foundation::Numerics::Vector3]) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P1: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).UnprojectPoints)(windows_core::Interface::as_raw(this), sourcepoints.len().try_into().unwrap(), sourcepoints.as_ptr(), targetcoordinatesystem.param().abi(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
     #[cfg(feature = "Perception_Spatial")]
-    pub fn MapPoint<P0, P1>(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: P0, targetcameraintrinsics: P1) -> windows_core::Result<super::super::super::Foundation::Point>
+    pub fn MapPoint<P1, P2>(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: P1, targetcameraintrinsics: P2) -> windows_core::Result<super::super::super::Foundation::Point>
     where
-        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
-        P1: windows_core::Param<CameraIntrinsics>,
+        P1: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P2: windows_core::Param<CameraIntrinsics>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MapPoint)(windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.param().abi(), targetcameraintrinsics.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MapPoint)(windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.param().abi(), targetcameraintrinsics.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Perception_Spatial")]
-    pub fn MapPoints<P0, P1>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: P0, targetcameraintrinsics: P1, results: &mut [super::super::super::Foundation::Point]) -> windows_core::Result<()>
+    pub fn MapPoints<P1, P2>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: P1, targetcameraintrinsics: P2, results: &mut [super::super::super::Foundation::Point]) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
-        P1: windows_core::Param<CameraIntrinsics>,
+        P1: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P2: windows_core::Param<CameraIntrinsics>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).MapPoints)(windows_core::Interface::as_raw(this), sourcepoints.len().try_into().unwrap(), sourcepoints.as_ptr(), targetcoordinatesystem.param().abi(), targetcameraintrinsics.param().abi(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
@@ -467,14 +465,12 @@ impl windows_core::RuntimeType for DepthCorrelatedCoordinateMapper {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDepthCorrelatedCoordinateMapper>();
 }
 unsafe impl windows_core::Interface for DepthCorrelatedCoordinateMapper {
-    type Vtable = IDepthCorrelatedCoordinateMapper_Vtbl;
+    type Vtable = <IDepthCorrelatedCoordinateMapper as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDepthCorrelatedCoordinateMapper as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DepthCorrelatedCoordinateMapper {
     const NAME: &'static str = "Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper";
 }
-unsafe impl Send for DepthCorrelatedCoordinateMapper {}
-unsafe impl Sync for DepthCorrelatedCoordinateMapper {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameControlCapabilities(windows_core::IUnknown);
@@ -527,7 +523,7 @@ impl windows_core::RuntimeType for FrameControlCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameControlCapabilities>();
 }
 unsafe impl windows_core::Interface for FrameControlCapabilities {
-    type Vtable = IFrameControlCapabilities_Vtbl;
+    type Vtable = <IFrameControlCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameControlCapabilities as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FrameControlCapabilities {
@@ -599,14 +595,12 @@ impl windows_core::RuntimeType for FrameController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameController>();
 }
 unsafe impl windows_core::Interface for FrameController {
-    type Vtable = IFrameController_Vtbl;
+    type Vtable = <IFrameController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FrameController {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameController";
 }
-unsafe impl Send for FrameController {}
-unsafe impl Sync for FrameController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameExposureCapabilities(windows_core::IUnknown);
@@ -623,21 +617,21 @@ impl FrameExposureCapabilities {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Min)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Min)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Max(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Max)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Max)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Step(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Step)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Step)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -645,7 +639,7 @@ impl windows_core::RuntimeType for FrameExposureCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameExposureCapabilities>();
 }
 unsafe impl windows_core::Interface for FrameExposureCapabilities {
-    type Vtable = IFrameExposureCapabilities_Vtbl;
+    type Vtable = <IFrameExposureCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameExposureCapabilities as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FrameExposureCapabilities {
@@ -689,7 +683,7 @@ impl windows_core::RuntimeType for FrameExposureCompensationCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameExposureCompensationCapabilities>();
 }
 unsafe impl windows_core::Interface for FrameExposureCompensationCapabilities {
-    type Vtable = IFrameExposureCompensationCapabilities_Vtbl;
+    type Vtable = <IFrameExposureCompensationCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameExposureCompensationCapabilities as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FrameExposureCompensationCapabilities {
@@ -719,7 +713,7 @@ impl windows_core::RuntimeType for FrameExposureCompensationControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameExposureCompensationControl>();
 }
 unsafe impl windows_core::Interface for FrameExposureCompensationControl {
-    type Vtable = IFrameExposureCompensationControl_Vtbl;
+    type Vtable = <IFrameExposureCompensationControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameExposureCompensationControl as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FrameExposureCompensationControl {
@@ -760,7 +754,7 @@ impl windows_core::RuntimeType for FrameExposureControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameExposureControl>();
 }
 unsafe impl windows_core::Interface for FrameExposureControl {
-    type Vtable = IFrameExposureControl_Vtbl;
+    type Vtable = <IFrameExposureControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameExposureControl as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FrameExposureControl {
@@ -797,7 +791,7 @@ impl windows_core::RuntimeType for FrameFlashCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameFlashCapabilities>();
 }
 unsafe impl windows_core::Interface for FrameFlashCapabilities {
-    type Vtable = IFrameFlashCapabilities_Vtbl;
+    type Vtable = <IFrameFlashCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameFlashCapabilities as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FrameFlashCapabilities {
@@ -857,7 +851,7 @@ impl windows_core::RuntimeType for FrameFlashControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameFlashControl>();
 }
 unsafe impl windows_core::Interface for FrameFlashControl {
-    type Vtable = IFrameFlashControl_Vtbl;
+    type Vtable = <IFrameFlashControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameFlashControl as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FrameFlashControl {
@@ -901,7 +895,7 @@ impl windows_core::RuntimeType for FrameFocusCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameFocusCapabilities>();
 }
 unsafe impl windows_core::Interface for FrameFocusCapabilities {
-    type Vtable = IFrameFocusCapabilities_Vtbl;
+    type Vtable = <IFrameFocusCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameFocusCapabilities as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FrameFocusCapabilities {
@@ -931,7 +925,7 @@ impl windows_core::RuntimeType for FrameFocusControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameFocusControl>();
 }
 unsafe impl windows_core::Interface for FrameFocusControl {
-    type Vtable = IFrameFocusControl_Vtbl;
+    type Vtable = <IFrameFocusControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameFocusControl as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FrameFocusControl {
@@ -975,7 +969,7 @@ impl windows_core::RuntimeType for FrameIsoSpeedCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameIsoSpeedCapabilities>();
 }
 unsafe impl windows_core::Interface for FrameIsoSpeedCapabilities {
-    type Vtable = IFrameIsoSpeedCapabilities_Vtbl;
+    type Vtable = <IFrameIsoSpeedCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameIsoSpeedCapabilities as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FrameIsoSpeedCapabilities {
@@ -1016,7 +1010,7 @@ impl windows_core::RuntimeType for FrameIsoSpeedControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameIsoSpeedControl>();
 }
 unsafe impl windows_core::Interface for FrameIsoSpeedControl {
-    type Vtable = IFrameIsoSpeedControl_Vtbl;
+    type Vtable = <IFrameIsoSpeedControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameIsoSpeedControl as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FrameIsoSpeedControl {
@@ -1091,14 +1085,14 @@ impl windows_core::RuntimeType for VariablePhotoSequenceController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVariablePhotoSequenceController>();
 }
 unsafe impl windows_core::Interface for VariablePhotoSequenceController {
-    type Vtable = IVariablePhotoSequenceController_Vtbl;
+    type Vtable = <IVariablePhotoSequenceController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVariablePhotoSequenceController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for VariablePhotoSequenceController {
     const NAME: &'static str = "Windows.Media.Devices.Core.VariablePhotoSequenceController";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct FrameFlashMode(pub i32);
 impl FrameFlashMode {
     pub const Disable: Self = Self(0i32);
@@ -1107,11 +1101,6 @@ impl FrameFlashMode {
 }
 impl windows_core::TypeKind for FrameFlashMode {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for FrameFlashMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FrameFlashMode").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for FrameFlashMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.Core.FrameFlashMode;i4)");

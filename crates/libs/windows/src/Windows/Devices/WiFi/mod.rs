@@ -19,7 +19,7 @@ pub struct IWiFiAdapter_Vtbl {
     #[cfg(not(feature = "Security_Credentials"))]
     ConnectWithPasswordCredentialAsync: usize,
     #[cfg(feature = "Security_Credentials")]
-    pub ConnectWithPasswordCredentialAndSsidAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WiFiReconnectionKind, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ConnectWithPasswordCredentialAndSsidAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WiFiReconnectionKind, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))]
     ConnectWithPasswordCredentialAndSsidAsync: usize,
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -33,7 +33,7 @@ pub struct IWiFiAdapter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetWpsConfigurationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Security_Credentials")]
-    pub ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WiFiReconnectionKind, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, WiFiConnectionMethod, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WiFiReconnectionKind, *mut core::ffi::c_void, *mut core::ffi::c_void, WiFiConnectionMethod, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))]
     ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync: usize,
 }
@@ -48,8 +48,8 @@ pub struct IWiFiAdapterStatics_Vtbl {
     pub FindAllAdaptersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     FindAllAdaptersAsync: usize,
-    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiAvailableNetwork, IWiFiAvailableNetwork_Vtbl, 0x26e96246_183e_4704_9826_71b4a2f0f668);
@@ -60,8 +60,8 @@ impl windows_core::RuntimeType for IWiFiAvailableNetwork {
 pub struct IWiFiAvailableNetwork_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Uptime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Ssid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Bssid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Ssid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Bssid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ChannelCenterFrequencyInKilohertz: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub NetworkRssiInDecibelMilliwatts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub SignalBars: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
@@ -135,8 +135,8 @@ impl windows_core::RuntimeType for IWiFiOnDemandHotspotNetworkProperties {
 #[repr(C)]
 pub struct IWiFiOnDemandHotspotNetworkProperties_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Availability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WiFiOnDemandHotspotAvailability) -> windows_core::HRESULT,
     pub SetAvailability: unsafe extern "system" fn(*mut core::ffi::c_void, WiFiOnDemandHotspotAvailability) -> windows_core::HRESULT,
     pub RemainingBatteryPercent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -145,8 +145,8 @@ pub struct IWiFiOnDemandHotspotNetworkProperties_Vtbl {
     pub SetCellularBars: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsMetered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsMetered: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub Ssid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetSsid: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Ssid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetSsid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Security_Credentials")]
     pub Password: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))]
@@ -212,7 +212,7 @@ impl WiFiAdapter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AvailableNetworksChanged)(windows_core::Interface::as_raw(this), args.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AvailableNetworksChanged)(windows_core::Interface::as_raw(this), args.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveAvailableNetworksChanged(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -230,10 +230,10 @@ impl WiFiAdapter {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn ConnectWithPasswordCredentialAsync<P0, P1>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind, passwordcredential: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>
+    pub fn ConnectWithPasswordCredentialAsync<P0, P2>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind, passwordcredential: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>
     where
         P0: windows_core::Param<WiFiAvailableNetwork>,
-        P1: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
+        P2: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         let this = self;
         unsafe {
@@ -242,10 +242,10 @@ impl WiFiAdapter {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn ConnectWithPasswordCredentialAndSsidAsync<P0, P1>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind, passwordcredential: P1, ssid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>
+    pub fn ConnectWithPasswordCredentialAndSsidAsync<P0, P2>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind, passwordcredential: P2, ssid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>
     where
         P0: windows_core::Param<WiFiAvailableNetwork>,
-        P1: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
+        P2: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         let this = self;
         unsafe {
@@ -268,10 +268,10 @@ impl WiFiAdapter {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync<P0, P1>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind, passwordcredential: P1, ssid: &windows_core::HSTRING, connectionmethod: WiFiConnectionMethod) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>
+    pub fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync<P0, P2>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind, passwordcredential: P2, ssid: &windows_core::HSTRING, connectionmethod: WiFiConnectionMethod) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>
     where
         P0: windows_core::Param<WiFiAvailableNetwork>,
-        P1: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
+        P2: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         let this = &windows_core::Interface::cast::<IWiFiAdapter2>(self)?;
         unsafe {
@@ -289,7 +289,7 @@ impl WiFiAdapter {
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
         Self::IWiFiAdapterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiAdapter>> {
@@ -313,14 +313,12 @@ impl windows_core::RuntimeType for WiFiAdapter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiAdapter>();
 }
 unsafe impl windows_core::Interface for WiFiAdapter {
-    type Vtable = IWiFiAdapter_Vtbl;
+    type Vtable = <IWiFiAdapter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiAdapter as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WiFiAdapter {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiAdapter";
 }
-unsafe impl Send for WiFiAdapter {}
-unsafe impl Sync for WiFiAdapter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiAvailableNetwork(windows_core::IUnknown);
@@ -330,21 +328,21 @@ impl WiFiAvailableNetwork {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Uptime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Uptime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Ssid(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Ssid)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Ssid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Bssid(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Bssid)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Bssid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn ChannelCenterFrequencyInKilohertz(&self) -> windows_core::Result<i32> {
@@ -394,7 +392,7 @@ impl WiFiAvailableNetwork {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BeaconInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BeaconInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn IsWiFiDirect(&self) -> windows_core::Result<bool> {
@@ -409,14 +407,12 @@ impl windows_core::RuntimeType for WiFiAvailableNetwork {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiAvailableNetwork>();
 }
 unsafe impl windows_core::Interface for WiFiAvailableNetwork {
-    type Vtable = IWiFiAvailableNetwork_Vtbl;
+    type Vtable = <IWiFiAvailableNetwork as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiAvailableNetwork as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WiFiAvailableNetwork {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiAvailableNetwork";
 }
-unsafe impl Send for WiFiAvailableNetwork {}
-unsafe impl Sync for WiFiAvailableNetwork {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiConnectionResult(windows_core::IUnknown);
@@ -434,14 +430,12 @@ impl windows_core::RuntimeType for WiFiConnectionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiConnectionResult>();
 }
 unsafe impl windows_core::Interface for WiFiConnectionResult {
-    type Vtable = IWiFiConnectionResult_Vtbl;
+    type Vtable = <IWiFiConnectionResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiConnectionResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WiFiConnectionResult {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiConnectionResult";
 }
-unsafe impl Send for WiFiConnectionResult {}
-unsafe impl Sync for WiFiConnectionResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiNetworkReport(windows_core::IUnknown);
@@ -451,7 +445,7 @@ impl WiFiNetworkReport {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -467,14 +461,12 @@ impl windows_core::RuntimeType for WiFiNetworkReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiNetworkReport>();
 }
 unsafe impl windows_core::Interface for WiFiNetworkReport {
-    type Vtable = IWiFiNetworkReport_Vtbl;
+    type Vtable = <IWiFiNetworkReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiNetworkReport as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WiFiNetworkReport {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiNetworkReport";
 }
-unsafe impl Send for WiFiNetworkReport {}
-unsafe impl Sync for WiFiNetworkReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotConnectTriggerDetails(windows_core::IUnknown);
@@ -510,14 +502,12 @@ impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotConnectTriggerDetails>();
 }
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotConnectTriggerDetails {
-    type Vtable = IWiFiOnDemandHotspotConnectTriggerDetails_Vtbl;
+    type Vtable = <IWiFiOnDemandHotspotConnectTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiOnDemandHotspotConnectTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectTriggerDetails {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiOnDemandHotspotConnectTriggerDetails";
 }
-unsafe impl Send for WiFiOnDemandHotspotConnectTriggerDetails {}
-unsafe impl Sync for WiFiOnDemandHotspotConnectTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotConnectionResult(windows_core::IUnknown);
@@ -535,14 +525,12 @@ impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotConnectionResult>();
 }
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotConnectionResult {
-    type Vtable = IWiFiOnDemandHotspotConnectionResult_Vtbl;
+    type Vtable = <IWiFiOnDemandHotspotConnectionResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiOnDemandHotspotConnectionResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectionResult {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiOnDemandHotspotConnectionResult";
 }
-unsafe impl Send for WiFiOnDemandHotspotConnectionResult {}
-unsafe impl Sync for WiFiOnDemandHotspotConnectionResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotNetwork(windows_core::IUnknown);
@@ -566,7 +554,7 @@ impl WiFiOnDemandHotspotNetwork {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn GetOrCreateById(networkid: windows_core::GUID) -> windows_core::Result<WiFiOnDemandHotspotNetwork> {
@@ -584,14 +572,12 @@ impl windows_core::RuntimeType for WiFiOnDemandHotspotNetwork {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotNetwork>();
 }
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotNetwork {
-    type Vtable = IWiFiOnDemandHotspotNetwork_Vtbl;
+    type Vtable = <IWiFiOnDemandHotspotNetwork as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiOnDemandHotspotNetwork as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WiFiOnDemandHotspotNetwork {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiOnDemandHotspotNetwork";
 }
-unsafe impl Send for WiFiOnDemandHotspotNetwork {}
-unsafe impl Sync for WiFiOnDemandHotspotNetwork {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotNetworkProperties(windows_core::IUnknown);
@@ -601,7 +587,7 @@ impl WiFiOnDemandHotspotNetworkProperties {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -662,7 +648,7 @@ impl WiFiOnDemandHotspotNetworkProperties {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Ssid)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Ssid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetSsid(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -690,14 +676,12 @@ impl windows_core::RuntimeType for WiFiOnDemandHotspotNetworkProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotNetworkProperties>();
 }
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotNetworkProperties {
-    type Vtable = IWiFiOnDemandHotspotNetworkProperties_Vtbl;
+    type Vtable = <IWiFiOnDemandHotspotNetworkProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiOnDemandHotspotNetworkProperties as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WiFiOnDemandHotspotNetworkProperties {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiOnDemandHotspotNetworkProperties";
 }
-unsafe impl Send for WiFiOnDemandHotspotNetworkProperties {}
-unsafe impl Sync for WiFiOnDemandHotspotNetworkProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiWpsConfigurationResult(windows_core::IUnknown);
@@ -723,16 +707,14 @@ impl windows_core::RuntimeType for WiFiWpsConfigurationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiWpsConfigurationResult>();
 }
 unsafe impl windows_core::Interface for WiFiWpsConfigurationResult {
-    type Vtable = IWiFiWpsConfigurationResult_Vtbl;
+    type Vtable = <IWiFiWpsConfigurationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiWpsConfigurationResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WiFiWpsConfigurationResult {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiWpsConfigurationResult";
 }
-unsafe impl Send for WiFiWpsConfigurationResult {}
-unsafe impl Sync for WiFiWpsConfigurationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WiFiAccessStatus(pub i32);
 impl WiFiAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -743,16 +725,11 @@ impl WiFiAccessStatus {
 impl windows_core::TypeKind for WiFiAccessStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WiFiAccessStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WiFiAccessStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for WiFiAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WiFiConnectionMethod(pub i32);
 impl WiFiConnectionMethod {
     pub const Default: Self = Self(0i32);
@@ -762,16 +739,11 @@ impl WiFiConnectionMethod {
 impl windows_core::TypeKind for WiFiConnectionMethod {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WiFiConnectionMethod {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WiFiConnectionMethod").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for WiFiConnectionMethod {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionMethod;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WiFiConnectionStatus(pub i32);
 impl WiFiConnectionStatus {
     pub const UnspecifiedFailure: Self = Self(0i32);
@@ -785,16 +757,11 @@ impl WiFiConnectionStatus {
 impl windows_core::TypeKind for WiFiConnectionStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WiFiConnectionStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WiFiConnectionStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for WiFiConnectionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WiFiNetworkKind(pub i32);
 impl WiFiNetworkKind {
     pub const Any: Self = Self(0i32);
@@ -804,16 +771,11 @@ impl WiFiNetworkKind {
 impl windows_core::TypeKind for WiFiNetworkKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WiFiNetworkKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WiFiNetworkKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for WiFiNetworkKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiNetworkKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WiFiOnDemandHotspotAvailability(pub i32);
 impl WiFiOnDemandHotspotAvailability {
     pub const Available: Self = Self(0i32);
@@ -822,16 +784,11 @@ impl WiFiOnDemandHotspotAvailability {
 impl windows_core::TypeKind for WiFiOnDemandHotspotAvailability {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WiFiOnDemandHotspotAvailability {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WiFiOnDemandHotspotAvailability").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for WiFiOnDemandHotspotAvailability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiOnDemandHotspotAvailability;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WiFiOnDemandHotspotCellularBars(pub i32);
 impl WiFiOnDemandHotspotCellularBars {
     pub const ZeroBars: Self = Self(0i32);
@@ -844,16 +801,11 @@ impl WiFiOnDemandHotspotCellularBars {
 impl windows_core::TypeKind for WiFiOnDemandHotspotCellularBars {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WiFiOnDemandHotspotCellularBars {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WiFiOnDemandHotspotCellularBars").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for WiFiOnDemandHotspotCellularBars {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiOnDemandHotspotCellularBars;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WiFiOnDemandHotspotConnectStatus(pub i32);
 impl WiFiOnDemandHotspotConnectStatus {
     pub const UnspecifiedFailure: Self = Self(0i32);
@@ -879,16 +831,11 @@ impl WiFiOnDemandHotspotConnectStatus {
 impl windows_core::TypeKind for WiFiOnDemandHotspotConnectStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WiFiOnDemandHotspotConnectStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WiFiOnDemandHotspotConnectStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiOnDemandHotspotConnectStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WiFiPhyKind(pub i32);
 impl WiFiPhyKind {
     pub const Unknown: Self = Self(0i32);
@@ -907,16 +854,11 @@ impl WiFiPhyKind {
 impl windows_core::TypeKind for WiFiPhyKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WiFiPhyKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WiFiPhyKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for WiFiPhyKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiPhyKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WiFiReconnectionKind(pub i32);
 impl WiFiReconnectionKind {
     pub const Automatic: Self = Self(0i32);
@@ -925,16 +867,11 @@ impl WiFiReconnectionKind {
 impl windows_core::TypeKind for WiFiReconnectionKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WiFiReconnectionKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WiFiReconnectionKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for WiFiReconnectionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiReconnectionKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WiFiWpsConfigurationStatus(pub i32);
 impl WiFiWpsConfigurationStatus {
     pub const UnspecifiedFailure: Self = Self(0i32);
@@ -944,16 +881,11 @@ impl WiFiWpsConfigurationStatus {
 impl windows_core::TypeKind for WiFiWpsConfigurationStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WiFiWpsConfigurationStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WiFiWpsConfigurationStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for WiFiWpsConfigurationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsConfigurationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WiFiWpsKind(pub i32);
 impl WiFiWpsKind {
     pub const Unknown: Self = Self(0i32);
@@ -965,11 +897,6 @@ impl WiFiWpsKind {
 }
 impl windows_core::TypeKind for WiFiWpsKind {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WiFiWpsKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WiFiWpsKind").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for WiFiWpsKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsKind;i4)");

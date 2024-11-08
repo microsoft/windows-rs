@@ -33,7 +33,7 @@ impl windows_core::RuntimeType for DisplayRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayRequest>();
 }
 unsafe impl windows_core::Interface for DisplayRequest {
-    type Vtable = IDisplayRequest_Vtbl;
+    type Vtable = <IDisplayRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayRequest {

@@ -46,21 +46,21 @@ impl windows_core::RuntimeType for IMapAddress {
 #[repr(C)]
 pub struct IMapAddress_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub BuildingName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub BuildingFloor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub BuildingRoom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub BuildingWing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub StreetNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Street: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Neighborhood: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub District: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Town: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Region: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub RegionCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Country: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub CountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub PostCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Continent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub BuildingName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub BuildingFloor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub BuildingRoom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub BuildingWing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StreetNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Street: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Neighborhood: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub District: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Town: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Region: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RegionCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Country: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CountryCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PostCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Continent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMapAddress2, IMapAddress2_Vtbl, 0x75cd6df1_e5ad_45a9_bf40_6cf256c1dd13);
 impl windows_core::RuntimeType for IMapAddress2 {
@@ -69,7 +69,7 @@ impl windows_core::RuntimeType for IMapAddress2 {
 #[repr(C)]
 pub struct IMapAddress2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub FormattedAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub FormattedAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMapLocation, IMapLocation_Vtbl, 0x3c073f57_0da4_42e8_9ee2_a96fcf2371dc);
 impl windows_core::RuntimeType for IMapLocation {
@@ -82,8 +82,8 @@ pub struct IMapLocation_Vtbl {
     pub Point: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     Point: usize,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Address: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMapLocationFinderResult, IMapLocationFinderResult_Vtbl, 0x43f1f179_e8cc_45f6_bed2_54ccbf965d9a);
@@ -111,11 +111,11 @@ pub struct IMapLocationFinderStatics_Vtbl {
     #[cfg(not(feature = "Devices_Geolocation"))]
     FindLocationsAtAsync: usize,
     #[cfg(feature = "Devices_Geolocation")]
-    pub FindLocationsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindLocationsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     FindLocationsAsync: usize,
     #[cfg(feature = "Devices_Geolocation")]
-    pub FindLocationsWithMaxCountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindLocationsWithMaxCountAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     FindLocationsWithMaxCountAsync: usize,
 }
@@ -361,9 +361,9 @@ pub struct IMapRouteManeuver_Vtbl {
     #[cfg(not(feature = "Devices_Geolocation"))]
     StartingPoint: usize,
     pub LengthInMeters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub InstructionText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub InstructionText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MapRouteManeuverKind) -> windows_core::HRESULT,
-    pub ExitNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ExitNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ManeuverNotices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MapManeuverNotices) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMapRouteManeuver2, IMapRouteManeuver2_Vtbl, 0x5d7bcd9c_7c9b_41df_838b_eae21e4b05a9);
@@ -375,7 +375,7 @@ pub struct IMapRouteManeuver2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StartHeading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub EndHeading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub StreetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub StreetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMapRouteManeuver3, IMapRouteManeuver3_Vtbl, 0xa6a138df_0483_4166_85be_b99336c11875);
 impl windows_core::RuntimeType for IMapRouteManeuver3 {
@@ -396,8 +396,8 @@ impl windows_core::RuntimeType for IMapServiceStatics {
 #[repr(C)]
 pub struct IMapServiceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub SetServiceToken: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub ServiceToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetServiceToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ServiceToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMapServiceStatics2, IMapServiceStatics2_Vtbl, 0xf8193eed_9c85_40a9_8896_0fc3fd2b7c2a);
 impl windows_core::RuntimeType for IMapServiceStatics2 {
@@ -406,7 +406,7 @@ impl windows_core::RuntimeType for IMapServiceStatics2 {
 #[repr(C)]
 pub struct IMapServiceStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub WorldViewRegionCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub WorldViewRegionCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMapServiceStatics3, IMapServiceStatics3_Vtbl, 0x0a11ce20_63a7_4854_b355_d6dcda223d1b);
 impl windows_core::RuntimeType for IMapServiceStatics3 {
@@ -415,7 +415,7 @@ impl windows_core::RuntimeType for IMapServiceStatics3 {
 #[repr(C)]
 pub struct IMapServiceStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DataAttributions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DataAttributions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMapServiceStatics4, IMapServiceStatics4_Vtbl, 0x088a2862_6abc_420e_945f_4cfd89c67356);
 impl windows_core::RuntimeType for IMapServiceStatics4 {
@@ -439,9 +439,9 @@ pub struct IPlaceInfo_Vtbl {
     pub ShowWithPreferredPlacement: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, super::super::UI::Popups::Placement) -> windows_core::HRESULT,
     #[cfg(not(feature = "UI_Popups"))]
     ShowWithPreferredPlacement: usize,
-    pub Identifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub DisplayAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Identifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DisplayAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Devices_Geolocation")]
     pub Geoshape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -454,10 +454,10 @@ impl windows_core::RuntimeType for IPlaceInfoCreateOptions {
 #[repr(C)]
 pub struct IPlaceInfoCreateOptions_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetDisplayAddress: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub DisplayAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetDisplayAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DisplayAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlaceInfoStatics, IPlaceInfoStatics_Vtbl, 0x82b9ff71_6cd0_48a4_afd9_5ed82097936b);
 impl windows_core::RuntimeType for IPlaceInfoStatics {
@@ -474,9 +474,9 @@ pub struct IPlaceInfoStatics_Vtbl {
     pub CreateWithGeopointAndOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     CreateWithGeopointAndOptions: usize,
-    pub CreateFromIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFromIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Devices_Geolocation")]
-    pub CreateFromIdentifierWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFromIdentifierWithOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     CreateFromIdentifierWithOptions: usize,
     pub CreateFromMapLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -489,8 +489,8 @@ impl windows_core::RuntimeType for IPlaceInfoStatics2 {
 #[repr(C)]
 pub struct IPlaceInfoStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateFromAddress: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateFromAddressWithName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFromAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFromAddressWithName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -531,14 +531,12 @@ impl windows_core::RuntimeType for EnhancedWaypoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnhancedWaypoint>();
 }
 unsafe impl windows_core::Interface for EnhancedWaypoint {
-    type Vtable = IEnhancedWaypoint_Vtbl;
+    type Vtable = <IEnhancedWaypoint as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEnhancedWaypoint as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EnhancedWaypoint {
     const NAME: &'static str = "Windows.Services.Maps.EnhancedWaypoint";
 }
-unsafe impl Send for EnhancedWaypoint {}
-unsafe impl Sync for EnhancedWaypoint {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ManeuverWarning(windows_core::IUnknown);
@@ -563,14 +561,12 @@ impl windows_core::RuntimeType for ManeuverWarning {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IManeuverWarning>();
 }
 unsafe impl windows_core::Interface for ManeuverWarning {
-    type Vtable = IManeuverWarning_Vtbl;
+    type Vtable = <IManeuverWarning as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IManeuverWarning as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ManeuverWarning {
     const NAME: &'static str = "Windows.Services.Maps.ManeuverWarning";
 }
-unsafe impl Send for ManeuverWarning {}
-unsafe impl Sync for ManeuverWarning {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapAddress(windows_core::IUnknown);
@@ -580,112 +576,112 @@ impl MapAddress {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BuildingName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).BuildingName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn BuildingFloor(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BuildingFloor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).BuildingFloor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn BuildingRoom(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BuildingRoom)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).BuildingRoom)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn BuildingWing(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BuildingWing)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).BuildingWing)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn StreetNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StreetNumber)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StreetNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Street(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Street)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Street)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Neighborhood(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Neighborhood)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Neighborhood)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn District(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).District)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).District)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Town(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Town)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Town)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Region(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Region)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Region)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RegionCode(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegionCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RegionCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Country(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Country)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Country)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn CountryCode(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CountryCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CountryCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn PostCode(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PostCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PostCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Continent(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Continent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Continent)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn FormattedAddress(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IMapAddress2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FormattedAddress)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FormattedAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -693,14 +689,12 @@ impl windows_core::RuntimeType for MapAddress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapAddress>();
 }
 unsafe impl windows_core::Interface for MapAddress {
-    type Vtable = IMapAddress_Vtbl;
+    type Vtable = <IMapAddress as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMapAddress as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapAddress {
     const NAME: &'static str = "Windows.Services.Maps.MapAddress";
 }
-unsafe impl Send for MapAddress {}
-unsafe impl Sync for MapAddress {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapLocation(windows_core::IUnknown);
@@ -718,14 +712,14 @@ impl MapLocation {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Address(&self) -> windows_core::Result<MapAddress> {
@@ -740,14 +734,12 @@ impl windows_core::RuntimeType for MapLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapLocation>();
 }
 unsafe impl windows_core::Interface for MapLocation {
-    type Vtable = IMapLocation_Vtbl;
+    type Vtable = <IMapLocation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMapLocation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapLocation {
     const NAME: &'static str = "Windows.Services.Maps.MapLocation";
 }
-unsafe impl Send for MapLocation {}
-unsafe impl Sync for MapLocation {}
 pub struct MapLocationFinder;
 impl MapLocationFinder {
     #[cfg(feature = "Devices_Geolocation")]
@@ -761,9 +753,9 @@ impl MapLocationFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindLocationsAsync<P0>(searchtext: &windows_core::HSTRING, referencepoint: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>
+    pub fn FindLocationsAsync<P1>(searchtext: &windows_core::HSTRING, referencepoint: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>
     where
-        P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
+        P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -771,9 +763,9 @@ impl MapLocationFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindLocationsWithMaxCountAsync<P0>(searchtext: &windows_core::HSTRING, referencepoint: P0, maxcount: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>
+    pub fn FindLocationsWithMaxCountAsync<P1>(searchtext: &windows_core::HSTRING, referencepoint: P1, maxcount: u32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>
     where
-        P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
+        P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -827,14 +819,12 @@ impl windows_core::RuntimeType for MapLocationFinderResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapLocationFinderResult>();
 }
 unsafe impl windows_core::Interface for MapLocationFinderResult {
-    type Vtable = IMapLocationFinderResult_Vtbl;
+    type Vtable = <IMapLocationFinderResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMapLocationFinderResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapLocationFinderResult";
 }
-unsafe impl Send for MapLocationFinderResult {}
-unsafe impl Sync for MapLocationFinderResult {}
 pub struct MapManager;
 impl MapManager {
     pub fn ShowDownloadedMapsUI() -> windows_core::Result<()> {
@@ -875,7 +865,7 @@ impl MapRoute {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EstimatedDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).EstimatedDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -919,7 +909,7 @@ impl MapRoute {
         let this = &windows_core::Interface::cast::<IMapRoute3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DurationWithoutTraffic)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DurationWithoutTraffic)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn TrafficCongestion(&self) -> windows_core::Result<TrafficCongestion> {
@@ -941,14 +931,12 @@ impl windows_core::RuntimeType for MapRoute {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRoute>();
 }
 unsafe impl windows_core::Interface for MapRoute {
-    type Vtable = IMapRoute_Vtbl;
+    type Vtable = <IMapRoute as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMapRoute as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapRoute {
     const NAME: &'static str = "Windows.Services.Maps.MapRoute";
 }
-unsafe impl Send for MapRoute {}
-unsafe impl Sync for MapRoute {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteDrivingOptions(windows_core::IUnknown);
@@ -1027,14 +1015,12 @@ impl windows_core::RuntimeType for MapRouteDrivingOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteDrivingOptions>();
 }
 unsafe impl windows_core::Interface for MapRouteDrivingOptions {
-    type Vtable = IMapRouteDrivingOptions_Vtbl;
+    type Vtable = <IMapRouteDrivingOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMapRouteDrivingOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapRouteDrivingOptions {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteDrivingOptions";
 }
-unsafe impl Send for MapRouteDrivingOptions {}
-unsafe impl Sync for MapRouteDrivingOptions {}
 pub struct MapRouteFinder;
 impl MapRouteFinder {
     #[cfg(feature = "Devices_Geolocation")]
@@ -1223,14 +1209,12 @@ impl windows_core::RuntimeType for MapRouteFinderResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteFinderResult>();
 }
 unsafe impl windows_core::Interface for MapRouteFinderResult {
-    type Vtable = IMapRouteFinderResult_Vtbl;
+    type Vtable = <IMapRouteFinderResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMapRouteFinderResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapRouteFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteFinderResult";
 }
-unsafe impl Send for MapRouteFinderResult {}
-unsafe impl Sync for MapRouteFinderResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteLeg(windows_core::IUnknown);
@@ -1263,7 +1247,7 @@ impl MapRouteLeg {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EstimatedDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).EstimatedDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1278,7 +1262,7 @@ impl MapRouteLeg {
         let this = &windows_core::Interface::cast::<IMapRouteLeg2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DurationWithoutTraffic)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DurationWithoutTraffic)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn TrafficCongestion(&self) -> windows_core::Result<TrafficCongestion> {
@@ -1293,14 +1277,12 @@ impl windows_core::RuntimeType for MapRouteLeg {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteLeg>();
 }
 unsafe impl windows_core::Interface for MapRouteLeg {
-    type Vtable = IMapRouteLeg_Vtbl;
+    type Vtable = <IMapRouteLeg as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMapRouteLeg as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapRouteLeg {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteLeg";
 }
-unsafe impl Send for MapRouteLeg {}
-unsafe impl Sync for MapRouteLeg {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteManeuver(windows_core::IUnknown);
@@ -1325,7 +1307,7 @@ impl MapRouteManeuver {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InstructionText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InstructionText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<MapRouteManeuverKind> {
@@ -1339,7 +1321,7 @@ impl MapRouteManeuver {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExitNumber)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ExitNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn ManeuverNotices(&self) -> windows_core::Result<MapManeuverNotices> {
@@ -1367,7 +1349,7 @@ impl MapRouteManeuver {
         let this = &windows_core::Interface::cast::<IMapRouteManeuver2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StreetName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StreetName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1383,14 +1365,12 @@ impl windows_core::RuntimeType for MapRouteManeuver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteManeuver>();
 }
 unsafe impl windows_core::Interface for MapRouteManeuver {
-    type Vtable = IMapRouteManeuver_Vtbl;
+    type Vtable = <IMapRouteManeuver as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMapRouteManeuver as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MapRouteManeuver {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteManeuver";
 }
-unsafe impl Send for MapRouteManeuver {}
-unsafe impl Sync for MapRouteManeuver {}
 pub struct MapService;
 impl MapService {
     pub fn SetServiceToken(value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1399,19 +1379,19 @@ impl MapService {
     pub fn ServiceToken() -> windows_core::Result<windows_core::HSTRING> {
         Self::IMapServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServiceToken)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ServiceToken)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     pub fn WorldViewRegionCode() -> windows_core::Result<windows_core::HSTRING> {
         Self::IMapServiceStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WorldViewRegionCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).WorldViewRegionCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     pub fn DataAttributions() -> windows_core::Result<windows_core::HSTRING> {
         Self::IMapServiceStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DataAttributions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DataAttributions)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     pub fn SetDataUsagePreference(value: MapServiceDataUsagePreference) -> windows_core::Result<()> {
@@ -1461,21 +1441,21 @@ impl PlaceInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Identifier)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Identifier)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn DisplayAddress(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayAddress)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DisplayAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -1514,10 +1494,10 @@ impl PlaceInfo {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn CreateFromIdentifierWithOptions<P0, P1>(identifier: &windows_core::HSTRING, defaultpoint: P0, options: P1) -> windows_core::Result<PlaceInfo>
+    pub fn CreateFromIdentifierWithOptions<P1, P2>(identifier: &windows_core::HSTRING, defaultpoint: P1, options: P2) -> windows_core::Result<PlaceInfo>
     where
-        P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
-        P1: windows_core::Param<PlaceInfoCreateOptions>,
+        P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
+        P2: windows_core::Param<PlaceInfoCreateOptions>,
     {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1564,14 +1544,12 @@ impl windows_core::RuntimeType for PlaceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaceInfo>();
 }
 unsafe impl windows_core::Interface for PlaceInfo {
-    type Vtable = IPlaceInfo_Vtbl;
+    type Vtable = <IPlaceInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlaceInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PlaceInfo {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfo";
 }
-unsafe impl Send for PlaceInfo {}
-unsafe impl Sync for PlaceInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaceInfoCreateOptions(windows_core::IUnknown);
@@ -1592,7 +1570,7 @@ impl PlaceInfoCreateOptions {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetDisplayAddress(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1603,7 +1581,7 @@ impl PlaceInfoCreateOptions {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayAddress)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DisplayAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -1611,16 +1589,14 @@ impl windows_core::RuntimeType for PlaceInfoCreateOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaceInfoCreateOptions>();
 }
 unsafe impl windows_core::Interface for PlaceInfoCreateOptions {
-    type Vtable = IPlaceInfoCreateOptions_Vtbl;
+    type Vtable = <IPlaceInfoCreateOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlaceInfoCreateOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PlaceInfoCreateOptions {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfoCreateOptions";
 }
-unsafe impl Send for PlaceInfoCreateOptions {}
-unsafe impl Sync for PlaceInfoCreateOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ManeuverWarningKind(pub i32);
 impl ManeuverWarningKind {
     pub const None: Self = Self(0i32);
@@ -1663,16 +1639,11 @@ impl ManeuverWarningKind {
 impl windows_core::TypeKind for ManeuverWarningKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ManeuverWarningKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ManeuverWarningKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ManeuverWarningKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ManeuverWarningSeverity(pub i32);
 impl ManeuverWarningSeverity {
     pub const None: Self = Self(0i32);
@@ -1684,16 +1655,11 @@ impl ManeuverWarningSeverity {
 impl windows_core::TypeKind for ManeuverWarningSeverity {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ManeuverWarningSeverity {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ManeuverWarningSeverity").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ManeuverWarningSeverity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningSeverity;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct MapLocationDesiredAccuracy(pub i32);
 impl MapLocationDesiredAccuracy {
     pub const High: Self = Self(0i32);
@@ -1702,16 +1668,11 @@ impl MapLocationDesiredAccuracy {
 impl windows_core::TypeKind for MapLocationDesiredAccuracy {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MapLocationDesiredAccuracy {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MapLocationDesiredAccuracy").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for MapLocationDesiredAccuracy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationDesiredAccuracy;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct MapLocationFinderStatus(pub i32);
 impl MapLocationFinderStatus {
     pub const Success: Self = Self(0i32);
@@ -1725,16 +1686,11 @@ impl MapLocationFinderStatus {
 impl windows_core::TypeKind for MapLocationFinderStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MapLocationFinderStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MapLocationFinderStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for MapLocationFinderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationFinderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct MapManeuverNotices(pub u32);
 impl MapManeuverNotices {
     pub const None: Self = Self(0u32);
@@ -1744,49 +1700,11 @@ impl MapManeuverNotices {
 impl windows_core::TypeKind for MapManeuverNotices {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MapManeuverNotices {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MapManeuverNotices").field(&self.0).finish()
-    }
-}
-impl MapManeuverNotices {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for MapManeuverNotices {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for MapManeuverNotices {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for MapManeuverNotices {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for MapManeuverNotices {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for MapManeuverNotices {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for MapManeuverNotices {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapManeuverNotices;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct MapRouteFinderStatus(pub i32);
 impl MapRouteFinderStatus {
     pub const Success: Self = Self(0i32);
@@ -1803,16 +1721,11 @@ impl MapRouteFinderStatus {
 impl windows_core::TypeKind for MapRouteFinderStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MapRouteFinderStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MapRouteFinderStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for MapRouteFinderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteFinderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct MapRouteManeuverKind(pub i32);
 impl MapRouteManeuverKind {
     pub const None: Self = Self(0i32);
@@ -1844,16 +1757,11 @@ impl MapRouteManeuverKind {
 impl windows_core::TypeKind for MapRouteManeuverKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MapRouteManeuverKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MapRouteManeuverKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for MapRouteManeuverKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteManeuverKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct MapRouteOptimization(pub i32);
 impl MapRouteOptimization {
     pub const Time: Self = Self(0i32);
@@ -1864,16 +1772,11 @@ impl MapRouteOptimization {
 impl windows_core::TypeKind for MapRouteOptimization {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MapRouteOptimization {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MapRouteOptimization").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for MapRouteOptimization {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteOptimization;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct MapRouteRestrictions(pub u32);
 impl MapRouteRestrictions {
     pub const None: Self = Self(0u32);
@@ -1887,49 +1790,11 @@ impl MapRouteRestrictions {
 impl windows_core::TypeKind for MapRouteRestrictions {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MapRouteRestrictions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MapRouteRestrictions").field(&self.0).finish()
-    }
-}
-impl MapRouteRestrictions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for MapRouteRestrictions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for MapRouteRestrictions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for MapRouteRestrictions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for MapRouteRestrictions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for MapRouteRestrictions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for MapRouteRestrictions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteRestrictions;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct MapServiceDataUsagePreference(pub i32);
 impl MapServiceDataUsagePreference {
     pub const Default: Self = Self(0i32);
@@ -1938,16 +1803,11 @@ impl MapServiceDataUsagePreference {
 impl windows_core::TypeKind for MapServiceDataUsagePreference {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MapServiceDataUsagePreference {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MapServiceDataUsagePreference").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for MapServiceDataUsagePreference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapServiceDataUsagePreference;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct TrafficCongestion(pub i32);
 impl TrafficCongestion {
     pub const Unknown: Self = Self(0i32);
@@ -1959,16 +1819,11 @@ impl TrafficCongestion {
 impl windows_core::TypeKind for TrafficCongestion {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TrafficCongestion {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TrafficCongestion").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for TrafficCongestion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.TrafficCongestion;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WaypointKind(pub i32);
 impl WaypointKind {
     pub const Stop: Self = Self(0i32);
@@ -1976,11 +1831,6 @@ impl WaypointKind {
 }
 impl windows_core::TypeKind for WaypointKind {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WaypointKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WaypointKind").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for WaypointKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.WaypointKind;i4)");

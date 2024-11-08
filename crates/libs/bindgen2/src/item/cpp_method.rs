@@ -705,7 +705,7 @@ impl CppMethod {
                             }
                         }
                         ParamHint::ValueType => {
-                            quote! { #name, }
+                            quote! { core::mem::transmute(#name), }
                         }
                         ParamHint::Blittable => {
                             if matches!(ty, Type::PrimitiveOrEnum(_, _)) {

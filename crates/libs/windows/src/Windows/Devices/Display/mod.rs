@@ -7,11 +7,11 @@ impl windows_core::RuntimeType for IDisplayMonitor {
 #[repr(C)]
 pub struct IDisplayMonitor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ConnectionKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayMonitorConnectionKind) -> windows_core::HRESULT,
     pub PhysicalConnector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayMonitorPhysicalConnectorKind) -> windows_core::HRESULT,
-    pub DisplayAdapterDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DisplayAdapterDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Graphics")]
     pub DisplayAdapterId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Graphics::DisplayAdapterId) -> windows_core::HRESULT,
     #[cfg(not(feature = "Graphics"))]
@@ -50,9 +50,9 @@ impl windows_core::RuntimeType for IDisplayMonitorStatics {
 #[repr(C)]
 pub struct IDisplayMonitorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FromInterfaceIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FromInterfaceIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -63,14 +63,14 @@ impl DisplayMonitor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn ConnectionKind(&self) -> windows_core::Result<DisplayMonitorConnectionKind> {
@@ -91,7 +91,7 @@ impl DisplayMonitor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayAdapterDeviceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DisplayAdapterDeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Graphics")]
@@ -99,7 +99,7 @@ impl DisplayMonitor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayAdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).DisplayAdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn DisplayAdapterTargetId(&self) -> windows_core::Result<u32> {
@@ -121,7 +121,7 @@ impl DisplayMonitor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NativeResolutionInRawPixels)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NativeResolutionInRawPixels)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn PhysicalSizeInInches(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Size>> {
@@ -149,28 +149,28 @@ impl DisplayMonitor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RedPrimary)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RedPrimary)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn GreenPrimary(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GreenPrimary)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GreenPrimary)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn BluePrimary(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BluePrimary)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).BluePrimary)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn WhitePoint(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).WhitePoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).WhitePoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn MaxLuminanceInNits(&self) -> windows_core::Result<f32> {
@@ -211,7 +211,7 @@ impl DisplayMonitor {
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
         Self::IDisplayMonitorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>> {
@@ -235,16 +235,14 @@ impl windows_core::RuntimeType for DisplayMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayMonitor>();
 }
 unsafe impl windows_core::Interface for DisplayMonitor {
-    type Vtable = IDisplayMonitor_Vtbl;
+    type Vtable = <IDisplayMonitor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayMonitor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayMonitor {
     const NAME: &'static str = "Windows.Devices.Display.DisplayMonitor";
 }
-unsafe impl Send for DisplayMonitor {}
-unsafe impl Sync for DisplayMonitor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct DisplayMonitorConnectionKind(pub i32);
 impl DisplayMonitorConnectionKind {
     pub const Internal: Self = Self(0i32);
@@ -255,16 +253,11 @@ impl DisplayMonitorConnectionKind {
 impl windows_core::TypeKind for DisplayMonitorConnectionKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DisplayMonitorConnectionKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DisplayMonitorConnectionKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DisplayMonitorConnectionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorConnectionKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct DisplayMonitorDescriptorKind(pub i32);
 impl DisplayMonitorDescriptorKind {
     pub const Edid: Self = Self(0i32);
@@ -273,16 +266,11 @@ impl DisplayMonitorDescriptorKind {
 impl windows_core::TypeKind for DisplayMonitorDescriptorKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DisplayMonitorDescriptorKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DisplayMonitorDescriptorKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DisplayMonitorDescriptorKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorDescriptorKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct DisplayMonitorPhysicalConnectorKind(pub i32);
 impl DisplayMonitorPhysicalConnectorKind {
     pub const Unknown: Self = Self(0i32);
@@ -297,16 +285,11 @@ impl DisplayMonitorPhysicalConnectorKind {
 impl windows_core::TypeKind for DisplayMonitorPhysicalConnectorKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DisplayMonitorPhysicalConnectorKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DisplayMonitorPhysicalConnectorKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DisplayMonitorPhysicalConnectorKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorPhysicalConnectorKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct DisplayMonitorUsageKind(pub i32);
 impl DisplayMonitorUsageKind {
     pub const Standard: Self = Self(0i32);
@@ -315,11 +298,6 @@ impl DisplayMonitorUsageKind {
 }
 impl windows_core::TypeKind for DisplayMonitorUsageKind {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DisplayMonitorUsageKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DisplayMonitorUsageKind").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for DisplayMonitorUsageKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorUsageKind;i4)");

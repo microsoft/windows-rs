@@ -103,14 +103,12 @@ impl windows_core::RuntimeType for NotePlacementChangedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INotePlacementChangedPreviewEventArgs>();
 }
 unsafe impl windows_core::Interface for NotePlacementChangedPreviewEventArgs {
-    type Vtable = INotePlacementChangedPreviewEventArgs_Vtbl;
+    type Vtable = <INotePlacementChangedPreviewEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INotePlacementChangedPreviewEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for NotePlacementChangedPreviewEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotePlacementChangedPreviewEventArgs";
 }
-unsafe impl Send for NotePlacementChangedPreviewEventArgs {}
-unsafe impl Sync for NotePlacementChangedPreviewEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NoteVisibilityChangedPreviewEventArgs(windows_core::IUnknown);
@@ -135,14 +133,12 @@ impl windows_core::RuntimeType for NoteVisibilityChangedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INoteVisibilityChangedPreviewEventArgs>();
 }
 unsafe impl windows_core::Interface for NoteVisibilityChangedPreviewEventArgs {
-    type Vtable = INoteVisibilityChangedPreviewEventArgs_Vtbl;
+    type Vtable = <INoteVisibilityChangedPreviewEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INoteVisibilityChangedPreviewEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for NoteVisibilityChangedPreviewEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NoteVisibilityChangedPreviewEventArgs";
 }
-unsafe impl Send for NoteVisibilityChangedPreviewEventArgs {}
-unsafe impl Sync for NoteVisibilityChangedPreviewEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NotesWindowManagerPreview(windows_core::IUnknown);
@@ -164,9 +160,9 @@ impl NotesWindowManagerPreview {
         unsafe { (windows_core::Interface::vtable(this).ShowNoteRelativeTo)(windows_core::Interface::as_raw(this), noteviewid, anchornoteviewid).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ShowNoteWithPlacement<P0>(&self, noteviewid: i32, data: P0) -> windows_core::Result<()>
+    pub fn ShowNoteWithPlacement<P1>(&self, noteviewid: i32, data: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ShowNoteWithPlacement)(windows_core::Interface::as_raw(this), noteviewid, data.param().abi()).ok() }
@@ -212,7 +208,7 @@ impl NotesWindowManagerPreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemLockStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemLockStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveSystemLockStateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -226,7 +222,7 @@ impl NotesWindowManagerPreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NotePlacementChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NotePlacementChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveNotePlacementChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -240,25 +236,25 @@ impl NotesWindowManagerPreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NoteVisibilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NoteVisibilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveNoteVisibilityChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveNoteVisibilityChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ShowNoteRelativeToWithOptions<P0>(&self, noteviewid: i32, anchornoteviewid: i32, options: P0) -> windows_core::Result<()>
+    pub fn ShowNoteRelativeToWithOptions<P2>(&self, noteviewid: i32, anchornoteviewid: i32, options: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<NotesWindowManagerPreviewShowNoteOptions>,
+        P2: windows_core::Param<NotesWindowManagerPreviewShowNoteOptions>,
     {
         let this = &windows_core::Interface::cast::<INotesWindowManagerPreview2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ShowNoteRelativeToWithOptions)(windows_core::Interface::as_raw(this), noteviewid, anchornoteviewid, options.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ShowNoteWithPlacementWithOptions<P0, P1>(&self, noteviewid: i32, data: P0, options: P1) -> windows_core::Result<()>
+    pub fn ShowNoteWithPlacementWithOptions<P1, P2>(&self, noteviewid: i32, data: P1, options: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::Param<NotesWindowManagerPreviewShowNoteOptions>,
+        P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
+        P2: windows_core::Param<NotesWindowManagerPreviewShowNoteOptions>,
     {
         let this = &windows_core::Interface::cast::<INotesWindowManagerPreview2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ShowNoteWithPlacementWithOptions)(windows_core::Interface::as_raw(this), noteviewid, data.param().abi(), options.param().abi()).ok() }
@@ -293,14 +289,12 @@ impl windows_core::RuntimeType for NotesWindowManagerPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INotesWindowManagerPreview>();
 }
 unsafe impl windows_core::Interface for NotesWindowManagerPreview {
-    type Vtable = INotesWindowManagerPreview_Vtbl;
+    type Vtable = <INotesWindowManagerPreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INotesWindowManagerPreview as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for NotesWindowManagerPreview {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreview";
 }
-unsafe impl Send for NotesWindowManagerPreview {}
-unsafe impl Sync for NotesWindowManagerPreview {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NotesWindowManagerPreviewShowNoteOptions(windows_core::IUnknown);
@@ -329,11 +323,9 @@ impl windows_core::RuntimeType for NotesWindowManagerPreviewShowNoteOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INotesWindowManagerPreviewShowNoteOptions>();
 }
 unsafe impl windows_core::Interface for NotesWindowManagerPreviewShowNoteOptions {
-    type Vtable = INotesWindowManagerPreviewShowNoteOptions_Vtbl;
+    type Vtable = <INotesWindowManagerPreviewShowNoteOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INotesWindowManagerPreviewShowNoteOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for NotesWindowManagerPreviewShowNoteOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreviewShowNoteOptions";
 }
-unsafe impl Send for NotesWindowManagerPreviewShowNoteOptions {}
-unsafe impl Sync for NotesWindowManagerPreviewShowNoteOptions {}

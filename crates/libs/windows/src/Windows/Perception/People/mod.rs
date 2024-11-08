@@ -154,14 +154,12 @@ impl windows_core::RuntimeType for EyesPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEyesPose>();
 }
 unsafe impl windows_core::Interface for EyesPose {
-    type Vtable = IEyesPose_Vtbl;
+    type Vtable = <IEyesPose as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEyesPose as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EyesPose {
     const NAME: &'static str = "Windows.Perception.People.EyesPose";
 }
-unsafe impl Send for EyesPose {}
-unsafe impl Sync for EyesPose {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HandMeshObserver(windows_core::IUnknown);
@@ -229,14 +227,12 @@ impl windows_core::RuntimeType for HandMeshObserver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHandMeshObserver>();
 }
 unsafe impl windows_core::Interface for HandMeshObserver {
-    type Vtable = IHandMeshObserver_Vtbl;
+    type Vtable = <IHandMeshObserver as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHandMeshObserver as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HandMeshObserver {
     const NAME: &'static str = "Windows.Perception.People.HandMeshObserver";
 }
-unsafe impl Send for HandMeshObserver {}
-unsafe impl Sync for HandMeshObserver {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HandMeshVertexState(windows_core::IUnknown);
@@ -267,14 +263,12 @@ impl windows_core::RuntimeType for HandMeshVertexState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHandMeshVertexState>();
 }
 unsafe impl windows_core::Interface for HandMeshVertexState {
-    type Vtable = IHandMeshVertexState_Vtbl;
+    type Vtable = <IHandMeshVertexState as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHandMeshVertexState as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HandMeshVertexState {
     const NAME: &'static str = "Windows.Perception.People.HandMeshVertexState";
 }
-unsafe impl Send for HandMeshVertexState {}
-unsafe impl Sync for HandMeshVertexState {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HandPose(windows_core::IUnknown);
@@ -307,7 +301,7 @@ impl HandPose {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetRelativeJoint)(windows_core::Interface::as_raw(this), joint, referencejoint, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GetRelativeJoint)(windows_core::Interface::as_raw(this), joint, referencejoint, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -320,14 +314,12 @@ impl windows_core::RuntimeType for HandPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHandPose>();
 }
 unsafe impl windows_core::Interface for HandPose {
-    type Vtable = IHandPose_Vtbl;
+    type Vtable = <IHandPose as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHandPose as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HandPose {
     const NAME: &'static str = "Windows.Perception.People.HandPose";
 }
-unsafe impl Send for HandPose {}
-unsafe impl Sync for HandPose {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HeadPose(windows_core::IUnknown);
@@ -338,7 +330,7 @@ impl HeadPose {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -346,7 +338,7 @@ impl HeadPose {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ForwardDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ForwardDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -354,7 +346,7 @@ impl HeadPose {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UpDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -362,16 +354,14 @@ impl windows_core::RuntimeType for HeadPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHeadPose>();
 }
 unsafe impl windows_core::Interface for HeadPose {
-    type Vtable = IHeadPose_Vtbl;
+    type Vtable = <IHeadPose as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHeadPose as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HeadPose {
     const NAME: &'static str = "Windows.Perception.People.HeadPose";
 }
-unsafe impl Send for HeadPose {}
-unsafe impl Sync for HeadPose {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct HandJointKind(pub i32);
 impl HandJointKind {
     pub const Palm: Self = Self(0i32);
@@ -404,16 +394,11 @@ impl HandJointKind {
 impl windows_core::TypeKind for HandJointKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HandJointKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HandJointKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for HandJointKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.People.HandJointKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct JointPoseAccuracy(pub i32);
 impl JointPoseAccuracy {
     pub const High: Self = Self(0i32);
@@ -422,55 +407,32 @@ impl JointPoseAccuracy {
 impl windows_core::TypeKind for JointPoseAccuracy {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for JointPoseAccuracy {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("JointPoseAccuracy").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for JointPoseAccuracy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.People.JointPoseAccuracy;i4)");
 }
 #[repr(C)]
-#[cfg(feature = "Foundation_Numerics")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct HandMeshVertex {
     pub Position: super::super::Foundation::Numerics::Vector3,
     pub Normal: super::super::Foundation::Numerics::Vector3,
 }
-#[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for HandMeshVertex {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Foundation_Numerics")]
 impl windows_core::RuntimeType for HandMeshVertex {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.People.HandMeshVertex;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
 }
-#[cfg(feature = "Foundation_Numerics")]
-impl Default for HandMeshVertex {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[cfg(feature = "Foundation_Numerics")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct JointPose {
     pub Orientation: super::super::Foundation::Numerics::Quaternion,
     pub Position: super::super::Foundation::Numerics::Vector3,
     pub Radius: f32,
     pub Accuracy: JointPoseAccuracy,
 }
-#[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for JointPose {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Foundation_Numerics")]
 impl windows_core::RuntimeType for JointPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.People.JointPose;struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4;enum(Windows.Perception.People.JointPoseAccuracy;i4))");
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Default for JointPose {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

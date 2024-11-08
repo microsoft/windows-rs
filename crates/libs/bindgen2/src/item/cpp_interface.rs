@@ -260,7 +260,11 @@ impl CppInterface {
                 .map(|method| match method {
                     CppMethodOrName::Method(method) => {
                         let name = names.add(method.def);
+                        if self.has_unknown_base() {
                         quote! { #name: #name::<Identity, OFFSET>, }
+                        } else {
+                            quote! { #name: #name::<Identity>, }
+                        }
                     }
                     CppMethodOrName::Name(name) => {
                         // TODO: test this condition - should cause an AV when method is called
@@ -279,12 +283,22 @@ impl CppInterface {
                     let signature = method.write_abi(writer, true);
                     let upcall = method.write_upcall(&impl_name, &name);
 
+                    if self.has_unknown_base() {
                     quote! {
                         unsafe extern "system" fn #name<Identity: #impl_name, const OFFSET: isize> #signature {
                             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                             #upcall
                         }
                     }
+                } else {
+                    quote! {
+                        unsafe extern "system" fn #name<Identity: #impl_name> #signature {
+                            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                            let this = &*((*this).this as *const Identity);
+                            #upcall
+                        }
+                    }
+                }
                 }
                 _ => quote! {},
             }).collect();
@@ -325,26 +339,64 @@ impl CppInterface {
                 }
             });
 
-            result.combine(quote! {
-                #cfg
-                pub trait #impl_name: #impl_base {
-                    #(#trait_methods)*
-                }
-                #cfg
-                impl #vtbl_name {
-                    pub const fn new<Identity: #impl_name, const OFFSET: isize>() -> Self {
-                        #(#impl_methods)*
-                        Self {
-                            #field_base
-                            #(#field_methods)*
+            result.combine( if self.has_unknown_base() {
+                quote! {
+                    #cfg
+                    pub trait #impl_name: #impl_base {
+                        #(#trait_methods)*
+                    }
+                    #cfg
+                    impl #vtbl_name {
+                        pub const fn new<Identity: #impl_name, const OFFSET: isize>() -> Self {
+                            #(#impl_methods)*
+                            Self {
+                                #field_base
+                                #(#field_methods)*
+                            }
+                        }
+                        pub fn matches(iid: &windows_core::GUID) -> bool {
+                            iid == &<#name as windows_core::Interface>::IID
                         }
                     }
-                    pub fn matches(iid: &windows_core::GUID) -> bool {
-                        iid == &<#name as windows_core::Interface>::IID
+                    #cfg
+                    impl windows_core::RuntimeName for #name {}
+                } 
+            } else {
+                let implvtbl_ident = impl_name.join("Vtbl");
+
+                quote! {
+                    #cfg
+                    pub trait #impl_name : #impl_base {
+                        #(#trait_methods)*
+                    }
+                    #cfg
+                    impl #vtbl_name {
+                        pub const fn new<Identity: #impl_name>() -> Self {
+                            #(#impl_methods)*
+                            Self{
+                                #field_base
+                                #(#field_methods)*
+                            }
+                        }
+                    }
+                    #[cfg(feature = "std")]
+                    #cfg
+                    struct #implvtbl_ident<T: #impl_name> (core::marker::PhantomData<T>);
+                    #[cfg(feature = "std")]
+                    #cfg
+                    impl<T: #impl_name> #implvtbl_ident<T> {
+                        const VTABLE: #vtbl_name = #vtbl_name::new::<T>();
+                    }
+                    #[cfg(feature = "std")]
+                    #cfg
+                    impl #name {
+                        pub fn new<'a, T: #impl_name>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+                            let this = windows_core::ScopedHeap { vtable: &#implvtbl_ident::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+                            let this = core::mem::ManuallyDrop::new(Box::new(this));
+                            unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+                        }
                     }
                 }
-                #cfg
-                impl windows_core::RuntimeName for #name {}
             });
 
             result

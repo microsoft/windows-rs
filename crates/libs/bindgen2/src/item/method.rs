@@ -500,12 +500,19 @@ impl Method {
                         debug_assert!(hresult__.0 == 0);
                         core::mem::transmute(result__) }
                     }
-                } else if self.signature.return_type.0.is_copyable() {
+                } else if !self.signature.return_type.0.is_convertible() {
+                    if self.signature.return_type.0.is_primitive() {
+                        quote! {
+                            let mut result__ = core::mem::zeroed();
+                            #vcall
+                            .map(||result__) }
+                    } else {
                     quote! {
                     let mut result__ = core::mem::zeroed();
                     #vcall
-                    .map(||result__) }
-                } else {
+                    .map(||core::mem::transmute(result__)) }
+                    }
+                } else { 
                     quote! { let mut result__ = core::mem::zeroed();
                     #vcall.and_then(|| windows_core::Type::from_abi(result__)) }
                 }

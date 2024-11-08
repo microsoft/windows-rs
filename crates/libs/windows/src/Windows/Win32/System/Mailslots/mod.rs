@@ -5,7 +5,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateMailslotA(lpname : windows_core::PCSTR, nmaxmessagesize : u32, lreadtimeout : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateMailslotA(lpname.param().abi(), nmaxmessagesize, lreadtimeout, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())));
+    let result__ = CreateMailslotA(lpname.param().abi(), core::mem::transmute(nmaxmessagesize), core::mem::transmute(lreadtimeout), core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Security")]
@@ -15,7 +15,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateMailslotW(lpname : windows_core::PCWSTR, nmaxmessagesize : u32, lreadtimeout : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateMailslotW(lpname.param().abi(), nmaxmessagesize, lreadtimeout, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())));
+    let result__ = CreateMailslotW(lpname.param().abi(), core::mem::transmute(nmaxmessagesize), core::mem::transmute(lreadtimeout), core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -32,5 +32,5 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetMailslotInfo(hmailslot : super::super::Foundation:: HANDLE, lreadtimeout : u32) -> super::super::Foundation:: BOOL);
-    SetMailslotInfo(hmailslot.param().abi(), lreadtimeout).ok()
+    SetMailslotInfo(hmailslot.param().abi(), core::mem::transmute(lreadtimeout)).ok()
 }

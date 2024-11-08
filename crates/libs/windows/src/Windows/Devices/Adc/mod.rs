@@ -84,14 +84,12 @@ impl windows_core::RuntimeType for AdcChannel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdcChannel>();
 }
 unsafe impl windows_core::Interface for AdcChannel {
-    type Vtable = IAdcChannel_Vtbl;
+    type Vtable = <IAdcChannel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAdcChannel as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AdcChannel {
     const NAME: &'static str = "Windows.Devices.Adc.AdcChannel";
 }
-unsafe impl Send for AdcChannel {}
-unsafe impl Sync for AdcChannel {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdcController(windows_core::IUnknown);
@@ -179,16 +177,14 @@ impl windows_core::RuntimeType for AdcController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdcController>();
 }
 unsafe impl windows_core::Interface for AdcController {
-    type Vtable = IAdcController_Vtbl;
+    type Vtable = <IAdcController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAdcController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AdcController {
     const NAME: &'static str = "Windows.Devices.Adc.AdcController";
 }
-unsafe impl Send for AdcController {}
-unsafe impl Sync for AdcController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AdcChannelMode(pub i32);
 impl AdcChannelMode {
     pub const SingleEnded: Self = Self(0i32);
@@ -196,11 +192,6 @@ impl AdcChannelMode {
 }
 impl windows_core::TypeKind for AdcChannelMode {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for AdcChannelMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AdcChannelMode").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for AdcChannelMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.AdcChannelMode;i4)");
