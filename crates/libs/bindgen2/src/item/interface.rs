@@ -431,12 +431,14 @@ impl Interface {
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
-            for ty in &self.generics {
-                ty.dependencies(dependencies);
-            }
+            // TODO: does this also need to be outside 
             for interface in self.required_interfaces() {
                 interface.dependencies(dependencies);
             }
+        }
+        // Different specializations of Interface may have different generics...
+        for ty in &self.generics {
+            ty.dependencies(dependencies);
         }
     }
 
