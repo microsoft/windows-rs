@@ -983,6 +983,22 @@ impl windows_core::RuntimeName for WindowTabCollection {
 unsafe impl Send for WindowTabCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for WindowTabCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for WindowTabCollection {
+    type Item = WindowTab;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &WindowTabCollection {
+    type Item = WindowTab;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WindowTabGroup(windows_core::IUnknown);

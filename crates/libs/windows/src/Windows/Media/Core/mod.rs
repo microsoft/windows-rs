@@ -4300,6 +4300,22 @@ impl windows_core::RuntimeName for MediaStreamSamplePropertySet {
 unsafe impl Send for MediaStreamSamplePropertySet {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for MediaStreamSamplePropertySet {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for MediaStreamSamplePropertySet {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &MediaStreamSamplePropertySet {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaStreamSampleProtectionProperties(windows_core::IUnknown);

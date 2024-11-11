@@ -7822,6 +7822,22 @@ impl windows_core::RuntimeName for CompositionAnimationGroup {
 unsafe impl Send for CompositionAnimationGroup {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionAnimationGroup {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for CompositionAnimationGroup {
+    type Item = CompositionAnimation;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &CompositionAnimationGroup {
+    type Item = CompositionAnimation;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionBrush(windows_core::IUnknown);
@@ -8872,6 +8888,22 @@ impl windows_core::RuntimeName for CompositionColorGradientStopCollection {
 unsafe impl Send for CompositionColorGradientStopCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionColorGradientStopCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for CompositionColorGradientStopCollection {
+    type Item = CompositionColorGradientStop;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &CompositionColorGradientStopCollection {
+    type Item = CompositionColorGradientStop;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionCommitBatch(windows_core::IUnknown);
@@ -12792,6 +12824,22 @@ impl windows_core::RuntimeName for CompositionProjectedShadowCasterCollection {
 unsafe impl Send for CompositionProjectedShadowCasterCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionProjectedShadowCasterCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for CompositionProjectedShadowCasterCollection {
+    type Item = CompositionProjectedShadowCaster;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &CompositionProjectedShadowCasterCollection {
+    type Item = CompositionProjectedShadowCaster;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionProjectedShadowReceiver(windows_core::IUnknown);
@@ -13102,6 +13150,22 @@ impl windows_core::RuntimeName for CompositionProjectedShadowReceiverUnorderedCo
 unsafe impl Send for CompositionProjectedShadowReceiverUnorderedCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionProjectedShadowReceiverUnorderedCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for CompositionProjectedShadowReceiverUnorderedCollection {
+    type Item = CompositionProjectedShadowReceiver;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &CompositionProjectedShadowReceiverUnorderedCollection {
+    type Item = CompositionProjectedShadowReceiver;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionPropertySet(windows_core::IUnknown);
@@ -14533,6 +14597,22 @@ impl windows_core::RuntimeName for CompositionShapeCollection {
 unsafe impl Send for CompositionShapeCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionShapeCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for CompositionShapeCollection {
+    type Item = CompositionShape;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &CompositionShapeCollection {
+    type Item = CompositionShape;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionSpriteShape(windows_core::IUnknown);
@@ -15080,6 +15160,22 @@ impl windows_core::RuntimeName for CompositionStrokeDashArray {
 unsafe impl Send for CompositionStrokeDashArray {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionStrokeDashArray {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for CompositionStrokeDashArray {
+    type Item = f32;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &CompositionStrokeDashArray {
+    type Item = f32;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionSurfaceBrush(windows_core::IUnknown);
@@ -19445,6 +19541,22 @@ unsafe impl Send for ImplicitAnimationCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ImplicitAnimationCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for ImplicitAnimationCollection {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &ImplicitAnimationCollection {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InitialValueExpressionCollection(windows_core::IUnknown);
@@ -19630,6 +19742,22 @@ impl windows_core::RuntimeName for InitialValueExpressionCollection {
 unsafe impl Send for InitialValueExpressionCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for InitialValueExpressionCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for InitialValueExpressionCollection {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &InitialValueExpressionCollection {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InsetClip(windows_core::IUnknown);
@@ -26226,6 +26354,22 @@ unsafe impl Send for VisualCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for VisualCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for VisualCollection {
+    type Item = Visual;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &VisualCollection {
+    type Item = Visual;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VisualUnorderedCollection(windows_core::IUnknown);
@@ -26394,6 +26538,22 @@ impl windows_core::RuntimeName for VisualUnorderedCollection {
 unsafe impl Send for VisualUnorderedCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for VisualUnorderedCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for VisualUnorderedCollection {
+    type Item = Visual;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &VisualUnorderedCollection {
+    type Item = Visual;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AnimationControllerProgressBehavior(pub i32);

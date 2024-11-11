@@ -3992,6 +3992,22 @@ impl windows_core::RuntimeName for PlayReadyDomainIterable {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainIterable";
 }
 #[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for PlayReadyDomainIterable {
+    type Item = IPlayReadyDomain;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &PlayReadyDomainIterable {
+    type Item = IPlayReadyDomain;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PlayReadyDomainIterator(windows_core::IUnknown);
@@ -4709,6 +4725,22 @@ impl windows_core::RuntimeName for PlayReadyLicenseIterable {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable";
 }
 #[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for PlayReadyLicenseIterable {
+    type Item = IPlayReadyLicense;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &PlayReadyLicenseIterable {
+    type Item = IPlayReadyLicense;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PlayReadyLicenseIterator(windows_core::IUnknown);
@@ -5079,6 +5111,22 @@ unsafe impl windows_core::Interface for PlayReadySecureStopIterable {
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeName for PlayReadySecureStopIterable {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySecureStopIterable";
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for PlayReadySecureStopIterable {
+    type Item = IPlayReadySecureStopServiceRequest;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &PlayReadySecureStopIterable {
+    type Item = IPlayReadySecureStopServiceRequest;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]

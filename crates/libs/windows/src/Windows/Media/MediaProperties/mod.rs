@@ -1982,6 +1982,22 @@ impl windows_core::RuntimeName for MediaPropertySet {
 unsafe impl Send for MediaPropertySet {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for MediaPropertySet {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for MediaPropertySet {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &MediaPropertySet {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaRatio(windows_core::IUnknown);

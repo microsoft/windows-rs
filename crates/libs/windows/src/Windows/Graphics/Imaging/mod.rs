@@ -1651,6 +1651,22 @@ impl windows_core::RuntimeName for BitmapPropertySet {
 unsafe impl Send for BitmapPropertySet {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for BitmapPropertySet {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for BitmapPropertySet {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &BitmapPropertySet {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapTransform(windows_core::IUnknown);

@@ -1374,6 +1374,22 @@ unsafe impl Send for DataPackagePropertySet {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for DataPackagePropertySet {}
 #[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for DataPackagePropertySet {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &DataPackagePropertySet {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataPackagePropertySetView(windows_core::IUnknown);
@@ -1536,6 +1552,22 @@ impl windows_core::RuntimeName for DataPackagePropertySetView {
 unsafe impl Send for DataPackagePropertySetView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for DataPackagePropertySetView {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for DataPackagePropertySetView {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &DataPackagePropertySetView {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataPackageView(windows_core::IUnknown);

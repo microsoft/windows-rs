@@ -470,6 +470,22 @@ unsafe impl windows_core::Interface for AccessListEntryView {
 impl windows_core::RuntimeName for AccessListEntryView {
     const NAME: &'static str = "Windows.Storage.AccessCache.AccessListEntryView";
 }
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for AccessListEntryView {
+    type Item = AccessListEntry;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &AccessListEntryView {
+    type Item = AccessListEntry;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ItemRemovedEventArgs(windows_core::IUnknown);

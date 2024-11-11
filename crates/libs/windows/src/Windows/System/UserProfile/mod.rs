@@ -540,6 +540,22 @@ impl windows_core::RuntimeName for FirstSignInSettings {
 unsafe impl Send for FirstSignInSettings {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for FirstSignInSettings {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for FirstSignInSettings {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &FirstSignInSettings {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 pub struct GlobalizationPreferences;
 impl GlobalizationPreferences {
     #[cfg(feature = "Foundation_Collections")]

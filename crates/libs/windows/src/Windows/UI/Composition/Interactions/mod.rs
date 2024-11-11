@@ -1038,6 +1038,22 @@ impl windows_core::RuntimeName for CompositionInteractionSourceCollection {
 unsafe impl Send for CompositionInteractionSourceCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CompositionInteractionSourceCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for CompositionInteractionSourceCollection {
+    type Item = ICompositionInteractionSource;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &CompositionInteractionSourceCollection {
+    type Item = ICompositionInteractionSource;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InteractionSourceConfiguration(windows_core::IUnknown);

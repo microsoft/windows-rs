@@ -155,3 +155,19 @@ impl windows_core::RuntimeName for CharacterGroupings {
 unsafe impl Send for CharacterGroupings {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for CharacterGroupings {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for CharacterGroupings {
+    type Item = CharacterGrouping;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &CharacterGroupings {
+    type Item = CharacterGrouping;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}

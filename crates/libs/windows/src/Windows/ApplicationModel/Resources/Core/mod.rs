@@ -441,6 +441,22 @@ impl windows_core::RuntimeName for ResourceCandidateVectorView {
 unsafe impl Send for ResourceCandidateVectorView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ResourceCandidateVectorView {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for ResourceCandidateVectorView {
+    type Item = ResourceCandidate;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &ResourceCandidateVectorView {
+    type Item = ResourceCandidate;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceContext(windows_core::IUnknown);
@@ -645,6 +661,22 @@ impl windows_core::RuntimeName for ResourceContextLanguagesVectorView {
 unsafe impl Send for ResourceContextLanguagesVectorView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ResourceContextLanguagesVectorView {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for ResourceContextLanguagesVectorView {
+    type Item = windows_core::HSTRING;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &ResourceContextLanguagesVectorView {
+    type Item = windows_core::HSTRING;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceManager(windows_core::IUnknown);
@@ -827,6 +859,22 @@ unsafe impl Send for ResourceMap {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ResourceMap {}
 #[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for ResourceMap {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, NamedResource>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &ResourceMap {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, NamedResource>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceMapIterator(windows_core::IUnknown);
@@ -941,6 +989,22 @@ impl windows_core::RuntimeName for ResourceMapMapView {
 unsafe impl Send for ResourceMapMapView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ResourceMapMapView {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for ResourceMapMapView {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &ResourceMapMapView {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1110,6 +1174,22 @@ unsafe impl Send for ResourceQualifierMapView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ResourceQualifierMapView {}
 #[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for ResourceQualifierMapView {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &ResourceQualifierMapView {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceQualifierObservableMap(windows_core::IUnknown);
@@ -1205,6 +1285,22 @@ unsafe impl Send for ResourceQualifierObservableMap {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ResourceQualifierObservableMap {}
 #[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for ResourceQualifierObservableMap {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &ResourceQualifierObservableMap {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceQualifierVectorView(windows_core::IUnknown);
@@ -1271,6 +1367,22 @@ impl windows_core::RuntimeName for ResourceQualifierVectorView {
 unsafe impl Send for ResourceQualifierVectorView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ResourceQualifierVectorView {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for ResourceQualifierVectorView {
+    type Item = ResourceQualifier;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &ResourceQualifierVectorView {
+    type Item = ResourceQualifier;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ResourceCandidateKind(pub i32);

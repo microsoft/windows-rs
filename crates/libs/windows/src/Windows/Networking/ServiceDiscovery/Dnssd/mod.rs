@@ -345,6 +345,22 @@ impl windows_core::RuntimeName for DnssdServiceInstanceCollection {
 unsafe impl Send for DnssdServiceInstanceCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for DnssdServiceInstanceCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for DnssdServiceInstanceCollection {
+    type Item = DnssdServiceInstance;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &DnssdServiceInstanceCollection {
+    type Item = DnssdServiceInstance;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DnssdServiceWatcher(windows_core::IUnknown);

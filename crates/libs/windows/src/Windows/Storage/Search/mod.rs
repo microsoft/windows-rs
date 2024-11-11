@@ -1526,6 +1526,22 @@ unsafe impl windows_core::Interface for SortEntryVector {
 impl windows_core::RuntimeName for SortEntryVector {
     const NAME: &'static str = "Windows.Storage.Search.SortEntryVector";
 }
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for SortEntryVector {
+    type Item = SortEntry;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &SortEntryVector {
+    type Item = SortEntry;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageFileQueryResult(windows_core::IUnknown);

@@ -3814,6 +3814,22 @@ impl windows_core::RuntimeName for VpnPacketBufferList {
 unsafe impl Send for VpnPacketBufferList {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for VpnPacketBufferList {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for VpnPacketBufferList {
+    type Item = VpnPacketBuffer;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &VpnPacketBufferList {
+    type Item = VpnPacketBuffer;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VpnPickedCredential(windows_core::IUnknown);

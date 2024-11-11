@@ -3076,6 +3076,22 @@ impl windows_core::RuntimeName for ApplicationDataCompositeValue {
 unsafe impl Send for ApplicationDataCompositeValue {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ApplicationDataCompositeValue {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for ApplicationDataCompositeValue {
+    type Item = super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &ApplicationDataCompositeValue {
+    type Item = super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationDataContainer(windows_core::IUnknown);
@@ -3238,6 +3254,22 @@ impl windows_core::RuntimeName for ApplicationDataContainerSettings {
 unsafe impl Send for ApplicationDataContainerSettings {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ApplicationDataContainerSettings {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for ApplicationDataContainerSettings {
+    type Item = super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &ApplicationDataContainerSettings {
+    type Item = super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 pub struct CachedFileManager;
 impl CachedFileManager {
     #[cfg(feature = "Storage_Streams")]

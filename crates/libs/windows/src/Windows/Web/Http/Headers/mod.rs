@@ -1015,6 +1015,22 @@ impl windows_core::RuntimeName for HttpCacheDirectiveHeaderValueCollection {
 unsafe impl Send for HttpCacheDirectiveHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpCacheDirectiveHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpCacheDirectiveHeaderValueCollection {
+    type Item = HttpNameValueHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpCacheDirectiveHeaderValueCollection {
+    type Item = HttpNameValueHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpChallengeHeaderValue(windows_core::IUnknown);
@@ -1225,6 +1241,22 @@ impl windows_core::RuntimeName for HttpChallengeHeaderValueCollection {
 unsafe impl Send for HttpChallengeHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpChallengeHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpChallengeHeaderValueCollection {
+    type Item = HttpChallengeHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpChallengeHeaderValueCollection {
+    type Item = HttpChallengeHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpConnectionOptionHeaderValue(windows_core::IUnknown);
@@ -1414,6 +1446,22 @@ impl windows_core::RuntimeName for HttpConnectionOptionHeaderValueCollection {
 unsafe impl Send for HttpConnectionOptionHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpConnectionOptionHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpConnectionOptionHeaderValueCollection {
+    type Item = HttpConnectionOptionHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpConnectionOptionHeaderValueCollection {
+    type Item = HttpConnectionOptionHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpContentCodingHeaderValue(windows_core::IUnknown);
@@ -1603,6 +1651,22 @@ impl windows_core::RuntimeName for HttpContentCodingHeaderValueCollection {
 unsafe impl Send for HttpContentCodingHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpContentCodingHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpContentCodingHeaderValueCollection {
+    type Item = HttpContentCodingHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpContentCodingHeaderValueCollection {
+    type Item = HttpContentCodingHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpContentCodingWithQualityHeaderValue(windows_core::IUnknown);
@@ -1805,6 +1869,22 @@ impl windows_core::RuntimeName for HttpContentCodingWithQualityHeaderValueCollec
 unsafe impl Send for HttpContentCodingWithQualityHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpContentCodingWithQualityHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpContentCodingWithQualityHeaderValueCollection {
+    type Item = HttpContentCodingWithQualityHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpContentCodingWithQualityHeaderValueCollection {
+    type Item = HttpContentCodingWithQualityHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpContentDispositionHeaderValue(windows_core::IUnknown);
@@ -2158,6 +2238,22 @@ impl windows_core::RuntimeName for HttpContentHeaderCollection {
 unsafe impl Send for HttpContentHeaderCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpContentHeaderCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpContentHeaderCollection {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpContentHeaderCollection {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpContentRangeHeaderValue(windows_core::IUnknown);
@@ -2460,6 +2556,22 @@ impl windows_core::RuntimeName for HttpCookiePairHeaderValueCollection {
 unsafe impl Send for HttpCookiePairHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpCookiePairHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpCookiePairHeaderValueCollection {
+    type Item = HttpCookiePairHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpCookiePairHeaderValueCollection {
+    type Item = HttpCookiePairHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpCredentialsHeaderValue(windows_core::IUnknown);
@@ -2810,6 +2922,22 @@ impl windows_core::RuntimeName for HttpExpectationHeaderValueCollection {
 unsafe impl Send for HttpExpectationHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpExpectationHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpExpectationHeaderValueCollection {
+    type Item = HttpExpectationHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpExpectationHeaderValueCollection {
+    type Item = HttpExpectationHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2940,6 +3068,22 @@ impl windows_core::RuntimeName for HttpLanguageHeaderValueCollection {
 unsafe impl Send for HttpLanguageHeaderValueCollection {}
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
 unsafe impl Sync for HttpLanguageHeaderValueCollection {}
+#[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+impl IntoIterator for HttpLanguageHeaderValueCollection {
+    type Item = super::super::super::Globalization::Language;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+impl IntoIterator for &HttpLanguageHeaderValueCollection {
+    type Item = super::super::super::Globalization::Language;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpLanguageRangeWithQualityHeaderValue(windows_core::IUnknown);
@@ -3142,6 +3286,22 @@ impl windows_core::RuntimeName for HttpLanguageRangeWithQualityHeaderValueCollec
 unsafe impl Send for HttpLanguageRangeWithQualityHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpLanguageRangeWithQualityHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpLanguageRangeWithQualityHeaderValueCollection {
+    type Item = HttpLanguageRangeWithQualityHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpLanguageRangeWithQualityHeaderValueCollection {
+    type Item = HttpLanguageRangeWithQualityHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpMediaTypeHeaderValue(windows_core::IUnknown);
@@ -3457,6 +3617,22 @@ unsafe impl Send for HttpMediaTypeWithQualityHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpMediaTypeWithQualityHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpMediaTypeWithQualityHeaderValueCollection {
+    type Item = HttpMediaTypeWithQualityHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpMediaTypeWithQualityHeaderValueCollection {
+    type Item = HttpMediaTypeWithQualityHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpMethodHeaderValueCollection(windows_core::IUnknown);
@@ -3586,6 +3762,22 @@ impl windows_core::RuntimeName for HttpMethodHeaderValueCollection {
 unsafe impl Send for HttpMethodHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpMethodHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpMethodHeaderValueCollection {
+    type Item = super::HttpMethod;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpMethodHeaderValueCollection {
+    type Item = super::HttpMethod;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpNameValueHeaderValue(windows_core::IUnknown);
@@ -3937,6 +4129,22 @@ unsafe impl Send for HttpProductInfoHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpProductInfoHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpProductInfoHeaderValueCollection {
+    type Item = HttpProductInfoHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpProductInfoHeaderValueCollection {
+    type Item = HttpProductInfoHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpRequestHeaderCollection(windows_core::IUnknown);
@@ -4232,6 +4440,22 @@ unsafe impl Send for HttpRequestHeaderCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpRequestHeaderCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpRequestHeaderCollection {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpRequestHeaderCollection {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpResponseHeaderCollection(windows_core::IUnknown);
@@ -4433,6 +4657,22 @@ impl windows_core::RuntimeName for HttpResponseHeaderCollection {
 unsafe impl Send for HttpResponseHeaderCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpResponseHeaderCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpResponseHeaderCollection {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpResponseHeaderCollection {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpTransferCodingHeaderValue(windows_core::IUnknown);
@@ -4630,3 +4870,19 @@ impl windows_core::RuntimeName for HttpTransferCodingHeaderValueCollection {
 unsafe impl Send for HttpTransferCodingHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpTransferCodingHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpTransferCodingHeaderValueCollection {
+    type Item = HttpTransferCodingHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpTransferCodingHeaderValueCollection {
+    type Item = HttpTransferCodingHeaderValue;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}

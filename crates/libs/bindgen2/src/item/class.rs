@@ -162,6 +162,36 @@ impl Class {
                 }
             });
 
+            // tODO: same for interfaces?
+            let into_iterator = 
+                self.required_interfaces.iter().find(|interface| TypeName(interface.def.namespace(), interface.def.name()) == TypeName::IIterable).map(|interface| {
+                        let item = interface.generics[0].write(writer);
+                        let namespace = writer.write_namespace("Windows.Foundation.Collections");
+        
+                        Some(quote! {
+                            #cfg
+                            impl IntoIterator for #name {
+                                type Item = #item;
+                                type IntoIter = #namespace IIterator<Self::Item>;
+                            
+                                fn into_iter(self) -> Self::IntoIter {
+                                    IntoIterator::into_iter(&self)
+                                }
+                            }
+                            #cfg
+                            impl IntoIterator for &#name {
+                                type Item = #item;
+                                type IntoIter = #namespace IIterator<Self::Item>;
+                            
+                                fn into_iter(self) -> Self::IntoIter {
+                                    self.First().unwrap()
+                                }
+                            }
+                            
+                        })
+                    });
+                
+
             quote! {
                 #cfg
                 #[repr(transparent)]
@@ -187,6 +217,7 @@ impl Class {
                 }
                 #runtime_name
                 #agile
+                #into_iterator
             }
         } else {
             quote! {

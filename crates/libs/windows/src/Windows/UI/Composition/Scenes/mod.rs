@@ -1023,6 +1023,22 @@ impl windows_core::RuntimeName for SceneComponentCollection {
 unsafe impl Send for SceneComponentCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for SceneComponentCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for SceneComponentCollection {
+    type Item = SceneComponent;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &SceneComponentCollection {
+    type Item = SceneComponent;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneMaterial(windows_core::IUnknown);
@@ -1631,6 +1647,22 @@ impl windows_core::RuntimeName for SceneMeshMaterialAttributeMap {
 unsafe impl Send for SceneMeshMaterialAttributeMap {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for SceneMeshMaterialAttributeMap {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for SceneMeshMaterialAttributeMap {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, SceneAttributeSemantic>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &SceneMeshMaterialAttributeMap {
+    type Item = super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, SceneAttributeSemantic>;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneRendererComponent(windows_core::IUnknown);
@@ -3096,6 +3128,22 @@ impl windows_core::RuntimeName for SceneNodeCollection {
 unsafe impl Send for SceneNodeCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for SceneNodeCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for SceneNodeCollection {
+    type Item = SceneNode;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &SceneNodeCollection {
+    type Item = SceneNode;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneSurfaceMaterialInput(windows_core::IUnknown);

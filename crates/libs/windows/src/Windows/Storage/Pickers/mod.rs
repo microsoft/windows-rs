@@ -332,6 +332,22 @@ impl windows_core::RuntimeName for FileExtensionVector {
 unsafe impl Send for FileExtensionVector {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for FileExtensionVector {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for FileExtensionVector {
+    type Item = windows_core::HSTRING;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &FileExtensionVector {
+    type Item = windows_core::HSTRING;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileOpenPicker(windows_core::IUnknown);
@@ -565,6 +581,22 @@ impl windows_core::RuntimeName for FilePickerFileTypesOrderedMap {
 unsafe impl Send for FilePickerFileTypesOrderedMap {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for FilePickerFileTypesOrderedMap {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for FilePickerFileTypesOrderedMap {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &FilePickerFileTypesOrderedMap {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -632,6 +664,22 @@ impl windows_core::RuntimeName for FilePickerSelectedFilesArray {
 unsafe impl Send for FilePickerSelectedFilesArray {}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 unsafe impl Sync for FilePickerSelectedFilesArray {}
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+impl IntoIterator for FilePickerSelectedFilesArray {
+    type Item = super::StorageFile;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+impl IntoIterator for &FilePickerSelectedFilesArray {
+    type Item = super::StorageFile;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileSavePicker(windows_core::IUnknown);

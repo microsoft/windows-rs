@@ -1638,6 +1638,20 @@ impl windows_core::RuntimeName for PropertySet {
 }
 unsafe impl Send for PropertySet {}
 unsafe impl Sync for PropertySet {}
+impl IntoIterator for PropertySet {
+    type Item = IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+impl IntoIterator for &PropertySet {
+    type Item = IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StringMap(windows_core::IUnknown);
@@ -1728,6 +1742,20 @@ impl windows_core::RuntimeName for StringMap {
 }
 unsafe impl Send for StringMap {}
 unsafe impl Sync for StringMap {}
+impl IntoIterator for StringMap {
+    type Item = IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+impl IntoIterator for &StringMap {
+    type Item = IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ValueSet(windows_core::IUnknown);
@@ -1821,6 +1849,20 @@ impl windows_core::RuntimeName for ValueSet {
 }
 unsafe impl Send for ValueSet {}
 unsafe impl Sync for ValueSet {}
+impl IntoIterator for ValueSet {
+    type Item = IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+impl IntoIterator for &ValueSet {
+    type Item = IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MapChangedEventHandler<K, V>(windows_core::IUnknown, core::marker::PhantomData<K>, core::marker::PhantomData<V>)

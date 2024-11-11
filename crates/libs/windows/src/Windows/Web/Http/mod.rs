@@ -1167,6 +1167,22 @@ impl windows_core::RuntimeName for HttpCookieCollection {
 unsafe impl Send for HttpCookieCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpCookieCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpCookieCollection {
+    type Item = HttpCookie;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpCookieCollection {
+    type Item = HttpCookie;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpCookieManager(windows_core::IUnknown);
@@ -1743,6 +1759,22 @@ unsafe impl Send for HttpMultipartContent {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpMultipartContent {}
 #[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpMultipartContent {
+    type Item = IHttpContent;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpMultipartContent {
+    type Item = IHttpContent;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpMultipartFormDataContent(windows_core::IUnknown);
@@ -1883,6 +1915,22 @@ impl windows_core::RuntimeName for HttpMultipartFormDataContent {
 unsafe impl Send for HttpMultipartFormDataContent {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpMultipartFormDataContent {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for HttpMultipartFormDataContent {
+    type Item = IHttpContent;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &HttpMultipartFormDataContent {
+    type Item = IHttpContent;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpRequestMessage(windows_core::IUnknown);

@@ -3013,6 +3013,22 @@ impl windows_core::RuntimeName for WwwFormUrlDecoder {
 unsafe impl Send for WwwFormUrlDecoder {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for WwwFormUrlDecoder {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for WwwFormUrlDecoder {
+    type Item = IWwwFormUrlDecoderEntry;
+    type IntoIter = Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &WwwFormUrlDecoder {
+    type Item = IWwwFormUrlDecoderEntry;
+    type IntoIter = Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WwwFormUrlDecoderEntry(windows_core::IUnknown);

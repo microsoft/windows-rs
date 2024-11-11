@@ -1804,6 +1804,22 @@ impl windows_core::RuntimeName for MediaPlaybackAudioTrackList {
 unsafe impl Send for MediaPlaybackAudioTrackList {}
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 unsafe impl Sync for MediaPlaybackAudioTrackList {}
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+impl IntoIterator for MediaPlaybackAudioTrackList {
+    type Item = super::Core::AudioTrack;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+impl IntoIterator for &MediaPlaybackAudioTrackList {
+    type Item = super::Core::AudioTrack;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaPlaybackCommandManager(windows_core::IUnknown);
@@ -3617,6 +3633,22 @@ unsafe impl Send for MediaPlaybackTimedMetadataTrackList {}
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 unsafe impl Sync for MediaPlaybackTimedMetadataTrackList {}
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+impl IntoIterator for MediaPlaybackTimedMetadataTrackList {
+    type Item = super::Core::TimedMetadataTrack;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+impl IntoIterator for &MediaPlaybackTimedMetadataTrackList {
+    type Item = super::Core::TimedMetadataTrack;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaPlaybackVideoTrackList(windows_core::IUnknown);
@@ -3708,6 +3740,22 @@ impl windows_core::RuntimeName for MediaPlaybackVideoTrackList {
 unsafe impl Send for MediaPlaybackVideoTrackList {}
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 unsafe impl Sync for MediaPlaybackVideoTrackList {}
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+impl IntoIterator for MediaPlaybackVideoTrackList {
+    type Item = super::Core::VideoTrack;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+impl IntoIterator for &MediaPlaybackVideoTrackList {
+    type Item = super::Core::VideoTrack;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaPlayer(windows_core::IUnknown);
@@ -4630,6 +4678,22 @@ impl windows_core::RuntimeName for PlaybackMediaMarkerSequence {
 unsafe impl Send for PlaybackMediaMarkerSequence {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for PlaybackMediaMarkerSequence {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for PlaybackMediaMarkerSequence {
+    type Item = PlaybackMediaMarker;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &PlaybackMediaMarkerSequence {
+    type Item = PlaybackMediaMarker;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TimedMetadataPresentationModeChangedEventArgs(windows_core::IUnknown);

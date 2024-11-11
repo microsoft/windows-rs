@@ -530,6 +530,22 @@ impl windows_core::RuntimeName for JsonArray {
 unsafe impl Send for JsonArray {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for JsonArray {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for JsonArray {
+    type Item = IJsonValue;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &JsonArray {
+    type Item = IJsonValue;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 pub struct JsonError;
 impl JsonError {
     pub fn GetJsonStatus(hresult: i32) -> windows_core::Result<JsonErrorStatus> {
@@ -811,6 +827,22 @@ impl windows_core::RuntimeName for JsonObject {
 unsafe impl Send for JsonObject {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for JsonObject {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for JsonObject {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, IJsonValue>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &JsonObject {
+    type Item = super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, IJsonValue>;
+    type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct JsonValue(windows_core::IUnknown);

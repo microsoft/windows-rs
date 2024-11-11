@@ -4917,6 +4917,22 @@ unsafe impl Send for XmlNamedNodeMap {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for XmlNamedNodeMap {}
 #[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for XmlNamedNodeMap {
+    type Item = IXmlNode;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &XmlNamedNodeMap {
+    type Item = IXmlNode;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlNodeList(windows_core::IUnknown);
@@ -4997,6 +5013,22 @@ impl windows_core::RuntimeName for XmlNodeList {
 unsafe impl Send for XmlNodeList {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for XmlNodeList {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for XmlNodeList {
+    type Item = IXmlNode;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &XmlNodeList {
+    type Item = IXmlNode;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlProcessingInstruction(windows_core::IUnknown);

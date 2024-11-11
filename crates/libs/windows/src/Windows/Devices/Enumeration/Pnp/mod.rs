@@ -244,6 +244,22 @@ impl windows_core::RuntimeName for PnpObjectCollection {
 unsafe impl Send for PnpObjectCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for PnpObjectCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for PnpObjectCollection {
+    type Item = PnpObject;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IntoIterator for &PnpObjectCollection {
+    type Item = PnpObject;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PnpObjectUpdate(windows_core::IUnknown);
