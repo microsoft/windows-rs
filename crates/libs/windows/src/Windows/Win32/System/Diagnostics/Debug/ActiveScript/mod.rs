@@ -9766,7 +9766,7 @@ impl windows_core::TypeKind for SCRIPT_INVOCATION_CONTEXT_TYPE {
 pub const CDebugDocumentHelper: windows_core::GUID = windows_core::GUID::from_u128(0x83b8bca6_687c_11d0_a405_00aa0060275c);
 pub const DebugHelper: windows_core::GUID = windows_core::GUID::from_u128(0x0bfcc060_8c1d_11d0_accd_00aa0060275c);
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DebugStackFrameDescriptor {
     pub pdsf: core::mem::ManuallyDrop<Option<IDebugStackFrame>>,
     pub dwMin: u32,
@@ -9783,7 +9783,7 @@ impl windows_core::TypeKind for DebugStackFrameDescriptor {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DebugStackFrameDescriptor64 {
     pub pdsf: core::mem::ManuallyDrop<Option<IDebugStackFrame>>,
     pub dwMin: u64,
@@ -9817,7 +9817,7 @@ impl windows_core::TypeKind for JS_NATIVE_FRAME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct JsDebugPropertyInfo {
     pub name: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub r#type: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -9907,7 +9907,7 @@ impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP {
     pub relationshipId: u32,
     pub relationshipInfo: PROFILER_RELATIONSHIP_INFO,
@@ -9922,7 +9922,7 @@ impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_RELATIONSHIP {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub union PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     pub numberValue: f64,
     pub stringValue: windows_core::PCWSTR,
@@ -9940,7 +9940,7 @@ impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     pub count: u32,
     pub elements: [PROFILER_HEAP_OBJECT_RELATIONSHIP; 1],

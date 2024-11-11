@@ -4082,7 +4082,7 @@ impl windows_core::TypeKind for TABLE_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct WABEXTDISPLAY {
     pub cbSize: u32,
     pub lpWABObject: core::mem::ManuallyDrop<Option<IWABObject>>,
@@ -4103,7 +4103,7 @@ impl windows_core::TypeKind for WABEXTDISPLAY {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct WABIMPORTPARAM {
     pub cbSize: u32,
     pub lpAdrBook: core::mem::ManuallyDrop<Option<IAddrBook>>,

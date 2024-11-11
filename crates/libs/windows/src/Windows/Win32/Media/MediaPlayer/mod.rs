@@ -14550,7 +14550,7 @@ impl windows_core::TypeKind for TimedLevel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct WMPContextMenuInfo {
     pub dwID: u32,
     pub bstrMenuText: core::mem::ManuallyDrop<windows_core::BSTR>,

@@ -10461,7 +10461,7 @@ impl windows_core::TypeKind for DWRITE_COLOR_F {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DWRITE_COLOR_GLYPH_RUN {
     pub glyphRun: DWRITE_GLYPH_RUN,
     pub glyphRunDescription: *mut DWRITE_GLYPH_RUN_DESCRIPTION,
@@ -10479,7 +10479,7 @@ impl windows_core::TypeKind for DWRITE_COLOR_GLYPH_RUN {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DWRITE_COLOR_GLYPH_RUN1 {
     pub Base: DWRITE_COLOR_GLYPH_RUN,
     pub glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS,
@@ -10671,7 +10671,7 @@ impl windows_core::TypeKind for DWRITE_GLYPH_OFFSET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DWRITE_GLYPH_RUN {
     pub fontFace: core::mem::ManuallyDrop<Option<IDWriteFontFace>>,
     pub fontEmSize: f32,

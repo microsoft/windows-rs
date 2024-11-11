@@ -12486,7 +12486,7 @@ pub const XMLHTTP60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a
 pub const XMLHTTPRequest: windows_core::GUID = windows_core::GUID::from_u128(0xed8c108e_4349_11d2_91a4_00c04f7969e8);
 pub const XMLSchemaCache60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a07_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct XML_ERROR {
     pub _nLine: u32,
     pub _pchBuf: core::mem::ManuallyDrop<windows_core::BSTR>,

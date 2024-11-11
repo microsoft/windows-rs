@@ -31528,7 +31528,7 @@ impl windows_core::TypeKind for AM_FRAMESTEP_STEP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AM_MPEGSTREAMTYPE {
     pub dwStreamId: u32,
     pub dwReserved: u32,
@@ -31547,7 +31547,7 @@ impl windows_core::TypeKind for AM_MPEGSTREAMTYPE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AM_MPEGSYSTEMTYPE {
     pub dwBitRate: u32,
     pub cStreams: u32,
@@ -33518,7 +33518,7 @@ impl windows_core::TypeKind for EALocationCodeType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct FILTER_INFO {
     pub achName: [u16; 128],
     pub pGraph: core::mem::ManuallyDrop<Option<IFilterGraph>>,
@@ -33740,7 +33740,7 @@ impl windows_core::TypeKind for PID_MAP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PIN_INFO {
     pub pFilter: core::mem::ManuallyDrop<Option<IBaseFilter>>,
     pub dir: PIN_DIRECTION,
@@ -33958,7 +33958,7 @@ impl windows_core::TypeKind for STREAM_ID_MAP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct SmartCardApplication {
     pub ApplicationType: ApplicationTypeType,
     pub ApplicationVersion: u16,
@@ -34117,7 +34117,7 @@ impl windows_core::TypeKind for VMR9AllocationInfo {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VMR9AlphaBitmap {
     pub dwFlags: u32,
     pub hdc: super::super::Graphics::Gdi::HDC,
@@ -34213,7 +34213,7 @@ impl windows_core::TypeKind for VMR9NormalizedRect {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VMR9PresentationInfo {
     pub dwFlags: u32,
     pub lpSurf: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
@@ -34292,7 +34292,7 @@ impl windows_core::TypeKind for VMR9VideoDesc {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VMR9VideoStreamInfo {
     pub pddsVideoSurface: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
     pub dwWidth: u32,
@@ -34339,7 +34339,7 @@ impl windows_core::TypeKind for VMRALLOCATIONINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VMRALPHABITMAP {
     pub dwFlags: u32,
     pub hdc: super::super::Graphics::Gdi::HDC,
@@ -34432,7 +34432,7 @@ impl windows_core::TypeKind for VMRMONITORINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VMRPRESENTATIONINFO {
     pub dwFlags: u32,
     pub lpSurf: core::mem::ManuallyDrop<Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>>,
@@ -34456,7 +34456,7 @@ impl windows_core::TypeKind for VMRPRESENTATIONINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VMRVIDEOSTREAMINFO {
     pub pddsVideoSurface: core::mem::ManuallyDrop<Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>>,
     pub dwWidth: u32,

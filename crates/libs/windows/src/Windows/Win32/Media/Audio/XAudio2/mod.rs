@@ -1747,7 +1747,7 @@ impl windows_core::TypeKind for XAUDIO2_EFFECT_CHAIN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive()]
+#[derive(Clone)]
 pub struct XAUDIO2_EFFECT_DESCRIPTOR {
     pub pEffect: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub InitialState: super::super::super::Foundation::BOOL,
@@ -1803,7 +1803,7 @@ impl windows_core::TypeKind for XAUDIO2_PERFORMANCE_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive()]
+#[derive(Clone)]
 pub struct XAUDIO2_SEND_DESCRIPTOR {
     pub Flags: u32,
     pub pOutputVoice: core::mem::ManuallyDrop<Option<IXAudio2Voice>>,

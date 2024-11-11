@@ -44,6 +44,7 @@ impl windows_core::RuntimeType for ISmsBinaryMessage {
 windows_core::imp::interface_hierarchy!(ISmsBinaryMessage, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(ISmsBinaryMessage, ISmsMessage);
+#[cfg(feature = "deprecated")]
 impl ISmsBinaryMessage {
     #[cfg(feature = "deprecated")]
     pub fn Format(&self) -> windows_core::Result<SmsDataFormat> {
@@ -191,6 +192,7 @@ impl windows_core::RuntimeType for ISmsDevice {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(ISmsDevice, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl ISmsDevice {
     #[cfg(feature = "deprecated")]
     pub fn SendMessageAsync<P0>(&self, message: P0) -> windows_core::Result<SendSmsMessageOperation>
@@ -975,6 +977,7 @@ impl windows_core::RuntimeType for ISmsTextMessage {
 windows_core::imp::interface_hierarchy!(ISmsTextMessage, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(ISmsTextMessage, ISmsMessage);
+#[cfg(feature = "deprecated")]
 impl ISmsTextMessage {
     #[cfg(feature = "deprecated")]
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {

@@ -10904,7 +10904,7 @@ impl windows_core::TypeKind for PUNCTUATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct REOBJECT {
     pub cbStruct: u32,
     pub cp: i32,
@@ -11004,7 +11004,7 @@ impl windows_core::TypeKind for REQRESIZE {
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive()]
+#[derive(Clone)]
 pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub xWidth: i32,
     pub yHeight: i32,
@@ -11028,7 +11028,7 @@ impl windows_core::TypeKind for RICHEDIT_IMAGE_PARAMETERS {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub xWidth: i32,
     pub yHeight: i32,

@@ -6967,7 +6967,7 @@ impl windows_core::TypeKind for MMC_RESTORE_VIEW {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct MMC_SNAPIN_PROPERTY {
     pub pszPropName: windows_core::PCWSTR,
     pub varValue: super::Variant::VARIANT,
@@ -7187,7 +7187,7 @@ impl windows_core::TypeKind for RESULTFINDINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub struct RESULT_VIEW_TYPE_INFO {
     pub pstrPersistableViewDescription: windows_core::PWSTR,
     pub eViewType: MMC_VIEW_TYPE,
@@ -7203,7 +7203,7 @@ impl windows_core::TypeKind for RESULT_VIEW_TYPE_INFO {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub union RESULT_VIEW_TYPE_INFO_0 {
     pub dwListOptions: u32,
     pub Anonymous1: RESULT_VIEW_TYPE_INFO_0_0,
@@ -7232,7 +7232,7 @@ impl windows_core::TypeKind for RESULT_VIEW_TYPE_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct RESULT_VIEW_TYPE_INFO_0_1 {
     pub dwOCXOptions: u32,
     pub pUnkControl: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
@@ -7283,7 +7283,7 @@ impl windows_core::TypeKind for SColumnSetID {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct SMMCDataObjects {
     pub count: u32,
     pub lpDataObject: [core::mem::ManuallyDrop<Option<super::Com::IDataObject>>; 1],

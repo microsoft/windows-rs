@@ -10208,7 +10208,7 @@ impl windows_core::TypeKind for PM_APPTASKTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_BSATASKID {
     pub ProductID: windows_core::GUID,
     pub TaskID: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -10222,7 +10222,7 @@ impl windows_core::TypeKind for PM_BSATASKID {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_BWTASKID {
     pub ProductID: windows_core::GUID,
     pub TaskID: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -10236,7 +10236,7 @@ impl windows_core::TypeKind for PM_BWTASKID {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub struct PM_ENUM_FILTER {
     pub FilterType: i32,
     pub FilterParameter: PM_ENUM_FILTER_0,
@@ -10250,7 +10250,7 @@ impl windows_core::TypeKind for PM_ENUM_FILTER {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub union PM_ENUM_FILTER_0 {
     pub Dummy: i32,
     pub Genre: PM_APP_GENRE,
@@ -10279,7 +10279,7 @@ impl windows_core::TypeKind for PM_ENUM_FILTER_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_EXTENSIONCONSUMER {
     pub ConsumerPID: windows_core::GUID,
     pub ExtensionID: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -10293,7 +10293,7 @@ impl windows_core::TypeKind for PM_EXTENSIONCONSUMER {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_INSTALLINFO {
     pub ProductID: windows_core::GUID,
     pub PackagePath: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -10314,7 +10314,7 @@ impl windows_core::TypeKind for PM_INSTALLINFO {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_INVOCATIONINFO {
     pub URIBaseOrAUMID: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub URIFragmentOrArgs: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -10328,7 +10328,7 @@ impl windows_core::TypeKind for PM_INVOCATIONINFO {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_STARTAPPBLOB {
     pub cbSize: u32,
     pub ProductID: windows_core::GUID,
@@ -10351,7 +10351,7 @@ impl windows_core::TypeKind for PM_STARTAPPBLOB {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_STARTTILEBLOB {
     pub cbSize: u32,
     pub ProductID: windows_core::GUID,
@@ -10376,7 +10376,7 @@ impl windows_core::TypeKind for PM_STARTTILEBLOB {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_UPDATEINFO {
     pub ProductID: windows_core::GUID,
     pub PackagePath: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -10395,7 +10395,7 @@ impl windows_core::TypeKind for PM_UPDATEINFO {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PM_UPDATEINFO_LEGACY {
     pub ProductID: windows_core::GUID,
     pub PackagePath: core::mem::ManuallyDrop<windows_core::BSTR>,

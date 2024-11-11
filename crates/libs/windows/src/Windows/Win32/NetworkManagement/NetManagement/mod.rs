@@ -6918,7 +6918,7 @@ impl windows_core::TypeKind for NET_VALIDATE_PERSISTED_FIELDS {
 }
 pub const NetProvisioning: windows_core::GUID = windows_core::GUID::from_u128(0x2aa2b5fe_b846_4d07_810c_b21ee45320e3);
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct OBO_TOKEN {
     pub Type: OBO_TOKEN_TYPE,
     pub pncc: core::mem::ManuallyDrop<Option<INetCfgComponent>>,

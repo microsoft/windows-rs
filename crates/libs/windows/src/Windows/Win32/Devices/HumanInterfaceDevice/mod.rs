@@ -5673,7 +5673,7 @@ impl windows_core::TypeKind for DICONDITION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DICONFIGUREDEVICESPARAMSA {
     pub dwSize: u32,
     pub dwcUsers: u32,
@@ -5693,7 +5693,7 @@ impl windows_core::TypeKind for DICONFIGUREDEVICESPARAMSA {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DICONFIGUREDEVICESPARAMSW {
     pub dwSize: u32,
     pub dwcUsers: u32,

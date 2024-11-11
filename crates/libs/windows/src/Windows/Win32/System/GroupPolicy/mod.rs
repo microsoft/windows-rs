@@ -8275,7 +8275,7 @@ impl windows_core::TypeKind for POLICYSETTINGSTATUSINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct RSOP_TARGET {
     pub pwszAccountName: windows_core::PWSTR,
     pub pwszNewSOM: windows_core::PWSTR,

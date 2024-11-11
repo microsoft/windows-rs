@@ -644,7 +644,7 @@ impl windows_core::TypeKind for CALLFRAMEPARAMINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct CALLFRAME_MARSHALCONTEXT {
     pub fIn: super::super::super::Foundation::BOOLEAN,
     pub dwDestContext: u32,

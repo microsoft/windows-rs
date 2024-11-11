@@ -4384,7 +4384,7 @@ impl windows_core::TypeKind for WIAVIDEO_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DEVICEDIALOGDATA {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -4403,7 +4403,7 @@ impl windows_core::TypeKind for DEVICEDIALOGDATA {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DEVICEDIALOGDATA2 {
     pub cbSize: u32,
     pub pIWiaItemRoot: core::mem::ManuallyDrop<Option<IWiaItem2>>,
@@ -4424,7 +4424,7 @@ impl windows_core::TypeKind for DEVICEDIALOGDATA2 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MINIDRV_TRANSFER_CONTEXT {
     pub lSize: i32,
     pub lWidthInPixels: i32,
@@ -4583,7 +4583,7 @@ impl windows_core::TypeKind for VAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub struct WIAS_CHANGED_VALUE_INFO {
     pub bChanged: super::super::Foundation::BOOL,
     pub vt: i32,
@@ -4599,7 +4599,7 @@ impl windows_core::TypeKind for WIAS_CHANGED_VALUE_INFO {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub union WIAS_CHANGED_VALUE_INFO_1 {
     pub lVal: i32,
     pub fltVal: f32,
@@ -4615,7 +4615,7 @@ impl windows_core::TypeKind for WIAS_CHANGED_VALUE_INFO_1 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub union WIAS_CHANGED_VALUE_INFO_0 {
     pub lVal: i32,
     pub fltVal: f32,
@@ -4757,7 +4757,7 @@ impl windows_core::TypeKind for WIA_DATA_TRANSFER_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct WIA_DEV_CAP {
     pub guid: windows_core::GUID,
     pub ulFlags: u32,
@@ -4792,7 +4792,7 @@ impl windows_core::TypeKind for WIA_DEV_CAP_DRV {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct WIA_DITHER_PATTERN_DATA {
     pub lSize: i32,
     pub bstrPatternName: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -4922,7 +4922,7 @@ impl windows_core::TypeKind for WIA_PROPERTY_CONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive()]
+#[derive(Clone)]
 pub struct WIA_PROPERTY_INFO {
     pub lAccessFlags: u32,
     pub vt: super::super::System::Variant::VARENUM,
@@ -4940,7 +4940,7 @@ impl windows_core::TypeKind for WIA_PROPERTY_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive()]
+#[derive(Clone)]
 pub union WIA_PROPERTY_INFO_0 {
     pub Range: WIA_PROPERTY_INFO_0_0,
     pub RangeFloat: WIA_PROPERTY_INFO_0_1,
@@ -4980,7 +4980,7 @@ impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_6 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_5 {
     pub cNumList: i32,
     pub Nom: core::mem::ManuallyDrop<windows_core::BSTR>,

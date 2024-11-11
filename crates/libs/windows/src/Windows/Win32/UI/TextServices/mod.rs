@@ -13403,7 +13403,7 @@ impl windows_core::TypeKind for TF_DISPLAYATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct TF_HALTCOND {
     pub pHaltRange: core::mem::ManuallyDrop<Option<ITfRange>>,
     pub aHaltPos: TfAnchor,
@@ -13476,7 +13476,7 @@ impl windows_core::TypeKind for TF_LANGUAGEPROFILE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct TF_LBBALLOONINFO {
     pub style: TfLBBalloonStyle,
     pub bstrText: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -13490,7 +13490,7 @@ impl windows_core::TypeKind for TF_LBBALLOONINFO {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub struct TF_LMLATTELEMENT {
     pub dwFrameStart: u32,
     pub dwFrameLen: u32,
@@ -13553,7 +13553,7 @@ impl windows_core::TypeKind for TF_PRESERVEDKEY {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct TF_PROPERTYVAL {
     pub guidId: windows_core::GUID,
     pub varValue: super::super::System::Variant::VARIANT,
@@ -13569,7 +13569,7 @@ impl windows_core::TypeKind for TF_PROPERTYVAL {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct TF_SELECTION {
     pub range: core::mem::ManuallyDrop<Option<ITfRange>>,
     pub style: TF_SELECTIONSTYLE,
@@ -13598,7 +13598,7 @@ impl windows_core::TypeKind for TF_SELECTIONSTYLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct TS_ATTRVAL {
     pub idAttr: windows_core::GUID,
     pub dwOverlapId: u32,
@@ -13658,7 +13658,7 @@ impl windows_core::TypeKind for TS_SELECTION_ACP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct TS_SELECTION_ANCHOR {
     pub paStart: core::mem::ManuallyDrop<Option<IAnchor>>,
     pub paEnd: core::mem::ManuallyDrop<Option<IAnchor>>,

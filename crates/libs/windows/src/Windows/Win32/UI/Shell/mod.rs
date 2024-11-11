@@ -51214,7 +51214,7 @@ pub const ApplicationDocumentLists: windows_core::GUID = windows_core::GUID::fro
 pub const AttachmentServices: windows_core::GUID = windows_core::GUID::from_u128(0x4125dd96_e03a_4103_8f70_e0597d803b9c);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct BANDINFOSFB {
     pub dwMask: u32,
     pub dwStateMask: u32,
@@ -51269,7 +51269,7 @@ impl windows_core::TypeKind for BANNER_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct BASEBROWSERDATALH {
     pub _hwnd: super::super::Foundation::HWND,
     pub _ptl: core::mem::ManuallyDrop<Option<ITravelLog>>,
@@ -51311,7 +51311,7 @@ impl windows_core::TypeKind for BASEBROWSERDATALH {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct BASEBROWSERDATAXP {
     pub _hwnd: super::super::Foundation::HWND,
     pub _ptl: core::mem::ManuallyDrop<Option<ITravelLog>>,
@@ -51537,7 +51537,7 @@ impl windows_core::TypeKind for CM_COLUMNINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct CONFIRM_CONFLICT_ITEM {
     pub pShellItem: core::mem::ManuallyDrop<Option<IShellItem2>>,
     pub pszOriginalName: windows_core::PWSTR,
@@ -51618,7 +51618,7 @@ impl windows_core::TypeKind for CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct CSFV {
     pub cbSize: u32,
     pub pshf: core::mem::ManuallyDrop<Option<IShellFolder>>,
@@ -51656,7 +51656,7 @@ impl windows_core::TypeKind for DATABLOCK_HEADER {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DEFCONTEXTMENU {
     pub hwnd: super::super::Foundation::HWND,
     pub pcmcb: core::mem::ManuallyDrop<Option<IContextMenuCB>>,
@@ -51735,7 +51735,7 @@ impl windows_core::TypeKind for DETAILSINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DFMICS {
     pub cbSize: u32,
     pub fMask: u32,
@@ -52673,7 +52673,7 @@ impl windows_core::TypeKind for NRESARRAY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct NSTCCUSTOMDRAW {
     pub psi: core::mem::ManuallyDrop<Option<IShellItem>>,
     pub uItemState: u32,
@@ -53096,7 +53096,7 @@ impl windows_core::TypeKind for SFVM_PROPPAGE_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ole")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct SFV_CREATE {
     pub cbSize: u32,
     pub pshf: core::mem::ManuallyDrop<Option<IShellFolder>>,
@@ -53131,7 +53131,7 @@ impl windows_core::TypeKind for SFV_SETITEMPOS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive()]
+#[derive(Clone)]
 pub struct SHARDAPPIDINFO {
     pub psi: core::mem::ManuallyDrop<Option<IShellItem>>,
     pub pszAppID: windows_core::PCWSTR,
@@ -53162,7 +53162,7 @@ impl windows_core::TypeKind for SHARDAPPIDINFOIDLIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive()]
+#[derive(Clone)]
 pub struct SHARDAPPIDINFOLINK {
     pub psl: core::mem::ManuallyDrop<Option<IShellLinkA>>,
     pub pszAppID: windows_core::PCWSTR,
@@ -54075,7 +54075,7 @@ impl windows_core::TypeKind for SMCSHCHANGENOTIFYSTRUCT {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct SMDATA {
     pub dwMask: u32,
     pub dwFlags: u32,
@@ -54135,7 +54135,7 @@ impl windows_core::TypeKind for SORTCOLUMN {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ole")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct SV2CVW2_PARAMS {
     pub cbSize: u32,
     pub psvPrev: core::mem::ManuallyDrop<Option<IShellView>>,
@@ -54322,7 +54322,7 @@ impl windows_core::TypeKind for THUMBBUTTON {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct TOOLBARITEM {
     pub ptbar: core::mem::ManuallyDrop<Option<IDockingWindow>>,
     pub rcBorderTool: super::super::Foundation::RECT,

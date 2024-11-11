@@ -1573,7 +1573,7 @@ impl windows_core::TypeKind for MLOperatorSetId {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive()]
+#[derive(Clone)]
 pub struct WINML_BINDING_DESC {
     pub Name: windows_core::PCWSTR,
     pub BindType: WINML_BINDING_TYPE,
@@ -1591,7 +1591,7 @@ impl windows_core::TypeKind for WINML_BINDING_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive()]
+#[derive(Clone)]
 pub union WINML_BINDING_DESC_0 {
     pub Tensor: WINML_TENSOR_BINDING_DESC,
     pub Sequence: WINML_SEQUENCE_BINDING_DESC,
@@ -1721,7 +1721,7 @@ impl windows_core::TypeKind for WINML_MODEL_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct WINML_RESOURCE_BINDING_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,

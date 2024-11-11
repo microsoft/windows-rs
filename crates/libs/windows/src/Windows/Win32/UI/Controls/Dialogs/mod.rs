@@ -1834,7 +1834,7 @@ impl windows_core::TypeKind for PRINTDLGA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PRINTDLGEXA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1873,7 +1873,7 @@ impl windows_core::TypeKind for PRINTDLGEXA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive()]
+#[derive(Clone)]
 pub struct PRINTDLGEXA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1912,7 +1912,7 @@ impl windows_core::TypeKind for PRINTDLGEXA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PRINTDLGEXW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
@@ -1951,7 +1951,7 @@ impl windows_core::TypeKind for PRINTDLGEXW {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive()]
+#[derive(Clone)]
 pub struct PRINTDLGEXW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,

@@ -7886,7 +7886,7 @@ impl windows_core::TypeKind for AudioClientProperties {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AudioExtensionParams {
     pub AddPageParam: super::super::Foundation::LPARAM,
     pub pEndpoint: core::mem::ManuallyDrop<Option<IMMDevice>>,
@@ -8977,7 +8977,7 @@ impl windows_core::TypeKind for SpatialAudioClientActivationParams {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive()]
+#[derive(Clone)]
 pub struct SpatialAudioHrtfActivationParams {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -9000,7 +9000,7 @@ impl windows_core::TypeKind for SpatialAudioHrtfActivationParams {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C, packed(1))]
-#[derive()]
+#[derive(Clone)]
 pub struct SpatialAudioHrtfActivationParams2 {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -9115,7 +9115,7 @@ impl windows_core::TypeKind for SpatialAudioMetadataItemsInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive()]
+#[derive(Clone)]
 pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -9134,7 +9134,7 @@ impl windows_core::TypeKind for SpatialAudioObjectRenderStreamActivationParams {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C, packed(1))]
-#[derive()]
+#[derive(Clone)]
 pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -9155,7 +9155,7 @@ impl windows_core::TypeKind for SpatialAudioObjectRenderStreamActivationParams2 
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -9180,7 +9180,7 @@ impl windows_core::TypeKind for SpatialAudioObjectRenderStreamForMetadataActivat
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,

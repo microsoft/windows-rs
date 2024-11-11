@@ -6467,7 +6467,7 @@ impl windows_core::TypeKind for DUMP_HEADER64_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq,Clone)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DebugPropertyInfo {
     pub m_dwValidFields: u32,
     pub m_bstrName: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -6596,7 +6596,7 @@ impl windows_core::TypeKind for EXIT_THREAD_DEBUG_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct ExtendedDebugPropertyInfo {
     pub dwValidFields: u32,
     pub pszName: windows_core::PWSTR,

@@ -782,7 +782,7 @@ impl core::ops::Not for VAR_CHANGE_FLAGS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive()]
+#[derive(Clone)]
 pub struct VARIANT {
     pub Anonymous: VARIANT_0,
 }
@@ -798,7 +798,7 @@ impl windows_core::TypeKind for VARIANT {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive()]
+#[derive(Clone)]
 pub union VARIANT_0 {
     pub Anonymous: core::mem::ManuallyDrop<VARIANT_0_0>,
     pub decVal: super::super::Foundation::DECIMAL,
@@ -815,7 +815,7 @@ impl windows_core::TypeKind for VARIANT_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive()]
+#[derive(Clone)]
 pub struct VARIANT_0_0 {
     pub vt: VARENUM,
     pub wReserved1: u16,
@@ -835,7 +835,7 @@ impl windows_core::TypeKind for VARIANT_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive()]
+#[derive(Clone)]
 pub union VARIANT_0_0_0 {
     pub llVal: i64,
     pub lVal: i32,
@@ -896,7 +896,7 @@ impl windows_core::TypeKind for VARIANT_0_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut core::ffi::c_void,
     pub pRecInfo: core::mem::ManuallyDrop<Option<super::Ole::IRecordInfo>>,

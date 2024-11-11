@@ -35019,7 +35019,7 @@ pub const DVB_SATELLITE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID
 pub const DVB_TERRESTRIAL_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x216c62df_6d7f_4e9a_8571_05f14edb766a);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DVR_STREAM_DESC {
     pub Version: u32,
     pub StreamId: u32,

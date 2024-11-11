@@ -483,6 +483,7 @@ impl windows_core::RuntimeType for IStorageFile {
 windows_core::imp::interface_hierarchy!(IStorageFile, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::required_hierarchy!(IStorageFile, IStorageItem, Streams::IRandomAccessStreamReference, Streams::IInputStreamReference);
+#[cfg(feature = "Storage_Streams")]
 impl IStorageFile {
     pub fn FileType(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;

@@ -16424,7 +16424,7 @@ impl windows_core::TypeKind for SPPHRASE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct SPPHRASEALT {
     pub pPhrase: core::mem::ManuallyDrop<Option<ISpPhraseBuilder>>,
     pub ulStartElementInParent: u32,
@@ -16442,7 +16442,7 @@ impl windows_core::TypeKind for SPPHRASEALT {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct SPPHRASEALTREQUEST {
     pub ulStartElement: u32,
     pub cElements: u32,
@@ -16488,7 +16488,7 @@ impl windows_core::TypeKind for SPPHRASEELEMENT {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct SPPHRASEPROPERTY {
     pub pszName: windows_core::PCWSTR,
     pub Anonymous: SPPHRASEPROPERTY_0,
@@ -16648,7 +16648,7 @@ impl windows_core::TypeKind for SPPHRASE_50 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct SPPROPERTYINFO {
     pub pszName: windows_core::PCWSTR,
     pub ulId: u32,
@@ -16718,7 +16718,7 @@ impl windows_core::TypeKind for SPRECOGNIZERSTATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct SPRECORESULTINFO {
     pub cbSize: u32,
     pub eResultType: SPRESULTTYPE,
@@ -16742,7 +16742,7 @@ impl windows_core::TypeKind for SPRECORESULTINFO {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct SPRECORESULTINFOEX {
     pub Base: SPRECORESULTINFO,
     pub ullStreamTimeStart: u64,
@@ -17102,7 +17102,7 @@ impl Default for SPTRANSITIONID {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct SPTRANSITIONPROPERTY {
     pub pszName: windows_core::PCWSTR,
     pub ulId: u32,

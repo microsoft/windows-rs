@@ -5735,7 +5735,7 @@ impl windows_core::TypeKind for D3DHAL_CLIPPEDTRIANGLEFAN {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive()]
+#[derive(Clone)]
 pub struct D3DHAL_CONTEXTCREATEDATA {
     pub Anonymous1: D3DHAL_CONTEXTCREATEDATA_0,
     pub Anonymous2: D3DHAL_CONTEXTCREATEDATA_1,
@@ -5773,7 +5773,7 @@ impl windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive()]
+#[derive(Clone)]
 pub union D3DHAL_CONTEXTCREATEDATA_1 {
     pub lpDDS: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
@@ -5790,7 +5790,7 @@ impl windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive()]
+#[derive(Clone)]
 pub union D3DHAL_CONTEXTCREATEDATA_2 {
     pub lpDDSZ: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
@@ -7242,7 +7242,7 @@ impl windows_core::TypeKind for D3DHAL_GLOBALDRIVERDATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3DHAL_RENDERPRIMITIVEDATA {
     pub dwhContext: usize,
     pub dwOffset: u32,
@@ -7265,7 +7265,7 @@ impl windows_core::TypeKind for D3DHAL_RENDERPRIMITIVEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3DHAL_RENDERSTATEDATA {
     pub dwhContext: usize,
     pub dwOffset: u32,
@@ -7300,7 +7300,7 @@ impl windows_core::TypeKind for D3DHAL_SCENECAPTUREDATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive()]
+#[derive(Clone)]
 pub struct D3DHAL_SETRENDERTARGETDATA {
     pub dwhContext: usize,
     pub Anonymous1: D3DHAL_SETRENDERTARGETDATA_0,
@@ -7319,7 +7319,7 @@ impl windows_core::TypeKind for D3DHAL_SETRENDERTARGETDATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive()]
+#[derive(Clone)]
 pub union D3DHAL_SETRENDERTARGETDATA_0 {
     pub lpDDS: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
@@ -7336,7 +7336,7 @@ impl windows_core::TypeKind for D3DHAL_SETRENDERTARGETDATA_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive()]
+#[derive(Clone)]
 pub union D3DHAL_SETRENDERTARGETDATA_1 {
     pub lpDDSZ: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
@@ -7353,7 +7353,7 @@ impl windows_core::TypeKind for D3DHAL_SETRENDERTARGETDATA_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3DHAL_TEXTURECREATEDATA {
     pub dwhContext: usize,
     pub lpDDS: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,

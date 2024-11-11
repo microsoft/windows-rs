@@ -112,6 +112,8 @@ impl CppStruct {
 
         if writer.config.sys || is_copyable {
             derive.combine(quote! { Copy, Clone, });
+        } else {
+            derive.combine(quote! { Clone, });
         }
 
         if !writer.config.sys && !has_explicit_layout && !has_packing {

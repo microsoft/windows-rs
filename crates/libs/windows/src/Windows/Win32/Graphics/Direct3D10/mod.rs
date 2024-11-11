@@ -7800,7 +7800,7 @@ impl windows_core::TypeKind for D3D10_PASS_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D10_PASS_SHADER_DESC {
     pub pShaderVariable: core::mem::ManuallyDrop<Option<ID3D10EffectShaderVariable>>,
     pub ShaderIndex: u32,

@@ -10578,7 +10578,7 @@ impl windows_core::TypeKind for AUTHENTICATEINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive()]
+#[derive(Clone)]
 pub struct BINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: windows_core::PWSTR,
@@ -10607,7 +10607,7 @@ impl windows_core::TypeKind for BINDINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
     pub lpvardesc: *mut VARDESC,
@@ -10766,7 +10766,7 @@ impl windows_core::TypeKind for COAUTHINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct CONNECTDATA {
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub dwCookie: u32,
@@ -10880,7 +10880,7 @@ impl windows_core::TypeKind for CUSTDATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct CUSTDATAITEM {
     pub guid: windows_core::GUID,
     pub varValue: super::Variant::VARIANT,
@@ -10939,7 +10939,7 @@ impl windows_core::TypeKind for ComCallData {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct ContextProperty {
     pub policyId: windows_core::GUID,
     pub flags: u32,
@@ -11053,7 +11053,7 @@ impl windows_core::TypeKind for ELEMDESC_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct EXCEPINFO {
     pub wCode: u16,
     pub wReserved: u16,
@@ -11105,7 +11105,7 @@ impl windows_core::TypeKind for FLAGGED_WORD_BLOB {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive()]
+#[derive(Clone)]
 pub struct FLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
@@ -11229,7 +11229,7 @@ impl windows_core::TypeKind for IDLDESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct INTERFACEINFO {
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub iid: windows_core::GUID,
@@ -11244,7 +11244,7 @@ impl windows_core::TypeKind for INTERFACEINFO {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MULTI_QI {
     pub pIID: *const windows_core::GUID,
     pub pItf: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
@@ -11424,7 +11424,7 @@ impl windows_core::TypeKind for SOLE_AUTHENTICATION_SERVICE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct STATDATA {
     pub formatetc: FORMATETC,
     pub advf: u32,
@@ -11464,7 +11464,7 @@ impl windows_core::TypeKind for STATSTG {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive()]
+#[derive(Clone)]
 pub struct STGMEDIUM {
     pub tymed: u32,
     pub u: STGMEDIUM_0,
@@ -11482,7 +11482,7 @@ impl windows_core::TypeKind for STGMEDIUM {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive()]
+#[derive(Clone)]
 pub union STGMEDIUM_0 {
     pub hBitmap: super::super::Graphics::Gdi::HBITMAP,
     pub hMetaFilePict: *mut core::ffi::c_void,
@@ -11733,7 +11733,7 @@ impl windows_core::TypeKind for uCLSSPEC_0_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive()]
+#[derive(Clone)]
 pub struct userFLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
@@ -11751,7 +11751,7 @@ impl windows_core::TypeKind for userFLAG_STGMEDIUM {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive()]
+#[derive(Clone)]
 pub struct userSTGMEDIUM {
     pub u: userSTGMEDIUM_0,
     pub pUnkForRelease: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,

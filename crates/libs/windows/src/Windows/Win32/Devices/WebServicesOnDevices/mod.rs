@@ -3820,7 +3820,7 @@ impl windows_core::TypeKind for WSD_ENDPOINT_REFERENCE_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct WSD_EVENT {
     pub Hr: windows_core::HRESULT,
     pub EventType: u32,
@@ -3909,7 +3909,7 @@ impl windows_core::TypeKind for WSD_EVENTING_FILTER_ACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct WSD_HANDLER_CONTEXT {
     pub Handler: PWSD_SOAP_MESSAGE_HANDLER,
     pub PVoid: *mut core::ffi::c_void,
@@ -4423,7 +4423,7 @@ impl windows_core::TypeKind for WSD_SOAP_MESSAGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub hr: windows_core::HRESULT,
     pub eventHandle: super::super::Foundation::HANDLE,

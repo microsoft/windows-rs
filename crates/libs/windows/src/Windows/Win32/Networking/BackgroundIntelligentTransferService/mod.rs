@@ -4028,7 +4028,7 @@ pub const BackgroundCopyManager4_0: windows_core::GUID = windows_core::GUID::fro
 pub const BackgroundCopyManager5_0: windows_core::GUID = windows_core::GUID::from_u128(0x1ecca34c_e88a_44e3_8d6a_8921bde9e452);
 pub const BackgroundCopyQMgr: windows_core::GUID = windows_core::GUID::from_u128(0x69ad4aee_51be_439b_a92c_86ae490e8b30);
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct FILESETINFO {
     pub bstrRemoteFile: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub bstrLocalFile: core::mem::ManuallyDrop<windows_core::BSTR>,

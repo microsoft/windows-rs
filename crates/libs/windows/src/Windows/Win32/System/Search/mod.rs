@@ -19505,7 +19505,7 @@ impl windows_core::TypeKind for DBBINDEXT {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DBBINDING {
     pub iOrdinal: usize,
     pub obValue: usize,
@@ -19538,7 +19538,7 @@ impl windows_core::TypeKind for DBBINDING {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
-#[derive()]
+#[derive(Clone)]
 pub struct DBBINDING {
     pub iOrdinal: usize,
     pub obValue: usize,
@@ -19625,7 +19625,7 @@ impl windows_core::TypeKind for DBCOLUMNACCESS {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct DBCOLUMNDESC {
     pub pwszTypeName: windows_core::PWSTR,
     pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
@@ -19653,7 +19653,7 @@ impl windows_core::TypeKind for DBCOLUMNDESC {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct DBCOLUMNDESC {
     pub pwszTypeName: windows_core::PWSTR,
     pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
@@ -19681,7 +19681,7 @@ impl windows_core::TypeKind for DBCOLUMNDESC {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-#[derive()]
+#[derive(Clone)]
 pub struct DBCOLUMNINFO {
     pub pwszName: windows_core::PWSTR,
     pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
@@ -19708,7 +19708,7 @@ impl windows_core::TypeKind for DBCOLUMNINFO {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-#[derive()]
+#[derive(Clone)]
 pub struct DBCOLUMNINFO {
     pub pwszName: windows_core::PWSTR,
     pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
@@ -19913,7 +19913,7 @@ impl windows_core::TypeKind for DBFAILUREINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DBIMPLICITSESSION {
     pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub piid: *mut windows_core::GUID,
@@ -19931,7 +19931,7 @@ impl windows_core::TypeKind for DBIMPLICITSESSION {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive()]
+#[derive(Clone)]
 pub struct DBIMPLICITSESSION {
     pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub piid: *mut windows_core::GUID,
@@ -20122,7 +20122,7 @@ impl windows_core::TypeKind for DBPARAMBINDINFO {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DBPARAMINFO {
     pub dwFlags: u32,
     pub iOrdinal: usize,
@@ -20148,7 +20148,7 @@ impl windows_core::TypeKind for DBPARAMINFO {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
-#[derive()]
+#[derive(Clone)]
 pub struct DBPARAMINFO {
     pub dwFlags: u32,
     pub iOrdinal: usize,
@@ -20210,7 +20210,7 @@ impl windows_core::TypeKind for DBPARAMS {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct DBPROP {
     pub dwPropertyID: u32,
     pub dwOptions: u32,
@@ -20233,7 +20233,7 @@ impl windows_core::TypeKind for DBPROP {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct DBPROP {
     pub dwPropertyID: u32,
     pub dwOptions: u32,
@@ -20292,7 +20292,7 @@ impl windows_core::TypeKind for DBPROPIDSET {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct DBPROPINFO {
     pub pwszDescription: windows_core::PWSTR,
     pub dwPropertyID: u32,
@@ -20315,7 +20315,7 @@ impl windows_core::TypeKind for DBPROPINFO {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct DBPROPINFO {
     pub pwszDescription: windows_core::PWSTR,
     pub dwPropertyID: u32,
@@ -20612,7 +20612,7 @@ impl windows_core::TypeKind for DB_VARNUMERIC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct DCINFO {
     pub eInfoType: u32,
     pub vData: super::Variant::VARIANT,
@@ -20726,7 +20726,7 @@ impl windows_core::TypeKind for INCREMENTAL_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct ITEMPROP {
     pub variantValue: super::Variant::VARIANT,
     pub pwszName: windows_core::PWSTR,
@@ -20761,7 +20761,7 @@ impl windows_core::TypeKind for ITEM_INFO {
 pub const Interval: windows_core::GUID = windows_core::GUID::from_u128(0xd957171f_4bf9_4de2_bcd5_c70a7ca55836);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct KAGGETDIAG {
     pub ulSize: u32,
     pub vDiagInfo: super::Variant::VARIANT,
@@ -20944,7 +20944,7 @@ impl windows_core::TypeKind for ODBC_VS_ARGS_1 {
 pub const PDPO: windows_core::GUID = windows_core::GUID::from_u128(0xccb4ec60_b9dc_11d1_ac80_00a0c9034873);
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct PROPERTYRESTRICTION {
     pub rel: u32,
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
@@ -21000,7 +21000,7 @@ impl windows_core::TypeKind for RANGECATEGORIZE {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct RESTRICTION {
     pub rt: u32,
     pub weight: u32,
@@ -21018,7 +21018,7 @@ impl windows_core::TypeKind for RESTRICTION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub union RESTRICTION_0 {
     pub ar: NODERESTRICTION,
     pub orRestriction: NODERESTRICTION,
@@ -21042,7 +21042,7 @@ impl windows_core::TypeKind for RESTRICTION_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct RMTPACK {
     pub pISeqStream: core::mem::ManuallyDrop<Option<super::Com::ISequentialStream>>,
     pub cbData: u32,
@@ -21074,7 +21074,7 @@ impl windows_core::TypeKind for RMTPACK {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct RMTPACK {
     pub pISeqStream: core::mem::ManuallyDrop<Option<super::Com::ISequentialStream>>,
     pub cbData: u32,
@@ -21106,7 +21106,7 @@ impl windows_core::TypeKind for RMTPACK {
 pub const RootBinder: windows_core::GUID = windows_core::GUID::from_u128(0xff151822_b0bf_11d1_a80d_000000000000);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct SEARCH_COLUMN_PROPERTIES {
     pub Value: super::Com::StructuredStorage::PROPVARIANT,
     pub lcid: u32,
@@ -21428,7 +21428,7 @@ impl windows_core::TypeKind for SSERRORINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive()]
+#[derive(Clone)]
 pub struct SSVARIANT {
     pub vt: u16,
     pub dwReserved1: u32,
@@ -21447,7 +21447,7 @@ impl windows_core::TypeKind for SSVARIANT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive()]
+#[derive(Clone)]
 pub union SSVARIANT_0 {
     pub bTinyIntVal: u8,
     pub sShortIntVal: i16,
@@ -21478,7 +21478,7 @@ impl windows_core::TypeKind for SSVARIANT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct SSVARIANT_0_4 {
     pub dbobj: DBOBJECT,
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
@@ -21573,7 +21573,7 @@ impl windows_core::TypeKind for SSVARIANT_0_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct SUBSCRIPTIONINFO {
     pub cbSize: u32,
     pub fUpdateFlags: u32,

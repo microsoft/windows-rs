@@ -4203,7 +4203,7 @@ impl windows_core::TypeKind for TunerLockType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct ALLOCATOR_PROPERTIES_EX {
     pub cBuffers: i32,
     pub cbBuffer: i32,
@@ -9002,7 +9002,7 @@ impl windows_core::TypeKind for KSSTREAM_METADATA_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct KSSTREAM_SEGMENT {
     pub KsInterfaceHandler: core::mem::ManuallyDrop<Option<IKsInterfaceHandler>>,
     pub KsDataTypeHandler: core::mem::ManuallyDrop<Option<IKsDataTypeHandler>>,

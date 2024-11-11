@@ -19359,7 +19359,7 @@ impl windows_core::TypeKind for LINETRANSLATEOUTPUT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive()]
+#[derive(Clone)]
 pub struct MSP_EVENT_INFO {
     pub dwSize: u32,
     pub Event: MSP_EVENT,
@@ -19378,7 +19378,7 @@ impl windows_core::TypeKind for MSP_EVENT_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive()]
+#[derive(Clone)]
 pub union MSP_EVENT_INFO_0 {
     pub MSP_ADDRESS_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_0>,
     pub MSP_CALL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_1>,
@@ -19401,7 +19401,7 @@ impl windows_core::TypeKind for MSP_EVENT_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
     pub pTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
@@ -19418,7 +19418,7 @@ impl windows_core::TypeKind for MSP_EVENT_INFO_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MSP_EVENT_INFO_0_5 {
     pub pASRTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrErrorCode: windows_core::HRESULT,
@@ -19435,7 +19435,7 @@ impl windows_core::TypeKind for MSP_EVENT_INFO_0_5 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MSP_EVENT_INFO_0_1 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
@@ -19455,7 +19455,7 @@ impl windows_core::TypeKind for MSP_EVENT_INFO_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MSP_EVENT_INFO_0_4 {
     pub pParentFileTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
     pub pFileTrack: core::mem::ManuallyDrop<Option<ITFileTrack>>,
@@ -19475,7 +19475,7 @@ impl windows_core::TypeKind for MSP_EVENT_INFO_0_4 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MSP_EVENT_INFO_0_3 {
     pub pEvent: core::mem::ManuallyDrop<Option<super::super::System::Com::IDispatch>>,
     pub lEventCode: i32,
@@ -19492,7 +19492,7 @@ impl windows_core::TypeKind for MSP_EVENT_INFO_0_3 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MSP_EVENT_INFO_0_7 {
     pub pToneTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrErrorCode: windows_core::HRESULT,
@@ -19526,7 +19526,7 @@ impl windows_core::TypeKind for MSP_EVENT_INFO_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MSP_EVENT_INFO_0_6 {
     pub pTTSTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrErrorCode: windows_core::HRESULT,

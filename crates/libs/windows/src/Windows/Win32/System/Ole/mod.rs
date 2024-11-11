@@ -13759,7 +13759,7 @@ impl windows_core::TypeKind for CAUUID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct CLEANLOCALSTORAGE {
     pub pInterface: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub pStorage: *mut core::ffi::c_void,
@@ -14127,7 +14127,7 @@ impl windows_core::TypeKind for OLEUICHANGEICONW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct OLEUICHANGESOURCEA {
     pub cbStruct: u32,
     pub dwFlags: CHANGE_SOURCE_FLAGS,
@@ -14159,7 +14159,7 @@ impl windows_core::TypeKind for OLEUICHANGESOURCEA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct OLEUICHANGESOURCEW {
     pub cbStruct: u32,
     pub dwFlags: CHANGE_SOURCE_FLAGS,
@@ -14258,7 +14258,7 @@ impl windows_core::TypeKind for OLEUICONVERTW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct OLEUIEDITLINKSA {
     pub cbStruct: u32,
     pub dwFlags: EDIT_LINKS_FLAGS,
@@ -14280,7 +14280,7 @@ impl windows_core::TypeKind for OLEUIEDITLINKSA {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct OLEUIEDITLINKSW {
     pub cbStruct: u32,
     pub dwFlags: EDIT_LINKS_FLAGS,
@@ -14347,7 +14347,7 @@ impl windows_core::TypeKind for OLEUIGNRLPROPSW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct OLEUIINSERTOBJECTA {
     pub cbStruct: u32,
     pub dwFlags: INSERT_OBJECT_FLAGS,
@@ -14384,7 +14384,7 @@ impl windows_core::TypeKind for OLEUIINSERTOBJECTA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct OLEUIINSERTOBJECTW {
     pub cbStruct: u32,
     pub dwFlags: INSERT_OBJECT_FLAGS,
@@ -14465,7 +14465,7 @@ impl windows_core::TypeKind for OLEUILINKPROPSW {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct OLEUIOBJECTPROPSA {
     pub cbStruct: u32,
     pub dwFlags: OBJECT_PROPERTIES_FLAGS,
@@ -14490,7 +14490,7 @@ impl windows_core::TypeKind for OLEUIOBJECTPROPSA {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct OLEUIOBJECTPROPSW {
     pub cbStruct: u32,
     pub dwFlags: OBJECT_PROPERTIES_FLAGS,
@@ -14555,7 +14555,7 @@ impl windows_core::TypeKind for OLEUIPASTEENTRYW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct OLEUIPASTESPECIALA {
     pub cbStruct: u32,
     pub dwFlags: PASTE_SPECIAL_FLAGS,
@@ -14590,7 +14590,7 @@ impl windows_core::TypeKind for OLEUIPASTESPECIALA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct OLEUIPASTESPECIALW {
     pub cbStruct: u32,
     pub dwFlags: PASTE_SPECIAL_FLAGS,
@@ -14768,7 +14768,7 @@ impl windows_core::TypeKind for PARAMDESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct PARAMDESCEX {
     pub cBytes: u32,
     pub varDefaultValue: super::Variant::VARIANT,
@@ -14921,7 +14921,7 @@ impl windows_core::TypeKind for PROPPAGEINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct QACONTAINER {
     pub cbSize: u32,
     pub pClientSite: core::mem::ManuallyDrop<Option<IOleClientSite>>,
@@ -15119,7 +15119,7 @@ impl windows_core::TypeKind for UDATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct _wireBRECORD {
     pub fFlags: u32,
     pub clSize: u32,
@@ -15157,7 +15157,7 @@ impl windows_core::TypeKind for _wireSAFEARRAY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive()]
+#[derive(Clone)]
 pub struct _wireVARIANT {
     pub clSize: u32,
     pub rpcReserved: u32,
@@ -15179,7 +15179,7 @@ impl windows_core::TypeKind for _wireVARIANT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive()]
+#[derive(Clone)]
 pub union _wireVARIANT_0 {
     pub llVal: i64,
     pub lVal: i32,

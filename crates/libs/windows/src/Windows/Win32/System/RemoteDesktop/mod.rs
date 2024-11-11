@@ -9626,7 +9626,7 @@ impl windows_core::TypeKind for WTS_VIRTUAL_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AAAccountingData {
     pub userName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub clientName: core::mem::ManuallyDrop<windows_core::BSTR>,

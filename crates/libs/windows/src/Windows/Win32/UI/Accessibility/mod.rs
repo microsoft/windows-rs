@@ -18328,7 +18328,7 @@ pub const CUIAutomation: windows_core::GUID = windows_core::GUID::from_u128(0xff
 pub const CUIAutomation8: windows_core::GUID = windows_core::GUID::from_u128(0xe22ad333_b25f_460c_83d0_0581107395c9);
 pub const CUIAutomationRegistrar: windows_core::GUID = windows_core::GUID::from_u128(0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6);
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct ExtendedProperty {
     pub PropertyName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub PropertyValue: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -18709,7 +18709,7 @@ impl windows_core::TypeKind for UIAutomationParameter {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct UIAutomationPatternInfo {
     pub guid: windows_core::GUID,
     pub pProgrammaticName: windows_core::PCWSTR,
@@ -18798,7 +18798,7 @@ impl windows_core::TypeKind for UiaCacheRequest {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct UiaChangeInfo {
     pub uiaId: i32,
     pub payload: super::super::System::Variant::VARIANT,
@@ -18906,7 +18906,7 @@ impl windows_core::TypeKind for UiaPoint {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct UiaPropertyChangedEventArgs {
     pub Type: EventArgsType,
     pub EventId: UIA_EVENT_ID,
@@ -18926,7 +18926,7 @@ impl windows_core::TypeKind for UiaPropertyChangedEventArgs {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct UiaPropertyCondition {
     pub ConditionType: ConditionType,
     pub PropertyId: UIA_PROPERTY_ID,

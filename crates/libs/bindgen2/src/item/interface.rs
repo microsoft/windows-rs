@@ -219,6 +219,7 @@ impl Interface {
 
             if !methods.is_empty() {
                 result.combine(quote! {
+                    #cfg
                     impl<#constraints> #name {
                         #methods
                     }

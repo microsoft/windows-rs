@@ -4033,7 +4033,7 @@ impl windows_core::TypeKind for CODEBASEHOLD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct CONFIRMSAFETY {
     pub clsid: windows_core::GUID,
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
@@ -4097,7 +4097,7 @@ impl windows_core::TypeKind for PROTOCOLDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct PROTOCOLFILTERDATA {
     pub cbSize: u32,
     pub pProtocolSink: core::mem::ManuallyDrop<Option<IInternetProtocolSink>>,
@@ -4143,7 +4143,7 @@ impl windows_core::TypeKind for REMSECURITY_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct RemBINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: windows_core::PWSTR,
@@ -4210,7 +4210,7 @@ impl windows_core::TypeKind for SOFTDISTINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct StartParam {
     pub iid: windows_core::GUID,
     pub pIBindCtx: core::mem::ManuallyDrop<Option<super::IBindCtx>>,

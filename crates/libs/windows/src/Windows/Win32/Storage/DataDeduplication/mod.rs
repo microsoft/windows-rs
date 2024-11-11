@@ -665,7 +665,7 @@ impl windows_core::TypeKind for DedupHash {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DedupStream {
     pub Path: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub Offset: u64,

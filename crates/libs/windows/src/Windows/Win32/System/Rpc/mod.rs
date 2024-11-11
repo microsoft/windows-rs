@@ -4101,7 +4101,7 @@ impl windows_core::TypeKind for MIDL_STUB_DESC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MIDL_STUB_MESSAGE {
     pub RpcMsg: *mut RPC_MESSAGE,
     pub Buffer: *mut u8,
@@ -5325,7 +5325,7 @@ impl windows_core::TypeKind for NDR_SCONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive()]
+#[derive(Clone)]
 pub struct NDR_USER_MARSHAL_INFO {
     pub InformationLevel: u32,
     pub Anonymous: NDR_USER_MARSHAL_INFO_0,
@@ -5342,7 +5342,7 @@ impl windows_core::TypeKind for NDR_USER_MARSHAL_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive()]
+#[derive(Clone)]
 pub union NDR_USER_MARSHAL_INFO_0 {
     pub Level1: core::mem::ManuallyDrop<NDR_USER_MARSHAL_INFO_LEVEL1>,
 }
@@ -5358,7 +5358,7 @@ impl windows_core::TypeKind for NDR_USER_MARSHAL_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct NDR_USER_MARSHAL_INFO_LEVEL1 {
     pub Buffer: *mut core::ffi::c_void,
     pub BufferSize: u32,

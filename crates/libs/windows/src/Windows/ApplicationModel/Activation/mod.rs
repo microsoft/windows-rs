@@ -2729,6 +2729,7 @@ impl windows_core::RuntimeType for IFileOpenPickerContinuationEventArgs {
 windows_core::imp::interface_hierarchy!(IFileOpenPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(IFileOpenPickerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs);
+#[cfg(feature = "deprecated")]
 impl IFileOpenPickerContinuationEventArgs {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
@@ -2962,6 +2963,7 @@ impl windows_core::RuntimeType for IFileSavePickerContinuationEventArgs {
 windows_core::imp::interface_hierarchy!(IFileSavePickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(IFileSavePickerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs);
+#[cfg(feature = "deprecated")]
 impl IFileSavePickerContinuationEventArgs {
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
     pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
@@ -3051,6 +3053,7 @@ impl windows_core::RuntimeType for IFolderPickerContinuationEventArgs {
 windows_core::imp::interface_hierarchy!(IFolderPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(IFolderPickerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs);
+#[cfg(feature = "deprecated")]
 impl IFolderPickerContinuationEventArgs {
     #[cfg(all(feature = "Storage_Search", feature = "deprecated"))]
     pub fn Folder(&self) -> windows_core::Result<super::super::Storage::StorageFolder> {
@@ -4753,6 +4756,7 @@ impl windows_core::RuntimeType for IWalletActionActivatedEventArgs {
 windows_core::imp::interface_hierarchy!(IWalletActionActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(IWalletActionActivatedEventArgs, IActivatedEventArgs);
+#[cfg(feature = "deprecated")]
 impl IWalletActionActivatedEventArgs {
     #[cfg(feature = "deprecated")]
     pub fn ItemId(&self) -> windows_core::Result<windows_core::HSTRING> {

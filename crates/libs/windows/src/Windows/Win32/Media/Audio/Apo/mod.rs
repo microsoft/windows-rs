@@ -1041,7 +1041,7 @@ impl windows_core::TypeKind for APOInitBaseStruct {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct APOInitSystemEffects {
     pub APOInit: APOInitBaseStruct,
     pub pAPOEndpointProperties: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
@@ -1061,7 +1061,7 @@ impl windows_core::TypeKind for APOInitSystemEffects {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct APOInitSystemEffects2 {
     pub APOInit: APOInitBaseStruct,
     pub pAPOEndpointProperties: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
@@ -1085,7 +1085,7 @@ impl windows_core::TypeKind for APOInitSystemEffects2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct APOInitSystemEffects3 {
     pub APOInit: APOInitBaseStruct,
     pub pAPOEndpointProperties: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
@@ -1107,7 +1107,7 @@ impl windows_core::TypeKind for APOInitSystemEffects3 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct APO_CONNECTION_DESCRIPTOR {
     pub Type: APO_CONNECTION_BUFFER_TYPE,
     pub pBuffer: usize,
@@ -1155,7 +1155,7 @@ impl windows_core::TypeKind for APO_CONNECTION_PROPERTY_V2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive()]
+#[derive(Clone)]
 pub struct APO_NOTIFICATION {
     pub r#type: APO_NOTIFICATION_TYPE,
     pub Anonymous: APO_NOTIFICATION_0,
@@ -1172,7 +1172,7 @@ impl windows_core::TypeKind for APO_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive()]
+#[derive(Clone)]
 pub union APO_NOTIFICATION_0 {
     pub audioEndpointVolumeChange: core::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION>,
     pub audioEndpointPropertyChange: core::mem::ManuallyDrop<AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION>,
@@ -1192,7 +1192,7 @@ impl windows_core::TypeKind for APO_NOTIFICATION_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub struct APO_NOTIFICATION_DESCRIPTOR {
     pub r#type: APO_NOTIFICATION_TYPE,
     pub Anonymous: APO_NOTIFICATION_DESCRIPTOR_0,
@@ -1206,7 +1206,7 @@ impl windows_core::TypeKind for APO_NOTIFICATION_DESCRIPTOR {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub union APO_NOTIFICATION_DESCRIPTOR_0 {
     pub audioEndpointVolume: core::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR>,
     pub audioEndpointPropertyChange: core::mem::ManuallyDrop<AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR>,
@@ -1247,7 +1247,7 @@ impl windows_core::TypeKind for APO_REG_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     pub device: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
 }
@@ -1261,7 +1261,7 @@ impl windows_core::TypeKind for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     pub endpoint: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub propertyStore: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
@@ -1278,7 +1278,7 @@ impl windows_core::TypeKind for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
     pub device: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
 }
@@ -1291,7 +1291,7 @@ impl windows_core::TypeKind for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTO
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
     pub endpoint: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub volume: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA,
@@ -1305,7 +1305,7 @@ impl windows_core::TypeKind for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {
     pub endpoint: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub volume: *mut AUDIO_VOLUME_NOTIFICATION_DATA2,
@@ -1319,7 +1319,7 @@ impl windows_core::TypeKind for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR {
     pub device: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
 }
@@ -1332,7 +1332,7 @@ impl windows_core::TypeKind for AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPT
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AUDIO_MICROPHONE_BOOST_NOTIFICATION {
     pub endpoint: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub eventContext: windows_core::GUID,
@@ -1368,7 +1368,7 @@ impl windows_core::TypeKind for AUDIO_SYSTEMEFFECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     pub device: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub propertyStoreContext: windows_core::GUID,
@@ -1383,7 +1383,7 @@ impl windows_core::TypeKind for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICA
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     pub endpoint: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub propertyStoreContext: windows_core::GUID,
@@ -1423,7 +1423,7 @@ impl windows_core::TypeKind for AUDIO_VOLUME_NOTIFICATION_DATA2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AudioFXExtensionParams {
     pub AddPageParam: super::super::super::Foundation::LPARAM,
     pub pwstrEndpointID: windows_core::PWSTR,

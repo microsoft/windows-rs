@@ -6975,7 +6975,7 @@ impl windows_core::TypeKind for APPX_ENCRYPTED_EXEMPTIONS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
     pub encryptionAlgorithm: windows_core::PCWSTR,
@@ -6994,7 +6994,7 @@ impl windows_core::TypeKind for APPX_ENCRYPTED_PACKAGE_SETTINGS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub keyLength: u32,
     pub encryptionAlgorithm: windows_core::PCWSTR,
@@ -7029,7 +7029,7 @@ impl windows_core::TypeKind for APPX_KEY_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: super::super::super::Foundation::BOOL,
     pub hashMethod: core::mem::ManuallyDrop<Option<super::super::super::System::Com::IUri>>,
@@ -7046,7 +7046,7 @@ impl windows_core::TypeKind for APPX_PACKAGE_SETTINGS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     pub inputStream: core::mem::ManuallyDrop<Option<super::super::super::System::Com::IStream>>,
     pub fileName: windows_core::PCWSTR,

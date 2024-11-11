@@ -7017,7 +7017,7 @@ impl windows_core::TypeKind for VDS_ADVANCEDDISK_PROP_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub struct VDS_ASYNC_OUTPUT {
     pub r#type: VDS_ASYNC_OUTPUT_TYPE,
     pub Anonymous: VDS_ASYNC_OUTPUT_0,
@@ -7031,7 +7031,7 @@ impl windows_core::TypeKind for VDS_ASYNC_OUTPUT {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub union VDS_ASYNC_OUTPUT_0 {
     pub cp: VDS_ASYNC_OUTPUT_0_0,
     pub cv: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_1>,
@@ -7051,7 +7051,7 @@ impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_2 {
     pub pVolumeUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
@@ -7064,7 +7064,7 @@ impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_2 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_4 {
     pub pLunUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
@@ -7091,7 +7091,7 @@ impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_6 {
     pub pPortalGroupUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
@@ -7104,7 +7104,7 @@ impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_6 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_5 {
     pub pTargetUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
@@ -7117,7 +7117,7 @@ impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_5 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_1 {
     pub pVolumeUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
@@ -7130,7 +7130,7 @@ impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_1 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_7 {
     pub pVDiskUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }

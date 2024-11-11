@@ -2884,7 +2884,7 @@ impl windows_core::TypeKind for PROPSPEC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive()]
+#[derive(Clone)]
 pub struct PROPVARIANT {
     pub Anonymous: PROPVARIANT_0,
 }
@@ -2900,7 +2900,7 @@ impl windows_core::TypeKind for PROPVARIANT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive()]
+#[derive(Clone)]
 pub union PROPVARIANT_0 {
     pub Anonymous: core::mem::ManuallyDrop<PROPVARIANT_0_0>,
     pub decVal: super::super::super::Foundation::DECIMAL,
@@ -2917,7 +2917,7 @@ impl windows_core::TypeKind for PROPVARIANT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive()]
+#[derive(Clone)]
 pub struct PROPVARIANT_0_0 {
     pub vt: super::super::Variant::VARENUM,
     pub wReserved1: u16,
@@ -2937,7 +2937,7 @@ impl windows_core::TypeKind for PROPVARIANT_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive()]
+#[derive(Clone)]
 pub union PROPVARIANT_0_0_0 {
     pub cVal: i8,
     pub bVal: u8,
@@ -3106,7 +3106,7 @@ impl windows_core::TypeKind for STGOPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: windows_core::GUID,
     pub pStream: core::mem::ManuallyDrop<Option<super::IStream>>,

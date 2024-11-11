@@ -11846,7 +11846,7 @@ impl windows_core::TypeKind for SWbemAnalysisMatrixList {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct SWbemAssocQueryInf {
     pub m_uVersion: u32,
     pub m_uAnalysisType: u32,

@@ -12637,7 +12637,7 @@ impl windows_core::TypeKind for MQPRIVATEPROPS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct MQPROPERTYRESTRICTION {
     pub rel: u32,
     pub prop: u32,

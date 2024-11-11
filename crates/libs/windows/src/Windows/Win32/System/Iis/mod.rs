@@ -2455,7 +2455,7 @@ impl windows_core::TypeKind for CERT_CONTEXT_EX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct CONFIGURATION_ENTRY {
     pub bstrKey: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub bstrValue: core::mem::ManuallyDrop<windows_core::BSTR>,

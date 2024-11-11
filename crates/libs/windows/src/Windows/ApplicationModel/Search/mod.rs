@@ -139,6 +139,7 @@ impl windows_core::RuntimeType for ISearchPaneQueryChangedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(ISearchPaneQueryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl ISearchPaneQueryChangedEventArgs {
     #[cfg(feature = "deprecated")]
     pub fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING> {

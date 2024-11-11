@@ -10185,7 +10185,7 @@ impl windows_core::TypeKind for WMSCRIPTFORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct WMT_BUFFER_SEGMENT {
     pub pBuffer: core::mem::ManuallyDrop<Option<INSSBuffer>>,
     pub cbOffset: u32,
@@ -10215,7 +10215,7 @@ impl windows_core::TypeKind for WMT_COLORSPACEINFO_EXTENSION_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct WMT_FILESINK_DATA_UNIT {
     pub packetHeaderBuffer: WMT_BUFFER_SEGMENT,
     pub cPayloads: u32,
@@ -10232,7 +10232,7 @@ impl windows_core::TypeKind for WMT_FILESINK_DATA_UNIT {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct WMT_PAYLOAD_FRAGMENT {
     pub dwPayloadIndex: u32,
     pub segmentData: WMT_BUFFER_SEGMENT,
@@ -10489,7 +10489,7 @@ impl windows_core::TypeKind for WM_LEAKY_BUCKET_PAIR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct WM_MEDIA_TYPE {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,

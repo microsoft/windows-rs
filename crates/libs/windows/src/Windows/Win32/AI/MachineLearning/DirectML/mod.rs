@@ -1574,7 +1574,7 @@ impl windows_core::TypeKind for DML_BINDING_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DML_BINDING_TABLE_DESC {
     pub Dispatchable: core::mem::ManuallyDrop<Option<IDMLDispatchable>>,
     pub CPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_CPU_DESCRIPTOR_HANDLE,
@@ -1610,7 +1610,7 @@ impl windows_core::TypeKind for DML_BUFFER_ARRAY_BINDING {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DML_BUFFER_BINDING {
     pub Buffer: core::mem::ManuallyDrop<Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Offset: u64,
@@ -3347,7 +3347,7 @@ impl windows_core::TypeKind for DML_OPERATOR_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DML_OPERATOR_GRAPH_NODE_DESC {
     pub Operator: core::mem::ManuallyDrop<Option<IDMLOperator>>,
     pub Name: windows_core::PCSTR,

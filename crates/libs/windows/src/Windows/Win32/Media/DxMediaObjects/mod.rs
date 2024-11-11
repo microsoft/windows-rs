@@ -767,7 +767,7 @@ impl windows_core::TypeKind for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DMO_MEDIA_TYPE {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,
@@ -788,7 +788,7 @@ impl windows_core::TypeKind for DMO_MEDIA_TYPE {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DMO_OUTPUT_DATA_BUFFER {
     pub pBuffer: core::mem::ManuallyDrop<Option<IMediaBuffer>>,
     pub dwStatus: u32,

@@ -5375,7 +5375,7 @@ impl windows_core::TypeKind for WMDM_PROP_CONFIG {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct WMDM_PROP_DESC {
     pub pwszPropName: windows_core::PWSTR,
     pub ValidValuesForm: WMDM_ENUM_PROP_VALID_VALUES_FORM,
@@ -5393,7 +5393,7 @@ impl windows_core::TypeKind for WMDM_PROP_DESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub union WMDM_PROP_DESC_0 {
     pub ValidValuesRange: core::mem::ManuallyDrop<WMDM_PROP_VALUES_RANGE>,
     pub EnumeratedValidValues: WMDM_PROP_VALUES_ENUM,
@@ -5427,7 +5427,7 @@ impl windows_core::TypeKind for WMDM_PROP_VALUES_ENUM {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive()]
+#[derive(Clone)]
 pub struct WMDM_PROP_VALUES_RANGE {
     pub rangeMin: super::super::System::Com::StructuredStorage::PROPVARIANT,
     pub rangeMax: super::super::System::Com::StructuredStorage::PROPVARIANT,

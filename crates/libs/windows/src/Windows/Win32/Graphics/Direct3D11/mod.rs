@@ -15820,7 +15820,7 @@ impl windows_core::TypeKind for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
     pub pCryptoSession: core::mem::ManuallyDrop<Option<ID3D11CryptoSession>>,
     pub BlobSize: u32,
@@ -16178,7 +16178,7 @@ impl windows_core::TypeKind for D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_STREAM {
     pub Enable: super::super::Foundation::BOOL,
     pub OutputIndex: u32,

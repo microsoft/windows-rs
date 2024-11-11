@@ -81,7 +81,7 @@ impl IDirect3DDevice9On12_Vtbl {
 impl windows_core::RuntimeName for IDirect3DDevice9On12 {}
 pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D9ON12_ARGS {
     pub Enable9On12: super::super::Foundation::BOOL,
     pub pD3D12Device: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,

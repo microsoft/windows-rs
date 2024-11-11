@@ -5247,7 +5247,7 @@ impl windows_core::TypeKind for DDARGB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DDBLTBATCH {
     pub lprDest: *mut super::super::Foundation::RECT,
     pub lpDDSSrc: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
@@ -5264,7 +5264,7 @@ impl windows_core::TypeKind for DDBLTBATCH {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub struct DDBLTFX {
     pub dwSize: u32,
     pub dwDDFX: u32,
@@ -5299,7 +5299,7 @@ impl windows_core::TypeKind for DDBLTFX {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub union DDBLTFX_0 {
     pub dwZDestConst: u32,
     pub lpDDSZBufferDest: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
@@ -5313,7 +5313,7 @@ impl windows_core::TypeKind for DDBLTFX_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub union DDBLTFX_1 {
     pub dwZSrcConst: u32,
     pub lpDDSZBufferSrc: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
@@ -5327,7 +5327,7 @@ impl windows_core::TypeKind for DDBLTFX_1 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub union DDBLTFX_2 {
     pub dwAlphaDestConst: u32,
     pub lpDDSAlphaDest: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
@@ -5341,7 +5341,7 @@ impl windows_core::TypeKind for DDBLTFX_2 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub union DDBLTFX_3 {
     pub dwAlphaSrcConst: u32,
     pub lpDDSAlphaSrc: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
@@ -5355,7 +5355,7 @@ impl windows_core::TypeKind for DDBLTFX_3 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub union DDBLTFX_4 {
     pub dwFillColor: u32,
     pub dwFillDepth: u32,
@@ -6147,7 +6147,7 @@ impl windows_core::TypeKind for DDHAL_BEGINMOCOMPFRAMEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive()]
+#[derive(Clone)]
 pub struct DDHAL_BLTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDDestSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
@@ -7552,7 +7552,7 @@ impl windows_core::TypeKind for DDHAL_UPDATENONLOCALHEAPDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive()]
+#[derive(Clone)]
 pub struct DDHAL_UPDATEOVERLAYDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDDestSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
@@ -7946,7 +7946,7 @@ impl windows_core::TypeKind for DDOSCAPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub struct DDOVERLAYFX {
     pub dwSize: u32,
     pub dwAlphaEdgeBlendBitDepth: u32,
@@ -7970,7 +7970,7 @@ impl windows_core::TypeKind for DDOVERLAYFX {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub union DDOVERLAYFX_0 {
     pub dwAlphaDestConst: u32,
     pub lpDDSAlphaDest: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
@@ -7984,7 +7984,7 @@ impl windows_core::TypeKind for DDOVERLAYFX_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub union DDOVERLAYFX_1 {
     pub dwAlphaSrcConst: u32,
     pub lpDDSAlphaSrc: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
@@ -8210,7 +8210,7 @@ impl windows_core::TypeKind for DDRAWI_DDRAWCLIPPER_INT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DDRAWI_DDRAWCLIPPER_LCL {
     pub lpClipMore: u32,
     pub lpGbl: *mut DDRAWI_DDRAWCLIPPER_GBL,
@@ -8294,7 +8294,7 @@ impl windows_core::TypeKind for DDRAWI_DDRAWPALETTE_INT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DDRAWI_DDRAWPALETTE_LCL {
     pub lpPalMore: u32,
     pub lpGbl: *mut DDRAWI_DDRAWPALETTE_GBL,
@@ -8762,7 +8762,7 @@ impl windows_core::TypeKind for DDRAWI_DIRECTDRAW_INT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DDRAWI_DIRECTDRAW_LCL {
     pub lpDDMore: u32,
     pub lpGbl: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -9411,7 +9411,7 @@ impl windows_core::TypeKind for DD_BEGINMOCOMPFRAMEDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub struct DD_BLTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDDestSurface: *mut DD_SURFACE_LOCAL,
@@ -10972,7 +10972,7 @@ impl windows_core::TypeKind for DD_UPDATENONLOCALHEAPDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub struct DD_UPDATEOVERLAYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDDestSurface: *mut DD_SURFACE_LOCAL,
@@ -11218,7 +11218,7 @@ impl windows_core::TypeKind for HEAPALIGNMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct IUNKNOWN_LIST {
     pub lpLink: *mut IUNKNOWN_LIST,
     pub lpGuid: *mut windows_core::GUID,

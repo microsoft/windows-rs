@@ -12125,7 +12125,7 @@ impl windows_core::TypeKind for INVOC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct ImgErrorInfo {
     pub description: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub guid: windows_core::GUID,

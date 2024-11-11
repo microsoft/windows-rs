@@ -13206,7 +13206,7 @@ impl windows_core::TypeKind for D3D_SHADER_MODEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_AUTO_BREADCRUMB_NODE {
     pub pCommandListDebugNameA: *const u8,
     pub pCommandListDebugNameW: windows_core::PCWSTR,
@@ -13228,7 +13228,7 @@ impl windows_core::TypeKind for D3D12_AUTO_BREADCRUMB_NODE {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_AUTO_BREADCRUMB_NODE1 {
     pub pCommandListDebugNameA: *const u8,
     pub pCommandListDebugNameW: windows_core::PCWSTR,
@@ -13353,7 +13353,7 @@ impl windows_core::TypeKind for D3D12_BROADCASTING_LAUNCH_OVERRIDES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_BUFFER_BARRIER {
     pub SyncBefore: D3D12_BARRIER_SYNC,
     pub SyncAfter: D3D12_BARRIER_SYNC,
@@ -13606,7 +13606,7 @@ impl windows_core::TypeKind for D3D12_COMMON_COMPUTE_NODE_OVERRIDES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_COMPUTE_PIPELINE_STATE_DESC {
     pub pRootSignature: core::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
     pub CS: D3D12_SHADER_BYTECODE,
@@ -14126,7 +14126,7 @@ impl windows_core::TypeKind for D3D12_DRED_ALLOCATION_NODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_DRED_ALLOCATION_NODE1 {
     pub ObjectNameA: *const u8,
     pub ObjectNameW: windows_core::PCWSTR,
@@ -14259,7 +14259,7 @@ impl windows_core::TypeKind for D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_EXISTING_COLLECTION_DESC {
     pub pExistingCollection: core::mem::ManuallyDrop<Option<ID3D12StateObject>>,
     pub NumExports: u32,
@@ -15054,7 +15054,7 @@ impl windows_core::TypeKind for D3D12_GLOBAL_BARRIER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_GLOBAL_ROOT_SIGNATURE {
     pub pGlobalRootSignature: core::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
 }
@@ -15124,7 +15124,7 @@ impl windows_core::TypeKind for D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_GRAPHICS_PIPELINE_STATE_DESC {
     pub pRootSignature: core::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
     pub VS: D3D12_SHADER_BYTECODE,
@@ -15439,7 +15439,7 @@ impl windows_core::TypeKind for D3D12_LIBRARY_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_LOCAL_ROOT_SIGNATURE {
     pub pLocalRootSignature: core::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
 }
@@ -16272,7 +16272,7 @@ impl windows_core::TypeKind for D3D12_RENDER_PASS_BEGINNING_ACCESS_PRESERVE_LOCA
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive()]
+#[derive(Clone)]
 pub struct D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     pub cpuDescriptor: D3D12_CPU_DESCRIPTOR_HANDLE,
     pub DepthBeginningAccess: D3D12_RENDER_PASS_BEGINNING_ACCESS,
@@ -16292,7 +16292,7 @@ impl windows_core::TypeKind for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive()]
+#[derive(Clone)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS {
     pub Type: D3D12_RENDER_PASS_ENDING_ACCESS_TYPE,
     pub Anonymous: D3D12_RENDER_PASS_ENDING_ACCESS_0,
@@ -16309,7 +16309,7 @@ impl windows_core::TypeKind for D3D12_RENDER_PASS_ENDING_ACCESS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive()]
+#[derive(Clone)]
 pub union D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     pub Resolve: core::mem::ManuallyDrop<D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS>,
     pub PreserveLocal: D3D12_RENDER_PASS_ENDING_ACCESS_PRESERVE_LOCAL_PARAMETERS,
@@ -16340,7 +16340,7 @@ impl windows_core::TypeKind for D3D12_RENDER_PASS_ENDING_ACCESS_PRESERVE_LOCAL_P
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
     pub pSrcResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub pDstResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
@@ -16379,7 +16379,7 @@ impl windows_core::TypeKind for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOU
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive()]
+#[derive(Clone)]
 pub struct D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     pub cpuDescriptor: D3D12_CPU_DESCRIPTOR_HANDLE,
     pub BeginningAccess: D3D12_RENDER_PASS_BEGINNING_ACCESS,
@@ -16459,7 +16459,7 @@ impl windows_core::TypeKind for D3D12_RENDER_TARGET_VIEW_DESC_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_RESOURCE_ALIASING_BARRIER {
     pub pResourceBefore: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub pResourceAfter: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
@@ -16502,7 +16502,7 @@ impl windows_core::TypeKind for D3D12_RESOURCE_ALLOCATION_INFO1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub struct D3D12_RESOURCE_BARRIER {
     pub Type: D3D12_RESOURCE_BARRIER_TYPE,
     pub Flags: D3D12_RESOURCE_BARRIER_FLAGS,
@@ -16517,7 +16517,7 @@ impl windows_core::TypeKind for D3D12_RESOURCE_BARRIER {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive()]
+#[derive(Clone)]
 pub union D3D12_RESOURCE_BARRIER_0 {
     pub Transition: core::mem::ManuallyDrop<D3D12_RESOURCE_TRANSITION_BARRIER>,
     pub Aliasing: core::mem::ManuallyDrop<D3D12_RESOURCE_ALIASING_BARRIER>,
@@ -16583,7 +16583,7 @@ impl windows_core::TypeKind for D3D12_RESOURCE_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_RESOURCE_TRANSITION_BARRIER {
     pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Subresource: u32,
@@ -16599,7 +16599,7 @@ impl windows_core::TypeKind for D3D12_RESOURCE_TRANSITION_BARRIER {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_RESOURCE_UAV_BARRIER {
     pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
 }
@@ -17935,7 +17935,7 @@ impl windows_core::TypeKind for D3D12_TEXCUBE_SRV {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_TEXTURE_BARRIER {
     pub SyncBefore: D3D12_BARRIER_SYNC,
     pub SyncAfter: D3D12_BARRIER_SYNC,
@@ -17957,7 +17957,7 @@ impl windows_core::TypeKind for D3D12_TEXTURE_BARRIER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive()]
+#[derive(Clone)]
 pub struct D3D12_TEXTURE_COPY_LOCATION {
     pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Type: D3D12_TEXTURE_COPY_TYPE,

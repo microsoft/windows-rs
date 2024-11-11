@@ -1692,7 +1692,7 @@ impl windows_core::TypeKind for HTTP_REQUEST_TOKEN_BINDING_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct HTTP_REQUEST_V1 {
     pub Flags: u32,
     pub ConnectionId: u64,
@@ -1725,7 +1725,7 @@ impl windows_core::TypeKind for HTTP_REQUEST_V1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct HTTP_REQUEST_V2 {
     pub Base: HTTP_REQUEST_V1,
     pub RequestInfoCount: u16,
@@ -1774,7 +1774,7 @@ impl windows_core::TypeKind for HTTP_RESPONSE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct HTTP_RESPONSE_V1 {
     pub Flags: u32,
     pub Version: HTTP_VERSION,
@@ -1794,7 +1794,7 @@ impl windows_core::TypeKind for HTTP_RESPONSE_V1 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct HTTP_RESPONSE_V2 {
     pub Base: HTTP_RESPONSE_V1,
     pub ResponseInfoCount: u16,

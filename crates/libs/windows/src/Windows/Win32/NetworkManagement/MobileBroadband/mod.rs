@@ -4185,7 +4185,7 @@ impl windows_core::TypeKind for WWAEXT_SMS_CONSTANTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MBN_CONTEXT {
     pub contextID: u32,
     pub contextType: MBN_CONTEXT_TYPE,
@@ -4204,7 +4204,7 @@ impl windows_core::TypeKind for MBN_CONTEXT {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MBN_DEVICE_SERVICE {
     pub deviceServiceID: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub dataWriteSupported: super::super::Foundation::VARIANT_BOOL,
@@ -4219,7 +4219,7 @@ impl windows_core::TypeKind for MBN_DEVICE_SERVICE {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MBN_INTERFACE_CAPS {
     pub cellularClass: MBN_CELLULAR_CLASS,
     pub voiceClass: MBN_VOICE_CLASS,
@@ -4259,7 +4259,7 @@ impl windows_core::TypeKind for MBN_PIN_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MBN_PROVIDER {
     pub providerID: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub providerState: u32,
@@ -4275,7 +4275,7 @@ impl windows_core::TypeKind for MBN_PROVIDER {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MBN_PROVIDER2 {
     pub provider: MBN_PROVIDER,
     pub cellularClass: MBN_CELLULAR_CLASS,

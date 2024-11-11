@@ -40657,7 +40657,7 @@ impl windows_core::TypeKind for eVideoEncoderDisplayContentType {
 pub const AACMFTEncoder: windows_core::GUID = windows_core::GUID::from_u128(0x93af0c51_2275_45d2_a35b_f2ba21caed00);
 pub const ALawCodecWrapper: windows_core::GUID = windows_core::GUID::from_u128(0x36cb6e0c_78c1_42b2_9943_846262f31786);
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct AM_MEDIA_TYPE {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,
@@ -42033,7 +42033,7 @@ impl windows_core::TypeKind for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     pub pMotionVectorHeap: core::mem::ManuallyDrop<Option<ID3D12VideoMotionVectorHeap>>,
     pub PixelWidth: u32,
@@ -42051,7 +42051,7 @@ impl windows_core::TypeKind for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
     pub pMotionVectorTexture2D: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub MotionVectorCoordinate: D3D12_RESOURCE_COORDINATE,
@@ -42121,7 +42121,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_DECODER_HEAP_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
     pub pBuffer: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Offset: u64,
@@ -42154,7 +42154,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_DECODE_CONFIGURATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     pub Enable: super::super::Foundation::BOOL,
     pub pReferenceTexture2D: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -42174,7 +42174,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     pub Enable: super::super::Foundation::BOOL,
     pub pReferenceTexture2D: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -42211,7 +42211,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
     pub NumFrameArguments: u32,
     pub FrameArguments: [D3D12_VIDEO_DECODE_FRAME_ARGUMENT; 10],
@@ -42231,7 +42231,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
     pub Offset: u64,
     pub pBuffer: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -42248,7 +42248,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
     pub pOutputTexture2D: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub OutputSubresource: u32,
@@ -42266,7 +42266,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
     pub pOutputTexture2D: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub OutputSubresource: u32,
@@ -42881,7 +42881,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPOR
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
     pub pBuffer: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub FrameStartOffset: u64,
@@ -42920,7 +42920,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_DESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-#[derive()]
+#[derive(Clone)]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
     pub SequenceControlDesc: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC,
     pub PictureControlDesc: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC,
@@ -42940,7 +42940,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS 
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
     pub Bitstream: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM,
     pub ReconstructedPicture: D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE,
@@ -42958,7 +42958,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
     pub pBuffer: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Offset: u64,
@@ -43641,7 +43641,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
     pub pReconstructedPicture: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub ReconstructedPictureSubresource: u32,
@@ -43693,7 +43693,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-#[derive()]
+#[derive(Clone)]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
     pub EncoderCodec: D3D12_VIDEO_ENCODER_CODEC,
     pub EncoderProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
@@ -43713,7 +43713,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUM
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
     pub ResolvedLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
 }
@@ -43914,7 +43914,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     pub pInputTexture2D: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub InputSubresourceIndex: u32,
@@ -43934,7 +43934,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     pub pMotionVectorHeap: core::mem::ManuallyDrop<Option<ID3D12VideoMotionVectorHeap>>,
 }
@@ -44000,7 +44000,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_FILTER_RANGE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM {
     pub pTexture2D: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Subresource: u32,
@@ -44018,7 +44018,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_INPUT_STREAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
     pub InputStream: [D3D12_VIDEO_PROCESS_INPUT_STREAM; 2],
     pub Transform: D3D12_VIDEO_PROCESS_TRANSFORM,
@@ -44039,7 +44039,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
     pub InputStream: [D3D12_VIDEO_PROCESS_INPUT_STREAM; 2],
     pub Transform: D3D12_VIDEO_PROCESS_TRANSFORM,
@@ -44122,7 +44122,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_LUMA_KEY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
     pub pTexture2D: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub Subresource: u32,
@@ -44139,7 +44139,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
     pub OutputStream: [D3D12_VIDEO_PROCESS_OUTPUT_STREAM; 2],
     pub TargetRectangle: super::super::Foundation::RECT,
@@ -44316,7 +44316,7 @@ impl windows_core::TypeKind for D3DOVERLAYCAPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DEVICE_INFO {
     pub pFriendlyDeviceName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub pUniqueDeviceName: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -44694,7 +44694,7 @@ impl windows_core::TypeKind for DXVA2_VideoProcessorCaps {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive()]
+#[derive(Clone)]
 pub struct DXVA2_VideoSample {
     pub Start: i64,
     pub End: i64,
@@ -45119,7 +45119,7 @@ impl windows_core::TypeKind for DXVAHD_RATIONAL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub OutputIndex: u32,
@@ -46354,7 +46354,7 @@ impl windows_core::TypeKind for MFOffset {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub dwUserData: usize,
@@ -46380,7 +46380,7 @@ impl windows_core::TypeKind for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MFP_ERROR_EVENT {
     pub header: MFP_EVENT_HEADER,
 }
@@ -46396,7 +46396,7 @@ impl windows_core::TypeKind for MFP_ERROR_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MFP_EVENT_HEADER {
     pub eEventType: MFP_EVENT_TYPE,
     pub hrEvent: windows_core::HRESULT,
@@ -46416,7 +46416,7 @@ impl windows_core::TypeKind for MFP_EVENT_HEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MFP_FRAME_STEP_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -46433,7 +46433,7 @@ impl windows_core::TypeKind for MFP_FRAME_STEP_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MFP_MEDIAITEM_CLEARED_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -46450,7 +46450,7 @@ impl windows_core::TypeKind for MFP_MEDIAITEM_CLEARED_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MFP_MEDIAITEM_CREATED_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -46468,7 +46468,7 @@ impl windows_core::TypeKind for MFP_MEDIAITEM_CREATED_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MFP_MEDIAITEM_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -46485,7 +46485,7 @@ impl windows_core::TypeKind for MFP_MEDIAITEM_SET_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MFP_MF_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub MFEventType: u32,
@@ -46504,7 +46504,7 @@ impl windows_core::TypeKind for MFP_MF_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MFP_PAUSE_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -46521,7 +46521,7 @@ impl windows_core::TypeKind for MFP_PAUSE_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MFP_PLAYBACK_ENDED_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -46538,7 +46538,7 @@ impl windows_core::TypeKind for MFP_PLAYBACK_ENDED_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MFP_PLAY_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -46555,7 +46555,7 @@ impl windows_core::TypeKind for MFP_PLAY_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MFP_POSITION_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -46572,7 +46572,7 @@ impl windows_core::TypeKind for MFP_POSITION_SET_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MFP_RATE_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -46590,7 +46590,7 @@ impl windows_core::TypeKind for MFP_RATE_SET_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MFP_STOP_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -46743,7 +46743,7 @@ impl windows_core::TypeKind for MFT_INPUT_STREAM_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MFT_OUTPUT_DATA_BUFFER {
     pub dwStreamID: u32,
     pub pSample: core::mem::ManuallyDrop<Option<IMFSample>>,
@@ -46840,7 +46840,7 @@ impl windows_core::TypeKind for MFVIDEOFORMAT {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-#[derive()]
+#[derive(Clone)]
 pub struct MFVideoAlphaBitmap {
     pub GetBitmapFromDC: super::super::Foundation::BOOL,
     pub bitmap: MFVideoAlphaBitmap_0,
@@ -46858,7 +46858,7 @@ impl windows_core::TypeKind for MFVideoAlphaBitmap {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-#[derive()]
+#[derive(Clone)]
 pub union MFVideoAlphaBitmap_0 {
     pub hdc: super::super::Graphics::Gdi::HDC,
     pub pDDS: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
@@ -47097,7 +47097,7 @@ impl windows_core::TypeKind for MF_SINK_WRITER_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct MF_TRANSCODE_SINK_INFO {
     pub dwVideoStreamID: u32,
     pub pVideoMediaType: core::mem::ManuallyDrop<Option<IMFMediaType>>,

@@ -13568,7 +13568,7 @@ impl windows_core::TypeKind for D2D1_BITMAP_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D2D1_BITMAP_PROPERTIES1 {
     pub pixelFormat: Common::D2D1_PIXEL_FORMAT,
     pub dpiX: f32,
@@ -13701,7 +13701,7 @@ impl windows_core::TypeKind for D2D1_DRAWING_STATE_DESCRIPTION1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D2D1_EFFECT_INPUT_DESCRIPTION {
     pub effect: core::mem::ManuallyDrop<Option<ID2D1Effect>>,
     pub inputIndex: u32,
@@ -13933,7 +13933,7 @@ impl windows_core::TypeKind for D2D1_INPUT_ELEMENT_DESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D2D1_LAYER_PARAMETERS {
     pub contentBounds: Common::D2D_RECT_F,
     pub geometricMask: core::mem::ManuallyDrop<Option<ID2D1Geometry>>,
@@ -13955,7 +13955,7 @@ impl windows_core::TypeKind for D2D1_LAYER_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct D2D1_LAYER_PARAMETERS1 {
     pub contentBounds: Common::D2D_RECT_F,
     pub geometricMask: core::mem::ManuallyDrop<Option<ID2D1Geometry>>,

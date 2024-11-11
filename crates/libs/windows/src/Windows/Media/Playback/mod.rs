@@ -181,6 +181,7 @@ impl windows_core::RuntimeType for IMediaEnginePlaybackSource {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IMediaEnginePlaybackSource, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl IMediaEnginePlaybackSource {
     #[cfg(feature = "deprecated")]
     pub fn CurrentItem(&self) -> windows_core::Result<MediaPlaybackItem> {

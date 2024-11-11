@@ -14578,7 +14578,7 @@ impl windows_core::TypeKind for CHARACTER_RANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DYNAMIC_RENDERER_CACHED_DATA {
     pub strokeId: i32,
     pub dynamicRenderer: core::mem::ManuallyDrop<Option<IDynamicRenderer>>,
@@ -14744,7 +14744,7 @@ impl Default for HRECOWORDLIST {
 pub const HandwrittenTextInsertion: windows_core::GUID = windows_core::GUID::from_u128(0x9f074ee2_e6e9_4d8a_a047_eb5b5c3c55da);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
-#[derive()]
+#[derive(Clone)]
 pub struct IEC_GESTUREINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub Cursor: core::mem::ManuallyDrop<Option<IInkCursor>>,
@@ -14763,7 +14763,7 @@ impl windows_core::TypeKind for IEC_GESTUREINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct IEC_RECOGNITIONRESULTINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub RecognitionResult: core::mem::ManuallyDrop<Option<IInkRecognitionResult>>,
@@ -14780,7 +14780,7 @@ impl windows_core::TypeKind for IEC_RECOGNITIONRESULTINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct IEC_STROKEINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub Cursor: core::mem::ManuallyDrop<Option<IInkCursor>>,

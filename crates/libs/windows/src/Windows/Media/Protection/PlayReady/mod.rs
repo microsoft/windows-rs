@@ -88,6 +88,7 @@ impl windows_core::RuntimeType for INDClosedCaptionDataReceivedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDClosedCaptionDataReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDClosedCaptionDataReceivedEventArgs {
     #[cfg(feature = "deprecated")]
     pub fn ClosedCaptionDataFormat(&self) -> windows_core::Result<NDClosedCaptionFormat> {
@@ -195,6 +196,7 @@ impl windows_core::RuntimeType for INDCustomData {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDCustomData, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDCustomData {
     #[cfg(feature = "deprecated")]
     pub fn CustomDataTypeID(&self) -> windows_core::Result<windows_core::Array<u8>> {
@@ -295,6 +297,7 @@ impl windows_core::RuntimeType for INDDownloadEngine {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDDownloadEngine, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDDownloadEngine {
     #[cfg(feature = "deprecated")]
     pub fn Open<P0>(&self, uri: P0, sessionidbytes: &[u8]) -> windows_core::Result<()>
@@ -503,6 +506,7 @@ impl windows_core::RuntimeType for INDDownloadEngineNotifier {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDDownloadEngineNotifier, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDDownloadEngineNotifier {
     #[cfg(feature = "deprecated")]
     pub fn OnStreamOpened(&self) -> windows_core::Result<()> {
@@ -629,6 +633,7 @@ impl windows_core::RuntimeType for INDLicenseFetchCompletedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDLicenseFetchCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDLicenseFetchCompletedEventArgs {
     #[cfg(feature = "deprecated")]
     pub fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData> {
@@ -687,6 +692,7 @@ impl windows_core::RuntimeType for INDLicenseFetchDescriptor {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDLicenseFetchDescriptor, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDLicenseFetchDescriptor {
     #[cfg(feature = "deprecated")]
     pub fn ContentIDType(&self) -> windows_core::Result<NDContentIDType> {
@@ -828,6 +834,7 @@ impl windows_core::RuntimeType for INDLicenseFetchResult {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDLicenseFetchResult, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDLicenseFetchResult {
     #[cfg(feature = "deprecated")]
     pub fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData> {
@@ -886,6 +893,7 @@ impl windows_core::RuntimeType for INDMessenger {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDMessenger, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDMessenger {
     #[cfg(feature = "deprecated")]
     pub fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
@@ -1019,6 +1027,7 @@ impl windows_core::RuntimeType for INDProximityDetectionCompletedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDProximityDetectionCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDProximityDetectionCompletedEventArgs {
     #[cfg(feature = "deprecated")]
     pub fn ProximityDetectionRetryCount(&self) -> windows_core::Result<u32> {
@@ -1076,6 +1085,7 @@ impl windows_core::RuntimeType for INDRegistrationCompletedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDRegistrationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDRegistrationCompletedEventArgs {
     #[cfg(feature = "deprecated")]
     pub fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData> {
@@ -1198,6 +1208,7 @@ impl windows_core::RuntimeType for INDSendResult {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDSendResult, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDSendResult {
     #[cfg(feature = "deprecated")]
     pub fn Response(&self) -> windows_core::Result<windows_core::Array<u8>> {
@@ -1254,6 +1265,7 @@ impl windows_core::RuntimeType for INDStartResult {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDStartResult, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDStartResult {
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
     pub fn MediaStreamSource(&self) -> windows_core::Result<super::super::Core::MediaStreamSource> {
@@ -1309,6 +1321,7 @@ impl windows_core::RuntimeType for INDStorageFileHelper {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDStorageFileHelper, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDStorageFileHelper {
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn GetFileURLs<P0>(&self, file: P0) -> windows_core::Result<super::super::super::Foundation::Collections::IVector<windows_core::HSTRING>>
@@ -1367,6 +1380,7 @@ impl windows_core::RuntimeType for INDStreamParser {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDStreamParser, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDStreamParser {
     #[cfg(feature = "deprecated")]
     pub fn ParseData(&self, databytes: &[u8]) -> windows_core::Result<()> {
@@ -1497,6 +1511,7 @@ impl windows_core::RuntimeType for INDStreamParserNotifier {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDStreamParserNotifier, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDStreamParserNotifier {
     #[cfg(feature = "deprecated")]
     pub fn OnContentIDReceived<P0>(&self, licensefetchdescriptor: P0) -> windows_core::Result<()>
@@ -1618,6 +1633,7 @@ impl windows_core::RuntimeType for INDTransmitterProperties {
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(INDTransmitterProperties, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
 impl INDTransmitterProperties {
     #[cfg(feature = "deprecated")]
     pub fn CertificateType(&self) -> windows_core::Result<NDCertificateType> {
