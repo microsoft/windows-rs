@@ -359,6 +359,20 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         }
     }
 }
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IntoIterator for IMap<K, V> {
+    type Item = IKeyValuePair<K, V>;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IntoIterator for &IMap<K, V> {
+    type Item = IKeyValuePair<K, V>;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(C)]
 pub struct IMap_Vtbl<K, V>
 where
@@ -613,6 +627,20 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         }
     }
 }
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IntoIterator for IMapView<K, V> {
+    type Item = IKeyValuePair<K, V>;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IntoIterator for &IMapView<K, V> {
+    type Item = IKeyValuePair<K, V>;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(C)]
 pub struct IMapView_Vtbl<K, V>
 where
@@ -791,6 +819,20 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IntoIterator for IObservableMap<K, V> {
+    type Item = IKeyValuePair<K, V>;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IntoIterator for &IObservableMap<K, V> {
+    type Item = IKeyValuePair<K, V>;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(C)]
 pub struct IObservableMap_Vtbl<K, V>
 where
@@ -960,6 +1002,20 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
 }
+impl<T: windows_core::RuntimeType + 'static> IntoIterator for IObservableVector<T> {
+    type Item = T;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IObservableVector<T> {
+    type Item = T;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(C)]
 pub struct IObservableVector_Vtbl<T>
 where
@@ -1082,6 +1138,20 @@ impl IPropertySet {
         unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl IntoIterator for IPropertySet {
+    type Item = IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+impl IntoIterator for &IPropertySet {
+    type Item = IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
 #[repr(C)]
 pub struct IPropertySet_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -1197,6 +1267,20 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
+    }
+}
+impl<T: windows_core::RuntimeType + 'static> IntoIterator for IVector<T> {
+    type Item = T;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IVector<T> {
+    type Item = T;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
     }
 }
 #[repr(C)]
@@ -1463,6 +1547,20 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
+    }
+}
+impl<T: windows_core::RuntimeType + 'static> IntoIterator for IVectorView<T> {
+    type Item = T;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        IntoIterator::into_iter(&self)
+    }
+}
+impl<T: windows_core::RuntimeType + 'static> IntoIterator for &IVectorView<T> {
+    type Item = T;
+    type IntoIter = IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
     }
 }
 #[repr(C)]

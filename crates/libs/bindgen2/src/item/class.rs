@@ -168,7 +168,7 @@ impl Class {
                         let item = interface.generics[0].write(writer);
                         let namespace = writer.write_namespace("Windows.Foundation.Collections");
         
-                        Some(quote! {
+                        quote! {
                             #cfg
                             impl IntoIterator for #name {
                                 type Item = #item;
@@ -188,7 +188,7 @@ impl Class {
                                 }
                             }
                             
-                        })
+                        }
                     });
                 
 

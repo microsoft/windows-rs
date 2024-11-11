@@ -1,4 +1,4 @@
-use crate::Foundation::Collections::{IIterable, IIterator, IVector, IVectorView};
+use crate::Foundation::Collections::{IIterable, IIterator};
 
 impl<T: windows_core::RuntimeType> Iterator for IIterator<T> {
     type Item = T;
@@ -24,42 +24,6 @@ impl<T: windows_core::RuntimeType> IntoIterator for IIterable<T> {
 }
 
 impl<T: windows_core::RuntimeType> IntoIterator for &IIterable<T> {
-    type Item = T;
-    type IntoIter = IIterator<Self::Item>;
-
-    fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
-    }
-}
-
-impl<T: windows_core::RuntimeType> IntoIterator for IVectorView<T> {
-    type Item = T;
-    type IntoIter = IIterator<Self::Item>;
-
-    fn into_iter(self) -> Self::IntoIter {
-        IntoIterator::into_iter(&self)
-    }
-}
-
-impl<T: windows_core::RuntimeType> IntoIterator for &IVectorView<T> {
-    type Item = T;
-    type IntoIter = IIterator<Self::Item>;
-
-    fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
-    }
-}
-
-impl<T: windows_core::RuntimeType> IntoIterator for IVector<T> {
-    type Item = T;
-    type IntoIter = IIterator<Self::Item>;
-
-    fn into_iter(self) -> Self::IntoIter {
-        IntoIterator::into_iter(&self)
-    }
-}
-
-impl<T: windows_core::RuntimeType> IntoIterator for &IVector<T> {
     type Item = T;
     type IntoIter = IIterator<Self::Item>;
 
