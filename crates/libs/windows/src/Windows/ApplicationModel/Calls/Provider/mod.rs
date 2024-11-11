@@ -141,7 +141,7 @@ impl PhoneCallOrigin {
     }
     #[cfg(feature = "deprecated")]
     pub fn Category(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IPhoneCallOrigin>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Category)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -149,12 +149,12 @@ impl PhoneCallOrigin {
     }
     #[cfg(feature = "deprecated")]
     pub fn SetCategory(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IPhoneCallOrigin>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCategory)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn CategoryDescription(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IPhoneCallOrigin>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CategoryDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -162,12 +162,12 @@ impl PhoneCallOrigin {
     }
     #[cfg(feature = "deprecated")]
     pub fn SetCategoryDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IPhoneCallOrigin>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCategoryDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn Location(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IPhoneCallOrigin>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Location)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -175,7 +175,7 @@ impl PhoneCallOrigin {
     }
     #[cfg(feature = "deprecated")]
     pub fn SetLocation(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IPhoneCallOrigin>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLocation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "deprecated")]

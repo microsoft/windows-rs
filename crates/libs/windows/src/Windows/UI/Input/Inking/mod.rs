@@ -1910,19 +1910,19 @@ pub struct InkPresenter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkPresenter, windows_core::IUnknown, windows_core::IInspectable);
 impl InkPresenter {
     pub fn IsInputEnabled(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsInputEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetIsInputEnabled(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsInputEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "UI_Core")]
     pub fn InputDeviceTypes(&self) -> windows_core::Result<super::super::Core::CoreInputDeviceTypes> {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputDeviceTypes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1930,32 +1930,32 @@ impl InkPresenter {
     }
     #[cfg(feature = "UI_Core")]
     pub fn SetInputDeviceTypes(&self, value: super::super::Core::CoreInputDeviceTypes) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInputDeviceTypes)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn UnprocessedInput(&self) -> windows_core::Result<InkUnprocessedInput> {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnprocessedInput)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn StrokeInput(&self) -> windows_core::Result<InkStrokeInput> {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StrokeInput)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn InputProcessingConfiguration(&self) -> windows_core::Result<InkInputProcessingConfiguration> {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputProcessingConfiguration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn StrokeContainer(&self) -> windows_core::Result<InkStrokeContainer> {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StrokeContainer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1965,11 +1965,11 @@ impl InkPresenter {
     where
         P0: windows_core::Param<InkStrokeContainer>,
     {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStrokeContainer)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn CopyDefaultDrawingAttributes(&self) -> windows_core::Result<InkDrawingAttributes> {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CopyDefaultDrawingAttributes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1979,46 +1979,46 @@ impl InkPresenter {
     where
         P0: windows_core::Param<InkDrawingAttributes>,
     {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).UpdateDefaultDrawingAttributes)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn ActivateCustomDrying(&self) -> windows_core::Result<InkSynchronizer> {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivateCustomDrying)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetPredefinedConfiguration(&self, value: InkPresenterPredefinedConfiguration) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPredefinedConfiguration)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn StrokesCollected<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesCollectedEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StrokesCollected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveStrokesCollected(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStrokesCollected)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
     pub fn StrokesErased<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesErasedEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StrokesErased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveStrokesErased(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IInkPresenter>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStrokesErased)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
     pub fn HighContrastAdjustment(&self) -> windows_core::Result<InkHighContrastAdjustment> {
@@ -2410,8 +2410,7 @@ impl windows_core::RuntimeName for InkRecognizer {
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkRecognizerContainer(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(InkRecognizerContainer, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(InkRecognizerContainer, IInkRecognizerContainer);
+windows_core::imp::interface_hierarchy!(InkRecognizerContainer, windows_core::IUnknown, windows_core::IInspectable, IInkRecognizerContainer);
 impl InkRecognizerContainer {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2687,8 +2686,7 @@ impl windows_core::RuntimeName for InkStrokeBuilder {
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkStrokeContainer(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(InkStrokeContainer, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(InkStrokeContainer, IInkStrokeContainer);
+windows_core::imp::interface_hierarchy!(InkStrokeContainer, windows_core::IUnknown, windows_core::IInspectable, IInkStrokeContainer);
 impl InkStrokeContainer {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())

@@ -493,6 +493,13 @@ impl Type {
         }
     }
 
+    pub fn is_exclusive(&self) -> bool {
+        match self {
+            Self::Item(Item::Interface(item)) => item.def.has_attribute("ExclusiveToAttribute"),
+            _ => false,
+        }
+    }
+
     pub fn is_winrt_array(&self) -> bool {
         matches!(self, Self::Array(_))
     }

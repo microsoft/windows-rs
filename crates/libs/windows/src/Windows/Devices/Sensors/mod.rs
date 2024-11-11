@@ -5411,8 +5411,7 @@ unsafe impl Sync for Pedometer {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PedometerDataThreshold(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PedometerDataThreshold, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PedometerDataThreshold, ISensorDataThreshold);
+windows_core::imp::interface_hierarchy!(PedometerDataThreshold, windows_core::IUnknown, windows_core::IInspectable, ISensorDataThreshold);
 impl PedometerDataThreshold {
     pub fn Create<P0>(sensor: P0, stepgoal: i32) -> windows_core::Result<PedometerDataThreshold>
     where
@@ -5611,8 +5610,7 @@ unsafe impl Sync for ProximitySensor {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ProximitySensorDataThreshold(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ProximitySensorDataThreshold, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ProximitySensorDataThreshold, ISensorDataThreshold);
+windows_core::imp::interface_hierarchy!(ProximitySensorDataThreshold, windows_core::IUnknown, windows_core::IInspectable, ISensorDataThreshold);
 impl ProximitySensorDataThreshold {
     pub fn Create<P0>(sensor: P0) -> windows_core::Result<ProximitySensorDataThreshold>
     where
@@ -5643,8 +5641,7 @@ unsafe impl Sync for ProximitySensorDataThreshold {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ProximitySensorDisplayOnOffController(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ProximitySensorDisplayOnOffController, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ProximitySensorDisplayOnOffController, super::super::Foundation::IClosable);
+windows_core::imp::interface_hierarchy!(ProximitySensorDisplayOnOffController, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::IClosable);
 impl ProximitySensorDisplayOnOffController {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = self;

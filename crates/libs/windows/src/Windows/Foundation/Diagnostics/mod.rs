@@ -1135,8 +1135,8 @@ unsafe impl Sync for ErrorDetails {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileLoggingSession(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(FileLoggingSession, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(FileLoggingSession, IFileLoggingSession, super::IClosable);
+windows_core::imp::interface_hierarchy!(FileLoggingSession, windows_core::IUnknown, windows_core::IInspectable, IFileLoggingSession);
+windows_core::imp::required_hierarchy!(FileLoggingSession, super::IClosable);
 impl FileLoggingSession {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1248,14 +1248,14 @@ windows_core::imp::interface_hierarchy!(LoggingActivity, windows_core::IUnknown,
 windows_core::imp::required_hierarchy!(LoggingActivity, ILoggingTarget, super::IClosable);
 impl LoggingActivity {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<ILoggingActivity>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Id(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = &windows_core::Interface::cast::<ILoggingActivity>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -1414,58 +1414,58 @@ unsafe impl Sync for LoggingActivity {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LoggingChannel(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LoggingChannel, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LoggingChannel, ILoggingChannel, ILoggingTarget, super::IClosable);
+windows_core::imp::interface_hierarchy!(LoggingChannel, windows_core::IUnknown, windows_core::IInspectable, ILoggingChannel);
+windows_core::imp::required_hierarchy!(LoggingChannel, ILoggingTarget, super::IClosable);
 impl LoggingChannel {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<ILoggingChannel>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Enabled(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<ILoggingChannel>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Level(&self) -> windows_core::Result<LoggingLevel> {
-        let this = &windows_core::Interface::cast::<ILoggingChannel>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Level)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn LogMessage(&self, eventstring: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ILoggingChannel>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).LogMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventstring)).ok() }
     }
     pub fn LogMessageWithLevel(&self, eventstring: &windows_core::HSTRING, level: LoggingLevel) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ILoggingChannel>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).LogMessageWithLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(eventstring), level).ok() }
     }
     pub fn LogValuePair(&self, value1: &windows_core::HSTRING, value2: i32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ILoggingChannel>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).LogValuePair)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value1), value2).ok() }
     }
     pub fn LogValuePairWithLevel(&self, value1: &windows_core::HSTRING, value2: i32, level: LoggingLevel) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ILoggingChannel>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).LogValuePairWithLevel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value1), value2, level).ok() }
     }
     pub fn LoggingEnabled<P0>(&self, handler: P0) -> windows_core::Result<super::EventRegistrationToken>
     where
         P0: windows_core::Param<super::TypedEventHandler<ILoggingChannel, windows_core::IInspectable>>,
     {
-        let this = &windows_core::Interface::cast::<ILoggingChannel>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LoggingEnabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveLoggingEnabled(&self, token: super::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ILoggingChannel>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveLoggingEnabled)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn Id(&self) -> windows_core::Result<windows_core::GUID> {
@@ -2244,8 +2244,8 @@ unsafe impl Sync for LoggingOptions {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LoggingSession(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LoggingSession, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LoggingSession, ILoggingSession, super::IClosable);
+windows_core::imp::interface_hierarchy!(LoggingSession, windows_core::IUnknown, windows_core::IInspectable, ILoggingSession);
+windows_core::imp::required_hierarchy!(LoggingSession, super::IClosable);
 impl LoggingSession {
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2316,8 +2316,7 @@ unsafe impl Sync for LoggingSession {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RuntimeBrokerErrorSettings(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RuntimeBrokerErrorSettings, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RuntimeBrokerErrorSettings, IErrorReportingSettings);
+windows_core::imp::interface_hierarchy!(RuntimeBrokerErrorSettings, windows_core::IUnknown, windows_core::IInspectable, IErrorReportingSettings);
 impl RuntimeBrokerErrorSettings {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())

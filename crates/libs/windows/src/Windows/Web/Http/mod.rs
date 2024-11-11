@@ -613,8 +613,8 @@ pub struct IHttpTransportInformation_Vtbl {
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpBufferContent(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(HttpBufferContent, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(HttpBufferContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable, IHttpContent);
+windows_core::imp::interface_hierarchy!(HttpBufferContent, windows_core::IUnknown, windows_core::IInspectable, IHttpContent);
+windows_core::imp::required_hierarchy!(HttpBufferContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
 impl HttpBufferContent {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1105,9 +1105,9 @@ unsafe impl Sync for HttpCookie {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpCookieCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(HttpCookieCollection, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(HttpCookieCollection, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVectorView<HttpCookie>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpCookieCollection, super::super::Foundation::Collections::IIterable<HttpCookie>, super::super::Foundation::Collections::IVectorView<HttpCookie>);
+windows_core::imp::required_hierarchy!(HttpCookieCollection, super::super::Foundation::Collections::IIterable<HttpCookie>);
 #[cfg(feature = "Foundation_Collections")]
 impl HttpCookieCollection {
     #[cfg(feature = "Foundation_Collections")]
@@ -1226,8 +1226,8 @@ unsafe impl Sync for HttpCookieManager {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpFormUrlEncodedContent(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(HttpFormUrlEncodedContent, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(HttpFormUrlEncodedContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable, IHttpContent);
+windows_core::imp::interface_hierarchy!(HttpFormUrlEncodedContent, windows_core::IUnknown, windows_core::IInspectable, IHttpContent);
+windows_core::imp::required_hierarchy!(HttpFormUrlEncodedContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
 impl HttpFormUrlEncodedContent {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1614,9 +1614,9 @@ unsafe impl Sync for HttpMethod {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpMultipartContent(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(HttpMultipartContent, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(HttpMultipartContent, windows_core::IUnknown, windows_core::IInspectable, IHttpContent);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpMultipartContent, super::super::Foundation::Collections::IIterable<IHttpContent>, super::super::Foundation::IClosable, super::super::Foundation::IStringable, IHttpContent);
+windows_core::imp::required_hierarchy!(HttpMultipartContent, super::super::Foundation::Collections::IIterable<IHttpContent>, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
 #[cfg(feature = "Foundation_Collections")]
 impl HttpMultipartContent {
     pub fn new() -> windows_core::Result<Self> {
@@ -1747,9 +1747,9 @@ unsafe impl Sync for HttpMultipartContent {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpMultipartFormDataContent(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(HttpMultipartFormDataContent, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(HttpMultipartFormDataContent, windows_core::IUnknown, windows_core::IInspectable, IHttpContent);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(HttpMultipartFormDataContent, super::super::Foundation::Collections::IIterable<IHttpContent>, super::super::Foundation::IClosable, super::super::Foundation::IStringable, IHttpContent);
+windows_core::imp::required_hierarchy!(HttpMultipartFormDataContent, super::super::Foundation::Collections::IIterable<IHttpContent>, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
 #[cfg(feature = "Foundation_Collections")]
 impl HttpMultipartFormDataContent {
     pub fn new() -> windows_core::Result<Self> {
@@ -2212,8 +2212,8 @@ unsafe impl Sync for HttpResponseMessage {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpStreamContent(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(HttpStreamContent, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(HttpStreamContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable, IHttpContent);
+windows_core::imp::interface_hierarchy!(HttpStreamContent, windows_core::IUnknown, windows_core::IInspectable, IHttpContent);
+windows_core::imp::required_hierarchy!(HttpStreamContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
 impl HttpStreamContent {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2312,8 +2312,8 @@ unsafe impl Sync for HttpStreamContent {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpStringContent(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(HttpStringContent, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(HttpStringContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable, IHttpContent);
+windows_core::imp::interface_hierarchy!(HttpStringContent, windows_core::IUnknown, windows_core::IInspectable, IHttpContent);
+windows_core::imp::required_hierarchy!(HttpStringContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
 impl HttpStringContent {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;

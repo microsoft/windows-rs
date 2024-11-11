@@ -876,8 +876,7 @@ unsafe impl Sync for ImageScanner {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ImageScannerAutoConfiguration(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ImageScannerAutoConfiguration, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ImageScannerAutoConfiguration, IImageScannerFormatConfiguration);
+windows_core::imp::interface_hierarchy!(ImageScannerAutoConfiguration, windows_core::IUnknown, windows_core::IInspectable, IImageScannerFormatConfiguration);
 impl ImageScannerAutoConfiguration {
     pub fn DefaultFormat(&self) -> windows_core::Result<ImageScannerFormat> {
         let this = self;
@@ -920,8 +919,8 @@ unsafe impl Sync for ImageScannerAutoConfiguration {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ImageScannerFeederConfiguration(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ImageScannerFeederConfiguration, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ImageScannerFeederConfiguration, IImageScannerFormatConfiguration, IImageScannerSourceConfiguration);
+windows_core::imp::interface_hierarchy!(ImageScannerFeederConfiguration, windows_core::IUnknown, windows_core::IInspectable, IImageScannerFormatConfiguration);
+windows_core::imp::required_hierarchy!(ImageScannerFeederConfiguration, IImageScannerSourceConfiguration);
 impl ImageScannerFeederConfiguration {
     pub fn CanAutoDetectPageSize(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
@@ -1030,25 +1029,25 @@ impl ImageScannerFeederConfiguration {
         unsafe { (windows_core::Interface::vtable(this).SetScanAhead)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn DefaultFormat(&self) -> windows_core::Result<ImageScannerFormat> {
-        let this = &windows_core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DefaultFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Format(&self) -> windows_core::Result<ImageScannerFormat> {
-        let this = &windows_core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Format)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetFormat(&self, value: ImageScannerFormat) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFormat)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsFormatSupported)(windows_core::Interface::as_raw(this), value, &mut result__).map(|| result__)
@@ -1255,29 +1254,29 @@ unsafe impl Sync for ImageScannerFeederConfiguration {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ImageScannerFlatbedConfiguration(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ImageScannerFlatbedConfiguration, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ImageScannerFlatbedConfiguration, IImageScannerFormatConfiguration, IImageScannerSourceConfiguration);
+windows_core::imp::interface_hierarchy!(ImageScannerFlatbedConfiguration, windows_core::IUnknown, windows_core::IInspectable, IImageScannerFormatConfiguration);
+windows_core::imp::required_hierarchy!(ImageScannerFlatbedConfiguration, IImageScannerSourceConfiguration);
 impl ImageScannerFlatbedConfiguration {
     pub fn DefaultFormat(&self) -> windows_core::Result<ImageScannerFormat> {
-        let this = &windows_core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DefaultFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Format(&self) -> windows_core::Result<ImageScannerFormat> {
-        let this = &windows_core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Format)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetFormat(&self, value: ImageScannerFormat) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFormat)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IImageScannerFormatConfiguration>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsFormatSupported)(windows_core::Interface::as_raw(this), value, &mut result__).map(|| result__)

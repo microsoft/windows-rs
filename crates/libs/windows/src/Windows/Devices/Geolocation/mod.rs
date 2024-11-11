@@ -727,56 +727,56 @@ pub struct Geocoordinate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Geocoordinate, windows_core::IUnknown, windows_core::IInspectable);
 impl Geocoordinate {
     pub fn Latitude(&self) -> windows_core::Result<f64> {
-        let this = &windows_core::Interface::cast::<IGeocoordinate>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Latitude)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Longitude(&self) -> windows_core::Result<f64> {
-        let this = &windows_core::Interface::cast::<IGeocoordinate>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Longitude)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Altitude(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = &windows_core::Interface::cast::<IGeocoordinate>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Altitude)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Accuracy(&self) -> windows_core::Result<f64> {
-        let this = &windows_core::Interface::cast::<IGeocoordinate>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Accuracy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AltitudeAccuracy(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = &windows_core::Interface::cast::<IGeocoordinate>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AltitudeAccuracy)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Heading(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = &windows_core::Interface::cast::<IGeocoordinate>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Heading)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Speed(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = &windows_core::Interface::cast::<IGeocoordinate>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Speed)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
-        let this = &windows_core::Interface::cast::<IGeocoordinate>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -896,54 +896,54 @@ impl Geolocator {
         SHARED.call(callback)
     }
     pub fn DesiredAccuracy(&self) -> windows_core::Result<PositionAccuracy> {
-        let this = &windows_core::Interface::cast::<IGeolocator>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesiredAccuracy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetDesiredAccuracy(&self, value: PositionAccuracy) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGeolocator>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDesiredAccuracy)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn MovementThreshold(&self) -> windows_core::Result<f64> {
-        let this = &windows_core::Interface::cast::<IGeolocator>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MovementThreshold)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetMovementThreshold(&self, value: f64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGeolocator>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMovementThreshold)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn ReportInterval(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<IGeolocator>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetReportInterval(&self, value: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGeolocator>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetReportInterval)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn LocationStatus(&self) -> windows_core::Result<PositionStatus> {
-        let this = &windows_core::Interface::cast::<IGeolocator>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocationStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetGeopositionAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Geoposition>> {
-        let this = &windows_core::Interface::cast::<IGeolocator>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetGeopositionAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetGeopositionAsyncWithAgeAndTimeout(&self, maximumage: super::super::Foundation::TimeSpan, timeout: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Geoposition>> {
-        let this = &windows_core::Interface::cast::<IGeolocator>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetGeopositionAsyncWithAgeAndTimeout)(windows_core::Interface::as_raw(this), maximumage, timeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -953,28 +953,28 @@ impl Geolocator {
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Geolocator, PositionChangedEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<IGeolocator>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PositionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemovePositionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGeolocator>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePositionChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn StatusChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Geolocator, StatusChangedEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<IGeolocator>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGeolocator>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn AllowFallbackToConsentlessPositions(&self) -> windows_core::Result<()> {
@@ -1211,14 +1211,14 @@ pub struct Geoposition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Geoposition, windows_core::IUnknown, windows_core::IInspectable);
 impl Geoposition {
     pub fn Coordinate(&self) -> windows_core::Result<Geocoordinate> {
-        let this = &windows_core::Interface::cast::<IGeoposition>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Coordinate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CivicAddress(&self) -> windows_core::Result<CivicAddress> {
-        let this = &windows_core::Interface::cast::<IGeoposition>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CivicAddress)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

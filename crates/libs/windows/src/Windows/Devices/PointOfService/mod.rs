@@ -4228,8 +4228,7 @@ unsafe impl Sync for CashDrawerCloseAlarm {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CashDrawerClosedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(CashDrawerClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CashDrawerClosedEventArgs, ICashDrawerEventSourceEventArgs);
+windows_core::imp::interface_hierarchy!(CashDrawerClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable, ICashDrawerEventSourceEventArgs);
 impl CashDrawerClosedEventArgs {
     pub fn CashDrawer(&self) -> windows_core::Result<CashDrawer> {
         let this = self;
@@ -4300,8 +4299,7 @@ unsafe impl Sync for CashDrawerEventSource {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CashDrawerOpenedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(CashDrawerOpenedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CashDrawerOpenedEventArgs, ICashDrawerEventSourceEventArgs);
+windows_core::imp::interface_hierarchy!(CashDrawerOpenedEventArgs, windows_core::IUnknown, windows_core::IInspectable, ICashDrawerEventSourceEventArgs);
 impl CashDrawerOpenedEventArgs {
     pub fn CashDrawer(&self) -> windows_core::Result<CashDrawer> {
         let this = self;
@@ -6105,8 +6103,7 @@ unsafe impl Sync for ClaimedSlipPrinter {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct JournalPrintJob(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(JournalPrintJob, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(JournalPrintJob, IPosPrinterJob);
+windows_core::imp::interface_hierarchy!(JournalPrintJob, windows_core::IUnknown, windows_core::IInspectable, IPosPrinterJob);
 impl JournalPrintJob {
     pub fn Print<P1>(&self, data: &windows_core::HSTRING, printoptions: P1) -> windows_core::Result<()>
     where
@@ -8902,8 +8899,8 @@ unsafe impl Sync for ReceiptPrinterCapabilities {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SlipPrintJob(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SlipPrintJob, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SlipPrintJob, IPosPrinterJob, IReceiptOrSlipJob);
+windows_core::imp::interface_hierarchy!(SlipPrintJob, windows_core::IUnknown, windows_core::IInspectable, IReceiptOrSlipJob);
+windows_core::imp::required_hierarchy!(SlipPrintJob, IPosPrinterJob);
 impl SlipPrintJob {
     pub fn Print(&self, data: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPosPrinterJob>(self)?;

@@ -1787,8 +1787,7 @@ impl IRandomAccessStreamWithContentType_Vtbl {
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Buffer(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(Buffer, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Buffer, IBuffer);
+windows_core::imp::interface_hierarchy!(Buffer, windows_core::IUnknown, windows_core::IInspectable, IBuffer);
 impl Buffer {
     pub fn Capacity(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -1856,8 +1855,8 @@ unsafe impl Sync for Buffer {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataReader(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(DataReader, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DataReader, super::super::Foundation::IClosable, IDataReader);
+windows_core::imp::interface_hierarchy!(DataReader, windows_core::IUnknown, windows_core::IInspectable, IDataReader);
+windows_core::imp::required_hierarchy!(DataReader, super::super::Foundation::IClosable);
 impl DataReader {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2075,8 +2074,8 @@ unsafe impl Sync for DataReader {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataReaderLoadOperation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(DataReaderLoadOperation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DataReaderLoadOperation, super::super::Foundation::IAsyncInfo, super::super::Foundation::IAsyncOperation<u32>);
+windows_core::imp::interface_hierarchy!(DataReaderLoadOperation, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::IAsyncOperation<u32>);
+windows_core::imp::required_hierarchy!(DataReaderLoadOperation, super::super::Foundation::IAsyncInfo);
 impl DataReaderLoadOperation {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
@@ -2144,8 +2143,8 @@ unsafe impl Sync for DataReaderLoadOperation {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataWriter(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(DataWriter, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DataWriter, super::super::Foundation::IClosable, IDataWriter);
+windows_core::imp::interface_hierarchy!(DataWriter, windows_core::IUnknown, windows_core::IInspectable, IDataWriter);
+windows_core::imp::required_hierarchy!(DataWriter, super::super::Foundation::IClosable);
 impl DataWriter {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2328,8 +2327,8 @@ unsafe impl Sync for DataWriter {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataWriterStoreOperation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(DataWriterStoreOperation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DataWriterStoreOperation, super::super::Foundation::IAsyncInfo, super::super::Foundation::IAsyncOperation<u32>);
+windows_core::imp::interface_hierarchy!(DataWriterStoreOperation, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::IAsyncOperation<u32>);
+windows_core::imp::required_hierarchy!(DataWriterStoreOperation, super::super::Foundation::IAsyncInfo);
 impl DataWriterStoreOperation {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
@@ -2397,8 +2396,8 @@ unsafe impl Sync for DataWriterStoreOperation {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileInputStream(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(FileInputStream, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(FileInputStream, super::super::Foundation::IClosable, IInputStream);
+windows_core::imp::interface_hierarchy!(FileInputStream, windows_core::IUnknown, windows_core::IInspectable, IInputStream);
+windows_core::imp::required_hierarchy!(FileInputStream, super::super::Foundation::IClosable);
 impl FileInputStream {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2430,8 +2429,8 @@ unsafe impl Sync for FileInputStream {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileOutputStream(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(FileOutputStream, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(FileOutputStream, super::super::Foundation::IClosable, IOutputStream);
+windows_core::imp::interface_hierarchy!(FileOutputStream, windows_core::IUnknown, windows_core::IInspectable, IOutputStream);
+windows_core::imp::required_hierarchy!(FileOutputStream, super::super::Foundation::IClosable);
 impl FileOutputStream {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2470,8 +2469,8 @@ unsafe impl Sync for FileOutputStream {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileRandomAccessStream(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(FileRandomAccessStream, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(FileRandomAccessStream, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream);
+windows_core::imp::interface_hierarchy!(FileRandomAccessStream, windows_core::IUnknown, windows_core::IInspectable, IRandomAccessStream);
+windows_core::imp::required_hierarchy!(FileRandomAccessStream, super::super::Foundation::IClosable, IInputStream, IOutputStream);
 impl FileRandomAccessStream {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2645,8 +2644,8 @@ unsafe impl Sync for FileRandomAccessStream {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InMemoryRandomAccessStream(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(InMemoryRandomAccessStream, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(InMemoryRandomAccessStream, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream);
+windows_core::imp::interface_hierarchy!(InMemoryRandomAccessStream, windows_core::IUnknown, windows_core::IInspectable, IRandomAccessStream);
+windows_core::imp::required_hierarchy!(InMemoryRandomAccessStream, super::super::Foundation::IClosable, IInputStream, IOutputStream);
 impl InMemoryRandomAccessStream {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2759,8 +2758,8 @@ unsafe impl Sync for InMemoryRandomAccessStream {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InputStreamOverStream(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(InputStreamOverStream, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(InputStreamOverStream, super::super::Foundation::IClosable, IInputStream);
+windows_core::imp::interface_hierarchy!(InputStreamOverStream, windows_core::IUnknown, windows_core::IInspectable, IInputStream);
+windows_core::imp::required_hierarchy!(InputStreamOverStream, super::super::Foundation::IClosable);
 impl InputStreamOverStream {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2792,8 +2791,8 @@ unsafe impl Sync for InputStreamOverStream {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OutputStreamOverStream(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(OutputStreamOverStream, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(OutputStreamOverStream, super::super::Foundation::IClosable, IOutputStream);
+windows_core::imp::interface_hierarchy!(OutputStreamOverStream, windows_core::IUnknown, windows_core::IInspectable, IOutputStream);
+windows_core::imp::required_hierarchy!(OutputStreamOverStream, super::super::Foundation::IClosable);
 impl OutputStreamOverStream {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2872,8 +2871,8 @@ impl windows_core::RuntimeName for RandomAccessStream {
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RandomAccessStreamOverStream(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RandomAccessStreamOverStream, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RandomAccessStreamOverStream, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream);
+windows_core::imp::interface_hierarchy!(RandomAccessStreamOverStream, windows_core::IUnknown, windows_core::IInspectable, IRandomAccessStream);
+windows_core::imp::required_hierarchy!(RandomAccessStreamOverStream, super::super::Foundation::IClosable, IInputStream, IOutputStream);
 impl RandomAccessStreamOverStream {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2979,8 +2978,7 @@ unsafe impl Sync for RandomAccessStreamOverStream {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RandomAccessStreamReference(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(RandomAccessStreamReference, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RandomAccessStreamReference, IRandomAccessStreamReference);
+windows_core::imp::interface_hierarchy!(RandomAccessStreamReference, windows_core::IUnknown, windows_core::IInspectable, IRandomAccessStreamReference);
 impl RandomAccessStreamReference {
     pub fn OpenReadAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>> {
         let this = self;

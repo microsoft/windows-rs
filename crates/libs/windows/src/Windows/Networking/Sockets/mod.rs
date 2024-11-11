@@ -2054,14 +2054,14 @@ impl MessageWebSocket {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Control(&self) -> windows_core::Result<MessageWebSocketControl> {
-        let this = &windows_core::Interface::cast::<IMessageWebSocket>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Control)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Information(&self) -> windows_core::Result<MessageWebSocketInformation> {
-        let this = &windows_core::Interface::cast::<IMessageWebSocket>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Information)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2071,14 +2071,14 @@ impl MessageWebSocket {
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MessageWebSocket, MessageWebSocketMessageReceivedEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<IMessageWebSocket>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageReceived)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveMessageReceived(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMessageWebSocket>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMessageReceived)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
     pub fn ServerCustomValidationRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
@@ -2318,25 +2318,25 @@ unsafe impl Sync for MessageWebSocketControl {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MessageWebSocketInformation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MessageWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MessageWebSocketInformation, IWebSocketInformation, IWebSocketInformation2);
+windows_core::imp::interface_hierarchy!(MessageWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable, IWebSocketInformation);
+windows_core::imp::required_hierarchy!(MessageWebSocketInformation, IWebSocketInformation2);
 impl MessageWebSocketInformation {
     pub fn LocalAddress(&self) -> windows_core::Result<super::HostName> {
-        let this = &windows_core::Interface::cast::<IWebSocketInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocalAddress)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn BandwidthStatistics(&self) -> windows_core::Result<BandwidthStatistics> {
-        let this = &windows_core::Interface::cast::<IWebSocketInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Protocol(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IWebSocketInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Protocol)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -2392,7 +2392,7 @@ pub struct MessageWebSocketMessageReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MessageWebSocketMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MessageWebSocketMessageReceivedEventArgs {
     pub fn MessageType(&self) -> windows_core::Result<SocketMessageType> {
-        let this = &windows_core::Interface::cast::<IMessageWebSocketMessageReceivedEventArgs>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -2400,7 +2400,7 @@ impl MessageWebSocketMessageReceivedEventArgs {
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn GetDataReader(&self) -> windows_core::Result<super::super::Storage::Streams::DataReader> {
-        let this = &windows_core::Interface::cast::<IMessageWebSocketMessageReceivedEventArgs>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDataReader)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2408,7 +2408,7 @@ impl MessageWebSocketMessageReceivedEventArgs {
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn GetDataStream(&self) -> windows_core::Result<super::super::Storage::Streams::IInputStream> {
-        let this = &windows_core::Interface::cast::<IMessageWebSocketMessageReceivedEventArgs>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDataStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3526,14 +3526,14 @@ impl StreamWebSocket {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Control(&self) -> windows_core::Result<StreamWebSocketControl> {
-        let this = &windows_core::Interface::cast::<IStreamWebSocket>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Control)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Information(&self) -> windows_core::Result<StreamWebSocketInformation> {
-        let this = &windows_core::Interface::cast::<IStreamWebSocket>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Information)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3541,7 +3541,7 @@ impl StreamWebSocket {
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn InputStream(&self) -> windows_core::Result<super::super::Storage::Streams::IInputStream> {
-        let this = &windows_core::Interface::cast::<IStreamWebSocket>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3740,25 +3740,25 @@ unsafe impl Sync for StreamWebSocketControl {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StreamWebSocketInformation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StreamWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(StreamWebSocketInformation, IWebSocketInformation, IWebSocketInformation2);
+windows_core::imp::interface_hierarchy!(StreamWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable, IWebSocketInformation);
+windows_core::imp::required_hierarchy!(StreamWebSocketInformation, IWebSocketInformation2);
 impl StreamWebSocketInformation {
     pub fn LocalAddress(&self) -> windows_core::Result<super::HostName> {
-        let this = &windows_core::Interface::cast::<IWebSocketInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocalAddress)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn BandwidthStatistics(&self) -> windows_core::Result<BandwidthStatistics> {
-        let this = &windows_core::Interface::cast::<IWebSocketInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BandwidthStatistics)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Protocol(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IWebSocketInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Protocol)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -3862,9 +3862,7 @@ impl windows_core::RuntimeName for WebSocketError {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebSocketKeepAlive(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Background")]
-windows_core::imp::interface_hierarchy!(WebSocketKeepAlive, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "ApplicationModel_Background")]
-windows_core::imp::required_hierarchy!(WebSocketKeepAlive, super::super::ApplicationModel::Background::IBackgroundTask);
+windows_core::imp::interface_hierarchy!(WebSocketKeepAlive, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Background::IBackgroundTask);
 #[cfg(feature = "ApplicationModel_Background")]
 impl WebSocketKeepAlive {
     pub fn new() -> windows_core::Result<Self> {

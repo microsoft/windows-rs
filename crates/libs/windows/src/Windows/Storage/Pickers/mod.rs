@@ -237,9 +237,9 @@ pub struct IFolderPickerStatics_Vtbl {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileExtensionVector(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(FileExtensionVector, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(FileExtensionVector, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVector<windows_core::HSTRING>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(FileExtensionVector, super::super::Foundation::Collections::IIterable<windows_core::HSTRING>, super::super::Foundation::Collections::IVector<windows_core::HSTRING>);
+windows_core::imp::required_hierarchy!(FileExtensionVector, super::super::Foundation::Collections::IIterable<windows_core::HSTRING>);
 #[cfg(feature = "Foundation_Collections")]
 impl FileExtensionVector {
     #[cfg(feature = "Foundation_Collections")]
@@ -487,9 +487,9 @@ unsafe impl Sync for FileOpenPicker {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FilePickerFileTypesOrderedMap(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(FilePickerFileTypesOrderedMap, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy ! ( FilePickerFileTypesOrderedMap , windows_core::IUnknown , windows_core::IInspectable , super::super::Foundation::Collections:: IMap < windows_core::HSTRING , super::super::Foundation::Collections:: IVector < windows_core::HSTRING > > );
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( FilePickerFileTypesOrderedMap , super::super::Foundation::Collections:: IIterable < super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , super::super::Foundation::Collections:: IVector < windows_core::HSTRING > > > , super::super::Foundation::Collections:: IMap < windows_core::HSTRING , super::super::Foundation::Collections:: IVector < windows_core::HSTRING > > );
+windows_core::imp::required_hierarchy!(FilePickerFileTypesOrderedMap, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::Foundation::Collections::IVector<windows_core::HSTRING>>>);
 #[cfg(feature = "Foundation_Collections")]
 impl FilePickerFileTypesOrderedMap {
     #[cfg(feature = "Foundation_Collections")]
@@ -570,9 +570,9 @@ unsafe impl Sync for FilePickerFileTypesOrderedMap {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FilePickerSelectedFilesArray(windows_core::IUnknown);
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-windows_core::imp::interface_hierarchy!(FilePickerSelectedFilesArray, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(FilePickerSelectedFilesArray, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVectorView<super::StorageFile>);
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-windows_core::imp::required_hierarchy!(FilePickerSelectedFilesArray, super::super::Foundation::Collections::IIterable<super::StorageFile>, super::super::Foundation::Collections::IVectorView<super::StorageFile>);
+windows_core::imp::required_hierarchy!(FilePickerSelectedFilesArray, super::super::Foundation::Collections::IIterable<super::StorageFile>);
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl FilePickerSelectedFilesArray {
     #[cfg(feature = "Foundation_Collections")]

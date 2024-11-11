@@ -337,26 +337,25 @@ impl windows_core::RuntimeName for GameList {
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameListEntry(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(GameListEntry, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(GameListEntry, IGameListEntry);
+windows_core::imp::interface_hierarchy!(GameListEntry, windows_core::IUnknown, windows_core::IInspectable, IGameListEntry);
 impl GameListEntry {
     #[cfg(feature = "ApplicationModel")]
     pub fn DisplayInfo(&self) -> windows_core::Result<super::super::super::ApplicationModel::AppDisplayInfo> {
-        let this = &windows_core::Interface::cast::<IGameListEntry>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn LaunchAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &windows_core::Interface::cast::<IGameListEntry>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Category(&self) -> windows_core::Result<GameListCategory> {
-        let this = &windows_core::Interface::cast::<IGameListEntry>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Category)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -364,14 +363,14 @@ impl GameListEntry {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
-        let this = &windows_core::Interface::cast::<IGameListEntry>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetCategoryAsync(&self, value: GameListCategory) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
-        let this = &windows_core::Interface::cast::<IGameListEntry>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetCategoryAsync)(windows_core::Interface::as_raw(this), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -415,9 +415,9 @@ pub struct IStorageItemMostRecentlyUsedList2_Vtbl {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AccessListEntryView(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(AccessListEntryView, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(AccessListEntryView, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVectorView<AccessListEntry>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(AccessListEntryView, super::super::Foundation::Collections::IIterable<AccessListEntry>, super::super::Foundation::Collections::IVectorView<AccessListEntry>);
+windows_core::imp::required_hierarchy!(AccessListEntryView, super::super::Foundation::Collections::IIterable<AccessListEntry>);
 #[cfg(feature = "Foundation_Collections")]
 impl AccessListEntryView {
     #[cfg(feature = "Foundation_Collections")]
@@ -542,8 +542,7 @@ impl windows_core::RuntimeName for StorageApplicationPermissions {
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageItemAccessList(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StorageItemAccessList, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(StorageItemAccessList, IStorageItemAccessList);
+windows_core::imp::interface_hierarchy!(StorageItemAccessList, windows_core::IUnknown, windows_core::IInspectable, IStorageItemAccessList);
 impl StorageItemAccessList {
     pub fn AddOverloadDefaultMetadata<P0>(&self, file: P0) -> windows_core::Result<windows_core::HSTRING>
     where
@@ -806,14 +805,14 @@ impl StorageItemMostRecentlyUsedList {
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<StorageItemMostRecentlyUsedList, ItemRemovedEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<IStorageItemMostRecentlyUsedList>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ItemRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveItemRemoved(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IStorageItemMostRecentlyUsedList>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveItemRemoved)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
     pub fn AddWithMetadataAndVisibility<P0>(&self, file: P0, metadata: &windows_core::HSTRING, visibility: RecentStorageItemVisibility) -> windows_core::Result<windows_core::HSTRING>

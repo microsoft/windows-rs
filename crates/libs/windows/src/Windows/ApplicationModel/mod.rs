@@ -1434,8 +1434,7 @@ impl windows_core::RuntimeName for DesignMode {
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EnteredBackgroundEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(EnteredBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(EnteredBackgroundEventArgs, IEnteredBackgroundEventArgs);
+windows_core::imp::interface_hierarchy!(EnteredBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable, IEnteredBackgroundEventArgs);
 impl EnteredBackgroundEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::Foundation::Deferral> {
         let this = self;
@@ -1625,8 +1624,7 @@ impl windows_core::RuntimeName for FullTrustProcessLauncher {
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LeavingBackgroundEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LeavingBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LeavingBackgroundEventArgs, ILeavingBackgroundEventArgs);
+windows_core::imp::interface_hierarchy!(LeavingBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable, ILeavingBackgroundEventArgs);
 impl LeavingBackgroundEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::Foundation::Deferral> {
         let this = self;
@@ -3011,8 +3009,7 @@ unsafe impl Sync for StartupTask {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SuspendingDeferral(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SuspendingDeferral, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SuspendingDeferral, ISuspendingDeferral);
+windows_core::imp::interface_hierarchy!(SuspendingDeferral, windows_core::IUnknown, windows_core::IInspectable, ISuspendingDeferral);
 impl SuspendingDeferral {
     pub fn Complete(&self) -> windows_core::Result<()> {
         let this = self;
@@ -3034,8 +3031,7 @@ unsafe impl Sync for SuspendingDeferral {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SuspendingEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SuspendingEventArgs, ISuspendingEventArgs);
+windows_core::imp::interface_hierarchy!(SuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable, ISuspendingEventArgs);
 impl SuspendingEventArgs {
     pub fn SuspendingOperation(&self) -> windows_core::Result<SuspendingOperation> {
         let this = self;
@@ -3060,8 +3056,7 @@ unsafe impl Sync for SuspendingEventArgs {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SuspendingOperation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SuspendingOperation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SuspendingOperation, ISuspendingOperation);
+windows_core::imp::interface_hierarchy!(SuspendingOperation, windows_core::IUnknown, windows_core::IInspectable, ISuspendingOperation);
 impl SuspendingOperation {
     pub fn GetDeferral(&self) -> windows_core::Result<SuspendingDeferral> {
         let this = self;

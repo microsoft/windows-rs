@@ -581,43 +581,43 @@ pub struct HolographicCamera(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicCamera, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicCamera {
     pub fn RenderTargetSize(&self) -> windows_core::Result<super::super::Foundation::Size> {
-        let this = &windows_core::Interface::cast::<IHolographicCamera>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RenderTargetSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn ViewportScaleFactor(&self) -> windows_core::Result<f64> {
-        let this = &windows_core::Interface::cast::<IHolographicCamera>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ViewportScaleFactor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetViewportScaleFactor(&self, value: f64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IHolographicCamera>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetViewportScaleFactor)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn IsStereo(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IHolographicCamera>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsStereo)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Id(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<IHolographicCamera>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetNearPlaneDistance(&self, value: f64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IHolographicCamera>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetNearPlaneDistance)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn SetFarPlaneDistance(&self, value: f64) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IHolographicCamera>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFarPlaneDistance)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn LeftViewportParameters(&self) -> windows_core::Result<HolographicCameraViewportParameters> {
@@ -826,7 +826,7 @@ impl HolographicCameraRenderingParameters {
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
-        let this = &windows_core::Interface::cast::<IHolographicCameraRenderingParameters>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFocusPoint)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), position).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -834,7 +834,7 @@ impl HolographicCameraRenderingParameters {
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
-        let this = &windows_core::Interface::cast::<IHolographicCameraRenderingParameters>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFocusPointWithNormal)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), position, normal).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -842,12 +842,12 @@ impl HolographicCameraRenderingParameters {
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
-        let this = &windows_core::Interface::cast::<IHolographicCameraRenderingParameters>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFocusPointWithNormalLinearVelocity)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), position, normal, linearvelocity).ok() }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn Direct3D11Device(&self) -> windows_core::Result<super::DirectX::Direct3D11::IDirect3DDevice> {
-        let this = &windows_core::Interface::cast::<IHolographicCameraRenderingParameters>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Direct3D11Device)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -855,7 +855,7 @@ impl HolographicCameraRenderingParameters {
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn Direct3D11BackBuffer(&self) -> windows_core::Result<super::DirectX::Direct3D11::IDirect3DSurface> {
-        let this = &windows_core::Interface::cast::<IHolographicCameraRenderingParameters>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Direct3D11BackBuffer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1041,7 +1041,7 @@ windows_core::imp::interface_hierarchy!(HolographicFrame, windows_core::IUnknown
 impl HolographicFrame {
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddedCameras(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<HolographicCamera>> {
-        let this = &windows_core::Interface::cast::<IHolographicFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AddedCameras)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1049,7 +1049,7 @@ impl HolographicFrame {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemovedCameras(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<HolographicCamera>> {
-        let this = &windows_core::Interface::cast::<IHolographicFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemovedCameras)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1059,46 +1059,46 @@ impl HolographicFrame {
     where
         P0: windows_core::Param<HolographicCameraPose>,
     {
-        let this = &windows_core::Interface::cast::<IHolographicFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetRenderingParameters)(windows_core::Interface::as_raw(this), camerapose.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
-        let this = &windows_core::Interface::cast::<IHolographicFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn CurrentPrediction(&self) -> windows_core::Result<HolographicFramePrediction> {
-        let this = &windows_core::Interface::cast::<IHolographicFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentPrediction)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UpdateCurrentPrediction(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IHolographicFrame>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).UpdateCurrentPrediction)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn PresentUsingCurrentPrediction(&self) -> windows_core::Result<HolographicFramePresentResult> {
-        let this = &windows_core::Interface::cast::<IHolographicFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PresentUsingCurrentPrediction)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PresentUsingCurrentPredictionWithBehavior(&self, waitbehavior: HolographicFramePresentWaitBehavior) -> windows_core::Result<HolographicFramePresentResult> {
-        let this = &windows_core::Interface::cast::<IHolographicFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PresentUsingCurrentPredictionWithBehavior)(windows_core::Interface::as_raw(this), waitbehavior, &mut result__).map(|| result__)
         }
     }
     pub fn WaitForFrameToFinish(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IHolographicFrame>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).WaitForFrameToFinish)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetQuadLayerUpdateParameters<P0>(&self, layer: P0) -> windows_core::Result<HolographicQuadLayerUpdateParameters>

@@ -1363,82 +1363,82 @@ unsafe impl Sync for BitmapEncoder {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapFrame(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(BitmapFrame, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(BitmapFrame, IBitmapFrame, IBitmapFrameWithSoftwareBitmap);
+windows_core::imp::interface_hierarchy!(BitmapFrame, windows_core::IUnknown, windows_core::IInspectable, IBitmapFrame);
+windows_core::imp::required_hierarchy!(BitmapFrame, IBitmapFrameWithSoftwareBitmap);
 impl BitmapFrame {
     #[cfg(feature = "Storage_Streams")]
     pub fn GetThumbnailAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
-        let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetThumbnailAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn BitmapProperties(&self) -> windows_core::Result<BitmapPropertiesView> {
-        let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BitmapProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn BitmapPixelFormat(&self) -> windows_core::Result<BitmapPixelFormat> {
-        let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BitmapPixelFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BitmapAlphaMode(&self) -> windows_core::Result<BitmapAlphaMode> {
-        let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BitmapAlphaMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DpiX(&self) -> windows_core::Result<f64> {
-        let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DpiX)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DpiY(&self) -> windows_core::Result<f64> {
-        let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DpiY)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PixelWidth(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PixelWidth)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PixelHeight(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PixelHeight)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn OrientedPixelWidth(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OrientedPixelWidth)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn OrientedPixelHeight(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OrientedPixelHeight)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetPixelDataAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
-        let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPixelDataAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1448,7 +1448,7 @@ impl BitmapFrame {
     where
         P2: windows_core::Param<BitmapTransform>,
     {
-        let this = &windows_core::Interface::cast::<IBitmapFrame>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPixelDataTransformedAsync)(windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.param().abi(), exiforientationmode, colormanagementmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1535,8 +1535,7 @@ unsafe impl Sync for BitmapProperties {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapPropertiesView(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(BitmapPropertiesView, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(BitmapPropertiesView, IBitmapPropertiesView);
+windows_core::imp::interface_hierarchy!(BitmapPropertiesView, windows_core::IUnknown, windows_core::IInspectable, IBitmapPropertiesView);
 impl BitmapPropertiesView {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
@@ -1567,9 +1566,9 @@ unsafe impl Sync for BitmapPropertiesView {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapPropertySet(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(BitmapPropertySet, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy ! ( BitmapPropertySet , windows_core::IUnknown , windows_core::IInspectable , super::super::Foundation::Collections:: IMap < windows_core::HSTRING , BitmapTypedValue > );
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( BitmapPropertySet , super::super::Foundation::Collections:: IIterable < super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , BitmapTypedValue > > , super::super::Foundation::Collections:: IMap < windows_core::HSTRING , BitmapTypedValue > );
+windows_core::imp::required_hierarchy!(BitmapPropertySet, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>>);
 #[cfg(feature = "Foundation_Collections")]
 impl BitmapPropertySet {
     pub fn new() -> windows_core::Result<Self> {
@@ -1793,9 +1792,9 @@ unsafe impl Sync for BitmapTypedValue {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ImageStream(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::interface_hierarchy!(ImageStream, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(ImageStream, windows_core::IUnknown, windows_core::IInspectable, super::super::Storage::Streams::IRandomAccessStreamWithContentType);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::required_hierarchy!(ImageStream, super::super::Foundation::IClosable, super::super::Storage::Streams::IContentTypeProvider, super::super::Storage::Streams::IInputStream, super::super::Storage::Streams::IOutputStream, super::super::Storage::Streams::IRandomAccessStream, super::super::Storage::Streams::IRandomAccessStreamWithContentType);
+windows_core::imp::required_hierarchy!(ImageStream, super::super::Foundation::IClosable, super::super::Storage::Streams::IContentTypeProvider, super::super::Storage::Streams::IInputStream, super::super::Storage::Streams::IOutputStream, super::super::Storage::Streams::IRandomAccessStream);
 #[cfg(feature = "Storage_Streams")]
 impl ImageStream {
     pub fn Close(&self) -> windows_core::Result<()> {

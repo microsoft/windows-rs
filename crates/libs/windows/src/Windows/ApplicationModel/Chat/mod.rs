@@ -1158,67 +1158,67 @@ impl ChatMessage {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Attachments(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<ChatMessageAttachment>> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Attachments)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Body(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Body)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetBody(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBody)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn From(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).From)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn IsForwardingDisabled(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsForwardingDisabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsIncoming(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsIncoming)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsRead(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRead)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn LocalTimestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocalTimestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn NetworkTimestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NetworkTimestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -1226,7 +1226,7 @@ impl ChatMessage {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Recipients(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<windows_core::HSTRING>> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Recipients)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1234,42 +1234,42 @@ impl ChatMessage {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn RecipientSendStatuses(&self) -> windows_core::Result<super::super::Foundation::Collections::IMapView<windows_core::HSTRING, ChatMessageStatus>> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecipientSendStatuses)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Status(&self) -> windows_core::Result<ChatMessageStatus> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Subject(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Subject)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn TransportFriendlyName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransportFriendlyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn TransportId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransportId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetTransportId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IChatMessage>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTransportId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn EstimatedDownloadSize(&self) -> windows_core::Result<u64> {
@@ -1459,7 +1459,7 @@ windows_core::imp::interface_hierarchy!(ChatMessageAttachment, windows_core::IUn
 impl ChatMessageAttachment {
     #[cfg(feature = "Storage_Streams")]
     pub fn DataStreamReference(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
-        let this = &windows_core::Interface::cast::<IChatMessageAttachment>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DataStreamReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1470,40 +1470,40 @@ impl ChatMessageAttachment {
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
-        let this = &windows_core::Interface::cast::<IChatMessageAttachment>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDataStreamReference)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn GroupId(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<IChatMessageAttachment>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GroupId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetGroupId(&self, value: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IChatMessageAttachment>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetGroupId)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn MimeType(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IChatMessageAttachment>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MimeType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetMimeType(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IChatMessageAttachment>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMimeType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IChatMessageAttachment>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IChatMessageAttachment>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1803,7 +1803,7 @@ pub struct ChatMessageNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageNotificationTriggerDetails {
     pub fn ChatMessage(&self) -> windows_core::Result<ChatMessage> {
-        let this = &windows_core::Interface::cast::<IChatMessageNotificationTriggerDetails>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChatMessage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1890,56 +1890,56 @@ pub struct ChatMessageStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageStore, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageStore {
     pub fn ChangeTracker(&self) -> windows_core::Result<ChatMessageChangeTracker> {
-        let this = &windows_core::Interface::cast::<IChatMessageStore>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChangeTracker)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DeleteMessageAsync(&self, localmessageid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &windows_core::Interface::cast::<IChatMessageStore>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localmessageid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DownloadMessageAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &windows_core::Interface::cast::<IChatMessageStore>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DownloadMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localchatmessageid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetMessageAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>> {
-        let this = &windows_core::Interface::cast::<IChatMessageStore>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localchatmessageid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetMessageReader1(&self) -> windows_core::Result<ChatMessageReader> {
-        let this = &windows_core::Interface::cast::<IChatMessageStore>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMessageReader1)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetMessageReader2(&self, recenttimelimit: super::super::Foundation::TimeSpan) -> windows_core::Result<ChatMessageReader> {
-        let this = &windows_core::Interface::cast::<IChatMessageStore>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMessageReader2)(windows_core::Interface::as_raw(this), recenttimelimit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MarkMessageReadAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &windows_core::Interface::cast::<IChatMessageStore>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MarkMessageReadAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localchatmessageid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RetrySendMessageAsync(&self, localchatmessageid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &windows_core::Interface::cast::<IChatMessageStore>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RetrySendMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localchatmessageid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1949,7 +1949,7 @@ impl ChatMessageStore {
     where
         P0: windows_core::Param<ChatMessage>,
     {
-        let this = &windows_core::Interface::cast::<IChatMessageStore>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendMessageAsync)(windows_core::Interface::as_raw(this), chatmessage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1959,7 +1959,7 @@ impl ChatMessageStore {
     where
         P0: windows_core::Param<ChatMessage>,
     {
-        let this = &windows_core::Interface::cast::<IChatMessageStore>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ValidateMessage)(windows_core::Interface::as_raw(this), chatmessage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1969,14 +1969,14 @@ impl ChatMessageStore {
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageChangedEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<IChatMessageStore>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveMessageChanged(&self, value: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IChatMessageStore>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMessageChanged)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2185,35 +2185,35 @@ pub struct ChatMessageTransport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageTransport, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageTransport {
     pub fn IsAppSetAsNotificationProvider(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IChatMessageTransport>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAppSetAsNotificationProvider)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsActive(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IChatMessageTransport>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsActive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn TransportFriendlyName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IChatMessageTransport>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransportFriendlyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn TransportId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IChatMessageTransport>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransportId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RequestSetAsNotificationProviderAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &windows_core::Interface::cast::<IChatMessageTransport>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestSetAsNotificationProviderAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

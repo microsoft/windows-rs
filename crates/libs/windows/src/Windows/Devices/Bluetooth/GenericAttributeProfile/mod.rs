@@ -938,46 +938,46 @@ windows_core::imp::interface_hierarchy!(GattCharacteristic, windows_core::IUnkno
 impl GattCharacteristic {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetDescriptors(&self, descriptoruuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDescriptors)(windows_core::Interface::as_raw(this), descriptoruuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CharacteristicProperties(&self) -> windows_core::Result<GattCharacteristicProperties> {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CharacteristicProperties)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ProtectionLevel(&self) -> windows_core::Result<GattProtectionLevel> {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetProtectionLevel(&self, value: GattProtectionLevel) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetProtectionLevel)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn UserDescription(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Uuid(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn AttributeHandle(&self) -> windows_core::Result<u16> {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeHandle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -985,21 +985,21 @@ impl GattCharacteristic {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn PresentationFormats(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>> {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PresentationFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReadValueAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadValueAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadValueWithCacheModeAsync)(windows_core::Interface::as_raw(this), cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1010,7 +1010,7 @@ impl GattCharacteristic {
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteValueAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1021,21 +1021,21 @@ impl GattCharacteristic {
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteValueWithOptionAsync)(windows_core::Interface::as_raw(this), value.param().abi(), writeoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>> {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadClientCharacteristicConfigurationDescriptorAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn WriteClientCharacteristicConfigurationDescriptorAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>> {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorAsync)(windows_core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1045,14 +1045,14 @@ impl GattCharacteristic {
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattCharacteristic, GattValueChangedEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ValueChanged)(windows_core::Interface::as_raw(this), valuechangedhandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveValueChanged(&self, valuechangedeventcookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGattCharacteristic>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveValueChanged)(windows_core::Interface::as_raw(this), valuechangedeventcookie).ok() }
     }
     pub fn Service(&self) -> windows_core::Result<GattDeviceService> {
@@ -1919,7 +1919,7 @@ windows_core::imp::required_hierarchy!(GattDeviceService, super::super::super::F
 impl GattDeviceService {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCharacteristics(&self, characteristicuuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
-        let this = &windows_core::Interface::cast::<IGattDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristics)(windows_core::Interface::as_raw(this), characteristicuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1927,28 +1927,28 @@ impl GattDeviceService {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetIncludedServices(&self, serviceuuid: windows_core::GUID) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
-        let this = &windows_core::Interface::cast::<IGattDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIncludedServices)(windows_core::Interface::as_raw(this), serviceuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IGattDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Uuid(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = &windows_core::Interface::cast::<IGattDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn AttributeHandle(&self) -> windows_core::Result<u16> {
-        let this = &windows_core::Interface::cast::<IGattDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeHandle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)

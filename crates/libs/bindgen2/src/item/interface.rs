@@ -71,7 +71,7 @@ impl Interface {
         let name = self.write_name(writer);
 
         let vtbl_name = self.write_vtbl_name(writer);
-        let is_exclusive = self.def.has_attribute("ExclusiveToAttribute");
+        let is_exclusive = self.is_exclusive();
         let constraints = writer.write_generic_constraints(&self.generics);
         let phantoms = writer.write_generic_phantoms(&self.generics);
         // TODO: should be able to "quote" this from the above
@@ -433,6 +433,10 @@ impl Interface {
             let generics = self.generics.iter().map(|ty| ty.write(writer));
             quote! { #namespace #name < #(#generics),* > }
         }
+    }
+
+    pub fn is_exclusive(&self) -> bool {
+        self.def.has_attribute("ExclusiveToAttribute")
     }
 
     pub fn runtime_signature(&self) -> String {

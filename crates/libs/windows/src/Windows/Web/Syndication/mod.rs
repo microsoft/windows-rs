@@ -1262,8 +1262,7 @@ unsafe impl Sync for SyndicationCategory {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SyndicationClient(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SyndicationClient, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SyndicationClient, ISyndicationClient);
+windows_core::imp::interface_hierarchy!(SyndicationClient, windows_core::IUnknown, windows_core::IInspectable, ISyndicationClient);
 impl SyndicationClient {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2554,8 +2553,7 @@ unsafe impl Sync for SyndicationLink {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SyndicationNode(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SyndicationNode, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SyndicationNode, ISyndicationNode);
+windows_core::imp::interface_hierarchy!(SyndicationNode, windows_core::IUnknown, windows_core::IInspectable, ISyndicationNode);
 impl SyndicationNode {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2835,8 +2833,8 @@ unsafe impl Sync for SyndicationPerson {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SyndicationText(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SyndicationText, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SyndicationText, ISyndicationNode, ISyndicationText);
+windows_core::imp::interface_hierarchy!(SyndicationText, windows_core::IUnknown, windows_core::IInspectable, ISyndicationText);
+windows_core::imp::required_hierarchy!(SyndicationText, ISyndicationNode);
 impl SyndicationText {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())

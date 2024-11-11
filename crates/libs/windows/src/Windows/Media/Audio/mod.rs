@@ -2576,7 +2576,7 @@ impl AudioGraph {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn CreateFrameInputNode(&self) -> windows_core::Result<AudioFrameInputNode> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFrameInputNode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2587,7 +2587,7 @@ impl AudioGraph {
     where
         P0: windows_core::Param<super::MediaProperties::AudioEncodingProperties>,
     {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFrameInputNodeWithFormat)(windows_core::Interface::as_raw(this), encodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2595,7 +2595,7 @@ impl AudioGraph {
     }
     #[cfg(feature = "Media_Capture")]
     pub fn CreateDeviceInputNodeAsync(&self, category: super::Capture::MediaCategory) -> windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateDeviceInputNodeAsync)(windows_core::Interface::as_raw(this), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2606,7 +2606,7 @@ impl AudioGraph {
     where
         P1: windows_core::Param<super::MediaProperties::AudioEncodingProperties>,
     {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatAsync)(windows_core::Interface::as_raw(this), category, encodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2618,14 +2618,14 @@ impl AudioGraph {
         P1: windows_core::Param<super::MediaProperties::AudioEncodingProperties>,
         P2: windows_core::Param<super::super::Devices::Enumeration::DeviceInformation>,
     {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatOnDeviceAsync)(windows_core::Interface::as_raw(this), category, encodingproperties.param().abi(), device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateFrameOutputNode(&self) -> windows_core::Result<AudioFrameOutputNode> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFrameOutputNode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2636,14 +2636,14 @@ impl AudioGraph {
     where
         P0: windows_core::Param<super::MediaProperties::AudioEncodingProperties>,
     {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFrameOutputNodeWithFormat)(windows_core::Interface::as_raw(this), encodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateDeviceOutputNodeAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceOutputNodeResult>> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateDeviceOutputNodeAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2654,7 +2654,7 @@ impl AudioGraph {
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFileInputNodeAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2665,7 +2665,7 @@ impl AudioGraph {
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFileOutputNodeAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2677,14 +2677,14 @@ impl AudioGraph {
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
         P1: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
     {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFileOutputNodeWithFileProfileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), fileencodingprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateSubmixNode(&self) -> windows_core::Result<AudioSubmixNode> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSubmixNode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2695,68 +2695,68 @@ impl AudioGraph {
     where
         P0: windows_core::Param<super::MediaProperties::AudioEncodingProperties>,
     {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateSubmixNodeWithFormat)(windows_core::Interface::as_raw(this), encodingproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Start(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Stop(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ResetAllNodes(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).ResetAllNodes)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn QuantumStarted<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioGraph, windows_core::IInspectable>>,
     {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QuantumStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveQuantumStarted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveQuantumStarted)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn QuantumProcessed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioGraph, windows_core::IInspectable>>,
     {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QuantumProcessed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveQuantumProcessed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveQuantumProcessed)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn UnrecoverableErrorOccurred<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioGraph, AudioGraphUnrecoverableErrorOccurredEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnrecoverableErrorOccurred)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveUnrecoverableErrorOccurred(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveUnrecoverableErrorOccurred)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn CompletedQuantumCount(&self) -> windows_core::Result<u64> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CompletedQuantumCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -2764,14 +2764,14 @@ impl AudioGraph {
     }
     #[cfg(feature = "Media_MediaProperties")]
     pub fn EncodingProperties(&self) -> windows_core::Result<super::MediaProperties::AudioEncodingProperties> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EncodingProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn LatencyInSamples(&self) -> windows_core::Result<i32> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LatencyInSamples)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -2779,21 +2779,21 @@ impl AudioGraph {
     }
     #[cfg(feature = "Devices_Enumeration")]
     pub fn PrimaryRenderDevice(&self) -> windows_core::Result<super::super::Devices::Enumeration::DeviceInformation> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrimaryRenderDevice)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RenderDeviceAudioProcessing(&self) -> windows_core::Result<super::AudioProcessing> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RenderDeviceAudioProcessing)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SamplesPerQuantum(&self) -> windows_core::Result<i32> {
-        let this = &windows_core::Interface::cast::<IAudioGraph>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SamplesPerQuantum)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -2907,8 +2907,7 @@ unsafe impl Sync for AudioGraph {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AudioGraphBatchUpdater(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(AudioGraphBatchUpdater, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AudioGraphBatchUpdater, super::super::Foundation::IClosable);
+windows_core::imp::interface_hierarchy!(AudioGraphBatchUpdater, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::IClosable);
 impl AudioGraphBatchUpdater {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = self;
@@ -3729,8 +3728,8 @@ unsafe impl Sync for AudioStateMonitor {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AudioSubmixNode(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(AudioSubmixNode, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AudioSubmixNode, super::super::Foundation::IClosable, IAudioInputNode, IAudioInputNode2, IAudioNode);
+windows_core::imp::interface_hierarchy!(AudioSubmixNode, windows_core::IUnknown, windows_core::IInspectable, IAudioInputNode);
+windows_core::imp::required_hierarchy!(AudioSubmixNode, super::super::Foundation::IClosable, IAudioInputNode2, IAudioNode);
 impl AudioSubmixNode {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -3738,7 +3737,7 @@ impl AudioSubmixNode {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn OutgoingConnections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioGraphConnection>> {
-        let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OutgoingConnections)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3748,21 +3747,21 @@ impl AudioSubmixNode {
     where
         P0: windows_core::Param<IAudioNode>,
     {
-        let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
     }
     pub fn AddOutgoingConnectionWithGain<P0>(&self, destination: P0, gain: f64) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
-        let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddOutgoingConnectionWithGain)(windows_core::Interface::as_raw(this), destination.param().abi(), gain).ok() }
     }
     pub fn RemoveOutgoingConnection<P0>(&self, destination: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IAudioNode>,
     {
-        let this = &windows_core::Interface::cast::<IAudioInputNode>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveOutgoingConnection)(windows_core::Interface::as_raw(this), destination.param().abi()).ok() }
     }
     pub fn Emitter(&self) -> windows_core::Result<AudioNodeEmitter> {

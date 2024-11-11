@@ -755,9 +755,7 @@ impl windows_core::RuntimeName for SearchPane {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SearchPaneQueryChangedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-windows_core::imp::interface_hierarchy!(SearchPaneQueryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "deprecated")]
-windows_core::imp::required_hierarchy!(SearchPaneQueryChangedEventArgs, ISearchPaneQueryChangedEventArgs);
+windows_core::imp::interface_hierarchy!(SearchPaneQueryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable, ISearchPaneQueryChangedEventArgs);
 #[cfg(feature = "deprecated")]
 impl SearchPaneQueryChangedEventArgs {
     #[cfg(feature = "deprecated")]

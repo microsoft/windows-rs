@@ -899,18 +899,18 @@ impl Gamepad {
         }
     }
     pub fn Vibration(&self) -> windows_core::Result<GamepadVibration> {
-        let this = &windows_core::Interface::cast::<IGamepad>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Vibration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetVibration(&self, value: GamepadVibration) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IGamepad>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetVibration)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn GetCurrentReading(&self) -> windows_core::Result<GamepadReading> {
-        let this = &windows_core::Interface::cast::<IGamepad>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentReading)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -1302,14 +1302,14 @@ impl RawGameController {
         }
     }
     pub fn AxisCount(&self) -> windows_core::Result<i32> {
-        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AxisCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ButtonCount(&self) -> windows_core::Result<i32> {
-        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ButtonCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1317,49 +1317,49 @@ impl RawGameController {
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Gaming_Input_ForceFeedback"))]
     pub fn ForceFeedbackMotors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ForceFeedback::ForceFeedbackMotor>> {
-        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForceFeedbackMotors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn HardwareProductId(&self) -> windows_core::Result<u16> {
-        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HardwareProductId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HardwareVendorId(&self) -> windows_core::Result<u16> {
-        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HardwareVendorId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SwitchCount(&self) -> windows_core::Result<i32> {
-        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SwitchCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetButtonLabel(&self, buttonindex: i32) -> windows_core::Result<GameControllerButtonLabel> {
-        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetButtonLabel)(windows_core::Interface::as_raw(this), buttonindex, &mut result__).map(|| result__)
         }
     }
     pub fn GetCurrentReading(&self, buttonarray: &mut [bool], switcharray: &mut [GameControllerSwitchPosition], axisarray: &mut [f64]) -> windows_core::Result<u64> {
-        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentReading)(windows_core::Interface::as_raw(this), buttonarray.len().try_into().unwrap(), buttonarray.as_mut_ptr(), switcharray.len().try_into().unwrap(), switcharray.as_mut_ptr(), axisarray.len().try_into().unwrap(), axisarray.as_mut_ptr(), &mut result__).map(|| result__)
         }
     }
     pub fn GetSwitchKind(&self, switchindex: i32) -> windows_core::Result<GameControllerSwitchKind> {
-        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSwitchKind)(windows_core::Interface::as_raw(this), switchindex, &mut result__).map(|| result__)

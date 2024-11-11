@@ -309,9 +309,9 @@ impl IStorageItemInformation_Vtbl {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileInformation(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::interface_hierarchy!(FileInformation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(FileInformation, windows_core::IUnknown, windows_core::IInspectable, IStorageItemInformation);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::required_hierarchy!(FileInformation, IStorageItemInformation, super::IStorageFile, super::IStorageFile2, super::IStorageFilePropertiesWithAvailability, super::IStorageItem, super::IStorageItem2, super::IStorageItemProperties, super::IStorageItemPropertiesWithProvider, super::Streams::IInputStreamReference, super::Streams::IRandomAccessStreamReference);
+windows_core::imp::required_hierarchy!(FileInformation, super::IStorageFile, super::IStorageFile2, super::IStorageFilePropertiesWithAvailability, super::IStorageItem, super::IStorageItem2, super::IStorageItemProperties, super::IStorageItemPropertiesWithProvider, super::Streams::IInputStreamReference, super::Streams::IRandomAccessStreamReference);
 #[cfg(feature = "Storage_Streams")]
 impl FileInformation {
     #[cfg(feature = "Storage_FileProperties")]
@@ -836,9 +836,9 @@ unsafe impl Sync for FileInformationFactory {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FolderInformation(windows_core::IUnknown);
 #[cfg(feature = "Storage_Search")]
-windows_core::imp::interface_hierarchy!(FolderInformation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(FolderInformation, windows_core::IUnknown, windows_core::IInspectable, IStorageItemInformation);
 #[cfg(feature = "Storage_Search")]
-windows_core::imp::required_hierarchy!(FolderInformation, IStorageItemInformation, super::IStorageFolder, super::IStorageFolder2, super::IStorageItem, super::IStorageItem2, super::IStorageItemProperties, super::IStorageItemPropertiesWithProvider, super::Search::IStorageFolderQueryOperations);
+windows_core::imp::required_hierarchy!(FolderInformation, super::IStorageFolder, super::IStorageFolder2, super::IStorageItem, super::IStorageItem2, super::IStorageItemProperties, super::IStorageItemPropertiesWithProvider, super::Search::IStorageFolderQueryOperations);
 #[cfg(feature = "Storage_Search")]
 impl FolderInformation {
     #[cfg(feature = "Storage_FileProperties")]

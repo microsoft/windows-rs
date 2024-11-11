@@ -1200,8 +1200,7 @@ unsafe impl Sync for ContentIndexerQuery {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IndexableContent(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(IndexableContent, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(IndexableContent, IIndexableContent);
+windows_core::imp::interface_hierarchy!(IndexableContent, windows_core::IUnknown, windows_core::IInspectable, IIndexableContent);
 impl IndexableContent {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1436,9 +1435,9 @@ unsafe impl Sync for QueryOptions {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SortEntryVector(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(SortEntryVector, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(SortEntryVector, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVector<SortEntry>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(SortEntryVector, super::super::Foundation::Collections::IIterable<SortEntry>, super::super::Foundation::Collections::IVector<SortEntry>);
+windows_core::imp::required_hierarchy!(SortEntryVector, super::super::Foundation::Collections::IIterable<SortEntry>);
 #[cfg(feature = "Foundation_Collections")]
 impl SortEntryVector {
     #[cfg(feature = "Foundation_Collections")]

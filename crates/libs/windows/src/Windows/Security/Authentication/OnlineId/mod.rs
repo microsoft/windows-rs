@@ -427,8 +427,8 @@ unsafe impl Sync for OnlineIdSystemTicketResult {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SignOutUserOperation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SignOutUserOperation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SignOutUserOperation, super::super::super::Foundation::IAsyncAction, super::super::super::Foundation::IAsyncInfo);
+windows_core::imp::interface_hierarchy!(SignOutUserOperation, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::IAsyncAction);
+windows_core::imp::required_hierarchy!(SignOutUserOperation, super::super::super::Foundation::IAsyncInfo);
 impl SignOutUserOperation {
     pub fn SetCompleted<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
@@ -493,8 +493,8 @@ unsafe impl Sync for SignOutUserOperation {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserAuthenticationOperation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UserAuthenticationOperation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UserAuthenticationOperation, super::super::super::Foundation::IAsyncInfo, super::super::super::Foundation::IAsyncOperation<UserIdentity>);
+windows_core::imp::interface_hierarchy!(UserAuthenticationOperation, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::IAsyncOperation<UserIdentity>);
+windows_core::imp::required_hierarchy!(UserAuthenticationOperation, super::super::super::Foundation::IAsyncInfo);
 impl UserAuthenticationOperation {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;

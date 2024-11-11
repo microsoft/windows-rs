@@ -808,9 +808,9 @@ unsafe impl Sync for SceneComponent {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneComponentCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(SceneComponentCollection, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(SceneComponentCollection, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IVector<SceneComponent>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(SceneComponentCollection, super::super::super::Foundation::Collections::IIterable<SceneComponent>, super::super::super::Foundation::Collections::IVector<SceneComponent>, super::super::super::Foundation::IClosable, super::IAnimationObject);
+windows_core::imp::required_hierarchy!(SceneComponentCollection, super::super::super::Foundation::Collections::IIterable<SceneComponent>, super::super::super::Foundation::IClosable, super::IAnimationObject);
 #[cfg(feature = "Foundation_Collections")]
 impl SceneComponentCollection {
     #[cfg(feature = "Foundation_Collections")]
@@ -2881,9 +2881,9 @@ unsafe impl Sync for SceneNode {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneNodeCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(SceneNodeCollection, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(SceneNodeCollection, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IVector<SceneNode>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(SceneNodeCollection, super::super::super::Foundation::Collections::IIterable<SceneNode>, super::super::super::Foundation::Collections::IVector<SceneNode>, super::super::super::Foundation::IClosable, super::IAnimationObject);
+windows_core::imp::required_hierarchy!(SceneNodeCollection, super::super::super::Foundation::Collections::IIterable<SceneNode>, super::super::super::Foundation::IClosable, super::IAnimationObject);
 #[cfg(feature = "Foundation_Collections")]
 impl SceneNodeCollection {
     #[cfg(feature = "Foundation_Collections")]

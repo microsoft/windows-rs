@@ -1560,7 +1560,7 @@ impl MediaExtensionManager {
         SHARED.call(callback)
     }
     pub fn RegisterSchemeHandler(&self, activatableclassid: &windows_core::HSTRING, scheme: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaExtensionManager>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RegisterSchemeHandler)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), core::mem::transmute_copy(scheme)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1568,11 +1568,11 @@ impl MediaExtensionManager {
     where
         P2: windows_core::Param<super::Foundation::Collections::IPropertySet>,
     {
-        let this = &windows_core::Interface::cast::<IMediaExtensionManager>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RegisterSchemeHandlerWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), core::mem::transmute_copy(scheme), configuration.param().abi()).ok() }
     }
     pub fn RegisterByteStreamHandler(&self, activatableclassid: &windows_core::HSTRING, fileextension: &windows_core::HSTRING, mimetype: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaExtensionManager>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RegisterByteStreamHandler)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), core::mem::transmute_copy(fileextension), core::mem::transmute_copy(mimetype)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1580,11 +1580,11 @@ impl MediaExtensionManager {
     where
         P3: windows_core::Param<super::Foundation::Collections::IPropertySet>,
     {
-        let this = &windows_core::Interface::cast::<IMediaExtensionManager>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RegisterByteStreamHandlerWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), core::mem::transmute_copy(fileextension), core::mem::transmute_copy(mimetype), configuration.param().abi()).ok() }
     }
     pub fn RegisterAudioDecoder(&self, activatableclassid: &windows_core::HSTRING, inputsubtype: windows_core::GUID, outputsubtype: windows_core::GUID) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaExtensionManager>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RegisterAudioDecoder)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1592,11 +1592,11 @@ impl MediaExtensionManager {
     where
         P3: windows_core::Param<super::Foundation::Collections::IPropertySet>,
     {
-        let this = &windows_core::Interface::cast::<IMediaExtensionManager>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RegisterAudioDecoderWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, configuration.param().abi()).ok() }
     }
     pub fn RegisterAudioEncoder(&self, activatableclassid: &windows_core::HSTRING, inputsubtype: windows_core::GUID, outputsubtype: windows_core::GUID) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaExtensionManager>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RegisterAudioEncoder)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1604,11 +1604,11 @@ impl MediaExtensionManager {
     where
         P3: windows_core::Param<super::Foundation::Collections::IPropertySet>,
     {
-        let this = &windows_core::Interface::cast::<IMediaExtensionManager>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RegisterAudioEncoderWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, configuration.param().abi()).ok() }
     }
     pub fn RegisterVideoDecoder(&self, activatableclassid: &windows_core::HSTRING, inputsubtype: windows_core::GUID, outputsubtype: windows_core::GUID) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaExtensionManager>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RegisterVideoDecoder)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1616,11 +1616,11 @@ impl MediaExtensionManager {
     where
         P3: windows_core::Param<super::Foundation::Collections::IPropertySet>,
     {
-        let this = &windows_core::Interface::cast::<IMediaExtensionManager>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RegisterVideoDecoderWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, configuration.param().abi()).ok() }
     }
     pub fn RegisterVideoEncoder(&self, activatableclassid: &windows_core::HSTRING, inputsubtype: windows_core::GUID, outputsubtype: windows_core::GUID) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaExtensionManager>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RegisterVideoEncoder)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1628,7 +1628,7 @@ impl MediaExtensionManager {
     where
         P3: windows_core::Param<super::Foundation::Collections::IPropertySet>,
     {
-        let this = &windows_core::Interface::cast::<IMediaExtensionManager>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RegisterVideoEncoderWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), inputsubtype, outputsubtype, configuration.param().abi()).ok() }
     }
     #[cfg(feature = "ApplicationModel_AppService")]

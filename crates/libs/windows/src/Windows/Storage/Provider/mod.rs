@@ -923,18 +923,18 @@ pub struct CachedFileUpdaterUI(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CachedFileUpdaterUI, windows_core::IUnknown, windows_core::IInspectable);
 impl CachedFileUpdaterUI {
     pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<ICachedFileUpdaterUI>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetTitle(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ICachedFileUpdaterUI>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn UpdateTarget(&self) -> windows_core::Result<CachedFileTarget> {
-        let this = &windows_core::Interface::cast::<ICachedFileUpdaterUI>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpdateTarget)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -944,32 +944,32 @@ impl CachedFileUpdaterUI {
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, FileUpdateRequestedEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<ICachedFileUpdaterUI>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FileUpdateRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveFileUpdateRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ICachedFileUpdaterUI>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveFileUpdateRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn UIRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, windows_core::IInspectable>>,
     {
-        let this = &windows_core::Interface::cast::<ICachedFileUpdaterUI>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UIRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveUIRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ICachedFileUpdaterUI>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveUIRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn UIStatus(&self) -> windows_core::Result<UIStatus> {
-        let this = &windows_core::Interface::cast::<ICachedFileUpdaterUI>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UIStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1006,7 +1006,7 @@ pub struct FileUpdateRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileUpdateRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl FileUpdateRequest {
     pub fn ContentId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IFileUpdateRequest>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -1014,25 +1014,25 @@ impl FileUpdateRequest {
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn File(&self) -> windows_core::Result<super::StorageFile> {
-        let this = &windows_core::Interface::cast::<IFileUpdateRequest>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).File)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Status(&self) -> windows_core::Result<FileUpdateStatus> {
-        let this = &windows_core::Interface::cast::<IFileUpdateRequest>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetStatus(&self, value: FileUpdateStatus) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IFileUpdateRequest>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStatus)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<FileUpdateRequestDeferral> {
-        let this = &windows_core::Interface::cast::<IFileUpdateRequest>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1043,7 +1043,7 @@ impl FileUpdateRequest {
     where
         P0: windows_core::Param<super::IStorageFile>,
     {
-        let this = &windows_core::Interface::cast::<IFileUpdateRequest>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).UpdateLocalFile)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn UserInputNeededMessage(&self) -> windows_core::Result<windows_core::HSTRING> {

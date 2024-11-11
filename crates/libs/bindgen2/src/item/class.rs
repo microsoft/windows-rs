@@ -115,13 +115,20 @@ impl Class {
             });
 
         if let Some(default_interface) = self.default_interface() {
+            let is_exclusive = default_interface.is_exclusive();
             let default_interface = default_interface.write(writer);
+
+            let interface_hierarchy = if is_exclusive {
+                quote! { windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable); }
+            } else {
+                quote! { windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable, #default_interface); }
+            };            
 
             let required_hierarchy = {
                 let interfaces: Vec<_> = self
                     .required_interfaces
                     .iter()
-                    .filter(|ty| !ty.def.has_attribute("ExclusiveToAttribute"))
+                    .filter(|ty| !ty.is_exclusive() && ty.kind != InterfaceKind::Default)
                     .map(|ty| ty.write_name(writer))
                     .collect();
 
@@ -150,7 +157,7 @@ impl Class {
                 #[derive(Clone, Debug, Eq, PartialEq)]
                 pub struct #name(windows_core::IUnknown);
                 #cfg
-                windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
+                #interface_hierarchy
                 #required_hierarchy
                 #cfg
                 impl #name {
@@ -255,7 +262,9 @@ impl Class {
                     .iter()
                     .position(|existing| existing.def == interface.def)
                 {
-                    set[pos].kind = interface.kind;
+                    if interface.kind == InterfaceKind::Default {
+                        set[pos].kind = interface.kind;
+                    }
                 } else {
                     walk(interface.def, &interface.generics, is_base, set);
                     set.push(interface);

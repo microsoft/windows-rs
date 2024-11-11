@@ -584,7 +584,7 @@ pub struct DeviceAccessChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceAccessChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceAccessChangedEventArgs {
     pub fn Status(&self) -> windows_core::Result<DeviceAccessStatus> {
-        let this = &windows_core::Interface::cast::<IDeviceAccessChangedEventArgs>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -994,9 +994,9 @@ unsafe impl Sync for DeviceInformation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeviceInformationCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(DeviceInformationCollection, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(DeviceInformationCollection, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVectorView<DeviceInformation>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(DeviceInformationCollection, super::super::Foundation::Collections::IIterable<DeviceInformation>, super::super::Foundation::Collections::IVectorView<DeviceInformation>);
+windows_core::imp::required_hierarchy!(DeviceInformationCollection, super::super::Foundation::Collections::IIterable<DeviceInformation>);
 #[cfg(feature = "Foundation_Collections")]
 impl DeviceInformationCollection {
     #[cfg(feature = "Foundation_Collections")]
@@ -1703,9 +1703,9 @@ unsafe impl Sync for DeviceSelectedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeviceThumbnail(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::interface_hierarchy!(DeviceThumbnail, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(DeviceThumbnail, windows_core::IUnknown, windows_core::IInspectable, super::super::Storage::Streams::IRandomAccessStreamWithContentType);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::required_hierarchy!(DeviceThumbnail, super::super::Foundation::IClosable, super::super::Storage::Streams::IContentTypeProvider, super::super::Storage::Streams::IInputStream, super::super::Storage::Streams::IOutputStream, super::super::Storage::Streams::IRandomAccessStream, super::super::Storage::Streams::IRandomAccessStreamWithContentType);
+windows_core::imp::required_hierarchy!(DeviceThumbnail, super::super::Foundation::IClosable, super::super::Storage::Streams::IContentTypeProvider, super::super::Storage::Streams::IInputStream, super::super::Storage::Streams::IOutputStream, super::super::Storage::Streams::IRandomAccessStream);
 #[cfg(feature = "Storage_Streams")]
 impl DeviceThumbnail {
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -2033,21 +2033,21 @@ pub struct EnclosureLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnclosureLocation, windows_core::IUnknown, windows_core::IInspectable);
 impl EnclosureLocation {
     pub fn InDock(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IEnclosureLocation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InDock)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn InLid(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IEnclosureLocation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InLid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Panel(&self) -> windows_core::Result<Panel> {
-        let this = &windows_core::Interface::cast::<IEnclosureLocation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Panel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)

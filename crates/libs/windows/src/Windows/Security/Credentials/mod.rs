@@ -583,9 +583,9 @@ unsafe impl Sync for PasswordCredential {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PasswordCredentialPropertyStore(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(PasswordCredentialPropertyStore, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(PasswordCredentialPropertyStore, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IPropertySet);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( PasswordCredentialPropertyStore , super::super::Foundation::Collections:: IIterable < super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , super::super::Foundation::Collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > , super::super::Foundation::Collections:: IObservableMap < windows_core::HSTRING , windows_core::IInspectable > , super::super::Foundation::Collections:: IPropertySet );
+windows_core::imp::required_hierarchy ! ( PasswordCredentialPropertyStore , super::super::Foundation::Collections:: IIterable < super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , super::super::Foundation::Collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > , super::super::Foundation::Collections:: IObservableMap < windows_core::HSTRING , windows_core::IInspectable > );
 #[cfg(feature = "Foundation_Collections")]
 impl PasswordCredentialPropertyStore {
     pub fn new() -> windows_core::Result<Self> {
@@ -756,25 +756,24 @@ unsafe impl Sync for PasswordVault {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccount(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WebAccount, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(WebAccount, IWebAccount);
+windows_core::imp::interface_hierarchy!(WebAccount, windows_core::IUnknown, windows_core::IInspectable, IWebAccount);
 impl WebAccount {
     pub fn WebAccountProvider(&self) -> windows_core::Result<WebAccountProvider> {
-        let this = &windows_core::Interface::cast::<IWebAccount>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WebAccountProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UserName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IWebAccount>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn State(&self) -> windows_core::Result<WebAccountState> {
-        let this = &windows_core::Interface::cast::<IWebAccount>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -849,21 +848,21 @@ pub struct WebAccountProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl WebAccountProvider {
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IWebAccountProvider>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IWebAccountProvider>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn IconUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
-        let this = &windows_core::Interface::cast::<IWebAccountProvider>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IconUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

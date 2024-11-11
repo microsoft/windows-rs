@@ -287,21 +287,21 @@ pub struct CoreDragInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreDragInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreDragInfo {
     pub fn Data(&self) -> windows_core::Result<super::super::DataPackageView> {
-        let this = &windows_core::Interface::cast::<ICoreDragInfo>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Modifiers(&self) -> windows_core::Result<super::DragDropModifiers> {
-        let this = &windows_core::Interface::cast::<ICoreDragInfo>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Modifiers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Position(&self) -> windows_core::Result<super::super::super::super::Foundation::Point> {
-        let this = &windows_core::Interface::cast::<ICoreDragInfo>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -340,14 +340,14 @@ impl CoreDragOperation {
         SHARED.call(callback)
     }
     pub fn Data(&self) -> windows_core::Result<super::super::DataPackage> {
-        let this = &windows_core::Interface::cast::<ICoreDragOperation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetPointerId(&self, pointerid: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ICoreDragOperation>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPointerId)(windows_core::Interface::as_raw(this), pointerid).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
@@ -355,7 +355,7 @@ impl CoreDragOperation {
     where
         P0: windows_core::Param<super::super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {
-        let this = &windows_core::Interface::cast::<ICoreDragOperation>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDragUIContentFromSoftwareBitmap)(windows_core::Interface::as_raw(this), softwarebitmap.param().abi()).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
@@ -363,22 +363,22 @@ impl CoreDragOperation {
     where
         P0: windows_core::Param<super::super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {
-        let this = &windows_core::Interface::cast::<ICoreDragOperation>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDragUIContentFromSoftwareBitmapWithAnchorPoint)(windows_core::Interface::as_raw(this), softwarebitmap.param().abi(), anchorpoint).ok() }
     }
     pub fn DragUIContentMode(&self) -> windows_core::Result<CoreDragUIContentMode> {
-        let this = &windows_core::Interface::cast::<ICoreDragOperation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DragUIContentMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetDragUIContentMode(&self, value: CoreDragUIContentMode) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ICoreDragOperation>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDragUIContentMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn StartAsync(&self) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>> {
-        let this = &windows_core::Interface::cast::<ICoreDragOperation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -162,21 +162,21 @@ windows_core::imp::required_hierarchy!(RfcommDeviceService, super::super::super:
 impl RfcommDeviceService {
     #[cfg(feature = "Networking")]
     pub fn ConnectionHostName(&self) -> windows_core::Result<super::super::super::Networking::HostName> {
-        let this = &windows_core::Interface::cast::<IRfcommDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConnectionHostName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ConnectionServiceName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IRfcommDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConnectionServiceName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn ServiceId(&self) -> windows_core::Result<RfcommServiceId> {
-        let this = &windows_core::Interface::cast::<IRfcommDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -184,7 +184,7 @@ impl RfcommDeviceService {
     }
     #[cfg(feature = "Networking_Sockets")]
     pub fn ProtectionLevel(&self) -> windows_core::Result<super::super::super::Networking::Sockets::SocketProtectionLevel> {
-        let this = &windows_core::Interface::cast::<IRfcommDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -192,7 +192,7 @@ impl RfcommDeviceService {
     }
     #[cfg(feature = "Networking_Sockets")]
     pub fn MaxProtectionLevel(&self) -> windows_core::Result<super::super::super::Networking::Sockets::SocketProtectionLevel> {
-        let this = &windows_core::Interface::cast::<IRfcommDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -200,7 +200,7 @@ impl RfcommDeviceService {
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetSdpRawAttributesAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>> {
-        let this = &windows_core::Interface::cast::<IRfcommDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSdpRawAttributesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -208,7 +208,7 @@ impl RfcommDeviceService {
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetSdpRawAttributesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>> {
-        let this = &windows_core::Interface::cast::<IRfcommDeviceService>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSdpRawAttributesWithCacheModeAsync)(windows_core::Interface::as_raw(this), cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -445,7 +445,7 @@ pub struct RfcommServiceProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommServiceProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl RfcommServiceProvider {
     pub fn ServiceId(&self) -> windows_core::Result<RfcommServiceId> {
-        let this = &windows_core::Interface::cast::<IRfcommServiceProvider>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -453,7 +453,7 @@ impl RfcommServiceProvider {
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn SdpRawAttributes(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<u32, super::super::super::Storage::Streams::IBuffer>> {
-        let this = &windows_core::Interface::cast::<IRfcommServiceProvider>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SdpRawAttributes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -464,11 +464,11 @@ impl RfcommServiceProvider {
     where
         P0: windows_core::Param<super::super::super::Networking::Sockets::StreamSocketListener>,
     {
-        let this = &windows_core::Interface::cast::<IRfcommServiceProvider>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartAdvertising)(windows_core::Interface::as_raw(this), listener.param().abi()).ok() }
     }
     pub fn StopAdvertising(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IRfcommServiceProvider>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).StopAdvertising)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Networking_Sockets")]

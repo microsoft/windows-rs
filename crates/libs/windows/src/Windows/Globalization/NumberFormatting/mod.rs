@@ -1232,8 +1232,8 @@ unsafe impl Sync for CurrencyFormatter {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DecimalFormatter(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(DecimalFormatter, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DecimalFormatter, INumberFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
+windows_core::imp::interface_hierarchy!(DecimalFormatter, windows_core::IUnknown, windows_core::IInspectable, INumberFormatter);
+windows_core::imp::required_hierarchy!(DecimalFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
 impl DecimalFormatter {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1455,8 +1455,7 @@ unsafe impl Sync for DecimalFormatter {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IncrementNumberRounder(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(IncrementNumberRounder, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(IncrementNumberRounder, INumberRounder);
+windows_core::imp::interface_hierarchy!(IncrementNumberRounder, windows_core::IUnknown, windows_core::IInspectable, INumberRounder);
 impl IncrementNumberRounder {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1617,8 +1616,8 @@ unsafe impl Sync for NumeralSystemTranslator {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PercentFormatter(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PercentFormatter, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PercentFormatter, INumberFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
+windows_core::imp::interface_hierarchy!(PercentFormatter, windows_core::IUnknown, windows_core::IInspectable, INumberFormatter);
+windows_core::imp::required_hierarchy!(PercentFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
 impl PercentFormatter {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1840,8 +1839,8 @@ unsafe impl Sync for PercentFormatter {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PermilleFormatter(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PermilleFormatter, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PermilleFormatter, INumberFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
+windows_core::imp::interface_hierarchy!(PermilleFormatter, windows_core::IUnknown, windows_core::IInspectable, INumberFormatter);
+windows_core::imp::required_hierarchy!(PermilleFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
 impl PermilleFormatter {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2063,8 +2062,7 @@ unsafe impl Sync for PermilleFormatter {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SignificantDigitsNumberRounder(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SignificantDigitsNumberRounder, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SignificantDigitsNumberRounder, INumberRounder);
+windows_core::imp::interface_hierarchy!(SignificantDigitsNumberRounder, windows_core::IUnknown, windows_core::IInspectable, INumberRounder);
 impl SignificantDigitsNumberRounder {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())

@@ -836,14 +836,14 @@ pub struct DisplayInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayInformation {
     pub fn CurrentOrientation(&self) -> windows_core::Result<DisplayOrientations> {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentOrientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn NativeOrientation(&self) -> windows_core::Result<DisplayOrientations> {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NativeOrientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -853,39 +853,39 @@ impl DisplayInformation {
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayInformation, windows_core::IInspectable>>,
     {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OrientationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveOrientationChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveOrientationChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn ResolutionScale(&self) -> windows_core::Result<ResolutionScale> {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResolutionScale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn LogicalDpi(&self) -> windows_core::Result<f32> {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LogicalDpi)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn RawDpiX(&self) -> windows_core::Result<f32> {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawDpiX)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn RawDpiY(&self) -> windows_core::Result<f32> {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawDpiY)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -895,18 +895,18 @@ impl DisplayInformation {
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayInformation, windows_core::IInspectable>>,
     {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DpiChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveDpiChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDpiChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn StereoEnabled(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StereoEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -916,19 +916,19 @@ impl DisplayInformation {
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayInformation, windows_core::IInspectable>>,
     {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StereoEnabledChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveStereoEnabledChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStereoEnabledChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn GetColorProfileAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetColorProfileAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -938,14 +938,14 @@ impl DisplayInformation {
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayInformation, windows_core::IInspectable>>,
     {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ColorProfileChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveColorProfileChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IDisplayInformation>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveColorProfileChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn RawPixelsPerViewPixel(&self) -> windows_core::Result<f64> {

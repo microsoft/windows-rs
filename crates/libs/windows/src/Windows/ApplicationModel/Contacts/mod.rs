@@ -1670,19 +1670,19 @@ impl Contact {
         SHARED.call(callback)
     }
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IContact>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IContact>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
-        let this = &windows_core::Interface::cast::<IContact>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Thumbnail)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1693,12 +1693,12 @@ impl Contact {
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
-        let this = &windows_core::Interface::cast::<IContact>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Fields(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<IContactField>> {
-        let this = &windows_core::Interface::cast::<IContact>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Fields)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2514,25 +2514,25 @@ impl ContactCardOptions {
         SHARED.call(callback)
     }
     pub fn HeaderKind(&self) -> windows_core::Result<ContactCardHeaderKind> {
-        let this = &windows_core::Interface::cast::<IContactCardOptions>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HeaderKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetHeaderKind(&self, value: ContactCardHeaderKind) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IContactCardOptions>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHeaderKind)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn InitialTabKind(&self) -> windows_core::Result<ContactCardTabKind> {
-        let this = &windows_core::Interface::cast::<IContactCardOptions>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialTabKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetInitialTabKind(&self, value: ContactCardTabKind) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IContactCardOptions>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInitialTabKind)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2909,8 +2909,8 @@ unsafe impl Sync for ContactEmail {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactField(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ContactField, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ContactField, IContactField, IContactFieldFactory);
+windows_core::imp::interface_hierarchy!(ContactField, windows_core::IUnknown, windows_core::IInspectable, IContactField);
+windows_core::imp::required_hierarchy!(ContactField, IContactFieldFactory);
 impl ContactField {
     pub fn Type(&self) -> windows_core::Result<ContactFieldType> {
         let this = self;
@@ -2978,8 +2978,8 @@ unsafe impl Sync for ContactField {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactFieldFactory(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(ContactFieldFactory, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ContactFieldFactory, IContactFieldFactory, IContactInstantMessageFieldFactory, IContactLocationFieldFactory);
+windows_core::imp::interface_hierarchy!(ContactFieldFactory, windows_core::IUnknown, windows_core::IInspectable, IContactFieldFactory);
+windows_core::imp::required_hierarchy!(ContactFieldFactory, IContactInstantMessageFieldFactory, IContactLocationFieldFactory);
 impl ContactFieldFactory {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -5078,25 +5078,25 @@ impl ContactSignificantOther {
         SHARED.call(callback)
     }
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IContactSignificantOther>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IContactSignificantOther>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IContactSignificantOther>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IContactSignificantOther>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn Relationship(&self) -> windows_core::Result<ContactRelationship> {
@@ -5130,7 +5130,7 @@ windows_core::imp::interface_hierarchy!(ContactStore, windows_core::IUnknown, wi
 impl ContactStore {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindContactsAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>> {
-        let this = &windows_core::Interface::cast::<IContactStore>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindContactsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5138,14 +5138,14 @@ impl ContactStore {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindContactsWithSearchTextAsync(&self, searchtext: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>> {
-        let this = &windows_core::Interface::cast::<IContactStore>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindContactsWithSearchTextAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(searchtext), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetContactAsync(&self, contactid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
-        let this = &windows_core::Interface::cast::<IContactStore>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetContactAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contactid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5282,7 +5282,7 @@ impl ContactWebsite {
         SHARED.call(callback)
     }
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
-        let this = &windows_core::Interface::cast::<IContactWebsite>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5292,18 +5292,18 @@ impl ContactWebsite {
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
-        let this = &windows_core::Interface::cast::<IContactWebsite>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IContactWebsite>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IContactWebsite>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     pub fn RawValue(&self) -> windows_core::Result<windows_core::HSTRING> {

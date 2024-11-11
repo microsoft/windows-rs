@@ -564,7 +564,7 @@ impl JsonObject {
         SHARED.call(callback)
     }
     pub fn GetNamedValue(&self, name: &windows_core::HSTRING) -> windows_core::Result<JsonValue> {
-        let this = &windows_core::Interface::cast::<IJsonObject>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNamedValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -574,11 +574,11 @@ impl JsonObject {
     where
         P1: windows_core::Param<IJsonValue>,
     {
-        let this = &windows_core::Interface::cast::<IJsonObject>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetNamedValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.param().abi()).ok() }
     }
     pub fn GetNamedObject(&self, name: &windows_core::HSTRING) -> windows_core::Result<JsonObject> {
-        let this = &windows_core::Interface::cast::<IJsonObject>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNamedObject)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -586,28 +586,28 @@ impl JsonObject {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetNamedArray(&self, name: &windows_core::HSTRING) -> windows_core::Result<JsonArray> {
-        let this = &windows_core::Interface::cast::<IJsonObject>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNamedArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetNamedString(&self, name: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IJsonObject>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNamedString)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn GetNamedNumber(&self, name: &windows_core::HSTRING) -> windows_core::Result<f64> {
-        let this = &windows_core::Interface::cast::<IJsonObject>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNamedNumber)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).map(|| result__)
         }
     }
     pub fn GetNamedBoolean(&self, name: &windows_core::HSTRING) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IJsonObject>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNamedBoolean)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).map(|| result__)
@@ -814,8 +814,8 @@ unsafe impl Sync for JsonObject {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct JsonValue(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(JsonValue, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(JsonValue, IJsonValue, super::super::Foundation::IStringable);
+windows_core::imp::interface_hierarchy!(JsonValue, windows_core::IUnknown, windows_core::IInspectable, IJsonValue);
+windows_core::imp::required_hierarchy!(JsonValue, super::super::Foundation::IStringable);
 impl JsonValue {
     pub fn ValueType(&self) -> windows_core::Result<JsonValueType> {
         let this = self;

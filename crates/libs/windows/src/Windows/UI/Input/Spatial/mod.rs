@@ -977,14 +977,14 @@ pub struct SpatialInteractionController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionController, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionController {
     pub fn HasTouchpad(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionController>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasTouchpad)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HasThumbstick(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionController>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasThumbstick)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -992,28 +992,28 @@ impl SpatialInteractionController {
     }
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> windows_core::Result<super::super::super::Devices::Haptics::SimpleHapticsController> {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionController>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SimpleHapticsController)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn VendorId(&self) -> windows_core::Result<u16> {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionController>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VendorId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ProductId(&self) -> windows_core::Result<u16> {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionController>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProductId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Version(&self) -> windows_core::Result<u16> {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionController>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Version)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1121,7 +1121,7 @@ pub struct SpatialInteractionDetectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionDetectedEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionDetectedEventArgs>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InteractionSourceKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1132,14 +1132,14 @@ impl SpatialInteractionDetectedEventArgs {
     where
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionDetectedEventArgs>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Interaction(&self) -> windows_core::Result<SpatialInteraction> {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionDetectedEventArgs>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Interaction)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1304,14 +1304,14 @@ pub struct SpatialInteractionSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSource, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionSource {
     pub fn Id(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionSource>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionSource>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1398,7 +1398,7 @@ pub struct SpatialInteractionSourceEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSourceEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionSourceEventArgs {
     pub fn State(&self) -> windows_core::Result<SpatialInteractionSourceState> {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionSourceEventArgs>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1541,21 +1541,21 @@ pub struct SpatialInteractionSourceState(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSourceState, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionSourceState {
     pub fn Source(&self) -> windows_core::Result<SpatialInteractionSource> {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionSourceState>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Source)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Properties(&self) -> windows_core::Result<SpatialInteractionSourceProperties> {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionSourceState>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsPressed(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionSourceState>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPressed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1563,7 +1563,7 @@ impl SpatialInteractionSourceState {
     }
     #[cfg(feature = "Perception")]
     pub fn Timestamp(&self) -> windows_core::Result<super::super::super::Perception::PerceptionTimestamp> {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionSourceState>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1574,7 +1574,7 @@ impl SpatialInteractionSourceState {
     where
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
-        let this = &windows_core::Interface::cast::<ISpatialInteractionSourceState>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1950,7 +1950,7 @@ windows_core::imp::interface_hierarchy!(SpatialPointerInteractionSourcePose, win
 impl SpatialPointerInteractionSourcePose {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
-        let this = &windows_core::Interface::cast::<ISpatialPointerInteractionSourcePose>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -1958,7 +1958,7 @@ impl SpatialPointerInteractionSourcePose {
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn ForwardDirection(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
-        let this = &windows_core::Interface::cast::<ISpatialPointerInteractionSourcePose>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForwardDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -1966,7 +1966,7 @@ impl SpatialPointerInteractionSourcePose {
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn UpDirection(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
-        let this = &windows_core::Interface::cast::<ISpatialPointerInteractionSourcePose>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -2007,7 +2007,7 @@ windows_core::imp::interface_hierarchy!(SpatialPointerPose, windows_core::IUnkno
 impl SpatialPointerPose {
     #[cfg(feature = "Perception")]
     pub fn Timestamp(&self) -> windows_core::Result<super::super::super::Perception::PerceptionTimestamp> {
-        let this = &windows_core::Interface::cast::<ISpatialPointerPose>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2015,7 +2015,7 @@ impl SpatialPointerPose {
     }
     #[cfg(feature = "Perception_People")]
     pub fn Head(&self) -> windows_core::Result<super::super::super::Perception::People::HeadPose> {
-        let this = &windows_core::Interface::cast::<ISpatialPointerPose>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Head)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -649,21 +649,21 @@ pub struct TaskbarManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TaskbarManager, windows_core::IUnknown, windows_core::IInspectable);
 impl TaskbarManager {
     pub fn IsSupported(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<ITaskbarManager>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsPinningAllowed(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<ITaskbarManager>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPinningAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsCurrentAppPinnedAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &windows_core::Interface::cast::<ITaskbarManager>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCurrentAppPinnedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -674,14 +674,14 @@ impl TaskbarManager {
     where
         P0: windows_core::Param<super::super::ApplicationModel::Core::AppListEntry>,
     {
-        let this = &windows_core::Interface::cast::<ITaskbarManager>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAppListEntryPinnedAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestPinCurrentAppAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = &windows_core::Interface::cast::<ITaskbarManager>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestPinCurrentAppAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -692,7 +692,7 @@ impl TaskbarManager {
     where
         P0: windows_core::Param<super::super::ApplicationModel::Core::AppListEntry>,
     {
-        let this = &windows_core::Interface::cast::<ITaskbarManager>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestPinAppListEntryAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

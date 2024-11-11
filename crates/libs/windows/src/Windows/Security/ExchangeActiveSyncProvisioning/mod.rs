@@ -87,42 +87,42 @@ impl EasClientDeviceInformation {
         SHARED.call(callback)
     }
     pub fn Id(&self) -> windows_core::Result<windows_core::GUID> {
-        let this = &windows_core::Interface::cast::<IEasClientDeviceInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn OperatingSystem(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IEasClientDeviceInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OperatingSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn FriendlyName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IEasClientDeviceInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FriendlyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SystemManufacturer(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IEasClientDeviceInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SystemManufacturer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SystemProductName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IEasClientDeviceInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SystemProductName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SystemSku(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IEasClientDeviceInformation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SystemSku)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -284,63 +284,63 @@ pub struct EasComplianceResults(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EasComplianceResults, windows_core::IUnknown, windows_core::IInspectable);
 impl EasComplianceResults {
     pub fn Compliant(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IEasComplianceResults>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Compliant)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn RequireEncryptionResult(&self) -> windows_core::Result<EasRequireEncryptionResult> {
-        let this = &windows_core::Interface::cast::<IEasComplianceResults>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequireEncryptionResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MinPasswordLengthResult(&self) -> windows_core::Result<EasMinPasswordLengthResult> {
-        let this = &windows_core::Interface::cast::<IEasComplianceResults>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinPasswordLengthResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DisallowConvenienceLogonResult(&self) -> windows_core::Result<EasDisallowConvenienceLogonResult> {
-        let this = &windows_core::Interface::cast::<IEasComplianceResults>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisallowConvenienceLogonResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MinPasswordComplexCharactersResult(&self) -> windows_core::Result<EasMinPasswordComplexCharactersResult> {
-        let this = &windows_core::Interface::cast::<IEasComplianceResults>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinPasswordComplexCharactersResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PasswordExpirationResult(&self) -> windows_core::Result<EasPasswordExpirationResult> {
-        let this = &windows_core::Interface::cast::<IEasComplianceResults>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PasswordExpirationResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PasswordHistoryResult(&self) -> windows_core::Result<EasPasswordHistoryResult> {
-        let this = &windows_core::Interface::cast::<IEasComplianceResults>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PasswordHistoryResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MaxPasswordFailedAttemptsResult(&self) -> windows_core::Result<EasMaxPasswordFailedAttemptsResult> {
-        let this = &windows_core::Interface::cast::<IEasComplianceResults>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxPasswordFailedAttemptsResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MaxInactivityTimeLockResult(&self) -> windows_core::Result<EasMaxInactivityTimeLockResult> {
-        let this = &windows_core::Interface::cast::<IEasComplianceResults>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxInactivityTimeLockResult)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)

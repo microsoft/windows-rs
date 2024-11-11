@@ -400,9 +400,7 @@ impl windows_core::RuntimeName for ActivatedOperation {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BackgroundActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(BackgroundActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(BackgroundActivatedEventArgs, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs);
+windows_core::imp::interface_hierarchy!(BackgroundActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl BackgroundActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Background")]
@@ -436,9 +434,7 @@ unsafe impl Sync for BackgroundActivatedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EnteredBackgroundEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
-windows_core::imp::interface_hierarchy!(EnteredBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "ApplicationModel")]
-windows_core::imp::required_hierarchy!(EnteredBackgroundEventArgs, super::super::ApplicationModel::IEnteredBackgroundEventArgs);
+windows_core::imp::interface_hierarchy!(EnteredBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::IEnteredBackgroundEventArgs);
 #[cfg(feature = "ApplicationModel")]
 impl EnteredBackgroundEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
@@ -605,9 +601,7 @@ unsafe impl Sync for HtmlPrintDocumentSource {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LeavingBackgroundEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
-windows_core::imp::interface_hierarchy!(LeavingBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "ApplicationModel")]
-windows_core::imp::required_hierarchy!(LeavingBackgroundEventArgs, super::super::ApplicationModel::ILeavingBackgroundEventArgs);
+windows_core::imp::interface_hierarchy!(LeavingBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::ILeavingBackgroundEventArgs);
 #[cfg(feature = "ApplicationModel")]
 impl LeavingBackgroundEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
@@ -686,9 +680,7 @@ impl windows_core::RuntimeName for NewWebUIViewCreatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SuspendingDeferral(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
-windows_core::imp::interface_hierarchy!(SuspendingDeferral, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "ApplicationModel")]
-windows_core::imp::required_hierarchy!(SuspendingDeferral, super::super::ApplicationModel::ISuspendingDeferral);
+windows_core::imp::interface_hierarchy!(SuspendingDeferral, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::ISuspendingDeferral);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingDeferral {
     pub fn Complete(&self) -> windows_core::Result<()> {
@@ -714,9 +706,7 @@ impl windows_core::RuntimeName for SuspendingDeferral {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SuspendingEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
-windows_core::imp::interface_hierarchy!(SuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "ApplicationModel")]
-windows_core::imp::required_hierarchy!(SuspendingEventArgs, super::super::ApplicationModel::ISuspendingEventArgs);
+windows_core::imp::interface_hierarchy!(SuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::ISuspendingEventArgs);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingEventArgs {
     #[cfg(feature = "ApplicationModel")]
@@ -746,9 +736,7 @@ impl windows_core::RuntimeName for SuspendingEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SuspendingOperation(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
-windows_core::imp::interface_hierarchy!(SuspendingOperation, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "ApplicationModel")]
-windows_core::imp::required_hierarchy!(SuspendingOperation, super::super::ApplicationModel::ISuspendingOperation);
+windows_core::imp::interface_hierarchy!(SuspendingOperation, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::ISuspendingOperation);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingOperation {
     #[cfg(feature = "ApplicationModel")]
@@ -928,9 +916,9 @@ impl windows_core::RuntimeName for WebUIApplication {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIAppointmentsProviderAddAppointmentActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderAddAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderAddAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderAddAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderAddAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1006,9 +994,9 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderAddAppointmentActiva
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1084,9 +1072,9 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderRemoveAppointmentAct
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1162,9 +1150,9 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderReplaceAppointmentAc
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1253,9 +1241,9 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderShowAppointmentDetai
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1353,9 +1341,9 @@ impl windows_core::RuntimeName for WebUIBackgroundTaskInstance {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIBackgroundTaskInstanceRuntimeClass(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Background")]
-windows_core::imp::interface_hierarchy!(WebUIBackgroundTaskInstanceRuntimeClass, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIBackgroundTaskInstanceRuntimeClass, windows_core::IUnknown, windows_core::IInspectable, IWebUIBackgroundTaskInstance);
 #[cfg(feature = "ApplicationModel_Background")]
-windows_core::imp::required_hierarchy!(WebUIBackgroundTaskInstanceRuntimeClass, super::super::ApplicationModel::Background::IBackgroundTaskInstance, IWebUIBackgroundTaskInstance);
+windows_core::imp::required_hierarchy!(WebUIBackgroundTaskInstanceRuntimeClass, super::super::ApplicationModel::Background::IBackgroundTaskInstance);
 #[cfg(feature = "ApplicationModel_Background")]
 impl WebUIBackgroundTaskInstanceRuntimeClass {
     pub fn InstanceId(&self) -> windows_core::Result<windows_core::GUID> {
@@ -1451,9 +1439,9 @@ impl windows_core::RuntimeName for WebUIBackgroundTaskInstanceRuntimeClass {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIBarcodeScannerPreviewActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIBarcodeScannerPreviewActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIBarcodeScannerPreviewActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIBarcodeScannerPreviewActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIBarcodeScannerPreviewActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIBarcodeScannerPreviewActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1525,9 +1513,9 @@ unsafe impl Sync for WebUIBarcodeScannerPreviewActivatedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUICachedFileUpdaterActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUICachedFileUpdaterActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUICachedFileUpdaterActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUICachedFileUpdaterActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUICachedFileUpdaterActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUICachedFileUpdaterActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1596,9 +1584,9 @@ impl windows_core::RuntimeName for WebUICachedFileUpdaterActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUICameraSettingsActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUICameraSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUICameraSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUICameraSettingsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUICameraSettingsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUICameraSettingsActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1665,9 +1653,9 @@ impl windows_core::RuntimeName for WebUICameraSettingsActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUICommandLineActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUICommandLineActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUICommandLineActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUICommandLineActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUICommandLineActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUICommandLineActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1740,9 +1728,9 @@ unsafe impl Sync for WebUICommandLineActivatedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIContactCallActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIContactCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIContactCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIContactCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactActivatedEventArgs, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIContactCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactCallActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1824,9 +1812,9 @@ impl windows_core::RuntimeName for WebUIContactCallActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIContactMapActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIContactMapActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIContactMapActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIContactMapActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactActivatedEventArgs, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIContactMapActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactMapActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1902,9 +1890,9 @@ impl windows_core::RuntimeName for WebUIContactMapActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIContactMessageActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIContactMessageActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIContactMessageActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIContactMessageActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactActivatedEventArgs, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIContactMessageActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactMessageActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -1986,9 +1974,9 @@ impl windows_core::RuntimeName for WebUIContactMessageActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIContactPanelActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIContactPanelActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIContactPanelActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIContactPanelActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIContactPanelActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactPanelActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2069,9 +2057,9 @@ unsafe impl Sync for WebUIContactPanelActivatedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIContactPickerActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIContactPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIContactPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIContactPickerActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIContactPickerActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactPickerActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2132,9 +2120,9 @@ impl windows_core::RuntimeName for WebUIContactPickerActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIContactPostActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIContactPostActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIContactPostActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIContactPostActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactActivatedEventArgs, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIContactPostActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactPostActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2216,9 +2204,9 @@ impl windows_core::RuntimeName for WebUIContactPostActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIContactVideoCallActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIContactVideoCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIContactVideoCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIContactVideoCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactActivatedEventArgs, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIContactVideoCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContactActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactVideoCallActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2300,9 +2288,9 @@ impl windows_core::RuntimeName for WebUIContactVideoCallActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIDeviceActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIDeviceActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIDeviceActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIDeviceActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIDeviceActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIDeviceActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2384,9 +2372,9 @@ impl windows_core::RuntimeName for WebUIDeviceActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIDevicePairingActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIDevicePairingActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIDevicePairingActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIDevicePairingActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIDevicePairingActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIDevicePairingActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2455,9 +2443,9 @@ impl windows_core::RuntimeName for WebUIDevicePairingActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIDialReceiverActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIDialReceiverActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIDialReceiverActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIDialReceiverActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIDialReceiverActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIDialReceiverActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2546,9 +2534,9 @@ impl windows_core::RuntimeName for WebUIDialReceiverActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIFileActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIFileActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIFileActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IFileActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIFileActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IFileActivatedEventArgs, super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIFileActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2592,14 +2580,14 @@ impl WebUIFileActivatedEventArgs {
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn Files(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
-        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IFileActivatedEventArgs>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Files)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Verb(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IFileActivatedEventArgs>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -2639,9 +2627,9 @@ impl windows_core::RuntimeName for WebUIFileActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIFileOpenPickerActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIFileOpenPickerActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIFileOpenPickerActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileOpenPickerActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2717,9 +2705,9 @@ impl windows_core::RuntimeName for WebUIFileOpenPickerActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIFileOpenPickerContinuationEventArgs(windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::required_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIFileOpenPickerContinuationEventArgs {
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
@@ -2797,9 +2785,9 @@ impl windows_core::RuntimeName for WebUIFileOpenPickerContinuationEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIFileSavePickerActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIFileSavePickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIFileSavePickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIFileSavePickerActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIFileSavePickerActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileSavePickerActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -2882,9 +2870,9 @@ impl windows_core::RuntimeName for WebUIFileSavePickerActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIFileSavePickerContinuationEventArgs(windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::interface_hierarchy!(WebUIFileSavePickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIFileSavePickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::required_hierarchy!(WebUIFileSavePickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIFileSavePickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIFileSavePickerContinuationEventArgs {
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
@@ -2962,9 +2950,9 @@ impl windows_core::RuntimeName for WebUIFileSavePickerContinuationEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIFolderPickerContinuationEventArgs(windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::interface_hierarchy!(WebUIFolderPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIFolderPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::required_hierarchy!(WebUIFolderPickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIFolderPickerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIFolderPickerContinuationEventArgs {
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
@@ -3042,18 +3030,9 @@ impl windows_core::RuntimeName for WebUIFolderPickerContinuationEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUILaunchActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUILaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUILaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(
-    WebUILaunchActivatedEventArgs,
-    super::super::ApplicationModel::Activation::IActivatedEventArgs,
-    super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser,
-    super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs,
-    super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs,
-    super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2,
-    super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs,
-    IActivatedEventArgsDeferral
-);
+windows_core::imp::required_hierarchy!(WebUILaunchActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2, super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILaunchActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3096,14 +3075,14 @@ impl WebUILaunchActivatedEventArgs {
         }
     }
     pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn TileId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TileId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -3150,9 +3129,9 @@ impl windows_core::RuntimeName for WebUILaunchActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUILockScreenActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUILockScreenActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUILockScreenActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUILockScreenActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUILockScreenActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILockScreenActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3227,9 +3206,9 @@ impl windows_core::RuntimeName for WebUILockScreenActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUILockScreenCallActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUILockScreenCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUILockScreenCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUILockScreenCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUILockScreenCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILockScreenCallActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3311,9 +3290,9 @@ impl windows_core::RuntimeName for WebUILockScreenCallActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUILockScreenComponentActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUILockScreenComponentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUILockScreenComponentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUILockScreenComponentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUILockScreenComponentActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILockScreenComponentActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3384,8 +3363,7 @@ impl windows_core::RuntimeName for WebUINavigatedDeferral {
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUINavigatedEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WebUINavigatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(WebUINavigatedEventArgs, IWebUINavigatedEventArgs);
+windows_core::imp::interface_hierarchy!(WebUINavigatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, IWebUINavigatedEventArgs);
 impl WebUINavigatedEventArgs {
     pub fn NavigatedOperation(&self) -> windows_core::Result<WebUINavigatedOperation> {
         let this = self;
@@ -3433,9 +3411,9 @@ impl windows_core::RuntimeName for WebUINavigatedOperation {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIPhoneCallActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIPhoneCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIPhoneCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIPhoneCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIPhoneCallActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPhoneCallActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3507,9 +3485,9 @@ unsafe impl Sync for WebUIPhoneCallActivatedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIPrint3DWorkflowActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIPrint3DWorkflowActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIPrint3DWorkflowActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIPrint3DWorkflowActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIPrint3DWorkflowActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPrint3DWorkflowActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3570,9 +3548,9 @@ impl windows_core::RuntimeName for WebUIPrint3DWorkflowActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIPrintTaskSettingsActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIPrintTaskSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIPrintTaskSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIPrintTaskSettingsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIPrintTaskSettingsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPrintTaskSettingsActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3633,9 +3611,9 @@ impl windows_core::RuntimeName for WebUIPrintTaskSettingsActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIPrintWorkflowForegroundTaskActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIPrintWorkflowForegroundTaskActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIPrintWorkflowForegroundTaskActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIPrintWorkflowForegroundTaskActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIPrintWorkflowForegroundTaskActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3688,9 +3666,9 @@ impl windows_core::RuntimeName for WebUIPrintWorkflowForegroundTaskActivatedEven
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIProtocolActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIProtocolActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIProtocolActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIProtocolActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIProtocolActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIProtocolActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3780,18 +3758,9 @@ impl windows_core::RuntimeName for WebUIProtocolActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIProtocolForResultsActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIProtocolForResultsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIProtocolForResultsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(
-    WebUIProtocolForResultsActivatedEventArgs,
-    super::super::ApplicationModel::Activation::IActivatedEventArgs,
-    super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser,
-    super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs,
-    super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs,
-    super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData,
-    super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs,
-    IActivatedEventArgsDeferral
-);
+windows_core::imp::required_hierarchy!(WebUIProtocolForResultsActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIProtocolForResultsActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3889,9 +3858,9 @@ impl windows_core::RuntimeName for WebUIProtocolForResultsActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIRestrictedLaunchActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIRestrictedLaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIRestrictedLaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIRestrictedLaunchActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIRestrictedLaunchActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIRestrictedLaunchActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -3959,9 +3928,9 @@ impl windows_core::RuntimeName for WebUIRestrictedLaunchActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUISearchActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUISearchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUISearchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUISearchActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs, super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUISearchActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs, super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUISearchActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4043,9 +4012,9 @@ impl windows_core::RuntimeName for WebUISearchActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIShareTargetActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIShareTargetActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIShareTargetActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIShareTargetActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIShareTargetActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIShareTargetActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4114,9 +4083,9 @@ impl windows_core::RuntimeName for WebUIShareTargetActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIStartupTaskActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIStartupTaskActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIStartupTaskActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIStartupTaskActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIStartupTaskActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIStartupTaskActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4188,9 +4157,9 @@ unsafe impl Sync for WebUIStartupTaskActivatedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIToastNotificationActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIToastNotificationActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIToastNotificationActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIToastNotificationActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIToastNotificationActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIToastNotificationActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4266,9 +4235,9 @@ impl windows_core::RuntimeName for WebUIToastNotificationActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIUserDataAccountProviderActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIUserDataAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIUserDataAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIUserDataAccountProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIUserDataAccountProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIUserDataAccountProviderActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4831,9 +4800,9 @@ impl windows_core::RuntimeName for WebUIView {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIVoiceCommandActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIVoiceCommandActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIVoiceCommandActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIVoiceCommandActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIVoiceCommandActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIVoiceCommandActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -4902,9 +4871,9 @@ impl windows_core::RuntimeName for WebUIVoiceCommandActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIWalletActionActivatedEventArgs(windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::interface_hierarchy!(WebUIWalletActionActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIWalletActionActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-windows_core::imp::required_hierarchy!(WebUIWalletActionActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIWalletActionActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIWalletActionActivatedEventArgs {
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
@@ -4982,9 +4951,9 @@ impl windows_core::RuntimeName for WebUIWalletActionActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIWebAccountProviderActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIWebAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIWebAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIWebAccountProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIWebAccountProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIWebAccountProviderActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -5053,9 +5022,9 @@ impl windows_core::RuntimeName for WebUIWebAccountProviderActivatedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUIWebAuthenticationBrokerContinuationEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::interface_hierarchy!(WebUIWebAuthenticationBrokerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebUIWebAuthenticationBrokerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
-windows_core::imp::required_hierarchy!(WebUIWebAuthenticationBrokerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs, IActivatedEventArgsDeferral);
+windows_core::imp::required_hierarchy!(WebUIWebAuthenticationBrokerContinuationEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs, IActivatedEventArgsDeferral);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIWebAuthenticationBrokerContinuationEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]

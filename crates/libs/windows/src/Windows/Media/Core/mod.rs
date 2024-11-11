@@ -2240,8 +2240,7 @@ unsafe impl Sync for AudioStreamDescriptor {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AudioTrack(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(AudioTrack, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AudioTrack, IMediaTrack);
+windows_core::imp::interface_hierarchy!(AudioTrack, windows_core::IUnknown, windows_core::IInspectable, IMediaTrack);
 impl AudioTrack {
     pub fn OpenFailed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2894,12 +2893,12 @@ impl DataCue {
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
-        let this = &windows_core::Interface::cast::<IDataCue>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
-        let this = &windows_core::Interface::cast::<IDataCue>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3052,9 +3051,7 @@ unsafe impl Sync for FaceDetectionEffect {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FaceDetectionEffectDefinition(windows_core::IUnknown);
 #[cfg(feature = "Media_Effects")]
-windows_core::imp::interface_hierarchy!(FaceDetectionEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Media_Effects")]
-windows_core::imp::required_hierarchy!(FaceDetectionEffectDefinition, super::Effects::IVideoEffectDefinition);
+windows_core::imp::interface_hierarchy!(FaceDetectionEffectDefinition, windows_core::IUnknown, windows_core::IInspectable, super::Effects::IVideoEffectDefinition);
 #[cfg(feature = "Media_Effects")]
 impl FaceDetectionEffectDefinition {
     pub fn new() -> windows_core::Result<Self> {
@@ -3087,7 +3084,7 @@ impl FaceDetectionEffectDefinition {
         }
     }
     pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<super::Effects::IVideoEffectDefinition>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivatableClassId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -3095,7 +3092,7 @@ impl FaceDetectionEffectDefinition {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
-        let this = &windows_core::Interface::cast::<super::Effects::IVideoEffectDefinition>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3682,33 +3679,33 @@ impl MediaSource {
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaSource, MediaSourceOpenOperationCompletedEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<IMediaSource2>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenOperationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveOpenOperationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaSource2>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveOpenOperationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn CustomProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = &windows_core::Interface::cast::<IMediaSource2>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CustomProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
-        let this = &windows_core::Interface::cast::<IMediaSource2>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsOpen(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IMediaSource2>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsOpen)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -3716,7 +3713,7 @@ impl MediaSource {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExternalTimedTextSources(&self) -> windows_core::Result<super::super::Foundation::Collections::IObservableVector<TimedTextSource>> {
-        let this = &windows_core::Interface::cast::<IMediaSource2>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExternalTimedTextSources)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3724,7 +3721,7 @@ impl MediaSource {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExternalTimedMetadataTracks(&self) -> windows_core::Result<super::super::Foundation::Collections::IObservableVector<TimedMetadataTrack>> {
-        let this = &windows_core::Interface::cast::<IMediaSource2>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExternalTimedMetadataTracks)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4225,9 +4222,9 @@ unsafe impl Sync for MediaStreamSample {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaStreamSamplePropertySet(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(MediaStreamSamplePropertySet, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy ! ( MediaStreamSamplePropertySet , windows_core::IUnknown , windows_core::IInspectable , super::super::Foundation::Collections:: IMap < windows_core::GUID , windows_core::IInspectable > );
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( MediaStreamSamplePropertySet , super::super::Foundation::Collections:: IIterable < super::super::Foundation::Collections:: IKeyValuePair < windows_core::GUID , windows_core::IInspectable > > , super::super::Foundation::Collections:: IMap < windows_core::GUID , windows_core::IInspectable > );
+windows_core::imp::required_hierarchy!(MediaStreamSamplePropertySet, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>);
 #[cfg(feature = "Foundation_Collections")]
 impl MediaStreamSamplePropertySet {
     #[cfg(feature = "Foundation_Collections")]
@@ -4355,81 +4352,81 @@ impl MediaStreamSource {
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceClosedEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveClosed)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn Starting<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceStartingEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Starting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveStarting(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStarting)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn Paused<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaStreamSource, windows_core::IInspectable>>,
     {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Paused)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemovePaused(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePaused)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn SampleRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSampleRequestedEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SampleRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveSampleRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSampleRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn SwitchStreamsRequested<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSwitchStreamsRequestedEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SwitchStreamsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveSwitchStreamsRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSwitchStreamsRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn NotifyError(&self, errorstatus: MediaStreamSourceErrorStatus) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).NotifyError)(windows_core::Interface::as_raw(this), errorstatus).ok() }
     }
     pub fn AddStreamDescriptor<P0>(&self, descriptor: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMediaStreamDescriptor>,
     {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddStreamDescriptor)(windows_core::Interface::as_raw(this), descriptor.param().abi()).ok() }
     }
     #[cfg(feature = "Media_Protection")]
@@ -4437,57 +4434,57 @@ impl MediaStreamSource {
     where
         P0: windows_core::Param<super::Protection::MediaProtectionManager>,
     {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMediaProtectionManager)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Media_Protection")]
     pub fn MediaProtectionManager(&self) -> windows_core::Result<super::Protection::MediaProtectionManager> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MediaProtectionManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetCanSeek(&self, value: bool) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCanSeek)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn CanSeek(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanSeek)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetBufferTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBufferTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn BufferTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BufferTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetBufferedRange(&self, startoffset: super::super::Foundation::TimeSpan, endoffset: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBufferedRange)(windows_core::Interface::as_raw(this), startoffset, endoffset).ok() }
     }
     #[cfg(feature = "Storage_FileProperties")]
     pub fn MusicProperties(&self) -> windows_core::Result<super::super::Storage::FileProperties::MusicProperties> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MusicProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4495,7 +4492,7 @@ impl MediaStreamSource {
     }
     #[cfg(feature = "Storage_FileProperties")]
     pub fn VideoProperties(&self) -> windows_core::Result<super::super::Storage::FileProperties::VideoProperties> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VideoProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4506,12 +4503,12 @@ impl MediaStreamSource {
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Thumbnail)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4521,7 +4518,7 @@ impl MediaStreamSource {
     where
         P0: windows_core::Param<IMediaStreamDescriptor>,
     {
-        let this = &windows_core::Interface::cast::<IMediaStreamSource>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddProtectionKey)(windows_core::Interface::as_raw(this), streamdescriptor.param().abi(), keyidentifier.len().try_into().unwrap(), keyidentifier.as_ptr(), licensedata.len().try_into().unwrap(), licensedata.as_ptr()).ok() }
     }
     pub fn SampleRendered<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
@@ -5388,9 +5385,7 @@ unsafe impl Sync for SceneAnalysisEffect {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneAnalysisEffectDefinition(windows_core::IUnknown);
 #[cfg(feature = "Media_Effects")]
-windows_core::imp::interface_hierarchy!(SceneAnalysisEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Media_Effects")]
-windows_core::imp::required_hierarchy!(SceneAnalysisEffectDefinition, super::Effects::IVideoEffectDefinition);
+windows_core::imp::interface_hierarchy!(SceneAnalysisEffectDefinition, windows_core::IUnknown, windows_core::IInspectable, super::Effects::IVideoEffectDefinition);
 #[cfg(feature = "Media_Effects")]
 impl SceneAnalysisEffectDefinition {
     pub fn new() -> windows_core::Result<Self> {
@@ -5679,8 +5674,8 @@ unsafe impl Sync for SpeechCue {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TimedMetadataStreamDescriptor(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(TimedMetadataStreamDescriptor, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(TimedMetadataStreamDescriptor, IMediaStreamDescriptor, IMediaStreamDescriptor2);
+windows_core::imp::interface_hierarchy!(TimedMetadataStreamDescriptor, windows_core::IUnknown, windows_core::IInspectable, IMediaStreamDescriptor);
+windows_core::imp::required_hierarchy!(TimedMetadataStreamDescriptor, IMediaStreamDescriptor2);
 impl TimedMetadataStreamDescriptor {
     pub fn IsSelected(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -5806,47 +5801,47 @@ impl TimedMetadataTrack {
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TimedMetadataTrack, MediaCueEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<ITimedMetadataTrack>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CueEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveCueEntered(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ITimedMetadataTrack>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCueEntered)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn CueExited<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TimedMetadataTrack, MediaCueEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<ITimedMetadataTrack>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CueExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveCueExited(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ITimedMetadataTrack>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCueExited)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn TrackFailed<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TimedMetadataTrack, TimedMetadataTrackFailedEventArgs>>,
     {
-        let this = &windows_core::Interface::cast::<ITimedMetadataTrack>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrackFailed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveTrackFailed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ITimedMetadataTrack>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTrackFailed)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Cues(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<IMediaCue>> {
-        let this = &windows_core::Interface::cast::<ITimedMetadataTrack>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Cues)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5854,21 +5849,21 @@ impl TimedMetadataTrack {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn ActiveCues(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<IMediaCue>> {
-        let this = &windows_core::Interface::cast::<ITimedMetadataTrack>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActiveCues)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TimedMetadataKind(&self) -> windows_core::Result<TimedMetadataKind> {
-        let this = &windows_core::Interface::cast::<ITimedMetadataTrack>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TimedMetadataKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DispatchType(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<ITimedMetadataTrack>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DispatchType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -5878,14 +5873,14 @@ impl TimedMetadataTrack {
     where
         P0: windows_core::Param<IMediaCue>,
     {
-        let this = &windows_core::Interface::cast::<ITimedMetadataTrack>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddCue)(windows_core::Interface::as_raw(this), cue.param().abi()).ok() }
     }
     pub fn RemoveCue<P0>(&self, cue: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMediaCue>,
     {
-        let this = &windows_core::Interface::cast::<ITimedMetadataTrack>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCue)(windows_core::Interface::as_raw(this), cue.param().abi()).ok() }
     }
     #[cfg(feature = "Media_Playback")]
@@ -6922,9 +6917,7 @@ unsafe impl Sync for VideoStabilizationEffect {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VideoStabilizationEffectDefinition(windows_core::IUnknown);
 #[cfg(feature = "Media_Effects")]
-windows_core::imp::interface_hierarchy!(VideoStabilizationEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
-#[cfg(feature = "Media_Effects")]
-windows_core::imp::required_hierarchy!(VideoStabilizationEffectDefinition, super::Effects::IVideoEffectDefinition);
+windows_core::imp::interface_hierarchy!(VideoStabilizationEffectDefinition, windows_core::IUnknown, windows_core::IInspectable, super::Effects::IVideoEffectDefinition);
 #[cfg(feature = "Media_Effects")]
 impl VideoStabilizationEffectDefinition {
     pub fn new() -> windows_core::Result<Self> {
@@ -7083,8 +7076,7 @@ unsafe impl Sync for VideoStreamDescriptor {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VideoTrack(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VideoTrack, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VideoTrack, IMediaTrack);
+windows_core::imp::interface_hierarchy!(VideoTrack, windows_core::IUnknown, windows_core::IInspectable, IMediaTrack);
 impl VideoTrack {
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;

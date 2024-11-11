@@ -1139,8 +1139,8 @@ unsafe impl Sync for WebAccountProviderDeleteAccountOperation {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccountProviderGetTokenSilentOperation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WebAccountProviderGetTokenSilentOperation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(WebAccountProviderGetTokenSilentOperation, IWebAccountProviderBaseReportOperation, IWebAccountProviderOperation, IWebAccountProviderSilentReportOperation, IWebAccountProviderTokenOperation);
+windows_core::imp::interface_hierarchy!(WebAccountProviderGetTokenSilentOperation, windows_core::IUnknown, windows_core::IInspectable, IWebAccountProviderTokenOperation);
+windows_core::imp::required_hierarchy!(WebAccountProviderGetTokenSilentOperation, IWebAccountProviderBaseReportOperation, IWebAccountProviderOperation, IWebAccountProviderSilentReportOperation);
 impl WebAccountProviderGetTokenSilentOperation {
     pub fn ReportCompleted(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IWebAccountProviderBaseReportOperation>(self)?;
@@ -1253,8 +1253,8 @@ unsafe impl Sync for WebAccountProviderManageAccountOperation {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccountProviderRequestTokenOperation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WebAccountProviderRequestTokenOperation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(WebAccountProviderRequestTokenOperation, IWebAccountProviderBaseReportOperation, IWebAccountProviderOperation, IWebAccountProviderTokenOperation, IWebAccountProviderUIReportOperation);
+windows_core::imp::interface_hierarchy!(WebAccountProviderRequestTokenOperation, windows_core::IUnknown, windows_core::IInspectable, IWebAccountProviderTokenOperation);
+windows_core::imp::required_hierarchy!(WebAccountProviderRequestTokenOperation, IWebAccountProviderBaseReportOperation, IWebAccountProviderOperation, IWebAccountProviderUIReportOperation);
 impl WebAccountProviderRequestTokenOperation {
     pub fn ReportCompleted(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IWebAccountProviderBaseReportOperation>(self)?;
@@ -1455,11 +1455,11 @@ unsafe impl Sync for WebAccountProviderSignOutAccountOperation {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccountProviderTriggerDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WebAccountProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(WebAccountProviderTriggerDetails, IWebAccountProviderTokenObjects, IWebAccountProviderTokenObjects2);
+windows_core::imp::interface_hierarchy!(WebAccountProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable, IWebAccountProviderTokenObjects);
+windows_core::imp::required_hierarchy!(WebAccountProviderTriggerDetails, IWebAccountProviderTokenObjects2);
 impl WebAccountProviderTriggerDetails {
     pub fn Operation(&self) -> windows_core::Result<IWebAccountProviderOperation> {
-        let this = &windows_core::Interface::cast::<IWebAccountProviderTokenObjects>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

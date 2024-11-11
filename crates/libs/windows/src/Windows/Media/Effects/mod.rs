@@ -1047,8 +1047,7 @@ unsafe impl Sync for AudioEffect {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AudioEffectDefinition(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(AudioEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AudioEffectDefinition, IAudioEffectDefinition);
+windows_core::imp::interface_hierarchy!(AudioEffectDefinition, windows_core::IUnknown, windows_core::IInspectable, IAudioEffectDefinition);
 impl AudioEffectDefinition {
     pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1365,8 +1364,7 @@ unsafe impl Sync for SlowMotionEffectDefinition {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VideoCompositorDefinition(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VideoCompositorDefinition, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VideoCompositorDefinition, IVideoCompositorDefinition);
+windows_core::imp::interface_hierarchy!(VideoCompositorDefinition, windows_core::IUnknown, windows_core::IInspectable, IVideoCompositorDefinition);
 impl VideoCompositorDefinition {
     pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1419,8 +1417,7 @@ unsafe impl Sync for VideoCompositorDefinition {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VideoEffectDefinition(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VideoEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VideoEffectDefinition, IVideoEffectDefinition);
+windows_core::imp::interface_hierarchy!(VideoEffectDefinition, windows_core::IUnknown, windows_core::IInspectable, IVideoEffectDefinition);
 impl VideoEffectDefinition {
     pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1473,8 +1470,7 @@ unsafe impl Sync for VideoEffectDefinition {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VideoTransformEffectDefinition(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VideoTransformEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(VideoTransformEffectDefinition, IVideoEffectDefinition);
+windows_core::imp::interface_hierarchy!(VideoTransformEffectDefinition, windows_core::IUnknown, windows_core::IInspectable, IVideoEffectDefinition);
 impl VideoTransformEffectDefinition {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1484,7 +1480,7 @@ impl VideoTransformEffectDefinition {
         SHARED.call(callback)
     }
     pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IVideoEffectDefinition>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivatableClassId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -1492,7 +1488,7 @@ impl VideoTransformEffectDefinition {
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
-        let this = &windows_core::Interface::cast::<IVideoEffectDefinition>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

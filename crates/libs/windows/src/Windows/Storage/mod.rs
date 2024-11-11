@@ -2976,9 +2976,9 @@ unsafe impl Sync for ApplicationData {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationDataCompositeValue(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(ApplicationDataCompositeValue, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(ApplicationDataCompositeValue, windows_core::IUnknown, windows_core::IInspectable, super::Foundation::Collections::IPropertySet);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( ApplicationDataCompositeValue , super::Foundation::Collections:: IIterable < super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , super::Foundation::Collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > , super::Foundation::Collections:: IObservableMap < windows_core::HSTRING , windows_core::IInspectable > , super::Foundation::Collections:: IPropertySet );
+windows_core::imp::required_hierarchy ! ( ApplicationDataCompositeValue , super::Foundation::Collections:: IIterable < super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , super::Foundation::Collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > , super::Foundation::Collections:: IObservableMap < windows_core::HSTRING , windows_core::IInspectable > );
 #[cfg(feature = "Foundation_Collections")]
 impl ApplicationDataCompositeValue {
     pub fn new() -> windows_core::Result<Self> {
@@ -3145,9 +3145,9 @@ unsafe impl Sync for ApplicationDataContainer {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationDataContainerSettings(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(ApplicationDataContainerSettings, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(ApplicationDataContainerSettings, windows_core::IUnknown, windows_core::IInspectable, super::Foundation::Collections::IPropertySet);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( ApplicationDataContainerSettings , super::Foundation::Collections:: IIterable < super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , super::Foundation::Collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > , super::Foundation::Collections:: IObservableMap < windows_core::HSTRING , windows_core::IInspectable > , super::Foundation::Collections:: IPropertySet );
+windows_core::imp::required_hierarchy ! ( ApplicationDataContainerSettings , super::Foundation::Collections:: IIterable < super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , super::Foundation::Collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > , super::Foundation::Collections:: IObservableMap < windows_core::HSTRING , windows_core::IInspectable > );
 #[cfg(feature = "Foundation_Collections")]
 impl ApplicationDataContainerSettings {
     #[cfg(feature = "Foundation_Collections")]
@@ -3862,9 +3862,9 @@ unsafe impl Sync for SetVersionRequest {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageFile(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::interface_hierarchy!(StorageFile, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(StorageFile, windows_core::IUnknown, windows_core::IInspectable, IStorageFile);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::required_hierarchy!(StorageFile, IStorageFile, IStorageFile2, IStorageFilePropertiesWithAvailability, IStorageItem, IStorageItem2, IStorageItemProperties, IStorageItemProperties2, IStorageItemPropertiesWithProvider, Streams::IInputStreamReference, Streams::IRandomAccessStreamReference);
+windows_core::imp::required_hierarchy!(StorageFile, IStorageFile2, IStorageFilePropertiesWithAvailability, IStorageItem, IStorageItem2, IStorageItemProperties, IStorageItemProperties2, IStorageItemPropertiesWithProvider, Streams::IInputStreamReference, Streams::IRandomAccessStreamReference);
 #[cfg(feature = "Storage_Streams")]
 impl StorageFile {
     pub fn FileType(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -4283,9 +4283,9 @@ impl windows_core::RuntimeName for StorageFile {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageFolder(windows_core::IUnknown);
 #[cfg(feature = "Storage_Search")]
-windows_core::imp::interface_hierarchy!(StorageFolder, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(StorageFolder, windows_core::IUnknown, windows_core::IInspectable, IStorageFolder);
 #[cfg(feature = "Storage_Search")]
-windows_core::imp::required_hierarchy!(StorageFolder, IStorageFolder, IStorageFolder2, IStorageItem, IStorageItem2, IStorageItemProperties, IStorageItemProperties2, IStorageItemPropertiesWithProvider, Search::IStorageFolderQueryOperations);
+windows_core::imp::required_hierarchy!(StorageFolder, IStorageFolder2, IStorageItem, IStorageItem2, IStorageItemProperties, IStorageItemProperties2, IStorageItemPropertiesWithProvider, Search::IStorageFolderQueryOperations);
 #[cfg(feature = "Storage_Search")]
 impl StorageFolder {
     #[cfg(feature = "Storage_Streams")]
@@ -5046,14 +5046,14 @@ pub struct StorageProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageProvider {
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IStorageProvider>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IStorageProvider>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
@@ -5118,9 +5118,9 @@ impl windows_core::RuntimeName for StorageStreamTransaction {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StreamedFileDataRequest(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::interface_hierarchy!(StreamedFileDataRequest, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(StreamedFileDataRequest, windows_core::IUnknown, windows_core::IInspectable, Streams::IOutputStream);
 #[cfg(feature = "Storage_Streams")]
-windows_core::imp::required_hierarchy!(StreamedFileDataRequest, super::Foundation::IClosable, IStreamedFileDataRequest, Streams::IOutputStream);
+windows_core::imp::required_hierarchy!(StreamedFileDataRequest, super::Foundation::IClosable, IStreamedFileDataRequest);
 #[cfg(feature = "Storage_Streams")]
 impl StreamedFileDataRequest {
     pub fn Close(&self) -> windows_core::Result<()> {
