@@ -6467,7 +6467,7 @@ impl windows_core::TypeKind for DUMP_HEADER64_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq,Clone)]
 pub struct DebugPropertyInfo {
     pub m_dwValidFields: u32,
     pub m_bstrName: core::mem::ManuallyDrop<windows_core::BSTR>,

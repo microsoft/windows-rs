@@ -2086,6 +2086,39 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentAllowedClipboardFormat
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats;u4)");
 }
+impl IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct IsolatedWindowsEnvironmentAvailablePrinters(pub u32);
@@ -2102,6 +2135,39 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentAvailablePrinters {
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentAvailablePrinters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAvailablePrinters;u4)");
 }
+impl IsolatedWindowsEnvironmentAvailablePrinters {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IsolatedWindowsEnvironmentAvailablePrinters {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IsolatedWindowsEnvironmentAvailablePrinters {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IsolatedWindowsEnvironmentAvailablePrinters {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IsolatedWindowsEnvironmentAvailablePrinters {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IsolatedWindowsEnvironmentAvailablePrinters {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct IsolatedWindowsEnvironmentClipboardCopyPasteDirections(pub u32);
@@ -2115,6 +2181,39 @@ impl windows_core::TypeKind for IsolatedWindowsEnvironmentClipboardCopyPasteDire
 }
 impl windows_core::RuntimeType for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentClipboardCopyPasteDirections;u4)");
+}
+impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
 }
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]

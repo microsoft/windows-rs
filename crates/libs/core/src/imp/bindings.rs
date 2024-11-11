@@ -33,10 +33,9 @@ pub struct SECURITY_ATTRIBUTES {
     pub bInheritHandle: BOOL,
 }
 pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
-pub type HRESULT = i32;
-pub type PCSTR = *const u8;
 pub type HSTRING = *mut core::ffi::c_void;
 pub type PCWSTR = *const u16;
+pub type PCSTR = *const u8;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GUID {
@@ -55,3 +54,4 @@ impl GUID {
         }
     }
 }
+pub type HRESULT = i32;
